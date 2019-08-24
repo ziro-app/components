@@ -1,9 +1,8 @@
 import React from 'react'
 import { input } from './styles'
 
-const InputText = ({ styles, name, submitting, ...rest }) => {
-	const style = styles ? styles : input
-	const inputProps = { style, id: name, disabled: submitting, ...rest }
+const InputText = ({ style = input, disabled, submitting, ...rest }) => {
+	const inputProps = { style, disabled: disabled || submitting, ...rest }
 	return <input {...inputProps} />
 }
 
