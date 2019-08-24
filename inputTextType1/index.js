@@ -1,7 +1,7 @@
 import React from 'react'
 import { input } from './styles'
 
-export const inputTextType1 = {
+export const InputTextType1 = () => {
 	return (
 		<input
 			style={input}

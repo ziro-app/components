@@ -1,4 +1,4 @@
-// import { primaryColor, grayColor3 } from '../../../Theme/styleVariables'
+import { primaryColor, grayColor3 } from '../Theme/variables'
 
 export const
 
