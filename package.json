@@ -16,5 +16,13 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
+  },
+  "bit": {
+    "env": {
+        "compiler": "bit.envs/compilers/babel@7.0.1",
+        "compiler": "bit.envs/compilers/react@1.0.2"
+    },
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }

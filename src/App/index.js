@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputTextType1 } from '../InputTextType1/index'
+import { InputTextType1 } from '../components/InputTextType1/index'
 import { container } from './styles'
 
 export const App = () =>
