@@ -1,7 +1,7 @@
 import React from 'react'
 import { input } from './styles'
 
-export const InputTextType1 = () => {
+const InputTextType1 = () => {
 	return (
 		<input
 			style={input}
@@ -14,3 +14,5 @@ export const InputTextType1 = () => {
 		/>
 	)
 }
+
+export default InputTextType1
