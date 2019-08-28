@@ -1,9 +1,14 @@
-import React, { forwardRef } from 'react'
-import { input } from './styles'
+import React, { forwardRef, Fragment } from 'react'
+import { input, focus } from './styles'
 
 const InputText = forwardRef(({ style = input, disabled, submitting, ...rest }, ref) => {
 	const inputProps = { style, disabled: disabled || submitting, ref, ...rest }
-	return <input {...inputProps} />
+	return (
+		<Fragment>
+			<style>{focus}</style>
+			<input {...inputProps} className='input-text' />
+		</Fragment>
+	)
 })
 
 export default InputText
