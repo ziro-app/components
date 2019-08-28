@@ -28,6 +28,7 @@ fontWeightTitle = '500',
 fontWeightBody = '400',
 fontWeightMuted = '300',
 fontSizeNormal = '1.6rem',
+fontSizeInput = '1.5rem',
 fontSizeSmall = '1.2rem',
 
 /* GRADIENT */

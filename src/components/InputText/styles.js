@@ -1,4 +1,4 @@
-import { fontBody, fontSizeNormal, primaryColor, grayColor1, grayColor2, grayColor3 } from '../../Theme/variables'
+import { fontBody, fontSizeInput, primaryColor, grayColor1, grayColor2, grayColor3 } from '../../Theme/variables'
 
 export const input = {
 	WebkitAppearance: 'none',
@@ -8,7 +8,7 @@ export const input = {
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',
 	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
-	fontSize: fontSizeNormal,
+	fontSize: fontSizeInput,
 	color: primaryColor,
 	backgroundColor: '#FDFDFD',
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`

@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "webfontloader": "^1.6.28"
   },
   "bit": {
     "env": {

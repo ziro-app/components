@@ -12,7 +12,7 @@ export const App = () => {
 	const inputProps = { value: inputValue, submitting, onChange, placeholder, name, ref: inputRef }
 	return (
 		<div style={container}>
-			<p>{inputValue}</p>
+			<p>&nbsp;{inputValue}</p>
 			<InputText {...inputProps} />
 			<input type='submit' onClick={() => setSubmitting(!submitting)} />
 		</div>
