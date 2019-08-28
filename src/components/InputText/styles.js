@@ -1,6 +1,6 @@
 import { fontBody, fontSizeInput, primaryColor, grayColor1, grayColor2, grayColor3 } from '../../Theme/variables'
 
-export const input = {
+export const inline = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
@@ -14,7 +14,7 @@ export const input = {
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
 },
 
-focus = `
+styleTag = `
 	input:disabled {
 		background: none;
 	}
