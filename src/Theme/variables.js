@@ -23,9 +23,11 @@ otherColor = '#2D9CDB',
 
 /* FONTS */
 fontTitle = 'Rubik',
+fontBody = 'Work Sans',
 fontWeightTitle = '500',
 fontWeightBody = '400',
 fontWeightMuted = '300',
+fontSizeNormal = '1.6rem',
 fontSizeSmall = '1.2rem',
 
 /* GRADIENT */
