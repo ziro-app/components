@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import InputText from '../components/InputText/index'
+import { Router } from './router'
 import { container } from './styles'
 
 export const App = () => {
@@ -11,10 +12,6 @@ export const App = () => {
 	const name = 'input'
 	const inputProps = { value: inputValue, submitting, onChange, placeholder, name, ref: inputRef }
 	return (
-		<div style={container}>
-			<p>&nbsp;{inputValue}</p>
-			<InputText {...inputProps} />
-			<input type='submit' onClick={() => setSubmitting(!submitting)} />
-		</div>
+		<Router />
 	)
 }
