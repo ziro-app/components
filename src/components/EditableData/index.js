@@ -22,7 +22,7 @@ const EditableData = () => {
 		<div>
 			<InputNotice
 				uiState={uiState}
-				hasError={true}
+				hasError={false}
 				error={<Badge
 					type='alert'
 					size={9}
@@ -32,7 +32,7 @@ const EditableData = () => {
 				/>}
 				hasWarning={false}
 				warning={<Badge
-					type='success'
+					type='warning'
 					size={9}
 					color={warningColor}
 					strokeWidth={3}
