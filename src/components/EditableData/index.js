@@ -10,7 +10,7 @@ import Spinner from '../../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { submit, spinner, inputInline, inputStylesheet } from './styles'
 
-const EditableData = ({ name, value, onChange, error, warning = '', isValidated = false, editable = false }) => {
+const EditableData = ({ name, value, onChange, error, warning = '', isValidated = false, editable = true }) => {
 	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
@@ -22,7 +22,7 @@ const EditableData = ({ name, value, onChange, error, warning = '', isValidated 
 		error: <div style={submit}>Salvar</div>
 	}
 	return (
-		<div onClick={selectInput}>
+		<div onClick={editable ? selectInput : undefined}>
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
@@ -43,6 +43,7 @@ const EditableData = ({ name, value, onChange, error, warning = '', isValidated 
 				ref={input}
 				value={value}
 				onChange={onChange}
+				disabled={!editable}
 			/>
 		</div>
 	)
