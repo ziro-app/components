@@ -5,19 +5,24 @@ import { container } from './styles'
 export const DisplayEditableData = () => {
 	const [name, setName] = useState('')
 	const [errorName, setErrorName] = useState('')
-	const onChange = ({ target: { value } }) => {
-		setName(value)
+	const onChange = ({ target: { value } }) => setName(value)
+	const validateInput = () => {
+		if (name && name.length < 3) {
+			setErrorName('Pelo menos 3 caracteres')
+			return false
+		} else {
+			setErrorName('')
+			return true
+		}
 	}
-	const submit = () => {
-		console.log('submit')
-		return new Promise(resolve => setTimeout(() => resolve('OK'),1000))
-	}
+	const submit = () => new Promise((resolve, reject) => setTimeout(() => reject('NOK'),1000))
 	return (
 		<div style={container}>
 			<EditableData
 				name='Nome'
 				value={name}
 				onChange={onChange}
+				validateInput={validateInput}
 				submit={submit}
 				error={errorName}
 				warning='preencha o campo'
