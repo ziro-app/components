@@ -15,6 +15,7 @@ export const DisplayEditableData = () => {
 				value={name}
 				onChange={onChange}
 				error={errorName}
+				placeholder='Digite aqui...'
 			/>
 		</div>
 	)
