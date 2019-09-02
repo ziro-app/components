@@ -7,4 +7,4 @@ container = (fontSize, color) => ({
 	gridColumnGap: '2px',
 	fontSize: `${fontSize/10}rem`,
 	color: color
-}),
+})
