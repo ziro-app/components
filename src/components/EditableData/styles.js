@@ -1,3 +1,5 @@
+import { fontBody, fontSizeNormal, primaryColor, grayColor2 } from '../../Theme/variables'
+
 export const
 
 submit = {
@@ -11,4 +13,24 @@ submit = {
 spinner = {
 	animation: 'spin 0.6s linear infinite',
 	justifySelf: 'end'
-}
+},
+
+inputInline = {
+	WebkitAppearance: 'none',
+	MozAppearance: 'none',
+	outline: 'none',
+	padding: '4px 0 0',
+	border: 'none',
+	fontFamily: fontBody,
+	fontSize: fontSizeNormal,
+	color: primaryColor
+},
+
+inputStylesheet = `
+	input:disabled {
+		background: none;
+	}
+	input::placeholder {
+	   	color: ${grayColor2};
+	}
+`

@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, grayColor2, successColor, alertColor, pendingColor } from '../../Theme/variables'
+import { fontTitle } from '../../Theme/variables'
 
 export const
 

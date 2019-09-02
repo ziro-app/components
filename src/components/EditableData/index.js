@@ -7,7 +7,7 @@ import Badge from '../Badge/index'
 import Icon from '../Icon/index'
 import Spinner from '../../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
-import { submit, spinner } from './styles'
+import { submit, spinner, inputInline, inputStylesheet } from './styles'
 
 const EditableData = () => {
 	const [uiState, transition] = useMachine('idle')
@@ -53,7 +53,11 @@ const EditableData = () => {
 				hasUiState={true}
 				displayUiState={display[uiState]}
 			/>
-			<InputText ref={input} />
+			<InputText
+				style={inputInline}
+				css={inputStylesheet}
+				ref={input}
+			/>
 		</div>
 	)
 }
