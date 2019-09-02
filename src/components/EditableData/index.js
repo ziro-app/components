@@ -3,14 +3,12 @@ import InputNotice from '../InputNotice/index'
 import InputLabel from '../InputLabel/index'
 import InputText from '../InputText/index'
 import BadgeValidated from '../BadgeValidated/index'
+import Icon from '../Icon/index'
 
 const EditableData = () => {
 	const display = {
-		idle: <PenIcon size={13} />,
-		editing: <div style={submit} onClick={saveFname}>Salvar</div>,
-		submitting: <Spinner size={'2rem'} style={spinner} />,
-		success: <PenIcon size={13} />,
-		error: <div style={submit} onClick={saveFname}>Salvar</div>
+		idle: <Icon type='pen' size={13} />,
+		success: <Icon type='pen' size={13} />
 	}
 	return (
 		<div>
@@ -19,7 +17,7 @@ const EditableData = () => {
 				hasBadge={true}
 				badge={<BadgeValidated fontSize={9} />}
 				hasUiState={true}
-				displayUiState={display['editing']}
+				displayUiState={display['idle']}
 			/>
 			<InputText />
 		</div>
