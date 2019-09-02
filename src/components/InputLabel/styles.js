@@ -10,7 +10,7 @@ header = threeColumn => ({
 	height: '20px'
 }),
 
-name = {
+text = {
 	fontFamily: fontTitle,
 	fontSize: '1.2rem',
 	textTransform: 'uppercase'
