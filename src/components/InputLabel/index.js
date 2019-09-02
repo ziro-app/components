@@ -7,7 +7,7 @@ const InputLabel = ({ hasBadge, badge }) =>
 	<div style={header(hasBadge)}>
 		<label style={name}>Nome</label>
 		{hasBadge && badge}
-		{display[uiState]}
+		
 	</div>
 
 InputLabel.propTypes = {

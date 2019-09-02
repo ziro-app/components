@@ -10,7 +10,7 @@ const EditableData = () => {
 			<InputNotice />
 			<InputLabel
 				hasBadge={true}
-				badge={BadgeValidated}
+				badge={<BadgeValidated fontSize={8} />}
 			/>
 			<InputText />
 		</div>

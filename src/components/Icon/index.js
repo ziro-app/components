@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Success } from '../../Icons/Success/index'
 
-const Icon = ({ type, size, color }) => {
+const Icon = ({ type, size, color, strokeWidth }) => {
+	const iconProps = { size, color, strokeWidth }
 	const iconList = {
-		success: <Success size={size} color={color} />
+		success: <Success {...iconProps} />
 	}
 	return iconList[type]
 }
@@ -12,7 +13,8 @@ const Icon = ({ type, size, color }) => {
 Icon.propTypes = {
 	type: PropTypes.string.isRequired,
 	size: PropTypes.number.isRequired,
-	color: PropTypes.string.isRequired
+	color: PropTypes.string.isRequired,
+	strokeWidth: PropTypes.number.isRequired
 }
 
 export default Icon
