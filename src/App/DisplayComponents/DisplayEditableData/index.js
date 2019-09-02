@@ -8,7 +8,10 @@ export const DisplayEditableData = () => {
 	const onChange = ({ target: { value } }) => {
 		setName(value)
 	}
-	const submit = () => console.log('submit')
+	const submit = () => {
+		console.log('submit')
+		return new Promise(resolve => setTimeout(() => resolve('OK'),1000))
+	}
 	return (
 		<div style={container}>
 			<EditableData
@@ -17,7 +20,7 @@ export const DisplayEditableData = () => {
 				onChange={onChange}
 				submit={submit}
 				error={errorName}
-				warning='Danger'
+				warning='preencha o campo'
 				placeholder='Digite aqui...'
 				isValidated={true}
 			/>

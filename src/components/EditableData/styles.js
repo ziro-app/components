@@ -15,6 +15,8 @@ save = {
 	padding: '2px 8px',
 	border: `1px solid rgb(74,74,74)`,
 	borderRadius: '2px',
+	fontFamily: fontBody,
+	color: primaryColor,
 	textTransform: 'uppercase',
 	background: 'none'
 },
