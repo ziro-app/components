@@ -6,7 +6,7 @@ import InputText from '../InputText/index'
 import Badge from '../Badge/index'
 import Icon from '../Icon/index'
 import Spinner from '../../Spinner/index'
-import { successColor } from '../../Theme/variables'
+import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { submit, spinner } from './styles'
 
 const EditableData = () => {
@@ -23,9 +23,21 @@ const EditableData = () => {
 			<InputNotice
 				uiState={uiState}
 				hasError={false}
-				error={<div>Error</div>}
+				error={<Badge
+					type='success'
+					size={9}
+					color={alertColor}
+					strokeWidth={3}
+					message='Não pode ficar em branco'
+				/>}
 				hasWarning={false}
-				warning={<div>Warning</div>}
+				warning={<Badge
+					type='success'
+					size={9}
+					color={warningColor}
+					strokeWidth={3}
+					message='preencha p/ liberar pagamentos'
+				/>}
 			/>
 			<InputLabel
 				hasBadge={true}

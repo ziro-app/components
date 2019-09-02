@@ -17,8 +17,9 @@ grayColor2 = '#BDBDBD',
 grayColor3 = '#E0E0E0',
 grayColor4 = '#F2F2F2',
 secondaryColor = '#FFE401',
-alertColor = '#EB5757',
 successColor = '#4BCA81',
+alertColor = '#EB5757',
+warningColor = '#E5CD00',
 otherColor = '#2D9CDB',
 
 /* FONTS */
