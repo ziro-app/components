@@ -5,6 +5,6 @@ container = (fontSize, color) => ({
 	gridTemplateColumns: 'auto 1fr',
 	alignItems: 'center',
 	gridColumnGap: '2px',
-	fontSize: `${fontSize/10}rem`,
+	fontSize: `${(fontSize + 2) / 10}rem`,
 	color: color
 })
