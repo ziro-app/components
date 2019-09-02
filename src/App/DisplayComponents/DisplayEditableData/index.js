@@ -11,13 +11,10 @@ export const DisplayEditableData = () => {
 	return (
 		<div style={container}>
 			<EditableData
+				name='Nome'
 				value={name}
 				onChange={onChange}
 				error={errorName}
-				warning=''
-				name='Nome'
-				isValidated={false}
-				hasUiState={true}
 			/>
 		</div>
 	)

@@ -10,7 +10,7 @@ import Spinner from '../../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { submit, spinner, inputInline, inputStylesheet } from './styles'
 
-const EditableData = ({ value, onChange, error, warning, name, isValidated, hasUiState }) => {
+const EditableData = ({ name, value, onChange, error, warning = '', isValidated = false, editable = false }) => {
 	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
@@ -34,7 +34,7 @@ const EditableData = ({ value, onChange, error, warning, name, isValidated, hasU
 				name={name}
 				hasBadge={isValidated}
 				badge={<Badge type='success' size={9} color={successColor} strokeWidth={3} message='validado'/>}
-				hasUiState={hasUiState}
+				hasUiState={editable}
 				displayUiState={display[uiState]}
 			/>
 			<InputText
@@ -49,13 +49,13 @@ const EditableData = ({ value, onChange, error, warning, name, isValidated, hasU
 }
 
 EditableData.propTypes = {
+	name: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	error: PropTypes.string.isRequired,
-	warning: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	isValidated: PropTypes.bool.isRequired,
-	hasUiState: PropTypes.bool.isRequired
+	warning: PropTypes.string,
+	isValidated: PropTypes.bool,
+	editable: PropTypes.bool
 }
 
 export default EditableData
