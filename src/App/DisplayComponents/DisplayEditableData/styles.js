@@ -1,3 +1,5 @@
+import { standardPadding } from '../../../Theme/variables'
+
 export const
 
 container = {
@@ -5,5 +7,6 @@ container = {
 	gridTemplateRows: 'auto auto auto',
 	placeItems: 'center',
 	boxSizing: 'border-box',
-	height: '100vh'
+	height: '100vh',
+	padding: standardPadding
 }

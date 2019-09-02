@@ -3,6 +3,7 @@ import { fontBody, fontSizeNormal, primaryColor, grayColor2 } from '../../Theme/
 export const
 
 container = {
+	width: '100%',
 	color: primaryColor
 },
 

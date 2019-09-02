@@ -7,15 +7,15 @@ export const DisplayEditableData = () => {
 	const [errorName, setErrorName] = useState('')
 	const onChange = ({ target: { value } }) => setName(value)
 	const validateInput = () => {
-		if (name && name.length < 3) {
-			setErrorName('Pelo menos 3 caracteres')
+		if (name.length < 3) {
+			setErrorName('pelo menos 3 caracteres')
 			return false
 		} else {
 			setErrorName('')
 			return true
 		}
 	}
-	const submit = () => new Promise((resolve, reject) => setTimeout(() => reject('NOK'),1000))
+	const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),5000))
 	return (
 		<div style={container}>
 			<EditableData
@@ -24,9 +24,10 @@ export const DisplayEditableData = () => {
 				onChange={onChange}
 				validateInput={validateInput}
 				submit={submit}
+				setError={setErrorName}
 				error={errorName}
 				warning='preencha o campo'
-				placeholder='Digite aqui...'
+				placeholder='digite aqui...'
 				isValidated={true}
 			/>
 		</div>
