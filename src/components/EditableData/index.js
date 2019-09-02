@@ -3,9 +3,10 @@ import { useMachine } from './stateMachine'
 import InputNotice from '../InputNotice/index'
 import InputLabel from '../InputLabel/index'
 import InputText from '../InputText/index'
-import BadgeValidated from '../BadgeValidated/index'
+import Badge from '../Badge/index'
 import Icon from '../Icon/index'
 import Spinner from '../../Spinner/index'
+import { successColor } from '../../Theme/variables'
 import { submit, spinner } from './styles'
 
 const EditableData = () => {
@@ -28,7 +29,13 @@ const EditableData = () => {
 			/>
 			<InputLabel
 				hasBadge={true}
-				badge={<BadgeValidated fontSize={9} />}
+				badge={<Badge
+					type='success'
+					size={9}
+					color={successColor}
+					strokeWidth={3}
+					message='validado'
+				/>}
 				hasUiState={true}
 				displayUiState={display[uiState]}
 			/>
