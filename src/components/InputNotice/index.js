@@ -5,10 +5,8 @@ const InputNotice = ({ uiState, hasError, error, hasWarning, warning }) => {
 	if (uiState === 'submitting')
 		return <div style={{ height: '1.5rem'}}>&nbsp;</div>
 	else {
-		if (hasError)
-			return error
-		if (!hasError && hasWarning)
-			return warning
+		if (hasError) return error
+		if (!hasError && hasWarning) return warning
 		return <div style={{ height: '1.5rem'}}>&nbsp;</div>
 	}
 }
