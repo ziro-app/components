@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import { header, name } from './styles'
 
 
-const InputLabel = ({ hasBadge, badge, hasUiState, displayUiState }) =>
+const InputLabel = ({ name, hasBadge, badge, hasUiState, displayUiState }) =>
 	<div style={header(hasBadge)}>
-		<label style={name}>Nome</label>
+		<label style={name}>{name}</label>
 		{hasBadge && badge}
 		{hasUiState && displayUiState}
 	</div>
 
 InputLabel.propTypes = {
+	name: PropTypes.string.isRequired,
 	hasBadge: PropTypes.bool.isRequired,
 	badge: PropTypes.element.isRequired,
 	hasUiState: PropTypes.bool.isRequired,

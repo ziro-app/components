@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import PropTypes from 'prop-types'
 import { useMachine } from './stateMachine'
 import InputNotice from '../InputNotice/index'
 import InputLabel from '../InputLabel/index'
@@ -9,7 +10,7 @@ import Spinner from '../../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { submit, spinner, inputInline, inputStylesheet } from './styles'
 
-const EditableData = () => {
+const EditableData = ({ value, onChange, error, warning, name, isValidated, hasUiState }) => {
 	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
@@ -24,42 +25,37 @@ const EditableData = () => {
 		<div onClick={selectInput}>
 			<InputNotice
 				uiState={uiState}
-				hasError={false}
-				error={<Badge
-					type='alert'
-					size={9}
-					color={alertColor}
-					strokeWidth={3}
-					message='Não pode ficar em branco'
-				/>}
-				hasWarning={false}
-				warning={<Badge
-					type='warning'
-					size={9}
-					color={warningColor}
-					strokeWidth={3}
-					message='preencha p/ liberar pagamentos'
-				/>}
+				hasError={Boolean(error)}
+				error={<Badge type='alert' size={9} color={alertColor} strokeWidth={3} message={error}/>}
+				hasWarning={Boolean(warning)}
+				warning={<Badge type='warning' size={9} color={warningColor} strokeWidth={3} message={warning}/>}
 			/>
 			<InputLabel
-				hasBadge={true}
-				badge={<Badge
-					type='success'
-					size={9}
-					color={successColor}
-					strokeWidth={3}
-					message='validado'
-				/>}
-				hasUiState={true}
+				name={name}
+				hasBadge={isValidated}
+				badge={<Badge type='success' size={9} color={successColor} strokeWidth={3} message='validado'/>}
+				hasUiState={hasUiState}
 				displayUiState={display[uiState]}
 			/>
 			<InputText
 				style={inputInline}
 				css={inputStylesheet}
 				ref={input}
+				value={value}
+				onChange={onChange}
 			/>
 		</div>
 	)
+}
+
+EditableData.propTypes = {
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	error: PropTypes.string.isRequired,
+	warning: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	isValidated: PropTypes.bool.isRequired,
+	hasUiState: PropTypes.bool.isRequired
 }
 
 export default EditableData
