@@ -19,7 +19,13 @@ const EditableData = () => {
 	}
 	return (
 		<div>
-			<InputNotice />
+			<InputNotice
+				uiState={uiState}
+				hasError={false}
+				error={<div>Error</div>}
+				hasWarning={false}
+				warning={<div>Warning</div>}
+			/>
 			<InputLabel
 				hasBadge={true}
 				badge={<BadgeValidated fontSize={9} />}
