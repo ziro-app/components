@@ -8,6 +8,7 @@ export const DisplayEditableData = () => {
 	const onChange = ({ target: { value } }) => {
 		setName(value)
 	}
+	const submit = () => console.log('submit')
 	return (
 		<div style={container}>
 			<EditableData
@@ -16,6 +17,8 @@ export const DisplayEditableData = () => {
 				onChange={onChange}
 				error={errorName}
 				placeholder='Digite aqui...'
+				warning='Danger'
+				isValidated={true}
 			/>
 		</div>
 	)

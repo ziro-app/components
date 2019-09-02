@@ -2,7 +2,11 @@ import { fontBody, fontSizeNormal, primaryColor, grayColor2 } from '../../Theme/
 
 export const
 
-submit = {
+container = {
+	color: primaryColor
+},
+
+save = {
 	cursor: 'pointer',
 	padding: '2px 8px',
 	border: `1px solid rgb(74,74,74)`,

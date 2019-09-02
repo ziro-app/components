@@ -8,21 +8,21 @@ import Badge from '../Badge/index'
 import Icon from '../Icon/index'
 import Spinner from '../../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
-import { submit, spinner, inputInline, inputStylesheet } from './styles'
+import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 
-const EditableData = ({ name, value, onChange, error, warning = '', placeholder = '', isValidated = false, editable = true }) => {
+const EditableData = ({ name, value, onChange, submit, error, warning = '', placeholder = '', isValidated = false, editable = true }) => {
 	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
 	const display = {
 		idle: <Icon type='pen' size={13} />,
-		editing: <div style={submit}>Salvar</div>,
+		editing: <input type='submit' style={save} value='Salvar' />,
 		submitting: <Spinner size={'2rem'} style={spinner} />,
 		success: <Icon type='pen' size={13} />,
-		error: <div style={submit}>Salvar</div>
+		error: <input type='submit' style={save} value='Salvar' />
 	}
 	return (
-		<div onClick={editable ? selectInput : undefined}>
+		<form style={container} onSubmit={submit} onClick={editable ? selectInput : undefined}>
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
@@ -46,7 +46,7 @@ const EditableData = ({ name, value, onChange, error, warning = '', placeholder 
 				placeholder={placeholder}
 				disabled={!editable}
 			/>
-		</div>
+		</form>
 	)
 }
 
@@ -54,6 +54,7 @@ EditableData.propTypes = {
 	name: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
+	submit: PropTypes.func.isRequired,
 	error: PropTypes.string.isRequired,
 	warning: PropTypes.string,
 	placeholder: PropTypes.string,
