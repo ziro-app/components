@@ -7,11 +7,16 @@ container = {
 },
 
 save = {
+	WebkitAppearance: 'none',
+	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+	MozAppearance: 'none',
+	outline: 'none',
 	cursor: 'pointer',
 	padding: '2px 8px',
 	border: `1px solid rgb(74,74,74)`,
 	borderRadius: '2px',
-	textTransform: 'uppercase'
+	textTransform: 'uppercase',
+	background: 'none'
 },
 
 spinner = {

@@ -11,9 +11,10 @@ import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 
 const EditableData = ({ name, value, onChange, submit, error, warning = '', placeholder = '', isValidated = false, editable = true }) => {
-	const [uiState, transition] = useMachine('idle')
+	const [uiState, transition] = useMachine('error')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
+	const clickable = editable || uiState === 'submitting' ? selectInput : undefined
 	const display = {
 		idle: <Icon type='pen' size={13} />,
 		editing: <input type='submit' style={save} value='Salvar' />,
@@ -22,7 +23,7 @@ const EditableData = ({ name, value, onChange, submit, error, warning = '', plac
 		error: <input type='submit' style={save} value='Salvar' />
 	}
 	return (
-		<form style={container} onSubmit={submit} onClick={editable ? selectInput : undefined}>
+		<form style={container} onSubmit={submit} onClick={clickable}>
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
@@ -44,7 +45,7 @@ const EditableData = ({ name, value, onChange, submit, error, warning = '', plac
 				value={value}
 				onChange={onChange}
 				placeholder={placeholder}
-				disabled={!editable}
+				disabled={!editable || uiState === 'submitting'}
 			/>
 		</form>
 	)
