@@ -6,14 +6,16 @@ import InputText from '../InputText/index'
 import BadgeValidated from '../BadgeValidated/index'
 import Icon from '../Icon/index'
 import Spinner from '../../Spinner/index'
-import { spinner } from './styles'
+import { submit, spinner } from './styles'
 
 const EditableData = () => {
-	const [uiState, transition] = useMachine('submitting')
+	const [uiState, transition] = useMachine('idle')
 	const display = {
 		idle: <Icon type='pen' size={13} />,
+		editing: <div style={submit}>Salvar</div>,
 		submitting: <Spinner size={'2rem'} style={spinner} />,
-		success: <Icon type='pen' size={13} />
+		success: <Icon type='pen' size={13} />,
+		error: <div style={submit}>Salvar</div>
 	}
 	return (
 		<div>
