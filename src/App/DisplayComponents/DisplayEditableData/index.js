@@ -15,9 +15,10 @@ export const DisplayEditableData = () => {
 				name='Nome'
 				value={name}
 				onChange={onChange}
+				submit={submit}
 				error={errorName}
-				placeholder='Digite aqui...'
 				warning='Danger'
+				placeholder='Digite aqui...'
 				isValidated={true}
 			/>
 		</div>

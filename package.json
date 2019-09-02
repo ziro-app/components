@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "Vitor Barbosa",
   "license": "ISC",
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
   "devDependencies": {
     "parcel-bundler": "^1.12.3"
   },

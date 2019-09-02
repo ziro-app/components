@@ -11,9 +11,24 @@ import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 
 const EditableData = ({ name, value, onChange, submit, error, warning = '', placeholder = '', isValidated = false, editable = true }) => {
-	const [uiState, transition] = useMachine('error')
+	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
+	const updateInput = event => {
+		transition('EDIT')
+		onChange(event)
+	}
+	const saveData = async event => {
+		event.preventDefault()
+		try {
+			transition('SUBMIT')
+			await submit()
+			transition('OK')
+		} catch (error) {
+			console.log(error)
+			transition('ERROR')
+		}
+	}
 	const clickable = editable || uiState === 'submitting' ? selectInput : undefined
 	const display = {
 		idle: <Icon type='pen' size={13} />,
@@ -23,7 +38,7 @@ const EditableData = ({ name, value, onChange, submit, error, warning = '', plac
 		error: <input type='submit' style={save} value='Salvar' />
 	}
 	return (
-		<form style={container} onSubmit={submit} onClick={clickable}>
+		<form style={container} onSubmit={saveData} onClick={clickable}>
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
@@ -43,7 +58,7 @@ const EditableData = ({ name, value, onChange, submit, error, warning = '', plac
 				css={inputStylesheet}
 				ref={input}
 				value={value}
-				onChange={onChange}
+				onChange={updateInput}
 				placeholder={placeholder}
 				disabled={!editable || uiState === 'submitting'}
 			/>
