@@ -3,7 +3,7 @@ import EditableData from '../../../components/EditableData/index'
 import { container } from './styles'
 
 export const DisplayEditableData = () => {
-	const [name, setName] = useState('')
+	const [name, setName] = useState('Vitor Barbosa')
 	const [errorName, setErrorName] = useState('')
 	const onChange = ({ target: { value } }) => setName(value)
 	const validateInput = () => {
@@ -15,7 +15,7 @@ export const DisplayEditableData = () => {
 			return true
 		}
 	}
-	const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),5000))
+	const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	return (
 		<div style={container}>
 			<EditableData
@@ -29,6 +29,7 @@ export const DisplayEditableData = () => {
 				warning='preencha o campo'
 				placeholder='digite aqui...'
 				isValidated={true}
+				editable={false}
 			/>
 		</div>
 	)

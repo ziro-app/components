@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { useMachine } from './stateMachine'
 import InputNotice from '../InputNotice/index'
@@ -47,7 +47,6 @@ const EditableData = ({ name, value, onChange, validateInput, submit, setError, 
 	}
 	return (
 		<form style={container} onSubmit={saveData} onClick={clickable}>
-			<div>{uiState}</div>
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
