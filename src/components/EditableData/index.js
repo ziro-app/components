@@ -6,7 +6,7 @@ import InputLabel from '../InputLabel/index'
 import InputText from '../InputText/index'
 import Badge from '../Badge/index'
 import Icon from '../Icon/index'
-import Spinner from '../../Spinner/index'
+import Spinner from '../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 

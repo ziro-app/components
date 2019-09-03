@@ -29,7 +29,7 @@ export const DisplayEditableData = () => {
 				warning='preencha o campo'
 				placeholder='digite aqui...'
 				isValidated={true}
-				editable={false}
+				editable={true}
 			/>
 		</div>
 	)
