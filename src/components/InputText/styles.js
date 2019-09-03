@@ -4,6 +4,7 @@ export const inline = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
+	width: '100%',
 	padding: '8px 22px',
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',

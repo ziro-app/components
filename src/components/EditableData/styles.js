@@ -1,4 +1,4 @@
-import { fontBody, fontSizeNormal, primaryColor, grayColor2 } from '../../Theme/variables'
+import { fontBody, fontSizeNormal, fontSizeSmall, primaryColor, grayColor2 } from '../../Theme/variables'
 
 export const
 
@@ -17,6 +17,7 @@ save = {
 	border: `1px solid rgb(74,74,74)`,
 	borderRadius: '2px',
 	fontFamily: fontBody,
+	fontSize: fontSizeSmall,
 	color: primaryColor,
 	textTransform: 'uppercase',
 	background: 'none'
@@ -31,9 +32,10 @@ inputInline = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
+	width: '100%',
 	padding: '4px 0 0',
 	border: 'none',
-	fontFamily: fontBody,
+	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
 	fontSize: fontSizeNormal,
 	color: primaryColor
 },
