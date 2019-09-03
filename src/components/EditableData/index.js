@@ -10,7 +10,7 @@ import Spinner from '../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 
-const EditableData = ({ name, value, onChange, validateInput, submit, setError, error, warning = '', placeholder = '', isValidated = false, editable = true }) => {
+const EditableData = ({ name, value, onChange, validateInput, submit, setError, error = '', warning = '', placeholder = '', isValidated = false, editable = true }) => {
 	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
@@ -77,11 +77,11 @@ const EditableData = ({ name, value, onChange, validateInput, submit, setError, 
 EditableData.propTypes = {
 	name: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	validateInput: PropTypes.func.isRequired,
-	submit: PropTypes.func.isRequired,
-	setError: PropTypes.func.isRequired,
-	error: PropTypes.string.isRequired,
+	onChange: PropTypes.func,
+	validateInput: PropTypes.func,
+	submit: PropTypes.func,
+	setError: PropTypes.func,
+	error: PropTypes.string,
 	warning: PropTypes.string,
 	placeholder: PropTypes.string,
 	isValidated: PropTypes.bool,
