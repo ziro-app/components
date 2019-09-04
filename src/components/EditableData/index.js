@@ -26,6 +26,7 @@ const EditableData = ({ name, value, onChange, validateInput, submit, setError, 
 				transition('SUBMIT')
 				await submit()
 				transition('OK')
+				window.getSelection().removeAllRanges()
 			} catch (error) {
 				console.log(error)
 				transition('ERROR')
