@@ -10,7 +10,7 @@ import Spinner from '../Spinner/index'
 import { successColor, alertColor, warningColor } from '../../Theme/variables'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 
-const EditableData = ({ name, value, onChange, validateInput, submit, setError, error = '', warning = '', placeholder = '', isValidated = false, editable = true }) => {
+const EditableData = ({ name, value, onChange, validateInput, submit, setError, error = '', warning = '', placeholder = '', isValidated = false, editable = true, isLoading = false }) => {
 	const [uiState, transition] = useMachine('idle')
 	const input = useRef(null)
 	const selectInput = () => input && input.current ? input.current.select() : null
@@ -61,15 +61,17 @@ const EditableData = ({ name, value, onChange, validateInput, submit, setError, 
 				hasUiState={editable}
 				displayUiState={display[uiState]}
 			/>
-			<InputText
-				style={inputInline}
-				css={inputStylesheet}
-				ref={input}
-				value={value}
-				onChange={updateInput}
-				placeholder={placeholder}
-				disabled={!editable || uiState === 'submitting'}
-			/>
+			{!isLoading
+				? <InputText
+					style={inputInline}
+					css={inputStylesheet}
+					ref={input}
+					value={value}
+					onChange={updateInput}
+					placeholder={placeholder}
+					disabled={!editable || uiState === 'submitting'}
+				  />
+				: <Spinner size={'2rem'} style={spinner} />}
 		</form>
 	)
 }
@@ -85,7 +87,8 @@ EditableData.propTypes = {
 	warning: PropTypes.string,
 	placeholder: PropTypes.string,
 	isValidated: PropTypes.bool,
-	editable: PropTypes.bool
+	editable: PropTypes.bool,
+	isLoading: PropTypes.bool
 }
 
 export default EditableData

@@ -30,6 +30,7 @@ export const DisplayEditableData = () => {
 				placeholder='digite aqui...'
 				isValidated={true}
 				editable={true}
+				isLoading={false}
 			/>
 		</div>
 	)
