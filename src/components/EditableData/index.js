@@ -50,14 +50,14 @@ const EditableData = ({ name, value, onChange, validateInput, submit, setError, 
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
-				error={<Badge type='alert' size={9} color={alertColor} strokeWidth={3} message={error}/>}
+				error={<Badge type='alert' color={alertColor} message={error}/>}
 				hasWarning={Boolean(warning)}
-				warning={<Badge type='warning' size={9} color={warningColor} strokeWidth={3} message={warning}/>}
+				warning={<Badge type='warning' color={warningColor} message={warning}/>}
 			/>
 			<InputLabel
 				name={name}
 				hasBadge={isValidated}
-				badge={<Badge type='success' size={9} color={successColor} strokeWidth={3} message='validado'/>}
+				badge={<Badge type='success' color={successColor} message='validado'/>}
 				hasUiState={editable}
 				displayUiState={display[uiState]}
 			/>
