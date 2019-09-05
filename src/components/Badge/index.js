@@ -4,7 +4,7 @@ import Icon from '../Icon/index'
 import { container } from './styles'
 import { primaryColor } from '../../Theme/variables'
 
-const Badge = ({ type, size = 9, color = primaryColor, strokeWidth = 3, message, style = container(size, color) }) =>
+const Badge = ({ type, size = 10, color = primaryColor, strokeWidth = 3, message, style = container(size, color) }) =>
 	<label style={style}>
 		<Icon type={type} size={size} color={color} strokeWidth={strokeWidth} />
 		{message}

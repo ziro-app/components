@@ -1,4 +1,4 @@
-import { fontTitle } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall } from '../../Theme/variables'
 
 export const
 
@@ -7,11 +7,11 @@ header = threeColumn => ({
 	gridTemplateColumns: threeColumn ? 'auto auto 1fr' : 'auto 1fr',
 	gridColumnGap: '6px',
 	placeItems: 'end',
-	height: '20px'
+	height: '22px'
 }),
 
 text = {
 	fontFamily: fontTitle,
-	fontSize: '1.2rem',
+	fontSize: fontSizeSmall,
 	textTransform: 'uppercase'
 }

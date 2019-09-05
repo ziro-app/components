@@ -17,7 +17,7 @@ save = {
 	border: `1px solid rgb(74,74,74)`,
 	borderRadius: '2px',
 	fontFamily: fontBody,
-	fontSize: fontSizeSmall,
+	fontSize: '1.1rem',
 	color: primaryColor,
 	textTransform: 'uppercase',
 	background: 'none'
