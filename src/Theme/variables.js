@@ -19,7 +19,7 @@ grayColor4 = '#F2F2F2',
 secondaryColor = '#FFE401',
 successColor = '#4BCA81',
 alertColor = '#EB5757',
-warningColor = '#E5CD00',
+warningColor = '#F7BA00',
 otherColor = '#2D9CDB',
 
 /* FONTS */
