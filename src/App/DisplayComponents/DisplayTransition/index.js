@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { Fragment } from 'react'
+import { Link } from 'wouter'
 import Transition from '../../../components/Transition/index'
-import { container } from './styles'
+import { nav } from './styles'
 
 export const DisplayTransition = () => {
 	return (
-		<div style={container}>
-			<Transition />
-		</div>
+		<Fragment>
+			<div style={nav}>
+				<Link to='/transition/1'>Back</Link>
+				<Link to='/transition/2'>Next</Link>
+			</div>
+			<Transition components={[
+				{ path: '/transition/1', children: '1' },
+				{ path: '/transition/2', children: '2' }
+			]}/>
+		</Fragment>
 	)
 }

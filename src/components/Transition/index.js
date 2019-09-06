@@ -4,7 +4,7 @@ import { useLocation, Link, Switch, Route } from 'wouter'
 import { useTransition, animated } from 'react-spring'
 import { container, child } from './styles'
 
-const Transition = () => {
+const Transition = ({ components }) => {
 	const [location] = useLocation()
 	const transitions = useTransition(location, key => key, {
 		from: location => {
@@ -20,23 +20,21 @@ const Transition = () => {
 		},
 		config: { tension: 270, friction: 24 }
 	})
-	return (
-		<div>
-			<Link to='/transition/1'>Back</Link>
-			<Link to='/transition/2'>Next</Link>
-			{transitions.map(({ props, key }) => (
-				<animated.div key={key} style={{ ...container, ...props }}>
-					<Switch>
-						<Route path='/transition/1'><div style={child}>1</div></Route>
-						<Route path='/transition/2'><div style={child}>2</div></Route>
-					</Switch>
-				</animated.div>
-			))}
-		</div>
-	)
+	return transitions.map(({ props, key }) => (
+		<animated.div key={key} style={{ ...container, ...props }}>
+			<Switch>
+				{components.map(({ path, children }) =>
+					<Route key={path} path={path}>
+						<div style={{ position: 'absolute' }}>{children}</div>
+					</Route>
+				)}
+			</Switch>
+		</animated.div>
+	))
 }
 
 Transition.propTypes = {
+	components: PropTypes.array.isRequired
 }
 
 export default Transition

@@ -3,10 +3,7 @@ export const
 container = {
 	position: 'relative',
 	display: 'grid',
-	justifyItems: 'center'
-},
-
-child = {
-	position: 'absolute',
+	justifyItems: 'center',
+	width: '100%',
 	fontSize: '1.8rem'
 }
