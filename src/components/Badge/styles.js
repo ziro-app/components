@@ -6,5 +6,6 @@ container = (fontSize, color) => ({
 	alignItems: 'center',
 	gridColumnGap: '2px',
 	fontSize: `${(fontSize + 2) / 10}rem`,
+	fontWeight: '500',
 	color: color
 })
