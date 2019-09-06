@@ -1,9 +1,12 @@
 export const
 
 container = {
-	position: 'relative'
+	position: 'relative',
+	display: 'grid',
+	justifyItems: 'center'
 },
 
 child = {
-	position: 'absolute'
+	position: 'absolute',
+	fontSize: '1.8rem'
 }
