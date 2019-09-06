@@ -5,8 +5,7 @@ import { container } from './styles'
 export const DisplayTransition = () => {
 	return (
 		<div style={container}>
-			<Transition
-			/>
+			<Transition />
 		</div>
 	)
 }

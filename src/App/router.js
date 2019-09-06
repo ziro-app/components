@@ -8,6 +8,6 @@ export const Router = () =>
 	<Switch>
 		<Route path='/input-text'><DisplayInputText /></Route>
 		<Route path='/editable-data'><DisplayEditableData /></Route>
-		<Route path='/transition'><DisplayTransition /></Route>
+		<Route path='/transition/:any'><DisplayTransition /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
