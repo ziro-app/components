@@ -11,8 +11,8 @@ export const DisplayTransition = () => {
 				<Link to='/transition/2'>Next</Link>
 			</div>
 			<Transition components={[
-				{ path: '/transition/1', children: <div style={component}>Opção usuário</div> },
-				{ path: '/transition/2', children: <div style={component}>Outra rota</div> }
+				{ path: '/transition/1', children: <div style={component}>Rota 1</div> },
+				{ path: '/transition/2', children: <div style={component}>Rota 2</div> }
 			]}/>
 		</Fragment>
 	)
