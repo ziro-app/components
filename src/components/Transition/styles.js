@@ -1,9 +1,8 @@
 export const
 
-container = {
-	position: 'relative',
+wrapper = {
+	position: 'absolute',
 	display: 'grid',
-	justifyItems: 'center',
-	width: '100%',
-	fontSize: '1.8rem'
+	placeItems: 'center',
+	width: '100%'
 }

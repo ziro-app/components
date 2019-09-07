@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useLocation, Link, Switch, Route } from 'wouter'
+import { useLocation, Switch, Route } from 'wouter'
 import { useTransition, animated } from 'react-spring'
-import { container, child } from './styles'
+import { wrapper } from './styles'
 
-const Transition = ({ components }) => {
+const Transition = ({ style, components }) => {
 	const [location] = useLocation()
 	const transitions = useTransition(location, key => key, {
 		from: location => {
@@ -21,11 +21,11 @@ const Transition = ({ components }) => {
 		config: { tension: 270, friction: 24 }
 	})
 	return transitions.map(({ props, key }) => (
-		<animated.div key={key} style={{ ...container, ...props }}>
+		<animated.div key={key} style={{ ...style, ...props }}>
 			<Switch>
 				{components.map(({ path, children }) =>
 					<Route key={path} path={path}>
-						<div style={{ position: 'absolute' }}>{children}</div>
+						<div style={wrapper}>{children}</div>
 					</Route>
 				)}
 			</Switch>
@@ -34,6 +34,7 @@ const Transition = ({ components }) => {
 }
 
 Transition.propTypes = {
+	style: PropTypes.object,
 	components: PropTypes.array.isRequired
 }
 
