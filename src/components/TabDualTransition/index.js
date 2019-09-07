@@ -5,7 +5,7 @@ import { useTransition, animated } from 'react-spring'
 import { animation } from './animation'
 import { wrapper } from './styles'
 
-const TransitionTab = ({ style, components }) => {
+const TabDualTransition = ({ style, components }) => {
 	const [location] = useLocation()
 	const transitions = useTransition(location, key => key, animation(components[0].path))
 	return transitions.map(({ item, props, key }) => (
@@ -21,9 +21,9 @@ const TransitionTab = ({ style, components }) => {
 	))
 }
 
-TransitionTab.propTypes = {
+TabDualTransition.propTypes = {
 	style: PropTypes.object,
 	components: PropTypes.array.isRequired
 }
 
-export default TransitionTab
+export default TabDualTransition
