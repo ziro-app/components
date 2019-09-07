@@ -7,7 +7,7 @@ import { wrapper } from './styles'
 
 const Transition = ({ style, components }) => {
 	const [location] = useLocation()
-	const transitions = useTransition(location, key => key, animation)
+	const transitions = useTransition(location, key => key, animation(components[0].path))
 	return transitions.map(({ props, key }) => (
 		<animated.div key={key} style={{ ...style, ...props }}>
 			<Switch>
