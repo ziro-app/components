@@ -145,26 +145,44 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/transition-tab@0.0.2": {
+    "vitorbarbosa19.ziro/tab-dual-header@0.0.1": {
         "files": [
             {
-                "relativePath": "src/components/TransitionTab/animation.js",
-                "test": false,
-                "name": "animation.js"
-            },
-            {
-                "relativePath": "src/components/TransitionTab/index.js",
+                "relativePath": "src/components/TabDualHeader/index.js",
                 "test": false,
                 "name": "index.js"
             },
             {
-                "relativePath": "src/components/TransitionTab/styles.js",
+                "relativePath": "src/components/TabDualHeader/styles.js",
                 "test": false,
                 "name": "styles.js"
             }
         ],
-        "mainFile": "src/components/TransitionTab/index.js",
-        "trackDir": "src/components/TransitionTab",
+        "mainFile": "src/components/TabDualHeader/index.js",
+        "trackDir": "src/components/TabDualHeader",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/tab-dual-transition@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/TabDualTransition/animation.js",
+                "test": false,
+                "name": "animation.js"
+            },
+            {
+                "relativePath": "src/components/TabDualTransition/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/TabDualTransition/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/TabDualTransition/index.js",
+        "trackDir": "src/components/TabDualTransition",
         "origin": "AUTHORED",
         "exported": true
     },
