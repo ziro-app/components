@@ -2,11 +2,11 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import TabDualTransition from '../../../components/TabDualTransition/index'
 import TabDualHeader from '../../../components/TabDualHeader/index'
-import { component } from './styles'
+import { container, component } from './styles'
 
 export const DisplayTabDual = () => {
 	return (
-		<div>
+		<div style={container}>
 			<TabDualHeader
 				pathOne='/tab-dual/dados-1'
 				tabNameOne='Dados 1'

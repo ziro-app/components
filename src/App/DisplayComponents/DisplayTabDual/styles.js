@@ -1,15 +1,14 @@
 export const
 
-nav = {
-	display: 'grid',
-	gridTemplateColumns: 'auto auto',
-	gridColumnGap: '10px',
-	justifyItems: 'center',
-	padding: '15px'
+container = {
+	height: '100vh',
+	boxSizing: 'border-box',
+	margin: '20px auto 0',
 },
 
 component = {
 	display: 'grid',
 	placeItems: 'center',
+	marginTop: '20px',
 	fontSize: '1.8rem'
 }
