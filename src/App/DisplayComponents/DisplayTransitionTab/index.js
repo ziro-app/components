@@ -11,8 +11,8 @@ export const DisplayTransitionTab = () => {
 				<Link to='/transition/2'>Next</Link>
 			</div>
 			<TransitionTab components={[
-				{ path: '/transition/1', children: <div style={component}>Rota 1</div> },
-				{ path: '/transition/2', children: <div style={component}>Rota 2</div> }
+				{ path: '/transition/1', children: <div style={component}>Lorem Ipsum</div> },
+				{ path: '/transition/2', children: <div style={component}>Dolor Sit</div> }
 			]}/>
 		</Fragment>
 	)

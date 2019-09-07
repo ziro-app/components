@@ -8,9 +8,9 @@ import { wrapper } from './styles'
 const TransitionTab = ({ style, components }) => {
 	const [location] = useLocation()
 	const transitions = useTransition(location, key => key, animation(components[0].path))
-	return transitions.map(({ props, key }) => (
+	return transitions.map(({ item, props, key }) => (
 		<animated.div key={key} style={{ ...style, ...props }}>
-			<Switch>
+			<Switch location={item}>
 				{components.map(({ path, children }) =>
 					<Route key={path} path={path}>
 						<div style={wrapper}>{children}</div>
