@@ -10,5 +10,5 @@ export const animation = pathOne => ({
 			return ({ opacity: 0, transform: 'translateX(-40%)' })
 		return ({ opacity: 0, transform: 'translateX(40%)' })
 	},
-	config: { tension: 310, friction: 32 }
+	config: { tension: 1200, friction: 62 }
 })
