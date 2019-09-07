@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import TabDualTransition from '../../../components/TabDualTransition/index'
 import TabDualHeader from '../../../components/TabDualHeader/index'
 import { container, component } from './styles'
