@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeSmall, primaryColor, grayColor2 } from '../../../Theme/styleVariables'
+import { fontTitle, fontSizeSmall, primaryColor, grayColor2 } from '../../Theme/variables'
 
 export const
 
