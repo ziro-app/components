@@ -5,6 +5,7 @@ import { Alert } from '../../Icons/Alert/index'
 import { Warning } from '../../Icons/Warning/index'
 import { Pen } from '../../Icons/Pen/index'
 import { Close } from '../../Icons/Close/index'
+import { Menu } from '../../Icons/Menu/index'
 
 const Icon = ({ type, size, color, strokeWidth, onClick }) => {
 	const iconProps = { size, color, strokeWidth, onClick }
@@ -13,7 +14,8 @@ const Icon = ({ type, size, color, strokeWidth, onClick }) => {
 		alert: <Alert {...iconProps} />,
 		warning: <Warning {...iconProps} />,
 		pen: <Pen {...iconProps} />,
-		close: <Close {...iconProps} />
+		close: <Close {...iconProps} />,
+		menu: <Menu {...iconProps} />
 	}
 	return iconList[type]
 }

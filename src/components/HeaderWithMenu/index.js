@@ -5,7 +5,7 @@ import { container, text } from './styles'
 
 const HeaderWithMenu = ({ title, setIsOpen }) =>
 	<div style={container}>
-		<Icon />
+		<Icon type='menu' onClick={() => setIsOpen(true)} />
 		<h1 style={text}>{title}</h1>
 	</div>
 
