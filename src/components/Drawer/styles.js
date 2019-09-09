@@ -7,6 +7,7 @@ container = {
 	left: '0',
 	width: '100%',
 	height: '100vh',
+	padding: '5%',
 	boxSizing: 'border-box',
 	overflowY: 'scroll',
 	background: 'white',
