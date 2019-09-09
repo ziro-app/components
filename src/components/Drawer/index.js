@@ -8,7 +8,7 @@ const Drawer = ({ children }) => {
 	const props = useSpring({ transform: `translateX(${isOpen ? '0%' : '-100%'})` })
 	return (
 		<animated.div style={{...container, ...props}}>
-			<Icon type='close' />	
+			<Icon type='close' onClick={() => setIsOpen(false)}/>	
 		</animated.div>
 	)
 }

@@ -6,8 +6,8 @@ import { Warning } from '../../Icons/Warning/index'
 import { Pen } from '../../Icons/Pen/index'
 import { Close } from '../../Icons/Close/index'
 
-const Icon = ({ type, size, color, strokeWidth }) => {
-	const iconProps = { size, color, strokeWidth }
+const Icon = ({ type, size, color, strokeWidth, onClick }) => {
+	const iconProps = { size, color, strokeWidth, onClick }
 	const iconList = {
 		success: <Success {...iconProps} />,
 		alert: <Alert {...iconProps} />,
@@ -22,7 +22,8 @@ Icon.propTypes = {
 	type: PropTypes.string.isRequired,
 	size: PropTypes.number,
 	color: PropTypes.string,
-	strokeWidth: PropTypes.number
+	strokeWidth: PropTypes.number,
+	onClick: PropTypes.func
 }
 
 export default Icon
