@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { primaryColor } from '../../Theme/variables'
+import { Scaffold } from '../Scaffold'
 
-export const Alert = ({ size = 24, color = primaryColor, strokeWidth = 2, onClick, style }) =>
-	<svg style={style} onClick={onClick} width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth={strokeWidth} strokeLinecap='round' strokeLinejoin='round'>
-		<circle cx='12' cy='12' r='10'></circle>
-		<line x1='12' y1='8' x2='12' y2='12'></line>
-		<line x1='12' y1='16' x2='12' y2='16'></line>
-	</svg>
+export const Alert = ({ style, onClick, size, color, strokeWidth }) =>
+	<Scaffold
+		svgPath={
+			<Fragment>
+				<circle cx='12' cy='12' r='10'></circle>
+				<line x1='12' y1='8' x2='12' y2='12'></line>
+				<line x1='12' y1='16' x2='12' y2='16'></line>
+			</Fragment>
+		}
+		style={style}
+		onClick={onClick}
+		size={size}
+		color={color}
+		strokeWidth={strokeWidth}
+	/>
 
 Alert.propTypes = {
+	style: PropTypes.object,
+	onClick: PropTypes.func,
 	size: PropTypes.number,
 	color: PropTypes.string,
-	strokeWidth: PropTypes.number,
-	onClick: PropTypes.func,
-	style: PropTypes.object
+	strokeWidth: PropTypes.number
 }

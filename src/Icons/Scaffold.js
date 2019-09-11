@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { primaryColor } from '../../Theme/variables'
+import { primaryColor } from '../Theme/variables'
 
-export const Scaffold = ({ svgPath, style, onClick, size, color, strokeWidth, onClick, style }) =>
+export const Scaffold = ({ svgPath, style, onClick, size, color, strokeWidth }) =>
 	<svg
 		style={style}
 		onClick={onClick}
