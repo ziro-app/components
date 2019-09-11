@@ -10,6 +10,10 @@ container = {
 	margin: '0 auto'
 },
 
+svg = {
+	justifySelf: 'start'
+},
+
 text = {
 	marginLeft: '-30px',
 	fontFamily: fontTitle,
