@@ -4,6 +4,7 @@ import { DisplayInputText } from './DisplayComponents/DisplayInputText/index'
 import { DisplayEditableData } from './DisplayComponents/DisplayEditableData/index'
 import { DisplayTabDual } from './DisplayComponents/DisplayTabDual/index'
 import { DisplayDrawer } from './DisplayComponents/DisplayDrawer/index'
+import { DisplayHeaderWithMenu } from './DisplayComponents/DisplayHeaderWithMenu/index'
 
 export const Router = () =>
 	<Switch>
@@ -11,5 +12,6 @@ export const Router = () =>
 		<Route path='/editable-data'><DisplayEditableData /></Route>
 		<Route path='/tab-dual/:any'><DisplayTabDual /></Route>
 		<Route path='/drawer'><DisplayDrawer /></Route>
+		<Route path='/header-menu'><DisplayHeaderWithMenu /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

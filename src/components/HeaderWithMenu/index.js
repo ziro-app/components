@@ -5,7 +5,7 @@ import { container, svg, text } from './styles'
 
 const HeaderWithMenu = ({ title, setIsOpen }) =>
 	<div style={container}>
-		<Icon type='menu' style={svg} onClick={() => setIsOpen(true)} />
+		<Icon type='menu' style={svg} onClick={setIsOpen} />
 		<h1 style={text}>{title}</h1>
 	</div>
 
