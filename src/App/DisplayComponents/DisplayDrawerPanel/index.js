@@ -4,7 +4,7 @@ import Icon from '../../../components/Icon/index'
 
 export const DisplayDrawerPanel = () =>
 	<DrawerPanel
-		username='Joana Silva Ahhhhhhhhhhh'
+		username='Vitor Barbosa'
 		usercnpj='28.026.371/0001-61'
 		options={[
 			{

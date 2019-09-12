@@ -19,7 +19,9 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 						Olá,&nbsp;
 						<span style={word}>
 							<span style={color(highlightBoxWidth)}></span>
-							<span style={name} ref={highlightBox}>{username}</span>
+							<span style={name} ref={highlightBox}>
+								{username}
+							</span>
 						</span>
 					</label>
 					<label style={cnpj}>CNPJ: {usercnpj}</label>

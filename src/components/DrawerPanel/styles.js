@@ -30,7 +30,7 @@ word = {
 color = width => ({
 	position: 'absolute',
 	top: '68%',
-	left: '5%',
+	left: '0',
 	width: width,
 	height: '6px',
 	zIndex: '-1',
