@@ -18,7 +18,7 @@ user = {
 	padding: '3% 0 10%'
 },
 
-name = {
+welcome = {
 	fontFamily: fontTitle,
 	fontSize: '1.8rem'
 },
@@ -36,6 +36,14 @@ color = width => ({
 	zIndex: '-1',
 	background: 'rgba(255,228,0,0.5)'
 }),
+
+name = {
+	position: 'absolute',
+	maxWidth: '180px',
+	whiteSpace: 'nowrap',
+	overflow: 'hidden',
+	textOverflow: 'ellipsis'
+},
 
 cnpj = {
 	fontSize: fontSizeSmall,
