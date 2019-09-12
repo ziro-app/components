@@ -15,19 +15,19 @@ const DrawerPanel = () => {
 			</div>
 			<div style={nav}>
 				<Link style={navlink}>
-					<div style={icon}><Icon type='pen' size={13} /></div>
+					<div style={icon}><Icon type='truck' size={13} strokeWidth={3} /></div>
 					<label style={text}>Atendimentos</label>
 				</Link>
 				<Link style={navlink}>
-					<div style={icon}><Icon type='pen' size={13} /></div>
+					<div style={icon}><Icon type='card' size={13} strokeWidth={3} /></div>
 					<label style={text}>Pagamentos</label>
 				</Link>
 				<Link style={navlink}>
-					<div style={icon}><Icon type='pen' size={13} /></div>
+					<div style={icon}><Icon type='user' size={13} strokeWidth={3} /></div>
 					<label style={text}>Meus Dados</label>
 				</Link>
 				<Link style={navlink}>
-					<div style={icon}><Icon type='pen' size={13} /></div>
+					<div style={icon}><Icon type='logout' size={13} strokeWidth={3} /></div>
 					<label style={text}>Sair</label>
 				</Link>
 			</div>

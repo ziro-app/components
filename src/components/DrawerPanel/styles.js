@@ -25,8 +25,8 @@ navlink = {
 icon = {
 	display: 'grid',
 	placeItems: 'center',
-	width: '26px',
-	height: '26px',
+	width: '28px',
+	height: '28px',
 	borderRadius: '100%',
 	boxShadow: `0px 3px 11px -4px rgba(34,34,34,0.7)`
 },
