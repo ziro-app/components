@@ -24,7 +24,7 @@ name = {
 },
 
 word = {
-	position: 'relative'	
+	position: 'relative'
 },
 
 color = width => ({
@@ -34,7 +34,7 @@ color = width => ({
 	width: width,
 	height: '6px',
 	zIndex: '-1',
-	background: 'rgba(255,228,0,0.8)'
+	background: 'rgba(255,228,0,0.5)'
 }),
 
 cnpj = {
@@ -69,5 +69,6 @@ text = {
 	fontSize: '1.5rem',
 	fontWeight: '600',
 	textTransform: 'uppercase',
-	color: primaryColor
+	color: primaryColor,
+	cursor: 'pointer'
 }
