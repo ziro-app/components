@@ -1,11 +1,12 @@
-import { fontTitle, fontSizeSmall, primaryColor, grayColor2 } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor, grayColor1 } from '../../Theme/variables'
 
 export const
 
 container = {
 	height: '100vh',
 	boxSizing: 'border-box',
-	padding: '20px 10% 0'
+	padding: '20px 10% 0',
+	borderRight: `20px solid ${primaryColor}`
 },
 
 header = {
@@ -14,24 +15,37 @@ header = {
 
 user = {
 	display: 'grid',
-	padding: '10% 0'
+	padding: '3% 0 10%'
 },
 
 name = {
-	fontFamily: fontTitle
+	fontFamily: fontTitle,
+	fontSize: '1.8rem'
+},
+
+word = {
+	position: 'relative'	
+},
+
+color = {
+	position: 'absolute',
+	top: '68%',
+	left: '5%',
+	width: '115px',
+	height: '6px',
+	zIndex: '-1',
+	background: 'rgba(255,228,0,0.8)'
 },
 
 cnpj = {
-	fontSize: fontSizeSmall
-},
-
-divider = {
-	margin: '0 0 10%'
+	fontSize: fontSizeSmall,
+	color: grayColor1
 },
 
 nav = {
 	display: 'grid',
-	gridRowGap: '25px'
+	gridRowGap: '25px',
+	marginTop: '20px'
 },
 
 navlink = {

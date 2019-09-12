@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'wouter'
 import Icon from '../Icon/index'
 // import { animation } from './animation'
-import { container, header, name, user, cnpj, divider, nav, navlink, icon, text } from './styles'
+import { container, header, user, name, word, color, cnpj, nav, navlink, icon, text } from './styles'
 
 const DrawerPanel = () => {
 	return (
@@ -11,11 +11,10 @@ const DrawerPanel = () => {
 			<div style={header}>
 				<Icon type='close' />
 				<div style={user}>
-					<label style={name}>Olá, Vitor Barbosa</label>
+					<label style={name}>Olá, <span style={word}><span style={color}></span>Vitor Barbosa</span></label>
 					<label style={cnpj}>CNPJ: 28.026.371/0001-61</label>
 				</div>
 			</div>
-			<hr style={divider} />
 			<div style={nav}>
 				<Link style={navlink}>
 					<div style={icon}><Icon type='truck' size={13} strokeWidth={3} /></div>
