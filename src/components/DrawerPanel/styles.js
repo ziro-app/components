@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, grayColor2 } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor, grayColor2 } from '../../Theme/variables'
 
 export const
 
@@ -8,7 +8,26 @@ container = {
 	padding: '20px 10% 0'
 },
 
-user = {},
+header = {
+	display: 'grid'
+},
+
+user = {
+	display: 'grid',
+	padding: '10% 0'
+},
+
+name = {
+	fontFamily: fontTitle
+},
+
+cnpj = {
+	fontSize: fontSizeSmall
+},
+
+divider = {
+	margin: '0 0 10%'
+},
 
 nav = {
 	display: 'grid',
@@ -18,7 +37,7 @@ nav = {
 navlink = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '10px',
+	gridColumnGap: '15px',
 	alignItems: 'center'
 },
 
