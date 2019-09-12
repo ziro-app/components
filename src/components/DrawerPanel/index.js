@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 // import PropTypes from 'prop-types'
 import { Link } from 'wouter'
 import Icon from '../Icon/index'
@@ -6,12 +6,22 @@ import Icon from '../Icon/index'
 import { container, header, user, name, word, color, cnpj, nav, navlink, icon, text } from './styles'
 
 const DrawerPanel = () => {
+	const [highlightBoxWidth, setHighlightBoxWidth] = useState(0)
+	const highlightBox = useCallback(htmlNode => {
+		if (htmlNode) setHighlightBoxWidth(htmlNode.getBoundingClientRect().width)
+	})
 	return (
 		<div style={container}>
 			<div style={header}>
 				<Icon type='close' />
 				<div style={user}>
-					<label style={name}>Olá, <span style={word}><span style={color}></span>Vitor Barbosa</span></label>
+					<label style={name}>
+						Olá,&nbsp;
+						<span style={word} ref={highlightBox}>
+							<span style={color(highlightBoxWidth)}></span>
+							Vitor Barbosa
+						</span>
+					</label>
 					<label style={cnpj}>CNPJ: 28.026.371/0001-61</label>
 				</div>
 			</div>

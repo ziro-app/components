@@ -27,15 +27,15 @@ word = {
 	position: 'relative'	
 },
 
-color = {
+color = width => ({
 	position: 'absolute',
 	top: '68%',
 	left: '5%',
-	width: '115px',
+	width: width,
 	height: '6px',
 	zIndex: '-1',
 	background: 'rgba(255,228,0,0.8)'
-},
+}),
 
 cnpj = {
 	fontSize: fontSizeSmall,
