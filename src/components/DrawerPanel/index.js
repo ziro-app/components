@@ -1,7 +1,6 @@
 import React, { useState, useCallback, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
-import Icon from '../Icon/index'
 import { header, welcome, word, color, name, cnpj, nav, navlink, icon, text } from './styles'
 
 const DrawerPanel = ({ username, usercnpj, options }) => {

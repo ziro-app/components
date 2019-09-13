@@ -9,7 +9,7 @@ const Drawer = ({ isOpen, setIsOpen, children }) => {
 	const props = useSpring(animation(isOpen))
 	return (
 		<animated.div style={{...container, ...props}}>
-			<Icon type='close' onClick={() => setIsOpen(false)}/>
+			<Icon type='close' onClick={setIsOpen}/>
 			{children}
 		</animated.div>
 	)
