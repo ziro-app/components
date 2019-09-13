@@ -1,3 +1,5 @@
+import { primaryColor } from '../../Theme/variables'
+
 export const
 
 container = {
@@ -7,8 +9,9 @@ container = {
 	left: '0',
 	width: '100%',
 	height: '100vh',
-	padding: '5%',
+	padding: '20px 10% 0',
 	boxSizing: 'border-box',
+	borderRight: `20px solid ${primaryColor}`,
 	overflowY: 'scroll',
 	background: 'white',
 	boxShadow: `1px 0px 8px 0px rgba(34,34,34,0.2), 1px 0px 8px 0px rgba(34,34,34,0.15),

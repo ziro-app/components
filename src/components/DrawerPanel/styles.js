@@ -2,20 +2,10 @@ import { fontTitle, fontSizeSmall, primaryColor, grayColor1 } from '../../Theme/
 
 export const
 
-container = {
-	height: '100vh',
-	boxSizing: 'border-box',
-	padding: '20px 10% 0',
-	borderRight: `20px solid ${primaryColor}`
-},
-
 header = {
-	display: 'grid'
-},
-
-user = {
 	display: 'grid',
-	padding: '3% 0 10%'
+	gridRowGap: '3px',
+	padding: '4% 0 10%'
 },
 
 welcome = {

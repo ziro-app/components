@@ -5,7 +5,7 @@ export const
 container = {
 	display: 'grid',
 	gridTemplateColumns: '30px 1fr',
-	placeItems: 'center',
+	justifyItems: 'center',
 	maxWidth: maxWidth,
 	margin: '0 auto'
 },
@@ -15,7 +15,7 @@ svg = {
 },
 
 text = {
-	marginLeft: '-30px',
+	margin: '0 0 0 -30px',
 	fontFamily: fontTitle,
 	color: primaryColor
 }
