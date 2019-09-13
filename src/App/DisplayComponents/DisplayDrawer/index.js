@@ -16,22 +16,26 @@ export const DisplayDrawer = () => {
 					usercnpj='28.026.371/0001-61'
 					options={[
 						{
-							path: '#',
+							path: null,
+							onClick: null,
 							icon: <Icon type='truck' size={13} strokeWidth={3} />,
 							text: 'Atendimentos'
 						},
 						{
-							path: '#',
+							path: null,
+							onClick: null,
 							icon: <Icon type='card' size={13} strokeWidth={3} />,
 							text: 'Pagamentos'
 						},
 						{
-							path: '#',
+							path: null,
+							onClick: null,
 							icon: <Icon type='user' size={13} strokeWidth={3} />,
 							text: 'Meus Dados'
 						},
 						{
-							path: '#',
+							path: null,
+							onClick: () => setIsOpen(false),
 							icon: <Icon type='logout' size={13} strokeWidth={3} />,
 							text: 'Sair'
 						},

@@ -53,7 +53,7 @@ navlink = {
 	alignItems: 'center'
 },
 
-icon = {
+navicon = {
 	display: 'grid',
 	placeItems: 'center',
 	width: '28px',
@@ -62,7 +62,7 @@ icon = {
 	boxShadow: `0px 3px 11px -4px rgba(34,34,34,0.7)`
 },
 
-text = {
+navtext = {
 	fontFamily: fontTitle,
 	fontSize: '1.5rem',
 	fontWeight: '600',
