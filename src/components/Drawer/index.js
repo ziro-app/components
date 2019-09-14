@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
-import Icon from '../Icon/index'
 import { animation } from './animation'
 import { container, overlay } from './styles'
 
@@ -9,11 +8,8 @@ const Drawer = ({ isOpen, setIsOpen, children }) => {
 	const props = useSpring(animation(isOpen))
 	return (
 		<Fragment>
-			<animated.div style={{...container, ...props}}>
-				<Icon type='close' onClick={setIsOpen}/>
-				{children}
-			</animated.div>
-			<div style={overlay}></div>
+			<animated.div style={{...container, ...props}}>{children}</animated.div>
+			{isOpen && <div style={overlay} onClick={setIsOpen}></div>}
 		</Fragment>
 	)
 }

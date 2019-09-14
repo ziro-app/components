@@ -7,6 +7,7 @@ container = {
 	position: 'fixed',
 	top: '0',
 	left: '0',
+	maxWidth: '300px',
 	width: '75%',
 	height: '100vh',
 	padding: '20px 5% 0',
@@ -19,7 +20,6 @@ container = {
 },
 
 overlay = {
-	zIndex: '-1',
 	position: 'fixed',
 	top: '0',
 	left: '0',
