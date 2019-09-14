@@ -10,7 +10,8 @@ header = {
 
 welcome = {
 	fontFamily: fontTitle,
-	fontSize: '1.8rem'
+	fontSize: '1.8rem',
+	fontWeight: '600'
 },
 
 word = {
@@ -29,7 +30,7 @@ color = width => ({
 
 name = {
 	position: 'absolute',
-	maxWidth: '180px',
+	maxWidth: '150px',
 	whiteSpace: 'nowrap',
 	overflow: 'hidden',
 	textOverflow: 'ellipsis'
@@ -56,15 +57,15 @@ navlink = {
 navicon = {
 	display: 'grid',
 	placeItems: 'center',
-	width: '28px',
-	height: '28px',
+	width: '30px',
+	height: '30px',
 	borderRadius: '100%',
 	boxShadow: `0px 3px 11px -4px rgba(34,34,34,0.7)`
 },
 
 navtext = {
 	fontFamily: fontTitle,
-	fontSize: '1.5rem',
+	fontSize: '1.6rem',
 	fontWeight: '600',
 	textTransform: 'uppercase',
 	color: primaryColor,
