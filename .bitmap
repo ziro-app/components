@@ -37,7 +37,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/drawer@0.0.8": {
+    "vitorbarbosa19.ziro/drawer@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/Drawer/animation.js",

@@ -13,7 +13,7 @@ container = {
 	padding: '20px 5% 0',
 	boxSizing: 'border-box',
 	borderRight: `10px solid ${primaryColor}`,
-	overflowY: 'scroll',
+	overflow: 'hidden',
 	background: 'white',
 	boxShadow: `1px 0px 8px 0px rgba(34,34,34,0.15), 1px 0px 8px 0px rgba(34,34,34,0.10),
 	1px 0px 8px 0px rgba(34,34,34,0.05)`
@@ -29,4 +29,10 @@ overlay = {
 	boxSizing: 'border-box',
 	cursor: 'pointer',
 	background: 'rgba(34,34,34,0.2)'
-}
+},
+
+disableScroll = `
+	body {
+		overflow: hidden;
+	}
+`

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
 import { animateContainer, animateOverlay } from './animation'
-import { container, overlay } from './styles'
+import { container, overlay, disableScroll } from './styles'
 
 const Drawer = ({ isOpen, setIsOpen, children }) => {
 	const propsContainer = useSpring(animateContainer(isOpen))
@@ -11,6 +11,7 @@ const Drawer = ({ isOpen, setIsOpen, children }) => {
 		<Fragment>
 			<animated.div style={{...container, ...propsContainer}}>{children}</animated.div>
 			{isOpen && <animated.div style={{...overlay, ...propsOverlay}} onClick={setIsOpen}></animated.div>}
+			{isOpen && <style>{disableScroll}</style>}
 		</Fragment>
 	)
 }
