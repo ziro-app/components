@@ -33,7 +33,7 @@ inputInline = {
 	MozAppearance: 'none',
 	outline: 'none',
 	width: '100%',
-	padding: '4px 0 0',
+	padding: '1px 0 0',
 	border: 'none',
 	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
 	fontSize: fontSizeNormal,
