@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeNormal, primaryColor, secondaryColor } from '../../Theme/variables'
+import { fontTitle, fontSizeNormal, fontSizeSmall, primaryColor, secondaryColor } from '../../Theme/variables'
 
 export const
 
@@ -31,16 +31,17 @@ container = {
 
 content = {
 	display: 'grid',
-	gridRowGap: '10px'
+	gridRowGap: '6px',
+	marginBottom: '60px'
 },
 
 pill = {
 	justifySelf: 'start',
 	padding: '4px 10px',
-	borderRadius: '20px',
+	borderRadius: '10px',
 	fontFamily: fontTitle,
-	fontSize: '1.2rem',
-	fontWeight: '600',
+	fontSize: '1.1rem',
+	fontWeight: '500',
 	color: primaryColor,
 	textTransform: 'uppercase',
 	backgroundColor: secondaryColor
@@ -48,9 +49,18 @@ pill = {
 },
 
 call = {
-	justifySelf: 'start'
+	justifySelf: 'start',
+	textAlign: 'start',
+	fontSize: '1.7rem',
+	marginBottom: '10px'
 },
 
 btn = {
-	justifySelf: 'start'
+	padding: '10px 0px',
+	border: '1px solid white',
+	borderRadius: '4px',
+	fontSize: fontSizeSmall,
+	fontWeight: '500',
+	textAlign: 'center',
+	textTransform: 'uppercase'
 }
