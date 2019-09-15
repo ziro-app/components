@@ -35,6 +35,8 @@ header = {
 },
 
 login = {
+	fontSize: fontSizeSmall,
+	color: 'white',
 	textTransform: 'uppercase',
 	textDecoration: 'underline'
 },
@@ -69,6 +71,7 @@ btn = {
 	borderRadius: '20px',
 	fontSize: fontSizeSmall,
 	fontWeight: '500',
+	color: 'white',
 	textAlign: 'center',
 	textTransform: 'uppercase'
 }
