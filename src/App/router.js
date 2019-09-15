@@ -7,6 +7,7 @@ import { DisplayDrawer } from './DisplayComponents/DisplayDrawer/index'
 import { DisplayHeaderWithMenu } from './DisplayComponents/DisplayHeaderWithMenu/index'
 import { DisplayDrawerPanel } from './DisplayComponents/DisplayDrawerPanel/index'
 import { DisplayCallToAction } from './DisplayComponents/DisplayCallToAction/index'
+import { DisplayHeaderHome } from './DisplayComponents/DisplayHeaderHome/index'
 
 export const Router = () =>
 	<Switch>
@@ -17,5 +18,6 @@ export const Router = () =>
 		<Route path='/header-menu'><DisplayHeaderWithMenu /></Route>
 		<Route path='/drawer-panel'><DisplayDrawerPanel /></Route>
 		<Route path='/cta'><DisplayCallToAction /></Route>
+		<Route path='/header-home'><DisplayHeaderHome /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
