@@ -9,10 +9,9 @@ container = {
 	margin: '0 auto 30px'
 },
 
-link = {
-	margin: '0 0 0 -30px',
+link = whiteText => ({
 	fontFamily: fontTitle,
 	fontSize: fontSizeSmall,
-	color: primaryColor,
+	color: whiteText ? 'white' : primaryColor,
 	textDecoration: 'underline'
-}
+})

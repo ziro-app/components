@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
-import { container, header, login, content, pill, call, btn } from './styles'
+import HeaderHome from '../HeaderHome/index'
+import { container, header, content, pill, call, btn } from './styles'
 
-const CallToAction = ({ headerText, headerLinkPath, headerLinkText, pillText, ctaText, btnPath, btnText }) =>
+const CallToAction = ({ headerText, headerLinkPath, pillText, ctaText, btnPath, btnText }) =>
 	<div style={container}>
-		<div style={header}>
-			{headerText}
-			<Link style={login} to={headerLinkPath}>
-				{headerLinkText}
-			</Link></div>
+		<HeaderHome linkPath={headerLinkPath} linkText={headerText} css={header} whiteText={true} />
 		<div style={content}>
 			<span style={pill}>{pillText}</span>
 			<div style={call}>{ctaText}</div>
@@ -20,7 +17,6 @@ const CallToAction = ({ headerText, headerLinkPath, headerLinkText, pillText, ct
 CallToAction.propTypes = {
 	headerText: PropTypes.string,
 	headerLinkPath: PropTypes.string,
-	headerLinkText: PropTypes.string,
 	pillText: PropTypes.string,
 	ctaText: PropTypes.string,
 	btnPath: PropTypes.string,

@@ -29,16 +29,10 @@ container = {
 },
 
 header = {
-	placeSelf: 'start end',
-	fontFamily: fontTitle,
-	fontSize: fontSizeSmall
-},
-
-login = {
-	fontSize: fontSizeSmall,
-	color: 'white',
-	textTransform: 'uppercase',
-	textDecoration: 'underline'
+	alignSelf: 'start',
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	placeItems: 'center end'
 },
 
 content = {
