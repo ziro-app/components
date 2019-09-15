@@ -101,6 +101,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/header-home@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/HeaderHome/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/HeaderHome/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/HeaderHome/index.js",
+        "trackDir": "src/components/HeaderHome",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/header-with-menu@0.0.4": {
         "files": [
             {
@@ -241,6 +259,19 @@
             }
         ],
         "mainFile": "src/components/InputText/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/logo@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Logo/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/Logo/index.js",
+        "trackDir": "src/components/Logo",
         "origin": "AUTHORED",
         "exported": true
     },

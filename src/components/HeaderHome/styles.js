@@ -1,20 +1,18 @@
-import { fontTitle, primaryColor } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor } from '../../Theme/variables'
 
 export const
 
 container = {
 	display: 'grid',
-	gridTemplateColumns: '30px 1fr',
-	justifyItems: 'center',
+	gridTemplateColumns: 'auto 1fr',
+	placeItems: 'center end',
 	margin: '0 auto 30px'
 },
 
-svg = {
-	justifySelf: 'start'
-},
-
-text = {
+link = {
 	margin: '0 0 0 -30px',
 	fontFamily: fontTitle,
-	color: primaryColor
+	fontSize: fontSizeSmall,
+	color: primaryColor,
+	textDecoration: 'underline'
 }
