@@ -38,7 +38,7 @@ header = {
 content = {
 	display: 'grid',
 	gridRowGap: '6px',
-	marginBottom: '50px'
+	marginBottom: '70px'
 },
 
 pill = {
@@ -55,14 +55,14 @@ pill = {
 
 call = {
 	textAlign: 'start',
-	fontSize: '1.7rem',
-	marginBottom: '10px'
+	fontSize: '1.8rem',
+	marginBottom: '15px'
 },
 
 btn = {
 	padding: '10px 0px',
 	border: '1px solid white',
-	borderRadius: '20px',
+	borderRadius: '25px',
 	fontSize: fontSizeSmall,
 	fontWeight: '500',
 	color: 'white',
