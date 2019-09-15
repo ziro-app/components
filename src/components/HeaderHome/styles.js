@@ -5,7 +5,8 @@ export const
 container = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	placeItems: 'center end',
+	alignItems: 'center',
+	justifyItems: 'end',
 	margin: '0 auto 30px'
 },
 

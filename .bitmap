@@ -19,7 +19,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/call-to-action@0.0.4": {
+    "vitorbarbosa19.ziro/call-to-action@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/CallToAction/index.js",
@@ -101,7 +101,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/header-home@0.0.4": {
+    "vitorbarbosa19.ziro/header-home@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/HeaderHome/index.js",

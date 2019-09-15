@@ -32,7 +32,8 @@ header = {
 	alignSelf: 'start',
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	placeItems: 'center end'
+	alignItems: 'center',
+	justifyItems: 'end'
 },
 
 content = {
