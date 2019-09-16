@@ -11,6 +11,7 @@ import { Card } from '../../Icons/Card/index'
 import { User } from '../../Icons/User/index'
 import { Logout } from '../../Icons/Logout/index'
 import { Shopping } from '../../Icons/Shopping/index'
+import { Back } from '../../Icons/Back/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -25,7 +26,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		card: <Card {...iconProps} />,
 		user: <User {...iconProps} />,
 		logout: <Logout {...iconProps} />,
-		shopping: <Shopping {...iconProps} />
+		shopping: <Shopping {...iconProps} />,
+		back: <Back {...iconProps} />
 	}
 	return iconList[type]
 }
