@@ -1,14 +1,6 @@
-export const animation = pathOne => ({
-	from: location => {
-		if (location === pathOne)
-			return ({ opacity: 0, transform: 'translateX(-100%)' })
-		return ({ opacity: 0, transform: 'translateX(100%)' })
-	},
+export const animation = forward => ({
+	from: () => ({ opacity: 0, transform: `translateX(${forward ? '100%' : '-100%'})` }),
 	enter: { opacity: 1, transform: 'translateX(0%)' },
-	leave: location => {
-		if (location === pathOne)
-			return ({ opacity: 0, transform: 'translateX(-40%)' })
-		return ({ opacity: 0, transform: 'translateX(40%)' })
-	},
+	leave: () => ({ opacity: 0, transform: `translateX(${forward ? '-100%' : '100%'})` }),
 	config: { tension: 1200, friction: 62 }
 })

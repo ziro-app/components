@@ -334,5 +334,28 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/transition-route@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/TransitionRoute/animation.js",
+                "test": false,
+                "name": "animation.js"
+            },
+            {
+                "relativePath": "src/components/TransitionRoute/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/TransitionRoute/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/TransitionRoute/index.js",
+        "trackDir": "src/components/TransitionRoute",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.3.0"
 }

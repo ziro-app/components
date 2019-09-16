@@ -5,9 +5,9 @@ import { useTransition, animated } from 'react-spring'
 import { animation } from './animation'
 import { wrapper } from './styles'
 
-const TransitionRoute = ({ style, components }) => {
+const TransitionRoute = ({ style, forward, components }) => {
 	const [location] = useLocation()
-	const transitions = useTransition(location, key => key, animation(components[0].path))
+	const transitions = useTransition(location, key => key, animation(forward))
 	return transitions.map(({ item, props, key }) => (
 		<animated.div key={key} style={{ ...style, ...props }}>
 			<Switch location={item}>
@@ -23,6 +23,7 @@ const TransitionRoute = ({ style, components }) => {
 
 TransitionRoute.propTypes = {
 	style: PropTypes.object,
+	forward: PropTypes.bool.isRequired,
 	components: PropTypes.array.isRequired
 }
 
