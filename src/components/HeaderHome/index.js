@@ -4,15 +4,16 @@ import { Link } from 'wouter'
 import Logo from '../Logo/index'
 import { container, link } from './styles'
 
-const HeaderHome = ({ linkPath, linkText, css = container, whiteText = false }) =>
+const HeaderHome = ({ linkText, linkPath, linkClick = null, css = container, whiteText = false }) =>
 	<div style={css}>
 		<Logo />
-		<Link style={link(whiteText)} to={linkPath}>{linkText}</Link>
+		<Link style={link(whiteText)} to={linkPath} onClick={linkClick}>{linkText}</Link>
 	</div>
 
 HeaderHome.propTypes = {
-	linkPath: PropTypes.string.isRequired,
 	linkText: PropTypes.string.isRequired,
+	linkPath: PropTypes.string.isRequired,
+	linkClick: PropTypes.func,
 	css: PropTypes.object,
 	whiteText: PropTypes.bool
 }

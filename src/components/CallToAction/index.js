@@ -4,9 +4,15 @@ import { Link } from 'wouter'
 import HeaderHome from '../HeaderHome/index'
 import { container, header, content, pill, call, btn } from './styles'
 
-const CallToAction = ({ headerText, headerLinkPath, pillText, ctaText, btnPath, btnClick, btnText }) =>
+const CallToAction = ({ headerText, headerLinkPath, headerLinkClick, pillText, ctaText, btnPath, btnClick, btnText }) =>
 	<div style={container}>
-		<HeaderHome linkPath={headerLinkPath} linkText={headerText} css={header} whiteText={true} />
+		<HeaderHome
+			linkText={headerText}
+			linkPath={headerLinkPath}
+			linkClick={headerLinkClick}
+			css={header}
+			whiteText={true}
+		/>
 		<div style={content}>
 			<span style={pill}>{pillText}</span>
 			<div style={call}>{ctaText}</div>
@@ -19,6 +25,7 @@ const CallToAction = ({ headerText, headerLinkPath, pillText, ctaText, btnPath, 
 CallToAction.propTypes = {
 	headerText: PropTypes.string,
 	headerLinkPath: PropTypes.string,
+	headerLinkClick: PropTypes.func,
 	pillText: PropTypes.string,
 	ctaText: PropTypes.string,
 	btnPath: PropTypes.string,
