@@ -20,10 +20,10 @@ container = {
 			rgba(0,0,0,0.55) 56%,
 			rgba(0,0,0,0.6) 64%,
 			rgba(0,0,0,0.65) 72%,
-			rgba(0,0,0,0.75) 80%,
-			rgba(0,0,0,0.9) 85%,
-			rgba(0,0,0,0.95) 90%,
-			rgba(0,0,0,1) 95%
+			rgba(0,0,0,0.7) 80%,
+			rgba(0,0,0,0.85) 85%,
+			rgba(0,0,0,0.9) 90%,
+			rgba(0,0,0,0.95) 95%
 		),
 		center / cover
 		url('https://res.cloudinary.com/ziro/image/upload/v1568509821/home-cta_sa7tom.jpg')

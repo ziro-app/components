@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import InputText from '../../../components/InputText/index'
-import { container } from './styles'
+import { container, padding } from '../../../Theme/variables'
 
 export const DisplayInputText = () => {
 	const [inputValue, setInputValue] = useState('')
@@ -11,10 +11,10 @@ export const DisplayInputText = () => {
 	const name = 'input'
 	const inputProps = { value: inputValue, submitting, onChange, placeholder, name, ref: inputRef }
 	return (
-		<div style={container}>
+		<div style={{...container, padding: padding }}>
 			<p>&nbsp;{inputValue}</p>
 			<InputText {...inputProps} />
-			<input type='submit' onClick={() => setSubmitting(!submitting)} />
+			<input type='submit' value='Disable' onClick={() => setSubmitting(!submitting)} />
 		</div>
 	)
 }
