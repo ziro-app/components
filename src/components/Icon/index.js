@@ -12,6 +12,10 @@ import { User } from '../../Icons/User/index'
 import { Logout } from '../../Icons/Logout/index'
 import { Shopping } from '../../Icons/Shopping/index'
 import { Back } from '../../Icons/Back/index'
+import { Cnpj } from '../../Icons/Cnpj/index'
+import { Whats } from '../../Icons/Whats/index'
+import { Lock } from '../../Icons/Lock/index'
+import { Email } from '../../Icons/Email/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -27,7 +31,11 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		user: <User {...iconProps} />,
 		logout: <Logout {...iconProps} />,
 		shopping: <Shopping {...iconProps} />,
-		back: <Back {...iconProps} />
+		back: <Back {...iconProps} />,
+		cnpj: <Cnpj {...iconProps} />,
+		whats: <Whats {...iconProps} />,
+		lock: <Lock {...iconProps} />,
+		email: <Email {...iconProps} />
 	}
 	return iconList[type]
 }
