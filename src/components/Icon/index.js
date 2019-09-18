@@ -16,6 +16,8 @@ import { Cnpj } from '../../Icons/Cnpj/index'
 import { Whats } from '../../Icons/Whats/index'
 import { Lock } from '../../Icons/Lock/index'
 import { Email } from '../../Icons/Email/index'
+import { Calendar } from '../../Icons/Calendar/index'
+import { Id } from '../../Icons/Id/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -35,7 +37,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		cnpj: <Cnpj {...iconProps} />,
 		whats: <Whats {...iconProps} />,
 		lock: <Lock {...iconProps} />,
-		email: <Email {...iconProps} />
+		email: <Email {...iconProps} />,
+		calendar: <Calendar {...iconProps} />,
+		id: <Id {...iconProps} />
 	}
 	return iconList[type]
 }
