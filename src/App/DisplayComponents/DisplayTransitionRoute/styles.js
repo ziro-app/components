@@ -3,7 +3,9 @@ export const
 container = {
 	height: '100vh',
 	boxSizing: 'border-box',
-	margin: '20px auto 0',
+	margin: '0 auto',
+	padding: '20px 0 0',
+	overflow: 'auto'
 },
 
 component = {
