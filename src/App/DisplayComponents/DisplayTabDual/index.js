@@ -5,7 +5,7 @@ import { container, component } from './styles'
 
 export const DisplayTabDual = () => {
 	return (
-		<div style={container}>
+		<div style={{...container, overflow: 'auto'}}>
 			<TabDualHeader
 				pathOne='/tab-dual/dados-1'
 				tabNameOne='Dados 1'

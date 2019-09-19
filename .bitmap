@@ -346,7 +346,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tab-dual-transition@0.0.2": {
+    "vitorbarbosa19.ziro/tab-dual-transition@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/TabDualTransition/animation.js",
