@@ -37,7 +37,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/drawer-panel@0.0.8": {
+    "vitorbarbosa19.ziro/drawer-panel@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/DrawerPanel/index.js",
@@ -78,7 +78,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/editable-data@0.0.20": {
+    "vitorbarbosa19.ziro/editable-data@0.0.21": {
         "files": [
             {
                 "relativePath": "src/components/EditableData/index.js",
@@ -244,7 +244,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/input-label@0.0.8": {
+    "vitorbarbosa19.ziro/input-label@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/InputLabel/index.js",
@@ -328,7 +328,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tab-dual-header@0.0.3": {
+    "vitorbarbosa19.ziro/tab-dual-header@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/TabDualHeader/index.js",

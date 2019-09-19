@@ -56,7 +56,8 @@ navlink = {
 
 navicon = {
 	display: 'grid',
-	placeItems: 'center',
+	alignItems: 'center',
+	justifyItems: 'center',
 	width: '30px',
 	height: '30px',
 	borderRadius: '100%',
