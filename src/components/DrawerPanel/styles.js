@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeSmall, primaryColor, grayColor1 } from '../../Theme/variables'
+import { fontTitle, fontBody, fontSizeSmall, primaryColor, grayColor1 } from '../../Theme/variables'
 
 export const
 
@@ -51,7 +51,7 @@ nav = {
 navlink = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '15px',
+	gridColumnGap: '10px',
 	alignItems: 'center'
 },
 
@@ -72,4 +72,12 @@ navtext = {
 	textTransform: 'uppercase',
 	color: primaryColor,
 	cursor: 'pointer'
+},
+
+navsoon = {
+	fontFamily: fontBody,
+	fontSize: '1.1rem',
+	fontStyle: 'italic',
+	color: primaryColor,
+	textTransform: 'lowercase'
 }

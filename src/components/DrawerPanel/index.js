@@ -1,7 +1,7 @@
 import React, { useState, useCallback, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
-import { header, welcome, word, color, name, cnpj, nav, navlink, navicon, navtext } from './styles'
+import { header, welcome, word, color, name, cnpj, nav, navlink, navicon, navtext, navsoon } from './styles'
 
 const DrawerPanel = ({ username, usercnpj, options }) => {
 	const [highlightBoxWidth, setHighlightBoxWidth] = useState(0)
@@ -23,10 +23,13 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 				<label style={cnpj}>CNPJ: {usercnpj}</label>
 			</div>
 			<div style={nav}>
-				{options.map(({ path, onClick, icon, text }, index) =>
+				{options.map(({ path, onClick, icon, text, soon }, index) =>
 					<Link style={navlink} to={path} onClick={onClick} key={index}>
 						<div style={navicon}>{icon}</div>
-						<label style={navtext}>{text}</label>
+						<label style={navtext}>
+							{text}
+							{soon && <label style={navsoon}>&nbsp;(breve)</label>}
+						</label>
 					</Link>
 				)}
 			</div>

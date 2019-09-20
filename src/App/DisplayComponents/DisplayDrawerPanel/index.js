@@ -23,12 +23,14 @@ export const DisplayDrawerPanel = () => {
 					{
 						path: '#',
 						icon: <Icon type='truck' size={13} strokeWidth={3} />,
-						text: 'Atendimentos'
+						text: 'Atendimentos',
+						soon: true
 					},
 					{
 						path: '#',
 						icon: <Icon type='card' size={13} strokeWidth={3} />,
-						text: 'Pagamentos'
+						text: 'Pagamentos',
+						soon: true
 					},
 					{
 						path: '#',
