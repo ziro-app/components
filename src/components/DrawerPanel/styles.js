@@ -26,7 +26,7 @@ color = width => ({
 	width: width,
 	height: '6px',
 	zIndex: '-1',
-	background: 'rgba(255,228,0,0.5)'
+	background: 'rgba(255,228,0,0.75)'
 }),
 
 name = {
