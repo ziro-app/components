@@ -7,7 +7,7 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 	const [highlightBoxWidth, setHighlightBoxWidth] = useState(0)
 	const highlightBox = useCallback(htmlNode => {
 		if (htmlNode) setHighlightBoxWidth(htmlNode.getBoundingClientRect().width)
-	}, [])
+	}, [username])
 	return (
 		<Fragment>
 			<div style={header}>

@@ -11,7 +11,8 @@ header = {
 welcome = {
 	fontFamily: fontTitle,
 	fontSize: '1.8rem',
-	fontWeight: '600'
+	fontWeight: '600',
+	color: primaryColor
 },
 
 word = {
