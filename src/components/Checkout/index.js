@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import InputText from '../InputText/index'
 import CreditCard from '../CreditCard/index'
+import InputText from '../InputText/index'
 import { container } from './styles'
 
-const Checkout = () =>
-	<div style={container}>
-		<CreditCard />
-		<InputText />
-	</div>
+const Checkout = () => {
+	const [number, setNumber] = useState('')
+	return (
+		<div style={container}>
+			<CreditCard
+				number={number}
+			/>
+			<InputText
+				value={number}
+				onChange={({ target: { value } }) => setNumber(value)}
+				placeholder='Número do cartão'
+			/>
+		</div>
+	)
+}
 
 Checkout.propTypes = {
 }

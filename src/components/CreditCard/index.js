@@ -1,8 +1,8 @@
 import React, { useState, useCallback }  from 'react'
 import PropTypes from 'prop-types'
-import { card, chip, number, info, header } from './styles'
+import { card, chip, cardnumber, info, header } from './styles'
 
-const CreditCard = () => {
+const CreditCard = ({ number }) => {
 	const [cardWidth, setCardWidth] = useState(0)
 	const cardBox = useCallback(htmlNode => {
 		if (htmlNode) setCardWidth(htmlNode.getBoundingClientRect().width)
@@ -10,11 +10,11 @@ const CreditCard = () => {
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
 			<div style={chip}></div>
-			<label style={number}>
-				<span>1234</span>
-				<span>1234</span>
-				<span>1234</span>
-				<span>1234</span>
+			<label style={cardnumber}>
+				<span>{number ? number.substring(0,4) : '1234'}</span>
+				<span>{number ? number.substring(4,8) : '1234'}</span>
+				<span>{number ? number.substring(8,12) : '1234'}</span>
+				<span>{number ? number.substring(12,16) : '1234'}</span>
 			</label>
 			<div style={info}>
 				<label style={header}>Vitor A Barbosa</label>
@@ -26,6 +26,7 @@ const CreditCard = () => {
 }
 
 CreditCard.propTypes = {
+	number: PropTypes.string.isRequired
 }
 
 export default CreditCard

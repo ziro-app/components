@@ -22,7 +22,7 @@ chip = {
 	borderRadius: '3px'	
 },
 
-number = {
+cardnumber = {
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
