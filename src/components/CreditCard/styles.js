@@ -1,19 +1,18 @@
-import { fontTitle, fontSizeSmall, primaryColor, secondaryColor, grayColor1, shadow } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor, shadow } from '../../Theme/variables'
 
 export const
 
-card = {
+card = width => ({
 	display: 'grid',
 	width: '100%',
-	height: 256/1.6,
+	height: width/1.8,
 	padding: '0 4%',
 	boxSizing: 'border-box',
-	margin: '0 auto',
 	border: `4px solid ${primaryColor}`,
 	borderRadius: '15px',
 	color: primaryColor,
 	boxShadow: shadow
-},
+}),
 
 chip = {
 	alignSelf: 'end',
