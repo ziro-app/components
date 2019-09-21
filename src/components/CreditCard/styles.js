@@ -1,14 +1,18 @@
+import { fontTitle, fontSizeSmall, primaryColor, secondaryColor, grayColor1, shadow } from '../../Theme/variables'
+
 export const
 
 card = {
 	display: 'grid',
-	width: '100%', // 8,5 cm
-	height: 256/1.8, // 5,3 cm
-	padding: '0 5%',
+	width: '100%',
+	height: 256/1.6,
+	padding: '0 4%',
 	boxSizing: 'border-box',
 	margin: '0 auto',
-	border: '4px solid rgb(34,34,34)',
-	borderRadius: '15px'
+	border: `4px solid ${primaryColor}`,
+	borderRadius: '15px',
+	color: primaryColor,
+	boxShadow: shadow
 },
 
 chip = {
@@ -20,14 +24,20 @@ chip = {
 },
 
 number = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'space-between',
+	fontFamily: fontTitle
 },
 
 info = {
 	display: 'grid',
 	gridTemplateColumns: '1fr auto auto',
-	gridColumnGap: '20px'
+	gridColumnGap: '15px'
 },
 
 header = {
-
+	fontFamily: fontTitle,
+	fontSize: fontSizeSmall,
+	textTransform: 'uppercase'
 }

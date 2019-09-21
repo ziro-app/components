@@ -5,11 +5,16 @@ import { card, chip, number, info, header } from './styles'
 const CreditCard = () =>
 	<div style={card}>
 		<div style={chip}></div>
-		<div style={number}>1234 1234 1234 1234</div>
+		<label style={number}>
+			<span>1234</span>
+			<span>1234</span>
+			<span>1234</span>
+			<span>1234</span>
+		</label>
 		<div style={info}>
-			<div style={header}>Titular</div>
-			<div style={header}>Vencimento</div>
-			<div style={header}>Cvv</div>
+			<label style={header}>Vitor A Barbosa</label>
+			<label style={header}>11/24</label>
+			<label style={header}>111</label>
 		</div>
 	</div>
 
