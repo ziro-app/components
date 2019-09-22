@@ -1,9 +1,10 @@
-import { fontTitle, fontSizeSmall, primaryColor, shadow } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor } from '../../Theme/variables'
 
 export const
 
 card = width => ({
 	display: 'grid',
+	gridTemplateRows: '1fr 1fr 1fr 1fr',
 	width: '100%',
 	height: width/1.8,
 	padding: '0 4%',
@@ -11,11 +12,14 @@ card = width => ({
 	border: `4px solid ${primaryColor}`,
 	borderRadius: '15px',
 	color: primaryColor,
-	boxShadow: shadow
+	boxShadow: `rgba(34, 34, 34, 0.4) 0px 5px 15px -4px`
 }),
 
+brand = {
+	justifySelf: 'end'
+},
+
 chip = {
-	alignSelf: 'end',
 	width: '30px',
 	height: '20px',
 	border: '2px solid rgb(34,34,34)',

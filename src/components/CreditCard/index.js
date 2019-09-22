@@ -1,6 +1,7 @@
 import React, { useState, useCallback }  from 'react'
 import PropTypes from 'prop-types'
-import { card, chip, cardnumber, info, header } from './styles'
+import Icon from '../Icon/index'
+import { card, brand, chip, cardnumber, info, header } from './styles'
 
 const CreditCard = ({ number }) => {
 	const [cardWidth, setCardWidth] = useState(0)
@@ -9,6 +10,7 @@ const CreditCard = ({ number }) => {
 	}, [])
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
+			<div style={brand}><Icon type='mastercard' /></div>
 			<div style={chip}></div>
 			<label style={cardnumber}>
 				<span>{number ? number.substring(0,4) : '1234'}</span>
