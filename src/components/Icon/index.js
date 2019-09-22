@@ -18,6 +18,10 @@ import { Lock } from '../../Icons/Lock/index'
 import { Email } from '../../Icons/Email/index'
 import { Calendar } from '../../Icons/Calendar/index'
 import { Id } from '../../Icons/Id/index'
+import { Amex } from '../../Icons/Amex/index'
+import { Visa } from '../../Icons/Visa/index'
+import { Mastercard } from '../../Icons/Mastercard/index'
+import { Elo } from '../../Icons/Elo/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -39,7 +43,11 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		lock: <Lock {...iconProps} />,
 		email: <Email {...iconProps} />,
 		calendar: <Calendar {...iconProps} />,
-		id: <Id {...iconProps} />
+		id: <Id {...iconProps} />,
+		amex: <Amex {...iconProps} />,
+		visa: <Visa {...iconProps} />,
+		mastercard: <Mastercard {...iconProps} />,
+		elo: <Elo {...iconProps} />
 	}
 	return iconList[type]
 }
