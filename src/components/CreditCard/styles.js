@@ -15,7 +15,7 @@ card = width => ({
 	boxShadow: `rgba(34, 34, 34, 0.4) 0px 5px 15px -4px`
 }),
 
-brand = {
+brandLogo = {
 	justifySelf: 'end'
 },
 

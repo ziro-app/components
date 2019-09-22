@@ -10,6 +10,7 @@ const Checkout = () => {
 		<div style={container}>
 			<CreditCard
 				number={number}
+				brand='visa'
 			/>
 			<InputText
 				value={number}

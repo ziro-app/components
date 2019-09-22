@@ -1,22 +1,33 @@
-import React, { useState, useCallback }  from 'react'
+import React, { useState, useCallback, Fragment }  from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon/index'
-import { card, brand, chip, cardnumber, info, header } from './styles'
+import { card, brandLogo, chip, cardnumber, info, header } from './styles'
 
-const CreditCard = ({ number }) => {
+const CreditCard = ({ number, brand }) => {
 	const [cardWidth, setCardWidth] = useState(0)
 	const cardBox = useCallback(htmlNode => {
 		if (htmlNode) setCardWidth(htmlNode.getBoundingClientRect().width)
 	}, [])
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
-			<div style={brand}><Icon type='mastercard' /></div>
+			<div style={brandLogo}><Icon type={brand} /></div>
 			<div style={chip}></div>
 			<label style={cardnumber}>
-				<span>{number ? number.substring(0,4) : '1234'}</span>
-				<span>{number ? number.substring(4,8) : '1234'}</span>
-				<span>{number ? number.substring(8,12) : '1234'}</span>
-				<span>{number ? number.substring(12,16) : '1234'}</span>
+				{brand === 'amex'
+				?
+					<Fragment>
+						<span>{number ? number.substring(0,4) : '1234'}</span>
+						<span>{number ? number.substring(4,10) : '123456'}</span>
+						<span>{number ? number.substring(10,15) : '12345'}</span>
+					</Fragment>
+				:
+					<Fragment>
+						<span>{number ? number.substring(0,4) : '1234'}</span>
+						<span>{number ? number.substring(4,8) : '1234'}</span>
+						<span>{number ? number.substring(8,12) : '1234'}</span>
+						<span>{number ? number.substring(12,16) : '1234'}</span>
+					</Fragment>
+				}
 			</label>
 			<div style={info}>
 				<label style={header}>Vitor A Barbosa</label>
@@ -28,7 +39,8 @@ const CreditCard = ({ number }) => {
 }
 
 CreditCard.propTypes = {
-	number: PropTypes.string.isRequired
+	number: PropTypes.string.isRequired,
+	brand: PropTypes.string.isRequired
 }
 
 export default CreditCard
