@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Ziro } from '../../Icons/Ziro/index'
 import { Success } from '../../Icons/Success/index'
 import { Alert } from '../../Icons/Alert/index'
 import { Warning } from '../../Icons/Warning/index'
@@ -27,6 +28,7 @@ import { Hiper } from '../../Icons/Hiper/index'
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
 	const iconList = {
+		ziro: <Ziro {...iconProps} />,
 		success: <Success {...iconProps} />,
 		alert: <Alert {...iconProps} />,
 		warning: <Warning {...iconProps} />,
