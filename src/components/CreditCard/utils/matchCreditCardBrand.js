@@ -1,6 +1,6 @@
 import { brands } from './brands'
 
-const matchCreditCardBrand = () => {
+export const matchCreditCardBrand = () => {
 	const match = brands.filter(brand =>
 		!!brand[1].map(pattern => cardNumber.startsWith(pattern)).filter(value => !!value).pop()
 	)

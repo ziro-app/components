@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { matchCreditCardBrand } from './utils/matchCreditCardBrand'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import { container } from './styles'
@@ -10,7 +11,7 @@ const Checkout = () => {
 		<div style={container}>
 			<CreditCard
 				number={number}
-				brand='visa'
+				brand={matchCreditCardBrand(number)}
 			/>
 			<InputText
 				value={number}
