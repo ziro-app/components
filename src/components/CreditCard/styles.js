@@ -9,7 +9,6 @@ card = width => ({
 	height: width/1.8,
 	padding: '0 4%',
 	boxSizing: 'border-box',
-	// border: `2px solid ${primaryColor}`,
 	borderRadius: '12px',
 	color: primaryColor,
 	boxShadow: `
