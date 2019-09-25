@@ -9,10 +9,14 @@ card = width => ({
 	height: width/1.8,
 	padding: '0 4%',
 	boxSizing: 'border-box',
-	border: `3px solid ${primaryColor}`,
-	borderRadius: '15px',
+	// border: `2px solid ${primaryColor}`,
+	borderRadius: '12px',
 	color: primaryColor,
-	boxShadow: `rgba(34, 34, 34, 0.4) 0px 5px 15px -4px`
+	boxShadow: `
+		rgba(34, 34, 34, 0.4) 0px 0px 10px -4px,
+		rgba(34, 34, 34, 0.35) 0px 5px 15px -1px
+	`,
+	background: `linear-gradient(#FAFAFA 10%, #FBFBFB 30%, #FCFCFC 60%, #FFF)`
 }),
 
 brandLogo = {
@@ -21,9 +25,10 @@ brandLogo = {
 
 chip = {
 	width: '30px',
-	height: '20px',
-	border: '2px solid rgb(34,34,34)',
-	borderRadius: '3px'	
+	height: '30px',
+	background: `
+		url('https://res.cloudinary.com/ziro/image/upload/v1569380926/chip_qurqrs.png')
+		0 0 / 100% no-repeat`
 },
 
 cardnumber = {
