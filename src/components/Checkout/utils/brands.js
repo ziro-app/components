@@ -1,4 +1,4 @@
-const brands = [
+export const brands = [
   [
     "visa",
     [

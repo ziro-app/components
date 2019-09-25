@@ -4,13 +4,14 @@ import Icon from '../Icon/index'
 import { card, brandLogo, chip, cardnumber, info, header } from './styles'
 
 const CreditCard = ({ number, brand }) => {
+	console.log(brand)
 	const [cardWidth, setCardWidth] = useState(0)
 	const cardBox = useCallback(htmlNode => {
 		if (htmlNode) setCardWidth(htmlNode.getBoundingClientRect().width)
 	}, [])
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
-			<div style={brandLogo}><Icon type={brand} /></div>
+			<div style={brandLogo}><Icon type={brand || 'visa'} /></div>
 			<div style={chip}></div>
 			<label style={cardnumber}>
 				{brand === 'amex'
