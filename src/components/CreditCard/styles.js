@@ -4,10 +4,11 @@ export const
 
 card = width => ({
 	display: 'grid',
-	gridTemplateRows: '1fr 1fr 1fr 1fr',
+	gridTemplateRows: '1fr 30px 30px 40px',
 	width: '100%',
 	height: width/1.8,
-	padding: '0 4%',
+	padding: '0 5%',
+	borderLeft: `8px solid ${primaryColor}`,
 	boxSizing: 'border-box',
 	borderRadius: '12px',
 	color: primaryColor,
@@ -32,19 +33,23 @@ chip = {
 
 cardnumber = {
 	display: 'flex',
-	alignItems: 'center',
+	alignItems: 'flex-end',
 	justifyContent: 'space-between',
 	fontFamily: fontTitle
 },
 
 info = {
 	display: 'grid',
-	gridTemplateColumns: '1fr auto auto',
+	gridTemplateColumns: '1fr auto',
+	alignItems: 'center',
 	gridColumnGap: '15px'
 },
 
 header = {
 	fontFamily: fontTitle,
 	fontSize: fontSizeSmall,
-	textTransform: 'uppercase'
+	textTransform: 'uppercase',
+	textOverflow: 'ellipsis',
+	overflow: 'hidden',
+	whiteSpace: 'noWrap'
 }

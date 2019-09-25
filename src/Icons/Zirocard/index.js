@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Zirocard = ({ size = 40 }) =>
+export const Zirocard = ({ size = 30 }) =>
 	<div style={{ padding: '5px 0' }}>
 		<svg viewBox='0 0 400 400' width={size} height={size}>
 			<circle cx='200' cy='200' r='200' fill='#222222'/>

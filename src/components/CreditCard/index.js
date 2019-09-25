@@ -11,15 +11,14 @@ const CreditCard = ({ number, brand }) => {
 	}, [])
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
-			<div style={brandLogo}><Icon type={brand || 'zirocard'} /></div>
+			<div style={brandLogo}>{brand && <Icon type={brand} />}</div>
 			<div style={chip}></div>
 			<label style={cardnumber}>
 				<CardNumbers number={number} brand={brand} />
 			</label>
 			<div style={info}>
-				<label style={header}>Vitor A Barbosa</label>
+				<label style={header}>Vitor Almeida Barbosa</label>
 				<label style={header}>11/24</label>
-				<label style={header}>111</label>
 			</div>
 		</div>
 	)
