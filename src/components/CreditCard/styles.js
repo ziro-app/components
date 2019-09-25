@@ -9,7 +9,7 @@ card = width => ({
 	height: width/1.8,
 	padding: '0 4%',
 	boxSizing: 'border-box',
-	border: `4px solid ${primaryColor}`,
+	border: `3px solid ${primaryColor}`,
 	borderRadius: '15px',
 	color: primaryColor,
 	boxShadow: `rgba(34, 34, 34, 0.4) 0px 5px 15px -4px`
