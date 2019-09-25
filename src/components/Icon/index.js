@@ -22,6 +22,7 @@ import { Amex } from '../../Icons/Amex/index'
 import { Visa } from '../../Icons/Visa/index'
 import { Mastercard } from '../../Icons/Mastercard/index'
 import { Elo } from '../../Icons/Elo/index'
+import { Hiper } from '../../Icons/Hiper/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -47,7 +48,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		amex: <Amex {...iconProps} />,
 		visa: <Visa {...iconProps} />,
 		mastercard: <Mastercard {...iconProps} />,
-		elo: <Elo {...iconProps} />
+		elo: <Elo {...iconProps} />,
+		hiper: <Hiper {...iconProps} />,
+		hipercard: <Hiper {...iconProps} />
 	}
 	return iconList[type]
 }

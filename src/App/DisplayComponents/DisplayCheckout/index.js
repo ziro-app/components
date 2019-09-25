@@ -6,8 +6,6 @@ import { container } from '../../../Theme/variables'
 export const DisplayCheckout = () =>
 	<div style={container}>
 		<Checkout />
-		<Icon type='amex' />
-		<Icon type='visa' />
-		<Icon type='mastercard' />
+		<Icon type='hiper' />
 		<Icon type='elo' />
 	</div>

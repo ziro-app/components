@@ -11,7 +11,7 @@ const CreditCard = ({ number, brand }) => {
 	}, [])
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
-			<div style={brandLogo}><Icon type={brand || 'visa'} /></div>
+			<div style={brandLogo}><Icon type={brand || 'visa'} /></div> {/* add Ziro logo for unknown brand*/}
 			<div style={chip}></div>
 			<label style={cardnumber}>
 				{brand === 'amex'
