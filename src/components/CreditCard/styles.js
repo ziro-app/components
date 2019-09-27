@@ -16,7 +16,7 @@ card = width => ({
 		rgba(34, 34, 34, 0.4) 0px 0px 10px -4px,
 		rgba(34, 34, 34, 0.35) 0px 5px 15px -1px
 	`,
-	background: `linear-gradient(#FAFAFA 10%, #FBFBFB 30%, #FCFCFC 60%, #FFF)`
+	background: `radial-gradient(ellipse at top right, #FFF 25%, #FBFBFB 50%, #FAFAFA 75%, #F9F9F9`
 }),
 
 brandLogo = {

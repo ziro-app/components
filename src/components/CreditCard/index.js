@@ -17,8 +17,8 @@ const CreditCard = ({ number, brand }) => {
 				<CardNumbers number={number} brand={brand} />
 			</label>
 			<div style={info}>
-				<label style={header}>Vitor Almeida Barbosa</label>
-				<label style={header}>11/24</label>
+				<label style={header}>Titular do Cartão</label>
+				<label style={header}>**/**</label>
 			</div>
 		</div>
 	)
