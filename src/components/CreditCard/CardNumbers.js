@@ -11,17 +11,7 @@ export const CardNumbers = ({ number, brand }) => {
 			</Fragment>
 		)
 	}
-	if (brand === 'visa') {
-		return (
-			<Fragment>
-				<span>{number ? number.substring(0,4) : '****'}</span>
-				<span>{number ? number.substring(4,8) : '****'}</span>
-				<span>{number ? number.substring(8,12) : '****'}</span>
-				<span>{number ? number.substring(12,19) : '*******'}</span>
-			</Fragment>
-		)
-	}
-	if (brand === 'mastercard') {
+	if (brand === 'visa' || brand === 'mastercard') {
 		return (
 			<Fragment>
 				<span>{number ? number.substring(0,4) : '****'}</span>
