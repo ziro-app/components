@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import maskInput from '@ziro/mask-input'
-import { matchCreditCardBrand } from './utils/matchCreditCardBrand'
 import { useBrand } from './utils/useBrand'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
@@ -9,14 +7,7 @@ import { container } from './styles'
 
 const Checkout = () => {
 	const [number, setNumber] = useState('')
-	const [brand] = useBrand(number)
-	const maskByBrand = (number, brand) => {
-		if (brand === 'amex')
-			return maskInput(number,'#### ###### #####',true)
-		if (brand === 'visa' || brand === 'mastercard')
-			return maskInput(number, '#### #### #### #######')
-		return maskInput(number,'#### #### #### ####',true)
-	}
+	const [brand, numberMasked] = useBrand(number)
 	return (
 		<div style={container}>
 			<CreditCard
@@ -24,7 +15,7 @@ const Checkout = () => {
 				brand={brand}
 			/>
 			<InputText
-				value={maskByBrand(number,brand)}
+				value={numberMasked}
 				onChange={({ target: { value } }) => setNumber(value)}
 				placeholder='Número do cartão'
 			/>
