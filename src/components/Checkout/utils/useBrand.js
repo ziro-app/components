@@ -4,16 +4,18 @@ import { matchCreditCardBrand } from './matchCreditCardBrand'
 
 export const useBrand = number => {
 	const [brand, setBrand] = useState('')
-	const [numberMasked, setNumberMasked] = useState('')
+	const [numberMaskedCard, setNumberMaskedCard] = useState('')
+	const [numberMaskedInput, setNumberMaskedInput] = useState('')
 	useEffect(() => {
 		setBrand(matchCreditCardBrand(number))
+		setNumberMaskedCard(number.replace(/\s/g, ''))
 		if (brand === 'amex')
-			setNumberMasked(maskInput(number, '#### ###### #####', true))
+			setNumberMaskedInput(maskInput(number, '#### ###### #####', true))
 		else if (brand === 'visa' || brand === 'mastercard')
-			setNumberMasked(maskInput(number, '#### #### #### #######', true))
+			setNumberMaskedInput(maskInput(number, '#### #### #### #######', true))
 		else
-			setNumberMasked(maskInput(number, '#### #### #### ####', true))
+			setNumberMaskedInput(maskInput(number, '#### #### #### ####', true))
 	}, [number])
 	
-	return [brand, numberMasked]
+	return [brand, numberMaskedCard, numberMaskedInput]
 }

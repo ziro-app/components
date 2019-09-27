@@ -7,15 +7,15 @@ import { container } from './styles'
 
 const Checkout = () => {
 	const [number, setNumber] = useState('')
-	const [brand, numberMasked] = useBrand(number)
+	const [brand, numberMaskedCard, numberMaskedInput] = useBrand(number)
 	return (
 		<div style={container}>
 			<CreditCard
-				number={number.replace(/\s/g, '')}
+				number={numberMaskedCard}
 				brand={brand}
 			/>
 			<InputText
-				value={numberMasked}
+				value={numberMaskedInput}
 				onChange={({ target: { value } }) => setNumber(value)}
 				placeholder='Número do cartão'
 			/>
