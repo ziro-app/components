@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeSmall } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor } from '../../Theme/variables'
 
 export const
 
@@ -15,5 +15,6 @@ header = threeColumn => ({
 text = {
 	fontFamily: fontTitle,
 	fontSize: fontSizeSmall,
+	color: primaryColor,
 	textTransform: 'uppercase'
 }

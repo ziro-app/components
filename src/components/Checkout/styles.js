@@ -8,18 +8,8 @@ container = {
 	padding: '20px 5% 0'
 },
 
-wrapper = {
+labelHeader = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '5px',
-	alignItems: 'center',
-	marginBottom: '4px',
-	paddingLeft: '7px'
-},
-
-label = {
-	fontFamily: fontTitle,
-	fontSize: fontSizeSmall,
-	color: primaryColor,
-	textTransform: 'uppercase'
+	paddingLeft: '4px'
 }
