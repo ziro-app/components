@@ -8,7 +8,7 @@ card = width => ({
 	maxWidth: '300px',
 	width: '100%',
 	height: width/1.75,
-	margin: '0 auto 20px',
+	margin: '0 auto 15px',
 	padding: '0 5%',
 	borderLeft: `8px solid ${primaryColor}`,
 	boxSizing: 'border-box',
