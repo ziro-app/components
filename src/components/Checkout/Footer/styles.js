@@ -4,41 +4,44 @@ export const
 
 container = {
 	display: 'grid',
-	gridTemplateColumns: '1fr 30%',
-	gridColumnGap: '10px',
 	margin: '60px auto 0',
 	padding: '30px 0',
 	borderTop: '1px solid #F3f3f3',
+	color: primaryColor
 },
 
-info = {
+summary = {
 	display: 'grid',
-	gridRowGap: '2px'
+	marginBottom: '10px'
 },
 
-amount = {
+title = {
 	fontFamily: fontTitle,
 	fontSize: fontSizeSmall,
 	textTransform: 'uppercase',
+	marginBottom: '10px'
 },
 
-legal = {
+service = {
 	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '5px',
-	alignItems: 'center'
+	gridTemplateColumns: '1fr 1fr'
 },
 
-ziro = {
+total = {
+	justifySelf: 'end'
+},
+
+amount = {
+	justifySelf: 'end',
 	fontSize: fontSizeSmall,
 	fontWeight: fontWeightMuted
 },
 
-cnpj = {
-	fontSize: fontSizeSmall,
-	fontWeight: fontWeightMuted
+regulatory = {
+	display: 'grid',
+	justifyItems: 'center'
 },
 
-pay = {
-
+info = {
+	fontSize: fontSizeSmall
 }

@@ -1,17 +1,20 @@
 import React from 'react'
-import { container, info, amount, legal, ziro, cnpj, pay } from './styles'
+import { container, summary, title, service, total, amount, regulatory, info } from './styles'
 
 export const Footer = () => {
 	return (
 		<div style={container}>
-			<div style={info}>
-				<label style={amount}>À Pagar: R$181.190,88</label>
-				<div style={legal}>
-					<label style={ziro}>Ziro</label>
-					<label style={cnpj}>28.026.371/0001-61</label>
+			<div style={summary}>
+				<div style={title}>Resumo do pagamento</div>
+				<div style={service}>
+					<label>Crisfael</label>
+					<label style={total}>R$181.234,66</label>
 				</div>
+				<label style={amount}>4x de R$45.308,66</label>
 			</div>
-			<div style={pay}>Button</div>
+			<div style={regulatory}>
+				<label style={info}>pagamento via Ziro: 28.026.371/0001-61</label>
+			</div>
 		</div>
 	)
 }
