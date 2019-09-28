@@ -6,6 +6,7 @@ import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Icon from '../Icon/index'
+import { Footer } from './Footer/index'
 import { container, labelHeader, dual } from './styles'
 
 const Checkout = () => {
@@ -60,6 +61,7 @@ const Checkout = () => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</Fragment>
 	)
 }

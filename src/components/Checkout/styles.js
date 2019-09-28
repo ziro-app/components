@@ -1,5 +1,3 @@
-import { fontTitle, fontSizeSmall, primaryColor } from '../../Theme/variables'
-
 export const
 
 container = {
