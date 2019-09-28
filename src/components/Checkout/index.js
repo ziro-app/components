@@ -10,11 +10,13 @@ import { container, labelHeader } from './styles'
 const Checkout = () => {
 	const [number, setNumber] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput] = useBrand(number)
+	const [cardholder, setCardholder] = useState('')
 	return (
 		<div style={container}>
 			<CreditCard
 				number={numberMaskedCard}
 				brand={brand}
+				cardholder={cardholder}
 			/>
 			<div>
 				<InputLabel name='Número do cartão' styleHeader={labelHeader} />
@@ -22,6 +24,14 @@ const Checkout = () => {
 					value={numberMaskedInput}
 					onChange={({ target: { value } }) => setNumber(value)}
 					placeholder='1234 1234 1234 1234'
+				/>
+			</div>
+			<div>
+				<InputLabel name='Titular do cartão' styleHeader={labelHeader} />
+				<InputText
+					value={cardholder}
+					onChange={({ target: { value } }) => setCardholder(value)}
+					placeholder='Fernando(a) da Silva'
 				/>
 			</div>
 		</div>
