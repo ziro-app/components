@@ -5,18 +5,22 @@ import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Icon from '../Icon/index'
-import { container, labelHeader } from './styles'
+import { container, labelHeader, dual } from './styles'
 
 const Checkout = () => {
 	const [number, setNumber] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput] = useBrand(number)
 	const [cardholder, setCardholder] = useState('')
+	const [expiry, setExpiry] = useState('')
+	const [cvv, setCvv] = useState('')
 	return (
 		<div style={container}>
 			<CreditCard
 				number={numberMaskedCard}
 				brand={brand}
 				cardholder={cardholder}
+				expiry={expiry}
+				cvv={cvv}
 			/>
 			<div>
 				<InputLabel name='Número do cartão' styleHeader={labelHeader} />
@@ -33,6 +37,24 @@ const Checkout = () => {
 					onChange={({ target: { value } }) => setCardholder(value)}
 					placeholder='Fernando(a) da Silva'
 				/>
+			</div>
+			<div style={dual}>
+				<div>
+					<InputLabel name='Validade' styleHeader={labelHeader} />
+					<InputText
+						value={expiry}
+						onChange={({ target: { value } }) => setExpiry(value)}
+						placeholder='01/20'
+					/>
+				</div>
+				<div>
+					<InputLabel name='CVV' styleHeader={labelHeader} />
+					<InputText
+						value={cvv}
+						onChange={({ target: { value } }) => setCvv(value)}
+						placeholder='1111'
+					/>
+				</div>
 			</div>
 		</div>
 	)

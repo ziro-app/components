@@ -12,4 +12,10 @@ labelHeader = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	paddingLeft: '4px'
+},
+
+dual = {
+	display: 'grid',
+	gridTemplateColumns: '1fr 1fr',
+	gridColumnGap: '10px'
 }

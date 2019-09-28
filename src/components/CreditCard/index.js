@@ -4,7 +4,7 @@ import Icon from '../Icon/index'
 import { CardNumbers } from './CardNumbers'
 import { card, brandLogo, chip, cardnumber, info, header } from './styles'
 
-const CreditCard = ({ number, brand, cardholder }) => {
+const CreditCard = ({ number, brand, cardholder, expiry, cvv }) => {
 	const [cardWidth, setCardWidth] = useState(0)
 	const cardBox = useCallback(htmlNode => {
 		if (htmlNode) setCardWidth(htmlNode.getBoundingClientRect().width)
@@ -18,7 +18,7 @@ const CreditCard = ({ number, brand, cardholder }) => {
 			</label>
 			<div style={info}>
 				<label style={header}>{cardholder || 'titular do cartão'}</label>
-				<label style={header}>**/**</label>
+				<label style={header}>{expiry || '**/**'}</label>
 			</div>
 		</div>
 	)
@@ -27,7 +27,9 @@ const CreditCard = ({ number, brand, cardholder }) => {
 CreditCard.propTypes = {
 	number: PropTypes.string.isRequired,
 	brand: PropTypes.string.isRequired,
-	cardholder: PropTypes.string.isRequired
+	cardholder: PropTypes.string.isRequired,
+	expiry: PropTypes.string.isRequired,
+	cvv: PropTypes.string.isRequired
 }
 
 export default CreditCard
