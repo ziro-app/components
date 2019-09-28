@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useBrand } from './utils/useBrand'
+import { useCard } from './utils/useCard'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
@@ -9,7 +9,7 @@ import { container, labelHeader, dual } from './styles'
 
 const Checkout = () => {
 	const [number, setNumber] = useState('')
-	const [brand, numberMaskedCard, numberMaskedInput] = useBrand(number)
+	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
@@ -43,7 +43,7 @@ const Checkout = () => {
 					<InputLabel name='Validade' styleHeader={labelHeader} />
 					<InputText
 						value={expiry}
-						onChange={({ target: { value } }) => setExpiry(value)}
+						onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
 						placeholder='01/20'
 					/>
 				</div>
@@ -51,7 +51,7 @@ const Checkout = () => {
 					<InputLabel name='CVV' styleHeader={labelHeader} />
 					<InputText
 						value={cvv}
-						onChange={({ target: { value } }) => setCvv(value)}
+						onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
 						placeholder='1111'
 					/>
 				</div>

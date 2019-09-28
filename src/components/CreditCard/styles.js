@@ -4,7 +4,7 @@ export const
 
 card = width => ({
 	display: 'grid',
-	gridTemplateRows: '1fr 30px 30px 40px',
+	gridTemplateRows: '1fr 30px 30px 50px',
 	width: '100%',
 	height: width/1.8,
 	padding: '0 5%',
