@@ -2,7 +2,7 @@ import React, { useState, useCallback }  from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon/index'
 import { CardNumbers } from './CardNumbers'
-import { card, brandLogo, chip, cardnumber, info, header } from './styles'
+import { card, brandLogo, info, chip, header, cardcvv, cardnumber } from './styles'
 
 const CreditCard = ({ number, brand, cardholder, expiry, cvv }) => {
 	const [cardWidth, setCardWidth] = useState(0)
@@ -12,7 +12,15 @@ const CreditCard = ({ number, brand, cardholder, expiry, cvv }) => {
 	return (
 		<div style={card(cardWidth)} ref={cardBox}>
 			<div style={brandLogo}>{brand && <Icon type={brand} />}</div>
-			<div style={chip}></div>
+			<div style={info}>
+				<div style={chip}></div>
+				<div style={header}>
+					<div style={cardcvv}>
+						<div>CVV:</div>
+						<div>{cvv || '****'}</div>
+					</div>
+				</div>
+			</div>
 			<label style={cardnumber}>
 				<CardNumbers number={number} brand={brand} />
 			</label>

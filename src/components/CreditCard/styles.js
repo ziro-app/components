@@ -23,26 +23,19 @@ brandLogo = {
 	justifySelf: 'end'
 },
 
+info = {
+	display: 'grid',
+	gridTemplateColumns: '1fr auto',
+	alignItems: 'center',
+	gridColumnGap: '15px'
+},
+
 chip = {
 	width: '30px',
 	height: '30px',
 	background: `
 		url('https://res.cloudinary.com/ziro/image/upload/v1569380926/chip_qurqrs.png')
 		0 0 / 100% no-repeat`
-},
-
-cardnumber = {
-	display: 'flex',
-	alignItems: 'flex-end',
-	justifyContent: 'space-between',
-	fontFamily: fontTitle
-},
-
-info = {
-	display: 'grid',
-	gridTemplateColumns: '1fr auto',
-	alignItems: 'center',
-	gridColumnGap: '15px'
 },
 
 header = {
@@ -52,4 +45,17 @@ header = {
 	textOverflow: 'ellipsis',
 	overflow: 'hidden',
 	whiteSpace: 'noWrap'
+},
+
+cardcvv = {
+	display: 'grid',
+	gridTemplateColumns: '1fr 42px',
+	justifyItems: 'end'
+},
+
+cardnumber = {
+	display: 'flex',
+	alignItems: 'flex-end',
+	justifyContent: 'space-between',
+	fontFamily: fontTitle
 }
