@@ -4,14 +4,13 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '15px',
-	padding: '20px 5% 0'
+	gridRowGap: '15px'
 },
 
 labelHeader = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	paddingLeft: '4px'
+	paddingLeft: '5px'
 },
 
 dual = {

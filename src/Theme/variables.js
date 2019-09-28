@@ -3,7 +3,7 @@ export const
 /* STANDARD CONTAINER */
 
 container = {
-	maxWidth: '600px',
+	maxWidth: '500px',
 	height: '100vh',
 	boxSizing: 'border-box',
 	margin: '0 auto'
@@ -13,6 +13,7 @@ container = {
 maxWidth = '400px',
 standardMargin = '20px auto 0',
 standardPadding = '0 10%',
+padding = '20px 5% 0',
 
 /* COLORS */
 primaryColor = '#222222', // rgb(34,34,34)
