@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../../Button/index'
 import { container, summary, title, service, total, amount, regulatory, info } from './styles'
 
 export const Footer = () => {
@@ -12,6 +13,7 @@ export const Footer = () => {
 				</div>
 				<label style={amount}>4x de R$45.308,66</label>
 			</div>
+			<Button />
 			<div style={regulatory}>
 				<label style={info}>pagamento via Ziro: 28.026.371/0001-61</label>
 			</div>
