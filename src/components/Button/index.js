@@ -1,23 +1,25 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useSpring, animated as a } from 'react-spring'
-// import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { btn } from './styles'
 // import { Errors } from './Errors'
 // import { Spinner } from '../../../Assets/Spinner/index'
 // import { buttonWrapper, loader, submit, submitDisabled, scaleButton, forgotPass } from './styles'
 
 const Button = () => {
-	const buttonAnimation = useSpring({ transform: 'scale(0.95)', from: { transform: 'scale(1)' } })
+	const start = {
+		transform: 'scale(1)'
+	}
+	const end = {
+		transform: 'scale(0.95)'
+	}
 	const [animate, setAnimate] = useState(false)
 	return (
-		<a.input
-			style={animate ? buttonAnimation : null}
-			onTouchStart={() => setAnimate(true)}
-			onTouchEnd={() => setAnimate(false)}
-			onMouseDown={() => setAnimate(true)}
-			onMouseUp={() => setAnimate(false)}
+		<motion.input
+			style={btn}
 			type='submit'
 			value='Confirmar'
+			whileTap={{ scale: 0.95 }}
 		/>
 	)
 }
