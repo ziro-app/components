@@ -4,7 +4,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '40px',
+	gridRowGap: '30px',
 	margin: '60px auto 0',
 	padding: '30px 0 10px',
 	borderTop: '1px solid #F3f3f3',

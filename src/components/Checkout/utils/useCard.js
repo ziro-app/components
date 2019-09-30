@@ -9,7 +9,7 @@ export const useCard = number => {
 	const expiryMasked = expiry => maskInput(expiry, '##/##', true)
 	const cvvMasked = cvv => maskInput(cvv, '####', true)
 	useEffect(() => {
-		setBrand(matchCreditCardBrand(number))
+		setBrand(matchCreditCardBrand(number.replace(/\s/g, '')))
 		setNumberMaskedCard(number.replace(/\s/g, ''))
 		if (brand === 'amex')
 			setNumberMaskedInput(maskInput(number, '#### ###### #####', true))
