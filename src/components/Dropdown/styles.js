@@ -1,6 +1,8 @@
 import { fontBody, fontSizeInput, primaryColor, grayColor1, grayColor2, grayColor3 } from '../../Theme/variables'
 
 export const data = {
+	display: 'grid',
+	overflowY: 'scroll',
 	boxSizing: 'border-box',
 	width: '100%',
 	margin: '3px 0 0',
