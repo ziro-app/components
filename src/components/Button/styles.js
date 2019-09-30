@@ -15,6 +15,5 @@ btn = {
 	fontSize: fontSizeInput,
 	color: '#FFF',
 	background: gradient,
-	boxShadow: `${shadow}`,
-	transition: 'scale 3s'
+	boxShadow: `${shadow}`
 }

@@ -7,13 +7,6 @@ import { btn } from './styles'
 // import { buttonWrapper, loader, submit, submitDisabled, scaleButton, forgotPass } from './styles'
 
 const Button = () => {
-	const start = {
-		transform: 'scale(1)'
-	}
-	const end = {
-		transform: 'scale(0.95)'
-	}
-	const [animate, setAnimate] = useState(false)
 	return (
 		<motion.input
 			style={btn}
