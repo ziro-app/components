@@ -1,8 +1,8 @@
 import React from 'react'
-import Checkout from '../../../components/Checkout/index'
+import Dropdown from '../../../components/Dropdown/index'
 import { container, padding } from '../../../Theme/variables'
 
-export const DisplayCheckout = () =>
+export const DisplayDropdown = () =>
 	<div style={{ ...container, padding: padding }}>
-		<Checkout />
+		<Dropdown />
 	</div>

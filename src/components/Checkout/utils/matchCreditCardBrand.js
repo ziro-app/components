@@ -5,7 +5,6 @@ export const matchCreditCardBrand = cardNumber => {
 		!!brand[1].map(pattern => cardNumber.startsWith(pattern)).filter(value => !!value).pop()
 	)
 	/* matching algorithm has pattern conflicts. Resolve each case */
-	console.log(match)
 	if (match instanceof Array && match.length > 1) {
 		if (match[1][0] === 'hipercard') return 'hipercard'
 		if (match[1][0] === 'hiper') return 'hiper'

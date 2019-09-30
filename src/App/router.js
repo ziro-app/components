@@ -11,6 +11,7 @@ import { DisplayHeaderHome } from './DisplayComponents/DisplayHeaderHome/index'
 import { DisplayLogo } from './DisplayComponents/DisplayLogo/index'
 import { DisplayTransitionRoute } from './DisplayComponents/DisplayTransitionRoute/index'
 import { DisplayCheckout } from './DisplayComponents/DisplayCheckout/index'
+import { DisplayDropdown } from './DisplayComponents/DisplayDropdown/index'
 
 export const Router = () =>
 	<Switch>
@@ -25,5 +26,6 @@ export const Router = () =>
 		<Route path='/logo'><DisplayLogo /></Route>
 		<Route path='/transition/:any'><DisplayTransitionRoute /></Route>
 		<Route path='/checkout'><DisplayCheckout /></Route>
+		<Route path='/dropdown'><DisplayDropdown /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
