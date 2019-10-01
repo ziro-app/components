@@ -10,7 +10,7 @@ import Icon from '../Icon/index'
 import { Footer } from './Footer/index'
 import { container, labelHeader, dual } from './styles'
 
-const Checkout = () => {
+const Checkout = ({ charge, maxInstallments }) => {
 	const [number, setNumber] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
 	const [cardholder, setCardholder] = useState('')
@@ -81,6 +81,8 @@ const Checkout = () => {
 }
 
 Checkout.propTypes = {
+	charge: PropTypes.string.isRequired,
+	maxInstallments: PropTypes.string.isRequired
 }
 
 export default Checkout
