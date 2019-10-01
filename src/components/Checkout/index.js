@@ -66,10 +66,7 @@ const Checkout = () => {
 					<InputLabel name='Parcelamento' styleHeader={labelHeader} />
 					<Dropdown
 						value={installments}
-						onChange={(event) => {
-							console.log(event)
-							setInstallments(value)
-						}}
+						onChange={({ target: { value } }) => setInstallments(value.substring(0,2))}
 					/>
 				</div>
 			</div>
