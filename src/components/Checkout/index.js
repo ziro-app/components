@@ -66,7 +66,12 @@ const Checkout = () => {
 					<InputLabel name='Parcelamento' styleHeader={labelHeader} />
 					<Dropdown
 						value={installments}
-						onChange={({ target: { value } }) => setInstallments(value.substring(0,2))}
+						onSelect={({ target: { value } }) => setInstallments(value.substring(0,2))}
+						list={[
+							'1x 8.922,41 = 8.922,41',
+							'2x 4.461,21 = 8.922,41',
+							'3x 2.974,14 = 8.922,41',
+						]}
 					/>
 				</div>
 			</div>
