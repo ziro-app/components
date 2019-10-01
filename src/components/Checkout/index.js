@@ -5,6 +5,7 @@ import HeaderWithBack from '../HeaderWithBack/index'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
+import Dropdown from '../Dropdown/index'
 import Icon from '../Icon/index'
 import { Footer } from './Footer/index'
 import { container, labelHeader, dual } from './styles'
@@ -15,6 +16,7 @@ const Checkout = () => {
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
+	const [installments, setInstallments] = useState('')
 	return (
 		<Fragment>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
@@ -59,6 +61,16 @@ const Checkout = () => {
 							placeholder='1111'
 						/>
 					</div>
+				</div>
+				<div>
+					<InputLabel name='Parcelamento' styleHeader={labelHeader} />
+					<Dropdown
+						value={installments}
+						onChange={(event) => {
+							console.log(event)
+							setInstallments(value)
+						}}
+					/>
 				</div>
 			</div>
 			<Footer />

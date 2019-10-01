@@ -1,8 +1,13 @@
-import { fontBody, fontSizeInput, fontSizeSmall, primaryColor, grayColor1, grayColor2, grayColor3 } from '../../Theme/variables'
+import { fontBody, fontSizeInput, primaryColor, grayColor1 } from '../../Theme/variables'
 
 export const
 
+container = {
+	position: 'relative'
+},
+
 modal = {
+	position: 'absolute',
 	display: 'grid',
 	overflowY: 'scroll',
 	boxSizing: 'border-box',
