@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
+import { installmentOptions } from './utils/installmentOptions'
 import HeaderWithBack from '../HeaderWithBack/index'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
@@ -67,11 +68,7 @@ const Checkout = ({ charge, maxInstallments }) => {
 					<Dropdown
 						value={installments}
 						onSelect={({ target: { value } }) => setInstallments(value.substring(0,2))}
-						list={[
-							'1x 8.922,41 = 8.922,41',
-							'2x 4.461,21 = 8.922,41',
-							'3x 2.974,14 = 8.922,41',
-						]}
+						list={installmentOptions(charge, maxInstallments)}
 					/>
 				</div>
 			</div>
