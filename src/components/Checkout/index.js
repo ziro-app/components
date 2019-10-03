@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
 import { installmentOptions } from './utils/installmentOptions'
@@ -19,7 +19,7 @@ const Checkout = ({ charge, maxInstallments }) => {
 	const [cvv, setCvv] = useState('')
 	const [installments, setInstallments] = useState('')
 	return (
-		<Fragment>
+		<>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
 			<div style={container}>
 				<CreditCard
@@ -72,8 +72,8 @@ const Checkout = ({ charge, maxInstallments }) => {
 					/>
 				</div>
 			</div>
-			<Footer />
-		</Fragment>
+			<Footer charge={charge} installments={installments} />
+		</>
 	)
 }
 
