@@ -8,6 +8,7 @@ export const useCard = number => {
 	const [numberMaskedInput, setNumberMaskedInput] = useState('')
 	const expiryMasked = expiry => maskInput(expiry, '##/##', true)
 	const cvvMasked = cvv => maskInput(cvv, '####', true)
+	const cpfMasked = cpf => maskInput(cpf, '###.###.###-##', true)
 	useEffect(() => {
 		setBrand(matchCreditCardBrand(number.replace(/\s/g, '')))
 		setNumberMaskedCard(number.replace(/\s/g, ''))
@@ -19,5 +20,5 @@ export const useCard = number => {
 			setNumberMaskedInput(maskInput(number, '#### #### #### ####', true))
 	}, [number])
 	
-	return [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked]
+	return [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked]
 }

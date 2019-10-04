@@ -13,10 +13,11 @@ import { container, labelHeader, dual } from './styles'
 
 const Checkout = ({ charge, maxInstallments }) => {
 	const [number, setNumber] = useState('')
-	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
+	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
+	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
 	return (
 		<>
@@ -62,6 +63,14 @@ const Checkout = ({ charge, maxInstallments }) => {
 							placeholder='1111'
 						/>
 					</div>
+				</div>
+				<div>
+					<InputLabel name='CPF do titular' styleHeader={labelHeader} />
+					<InputText
+						value={cpf}
+						onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
+						placeholder='111.222.333-44'
+					/>
 				</div>
 				<div>
 					<InputLabel name='Parcelamento' styleHeader={labelHeader} />
