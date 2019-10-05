@@ -17,6 +17,7 @@
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
+    "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",
     "cloudinary-react": "^1.1.4",
     "framer-motion": "^1.6.7",

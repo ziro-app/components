@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
-import { installmentOptions } from './utils/installmentOptions'
+import { installmentOptions } from './utils/installmentUtils'
 import HeaderWithBack from '../HeaderWithBack/index'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
