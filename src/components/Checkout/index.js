@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
+import { useForm } from './utils/useForm'
 import { installmentOptions } from './utils/installmentUtils'
 import HeaderWithBack from '../HeaderWithBack/index'
 import CreditCard from '../CreditCard/index'
@@ -12,14 +13,16 @@ import { container, labelHeader, dual } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
-	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
+	const state = [number, cardholder, expiry, cvv, cpf, installments]
+	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
+	const [errors, submitting, submitForm] = useForm(state)
 	return (
-		<>
+		<form onSubmit={submitForm}>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
 			<div style={container}>
 				<CreditCard
@@ -81,7 +84,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				</div>
 			</div>
 			<Footer charge={charge} installments={installments} seller={seller} />
-		</>
+		</form>
 	)
 }
 
