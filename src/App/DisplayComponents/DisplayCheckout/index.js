@@ -4,5 +4,5 @@ import { container, padding } from '../../../Theme/variables'
 
 export const DisplayCheckout = () =>
 	<div style={{ ...container, padding: padding }}>
-		<Checkout charge='821377' maxInstallments='6' />
+		<Checkout charge='60078' maxInstallments='6' seller='Crisfael' />
 	</div>

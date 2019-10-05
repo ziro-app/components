@@ -1,22 +1,21 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import currencyFormat from '@ziro/currency-format'
 import { installmentCharge } from '../utils/installmentUtils'
 import Button from '../../Button/index'
 import { container, summary, title, service, total, amount, regulatory, info } from './styles'
 
-export const Footer = ({ charge, installments }) => {
+export const Footer = ({ charge, installments, seller }) => {
 	return (
 		<div style={container}>
 			<div style={summary}>
 				<div style={title}>Resumo do pagamento</div>
 				<div style={service}>
-					<label>Crisfael</label>
+					<label>{seller}</label>
 					<label style={total}>{currencyFormat(charge)}</label>
 				</div>
 				<label style={amount}>
-					&nbsp;
-					{installments && `${installments}x de ${installmentCharge(charge, installments)}`}
+					&nbsp;{installments && `${installments}x de ${installmentCharge(charge, installments)}`}
 				</label>
 			</div>
 			<Button />
@@ -29,5 +28,6 @@ export const Footer = ({ charge, installments }) => {
 
 Footer.propTypes = {
 	charge: PropTypes.string.isRequired,
-	installments: PropTypes.string.isRequired
+	installments: PropTypes.string.isRequired,
+	seller: PropTypes.string.isRequired
 }

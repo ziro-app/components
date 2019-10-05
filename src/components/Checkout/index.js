@@ -7,11 +7,10 @@ import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Dropdown from '../Dropdown/index'
-import Icon from '../Icon/index'
 import { Footer } from './Footer/index'
 import { container, labelHeader, dual } from './styles'
 
-const Checkout = ({ charge, maxInstallments }) => {
+const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const [cardholder, setCardholder] = useState('')
@@ -52,7 +51,7 @@ const Checkout = ({ charge, maxInstallments }) => {
 						<InputText
 							value={expiry}
 							onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
-							placeholder='01/20'
+							placeholder='01/24'
 						/>
 					</div>
 					<div>
@@ -81,14 +80,15 @@ const Checkout = ({ charge, maxInstallments }) => {
 					/>
 				</div>
 			</div>
-			<Footer charge={charge} installments={installments} />
+			<Footer charge={charge} installments={installments} seller={seller} />
 		</>
 	)
 }
 
 Checkout.propTypes = {
 	charge: PropTypes.string.isRequired,
-	maxInstallments: PropTypes.string.isRequired
+	maxInstallments: PropTypes.string.isRequired,
+	seller: PropTypes.string.isRequired
 }
 
 export default Checkout
