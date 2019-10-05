@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeInput, gradient, shadow } from '../../Theme/variables'
+import { fontTitle, fontSizeInput, gradient, shadow, primaryColor, grayColor4 } from '../../Theme/variables'
 
 export const
 
@@ -16,4 +16,13 @@ btn = {
 	color: '#FFF',
 	background: gradient,
 	boxShadow: `${shadow}`
+},
+
+btnDisabled = {
+	...btn,
+	cursor: 'initial',
+	color: primaryColor,
+	background: 'none',
+	backgroundColor: grayColor4,
+	boxShadow: 'none'
 }
