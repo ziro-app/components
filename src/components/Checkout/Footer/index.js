@@ -12,9 +12,12 @@ export const Footer = ({ charge, installments }) => {
 				<div style={title}>Resumo do pagamento</div>
 				<div style={service}>
 					<label>Crisfael</label>
-					<label style={total}>{currencyFormat(charge * 100)}</label>
+					<label style={total}>{currencyFormat(charge)}</label>
 				</div>
-				<label style={amount}>&nbsp;{installments && `${installments} de ${installmentCharge(charge, installments)}`}</label>
+				<label style={amount}>
+					&nbsp;
+					{installments && `${installments}x de ${installmentCharge(charge, installments)}`}
+				</label>
 			</div>
 			<Button />
 			<div style={regulatory}>

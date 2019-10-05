@@ -76,7 +76,7 @@ const Checkout = ({ charge, maxInstallments }) => {
 					<InputLabel name='Parcelamento' styleHeader={labelHeader} />
 					<Dropdown
 						value={installments}
-						onSelect={({ target: { value } }) => setInstallments(value.substring(0,2))}
+						onSelect={({ target: { value } }) => setInstallments(value.substring(0,1))}
 						list={installmentOptions(charge, maxInstallments)}
 					/>
 				</div>
