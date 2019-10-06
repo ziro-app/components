@@ -7,9 +7,14 @@ export const useForm = state => {
 	const [submitting, setSubmitting] = useState(false)
 	const submitForm = async event => {
 		event.preventDefault()
-		const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
-		console.log(msg)
+		if (validateForm(state)) {
+			setSubmitting(true)
+			const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
+			setSubmitting(false)
+			console.log(msg)
+		} else {
+			setErrors('Verifique campos com erros')
+		}
 	}
-	const formIsValid = validateForm(state)
 	return [errors, submitting, submitForm]
 }
