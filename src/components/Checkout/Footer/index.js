@@ -5,7 +5,7 @@ import { installmentCharge } from '../utils/installmentUtils'
 import Button from '../../Button/index'
 import { container, summary, title, service, total, amount, regulatory, info } from './styles'
 
-export const Footer = ({ charge, installments, seller }) =>
+export const Footer = ({ charge, installments, seller, submitting }) =>
 	<div style={container}>
 		<div style={summary}>
 			<div style={title}>Resumo do pagamento</div>
@@ -17,7 +17,7 @@ export const Footer = ({ charge, installments, seller }) =>
 				&nbsp;{installments && `${installments}x de ${installmentCharge(charge, installments)}`}
 			</label>
 		</div>
-		<Button submitting={false} cta='Confirmar' />
+		<Button submitting={submitting} cta='Confirmar' />
 		<div style={regulatory}>
 			<label style={info}>ZIRO: 28.026.371/0001-61</label>
 		</div>
@@ -26,5 +26,6 @@ export const Footer = ({ charge, installments, seller }) =>
 Footer.propTypes = {
 	charge: PropTypes.string.isRequired,
 	installments: PropTypes.string.isRequired,
-	seller: PropTypes.string.isRequired
+	seller: PropTypes.string.isRequired,
+	submitting: PropTypes.bool.isRequired,
 }

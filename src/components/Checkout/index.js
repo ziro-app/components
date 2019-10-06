@@ -22,7 +22,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const [errors, submitting, submitForm] = useForm(state)
 	return (
-		<form onSubmit={submitForm}>
+		<form onSubmit={submitting ? e => e.preventDefault() : submitForm}>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
 			<div style={container}>
 				<CreditCard
@@ -37,6 +37,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					<InputText
 						value={number}
 						onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
+						submitting={submitting}
 						placeholder='1234 1234 1234 1234'
 					/>
 				</div>
@@ -45,6 +46,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					<InputText
 						value={cardholder}
 						onChange={({ target: { value } }) => setCardholder(value)}
+						submitting={submitting}
 						placeholder='Fernando(a) da Silva'
 					/>
 				</div>
@@ -54,6 +56,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						<InputText
 							value={expiry}
 							onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
+							submitting={submitting}
 							placeholder='01/24'
 						/>
 					</div>
@@ -62,6 +65,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						<InputText
 							value={cvv}
 							onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
+							submitting={submitting}
 							placeholder='1111'
 						/>
 					</div>
@@ -71,6 +75,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					<InputText
 						value={cpf}
 						onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
+						submitting={submitting}
 						placeholder='111.222.333-44'
 					/>
 				</div>
@@ -80,10 +85,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						value={installments}
 						onSelect={({ target: { value } }) => setInstallments(value.substring(0,1))}
 						list={installmentOptions(charge, maxInstallments)}
+						submitting={submitting}
+						placeholder='Escolha quantas parcelas'
 					/>
 				</div>
 			</div>
-			<Footer charge={charge} installments={installments} seller={seller} />
+			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
 		</form>
 	)
 }

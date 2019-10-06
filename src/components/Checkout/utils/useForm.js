@@ -9,7 +9,7 @@ export const useForm = state => {
 		event.preventDefault()
 		if (validateForm(state)) {
 			setSubmitting(true)
-			const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
+			const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 10000))
 			setSubmitting(false)
 			console.log(msg)
 		} else {
