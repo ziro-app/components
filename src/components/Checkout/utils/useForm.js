@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { validateForm } from './validateForm'
 
 export const useForm = state => {
 	const [number, cardholder, expiry, cvv, cpf, installments] = state
@@ -9,5 +10,6 @@ export const useForm = state => {
 		const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
 		console.log(msg)
 	}
+	const formIsValid = validateForm(state)
 	return [errors, submitting, submitForm]
 }

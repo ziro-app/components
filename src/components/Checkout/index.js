@@ -35,8 +35,8 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				<div>
 					<InputLabel name='Número do cartão' styleHeader={labelHeader} />
 					<InputText
-						value={numberMaskedInput}
-						onChange={({ target: { value } }) => setNumber(value)}
+						value={number}
+						onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
 						placeholder='1234 1234 1234 1234'
 					/>
 				</div>

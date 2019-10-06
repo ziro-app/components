@@ -5,7 +5,8 @@ import { matchCreditCardBrand } from './matchCreditCardBrand'
 export const useCard = number => {
 	const [brand, setBrand] = useState('')
 	const [numberMaskedCard, setNumberMaskedCard] = useState('')
-	const [numberMaskedInput, setNumberMaskedInput] = useState('')
+	// const [numberMaskedInput, setNumberMaskedInput] = useState('')
+	let numberMaskedInput = number => maskInput(number, '#### #### #### ####', true)
 	const expiryMasked = expiry => maskInput(expiry, '##/##', true)
 	const cvvMasked = cvv => maskInput(cvv, '####', true)
 	const cpfMasked = cpf => maskInput(cpf, '###.###.###-##', true)
@@ -13,11 +14,11 @@ export const useCard = number => {
 		setBrand(matchCreditCardBrand(number.replace(/\s/g, '')))
 		setNumberMaskedCard(number.replace(/\s/g, ''))
 		if (brand === 'amex')
-			setNumberMaskedInput(maskInput(number, '#### ###### #####', true))
+			numberMaskedInput = number => maskInput(number, '#### ###### #####', true)
 		else if (brand === 'visa' || brand === 'mastercard')
-			setNumberMaskedInput(maskInput(number, '#### #### #### #######', true))
+			numberMaskedInput = number => maskInput(number, '#### #### #### #######', true)
 		else
-			setNumberMaskedInput(maskInput(number, '#### #### #### ####', true))
+			numberMaskedInput = number => maskInput(number, '#### #### #### ####', true)
 	}, [number])
 	
 	return [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked]
