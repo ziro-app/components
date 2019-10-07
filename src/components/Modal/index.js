@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
-import { animateContainer, animateOverlay } from './animation'
+import { animateOverlay, animateBox } from './animation'
 import { container, overlay, disableScroll } from './styles'
 
 const Modal = ({ isOpen, setIsOpen, children }) => {
-	const propsContainer = useSpring(animateContainer(isOpen))
 	const propsOverlay = useSpring(animateOverlay(isOpen))
+	const propsBox = useSpring(animateBox(isOpen))
 	return (
 		<>
-			{isOpen && <animated.div style={{...container, ...propsContainer}}>
-				<animated.div style={{...overlay, ...propsOverlay}} onClick={setIsOpen}></animated.div>
-				{children}
+			{isOpen && <animated.div style={{...container, ...propsOverlay}}>
+				<animated.div style={{...overlay, ...propsBox}} onClick={setIsOpen}>
+					{children}
+				</animated.div>
 			</animated.div>}
 			{isOpen && <style>{disableScroll}</style>}
 		</>
