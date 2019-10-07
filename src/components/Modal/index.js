@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring'
 import { animateContainer, animateOverlay } from './animation'
 import { container, overlay, disableScroll } from './styles'
 
-const Drawer = ({ isOpen, setIsOpen, children }) => {
+const Modal = ({ isOpen, setIsOpen, children }) => {
 	const propsContainer = useSpring(animateContainer(isOpen))
 	const propsOverlay = useSpring(animateOverlay(isOpen))
 	return (
@@ -16,7 +16,7 @@ const Drawer = ({ isOpen, setIsOpen, children }) => {
 	)
 }
 
-Drawer.propTypes = {
+Modal.propTypes = {
 	isOpen: PropTypes.bool.isRequired,
 	setIsOpen: PropTypes.func.isRequired,
 	children: PropTypes.oneOfType([
@@ -25,4 +25,4 @@ Drawer.propTypes = {
 	]).isRequired
 }
 
-export default Drawer
+export default Modal
