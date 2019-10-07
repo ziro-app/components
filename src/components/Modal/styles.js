@@ -2,8 +2,8 @@ import { primaryColor } from '../../Theme/variables'
 
 export const
 
-container = {
-	zIndex: '999',
+overlay = {
+	zIndex: '9999',
 	position: 'fixed',
 	top: '0',
 	left: '0',
@@ -17,10 +17,11 @@ container = {
 	background: 'rgba(34,34,34,0.2)'
 },
 
-overlay = {
+box = {
 	width: '80%',
 	padding: '20px 5%',
 	boxSizing: 'border-box',
+	borderRadius: '3px',
 	cursor: 'pointer',
 	background: 'white',
 	boxShadow: `1px 0px 8px 0px rgba(34,34,34,0.15), 1px 0px 8px 0px rgba(34,34,34,0.10),
