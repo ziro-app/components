@@ -3,18 +3,23 @@ import { validateForm } from './validateForm'
 
 export const useForm = state => {
 	const [number, cardholder, expiry, cvv, cpf, installments] = state
-	const [error, setError] = useState('')
+	const [hasError, setHasError] = useState('')
+	const [errors, setErrors] = useState({})
 	const [submitting, setSubmitting] = useState(false)
 	const submitForm = async event => {
 		event.preventDefault()
-		if (validateForm(state)) {
+		setHasError('')
+		setErrors({})
+		const [formIsValid, errors] = validateForm(state)
+		if (formIsValid) {
 			setSubmitting(true)
 			const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
 			setSubmitting(false)
 			console.log(msg)
 		} else {
-			setError('Verifique campos com erros')
+			setHasError('Verifique campos com erros')
+			setErrors(errors)
 		}
 	}
-	return [error, submitting, submitForm]
+	return [hasError, errors, submitting, submitForm]
 }

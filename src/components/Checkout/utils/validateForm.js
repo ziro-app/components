@@ -8,5 +8,7 @@ export const validateForm = state => {
 	const installmentsIsValid = !!installments
 	const formIsValid = numberIsValid && cardholderIsValid && expiryIsValid
 		&& cvvIsValid && cpfIsValid && installmentsIsValid
-	return formIsValid
+	const errors = { numberIsValid, cardholderIsValid, expiryIsValid,
+		cvvIsValid, cpfIsValid, installmentsIsValid }
+	return [formIsValid, errors]
 }

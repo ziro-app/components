@@ -22,7 +22,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [installments, setInstallments] = useState('')
 	const state = [number, cardholder, expiry, cvv, cpf, installments]
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
-	const [error, submitting, submitForm] = useForm(state)
+	const [hasError, errors, submitting, submitForm] = useForm(state)
 	return (
 		<form onSubmit={submitting ? e => e.preventDefault() : submitForm}>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
@@ -39,7 +39,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						name='Número do cartão'
 						styleHeader={labelHeader}
 						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
-						hasBadge={!!error}
+						hasBadge={!!hasError && !errors.numberIsValid}
 					/>
 					<InputText
 						value={number}
@@ -53,7 +53,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						name='Titular do cartão'
 						styleHeader={labelHeader}
 						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
-						hasBadge={!!error}
+						hasBadge={!!hasError && !errors.cardholderIsValid}
 					/>
 					<InputText
 						value={cardholder}
@@ -68,7 +68,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 							name='Validade'
 							styleHeader={labelHeader}
 							badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
-							hasBadge={!!error}
+							hasBadge={!!hasError && !errors.expiryIsValid}
 						/>
 						<InputText
 							value={expiry}
@@ -82,7 +82,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 							name='CVV'
 							styleHeader={labelHeader}
 							badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
-							hasBadge={!!error}
+							hasBadge={!!hasError && !errors.cvvIsValid}
 						/>
 						<InputText
 							value={cvv}
@@ -97,7 +97,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						name='CPF do titular'
 						styleHeader={labelHeader}
 						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
-						hasBadge={!!error}
+						hasBadge={!!hasError && !errors.cpfIsValid}
 					/>
 					<InputText
 						value={cpf}
@@ -111,7 +111,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						name='Parcelamento'
 						styleHeader={labelHeader}
 						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
-						hasBadge={!!error}
+						hasBadge={!!hasError && !errors.installmentsIsValid}
 					/>
 					<Dropdown
 						value={installments}
@@ -124,7 +124,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			</div>
 			<label style={errorBlock}>
 				<div style={errorMsg}>
-					{error && <Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}&nbsp;{error}
+					{!!hasError && <Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}&nbsp;{hasError}
 				</div>
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
