@@ -35,7 +35,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					cvv={cvv}
 				/>
 				<div>
-					<InputLabel name='Número do cartão' styleHeader={labelHeader} />
+					<InputLabel
+						name='Número do cartão'
+						styleHeader={labelHeader}
+						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
+						hasBadge={!!error}
+					/>
 					<InputText
 						value={number}
 						onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
@@ -44,7 +49,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					/>
 				</div>
 				<div>
-					<InputLabel name='Titular do cartão' styleHeader={labelHeader} />
+					<InputLabel
+						name='Titular do cartão'
+						styleHeader={labelHeader}
+						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
+						hasBadge={!!error}
+					/>
 					<InputText
 						value={cardholder}
 						onChange={({ target: { value } }) => setCardholder(value)}
@@ -54,7 +64,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				</div>
 				<div style={dual}>
 					<div>
-						<InputLabel name='Validade' styleHeader={labelHeader} />
+						<InputLabel
+							name='Validade'
+							styleHeader={labelHeader}
+							badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
+							hasBadge={!!error}
+						/>
 						<InputText
 							value={expiry}
 							onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
@@ -63,7 +78,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 						/>
 					</div>
 					<div>
-						<InputLabel name='CVV' styleHeader={labelHeader} />
+						<InputLabel
+							name='CVV'
+							styleHeader={labelHeader}
+							badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
+							hasBadge={!!error}
+						/>
 						<InputText
 							value={cvv}
 							onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
@@ -73,7 +93,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					</div>
 				</div>
 				<div>
-					<InputLabel name='CPF do titular' styleHeader={labelHeader} />
+					<InputLabel
+						name='CPF do titular'
+						styleHeader={labelHeader}
+						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
+						hasBadge={!!error}
+					/>
 					<InputText
 						value={cpf}
 						onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
@@ -82,7 +107,12 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					/>
 				</div>
 				<div>
-					<InputLabel name='Parcelamento' styleHeader={labelHeader} />
+					<InputLabel
+						name='Parcelamento'
+						styleHeader={labelHeader}
+						badge={<Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}
+						hasBadge={!!error}
+					/>
 					<Dropdown
 						value={installments}
 						onSelect={({ target: { value } }) => setInstallments(value.substring(0,1))}
@@ -94,7 +124,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			</div>
 			<label style={errorBlock}>
 				<div style={errorMsg}>
-					{error && <Icon type='alert' size={15} color={alertColor} />}&nbsp;{error}
+					{error && <Icon type='alert' size={13} strokeWidth={3} color={alertColor} />}&nbsp;{error}
 				</div>
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />

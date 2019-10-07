@@ -10,6 +10,8 @@ container = {
 labelHeader = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '3px',
+	alignItems: 'center',
 	paddingLeft: '5px'
 },
 
