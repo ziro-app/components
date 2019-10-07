@@ -9,8 +9,10 @@ const Modal = ({ isOpen, setIsOpen, children }) => {
 	const propsOverlay = useSpring(animateOverlay(isOpen))
 	return (
 		<>
-			<animated.div style={{...container, ...propsContainer}}>{children}</animated.div>
-			{isOpen && <animated.div style={{...overlay, ...propsOverlay}} onClick={setIsOpen}></animated.div>}
+			{isOpen && <animated.div style={{...container, ...propsContainer}}>
+				<animated.div style={{...overlay, ...propsOverlay}} onClick={setIsOpen}></animated.div>
+				{children}
+			</animated.div>}
 			{isOpen && <style>{disableScroll}</style>}
 		</>
 	)
