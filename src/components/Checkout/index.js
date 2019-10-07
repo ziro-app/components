@@ -8,8 +8,10 @@ import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Dropdown from '../Dropdown/index'
+import Icon from '../Icon/index'
 import { Footer } from './Footer/index'
-import { container, labelHeader, dual } from './styles'
+import { alertColor } from '../../Theme/variables'
+import { container, labelHeader, dual, errorBlock, errorMsg } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
@@ -20,7 +22,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [installments, setInstallments] = useState('')
 	const state = [number, cardholder, expiry, cvv, cpf, installments]
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
-	const [errors, submitting, submitForm] = useForm(state)
+	const [error, submitting, submitForm] = useForm(state)
 	return (
 		<form onSubmit={submitting ? e => e.preventDefault() : submitForm}>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
@@ -90,6 +92,11 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					/>
 				</div>
 			</div>
+			<label style={errorBlock}>
+				<div style={errorMsg}>
+					{error && <Icon type='alert' size={15} color={alertColor} />}&nbsp;{error}
+				</div>
+			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
 		</form>
 	)

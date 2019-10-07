@@ -4,9 +4,9 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '30px',
-	margin: '60px auto 0',
-	padding: '30px 0 10px',
+	gridRowGap: '25px',
+	margin: '0 auto',
+	padding: '15px 0',
 	borderTop: '1px solid #F3f3f3',
 	color: primaryColor
 },
