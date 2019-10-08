@@ -132,7 +132,10 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
 			<Modal isOpen={modal} setIsOpen={() => setModal(false)} boxStyle={modalBox}>
-				<Spinner size={'6rem'} />
+				{submitting
+					? <Spinner size={'5.5rem'} />
+					: <div>Fim</div>
+				}
 			</Modal>
 		</form>
 	)
