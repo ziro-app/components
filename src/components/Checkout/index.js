@@ -11,6 +11,7 @@ import Dropdown from '../Dropdown/index'
 import Modal from '../Modal/index'
 import Icon from '../Icon/index'
 import Spinner from '../Spinner/index'
+import { PaymentSuccess } from '../../Illustrations/PaymentSuccess/index'
 import { Footer } from './Footer/index'
 import { alertColor } from '../../Theme/variables'
 import { container, labelHeader, dual, errorBlock, errorMsg, modalBox } from './styles'
@@ -134,7 +135,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			<Modal isOpen={modal} setIsOpen={() => setModal(false)} boxStyle={modalBox}>
 				{submitting
 					? <Spinner size={'5.5rem'} />
-					: <div>Fim</div>
+					: <PaymentSuccess />
 				}
 			</Modal>
 		</form>
