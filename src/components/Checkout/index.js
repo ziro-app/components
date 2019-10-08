@@ -8,10 +8,12 @@ import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Dropdown from '../Dropdown/index'
+import Modal from '../Modal/index'
 import Icon from '../Icon/index'
+import Spinner from '../Spinner/index'
 import { Footer } from './Footer/index'
 import { alertColor } from '../../Theme/variables'
-import { container, labelHeader, dual, errorBlock, errorMsg } from './styles'
+import { container, labelHeader, dual, errorBlock, errorMsg, modalBox } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
@@ -20,9 +22,10 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [cvv, setCvv] = useState('')
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
-	const state = [number, cardholder, expiry, cvv, cpf, installments]
+	const [modal, setModal] = useState(false)
+	const state = [number, cardholder, expiry, cvv, cpf, installments, modal]
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
-	const [hasError, errors, submitting, submitForm] = useForm(state)
+	const [hasError, errors, submitting, submitForm] = useForm(state, setModal)
 	return (
 		<form onSubmit={submitting ? e => e.preventDefault() : submitForm}>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
@@ -128,6 +131,9 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				</div>
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
+			<Modal isOpen={modal} setIsOpen={() => setModal(false)} boxStyle={modalBox}>
+				<Spinner size={'6rem'} />
+			</Modal>
 		</form>
 	)
 }
