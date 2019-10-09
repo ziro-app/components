@@ -12,7 +12,7 @@ const Button = ({ submitting, cta }) =>
 	/>
 
 Button.propTypes = {
-	submitting: PropTypes.bool.isRequired,
+	submitting: PropTypes.bool,
 	cta: PropTypes.string.isRequired
 }
 
