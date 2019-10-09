@@ -8,13 +8,11 @@ import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Dropdown from '../Dropdown/index'
-import Modal from '../Modal/index'
 import Icon from '../Icon/index'
-import Spinner from '../Spinner/index'
-import { PaymentSuccess } from '../../Illustrations/PaymentSuccess/index'
 import { Footer } from './Footer/index'
+import { Submit } from './Submit/index'
 import { alertColor } from '../../Theme/variables'
-import { container, labelHeader, dual, errorBlock, errorMsg, modalBox } from './styles'
+import { container, labelHeader, dual, errorBlock, errorMsg } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
@@ -132,12 +130,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				</div>
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
-			<Modal isOpen={modal} setIsOpen={() => setModal(false)} boxStyle={modalBox}>
-				{submitting
-					? <Spinner size={'5.5rem'} />
-					: <PaymentSuccess />
-				}
-			</Modal>
+			<Submit submitting={submitting} modal={modal} setModal={setModal} />
 		</form>
 	)
 }
