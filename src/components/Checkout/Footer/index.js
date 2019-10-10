@@ -17,7 +17,7 @@ export const Footer = ({ charge, installments, seller, submitting }) =>
 				&nbsp;{installments && `${installments}x de ${installmentCharge(charge, installments)}`}
 			</label>
 		</div>
-		<Button submitting={submitting} cta='Confirmar' />
+		<Button type='submit' cta='Confirmar' submitting={submitting} />
 		<div style={regulatory}>
 			<label style={info}>ZIRO: 28.026.371/0001-61</label>
 		</div>

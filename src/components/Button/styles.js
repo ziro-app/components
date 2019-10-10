@@ -3,6 +3,7 @@ import { fontTitle, fontSizeInput, gradient, shadow, primaryColor, grayColor4 } 
 export const
 
 btn = {
+	display: 'block', // necessary for link version
 	WebkitAppearance: 'none',
 	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
 	MozAppearance: 'none',

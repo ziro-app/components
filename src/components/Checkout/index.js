@@ -130,7 +130,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				</div>
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
-			<Submit submitting={submitting} modal={modal} setModal={setModal} />
+			<Submit submitting={submitting} modal={true} setModal={setModal} />
 		</form>
 	)
 }
