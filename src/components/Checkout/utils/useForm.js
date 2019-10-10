@@ -6,21 +6,29 @@ export const useForm = (state, setModal) => {
 	const [hasError, setHasError] = useState('')
 	const [errors, setErrors] = useState({})
 	const [submitting, setSubmitting] = useState(false)
+	const [submitError, setSubmitError] = useState(false)
 	const submitForm = async event => {
 		event.preventDefault()
 		setHasError('')
 		setErrors({})
+		setSubmitError(false)
 		const [formIsValid, errors] = validateForm(state)
 		if (formIsValid) {
 			setSubmitting(true)
 			setModal(true)
-			const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
+			try {
+				const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
+				console.log(msg)
+			} catch (error) {
+				setSubmitError(true)
+				console.log(error)
+			}
 			setSubmitting(false)
-			console.log(msg)
+
 		} else {
 			setHasError('Verifique campos com erros')
 			setErrors(errors)
 		}
 	}
-	return [hasError, errors, submitting, submitForm]
+	return [hasError, errors, submitting, submitForm, submitError]
 }

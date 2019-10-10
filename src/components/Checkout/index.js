@@ -22,9 +22,9 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
 	const [modal, setModal] = useState(false)
-	const state = [number, cardholder, expiry, cvv, cpf, installments, modal]
+	const state = [number, cardholder, expiry, cvv, cpf, installments]
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
-	const [hasError, errors, submitting, submitForm] = useForm(state, setModal)
+	const [hasError, errors, submitting, submitForm, submitError] = useForm(state, setModal)
 	return (
 		<form onSubmit={submitting ? e => e.preventDefault() : submitForm}>
 			<HeaderWithBack title='Pagamento' backUrl='/' />
@@ -130,7 +130,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				</div>
 			</label>
 			<Footer charge={charge} installments={installments} seller={seller} submitting={submitting} />
-			<Submit submitting={submitting} modal={true} setModal={setModal} />
+			<Submit submitting={submitting} modal={modal} setModal={setModal} error={submitError} />
 		</form>
 	)
 }
