@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Modal from '../../Modal/index'
 import Spinner from '../../Spinner/index'
 import Button from '../../Button/index'
-import { PaymentSuccess } from '../../../Illustrations/PaymentSuccess/index'
+import Illustration from '../../Illustration/index'
 import { container, svg, title, modalSubmitting, modalResult } from './styles'
 
 export const Submit = ({ submitting, modal, setModal }) => {
@@ -17,7 +17,7 @@ export const Submit = ({ submitting, modal, setModal }) => {
 		return (
 			<Modal isOpen={modal} setIsOpen={() => setModal(false)} boxStyle={modalResult}>
 				<div style={container}>
-					<div style={svg}><PaymentSuccess /></div>
+					<div style={svg}><Illustration type='paymentSuccess' /></div>
 					<label style={title}>Processando!</label>
 					<label>Acompanhe o status pelo menu Pagamentos</label>
 					<Button type='link' cta='Continuar' />
