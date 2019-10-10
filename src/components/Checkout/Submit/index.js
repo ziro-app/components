@@ -4,7 +4,7 @@ import Modal from '../../Modal/index'
 import Spinner from '../../Spinner/index'
 import Button from '../../Button/index'
 import { PaymentSuccess } from '../../../Illustrations/PaymentSuccess/index'
-import { container, modalSubmitting, modalResult } from './styles'
+import { container, svg, title, modalSubmitting, modalResult } from './styles'
 
 export const Submit = ({ submitting, modal, setModal }) => {
 	if (submitting) {
@@ -16,10 +16,10 @@ export const Submit = ({ submitting, modal, setModal }) => {
 	} else {
 		return (
 			<Modal isOpen={modal} setIsOpen={() => setModal(false)} boxStyle={modalResult}>
-				<div>
-					<PaymentSuccess />
-					<h1>Em processamento!</h1>
-					<label>Visite o menu Pagamentos para acompanhar o status</label>
+				<div style={container}>
+					<div style={svg}><PaymentSuccess /></div>
+					<label style={title}>Processando!</label>
+					<label>Acompanhe o status pelo menu Pagamentos</label>
 					<Button type='link' cta='Continuar' />
 				</div>
 			</Modal>
