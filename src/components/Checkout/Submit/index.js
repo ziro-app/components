@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useLocation } from 'wouter'
 import Modal from '../../Modal/index'
 import Spinner from '../../Spinner/index'
 import Button from '../../Button/index'
@@ -7,6 +8,7 @@ import Illustration from '../../Illustration/index'
 import { container, svg, title, modalSubmitting, modalResult } from './styles'
 
 export const Submit = ({ submitting, modal, setModal, error }) => {
+	const [, setLocation] = useLocation()
 	if (submitting) {
 		return (
 			<Modal isOpen={modal} setIsOpen={() => setModal(true)} boxStyle={modalSubmitting}>
@@ -31,7 +33,7 @@ export const Submit = ({ submitting, modal, setModal, error }) => {
 				<div style={svg}><Illustration type='paymentSuccess' /></div>
 				<label style={title}>Processando!</label>
 				<label>Acompanhe o status pelo menu Pagamentos</label>
-				<Button type='link' cta='Ver pagamentos' />
+				<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/payments')} />
 			</div>
 		</Modal>
 	)
