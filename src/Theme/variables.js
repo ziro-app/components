@@ -9,6 +9,11 @@ container = {
 	margin: '0 auto'
 },
 
+containerWithPadding = {
+	...container,
+	padding: '20px 5% 0'
+},
+
 /* WIDTH, MARGIN, PADDING */
 maxWidth = '400px',
 standardMargin = '20px auto 0',
