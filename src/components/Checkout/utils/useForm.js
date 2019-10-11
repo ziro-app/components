@@ -17,7 +17,7 @@ export const useForm = (state, setModal) => {
 			setSubmitting(true)
 			setModal(true)
 			try {
-				const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
+				const msg = await new Promise((resolve, reject) => setTimeout(() => reject('error'), 1000))
 				console.log(msg)
 			} catch (error) {
 				setSubmitError(true)

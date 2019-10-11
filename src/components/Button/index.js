@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { btn, btnDisabled } from './styles'
 
-const Button = ({ type, cta, submitting }) => {
+const Button = ({ type, cta, submitting, navigate }) => {
 	if (type === 'submit') {
 		return (
 			<motion.input
@@ -15,6 +15,7 @@ const Button = ({ type, cta, submitting }) => {
 	if (type === 'link') {
 		return (
 			<motion.a
+				onClick={navigate}
 				style={submitting ? btnDisabled : btn}
 				whileTap={submitting ? null : { scale: 0.95 }}
 			>{cta}</motion.a>)}
@@ -23,7 +24,8 @@ const Button = ({ type, cta, submitting }) => {
 Button.propTypes = {
 	type: PropTypes.string.isRequired,
 	cta: PropTypes.string.isRequired,
-	submitting: PropTypes.bool
+	submitting: PropTypes.bool,
+	navigate: PropTypes.func
 }
 
 export default Button
