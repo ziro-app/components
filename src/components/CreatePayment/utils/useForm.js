@@ -1,33 +1,29 @@
 import React, { useState } from 'react'
-import { validateForm } from './validateForm'
+// import { validateForm } from './validateForm'
 
-export const useForm = (state, setModal) => {
-	const [hasError, setHasError] = useState('')
+export const useForm = state => {
 	const [errors, setErrors] = useState({})
 	const [submitting, setSubmitting] = useState(false)
-	const [submitError, setSubmitError] = useState(false)
+	const [submitError, setSubmitError] = useState('')
 	const submitForm = async event => {
 		event.preventDefault()
-		setHasError('')
 		setErrors({})
-		setSubmitError(false)
-		const [formIsValid, errors] = validateForm(state)
+		setSubmitError('')
+		const [formIsValid, errorMessages] = [true, {}] // validateForm(state)
 		if (formIsValid) {
 			setSubmitting(true)
-			setModal(true)
 			try {
 				const msg = await new Promise(resolve => setTimeout(() => resolve('submit'), 1000))
 				console.log(msg)
 			} catch (error) {
-				setSubmitError(true)
+				setSubmitError('Erro no envio. Tente novamente ou contate suporte')
 				console.log(error)
 			}
 			setSubmitting(false)
 
 		} else {
-			setHasError('Verifique campos com erros')
-			setErrors(errors)
+			setErrors({ formIsValid, errorMessages })
 		}
 	}
-	return [hasError, errors, submitting, submitForm, submitError]
+	return [errors, submitting, submitError, submitForm]
 }
