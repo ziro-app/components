@@ -27,7 +27,10 @@ modalSubmitting = {
 },
 
 modalResult = {
+	zIndex: '999',
+	maxWidth: '400px',
 	width: '85%',
+	margin: '0 auto',
 	padding: '8%',
 	boxSizing: 'border-box',
 	borderRadius: '3px',

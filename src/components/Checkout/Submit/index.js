@@ -31,7 +31,7 @@ export const Submit = ({ submitting, modal, setModal, error }) => {
 				<div style={svg}><Illustration type='paymentSuccess' /></div>
 				<label style={title}>Processando!</label>
 				<label>Acompanhe o status pelo menu Pagamentos</label>
-				<Button type='link' cta='Continuar' />
+				<Button type='link' cta='Ver pagamentos' />
 			</div>
 		</Modal>
 	)

@@ -21,7 +21,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [cvv, setCvv] = useState('')
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
-	const [modal, setModal] = useState(false)
+	const [modal, setModal] = useState(true)
 	const state = [number, cardholder, expiry, cvv, cpf, installments]
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const [hasError, errors, submitting, submitForm, submitError] = useForm(state, setModal)
