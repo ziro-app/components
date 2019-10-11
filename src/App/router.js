@@ -13,6 +13,7 @@ import { DisplayTransitionRoute } from './DisplayComponents/DisplayTransitionRou
 import { DisplayCheckout } from './DisplayComponents/DisplayCheckout/index'
 import { DisplayDropdown } from './DisplayComponents/DisplayDropdown/index'
 import { DisplayModal } from './DisplayComponents/DisplayModal/index'
+import { DisplayCreatePayment } from './DisplayComponents/DisplayCreatePayment/index'
 
 export const Router = () =>
 	<Switch>
@@ -29,5 +30,6 @@ export const Router = () =>
 		<Route path='/checkout'><DisplayCheckout /></Route>
 		<Route path='/dropdown'><DisplayDropdown /></Route>
 		<Route path='/modal'><DisplayModal /></Route>
+		<Route path='/create-payment'><DisplayCreatePayment /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
