@@ -4,6 +4,7 @@ import { useForm } from './utils/useForm'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Badge from '../Badge/index'
+import Button from '../Button/index'
 import { container } from './styles'
 
 const CreatePayment = props => {
@@ -27,10 +28,12 @@ const CreatePayment = props => {
 					<InputText
 						value={charge}
 						onChange={({ target: { value } }) => setCharge(value)}
+						submitting={submitting}
 						placeholder='R$1.299,99'
 					/>
-					<Badge type='alert' message='error' size={12} />
+					{errors.charge && <Badge type='alert' message='error' size={12} />}
 				</div>
+				<Button type='submit' cta='Enviar' />
 			</div>
 		</form>
 	)
