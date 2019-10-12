@@ -5,7 +5,7 @@ import Badge from '../Badge/index'
 import { alertColor } from '../../Theme/variables'
 import { labelHeader, error } from './styles'
 
-const FormInput = ({ name, input, errorMsg }) => {
+const FormInput = ({ name, errorMsg, input }) => {
 	return (
 		<div>
 			<InputLabel
@@ -23,8 +23,8 @@ const FormInput = ({ name, input, errorMsg }) => {
 
 FormInput.propTypes = {
 	name: PropTypes.string.isRequired,
-	input: PropTypes.element.isRequired,
-	errorMsg: PropTypes.string.isRequired
+	errorMsg: PropTypes.string.isRequired,
+	input: PropTypes.element.isRequired
 }
 
 export default FormInput

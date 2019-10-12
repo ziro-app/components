@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from './utils/useForm'
+import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Badge from '../Badge/index'
@@ -30,38 +31,30 @@ const CreatePayment = props => {
 	return (
 		<form onSubmit={submitForm(validations)}>
 			<div style={container}>
-				<div>
-					<InputLabel
-						styleHeader={labelHeader}
-						name='Valor a cobrar'
-					/>
-					<InputText
-						value={charge}
-						onChange={({ target: { value } }) => setCharge(value)}
-						submitting={submitting}
-						placeholder='R$1.299,99'
-					/>
-					<label style={error}>
-						&nbsp;
-						{errors.charge && <Badge type='alert' message={errors.charge} size={12} color={alertColor} />}
-					</label>
-				</div>
-				<div>
-					<InputLabel
-						styleHeader={labelHeader}
-						name='Parcelamento máximo'
-					/>
-					<InputText
-						value={maxInstallments}
-						onChange={({ target: { value } }) => setMaxInstallments(value)}
-						submitting={submitting}
-						placeholder='6'
-					/>
-					<label style={error}>
-						&nbsp;
-						{errors.maxInstallments && <Badge type='alert' message={errors.maxInstallments} size={12} color={alertColor} />}
-					</label>
-				</div>
+				<FormInput
+					name='Valor a cobrar'
+					errorMsg={errors.charge}
+					input={
+						<InputText
+							value={charge}
+							onChange={({ target: { value } }) => setCharge(value)}
+							submitting={submitting}
+							placeholder='R$1.299,99'
+						/>						
+					}
+				/>
+				<FormInput
+					name='Parcelamento máximo'
+					errorMsg={errors.maxInstallments}
+					input={
+						<InputText
+							value={maxInstallments}
+							onChange={({ target: { value } }) => setMaxInstallments(value)}
+							submitting={submitting}
+							placeholder='6'
+						/>						
+					}
+				/>
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 				<Button type='submit' cta='Enviar' submitting={submitting} />
 			</div>
