@@ -23,6 +23,7 @@ const CreatePayment = props => {
 	]
 	return (
 		<Form
+			buttonName='Enviar formulário'
 			validations={validations}
 			inputs={[
 				<FormInput
@@ -32,7 +33,7 @@ const CreatePayment = props => {
 							value={charge}
 							onChange={({ target: { value } }) => setCharge(value)}
 							placeholder='R$1.299,99'
-						/>						
+						/>
 					}
 				/>,
 				<FormInput
@@ -42,44 +43,12 @@ const CreatePayment = props => {
 							value={maxInstallments}
 							onChange={({ target: { value } }) => setMaxInstallments(value)}
 							placeholder='6'
-						/>						
+						/>
 					}
-				/>				
+				/>
 			]}
 		/>
 	)
-	// return (
-	// 	<form onSubmit={submitForm(validations)}>
-	// 		<div style={container}>
-				// <FormInput
-				// 	name='Valor a cobrar'
-				// 	errorMsg={errors.charge}
-				// 	input={
-				// 		<InputText
-				// 			value={charge}
-				// 			onChange={({ target: { value } }) => setCharge(value)}
-				// 			submitting={submitting}
-				// 			placeholder='R$1.299,99'
-				// 		/>						
-				// 	}
-				// />
-				// <FormInput
-				// 	name='Parcelamento máximo'
-				// 	errorMsg={errors.maxInstallments}
-				// 	input={
-				// 		<InputText
-				// 			value={maxInstallments}
-				// 			onChange={({ target: { value } }) => setMaxInstallments(value)}
-				// 			submitting={submitting}
-				// 			placeholder='6'
-				// 		/>						
-				// 	}
-				// />
-	// 			<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
-	// 			<Button type='submit' cta='Enviar' submitting={submitting} />
-	// 		</div>
-	// 	</form>
-	// )
 }
 
 CreatePayment.propTypes = {
