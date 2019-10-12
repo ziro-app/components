@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import currencyFormat from '@ziro/currency-format'
+import maskInput from '@ziro/mask-input'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
@@ -9,15 +11,15 @@ const CreatePayment = () => {
 	const validations = [
 		{
 			name: 'charge',
-			validation: value => !!value,
+			validation: value => value > 9 && value <= 3000000,
 			value: charge,
-			message: 'Campo obrigatório'
+			message: 'Deve ser entre 0,10 e 30mil'
 		},
 		{
 			name: 'maxInstallments',
-			validation: value => !!value,
+			validation: value => /^[1-6]$/g.test(value),
 			value: maxInstallments,
-			message: 'Campo obrigatório'
+			message: 'Deve ser entre 1 e 6'
 		}
 	]
 	return (
@@ -29,8 +31,11 @@ const CreatePayment = () => {
 					name='Valor a cobrar'
 					input={
 						<InputText
-							value={charge}
-							onChange={({ target: { value } }) => setCharge(value)}
+							value={currencyFormat(charge)}
+							onChange={({ target: { value } }) => {
+								const toInteger = parseInt(value.replace(/[R$\.,]/g,''),10)
+								return setCharge(maskInput(toInteger,'#######',true))
+							}}
 							placeholder='R$1.299,99'
 						/>
 					}
@@ -40,7 +45,7 @@ const CreatePayment = () => {
 					input={
 						<InputText
 							value={maxInstallments}
-							onChange={({ target: { value } }) => setMaxInstallments(value)}
+							onChange={({ target: { value } }) => setMaxInstallments(maskInput(value, '#', true))}
 							placeholder='6'
 						/>
 					}
