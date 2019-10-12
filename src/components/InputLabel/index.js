@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { header, text } from './styles'
 
-
 const InputLabel = ({ name, hasBadge, badge, hasUiState, displayUiState, styleHeader, styleText = text }) =>
 	<div style={styleHeader || header(hasBadge)}>
 		<label style={styleText}>{name}</label>

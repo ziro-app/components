@@ -23,7 +23,7 @@ const FormInput = ({ name, errorMsg, input }) => {
 
 FormInput.propTypes = {
 	name: PropTypes.string.isRequired,
-	errorMsg: PropTypes.string.isRequired,
+	errorMsg: PropTypes.string,
 	input: PropTypes.element.isRequired
 }
 
