@@ -1,22 +1,10 @@
 import React, { useState } from 'react'
-// import { validateForm } from './validateForm'
+import { validateForm } from './validateForm'
 
 export const useForm = () => {
 	const [errors, setErrors] = useState({})
 	const [submitting, setSubmitting] = useState(false)
 	const [submitError, setSubmitError] = useState('')
-	const validateForm = validations => {
-		let fieldsAreValid = []
-		let errorMessages = {}
-		for (let i = 0; i < validations.length; i++) {
-			let state = validations[i]
-			let fieldIsValid = state.validation(state.value)
-			fieldsAreValid.push(fieldIsValid)
-			errorMessages[state.name] = fieldIsValid ?  '' : state.message
-		}
-		const formIsValid = fieldsAreValid.every(field => field)
-		return [formIsValid, errorMessages]
-	}
 	const submitForm = validations => async event => {
 		event.preventDefault()
 		setSubmitError('')
@@ -33,7 +21,7 @@ export const useForm = () => {
 			setSubmitting(false)
 
 		} else {
-			setErrors({ formIsValid, errorMessages })
+			setErrors(errorMessages)
 		}
 	}
 	return [errors, submitting, submitError, submitForm]
