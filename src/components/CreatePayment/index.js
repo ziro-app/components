@@ -11,12 +11,19 @@ import { container, labelHeader, error, submit } from './styles'
 
 const CreatePayment = props => {
 	const [charge, setCharge] = useState('')
+	const [maxInstallments, setMaxInstallments] = useState('')
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
 	const validations = [
 		{
 			name: 'charge',
 			validation: value => !!value,
 			value: charge,
+			message: 'Campo obrigatório'
+		},
+		{
+			name: 'maxInstallments',
+			validation: value => !!value,
+			value: maxInstallments,
 			message: 'Campo obrigatório'
 		}
 	]
@@ -35,7 +42,24 @@ const CreatePayment = props => {
 						placeholder='R$1.299,99'
 					/>
 					<label style={error}>
-						&nbsp;{errors.charge && <Badge type='alert' message={errors.charge} size={12} color={alertColor} />}
+						&nbsp;
+						{errors.charge && <Badge type='alert' message={errors.charge} size={12} color={alertColor} />}
+					</label>
+				</div>
+				<div>
+					<InputLabel
+						styleHeader={labelHeader}
+						name='Parcelamento máximo'
+					/>
+					<InputText
+						value={maxInstallments}
+						onChange={({ target: { value } }) => setMaxInstallments(value)}
+						submitting={submitting}
+						placeholder='6'
+					/>
+					<label style={error}>
+						&nbsp;
+						{errors.maxInstallments && <Badge type='alert' message={errors.maxInstallments} size={12} color={alertColor} />}
 					</label>
 				</div>
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
