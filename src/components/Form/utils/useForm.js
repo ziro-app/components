@@ -6,7 +6,7 @@ export const useForm = () => {
 	const [submitting, setSubmitting] = useState(false)
 	const [submitError, setSubmitError] = useState(false)
 	const [submitMsg, setSubmitMsg] = useState('')
-	const submitForm = validations => async event => {
+	const submitForm = (validations, sendToBackend) => async event => {
 		event.preventDefault()
 		const [formIsValid, errorMessages] = validateForm(validations)
 		setErrors(errorMessages)
@@ -15,9 +15,7 @@ export const useForm = () => {
 		if (formIsValid) {
 			setSubmitting(true)
 			try {
-				const msg = await new Promise((resolve, reject) => setTimeout(() => reject('submit'), 1000))
-				setSubmitMsg('Enviado com sucesso!')
-				console.log(msg)
+				setSubmitMsg(await sendToBackend())
 			} catch (error) {
 				setSubmitError(true)
 				setSubmitMsg('Erro no envio. Tente novamente')

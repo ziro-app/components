@@ -5,10 +5,10 @@ import Spinner from '../Spinner/index'
 import { useForm } from './utils/useForm'
 import { container, submit } from './styles'
 
-const Form = ({ buttonName, validations, inputs }) => {
+const Form = ({ buttonName, validations, sendToBackend, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
 	return (
-		<form onSubmit={submitForm(validations)}>
+		<form onSubmit={submitForm(validations, sendToBackend)}>
 			<div style={container}>
 				{inputs.map((reactElement, index) => {
 					const InputTextWithSubmitting = cloneElement(reactElement.props.input, { submitting })
@@ -29,6 +29,7 @@ const Form = ({ buttonName, validations, inputs }) => {
 Form.propTypes = {
 	buttonName: PropTypes.string,
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
+	sendToBackend: PropTypes.func.isRequired,
 	inputs: PropTypes.arrayOf(PropTypes.element).isRequired
 }
 

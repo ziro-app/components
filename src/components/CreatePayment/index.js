@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import currencyFormat from '@ziro/currency-format'
 import maskInput from '@ziro/mask-input'
+import { sendToBackend } from './sendToBackend'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
@@ -26,6 +27,7 @@ const CreatePayment = () => {
 		<Form
 			buttonName='Enviar formulário'
 			validations={validations}
+			sendToBackend={sendToBackend}
 			inputs={[
 				<FormInput
 					name='Valor a cobrar'
