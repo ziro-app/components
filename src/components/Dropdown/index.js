@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import InputText from '../InputText'
 import { container, modal, data } from './styles'
 
-const Dropdown = ({ value, onSelect, list, submitting, placeholder }) => {
+const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	return (
 		<div style={container}>
@@ -18,7 +18,7 @@ const Dropdown = ({ value, onSelect, list, submitting, placeholder }) => {
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={{ opacity: 0, height: '0' }} animate={{ opacity: 1, height: '120px' }} transition={{ type: 'spring', stiffness: '800', damping: '48' }}>
-				{list.map(item => <option style={data} onMouseDown={onSelect} key={item}>{item}</option>)}
+				{list.map(item => <option style={data} onMouseDown={onChange} key={item}>{item}</option>)}
 			</motion.div>}
 		</div>
 	)
@@ -26,7 +26,7 @@ const Dropdown = ({ value, onSelect, list, submitting, placeholder }) => {
 
 Dropdown.propTypes = {
 	value: PropTypes.string.isRequired,
-	onSelect: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	list: PropTypes.array.isRequired,
 	submitting: PropTypes.bool,
 	placeholder: PropTypes.string

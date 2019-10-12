@@ -117,7 +117,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					/>
 					<Dropdown
 						value={installments}
-						onSelect={({ target: { value } }) => setInstallments(value.substring(0,1))}
+						onChange={({ target: { value } }) => setInstallments(value.substring(0,1))}
 						list={installmentOptions(charge, maxInstallments)}
 						submitting={submitting}
 						placeholder='Escolha quantas parcelas'

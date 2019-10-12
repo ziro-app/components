@@ -4,12 +4,20 @@ import maskInput from '@ziro/mask-input'
 import { sendToBackend } from './sendToBackend'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
+import Dropdown from '../Dropdown/index'
 import InputText from '../InputText/index'
 
 const CreatePayment = () => {
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
+	const [seller, setSeller] = useState('')
 	const validations = [
+		{
+			name: 'seller',
+			validation: value => !!value,
+			value: seller,
+			message: 'Campo obrigatório'
+		},
 		{
 			name: 'charge',
 			validation: value => value > 9 && value <= 3000000,
@@ -29,6 +37,17 @@ const CreatePayment = () => {
 			validations={validations}
 			sendToBackend={sendToBackend}
 			inputs={[
+				<FormInput
+					name='Vendedor'
+					input={
+						<Dropdown
+							value={seller}
+							onChange={({ target: { value } }) => setSeller(value)}
+							list={['Crisfael']}
+							placeholder='Nome do fabricante'
+						/>
+					}
+				/>,
 				<FormInput
 					name='Valor a cobrar'
 					input={
