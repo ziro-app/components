@@ -20,7 +20,7 @@ export const useForm = () => {
 				console.log(msg)
 			} catch (error) {
 				setSubmitError(true)
-				setSubmitMsg('Erro no envio. Tente novamente ou contate suporte')
+				setSubmitMsg('Erro no envio. Tente novamente')
 				console.log(error)
 			}
 			setSubmitting(false)
