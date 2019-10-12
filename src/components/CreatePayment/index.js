@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 
-const CreatePayment = props => {
+const CreatePayment = () => {
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const validations = [
@@ -49,10 +48,6 @@ const CreatePayment = props => {
 			]}
 		/>
 	)
-}
-
-CreatePayment.propTypes = {
-
 }
 
 export default CreatePayment
