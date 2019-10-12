@@ -5,6 +5,7 @@ import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Badge from '../Badge/index'
 import Button from '../Button/index'
+import { alertColor } from '../../Theme/variables'
 import { container, submit } from './styles'
 
 const CreatePayment = props => {
@@ -31,7 +32,7 @@ const CreatePayment = props => {
 						submitting={submitting}
 						placeholder='R$1.299,99'
 					/>
-					{errors.charge && <Badge type='alert' message='error' size={12} />}
+					{errors.charge && <Badge type='alert' message={errors.charge} size={12} color={alertColor} />}
 				</div>
 				<label style={submit(submitError)}>{submitMsg}</label>
 				<Button type='submit' cta='Enviar' submitting={submitting} />
