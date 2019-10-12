@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
 // import { validateForm } from './validateForm'
 
-export const useForm = state => {
+export const useForm = () => {
 	const [errors, setErrors] = useState({})
 	const [submitting, setSubmitting] = useState(false)
 	const [submitError, setSubmitError] = useState('')
-	const submitForm = async event => {
+	const validateForm = validations => {
+		let fieldsAreValid = []
+		let errorMessages = {}
+		for (let i = 0; i < validations.length; i++) {
+			let state = validations[i]
+			let fieldIsValid = state.validation(state.value)
+			fieldsAreValid.push(fieldIsValid)
+			errorMessages[state.name] = fieldIsValid ?  '' : state.message
+		}
+		const formIsValid = fieldsAreValid.every(field => field)
+		return [formIsValid, errorMessages]
+	}
+	const submitForm = validations => async event => {
 		event.preventDefault()
-		setErrors({})
 		setSubmitError('')
-		const [formIsValid, errorMessages] = [true, {}] // validateForm(state)
+		const [formIsValid, errorMessages] = validateForm(validations)
 		if (formIsValid) {
 			setSubmitting(true)
 			try {
