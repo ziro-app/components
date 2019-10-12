@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button/index'
 import Spinner from '../Spinner/index'
@@ -7,10 +7,18 @@ import { container, submit } from './styles'
 
 const Form = ({ validations, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
+	console.log(inputs)
 	return (
 		<form onSubmit={submitForm(validations)}>
 			<div style={container}>
-				{inputs}
+				{inputs.map((inputElement, index) => {
+					const outer = cloneElement(
+						inputElement,
+						{ errorMsg: errors[validations[index].name], key: index }
+					)
+					console.log(outer)
+					return outer
+				})}
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 				<Button type='submit' cta='Enviar' submitting={submitting} />
 			</div>

@@ -1,3 +1,5 @@
+import { alertColor, successColor } from '../../Theme/variables'
+
 export const
 
 container = {
