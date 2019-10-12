@@ -5,11 +5,11 @@ import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
 import Badge from '../Badge/index'
 import Button from '../Button/index'
-import { container } from './styles'
+import { container, submit } from './styles'
 
 const CreatePayment = props => {
 	const [charge, setCharge] = useState('')
-	const [errors, submitting, submitError, submitForm] = useForm()
+	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
 	const validations = [
 		{
 			name: 'charge',
@@ -33,7 +33,8 @@ const CreatePayment = props => {
 					/>
 					{errors.charge && <Badge type='alert' message='error' size={12} />}
 				</div>
-				<Button type='submit' cta='Enviar' />
+				<label style={submit(submitError)}>{submitMsg}</label>
+				<Button type='submit' cta='Enviar' submitting={submitting} />
 			</div>
 		</form>
 	)
