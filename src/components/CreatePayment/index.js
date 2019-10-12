@@ -8,9 +8,9 @@ import Dropdown from '../Dropdown/index'
 import InputText from '../InputText/index'
 
 const CreatePayment = () => {
+	const [seller, setSeller] = useState('')
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
-	const [seller, setSeller] = useState('')
 	const validations = [
 		{
 			name: 'seller',
@@ -38,7 +38,8 @@ const CreatePayment = () => {
 			sendToBackend={sendToBackend}
 			inputs={[
 				<FormInput
-					name='Vendedor'
+					name='seller'
+					label='Vendedor'
 					input={
 						<Dropdown
 							value={seller}
@@ -49,7 +50,8 @@ const CreatePayment = () => {
 					}
 				/>,
 				<FormInput
-					name='Valor a cobrar'
+					name='charge'
+					label='Valor a cobrar'
 					input={
 						<InputText
 							value={currencyFormat(charge)}
@@ -62,7 +64,8 @@ const CreatePayment = () => {
 					}
 				/>,
 				<FormInput
-					name='Parcelamento máximo'
+					name='maxInstallments'
+					label='Parcelamento máximo'
 					input={
 						<InputText
 							value={maxInstallments}

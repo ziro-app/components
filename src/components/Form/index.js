@@ -12,11 +12,12 @@ const Form = ({ buttonName, validations, sendToBackend, inputs }) => {
 			<div style={container}>
 				{inputs.map((reactElement, index) => {
 					const InputTextWithSubmitting = cloneElement(reactElement.props.input, { submitting })
+					const [match] = validations.filter(value => value.name === reactElement.props.name)
 					return cloneElement(reactElement,
 						{
 							key: index,
 							input: InputTextWithSubmitting,
-							errorMsg: errors[validations[index].name]
+							errorMsg: match ? errors[match.name] : match
 						})
 				})}
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
