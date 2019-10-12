@@ -8,9 +8,17 @@ import { container } from './styles'
 
 const CreatePayment = props => {
 	const [charge, setCharge] = useState('')
-	const [errors, submitting, submitError, submitForm] = useForm(charge)
+	const [errors, submitting, submitError, submitForm] = useForm()
+	const validations = [
+		{
+			name: 'charge',
+			validation: value => !!value,
+			value: charge,
+			message: 'Campo obrigatório'
+		}
+	]
 	return (
-		<form onSubmit={e => e.preventDefault()}>
+		<form onSubmit={submitForm(validations)}>
 			<div style={container}>
 				<div>
 					<InputLabel
