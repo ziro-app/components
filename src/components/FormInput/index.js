@@ -5,21 +5,18 @@ import Badge from '../Badge/index'
 import { alertColor } from '../../Theme/variables'
 import { labelHeader, error } from './styles'
 
-const FormInput = ({ name, errorMsg, input }) => {
-	return (
-		<div>
-			<InputLabel
-				styleHeader={labelHeader}
-				name={name}
-			/>
-			{input}
-			<label style={error}>
-				&nbsp;
-				{errorMsg && <Badge type='alert' message={errorMsg} size={12} color={alertColor} />}
-			</label>
-		</div>
-	)
-}
+const FormInput = ({ name, errorMsg, input }) =>
+	<div>
+		<InputLabel
+			styleHeader={labelHeader}
+			name={name}
+		/>
+		{input}
+		<label style={error}>
+			&nbsp;
+			{errorMsg && <Badge type='alert' message={errorMsg} size={12} color={alertColor} />}
+		</label>
+	</div>
 
 FormInput.propTypes = {
 	name: PropTypes.string.isRequired,
