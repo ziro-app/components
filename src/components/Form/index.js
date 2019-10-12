@@ -7,17 +7,17 @@ import { container, submit } from './styles'
 
 const Form = ({ validations, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
-	console.log(inputs)
 	return (
 		<form onSubmit={submitForm(validations)}>
 			<div style={container}>
-				{inputs.map((inputElement, index) => {
-					const outer = cloneElement(
-						inputElement,
-						{ errorMsg: errors[validations[index].name], key: index }
-					)
-					console.log(outer)
-					return outer
+				{inputs.map((reactElement, index) => {
+					const InputTextWithSubmitting = cloneElement(reactElement.props.input, { submitting })
+					return cloneElement(reactElement,
+						{
+							key: index,
+							input: InputTextWithSubmitting,
+							errorMsg: errors[validations[index].name]
+						})
 				})}
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 				<Button type='submit' cta='Enviar' submitting={submitting} />
@@ -28,10 +28,7 @@ const Form = ({ validations, inputs }) => {
 
 Form.propTypes = {
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
-	inputs: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.arrayOf(PropTypes.element)
-	]).isRequired
+	inputs: PropTypes.arrayOf(PropTypes.element).isRequired
 }
 
 export default Form
