@@ -4,7 +4,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '15px'
+	gridRowGap: '2px'
 },
 
 labelHeader = {
@@ -17,6 +17,7 @@ error = {
 },
 
 submit = isError => ({
+	height: '36px',
 	textAlign: 'center',
 	color: isError ? alertColor : successColor
 })
