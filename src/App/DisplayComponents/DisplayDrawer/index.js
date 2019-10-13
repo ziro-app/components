@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Drawer from '../../../components/Drawer/index'
 import DrawerPanel from '../../../components/DrawerPanel/index'
-import HeaderWithMenu from '../../../components/HeaderWithMenu/index'
+import Header from '../../../components/Header/index'
 import Icon from '../../../components/Icon/index'
 import { containerWithPadding } from '../../../Theme/variables'
 
@@ -9,7 +9,7 @@ export const DisplayDrawer = () => {
 	const [isOpen, setIsOpen] = useState(true)
 	return (
 		<div style={containerWithPadding}>
-			<HeaderWithMenu title='Meus Dados' setIsOpen={() => setIsOpen(true)} />
+			<Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
 					username='Vitor Almeida Barbosa'

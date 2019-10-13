@@ -119,24 +119,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/header-with-menu@0.0.9": {
-        "files": [
-            {
-                "relativePath": "src/components/HeaderWithMenu/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/components/HeaderWithMenu/styles.js",
-                "test": false,
-                "name": "styles.js"
-            }
-        ],
-        "mainFile": "src/components/HeaderWithMenu/index.js",
-        "trackDir": "src/components/HeaderWithMenu",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "vitorbarbosa19.ziro/icon@0.0.14": {
         "files": [
             {
@@ -392,5 +374,5 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "version": "14.3.0"
+    "version": "14.4.1"
 }

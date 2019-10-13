@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
 import { useForm } from './utils/useForm'
 import { installmentOptions } from './utils/installmentUtils'
-import HeaderWithBack from '../HeaderWithBack/index'
+import Header from '../Header/index'
 import CreditCard from '../CreditCard/index'
 import InputText from '../InputText/index'
 import InputLabel from '../InputLabel/index'
@@ -27,7 +27,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [hasError, errors, submitting, submitForm, submitError] = useForm(state, setModal)
 	return (
 		<form onSubmit={submitting ? e => e.preventDefault() : submitForm}>
-			<HeaderWithBack title='Pagamento' backUrl='/' />
+			<Header type='title-only' title='Pagamento' />
 			<div style={container}>
 				<CreditCard
 					number={numberMaskedCard}
