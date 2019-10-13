@@ -5,7 +5,7 @@ import Spinner from '../Spinner/index'
 import { useForm } from './utils/useForm'
 import { container, submit } from './styles'
 
-const Form = ({ buttonName, validations, sendToBackend, inputs }) => {
+const Form = ({ buttonName, validations, sendToBackend, summary, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
 	return (
 		<form onSubmit={submitForm(validations, sendToBackend)}>
@@ -20,6 +20,7 @@ const Form = ({ buttonName, validations, sendToBackend, inputs }) => {
 							errorMsg: match ? errors[match.name] : match
 						})
 				})}
+				{summary && summary}
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 				<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
 			</div>
@@ -31,6 +32,7 @@ Form.propTypes = {
 	buttonName: PropTypes.string,
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
 	sendToBackend: PropTypes.func.isRequired,
+	summary: PropTypes.element,
 	inputs: PropTypes.arrayOf(PropTypes.element).isRequired
 }
 

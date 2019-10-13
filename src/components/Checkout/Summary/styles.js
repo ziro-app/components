@@ -3,17 +3,13 @@ import { fontTitle, fontSizeSmall, fontWeightMuted, primaryColor } from '../../.
 export const
 
 container = {
-	display: 'grid',
-	gridRowGap: '25px',
-	margin: '0 auto',
-	padding: '15px 0',
+	padding: '15px 0 0',
 	borderTop: '1px solid #F3f3f3',
 	color: primaryColor
 },
 
 summary = {
-	display: 'grid',
-	marginBottom: '10px'
+	display: 'grid'
 },
 
 title = {
@@ -36,14 +32,4 @@ amount = {
 	justifySelf: 'end',
 	fontSize: fontSizeSmall,
 	fontWeight: fontWeightMuted
-},
-
-regulatory = {
-	display: 'grid',
-	justifyItems: 'center'
-},
-
-info = {
-	fontFamily: fontTitle,
-	fontSize: fontSizeSmall
 }

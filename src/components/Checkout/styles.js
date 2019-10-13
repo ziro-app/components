@@ -13,7 +13,7 @@ regulatory = {
 	justifyItems: 'center'
 },
 
-info = {
+ziro = {
 	fontFamily: fontTitle,
 	fontSize: fontSizeSmall
 }

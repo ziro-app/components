@@ -18,7 +18,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [cvv, setCvv] = useState('')
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
-	const [modal, setModal] = useState(false)
+	// const [modal, setModal] = useState(false)
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const validations = [
 		{
@@ -72,6 +72,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				buttonName='Confirmar'
 				validations={validations}
 				sendToBackend={() => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))}
+				summary={<Summary charge={charge} installments={installments} seller={seller} />}
 				inputs={[
 					<FormInput
 						name='number'
@@ -145,7 +146,6 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			<div style={regulatory}>
 				<label style={ziro}>ZIRO: 28.026.371/0001-61</label>
 			</div>
-			<Summary charge={charge} installments={installments} seller={seller} />
 		</>
 	)
 }
