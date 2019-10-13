@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import EditableData from '../../../components/EditableData/index'
-import { container } from './styles'
+import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayEditableData = () => {
 	const [name, setName] = useState('Vitor Barbosa')
@@ -17,7 +17,7 @@ export const DisplayEditableData = () => {
 	}
 	const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	return (
-		<div style={container}>
+		<div style={containerWithPadding}>
 			<EditableData
 				name='Nome'
 				value={name}

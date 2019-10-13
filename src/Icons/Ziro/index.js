@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Ziro = ({ size = 50 }) =>
+export const Ziro = ({ size = 45 }) =>
 	<svg viewBox='0 0 400 400' width={size} height={size}>
 		<circle cx='200' cy='200' r='200' fill='#222222'/>
 		<path d='M208.713 212.05C208.713 215.894 213.606 217.525 215.913 214.449L275.2 135.4C277.178 132.763 275.296 129 272 129H212.713C210.504 129 208.713 130.791 208.713 133V212.05Z' fill='#FFE401'/>

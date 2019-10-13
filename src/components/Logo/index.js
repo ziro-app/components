@@ -1,20 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Image } from 'cloudinary-react'
+import Icon from '../Icon/index'
 
-const Logo = ({ width = '45' }) =>
-	<Image
-		cloudName='ziro'
-		width={width}
-		publicId='logo-app_fwothv'
-		version='1561160634'
-		format='png'
-		secure='true'
-		alt='logo'
-	/>
+const Logo = ({ size }) => <Icon type='ziro' size={size} />
 
 Logo.propTypes = {
-	width: PropTypes.string
+	size: PropTypes.number
 }
 
 export default Logo
