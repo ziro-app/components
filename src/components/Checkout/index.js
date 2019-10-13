@@ -25,7 +25,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			name: 'number',
 			validation: value => !!value && value.replace(/\s/g, '').length >= 12,
 			value: number,
-			message: 'Verifique o número digitado'
+			message: 'Revise número digitado'
 		},
 		{
 			name: 'cardholder',
@@ -37,13 +37,13 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			name: 'expiry',
 			validation: value => !!value && value.length === 5,
 			value: expiry,
-			message: 'Verifique a validade'
+			message: 'Revise campo'
 		},
 		{
 			name: 'cvv',
 			validation: value => !!value && value.length >= 3,
 			value: cvv,
-			message: 'Verifique o código atrás do cartão'
+			message: 'Revise campo'
 		},
 		{
 			name: 'cpf',
@@ -95,28 +95,30 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 							/>
 						}
 					/>,
-					<FormInput
-						name='expiry'
-						label='Validade'
-						input={
-							<InputText
-								value={expiry}
-								onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
-								placeholder='01/24'
-							/>
-						}
-					/>,
-					<FormInput
-						name='cvv'
-						label='CVV'
-						input={
-							<InputText
-								value={cvv}
-								onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
-								placeholder='1111'
-							/>
-						}
-					/>,
+					<div style={dual}>
+						<FormInput
+							name='expiry'
+							label='Validade'
+							input={
+								<InputText
+									value={expiry}
+									onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
+									placeholder='01/24'
+								/>
+							}
+						/>
+						<FormInput
+							name='cvv'
+							label='CVV'
+							input={
+								<InputText
+									value={cvv}
+									onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
+									placeholder='1111'
+								/>
+							}
+						/>
+					</div>,
 					<FormInput
 						name='cpf'
 						label='CPF do titular'
@@ -139,7 +141,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 								placeholder='Escolha quantas parcelas'
 							/>
 						}
-					/>,
+					/>
 				]}
 			/>
 			<div style={regulatory}>

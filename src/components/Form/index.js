@@ -11,14 +11,26 @@ const Form = ({ buttonName, validations, sendToBackend, summary, inputs }) => {
 		<form onSubmit={submitForm(validations, sendToBackend)}>
 			<div style={container}>
 				{inputs.map((reactElement, index) => {
-					const InputTextWithSubmitting = cloneElement(reactElement.props.input, { submitting })
-					const [match] = validations.filter(value => value.name === reactElement.props.name)
-					return cloneElement(reactElement,
-						{
+					if (reactElement.type === 'div') {
+						const children = reactElement.props.children.map((element, innerIndex) => {
+							const InputTextWithSubmitting = cloneElement(element.props.input, { submitting })
+							const [match] = validations.filter(value => value.name === element.props.name)
+							return cloneElement(element, {
+								key: `${index}-${innerIndex}`, 
+								input: InputTextWithSubmitting,
+								errorMsg: match ? errors[match.name] : match
+							})
+						})
+						return cloneElement(reactElement, { key: index, children })
+					} else {
+						const InputTextWithSubmitting = cloneElement(reactElement.props.input, { submitting })
+						const [match] = validations.filter(value => value.name === reactElement.props.name)
+						return cloneElement(reactElement, {
 							key: index,
 							input: InputTextWithSubmitting,
 							errorMsg: match ? errors[match.name] : match
 						})
+					}
 				})}
 				{summary && summary}
 				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>

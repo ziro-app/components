@@ -3,8 +3,9 @@ import { fontTitle, fontSizeSmall, fontWeightMuted, primaryColor } from '../../.
 export const
 
 container = {
+	margin: '20px 0 0',
 	padding: '15px 0 0',
-	borderTop: '1px solid #F3f3f3',
+	borderTop: `2px solid ${primaryColor}`,
 	color: primaryColor
 },
 
