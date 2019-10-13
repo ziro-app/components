@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'wouter'
 import TransitionRoute from '../../../components/TransitionRoute/index'
-import { container, component, nav } from './styles'
+import { containerWithPadding } from '../../../Theme/variables'
+import { component, nav } from './styles'
 
 export const DisplayTransitionRoute = () => {
 	const [forward, setForward] = useState(true)
 	return (
-		<div style={container}>
+		<div style={{ ...containerWithPadding, overflow: 'auto' }}>
 			<TransitionRoute forward={forward} components={[
 				{ path: '/transition/route-1',
 				  children:
