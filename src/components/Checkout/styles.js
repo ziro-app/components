@@ -2,6 +2,12 @@ import { fontTitle, fontSizeSmall } from '../../Theme/variables'
 
 export const
 
+container = {
+	display: 'grid',
+	gridRowGap: '20px',
+	margin: '0 0 30px'
+},
+
 dual = {
 	display: 'grid',
 	gridTemplateColumns: '1fr 1fr',

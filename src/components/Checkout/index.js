@@ -9,7 +9,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Dropdown from '../Dropdown/index'
 import { Summary } from './Summary/index'
-import { dual, regulatory, ziro } from './styles'
+import { container, dual, regulatory, ziro } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
@@ -59,8 +59,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 		}
 	]
 	return (
-		<>
-			<Header type='title-only' title='Pagamento' />
+		<div style={container}>
 			<CreditCard
 				number={numberMaskedCard}
 				brand={brand}
@@ -146,7 +145,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			<div style={regulatory}>
 				<label style={ziro}>ZIRO: 28.026.371/0001-61</label>
 			</div>
-		</>
+		</div>
 	)
 }
 
