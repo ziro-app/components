@@ -1,4 +1,4 @@
-import React, { useState, useCallback, Fragment } from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
 import { header, welcome, word, color, name, cnpj, nav, navlink, navicon, navtext, navsoon } from './styles'
@@ -9,7 +9,7 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 		if (htmlNode) setHighlightBoxWidth(htmlNode.getBoundingClientRect().width)
 	}, [username])
 	return (
-		<Fragment>
+		<>
 			<div style={header}>
 				<label style={welcome}>
 					Olá,&nbsp;
@@ -33,7 +33,7 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 					</Link>
 				)}
 			</div>
-		</Fragment>
+		</>
 	)
 }
 

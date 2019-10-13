@@ -1,4 +1,4 @@
-import { fontTitle, fontBody, fontSizeSmall, primaryColor, grayColor1 } from '../../Theme/variables'
+import { fontTitle, fontBody, fontSizeInput, fontSizeSmall, primaryColor, grayColor1 } from '../../Theme/variables'
 
 export const
 
@@ -67,7 +67,7 @@ navicon = {
 
 navtext = {
 	fontFamily: fontTitle,
-	fontSize: '1.6rem',
+	fontSize: fontSizeInput,
 	fontWeight: '600',
 	textTransform: 'uppercase',
 	color: primaryColor,

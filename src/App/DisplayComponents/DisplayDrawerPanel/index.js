@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import DrawerPanel from '../../../components/DrawerPanel/index'
 import Icon from '../../../components/Icon/index'
-import { container } from './styles'
+import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayDrawerPanel = () => {
 	const [username, setUsername] = useState('')
@@ -15,7 +15,7 @@ export const DisplayDrawerPanel = () => {
 		run()
 	}, [])
 	return (
-		<div style={container}>
+		<div style={containerWithPadding}>
 			<DrawerPanel
 				username={username}
 				usercnpj='28.026.371/0001-61'

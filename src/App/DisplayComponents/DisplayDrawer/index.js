@@ -3,12 +3,12 @@ import Drawer from '../../../components/Drawer/index'
 import DrawerPanel from '../../../components/DrawerPanel/index'
 import HeaderWithMenu from '../../../components/HeaderWithMenu/index'
 import Icon from '../../../components/Icon/index'
-import { container } from './styles'
+import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayDrawer = () => {
 	const [isOpen, setIsOpen] = useState(true)
 	return (
-		<div style={container}>
+		<div style={containerWithPadding}>
 			<HeaderWithMenu title='Meus Dados' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel

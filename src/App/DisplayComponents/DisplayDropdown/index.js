@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Dropdown from '../../../components/Dropdown/index'
-import { container, padding } from '../../../Theme/variables'
+import { containerWithPadding } from '../../../Theme/variables'
 
-export const DisplayDropdown = () =>
-	<div style={{ ...container, padding: padding }}>
-		<Dropdown />
-	</div>
+export const DisplayDropdown = () => {
+	const [selection, setSelection] = useState('')
+	return (
+		<div style={containerWithPadding}>
+			<Dropdown
+				value={selection}
+				onChange={({ target: { value } }) => setSelection(value)}
+				list={['Apples', 'Bananas', 'Oranges']}
+				placeholder='Escolha uma opção'
+			/>
+		</div>
+	)
+}

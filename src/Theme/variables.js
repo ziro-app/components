@@ -1,6 +1,6 @@
 export const
 
-/* STANDARD CONTAINER */
+/* STANDARD CONTAINERS */
 
 container = {
 	maxWidth: '500px',
@@ -13,12 +13,6 @@ containerWithPadding = {
 	...container,
 	padding: '20px 5% 0'
 },
-
-/* WIDTH, MARGIN, PADDING */
-maxWidth = '400px',
-standardMargin = '20px auto 0',
-standardPadding = '0 10%',
-padding = '20px 5% 0',
 
 /* COLORS */
 primaryColor = '#222222', // rgb(34,34,34)
