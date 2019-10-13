@@ -1,19 +1,6 @@
-import { fontSizeInput, alertColor } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall } from '../../Theme/variables'
 
 export const
-
-container = {
-	display: 'grid',
-	gridRowGap: '15px'
-},
-
-labelHeader = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '3px',
-	alignItems: 'center',
-	paddingLeft: '5px'
-},
 
 dual = {
 	display: 'grid',
@@ -21,17 +8,12 @@ dual = {
 	gridColumnGap: '10px'
 },
 
-errorBlock = {
+regulatory = {
 	display: 'grid',
-	alignItems: 'center',
-	justifyItems: 'center',
-	margin: '15px auto',
-	fontSize: fontSizeInput,
-	color: alertColor
+	justifyItems: 'center'
 },
 
-errorMsg = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	alignItems: 'center'
+info = {
+	fontFamily: fontTitle,
+	fontSize: fontSizeSmall
 }

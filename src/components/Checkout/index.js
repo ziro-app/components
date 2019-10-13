@@ -2,16 +2,14 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
 import { installmentOptions } from './utils/installmentUtils'
-// import { validations } from './utils/validations'
 import Header from '../Header/index'
 import CreditCard from '../CreditCard/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Dropdown from '../Dropdown/index'
-import { Footer } from './Footer/index'
-import { Submit } from './Submit/index'
-import { container, labelHeader, dual, errorBlock, errorMsg } from './styles'
+import { Summary } from './Summary/index'
+import { dual, regulatory, ziro } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [number, setNumber] = useState('')
@@ -144,7 +142,10 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 					/>,
 				]}
 			/>
-
+			<div style={regulatory}>
+				<label style={ziro}>ZIRO: 28.026.371/0001-61</label>
+			</div>
+			<Summary charge={charge} installments={installments} seller={seller} />
 		</>
 	)
 }

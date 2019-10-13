@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import currencyFormat from '@ziro/currency-format'
 import { installmentCharge } from '../utils/installmentUtils'
-import Button from '../../Button/index'
-import { container, summary, title, service, total, amount, regulatory, info } from './styles'
+import { container, summary, title, service, total, amount } from './styles'
 
-export const Footer = ({ charge, installments, seller, submitting }) =>
+export const Summary = ({ charge, installments, seller }) =>
 	<div style={container}>
 		<div style={summary}>
 			<div style={title}>Resumo do pagamento</div>
@@ -17,15 +16,10 @@ export const Footer = ({ charge, installments, seller, submitting }) =>
 				&nbsp;{installments && `${installments}x de ${installmentCharge(charge, installments)}`}
 			</label>
 		</div>
-		<Button type='submit' cta='Confirmar' submitting={submitting} />
-		<div style={regulatory}>
-			<label style={info}>ZIRO: 28.026.371/0001-61</label>
-		</div>
 	</div>
 
-Footer.propTypes = {
+Summary.propTypes = {
 	charge: PropTypes.string.isRequired,
 	installments: PropTypes.string.isRequired,
-	seller: PropTypes.string.isRequired,
-	submitting: PropTypes.bool.isRequired,
+	seller: PropTypes.string.isRequired
 }
