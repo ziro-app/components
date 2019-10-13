@@ -4,9 +4,9 @@ import { DisplayInputText } from './DisplayComponents/DisplayInputText/index'
 import { DisplayEditableData } from './DisplayComponents/DisplayEditableData/index'
 import { DisplayTabDual } from './DisplayComponents/DisplayTabDual/index'
 import { DisplayDrawer } from './DisplayComponents/DisplayDrawer/index'
-import { DisplayHeaderWithMenu } from './DisplayComponents/DisplayHeaderWithMenu/index'
 import { DisplayDrawerPanel } from './DisplayComponents/DisplayDrawerPanel/index'
 import { DisplayCallToAction } from './DisplayComponents/DisplayCallToAction/index'
+import { DisplayHeader } from './DisplayComponents/DisplayHeader/index'
 import { DisplayHeaderHome } from './DisplayComponents/DisplayHeaderHome/index'
 import { DisplayLogo } from './DisplayComponents/DisplayLogo/index'
 import { DisplayTransitionRoute } from './DisplayComponents/DisplayTransitionRoute/index'
@@ -21,9 +21,9 @@ export const Router = () =>
 		<Route path='/editable-data'><DisplayEditableData /></Route>
 		<Route path='/tab-dual/:any'><DisplayTabDual /></Route>
 		<Route path='/drawer'><DisplayDrawer /></Route>
-		<Route path='/header-menu'><DisplayHeaderWithMenu /></Route>
 		<Route path='/drawer-panel'><DisplayDrawerPanel /></Route>
 		<Route path='/cta'><DisplayCallToAction /></Route>
+		<Route path='/header'><DisplayHeader /></Route>
 		<Route path='/header-home'><DisplayHeaderHome /></Route>
 		<Route path='/logo'><DisplayLogo /></Route>
 		<Route path='/transition/:any'><DisplayTransitionRoute /></Route>
