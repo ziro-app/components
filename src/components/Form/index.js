@@ -6,7 +6,7 @@ import Spinner from '../Spinner/index'
 import { ModalSubmit } from './ModalSubmit/index'
 import { container, whiteSpace, submit } from './styles'
 
-const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, summary, inputs }) => {
+const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, validations, sendToBackend, summary, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
 	return (
 		<form onSubmit={submitForm(validations, sendToBackend)}>
@@ -36,7 +36,7 @@ const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, 
 				{summary && summary}
 				{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
 				{useModalLayoutOnSubmit
-					? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} />
+					? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} />
 					: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 				}
 				<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
@@ -47,6 +47,8 @@ const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, 
 
 Form.propTypes = {
 	useModalLayoutOnSubmit: PropTypes.bool,
+	successComponent: PropTypes.func,
+	errorComponent: PropTypes.func,
 	buttonName: PropTypes.string,
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
 	sendToBackend: PropTypes.func.isRequired,

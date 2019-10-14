@@ -9,6 +9,8 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Dropdown from '../Dropdown/index'
 import { Summary } from './Summary/index'
+import { SuccessModal } from './ModalSubmit/SuccessModal'
+import { ErrorModal } from './ModalSubmit/ErrorModal'
 import { container, dual, regulatory, ziro } from './styles'
 
 const Checkout = ({ charge, maxInstallments, seller }) => {
@@ -68,6 +70,8 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			/>
 			<Form
 				useModalLayoutOnSubmit={true}
+				successComponent={SuccessModal}
+				errorComponent={ErrorModal}
 				buttonName='Confirmar'
 				validations={validations}
 				sendToBackend={() => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))}
