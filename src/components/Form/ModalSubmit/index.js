@@ -7,41 +7,37 @@ import Button from '../../Button/index'
 import Illustration from '../../Illustration/index'
 import { container, svg, title, modalSubmitting, modalResult } from './styles'
 
-export const ModalSubmit = ({ submitting, modal, setModal, error }) => {
+export const ModalSubmit = ({ isOpen, submitting, error }) => {
 	const [, setLocation] = useLocation()
-	if (submitting) {
-		return (
-			<Modal isOpen={modal} setIsOpen={() => setModal(true)} boxStyle={modalSubmitting}>
-				<Spinner size={'5.5rem'} />
-			</Modal>
-		)
-	} else if (error) {
-		return (
-			<Modal isOpen={modal} setIsOpen={() => setModal(true)} boxStyle={modalResult}>
-				<div style={container}>
-					<div style={svg}><Illustration type='paymentError' /></div>
-					<label style={title}>Erro no envio!</label>
-					<label>Tente novamente ou contate seu assessor</label>
-					<Button type='link' cta='Tentar novamente' navigate={() => setModal(false)} />
-				</div>
-			</Modal>
-		)
-	}
 	return (
-		<Modal isOpen={modal} setIsOpen={() => setModal(true)} boxStyle={modalResult}>
-			<div style={container}>
-				<div style={svg}><Illustration type='paymentSuccess' /></div>
-				<label style={title}>Processando!</label>
-				<label>Acompanhe o status pelo menu Pagamentos</label>
-				<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/payments')} />
-			</div>
+		<Modal isOpen={isOpen || submitting} setIsOpen={() => null} boxStyle={submitting ? modalSubmitting : modalResult}>
+			{submitting ?
+				<Spinner size={'5.5rem'} />
+				:
+				<div style={container}>
+					{error ?
+						<>
+							<div style={svg}><Illustration type='paymentError' /></div>
+							<label style={title}>Erro no envio!</label>
+							<label>Tente novamente ou contate seu assessor</label>
+							<Button type='link' cta='Tentar novamente' navigate={() => setModal(false)} />
+						</>
+						:
+						<>
+							<div style={svg}><Illustration type='paymentSuccess' /></div>
+							<label style={title}>Processando!</label>
+							<label>Acompanhe o status pelo menu Pagamentos</label>
+							<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/payments')} />
+						</>
+					}
+				</div>
+			}
 		</Modal>
 	)
 }
 
 ModalSubmit.propTypes = {
+	isOpen: PropTypes.bool.isRequired,
 	submitting: PropTypes.bool.isRequired,
-	modal: PropTypes.bool.isRequired,
-	setModal: PropTypes.func.isRequired,
 	error: PropTypes.bool.isRequired
 }

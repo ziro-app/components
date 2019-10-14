@@ -35,7 +35,7 @@ const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, 
 				})}
 				{summary && summary}
 				{useModalLayoutOnSubmit
-					? <ModalSubmit submitting={submitting} />
+					? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} />
 					: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 				}
 				<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
