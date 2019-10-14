@@ -71,13 +71,10 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 			<Form
 				useModalLayoutOnSubmit={true}
 				successComponent={() => <SuccessModal />}
-				errorComponent={props => {
-					console.log(props)
-					return <ErrorModal setCloseModal={props} />
-				}}
+				errorComponent={props => <ErrorModal closeModal={props} />}
 				buttonName='Confirmar'
 				validations={validations}
-				sendToBackend={() => new Promise((resolve, reject) => setTimeout(() => reject('NOK'), 1000))}
+				sendToBackend={() => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))}
 				summary={<Summary charge={charge} installments={installments} seller={seller} />}
 				inputs={[
 					<FormInput
