@@ -1,11 +1,12 @@
 import React, { cloneElement } from 'react'
 import PropTypes from 'prop-types'
+import { useForm } from './utils/useForm'
 import Button from '../Button/index'
 import Spinner from '../Spinner/index'
-import { useForm } from './utils/useForm'
+import { ModalSubmit } from './ModalSubmit/index'
 import { container, submit } from './styles'
 
-const Form = ({ buttonName, validations, sendToBackend, summary, inputs }) => {
+const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, summary, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
 	return (
 		<form onSubmit={submitForm(validations, sendToBackend)}>
@@ -33,7 +34,10 @@ const Form = ({ buttonName, validations, sendToBackend, summary, inputs }) => {
 					}
 				})}
 				{summary && summary}
-				<label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
+				{useModalLayoutOnSubmit
+					? <ModalSubmit submitting={submitting} />
+					: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
+				}
 				<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
 			</div>
 		</form>
@@ -41,6 +45,7 @@ const Form = ({ buttonName, validations, sendToBackend, summary, inputs }) => {
 }
 
 Form.propTypes = {
+	useModalLayoutOnSubmit: PropTypes.bool,
 	buttonName: PropTypes.string,
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
 	sendToBackend: PropTypes.func.isRequired,

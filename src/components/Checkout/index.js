@@ -18,7 +18,6 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [cvv, setCvv] = useState('')
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
-	// const [modal, setModal] = useState(false)
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
 	const validations = [
 		{
@@ -68,6 +67,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				cvv={cvv}
 			/>
 			<Form
+				useModalLayoutOnSubmit={true}
 				buttonName='Confirmar'
 				validations={validations}
 				sendToBackend={() => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))}
