@@ -7,6 +7,10 @@ container = {
 	gridRowGap: '2px'
 },
 
+whiteSpace = {
+	height: '36px'
+},
+
 submit = isError => ({
 	height: '36px',
 	textAlign: 'center',

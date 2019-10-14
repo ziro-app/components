@@ -14,23 +14,20 @@ export const ModalSubmit = ({ isOpen, submitting, error }) => {
 			{submitting ?
 				<Spinner size={'5.5rem'} />
 				:
-				<div style={container}>
-					{error ?
-						<>
-							<div style={svg}><Illustration type='paymentError' /></div>
-							<label style={title}>Erro no envio!</label>
-							<label>Tente novamente ou contate seu assessor</label>
-							<Button type='link' cta='Tentar novamente' navigate={() => setModal(false)} />
-						</>
-						:
-						<>
-							<div style={svg}><Illustration type='paymentSuccess' /></div>
-							<label style={title}>Processando!</label>
-							<label>Acompanhe o status pelo menu Pagamentos</label>
-							<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/payments')} />
-						</>
-					}
-				</div>
+				error ?
+					<div style={container}>
+						<div style={svg}><Illustration type='paymentError' /></div>
+						<label style={title}>Erro no envio!</label>
+						<label>Tente novamente ou contate seu assessor</label>
+						<Button type='link' cta='Tentar novamente' navigate={() => setModal(false)} />
+					</div>
+					:
+					<div style={container}>
+						<div style={svg}><Illustration type='paymentSuccess' /></div>
+						<label style={title}>Processando!</label>
+						<label>Acompanhe o status pelo menu Pagamentos</label>
+						<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/payments')} />
+					</div>
 			}
 		</Modal>
 	)

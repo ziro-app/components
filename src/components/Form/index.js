@@ -4,7 +4,7 @@ import { useForm } from './utils/useForm'
 import Button from '../Button/index'
 import Spinner from '../Spinner/index'
 import { ModalSubmit } from './ModalSubmit/index'
-import { container, submit } from './styles'
+import { container, whiteSpace, submit } from './styles'
 
 const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, summary, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
@@ -34,6 +34,7 @@ const Form = ({ useModalLayoutOnSubmit, buttonName, validations, sendToBackend, 
 					}
 				})}
 				{summary && summary}
+				{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
 				{useModalLayoutOnSubmit
 					? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} />
 					: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
