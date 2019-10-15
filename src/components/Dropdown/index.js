@@ -10,7 +10,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 		<div style={container}>
 			<InputText
 				readOnly={true}
-				value={value}
+				value={value === '<Limpar>' ? '' : value}
 				submitting={submitting}
 				onFocus={submitting ? null : () => setIsOpen(true)}
 				onBlur={submitting ? null : () => setIsOpen(false)}
@@ -18,7 +18,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={{ opacity: 0, height: '0' }} animate={{ opacity: 1, height: '120px' }} transition={{ type: 'spring', stiffness: '800', damping: '48' }}>
-				{list.map(item => <option style={data} onMouseDown={onChange} key={item}>{item}</option>)}
+				{['<Limpar>',...list].map(item => <option style={data} onMouseDown={onChange} key={item}>{item}</option>)}
 			</motion.div>}
 		</div>
 	)
