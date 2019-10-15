@@ -6,6 +6,13 @@ container = {
 	position: 'relative'
 },
 
+close = {
+	position: 'absolute',
+	top: '10px',
+	right: '20px',
+	display: 'grid'
+},
+
 modal = {
 	position: 'absolute',
 	display: 'grid',
