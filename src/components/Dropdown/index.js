@@ -8,15 +8,22 @@ import { container, close, modal, data } from './styles'
 
 const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	const [isOpen, setIsOpen] = useState(false)
+	const [isSelected, setIsSelected] = useState(false)
+	const handleSelection = event => {
+		setIsSelected(true)
+		onChange(event)
+	}
 	const clearSelection = () => {
 		const event = { target: { value: '' } }
+		setIsSelected(false)
 		onChange(event)
 	}
 	return (
 		<div style={container}>
+			{isSelected &&
 			<div style={close} onClick={clearSelection}>
 				<Icon type='close' size={16} color={grayColor1} />
-			</div>
+			</div>}
 			<InputText
 				readOnly={true}
 				value={value}
@@ -27,7 +34,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={{ opacity: 0, height: '0' }} animate={{ opacity: 1, height: '120px' }} transition={{ type: 'spring', stiffness: '800', damping: '48' }}>
-				{list.map(item => <option style={data} onMouseDown={onChange} key={item}>{item}</option>)}
+				{list.map(item => <option style={data} onMouseDown={handleSelection} key={item}>{item}</option>)}
 			</motion.div>}
 		</div>
 	)
