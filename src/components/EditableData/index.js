@@ -38,7 +38,7 @@ const EditableData = ({ name, value, onChange, validateInput, submit, setError, 
 			selectInput()
 		}
 	}
-	const clickable = editable || uiState === 'submitting' ? selectInput : undefined
+	const clickable = editable || uiState === 'submitting' ? selectInput : null
 	const display = {
 		idle: <Icon type='pen' size={13} />,
 		editing: <input type='submit' style={save} value='Salvar' />,
