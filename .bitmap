@@ -204,29 +204,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/editable-data@0.0.22": {
-        "files": [
-            {
-                "relativePath": "src/components/EditableData/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/components/EditableData/stateMachine.js",
-                "test": false,
-                "name": "stateMachine.js"
-            },
-            {
-                "relativePath": "src/components/EditableData/styles.js",
-                "test": false,
-                "name": "styles.js"
-            }
-        ],
-        "mainFile": "src/components/EditableData/index.js",
-        "trackDir": "src/components/EditableData",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "vitorbarbosa19.ziro/form-input@0.0.1": {
         "files": [
             {
@@ -470,6 +447,29 @@
             }
         ],
         "mainFile": "src/Illustrations/PaymentError/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/input-edit@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/InputEdit/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/InputEdit/stateMachine.js",
+                "test": false,
+                "name": "stateMachine.js"
+            },
+            {
+                "relativePath": "src/components/InputEdit/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/InputEdit/index.js",
+        "trackDir": "src/components/InputEdit",
         "origin": "AUTHORED",
         "exported": true
     },

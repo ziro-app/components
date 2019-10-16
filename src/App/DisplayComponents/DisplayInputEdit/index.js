@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import EditableData from '../../../components/EditableData/index'
+import InputEdit from '../../../components/InputEdit/index'
 import { containerWithPadding } from '../../../Theme/variables'
 
-export const DisplayEditableData = () => {
+export const DisplayInputEdit = () => {
 	const [name, setName] = useState('Vitor Barbosa')
 	const [errorName, setErrorName] = useState('')
 	const onChange = ({ target: { value } }) => setName(value)
@@ -18,7 +18,7 @@ export const DisplayEditableData = () => {
 	const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	return (
 		<div style={containerWithPadding}>
-			<EditableData
+			<InputEdit
 				name='Nome'
 				value={name}
 				onChange={onChange}
