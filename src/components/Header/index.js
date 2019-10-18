@@ -8,12 +8,12 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 	const component = {
 		'icon': 
 			<>
-				<Icon type={icon || 'ziro'} style={svg} onClick={setIsOpen} />
+				<Icon type={icon || 'ziro'} style={svg(setIsOpen)} onClick={setIsOpen} />
 				<h1 style={text(false)}>{title}</h1>
 			</>,
 		'icon-link':
 			<>
-				<Link to={navigateTo}><Icon type={icon || 'ziro'} style={svg} /></Link>
+				<Link to={navigateTo}><Icon type={icon || 'ziro'} style={svg(navigateTo)} /></Link>
 				<h1 style={text(false)}>{title}</h1>
 			</>,
 		'title-only': <h1 style={text(true)}>{title}</h1>

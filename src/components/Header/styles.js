@@ -9,9 +9,10 @@ container = oneColumn => ({
 	margin: '0 auto 30px'
 }),
 
-svg = {
-	justifySelf: 'start'
-},
+svg = isClickable => ({
+	justifySelf: 'start',
+	cursor: isClickable ? 'pointer' : 'auto'
+}),
 
 text = oneColumn => ({
 	margin: oneColumn ? '0' : '0 0 0 -30px',

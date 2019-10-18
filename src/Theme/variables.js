@@ -14,6 +14,11 @@ containerWithPadding = {
 	padding: '20px 5% 0'
 },
 
+containerWithPaddingAndOverflow = {
+	...containerWithPadding,
+	overflow: 'auto'
+},
+
 /* COLORS */
 primaryColor = '#222222', // rgb(34,34,34)
 primaryAltColor = '#303E4F',
