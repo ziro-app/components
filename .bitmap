@@ -55,8 +55,13 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.3": {
+    "vitorbarbosa19.ziro/checkout@0.0.4": {
         "files": [
+            {
+                "relativePath": "src/Illustrations/ErrorLoading/index.js",
+                "test": false,
+                "name": "index.js"
+            },
             {
                 "relativePath": "src/components/Checkout/ModalSubmit/ErrorModal.js",
                 "test": false,
@@ -201,6 +206,24 @@
         ],
         "mainFile": "src/components/Dropdown/index.js",
         "trackDir": "src/components/Dropdown",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/error-loading@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ErrorLoading/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ErrorLoading/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/ErrorLoading/index.js",
+        "trackDir": "src/components/ErrorLoading",
         "origin": "AUTHORED",
         "exported": true
     },
