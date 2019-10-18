@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Scaffold } from '../Scaffold'
 
 export const Back = ({ style, onClick, size, color, strokeWidth }) =>
 	<Scaffold
 		svgPath={
-			<Fragment>
+			<>
 				<line x1='19' y1='12' x2='5' y2='12'></line>
 				<polyline points='12 19 5 12 12 5'></polyline>
-			</Fragment>
+			</>
 		}
 		style={style}
 		onClick={onClick}

@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Scaffold } from '../Scaffold'
 
 export const Close = ({ style, onClick, size, color, strokeWidth }) =>
 	<Scaffold
 		svgPath={
-			<Fragment>
+			<>
 				<line x1='18' y1='6' x2='6' y2='18'></line>
 				<line x1='6' y1='6' x2='18' y2='18'></line>
-			</Fragment>
+			</>
 		}
 		style={style}
 		onClick={onClick}

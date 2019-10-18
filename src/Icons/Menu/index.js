@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Scaffold } from '../Scaffold'
 
 export const Menu = ({ style, onClick, size, color, strokeWidth }) =>
 	<Scaffold
 		svgPath={
-			<Fragment>
+			<>
 				<line x1='3' y1='12' x2='21' y2='12'></line>
 				<line x1='3' y1='6' x2='21' y2='6'></line>
 				<line x1='3' y1='18' x2='21' y2='18'></line>
-			</Fragment>
+			</>
 		}
 		style={style}
 		onClick={onClick}
