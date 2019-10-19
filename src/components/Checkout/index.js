@@ -75,7 +75,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 				errorComponent={props => <ErrorModal closeModal={props} />}
 				buttonName='Confirmar'
 				validations={validations}
-				sendToBackend={sendToBackend ? sendToBackend(state) : null}
+				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 				summary={<Summary charge={charge} installments={installments} seller={seller} />}
 				inputs={[
 					<FormInput
