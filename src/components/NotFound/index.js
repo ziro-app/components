@@ -9,7 +9,7 @@ import { container, svg, title } from './styles'
 const NotFound = ({ fallback }) => {
 	const [, setLocation] = useLocation()
 	return (
-		<div style={container}>
+		<div style={{...containerWithPadding, ...container}}>
 			<div style={svg}><Illustration type='notFound' /></div>
 			<label style={title}>Página não existe!</label>
 			<label>Retorne à pagina inicial para continuar navegando</label>

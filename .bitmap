@@ -55,10 +55,15 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.4": {
+    "vitorbarbosa19.ziro/checkout@0.0.5": {
         "files": [
             {
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/Illustrations/NotFound/index.js",
                 "test": false,
                 "name": "index.js"
             },
@@ -209,7 +214,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.0.1": {
+    "vitorbarbosa19.ziro/error-loading@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ErrorLoading/index.js",
