@@ -13,7 +13,7 @@ import { SuccessModal } from './ModalSubmit/SuccessModal'
 import { ErrorModal } from './ModalSubmit/ErrorModal'
 import { container, dual, regulatory, ziro } from './styles'
 
-const Checkout = ({ charge, maxInstallments, seller }) => {
+const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 	const [number, setNumber] = useState('')
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
@@ -21,6 +21,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
+	const state = { number, cardholder, expiry, cvv, cpf, installments, brand }
 	const validations = [
 		{
 			name: 'number',
@@ -74,7 +75,7 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 				errorComponent={props => <ErrorModal closeModal={props} />}
 				buttonName='Confirmar'
 				validations={validations}
-				sendToBackend={() => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))}
+				sendToBackend={sendToBackend ? sendToBackend(state) : null}
 				summary={<Summary charge={charge} installments={installments} seller={seller} />}
 				inputs={[
 					<FormInput
@@ -158,7 +159,8 @@ const Checkout = ({ charge, maxInstallments, seller }) => {
 Checkout.propTypes = {
 	charge: PropTypes.string.isRequired,
 	maxInstallments: PropTypes.string.isRequired,
-	seller: PropTypes.string.isRequired
+	seller: PropTypes.string.isRequired,
+	sendToBackend: PropTypes.func.isRequired
 }
 
 export default Checkout
