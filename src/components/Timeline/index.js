@@ -19,7 +19,7 @@ const Timeline = ({ transactions }) =>
 			<div style={start} className='welcome'>
 				<label style={welcome}>Bem-vindo à sua timeline</label>
 			</div>}
-		<div style={illustration}><Illustration type='errorLoading' /></div>
+		<div style={illustration}><Illustration type='timelineStart' /></div>
 		{transactions && transactions.length === 0 &&
 			<label style={empty}>Você ainda não realizou pagamentos</label>}
 	</>
