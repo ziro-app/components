@@ -10,6 +10,7 @@ container = oneColumn => ({
 }),
 
 svg = isClickable => ({
+	WebkitTapHighlightColor: `rgba(0,0,0,0)`,
 	justifySelf: 'start',
 	cursor: isClickable ? 'pointer' : 'auto'
 }),
