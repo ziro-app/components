@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { after, wrapper, sellerCss, chargeCss, statusCss, dateCss } from './styles'
+import Illustration from '../Illustration/index'
+import { after, afterWelcome, wrapper, sellerCss, chargeCss, statusCss, dateCss, start, welcome, illustration } from './styles'
 
 const Timeline = ({ transactions }) =>
 	<>
@@ -13,6 +14,11 @@ const Timeline = ({ transactions }) =>
 				<label style={dateCss}>{date}</label>
 			</div>
 		)}
+		<style>{afterWelcome}</style>
+		<div style={start} className='welcome'>
+			<label style={welcome}>Bem-vindo à sua timeline</label>
+		</div>
+		<div style={illustration}><Illustration type='errorLoading' /></div>
 	</>
 
 Timeline.propTypes = {

@@ -55,7 +55,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.6": {
+    "vitorbarbosa19.ziro/checkout@0.0.7": {
         "files": [
             {
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
@@ -214,7 +214,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.0.2": {
+    "vitorbarbosa19.ziro/error-expired@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/ErrorExpired/index.js",
@@ -232,7 +232,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.0.4": {
+    "vitorbarbosa19.ziro/error-loading@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ErrorLoading/index.js",
@@ -324,7 +324,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/header@0.0.3": {
+    "vitorbarbosa19.ziro/header@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/Header/index.js",
@@ -608,7 +608,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.0.2": {
+    "vitorbarbosa19.ziro/not-found@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",
@@ -682,6 +682,24 @@
         ],
         "mainFile": "src/components/TabDualTransition/index.js",
         "trackDir": "src/components/TabDualTransition",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/timeline@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Timeline/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Timeline/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/Timeline/index.js",
+        "trackDir": "src/components/Timeline",
         "origin": "AUTHORED",
         "exported": true
     },

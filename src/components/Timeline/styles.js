@@ -46,6 +46,23 @@ dateCss = {
 	cursor: 'pointer'
 },
 
+start = {
+	position: 'relative',
+	display: 'grid',
+	marginLeft: '10px',
+	padding: '0 0 0 20px'	
+},
+
+welcome = {
+	marginTop: '-4px',
+	fontSize: fontSizeInput
+},
+
+illustration = {
+	display: 'grid',
+	justifyItems: 'center'
+},
+
 after = `.timeline::after {
 	content: ' ';
 	position: absolute;
@@ -55,6 +72,18 @@ after = `.timeline::after {
 	height: 10px;
 	border: 2px solid ${primaryColor};
 	border-radius: 50%;
+	background-color: #FFF;
+	box-shadow: 0px 5px 15px -2px rgba(34,34,34,0.55);
+}`,
+
+afterWelcome = `.welcome::after {
+	content: ' ';
+	position: absolute;
+	top: 0px;
+	left: -8px;
+	width: 10px;
+	height: 10px;
+	border: 2px solid ${primaryColor};
 	background-color: #FFF;
 	box-shadow: 0px 5px 15px -2px rgba(34,34,34,0.55);
 }`
