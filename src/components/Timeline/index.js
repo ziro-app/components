@@ -1,54 +1,22 @@
 import React from 'react'
-import { transaction, status, pending, supplier, value, date, after } from './styles'
+import PropTypes from 'prop-types'
+import { after, wrapper, sellerCss, chargeCss, statusCss, dateCss } from './styles'
 
-const Timeline = () => {
-	return (
-		<>
-			<style>{after}</style>
-			<div style={transaction} className='timeline'>
-				<label style={pending}>Em aberto</label>
-				<label style={supplier}>Karmani</label>
-				<label style={value}>R$7.238,55</label>
-				<label style={date}>30/ago</label>
+const Timeline = ({ transactions }) =>
+	<>
+		<style>{after}</style>
+		{transactions.map(({ seller, charge, status, date }, key) =>
+			<div style={wrapper} className='timeline' key={key}>
+				<label style={sellerCss}>{seller}</label>
+				<label style={chargeCss}>{charge}</label>
+				<label style={statusCss}>{status}</label>
+				<label style={dateCss}>{date}</label>
 			</div>
-			<div style={transaction} className='timeline'>
-				<label style={status}>Pago</label>
-				<label style={supplier}>Cor Doce</label>
-				<label style={value}>R$3.998,12</label>
-				<label style={date}>30/ago</label>
-			</div>
-			<div style={transaction} className='timeline'>
-				<label style={status}>Pago</label>
-				<label style={supplier}>La Chocole</label>
-				<label style={value}>R$5.372,43</label>
-				<label style={date}>27/ago</label>
-			</div>
-			<div style={transaction} className='timeline'>
-				<label style={status}>Pago</label>
-				<label style={supplier}>Confeccoes Mauricio</label>
-				<label style={value}>R$1.809,13</label>
-				<label style={date}>27/ago</label>
-			</div>
-			<div style={transaction} className='timeline'>
-				<label style={status}>Pago</label>
-				<label style={supplier}>Salgunamu</label>
-				<label style={value}>R$1.999,88</label>
-				<label style={date}>27/ago</label>
-			</div>
-			<div style={transaction} className='timeline'>
-				<label style={status}>Pago</label>
-				<label style={supplier}>Jo Fashion</label>
-				<label style={value}>R$2.341,70</label>
-				<label style={date}>26/ago</label>
-			</div>
-			<div style={transaction} className='timeline'>
-				<label style={status}>Pago</label>
-				<label style={supplier}>Loubucca</label>
-				<label style={value}>R$1.987,69</label>
-				<label style={date}>26/ago</label>
-			</div>
-		</>
-	)
+		)}
+	</>
+
+Timeline.propTypes = {
+	transactions: PropTypes.array.isRequired
 }
 
 export default Timeline

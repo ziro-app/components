@@ -1,8 +1,8 @@
-import { fontTitle, fontSizeInput, fontSizeSmall, primaryColor, alertColor, grayColor1, grayColor2, grayColor4 } from '../../Theme/variables'
+import { fontTitle, fontSizeInput, primaryColor, grayColor1, grayColor2, grayColor4 } from '../../Theme/variables'
 
 export const
 
-transaction = {
+wrapper = {
 	position: 'relative',
 	display: 'grid',
 	borderLeft: `3px ${grayColor4} solid`,
@@ -15,14 +15,14 @@ transaction = {
 		/ 60% 40%`
 },
 
-supplier = {
+sellerCss = {
 	gridArea: 'supplier',
 	marginTop: '-4px',
 	fontSize: fontSizeInput,
 	cursor: 'pointer'
 },
 
-value = {
+chargeCss = {
 	gridArea: 'value',
 	justifySelf: 'end',
 	marginTop: '-4px',
@@ -30,7 +30,7 @@ value = {
 	cursor: 'pointer'	
 },
 
-status = {
+statusCss = {
 	gridArea: 'status',
 	fontFamily: fontTitle,
 	fontSize: '1.2rem',
@@ -38,15 +38,10 @@ status = {
 	cursor: 'pointer'
 },
 
-pending = {
-	...status,
-	color: alertColor
-},
-
-date = {
+dateCss = {
 	gridArea: 'date',
 	justifySelf: 'end',
-	fontSize: fontSizeSmall,
+	fontSize: '1.2rem',
 	color: grayColor1,
 	cursor: 'pointer'
 },
