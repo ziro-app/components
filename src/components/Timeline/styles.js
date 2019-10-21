@@ -63,6 +63,11 @@ illustration = {
 	justifyItems: 'center'
 },
 
+empty = {
+	display: 'grid',
+	textAlign: 'center'
+},
+
 after = `.timeline::after {
 	content: ' ';
 	position: absolute;

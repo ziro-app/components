@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Illustration from '../Illustration/index'
-import { after, afterWelcome, wrapper, sellerCss, chargeCss, statusCss, dateCss, start, welcome, illustration } from './styles'
+import { after, afterWelcome, wrapper, sellerCss, chargeCss, statusCss, dateCss, start, welcome, illustration, empty } from './styles'
 
 const Timeline = ({ transactions }) =>
 	<>
@@ -15,10 +15,13 @@ const Timeline = ({ transactions }) =>
 			</div>
 		)}
 		<style>{afterWelcome}</style>
-		<div style={start} className='welcome'>
-			<label style={welcome}>Bem-vindo à sua timeline</label>
-		</div>
+		{transactions && transactions.length !== 0 &&
+			<div style={start} className='welcome'>
+				<label style={welcome}>Bem-vindo à sua timeline</label>
+			</div>}
 		<div style={illustration}><Illustration type='errorLoading' /></div>
+		{transactions && transactions.length === 0 &&
+			<label style={empty}>Você ainda não realizou pagamentos</label>}
 	</>
 
 Timeline.propTypes = {
