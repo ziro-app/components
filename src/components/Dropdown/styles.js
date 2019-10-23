@@ -8,14 +8,16 @@ container = {
 
 close = {
 	position: 'absolute',
-	top: '10px',
 	right: '20px',
-	display: 'grid'
+	display: 'grid',
+	alignContent: 'center',
+	height: '100%'
 },
 
 modal = {
 	position: 'absolute',
 	display: 'grid',
+	alignContent: 'start',
 	overflowY: 'scroll',
 	boxSizing: 'border-box',
 	width: '100%',
@@ -31,6 +33,15 @@ modal = {
 },
 
 data = {
-	padding: '5px 0',
-	fontSize: fontSizeInput
+	WebkitAppearance: 'none',
+	MozAppearance: 'none',
+	outline: 'none',
+	boxSizing: 'border-box',
+	width: '100%',
+	height: '30px',
+	border: 'none',
+	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
+	fontSize: fontSizeInput,
+	color: primaryColor,
+	backgroundColor: '#FDFDFD'
 }
