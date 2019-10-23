@@ -6,5 +6,5 @@ import { containerWithPadding } from '../../../Theme/variables'
 export const DisplayCheckout = () =>
 	<div style={containerWithPadding}>
 		<Header type='title-only' title='Pagamento' />
-		<Checkout charge='60078' maxInstallments='6' seller='Crisfael' />
+		<Checkout charge='60078' maxInstallments='6' seller='Crisfael' sendToBackend={() => () => null} />
 	</div>

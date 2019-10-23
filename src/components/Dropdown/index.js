@@ -34,7 +34,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={{ opacity: 0, height: '0' }} animate={{ opacity: 1, height: '120px' }} transition={{ type: 'spring', stiffness: '800', damping: '48' }}>
-				{list.map(item => <option style={data} onMouseDown={handleSelection} key={item}>{item}</option>)}
+				{list.map(item => <li style={data} value={item} onMouseDown={handleSelection} key={item}>{item}</li>)}
 			</motion.div>}
 		</div>
 	)
