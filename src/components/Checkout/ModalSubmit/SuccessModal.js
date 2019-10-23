@@ -11,7 +11,7 @@ export const SuccessModal = () => {
 			<div style={svg}><Illustration type='paymentSuccess' /></div>
 			<label style={title}>Processando!</label>
 			<label>Acompanhe o status pelo menu Pagamentos</label>
-			<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/payments')} />
+			<Button type='link' cta='Ver pagamentos' navigate={() => setLocation('/pagamentos')} />
 		</div>
 	)
 }

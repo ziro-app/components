@@ -55,7 +55,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.8": {
+    "vitorbarbosa19.ziro/checkout@0.0.9": {
         "files": [
             {
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
@@ -219,7 +219,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.0.4": {
+    "vitorbarbosa19.ziro/error-expired@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ErrorExpired/index.js",
@@ -237,7 +237,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.0.6": {
+    "vitorbarbosa19.ziro/error-loading@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/ErrorLoading/index.js",
@@ -613,7 +613,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.0.4": {
+    "vitorbarbosa19.ziro/not-found@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",
@@ -690,7 +690,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.0.2": {
+    "vitorbarbosa19.ziro/timeline@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Timeline/index.js",
