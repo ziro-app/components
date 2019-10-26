@@ -19,6 +19,7 @@ modalResult = {
 	justifyContent: 'center',
 	maxWidth: '300px',
 	width: '85%',
+	paddingBottom: '20px',
 	borderRadius: '3px',
 	textAlign: 'center',
 	background: 'white',
@@ -27,7 +28,7 @@ modalResult = {
 },
 
 svg = {
-	animation: 'spin 0.5s linear infinite',
+	animation: 'spin 0.7s linear infinite',
 	alignSelf: 'center',
 	justifySelf: 'center'
 }
