@@ -501,6 +501,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/initial-loader@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/InitialLoader/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/InitialLoader/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/InitialLoader/index.js",
+        "trackDir": "src/components/InitialLoader",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/input-edit@0.0.3": {
         "files": [
             {
@@ -731,5 +749,5 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "version": "14.4.1"
+    "version": "14.4.3"
 }
