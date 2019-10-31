@@ -9,7 +9,7 @@ export default class ErrorBoundary extends Component {
 	}
 	static getDerivedStateFromError() { return ({ renderError: true }) }
 	componentDidCatch(error, info) { console.log(error, info) }
-	render() { return (this.state.renderError ? <ErrorMessage /> : this.props.children) }
+	render() { return this.state.renderError ? <ErrorMessage /> : this.props.children }
 }
 
 ErrorBoundary.propTypes = {

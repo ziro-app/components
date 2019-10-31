@@ -219,6 +219,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/error-boundary@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ErrorBoundary/ErrorMessage.js",
+                "test": false,
+                "name": "ErrorMessage.js"
+            },
+            {
+                "relativePath": "src/components/ErrorBoundary/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ErrorBoundary/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/ErrorBoundary/index.js",
+        "trackDir": "src/components/ErrorBoundary",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/error-expired@0.0.12": {
         "files": [
             {
