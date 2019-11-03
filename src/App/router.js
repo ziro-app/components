@@ -17,6 +17,7 @@ import { DisplayErrorLoading } from './DisplayComponents/DisplayErrorLoading/ind
 import { DisplayNotFound } from './DisplayComponents/DisplayNotFound/index'
 import { DisplayTimeline } from './DisplayComponents/DisplayTimeline/index'
 import { DisplayErrorBoundary } from './DisplayComponents/DisplayErrorBoundary/index'
+import { DisplayAbout } from './DisplayComponents/DisplayAbout/index'
 
 export const Router = () =>
 	<Switch>
@@ -37,5 +38,6 @@ export const Router = () =>
 		<Route path='/not-found'><DisplayNotFound /></Route>
 		<Route path='/timeline'><DisplayTimeline /></Route>
 		<Route path='/error-boundary'><DisplayErrorBoundary /></Route>
+		<Route path='/about'><DisplayAbout /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
