@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '@bit/vitorbarbosa19.ziro.logo'
-import Spinner from '@bit/vitorbarbosa19.ziro.spinner'
+import Logo from '../Logo/index'
+import Spinner from '../Spinner/index'
 import { containerWithPadding } from '../../Theme/variables'
 import { container } from './styles'
 

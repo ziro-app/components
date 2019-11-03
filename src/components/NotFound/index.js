@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import Illustration from '../Illustration/index'
-import Button from '@bit/vitorbarbosa19.ziro.button'
+import Button from '../Button/index'
 import { containerWithPadding } from '../../Theme/variables'
 import { container, svg, title } from './styles'
 

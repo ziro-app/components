@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '@bit/vitorbarbosa19.ziro.logo'
-import Icon from '@bit/vitorbarbosa19.ziro.icon'
+import Logo from '../Logo/index'
+import Icon from '../Icon/index'
 import { containerWithPadding, alertColor } from '../../Theme/variables'
 import { container, title, alert } from './styles'
 
