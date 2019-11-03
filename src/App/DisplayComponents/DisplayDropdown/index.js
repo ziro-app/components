@@ -9,7 +9,7 @@ export const DisplayDropdown = () => {
 			<Dropdown
 				value={selection}
 				onChange={({ target: { value } }) => setSelection(value)}
-				list={['Apples', 'Bananas', 'Oranges']}
+				list={['Apples', 'Bananas', 'Oranges', 'Melons', 'Berries']}
 				placeholder='Escolha uma opção'
 			/>
 		</div>

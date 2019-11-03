@@ -1,14 +1,14 @@
 import React from 'react'
 import TabDualTransition from '../../../components/TabDualTransition/index'
 import TabDualHeader from '../../../components/TabDualHeader/index'
-import { containerWithPaddingAndOverflow } from '../../../Theme/variables'
+import { containerWithPadding } from '../../../Theme/variables'
 import { component } from './styles'
 
 //overflow: auto removes the scroll bar
 
 export const DisplayTabDual = () => {
 	return (
-		<div style={containerWithPaddingAndOverflow}>
+		<div style={containerWithPadding}>
 			<TabDualHeader
 				pathOne='/tab-dual/dados-1'
 				tabNameOne='Dados 1'
