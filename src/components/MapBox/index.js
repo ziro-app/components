@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
 import { container } from './styles'
 
-const Map = ({ apiToken, center, zoom }) => {
+const MapBox = ({ apiToken, center, zoom }) => {
 	useEffect(() => {
 		mapboxgl.accessToken = apiToken || process.env.MAPBOX_API
 		const map = new mapboxgl.Map({
@@ -16,10 +16,10 @@ const Map = ({ apiToken, center, zoom }) => {
 	return <div style={container} id='map'></div>
 }
 
-Map.propTypes = {
+MapBox.propTypes = {
 	apiToken: PropTypes.string,
 	center: PropTypes.array,
 	zoom: PropTypes.number
 }
 
-export default Map
+export default MapBox
