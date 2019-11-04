@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Ziro } from '../../Icons/Ziro/index'
+import { Amex } from '../../Icons/Amex/index'
+import { Visa } from '../../Icons/Visa/index'
+import { Mastercard } from '../../Icons/Mastercard/index'
+import { Elo } from '../../Icons/Elo/index'
+import { Hiper } from '../../Icons/Hiper/index'
 import { Success } from '../../Icons/Success/index'
 import { Alert } from '../../Icons/Alert/index'
 import { Warning } from '../../Icons/Warning/index'
@@ -19,17 +24,18 @@ import { Lock } from '../../Icons/Lock/index'
 import { Email } from '../../Icons/Email/index'
 import { Calendar } from '../../Icons/Calendar/index'
 import { Id } from '../../Icons/Id/index'
-import { Amex } from '../../Icons/Amex/index'
-import { Visa } from '../../Icons/Visa/index'
-import { Mastercard } from '../../Icons/Mastercard/index'
-import { Elo } from '../../Icons/Elo/index'
-import { Hiper } from '../../Icons/Hiper/index'
 import { Location } from '../../Icons/Location/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
 	const iconList = {
 		ziro: <Ziro {...iconProps} />,
+		amex: <Amex {...iconProps} />,
+		visa: <Visa {...iconProps} />,
+		mastercard: <Mastercard {...iconProps} />,
+		elo: <Elo {...iconProps} />,
+		hiper: <Hiper {...iconProps} />,
+		hipercard: <Hiper {...iconProps} />,
 		success: <Success {...iconProps} />,
 		alert: <Alert {...iconProps} />,
 		warning: <Warning {...iconProps} />,
@@ -48,12 +54,6 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		email: <Email {...iconProps} />,
 		calendar: <Calendar {...iconProps} />,
 		id: <Id {...iconProps} />,
-		amex: <Amex {...iconProps} />,
-		visa: <Visa {...iconProps} />,
-		mastercard: <Mastercard {...iconProps} />,
-		elo: <Elo {...iconProps} />,
-		hiper: <Hiper {...iconProps} />,
-		hipercard: <Hiper {...iconProps} />,
 		location: <Location {...iconProps} />
 	}
 	return iconList[type]
