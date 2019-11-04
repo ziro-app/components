@@ -5,7 +5,7 @@ export const
 header = {
 	display: 'grid',
 	gridRowGap: '3px',
-	padding: '4% 0 10%'
+	padding: '20px 0 10%'
 },
 
 welcome = {
