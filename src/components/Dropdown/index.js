@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import Icon from '../Icon'
@@ -9,6 +9,28 @@ import { container, close, modal, data } from './styles'
 const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
+	const [cursorPosition, setCursorPosition] = useState(0)
+	const onKeyDown = ({ key }) => {
+		if (isOpen && key === 'ArrowDown') {
+			setCursorPosition(prevPosition => prevPosition + 1)
+		}
+	}
+	const onKeyUp = ({ key }) => {
+		if (isOpen && key === 'ArrowUp') {
+			setCursorPosition(prevPosition => prevPosition - 1)
+		}
+	}
+	useEffect(() => {
+		window.addEventListener('keydown', onKeyDown)
+		window.addEventListener('keyup', onKeyUp)
+		return () => {
+			window.removeEventListener('keydown', onKeyDown)
+			window.removeEventListener('keyup', onKeyUp)
+		}
+	}, [isOpen])
+	useEffect(() => {
+		console.log(cursorPosition)
+	}, [cursorPosition])
 	const handleSelection = event => {
 		setIsSelected(true)
 		onChange(event)
