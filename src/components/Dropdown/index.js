@@ -9,17 +9,17 @@ import { container, close, modal, data } from './styles'
 const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
-	const [cursorPosition, setCursorPosition] = useState(1)
+	const [cursorPosition, setCursorPosition] = useState(0)
 	const onKeyDown = ({ key }) => {
 		if (isOpen && key === 'ArrowDown') setCursorPosition(prevPosition => {
-			if (prevPosition < list.length)
+			if (prevPosition < list.length - 1)
 				return prevPosition + 1
 			return prevPosition
 		})
 	}
 	const onKeyUp = ({ key }) => {
 		if (isOpen && key === 'ArrowUp') setCursorPosition(prevPosition => {
-			if (prevPosition > 1)
+			if (prevPosition > 0)
 				return prevPosition - 1
 			return prevPosition
 		})
@@ -32,9 +32,6 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			window.removeEventListener('keyup', onKeyUp)
 		}
 	}, [isOpen])
-	useEffect(() => {
-		console.log(cursorPosition)
-	}, [cursorPosition])
 	const handleSelection = event => {
 		setIsSelected(true)
 		onChange(event)
@@ -60,7 +57,14 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={{ opacity: 0, height: '0' }} animate={{ opacity: 1, height: '120px' }} transition={{ type: 'spring', stiffness: '800', damping: '48' }}>
-				{list.map(item => <input style={data} value={item} onMouseDown={handleSelection} key={item} readOnly={true} />)}
+				{list.map((item, index) =>
+					<input
+						style={data(cursorPosition === index)}
+						value={item}
+						onMouseDown={handleSelection}
+						key={item}
+						readOnly={true}
+					/>)}
 			</motion.div>}
 		</div>
 	)

@@ -32,7 +32,7 @@ modal = {
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
 },
 
-data = {
+data = isActive => ({
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
@@ -43,5 +43,5 @@ data = {
 	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
 	fontSize: fontSizeInput,
 	color: primaryColor,
-	backgroundColor: '#FDFDFD'
-}
+	backgroundColor: isActive ? '#F3F3F3' : '#FDFDFD'
+})
