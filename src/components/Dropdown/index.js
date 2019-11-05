@@ -9,16 +9,20 @@ import { container, close, modal, data } from './styles'
 const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
-	const [cursorPosition, setCursorPosition] = useState(0)
+	const [cursorPosition, setCursorPosition] = useState(1)
 	const onKeyDown = ({ key }) => {
-		if (isOpen && key === 'ArrowDown') {
-			setCursorPosition(prevPosition => prevPosition + 1)
-		}
+		if (isOpen && key === 'ArrowDown') setCursorPosition(prevPosition => {
+			if (prevPosition < list.length)
+				return prevPosition + 1
+			return prevPosition
+		})
 	}
 	const onKeyUp = ({ key }) => {
-		if (isOpen && key === 'ArrowUp') {
-			setCursorPosition(prevPosition => prevPosition - 1)
-		}
+		if (isOpen && key === 'ArrowUp') setCursorPosition(prevPosition => {
+			if (prevPosition > 1)
+				return prevPosition - 1
+			return prevPosition
+		})
 	}
 	useEffect(() => {
 		window.addEventListener('keydown', onKeyDown)
