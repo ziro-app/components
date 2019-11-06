@@ -41,6 +41,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 			onChangeKeyboard(document.getElementById(cursorPosition))
 	}
 	useEffect(() => {
+		if (!isOpen) setCursorPosition(null)
 		window.addEventListener('keydown', onKeyDown)
 		window.addEventListener('keyup', onKeyUp)
 		if (onChangeKeyboard) window.addEventListener('return', onKeyEnter)
