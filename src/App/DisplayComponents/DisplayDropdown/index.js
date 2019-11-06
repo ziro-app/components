@@ -11,6 +11,7 @@ export const DisplayDropdown = () => {
 				onChange={({ target: { value } }) => setSelection(value)}
 				list={['Apples', 'Bananas', 'Oranges', 'Melons', 'Berries']}
 				placeholder='Escolha uma opção'
+				onChangeKeyboard={(value) => console.log(value)}
 			/>
 		</div>
 	)

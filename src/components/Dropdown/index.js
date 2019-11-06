@@ -43,7 +43,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 	useEffect(() => {
 		window.addEventListener('keydown', onKeyDown)
 		window.addEventListener('keyup', onKeyUp)
-		if (onChangeKeyboard) window.addEventListener('enter', onKeyEnter)
+		if (onChangeKeyboard) window.addEventListener('return', onKeyEnter)
 		return () => {
 			window.removeEventListener('keydown', onKeyDown)
 			window.removeEventListener('keyup', onKeyUp)
