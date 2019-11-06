@@ -6,7 +6,7 @@ import InputText from '../InputText'
 import { grayColor1 } from '../../Theme/variables'
 import { container, close, modal, data } from './styles'
 
-const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
+const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
 	const handleSelection = event => {
@@ -36,17 +36,24 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			return prevPosition
 		})
 	}
+	const onKeyEnter = ({ key }) => {
+		if (isOpen && key === 'Enter')
+			onChangeKeyboard(document.getElementById(cursorPosition))
+	}
 	useEffect(() => {
 		window.addEventListener('keydown', onKeyDown)
 		window.addEventListener('keyup', onKeyUp)
+		if (onChangeKeyboard) window.addEventListener('enter', onKeyEnter)
 		return () => {
 			window.removeEventListener('keydown', onKeyDown)
 			window.removeEventListener('keyup', onKeyUp)
+			if (onChangeKeyboard) window.removeEventListener('enter', onKeyEnter)
 		}
 	}, [isOpen])
 	/* allow scrolling the list when using the keyboard */
 	useEffect(() => {
-		if (cursorPosition) document.getElementById(cursorPosition).scrollIntoView(false)
+		if (cursorPosition)
+			document.getElementById(cursorPosition).scrollIntoView(false)
 	}, [cursorPosition])
 	return (
 		<div style={container}>
@@ -83,7 +90,8 @@ Dropdown.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	list: PropTypes.array.isRequired,
 	submitting: PropTypes.bool,
-	placeholder: PropTypes.string
+	placeholder: PropTypes.string,
+	onChangeKeyboard: PropTypes.func
 }
 
 export default Dropdown
