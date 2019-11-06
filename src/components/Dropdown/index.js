@@ -9,6 +9,16 @@ import { container, close, modal, data } from './styles'
 const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
+	const handleSelection = event => {
+		setIsSelected(true)
+		onChange(event)
+	}
+	const clearSelection = () => {
+		const event = { target: { value: '' } }
+		setIsSelected(false)
+		onChange(event)
+	}
+	/* allow keyboard navigation */
 	const [cursorPosition, setCursorPosition] = useState(0)
 	const onKeyDown = ({ key }) => {
 		if (isOpen && key === 'ArrowDown') setCursorPosition(prevPosition => {
@@ -32,15 +42,10 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 			window.removeEventListener('keyup', onKeyUp)
 		}
 	}, [isOpen])
-	const handleSelection = event => {
-		setIsSelected(true)
-		onChange(event)
-	}
-	const clearSelection = () => {
-		const event = { target: { value: '' } }
-		setIsSelected(false)
-		onChange(event)
-	}
+	/* allow scrolling the list when using the keyboard */
+	useEffect(() => {
+		if (isOpen) document.getElementById(cursorPosition).scrollIntoView(false)
+	}, [cursorPosition])
 	return (
 		<div style={container}>
 			{isSelected &&
@@ -63,6 +68,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 						value={item}
 						onMouseDown={handleSelection}
 						key={item}
+						id={index}
 						readOnly={true}
 					/>)}
 			</motion.div>}
