@@ -19,9 +19,11 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 		onChange(event)
 	}
 	/* allow keyboard navigation */
-	const [cursorPosition, setCursorPosition] = useState(0)
+	const [cursorPosition, setCursorPosition] = useState(null)
 	const onKeyDown = ({ key }) => {
 		if (isOpen && key === 'ArrowDown') setCursorPosition(prevPosition => {
+			if (prevPosition === null)
+				return 0
 			if (prevPosition < list.length - 1)
 				return prevPosition + 1
 			return prevPosition
@@ -44,7 +46,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder }) => {
 	}, [isOpen])
 	/* allow scrolling the list when using the keyboard */
 	useEffect(() => {
-		if (isOpen) document.getElementById(cursorPosition).scrollIntoView(false)
+		if (cursorPosition) document.getElementById(cursorPosition).scrollIntoView(false)
 	}, [cursorPosition])
 	return (
 		<div style={container}>
