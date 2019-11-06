@@ -20,36 +20,39 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 	}
 	/* allow keyboard navigation */
 	const [cursorPosition, setCursorPosition] = useState(null)
-	const onKeyDown = ({ key }) => {
-		if (isOpen && key === 'ArrowDown') setCursorPosition(prevPosition => {
-			if (prevPosition === null)
-				return 0
-			if (prevPosition < list.length - 1)
-				return prevPosition + 1
-			return prevPosition
-		})
-	}
-	const onKeyUp = ({ key }) => {
-		if (isOpen && key === 'ArrowUp') setCursorPosition(prevPosition => {
-			if (prevPosition > 0)
-				return prevPosition - 1
-			return prevPosition
-		})
-	}
-	const onKeyEnter = ({ key }) => {
-		if (isOpen && key === 'Enter')
-			onChangeKeyboard(document.getElementById(cursorPosition))
+	const [enter, setEnter] = useState(false)
+	const onKeyPress = ({ key }) => {
+		if (isOpen) {
+			if (key === 'ArrowDown') setCursorPosition(prevPosition => {
+				if (prevPosition === null)
+					return 0
+				if (prevPosition < list.length - 1)
+					return prevPosition + 1
+				return prevPosition
+			})
+			if (key === 'ArrowUp') setCursorPosition(prevPosition => {
+				if (prevPosition > 0)
+					return prevPosition - 1
+				return prevPosition
+			})
+			if (key === 'Enter') {
+				setIsSelected(true)
+				setEnter(true)
+				setIsOpen(false)
+				document.activeElement.blur()
+			}
+		}
 	}
 	useEffect(() => {
-		if (!isOpen) setCursorPosition(null)
-		window.addEventListener('keydown', onKeyDown)
-		window.addEventListener('keyup', onKeyUp)
-		if (onChangeKeyboard) window.addEventListener('return', onKeyEnter)
-		return () => {
-			window.removeEventListener('keydown', onKeyDown)
-			window.removeEventListener('keyup', onKeyUp)
-			if (onChangeKeyboard) window.removeEventListener('enter', onKeyEnter)
+		onChangeKeyboard(document.getElementById(cursorPosition))
+	}, [enter])
+	useEffect(() => {
+		if (!isOpen) {
+			setCursorPosition(null)
+			setEnter(false)
 		}
+		window.addEventListener('keydown', onKeyPress)
+		return () => window.removeEventListener('keydown', onKeyPress)
 	}, [isOpen])
 	/* allow scrolling the list when using the keyboard */
 	useEffect(() => {
