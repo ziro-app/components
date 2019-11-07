@@ -5,6 +5,7 @@ import Icon from '../Icon'
 import InputText from '../InputText'
 import { grayColor1 } from '../../Theme/variables'
 import { container, close, modal, data } from './styles'
+import { initial, animate, transition } from './animation'
 
 const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard }) => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -75,7 +76,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				placeholder={placeholder}
 			/>
 			{isOpen &&
-			<motion.div style={modal} initial={{ opacity: 0, height: '0' }} animate={{ opacity: 1, height: '120px' }} transition={{ type: 'spring', stiffness: '800', damping: '48' }}>
+			<motion.div style={modal} initial={initial} animate={animate} transition={transition}>
 				{list.map((item, index) =>
 					<input
 						style={data(cursorPosition === index)}
