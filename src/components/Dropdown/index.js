@@ -18,7 +18,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		setIsSelected(false)
 		onChange(event)
 	}
-	/* allow keyboard navigation */
+	/* allow keyboard navigation and using enter to select item from list */
 	const [cursorPosition, setCursorPosition] = useState(null)
 	const [enter, setEnter] = useState(false)
 	const onKeyPress = ({ key }) => {
@@ -44,9 +44,6 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		}
 	}
 	useEffect(() => {
-		onChangeKeyboard(document.getElementById(cursorPosition))
-	}, [enter])
-	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener('keydown', onKeyPress)
 			return () => window.removeEventListener('keydown', onKeyPress)
@@ -55,6 +52,9 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 			setEnter(false)
 		}
 	}, [isOpen])
+	useEffect(() => {
+		onChangeKeyboard(document.getElementById(cursorPosition))
+	}, [enter])
 	/* allow scrolling the list when using the keyboard */
 	useEffect(() => {
 		if (cursorPosition)

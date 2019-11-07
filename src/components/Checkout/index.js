@@ -144,6 +144,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 								onChange={({ target: { value } }) => setInstallments(value.substring(0,1))}
 								list={installmentOptions(charge, maxInstallments)}
 								placeholder='Escolha quantas parcelas'
+								onChangeKeyboard={element => element ? setInstallments(element.value.substring(0,1)) : null }
 							/>
 						}
 					/>
