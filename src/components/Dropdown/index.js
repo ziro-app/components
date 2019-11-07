@@ -47,12 +47,13 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		onChangeKeyboard(document.getElementById(cursorPosition))
 	}, [enter])
 	useEffect(() => {
-		if (!isOpen) {
+		if (isOpen) {
+			window.addEventListener('keydown', onKeyPress)
+			return () => window.removeEventListener('keydown', onKeyPress)
+		} else {
 			setCursorPosition(null)
 			setEnter(false)
 		}
-		window.addEventListener('keydown', onKeyPress)
-		return () => window.removeEventListener('keydown', onKeyPress)
 	}, [isOpen])
 	/* allow scrolling the list when using the keyboard */
 	useEffect(() => {
