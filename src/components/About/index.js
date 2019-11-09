@@ -10,7 +10,7 @@ const About = () =>
 		<label>28.026.371/0001-61</label>
 		<label>R. Lubavitch, 71, Bom Retiro</label>
 		<label>01123-110, São Paulo - SP</label>
-		<MapBox center={[-46.638279672833505,-23.529533748594474]} zoom={14} />
+		<MapBox />
 	</div>
 
 export default About
