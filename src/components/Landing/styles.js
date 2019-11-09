@@ -71,7 +71,7 @@ benefitsText = {
 },
 
 clients = {
-	margin: '100px 0'
+	margin: '80px 0'
 },
 
 bar = {
@@ -98,9 +98,8 @@ steps = {
 },
 
 title = {
-	marginBottom: '30px',
 	fontFamily: fontTitle,
-	fontSize: '3.2rem',
+	fontSize: '2.8rem',
 	textAlign: 'center',
 	textTransform: 'uppercase'
 },
@@ -126,4 +125,12 @@ stepCall = {
 
 stepText = {
 	textAlign: 'start'
+},
+
+location = {
+	margin: '80px 0 20px',
+},
+
+address = {
+	textAlign: 'center'
 }

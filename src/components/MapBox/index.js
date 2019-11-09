@@ -5,7 +5,7 @@ import { primaryColor } from '../../Theme/variables'
 import { container } from './styles'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-const MapBox = ({ apiToken, center, zoom }) => {
+const MapBox = ({ apiToken, center = [-46.638279672833505,-23.529533748594474], zoom = 14 }) => {
 	useEffect(() => {
 		mapboxgl.accessToken = apiToken || process.env.MAPBOX_API
 		const map = new mapboxgl.Map({
