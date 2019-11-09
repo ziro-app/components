@@ -1,10 +1,11 @@
 import React from 'react'
 import Logo from '../Logo/index'
+import Button from '../Button/index'
 import phones from './phones.png'
 import choose from './choose.png'
 import logistics from './logistics.png'
 import pay from './pay.png'
-import { container, header, name, hero, heroCall, heroText, heroImg,
+import { container, header, name, hero, heroCall, heroText, heroImg, button,
 	benefits, benefitsImg, benefitsCall, benefitsText, clients, bar, testimonial, client,
 	steps, title, step, number, block, stepCall, stepText } from './styles'
 
@@ -18,6 +19,7 @@ const Landing = () => {
 			<div style={hero}>
 				<p style={heroCall}>Compre sem dificuldade roupas femininas para revender</p>
 				<p style={heroText}>A Ziro facilita na escolha, no despacho e no pagamento da sua mercadoria</p>
+				<div style={button}><Button type='submit' cta='Fale conosco' /></div>
 				<img style={heroImg} src={phones} />
 			</div>
 			<div style={benefits}>

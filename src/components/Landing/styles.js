@@ -38,7 +38,14 @@ heroText = {
 },
 
 heroImg = {
+	marginTop: '30px',
 	width: '100%'
+},
+
+button = {
+	display: 'grid',
+	marginTop: '5px',
+	width: '40%'
 },
 
 benefits = {
@@ -54,6 +61,7 @@ benefitsImg = {
 benefitsCall = {
 	fontFamily: fontTitle,
 	fontSize: '2rem',
+	textAlign: 'center',
 	textTransform: 'uppercase'
 },
 
