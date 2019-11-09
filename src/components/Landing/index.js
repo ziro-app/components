@@ -4,7 +4,8 @@ import phones from './phones.png'
 import choose from './choose.png'
 import logistics from './logistics.png'
 import pay from './pay.png'
-import { container, header, name, hero, heroCall, heroText, heroImg, benefits, benefitsImg, benefitsCall, benefitsText } from './styles'
+import { container, header, name, hero, heroCall, heroText, heroImg,
+	benefits, benefitsImg, benefitsCall, benefitsText, bar, testimonial, client } from './styles'
 
 const Landing = () => {
 	return (
@@ -32,6 +33,11 @@ const Landing = () => {
 				<img style={benefitsImg} src={pay} />
 				<p style={benefitsCall}>Pagamento sem burocracia</p>
 				<p style={benefitsText}>Aprovamos sua compra em poucos minutos, com parcelamento em 6x s/ juros</p>
+			</div>
+			<div>
+				<div style={bar} />
+				<p style={testimonial}>"Não me preocupo em carregar sacolas, não fica mercadoria para trás e tenho tempo para ir em mais lojas!"</p>
+				<p style={client}>&mdash;&mdash; Edileuza, cliente</p>
 			</div>
 		</div>
 	)

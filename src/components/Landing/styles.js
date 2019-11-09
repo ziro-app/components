@@ -45,6 +45,11 @@ benefits = {
 	justifyItems: 'center'
 },
 
+benefitsImg = {
+	width: '200px',
+	marginBottom: '10px'
+},
+
 benefitsCall = {
 	fontFamily: fontTitle,
 	fontSize: '2rem'
@@ -55,7 +60,20 @@ benefitsText = {
 	textAlign: 'center'
 },
 
-benefitsImg = {
-	width: '200px',
-	marginBottom: '10px'
+bar = {
+	margin: '0 auto 10px',
+	width: '40px',
+	border: `2px solid ${primaryColor}`,
+	borderRadius: '6px'
+},
+
+testimonial = {
+	fontFamily: fontTitle,
+	fontSize: '2.1rem',
+	textAlign: 'center'
+},
+
+client = {
+	marginTop: '10px',
+	textAlign: 'right'
 }
