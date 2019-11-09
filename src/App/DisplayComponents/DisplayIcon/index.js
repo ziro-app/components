@@ -31,4 +31,5 @@ export const DisplayIcon = () =>
 		<Icon type='id' />
 		<Icon type='location' />
 		<Icon type='facebook' size={24} />
+		<Icon type='instagram' size={24} />
 	</div>

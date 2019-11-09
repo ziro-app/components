@@ -26,6 +26,7 @@ import { Calendar } from '../../Icons/Calendar/index'
 import { Id } from '../../Icons/Id/index'
 import { Location } from '../../Icons/Location/index'
 import { Facebook } from '../../Icons/Facebook/index'
+import { Instagram } from '../../Icons/Instagram/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -56,7 +57,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		calendar: <Calendar {...iconProps} />,
 		id: <Id {...iconProps} />,
 		location: <Location {...iconProps} />,
-		facebook: <Facebook {...iconProps} />
+		facebook: <Facebook {...iconProps} />,
+		instagram: <Instagram {...iconProps} />
 	}
 	return iconList[type]
 }
