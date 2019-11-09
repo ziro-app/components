@@ -25,7 +25,18 @@ hero = {
 	gridRowGap: '5px'
 },
 
+marker = {
+	position: 'absolute',
+	bottom: '6px',
+	left: '0',
+	width: '140px',
+	height: '8px',
+	zIndex: '-1',
+	background: 'rgba(255,228,0,0.75)'
+},
+
 heroCall = {
+	position: 'relative',
 	fontFamily: fontTitle,
 	fontSize: '3.2rem',
 	lineHeight: '1.2',
@@ -45,7 +56,7 @@ heroImg = {
 button = {
 	display: 'grid',
 	marginTop: '5px',
-	width: '40%'
+	width: window.innerWidth < 400 ? '55%' : '40%'
 },
 
 benefits = {
@@ -75,7 +86,7 @@ clients = {
 },
 
 bar = {
-	margin: '0 auto 10px',
+	margin: '30px auto 10px',
 	width: '40px',
 	border: `2px solid ${primaryColor}`,
 	borderRadius: '6px'
@@ -106,7 +117,7 @@ title = {
 
 step = {
 	display: 'grid',
-	gridTemplateColumns: '100px 1fr'
+	gridTemplateColumns: '30% 1fr'
 },
 
 number = {
@@ -128,6 +139,9 @@ stepText = {
 },
 
 location = {
+	display: 'grid',
+	justifyItems: 'center',
+	gridRowGap: '20px',
 	margin: '80px 0 20px',
 },
 

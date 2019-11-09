@@ -6,7 +6,7 @@ import phones from './phones.png'
 import choose from './choose.png'
 import logistics from './logistics.png'
 import pay from './pay.png'
-import { container, header, name, hero, heroCall, heroText, heroImg, button,
+import { container, header, name, hero, heroCall, marker, heroText, heroImg, button,
 	benefits, benefitsImg, benefitsCall, benefitsText, clients, bar, testimonial, client,
 	steps, title, step, number, block, stepCall, stepText, location, address } from './styles'
 
@@ -18,7 +18,7 @@ const Landing = () => {
 				<p style={name}>ZIRO</p>
 			</div>
 			<div style={hero}>
-				<p style={heroCall}>Compre sem dificuldade roupas femininas para revender</p>
+				<p style={heroCall}>Compre sem dificuldade roupas femininas para revender<span style={marker}></span></p>
 				<p style={heroText}>A Ziro facilita na escolha, no despacho e no pagamento da sua mercadoria</p>
 				<div style={button}><Button type='submit' cta='Fale conosco' /></div>
 				<img style={heroImg} src={phones} />
@@ -78,14 +78,18 @@ const Landing = () => {
 					<label style={number}>5</label>
 					<div style={block}>
 						<p style={stepCall}>Pronto!</p>
-						<p style={stepText}>Rastreie suas mercadorias pelo app, sabendo que foi despachada no melhor preço</p>
+						<p style={stepText}>Rastreie suas mercadorias pelo app, sabendo que foram despachadas no melhor preço</p>
 					</div>
 				</div>
 			</div>
 			<div style={location}>
-				<div style={title}>Venha nos conhecer</div>
-				<p style={address}>R. Lubavitch, 71, Bom Retiro</p>
-				<p style={address}>01123-110, São Paulo - SP</p>
+				<div style={title}>Comece agora...</div>
+				<div style={button}><Button type='submit' cta='Acessar app' /></div>
+				<div style={title}>...Ou venha nos conhecer</div>
+				<div>
+					<p style={address}>R. Lubavitch, 71, Bom Retiro</p>
+					<p style={address}>01123-110, São Paulo - SP</p>
+				</div>
 				<MapBox />
 			</div>
 		</div>
