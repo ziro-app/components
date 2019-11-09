@@ -25,6 +25,7 @@ import { Email } from '../../Icons/Email/index'
 import { Calendar } from '../../Icons/Calendar/index'
 import { Id } from '../../Icons/Id/index'
 import { Location } from '../../Icons/Location/index'
+import { Facebook } from '../../Icons/Facebook/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -54,7 +55,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		email: <Email {...iconProps} />,
 		calendar: <Calendar {...iconProps} />,
 		id: <Id {...iconProps} />,
-		location: <Location {...iconProps} />
+		location: <Location {...iconProps} />,
+		facebook: <Facebook {...iconProps} />
 	}
 	return iconList[type]
 }

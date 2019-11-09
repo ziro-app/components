@@ -30,4 +30,5 @@ export const DisplayIcon = () =>
 		<Icon type='calendar' />
 		<Icon type='id' />
 		<Icon type='location' />
+		<Icon type='facebook' size={24} />
 	</div>
