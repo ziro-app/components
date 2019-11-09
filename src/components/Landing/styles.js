@@ -4,7 +4,8 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '60px'
+	gridRowGap: '60px',
+	marginBottom: '60px'
 },
 
 header = {
@@ -52,12 +53,17 @@ benefitsImg = {
 
 benefitsCall = {
 	fontFamily: fontTitle,
-	fontSize: '2rem'
+	fontSize: '2rem',
+	textTransform: 'uppercase'
 },
 
 benefitsText = {
 	fontSize: '1.8rem',
 	textAlign: 'center'
+},
+
+clients = {
+	margin: '100px 0'
 },
 
 bar = {
@@ -76,4 +82,40 @@ testimonial = {
 client = {
 	marginTop: '10px',
 	textAlign: 'right'
+},
+
+steps = {
+	display: 'grid',
+	gridRowGap: '30px'
+},
+
+title = {
+	marginBottom: '30px',
+	fontFamily: fontTitle,
+	fontSize: '3.2rem',
+	textAlign: 'center',
+	textTransform: 'uppercase'
+},
+
+step = {
+	display: 'grid',
+	gridTemplateColumns: '100px 1fr'
+},
+
+number = {
+	marginTop: '-20px',
+	fontSize: '6.5rem'
+},
+
+block = {
+
+},
+
+stepCall = {
+	fontFamily: fontTitle,
+	fontSize: '2.1rem',
+},
+
+stepText = {
+	textAlign: 'start'
 }
