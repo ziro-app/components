@@ -2,13 +2,14 @@ import React from 'react'
 import Logo from '../Logo/index'
 import Button from '../Button/index'
 import MapBox from '../MapBox/index'
+import Icon from '../Icon/index'
 import phones from './phones.png'
 import choose from './choose.png'
 import logistics from './logistics.png'
 import pay from './pay.png'
 import { container, header, name, hero, heroCall, marker, heroText, heroImg, button,
 	benefits, benefitsImg, benefitsCall, benefitsText, clients, bar, testimonial, client,
-	steps, title, step, number, block, stepCall, stepText, location, address } from './styles'
+	steps, title, step, number, block, stepCall, stepText, location, address, social } from './styles'
 
 const Landing = () => {
 	return (
@@ -91,6 +92,11 @@ const Landing = () => {
 					<p style={address}>01123-110, São Paulo - SP</p>
 				</div>
 				<MapBox />
+				<div style={social}>
+					<Icon type='facebook' size={24} />
+					<Icon type='instagram' size={24} />
+				</div>
+				<label>&copy; Copyright {new Date().getFullYear()} Ziro</label>
 			</div>
 		</div>
 	)

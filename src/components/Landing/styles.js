@@ -4,8 +4,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '60px',
-	marginBottom: '60px'
+	gridRowGap: '60px'
 },
 
 header = {
@@ -147,4 +146,10 @@ location = {
 
 address = {
 	textAlign: 'center'
+},
+
+social = {
+	display: 'grid',
+	gridTemplateColumns: '1fr 1fr',
+	gridColumnGap: '10px'
 }
