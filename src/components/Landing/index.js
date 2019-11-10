@@ -6,9 +6,10 @@ import Icon from '../Icon/index'
 import phones from './phones.png'
 import choose from './choose.png'
 import logistics from './logistics.png'
+import phoneSuppliers from './phone-suppliers.png'
 import pay from './pay.png'
-import { container, header, name, hero, heroCall, marker, heroText, heroImg, button,
-	benefits, benefitsImg, benefitsCall, benefitsText, clients, bar, testimonial, client,
+import { container, header, name, hero, heroCall, marker, heroText, heroImg, button, benefits, benefitsImg,
+	benefitsCall, benefitsText, suppliers, supplierText, clients, bar, testimonial, client,
 	steps, title, step, number, block, stepCall, stepText, location, address, social } from './styles'
 
 const Landing = () => {
@@ -20,7 +21,7 @@ const Landing = () => {
 			</div>
 			<div style={hero}>
 				<p style={heroCall}>Compre sem dificuldade roupas femininas para revender<span style={marker}></span></p>
-				<p style={heroText}>A Ziro facilita na escolha, no despacho e no pagamento da sua mercadoria</p>
+				<p style={heroText}>A Ziro facilita na escolha de fornecedores, no despacho e no pagamento da sua mercadoria</p>
 				<div style={button}><Button type='submit' cta='Fale conosco' /></div>
 				<img style={heroImg} src={phones} />
 			</div>
@@ -39,11 +40,27 @@ const Landing = () => {
 				<p style={benefitsCall}>Pagamento sem burocracia</p>
 				<p style={benefitsText}>Aprovamos sua compra em poucos minutos, com parcelamento em 6x s/ juros</p>
 			</div>
+			<div style={suppliers}>
+				<div style={title}>Escolha sem limites</div>
+				<p style={supplierText}>
+					Você pode comprar de qualquer fornecedor de São Paulo
+					<br/>
+					Se não encontrar em nosso catálogo, nós vamos atrás para você
+				</p>
+				<img style={heroImg} src={phoneSuppliers} />
+				<div style={button}><Button type='submit' cta='Ver catálogo' /></div>
+			</div>
 			<div style={clients}>
 				<div style={title}>Palavra de cliente</div>
 				<div style={bar} />
 				<p style={testimonial}>"Não me preocupo em carregar sacolas, não fica mercadoria para trás e tenho tempo para ir em mais lojas!"</p>
 				<p style={client}>&mdash;&mdash; Edileuza</p>
+				<div style={bar} />
+				<p style={testimonial}>"Pagar normalmente demora tanto, mas com a Ziro é mais rápido"</p>
+				<p style={client}>&mdash;&mdash; Azuelos</p>
+				<div style={bar} />
+				<p style={testimonial}>"Cheguei perdida no Bom Retiro, a Ziro me deu um norte e me ajudou a escolher"</p>
+				<p style={client}>&mdash;&mdash; Maria</p>
 			</div>
 			<div style={steps}>
 				<div style={title}>Veja como é simples</div>

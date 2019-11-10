@@ -80,6 +80,17 @@ benefitsText = {
 	textAlign: 'center'
 },
 
+suppliers = {
+	display: 'grid',
+	justifyItems: 'center',
+	margin: '80px 0'
+},
+
+supplierText = {
+	marginTop: '30px',
+	textAlign: 'center'
+},
+
 clients = {
 	margin: '80px 0'
 },
