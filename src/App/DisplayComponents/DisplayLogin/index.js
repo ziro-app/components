@@ -4,5 +4,10 @@ import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayLogin = () =>
 	<div style={containerWithPadding}>
-		<Login />
+		<Login
+			sendToBackend={state => () => {
+				console.log(state)
+				return new Promise((res,rej) => rej('nok'))
+			}
+		}/>
 	</div>

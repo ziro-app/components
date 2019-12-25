@@ -3,9 +3,10 @@ import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 
-const Login = () => {
+const Login = ({ sendToBackend }) => {
 	const [email, setEmail] = useState('')
 	const [pass, setPass] = useState('')
+	const state = { email, pass, setEmail, setPass }
 	const validations = [
 		{
 			name: 'email',
@@ -23,7 +24,7 @@ const Login = () => {
 	return (
 		<Form
 			validations={validations}
-			sendToBackend={() => console.log('submit')}
+			sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 			inputs={[
 				<FormInput name='email' label='Email' input={
 					<InputText
