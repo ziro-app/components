@@ -12,7 +12,7 @@ subtitle = {
 	textTransform: 'uppercase'
 },
 
-dot = {
-	color: '#FFE401',
-	fontSize: '2.1rem'
+marker = {
+	...subtitle,
+	background: `linear-gradient(transparent 60%, rgba(255,228,0,0.75) 100%)`,
 }
