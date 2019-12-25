@@ -22,6 +22,7 @@ import { DisplayIcon } from './DisplayComponents/DisplayIcon/index'
 import { DisplayLanding } from './DisplayComponents/DisplayLanding/index'
 import { DisplayHeroImage } from './DisplayComponents/DisplayHeroImage/index'
 import { DisplayLoginForm } from './DisplayComponents/DisplayLoginForm/index'
+import { DisplayLoginPage } from './DisplayComponents/DisplayLoginPage/index'
 
 export const Router = () =>
 	<Switch>
@@ -47,5 +48,6 @@ export const Router = () =>
 		<Route path='/landing'><DisplayLanding /></Route>
 		<Route path='/hero-image'><DisplayHeroImage /></Route>
 		<Route path='/login-form'><DisplayLoginForm /></Route>
+		<Route path='/login-page'><DisplayLoginPage /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
