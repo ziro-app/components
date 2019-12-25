@@ -21,6 +21,7 @@ import { DisplayAbout } from './DisplayComponents/DisplayAbout/index'
 import { DisplayIcon } from './DisplayComponents/DisplayIcon/index'
 import { DisplayLanding } from './DisplayComponents/DisplayLanding/index'
 import { DisplayHeroImage } from './DisplayComponents/DisplayHeroImage/index'
+import { DisplayLogin } from './DisplayComponents/DisplayLogin/index'
 
 export const Router = () =>
 	<Switch>
@@ -45,5 +46,6 @@ export const Router = () =>
 		<Route path='/icon'><DisplayIcon /></Route>
 		<Route path='/landing'><DisplayLanding /></Route>
 		<Route path='/hero-image'><DisplayHeroImage /></Route>
+		<Route path='/login'><DisplayLogin /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
