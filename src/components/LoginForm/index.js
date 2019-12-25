@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 
-const Login = ({ sendToBackend }) => {
+const LoginForm = ({ sendToBackend }) => {
 	const [email, setEmail] = useState('')
 	const [pass, setPass] = useState('')
 	const state = { email, pass, setEmail, setPass }
@@ -45,4 +46,8 @@ const Login = ({ sendToBackend }) => {
 	)
 }
 
-export default Login
+LoginForm.propTypes = {
+	sendToBackend: PropTypes.func.isRequired
+}
+
+export default LoginForm

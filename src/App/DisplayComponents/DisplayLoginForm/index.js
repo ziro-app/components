@@ -1,13 +1,13 @@
 import React from 'react'
-import Login from '../../../components/Login/index'
+import LoginForm from '../../../components/LoginForm/index'
 import { containerWithPadding } from '../../../Theme/variables'
 
-export const DisplayLogin = () =>
+export const DisplayLoginForm = () =>
 	<div style={containerWithPadding}>
-		<Login
+		<LoginForm
 			sendToBackend={state => () => {
 				console.log(state)
-				return new Promise((res,rej) => rej('nok'))
+				return new Promise((res,rej) => res(console.log('ok')))
 			}
 		}/>
 	</div>
