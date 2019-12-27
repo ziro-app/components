@@ -393,6 +393,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/hero-image@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/HeroImage/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/HeroImage/phones.png",
+                "test": false,
+                "name": "phones.png"
+            },
+            {
+                "relativePath": "src/components/HeroImage/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/HeroImage/index.js",
+        "trackDir": "src/components/HeroImage",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/icon@0.0.20": {
         "files": [
             {
@@ -656,7 +679,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/landing@0.0.1": {
+    "vitorbarbosa19.ziro/landing@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/Landing/choose.png",
@@ -679,6 +702,11 @@
                 "name": "pay.png"
             },
             {
+                "relativePath": "src/components/Landing/phone-suppliers.png",
+                "test": false,
+                "name": "phone-suppliers.png"
+            },
+            {
                 "relativePath": "src/components/Landing/phones.png",
                 "test": false,
                 "name": "phones.png"
@@ -691,6 +719,37 @@
         ],
         "mainFile": "src/components/Landing/index.js",
         "trackDir": "src/components/Landing",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/login-form@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/LoginForm/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/LoginForm/index.js",
+        "trackDir": "src/components/LoginForm",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/login-page@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/LoginPage/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/LoginPage/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/LoginPage/index.js",
+        "trackDir": "src/components/LoginPage",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -866,5 +925,5 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "version": "14.4.3"
+    "version": "14.7.1"
 }

@@ -4,5 +4,5 @@ import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayLoginPage = () =>
 	<div style={containerWithPadding}>
-		<LoginPage />
+		<LoginPage audience='Lojista' sendToBackend={state => () => console.log(state)} />
 	</div>

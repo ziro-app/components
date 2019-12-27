@@ -27,6 +27,12 @@ p {
 a {
     font-size: 1.7rem;
     text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a:active, a:focus {
+    outline: none;
+    -moz-outline-style: none;
 }
 
 ul, li {
