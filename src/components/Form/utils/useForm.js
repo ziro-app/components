@@ -18,8 +18,7 @@ export const useForm = () => {
 				setSubmitMsg(await sendToBackend())
 			} catch (error) {
 				setSubmitError(true)
-				if (error.db)
-					setSubmitMsg(error.msg)
+				if (error.customError) setSubmitMsg(error.msg)
 				else setSubmitMsg('Erro no envio. Tente novamente')
 				console.log(error)
 			}

@@ -73,7 +73,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.21": {
+    "vitorbarbosa19.ziro/checkout@0.0.22": {
         "files": [
             {
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
@@ -265,7 +265,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.0.19": {
+    "vitorbarbosa19.ziro/error-expired@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/ErrorExpired/index.js",
@@ -283,7 +283,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.0.19": {
+    "vitorbarbosa19.ziro/error-loading@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/ErrorLoading/index.js",
@@ -319,7 +319,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form@0.0.7": {
+    "vitorbarbosa19.ziro/form@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/Form/ModalSubmit/index.js",
@@ -722,7 +722,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.0.2": {
+    "vitorbarbosa19.ziro/login-form@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/LoginForm/index.js",
@@ -735,7 +735,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.0.3": {
+    "vitorbarbosa19.ziro/login-page@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
@@ -807,7 +807,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.0.18": {
+    "vitorbarbosa19.ziro/not-found@0.0.19": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",
@@ -884,7 +884,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.0.15": {
+    "vitorbarbosa19.ziro/timeline@0.0.16": {
         "files": [
             {
                 "relativePath": "src/components/Timeline/index.js",
