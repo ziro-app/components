@@ -17,6 +17,7 @@
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
+    "@bit/vitorbarbosa19.ziro.header-home": "0.0.14",
     "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",
     "framer-motion": "^1.6.7",
