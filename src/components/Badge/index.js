@@ -15,7 +15,8 @@ Badge.propTypes = {
 	size: PropTypes.number,
 	color: PropTypes.string,
 	strokeWidth: PropTypes.number,
-	message: PropTypes.string.isRequired
+	message: PropTypes.string.isRequired,
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 }
 
 export default Badge

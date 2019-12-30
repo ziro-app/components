@@ -3,29 +3,42 @@ import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { btn, btnDisabled } from './styles'
 
-const Button = ({ type, cta, submitting, navigate }) => {
-	if (type === 'submit') {
-		return (
+const Button = ({ type, cta, submitting, navigate, click, style }) => {
+	const btnStyle = style || btn
+	const tapAnimation = submitting ? null : { scale: 0.95 }
+	const buttonTypes = {
+		submit:
 			<motion.input
-				style={submitting ? btnDisabled : btn}
+				style={submitting ? btnDisabled : btnStyle}
 				value={cta}
-				whileTap={submitting ? null : { scale: 0.95 }}
+				whileTap={tapAnimation}
 				type='submit'
-			/>)}
-	if (type === 'link') {
-		return (
+			/>,
+		link:
 			<motion.a
 				onClick={navigate}
-				style={submitting ? btnDisabled : btn}
-				whileTap={submitting ? null : { scale: 0.95 }}
-			>{cta}</motion.a>)}
+				style={submitting ? btnDisabled : btnStyle}
+				whileTap={tapAnimation}
+			>{cta}</motion.a>,
+		click:
+			<motion.input
+				onClick={click}
+				style={submitting ? btnDisabled : btnStyle}
+				value={cta}
+				whileTap={tapAnimation}
+				type='submit'
+			/>
+	}
+	return buttonTypes[type]
 }
 
 Button.propTypes = {
 	type: PropTypes.string.isRequired,
 	cta: PropTypes.string.isRequired,
 	submitting: PropTypes.bool,
-	navigate: PropTypes.func
+	navigate: PropTypes.func,
+	click: PropTypes.func,
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 }
 
 export default Button

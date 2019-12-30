@@ -3,7 +3,7 @@ import Proptypes from 'prop-types'
 import Badge from '../Badge/index'
 import Button from '../Button/index'
 import { successColor } from '../../Theme/variables'
-import { container, custom, blockOne, blockTwo } from './styles'
+import { container, custom, blockOne, blockTwo, btnWhite } from './styles'
 
 const ConfirmEmail = ({ email }) => {
 	const [submitting, setSubmitting] = useState(false)
@@ -24,7 +24,7 @@ const ConfirmEmail = ({ email }) => {
 			</div>
 			<div style={blockTwo}>
 				<Button type='link' cta='Já acessei o link' />
-				<Button type='link' cta='Reenviar email' submitting={submitting} />
+				<Button type='click' cta='Reenviar email' submitting={submitting} style={btnWhite} />
 			</div>
 		</div>
 	)
