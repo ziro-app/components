@@ -4,5 +4,5 @@ import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayConfirmEmail = () =>
 	<div style={containerWithPadding}>
-		<ConfirmEmail />
+		<ConfirmEmail email='bahefi7105@wmail1.com' />
 	</div>
