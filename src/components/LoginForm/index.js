@@ -39,6 +39,7 @@ const LoginForm = ({ sendToBackend }) => {
 						value={pass}
 						onChange={({ target: { value } }) => setPass(value)}
 						placeholder='Sua senha'
+						type='password'
 					/>
 				}/>
 			]}

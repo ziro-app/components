@@ -27,6 +27,10 @@ import { Id } from '../../Icons/Id/index'
 import { Location } from '../../Icons/Location/index'
 import { Facebook } from '../../Icons/Facebook/index'
 import { Instagram } from '../../Icons/Instagram/index'
+import { Money } from '../../Icons/Money/index'
+import { Gear } from '../../Icons/Gear/index'
+import { Present } from '../../Icons/Present/index'
+import { Trending } from '../../Icons/Trending/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -58,7 +62,11 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		id: <Id {...iconProps} />,
 		location: <Location {...iconProps} />,
 		facebook: <Facebook {...iconProps} />,
-		instagram: <Instagram {...iconProps} />
+		instagram: <Instagram {...iconProps} />,
+		money: <Money {...iconProps} />,
+		gear: <Gear {...iconProps} />,
+		present: <Present {...iconProps} />,
+		trending: <Trending {...iconProps} />
 	}
 	return iconList[type]
 }

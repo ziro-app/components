@@ -32,4 +32,8 @@ export const DisplayIcon = () =>
 		<Icon type='location' />
 		<Icon type='facebook' size={24} />
 		<Icon type='instagram' size={24} />
+		<Icon type='money' size={24} />
+		<Icon type='gear' size={24} />
+		<Icon type='present' size={24} />
+		<Icon type='trending' size={24} />
 	</div>
