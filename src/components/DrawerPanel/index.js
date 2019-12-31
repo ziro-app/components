@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'wouter'
 import { header, welcome, word, color, name, cnpj, nav, navlink, navicon, navtext, navsoon } from './styles'
 
-const DrawerPanel = ({ username, usercnpj, options }) => {
+const DrawerPanel = ({ username, userdata, options }) => {
 	const [highlightBoxWidth, setHighlightBoxWidth] = useState(0)
 	const highlightBox = useCallback(htmlNode => {
 		if (htmlNode) setHighlightBoxWidth(htmlNode.getBoundingClientRect().width)
@@ -20,7 +20,7 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 						</span>
 					</span>
 				</label>
-				<label style={cnpj}>CNPJ: {usercnpj}</label>
+				<label style={cnpj}>{userdata}</label>
 			</div>
 			<div style={nav}>
 				{options.map(({ path, onClick, icon, text, soon }, index) =>
@@ -39,7 +39,7 @@ const DrawerPanel = ({ username, usercnpj, options }) => {
 
 DrawerPanel.propTypes = {
 	username: PropTypes.string.isRequired,
-	usercnpj: PropTypes.string.isRequired,
+	userdata: PropTypes.string.isRequired,
 	options: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 

@@ -18,7 +18,7 @@ export const DisplayDrawerPanel = () => {
 		<div style={containerWithPadding}>
 			<DrawerPanel
 				username={username}
-				usercnpj='28.026.371/0001-61'
+				userdata='CNPJ: 28.026.371/0001-61'
 				options={[
 					{
 						path: '#',
