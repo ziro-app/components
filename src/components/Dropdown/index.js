@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
+import { filterOptions } from './filterOptions'
 import Icon from '../Icon'
 import InputText from '../InputText'
 import { grayColor1 } from '../../Theme/variables'
 import { container, close, modal, data } from './styles'
 import { initial, animate, transition } from './animation'
 
-const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard, allowTyping = true }) => {
+const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard, disableTyping = false }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
 	const handleSelection = event => {
@@ -68,7 +69,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				<Icon type='close' size={16} color={grayColor1} />
 			</div>}
 			<InputText
-				readOnly={allowTyping}
+				readOnly={disableTyping}
 				onChange={handleSelection}
 				value={value}
 				submitting={submitting}
@@ -78,7 +79,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={initial} animate={animate} transition={transition}>
-				{list.map((item, index) =>
+				{filterOptions(list,value).map((item, index) =>
 					<input
 						style={data(cursorPosition === index)}
 						value={item}
@@ -99,7 +100,7 @@ Dropdown.propTypes = {
 	submitting: PropTypes.bool,
 	placeholder: PropTypes.string,
 	onChangeKeyboard: PropTypes.func,
-	allowTyping: PropTypes.bool
+	disableTyping: PropTypes.bool
 }
 
 export default Dropdown
