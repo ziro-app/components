@@ -7,6 +7,7 @@ export const DisplayDropdown = () => {
 	return (
 		<div style={containerWithPadding}>
 			<Dropdown
+				readOnly={false}
 				value={selection}
 				onChange={({ target: { value } }) => setSelection(value)}
 				list={['Apples', 'Bananas', 'Oranges', 'Melons', 'Berries']}

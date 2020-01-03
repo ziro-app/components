@@ -36,7 +36,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 			}
 		}
 	}
-	useEffect(() => setOptions(filterOptions(list,value)), [value])
+	useEffect(() => setOptions(readOnly ? list : filterOptions(list,value)), [value])
 	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener('keydown', onKeyPress)
