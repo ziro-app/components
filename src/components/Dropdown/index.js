@@ -8,11 +8,17 @@ import { grayColor1 } from '../../Theme/variables'
 import { container, close, modal, data } from './styles'
 import { initial, animate, transition } from './animation'
 
-const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard, disableTyping = false }) => {
+const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard }) => {
 	const [isOpen, setIsOpen] = useState(false)
+	const [arrowDown, setArrowDown] = useState(false)
+	const [arrowUp, setArrowUp] = useState(false)
+	const [enter, setEnter] = useState(false)
 	const [isSelected, setIsSelected] = useState(false)
+	const [cursorPosition, setCursorPosition] = useState(null)
+	const [options, setOptions] = useState([])
 	const handleSelection = event => {
 		setIsSelected(true)
+		setCursorPosition(null)
 		onChange(event)
 	}
 	const clearSelection = () => {
@@ -20,31 +26,14 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		setIsSelected(false)
 		onChange(event)
 	}
-	/* allow keyboard navigation and using enter to select item from list */
-	const [cursorPosition, setCursorPosition] = useState(null)
-	const [enter, setEnter] = useState(false)
 	const onKeyPress = ({ key }) => {
 		if (isOpen) {
-			if (key === 'ArrowDown') setCursorPosition(prevPosition => {
-				if (prevPosition === null)
-					return 0
-				if (prevPosition < list.length - 1)
-					return prevPosition + 1
-				return prevPosition
-			})
-			if (key === 'ArrowUp') setCursorPosition(prevPosition => {
-				if (prevPosition > 0)
-					return prevPosition - 1
-				return prevPosition
-			})
-			if (key === 'Enter') {
-				setIsSelected(true)
-				setEnter(true)
-				setIsOpen(false)
-				document.activeElement.blur()
-			}
+			if (key === 'ArrowDown') setArrowDown(true)
+			if (key === 'ArrowUp') setArrowUp(true)
+			if (key === 'Enter') setEnter(true)
 		}
 	}
+	useEffect(() => setOptions(filterOptions(list,value)), [value])
 	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener('keydown', onKeyPress)
@@ -55,12 +44,41 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		}
 	}, [isOpen])
 	useEffect(() => {
-		onChangeKeyboard(document.getElementById(cursorPosition))
-	}, [enter])
+		if (isOpen) {
+			const maxPosition = options.length - 1
+			if (arrowDown) {
+				setCursorPosition(prevPosition => {
+					if (prevPosition === null)
+						return 0
+					if (prevPosition < maxPosition)
+						return prevPosition + 1
+					return prevPosition
+				})
+				setArrowDown(false)
+			}
+			if (arrowUp) {
+				setCursorPosition(prevPosition => {
+					if (prevPosition > 0)
+						return prevPosition - 1
+					return prevPosition
+				})
+				setArrowUp(false)
+			}
+			if (enter) {
+				setIsSelected(true)
+				setIsOpen(false)
+				document.activeElement.blur()
+				onChangeKeyboard(document.getElementById(cursorPosition))
+				setEnter(false)
+			}
+		}
+	}, [arrowDown, arrowUp, enter])
 	/* allow scrolling the list when using the keyboard */
 	useEffect(() => {
-		if (cursorPosition)
-			document.getElementById(cursorPosition).scrollIntoView(false)
+		if (cursorPosition) {
+			const element = document.getElementById(cursorPosition)
+			if (element) element.scrollIntoView(false)
+		}
 	}, [cursorPosition])
 	return (
 		<div style={container}>
@@ -69,7 +87,6 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				<Icon type='close' size={16} color={grayColor1} />
 			</div>}
 			<InputText
-				readOnly={disableTyping}
 				onChange={handleSelection}
 				value={value}
 				submitting={submitting}
@@ -79,7 +96,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={initial} animate={animate} transition={transition}>
-				{filterOptions(list,value).map((item, index) =>
+				{options.map((item, index) =>
 					<input
 						style={data(cursorPosition === index)}
 						value={item}
@@ -99,8 +116,7 @@ Dropdown.propTypes = {
 	list: PropTypes.array.isRequired,
 	submitting: PropTypes.bool,
 	placeholder: PropTypes.string,
-	onChangeKeyboard: PropTypes.func,
-	disableTyping: PropTypes.bool
+	onChangeKeyboard: PropTypes.func
 }
 
 export default Dropdown
