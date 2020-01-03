@@ -8,7 +8,7 @@ import { grayColor1 } from '../../Theme/variables'
 import { container, close, modal, data } from './styles'
 import { initial, animate, transition } from './animation'
 
-const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard }) => {
+const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard, readOnly }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [arrowDown, setArrowDown] = useState(false)
 	const [arrowUp, setArrowUp] = useState(false)
@@ -26,11 +26,14 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		setIsSelected(false)
 		onChange(event)
 	}
-	const onKeyPress = ({ key }) => {
+	const onKeyPress = event => {
 		if (isOpen) {
-			if (key === 'ArrowDown') setArrowDown(true)
-			if (key === 'ArrowUp') setArrowUp(true)
-			if (key === 'Enter') setEnter(true)
+			if (event.key === 'ArrowDown') setArrowDown(true)
+			if (event.key === 'ArrowUp') setArrowUp(true)
+			if (event.key === 'Enter') {
+				event.preventDefault() // prevent form submission if inside form tag
+				setEnter(true)
+			}
 		}
 	}
 	useEffect(() => setOptions(filterOptions(list,value)), [value])
@@ -87,6 +90,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				<Icon type='close' size={16} color={grayColor1} />
 			</div>}
 			<InputText
+				readOnly={readOnly}
 				onChange={handleSelection}
 				value={value}
 				submitting={submitting}
@@ -116,7 +120,8 @@ Dropdown.propTypes = {
 	list: PropTypes.array.isRequired,
 	submitting: PropTypes.bool,
 	placeholder: PropTypes.string,
-	onChangeKeyboard: PropTypes.func
+	onChangeKeyboard: PropTypes.func,
+	readOnly: PropTypes.bool
 }
 
 export default Dropdown

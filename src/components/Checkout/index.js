@@ -140,6 +140,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 						label='Parcelamento'
 						input={
 							<Dropdown
+								readOnly={true}
 								value={installments}
 								onChange={({ target: { value } }) => setInstallments(value.substring(0,1))}
 								list={installmentOptions(charge, maxInstallments)}
