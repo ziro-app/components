@@ -55,7 +55,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/call-to-action@0.0.18": {
+    "vitorbarbosa19.ziro/call-to-action@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/CallToAction/index.js",
@@ -73,7 +73,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.24": {
+    "vitorbarbosa19.ziro/checkout@0.0.26": {
         "files": [
             {
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
@@ -237,12 +237,17 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/dropdown@0.0.12": {
+    "vitorbarbosa19.ziro/dropdown@0.0.14": {
         "files": [
             {
                 "relativePath": "src/components/Dropdown/animation.js",
                 "test": false,
                 "name": "animation.js"
+            },
+            {
+                "relativePath": "src/components/Dropdown/filterOptions.js",
+                "test": false,
+                "name": "filterOptions.js"
             },
             {
                 "relativePath": "src/components/Dropdown/index.js",
@@ -283,7 +288,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.0.22": {
+    "vitorbarbosa19.ziro/error-expired@0.0.24": {
         "files": [
             {
                 "relativePath": "src/components/ErrorExpired/index.js",
@@ -301,7 +306,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.0.22": {
+    "vitorbarbosa19.ziro/error-loading@0.0.24": {
         "files": [
             {
                 "relativePath": "src/components/ErrorLoading/index.js",
@@ -773,7 +778,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.0.7": {
+    "vitorbarbosa19.ziro/login-page@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
@@ -845,7 +850,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.0.21": {
+    "vitorbarbosa19.ziro/not-found@0.0.23": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",
@@ -922,7 +927,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.0.18": {
+    "vitorbarbosa19.ziro/timeline@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/Timeline/index.js",
