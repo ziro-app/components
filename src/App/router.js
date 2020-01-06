@@ -24,6 +24,7 @@ import { DisplayHeroImage } from './DisplayComponents/DisplayHeroImage/index'
 import { DisplayLoginForm } from './DisplayComponents/DisplayLoginForm/index'
 import { DisplayLoginPage } from './DisplayComponents/DisplayLoginPage/index'
 import { DisplayConfirmEmail } from './DisplayComponents/DisplayConfirmEmail/index'
+import { DisplayFooter } from './DisplayComponents/DisplayFooter/index'
 
 export const Router = () =>
 	<Switch>
@@ -51,5 +52,6 @@ export const Router = () =>
 		<Route path='/login-form'><DisplayLoginForm /></Route>
 		<Route path='/login-page'><DisplayLoginPage /></Route>
 		<Route path='/confirm-email'><DisplayConfirmEmail /></Route>
+		<Route path='/footer'><DisplayFooter /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

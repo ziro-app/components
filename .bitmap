@@ -55,7 +55,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/call-to-action@0.0.20": {
+    "vitorbarbosa19.ziro/call-to-action@0.0.21": {
         "files": [
             {
                 "relativePath": "src/components/CallToAction/index.js",
@@ -778,7 +778,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.0.9": {
+    "vitorbarbosa19.ziro/login-page@0.0.10": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
