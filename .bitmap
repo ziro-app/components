@@ -55,7 +55,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/call-to-action@0.0.23": {
+    "vitorbarbosa19.ziro/call-to-action@0.0.24": {
         "files": [
             {
                 "relativePath": "src/components/CallToAction/index.js",
@@ -321,6 +321,24 @@
         ],
         "mainFile": "src/components/ErrorLoading/index.js",
         "trackDir": "src/components/ErrorLoading",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/error@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Error/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Error/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/Error/index.js",
+        "trackDir": "src/components/Error",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -796,7 +814,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.0.12": {
+    "vitorbarbosa19.ziro/login-page@0.0.13": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
@@ -868,7 +886,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.0.24": {
+    "vitorbarbosa19.ziro/not-found@0.0.25": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",

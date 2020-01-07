@@ -1,22 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useLocation } from 'wouter'
-import Illustration from '../Illustration/index'
-import Button from '../Button/index'
+import Error from '../Error/index'
 import { containerWithPadding } from '../../Theme/variables'
-import { container, svg, title } from './styles'
+import { container } from './styles'
 
-const NotFound = ({ fallback }) => {
-	const [, setLocation] = useLocation()
-	return (
-		<div style={{...containerWithPadding, ...container}}>
-			<div style={svg}><Illustration type='notFound' /></div>
-			<label style={title}>Página não existe!</label>
-			<label>Retorne à pagina inicial para continuar navegando</label>
-			<Button type='link' cta='Retornar' navigate={() => setLocation(fallback)} />
-		</div>
-	)
-}
+const NotFound = ({ fallback }) =>
+	<Error
+		type='notFound'
+		title='Página não existe'
+		message='Retorne à pagina inicial para continuar navegando'
+		backRoute={fallback}
+		style={{...containerWithPadding, ...container}}
+	/>
 
 NotFound.propTypes = {
 	fallback: PropTypes.string
