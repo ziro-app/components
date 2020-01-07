@@ -13,7 +13,7 @@ svg = {
 	justifySelf: 'center'
 },
 
-title = {
+header = {
 	fontFamily: fontTitle,
 	textTransform: 'uppercase'
 }

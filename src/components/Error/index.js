@@ -1,20 +1,31 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import Illustration from '../Illustration/index'
 import Button from '../Button/index'
-import { containerWithPadding } from '../../Theme/variables'
-import { container, svg, title } from './styles'
+import { container, svg, header } from './styles'
 
-const Error = () => {
+const Error = ({ type, title, message, btnMsg, backRoute, style }) => {
 	const [, setLocation] = useLocation()
 	return (
-		<div style={{...containerWithPadding, ...container}}>
-			<div style={svg}><Illustration type='paymentError' /></div>
-			<label style={title}>Cobrança expirada!</label>
-			<label>Solicite um novo link ao seu assessor</label>
-			<Button type='link' cta='Retornar' navigate={() => setLocation('/pagamentos')} />
+		<div style={style || container}>
+			<div style={svg}>
+				<Illustration type={type || 'errorLoading'} />
+			</div>
+			<label style={header}>{title || 'Ocorreu um erro'}</label>
+			<label>{message || 'Tente novamente ou contate suporte'}</label>
+			<Button type='link' cta={btnMsg || 'Retornar'} navigate={() => setLocation(backRoute || '/')} />
 		</div>
 	)
+}
+
+Error.propTypes = {
+	type: PropTypes.string,
+	title: PropTypes.string,
+	message: PropTypes.string,
+	btnMsg: PropTypes.string,
+	backRoute: PropTypes.string,
+	style: PropTypes.object
 }
 
 export default Error
