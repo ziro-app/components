@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import Illustration from '../Illustration/index'
 import Button from '../Button/index'
+import { containerWithPadding } from '../../Theme/variables'
 import { container, svg, header } from './styles'
 
 const Error = ({ type, title, message, btnMsg, backRoute, style }) => {
 	const [, setLocation] = useLocation()
 	return (
-		<div style={style || container}>
+		<div style={style || {...containerWithPadding ,...container}}>
 			<div style={svg}>
 				<Illustration type={type || 'errorLoading'} />
 			</div>
