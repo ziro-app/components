@@ -13,7 +13,6 @@ import { DisplayTransitionRoute } from './DisplayComponents/DisplayTransitionRou
 import { DisplayCheckout } from './DisplayComponents/DisplayCheckout/index'
 import { DisplayDropdown } from './DisplayComponents/DisplayDropdown/index'
 import { DisplayModal } from './DisplayComponents/DisplayModal/index'
-import { DisplayErrorLoading } from './DisplayComponents/DisplayErrorLoading/index'
 import { DisplayNotFound } from './DisplayComponents/DisplayNotFound/index'
 import { DisplayTimeline } from './DisplayComponents/DisplayTimeline/index'
 import { DisplayErrorBoundary } from './DisplayComponents/DisplayErrorBoundary/index'
@@ -25,6 +24,7 @@ import { DisplayLoginForm } from './DisplayComponents/DisplayLoginForm/index'
 import { DisplayLoginPage } from './DisplayComponents/DisplayLoginPage/index'
 import { DisplayConfirmEmail } from './DisplayComponents/DisplayConfirmEmail/index'
 import { DisplayFooter } from './DisplayComponents/DisplayFooter/index'
+import { DisplayError } from './DisplayComponents/DisplayError/index'
 
 export const Router = () =>
 	<Switch>
@@ -41,7 +41,6 @@ export const Router = () =>
 		<Route path='/checkout'><DisplayCheckout /></Route>
 		<Route path='/dropdown'><DisplayDropdown /></Route>
 		<Route path='/modal'><DisplayModal /></Route>
-		<Route path='/error-loading'><DisplayErrorLoading /></Route>
 		<Route path='/not-found'><DisplayNotFound /></Route>
 		<Route path='/timeline'><DisplayTimeline /></Route>
 		<Route path='/error-boundary'><DisplayErrorBoundary /></Route>
@@ -53,5 +52,6 @@ export const Router = () =>
 		<Route path='/login-page'><DisplayLoginPage /></Route>
 		<Route path='/confirm-email'><DisplayConfirmEmail /></Route>
 		<Route path='/footer'><DisplayFooter /></Route>
+		<Route path='/error'><DisplayError /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

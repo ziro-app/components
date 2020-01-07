@@ -1,8 +1,8 @@
 import React from 'react'
-import ErrorLoading from '../../../components/ErrorLoading/index'
+import Error from '../../../components/Error/index'
 import { containerWithPadding } from '../../../Theme/variables'
 
-export const DisplayErrorLoading = () =>
+export const DisplayError = () =>
 	<div style={containerWithPadding}>
-		<ErrorLoading />
+		<Error />
 	</div>
