@@ -15,6 +15,7 @@ close = {
 },
 
 modal = {
+	zIndex: '1', // don't remove
 	position: 'absolute',
 	display: 'grid',
 	alignContent: 'start',

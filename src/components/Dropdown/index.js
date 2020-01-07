@@ -17,13 +17,11 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 	const [cursorPosition, setCursorPosition] = useState(null)
 	const [options, setOptions] = useState([])
 	const handleSelection = event => {
-		setIsSelected(true)
 		setCursorPosition(null)
 		onChange(event)
 	}
 	const clearSelection = () => {
 		const event = { target: { value: '' } }
-		setIsSelected(false)
 		onChange(event)
 	}
 	const onKeyPress = event => {
@@ -36,7 +34,11 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 			}
 		}
 	}
-	useEffect(() => setOptions(readOnly ? list : filterOptions(list,value)), [list,value])
+	useEffect(() => {
+		setOptions(readOnly ? list : filterOptions(list,value))
+		if (value) setIsSelected(true)
+		else setIsSelected(false)
+	}, [list,value])
 	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener('keydown', onKeyPress)
@@ -68,7 +70,6 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				setArrowUp(false)
 			}
 			if (enter) {
-				setIsSelected(true)
 				setIsOpen(false)
 				document.activeElement.blur()
 				onChangeKeyboard(document.getElementById(cursorPosition))
