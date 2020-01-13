@@ -17,6 +17,7 @@ export const DisplayForm = () => {
 	return (
 		<div style={containerWithPadding}>
 			<Form
+				buttonOnTop={true}
 				validations={validations}
 				sendToBackend={() => new Promise((res,rej) => res('Ok'))}
 				inputs={[

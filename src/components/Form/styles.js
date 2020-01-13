@@ -15,4 +15,11 @@ submit = isError => ({
 	height: '36px',
 	textAlign: 'center',
 	color: isError ? alertColor : successColor
+}),
+
+submitTop = isError => ({
+	marginTop: '15px',
+	height: '36px',
+	textAlign: 'center',
+	color: isError ? alertColor : successColor
 })

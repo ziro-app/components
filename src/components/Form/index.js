@@ -4,9 +4,9 @@ import { useForm } from './utils/useForm'
 import Button from '../Button/index'
 import Spinner from '../Spinner/index'
 import { ModalSubmit } from './ModalSubmit/index'
-import { container, whiteSpace, submit } from './styles'
+import { container, whiteSpace, submit, submitTop } from './styles'
 
-const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, validations, sendToBackend, summary, inputs }) => {
+const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, buttonOnTop, validations, sendToBackend, summary, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
 	useEffect(() => {
 		// if user start typing on any field, reset submit message
@@ -37,13 +37,23 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 						})
 					}
 				})}
-				{summary && summary}
-				{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
-				{useModalLayoutOnSubmit
-					? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} />
-					: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
+				{buttonOnTop
+				?
+					<>
+						<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
+						<label style={submitTop(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
+					</>
+				:
+					<>
+						{summary && summary}
+						{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
+						{useModalLayoutOnSubmit
+							? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} />
+							: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
+						}
+						<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
+					</>
 				}
-				<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
 			</div>
 		</form>
 	)
@@ -54,6 +64,7 @@ Form.propTypes = {
 	successComponent: PropTypes.func,
 	errorComponent: PropTypes.func,
 	buttonName: PropTypes.string,
+	buttonOnTop: PropTypes.bool,
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
 	sendToBackend: PropTypes.func.isRequired,
 	summary: PropTypes.element,
