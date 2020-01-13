@@ -25,5 +25,5 @@ export const useForm = () => {
 			setSubmitting(false)
 		}
 	}
-	return [errors, submitting, submitError, submitMsg, submitForm]
+	return [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm]
 }

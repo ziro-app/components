@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react'
+import React, { useEffect, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from './utils/useForm'
 import Button from '../Button/index'
@@ -7,7 +7,11 @@ import { ModalSubmit } from './ModalSubmit/index'
 import { container, whiteSpace, submit } from './styles'
 
 const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, validations, sendToBackend, summary, inputs }) => {
-	const [errors, submitting, submitError, submitMsg, submitForm] = useForm()
+	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
+	useEffect(() => {
+		// if user start typing on any field, reset submit message
+		if (submitMsg) setSubmitMsg('')
+	}, [inputs])
 	return (
 		<form onSubmit={submitForm(validations, sendToBackend)}>
 			<div style={container}>
