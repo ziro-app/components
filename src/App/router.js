@@ -26,6 +26,7 @@ import { DisplayConfirmEmail } from './DisplayComponents/DisplayConfirmEmail/ind
 import { DisplayFooter } from './DisplayComponents/DisplayFooter/index'
 import { DisplayError } from './DisplayComponents/DisplayError/index'
 import { DisplayForm } from './DisplayComponents/DisplayForm/index'
+import { DisplayResendEmail } from './DisplayComponents/DisplayResendEmail/index'
 
 export const Router = () =>
 	<Switch>
@@ -55,5 +56,6 @@ export const Router = () =>
 		<Route path='/footer'><DisplayFooter /></Route>
 		<Route path='/error'><DisplayError /></Route>
 		<Route path='/form'><DisplayForm /></Route>
+		<Route path='/resend-email'><DisplayResendEmail /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

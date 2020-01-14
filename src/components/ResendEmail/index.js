@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import Form from '../../../components/Form/index'
-import FormInput from '../../../components/FormInput/index'
-import InputText from '../../../components/InputText/index'
+import PropTypes from 'prop-types'
+import Form from '../Form/index'
+import FormInput from '../FormInput/index'
+import InputText from '../InputText/index'
 import { title } from './styles'
 
-const ResendEmail = () => {
+const ResendEmail = ({ sendToBackend }) => {
 	const [email, setEmail] = useState('')
+	const state = { email, setEmail }
 	const validations = [
 		{
 			name: 'email',
@@ -20,7 +22,7 @@ const ResendEmail = () => {
 			<Form
 				buttonOnTop={true}
 				validations={validations}
-				sendToBackend={() => new Promise((res,rej) => res('Ok'))}
+				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 				inputs={[
 					<FormInput name='email' label='Email' input={
 						<InputText
@@ -33,6 +35,10 @@ const ResendEmail = () => {
 			/>
 		</>
 	)
+}
+
+ResendEmail.propTypes = {
+	sendToBackend: PropTypes.func.isRequired
 }
 
 export default ResendEmail
