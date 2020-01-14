@@ -899,6 +899,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/resend-email@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ResendEmail/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ResendEmail/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/ResendEmail/index.js",
+        "trackDir": "src/components/ResendEmail",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/spinner@0.0.11": {
         "files": [
             {
