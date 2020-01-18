@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Header from '../Header/index'
 import LoginForm from '../LoginForm/index'
-import { title } from './styles'
 
 const ResendEmail = ({ sendToBackend }) =>
 	<>
-		<h1 style={title}>Reenviar confirmação</h1>
+		<Header type='icon-link' icon='back' navigateTo='/' title='Reenviar confirmação' />
 		<LoginForm sendToBackend={sendToBackend} />
 	</>
 
