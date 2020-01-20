@@ -19,10 +19,10 @@ const ConfirmEmail = () =>
 		</div>
 		<div style={blockTwo}>
 			<Button type='link' cta='Link acessado, fazer login'
-				navigate={() => window.location.replace('/login')}
+				navigate={() => window.location.assign('/login')}
 			/>
 			<Button type='link' cta='Não recebi o email' style={btnWhite}
-				navigate={() => window.location.replace('/reenviar-email')}
+				navigate={() => window.location.assign('/reenviar-email')}
 			/>
 		</div>
 	</div>
