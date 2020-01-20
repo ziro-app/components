@@ -4,19 +4,9 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '40px',
+	gridRowGap: '30px',
 	textAlign: 'center',
 	color: primaryColor
-},
-
-blockOne = {
-	display: 'grid',
-	gridRowGap: '10px'
-},
-
-blockTwo = {
-	display: 'grid',
-	gridRowGap: '30px'
 },
 
 btnWhite = {

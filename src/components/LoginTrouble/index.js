@@ -1,13 +1,13 @@
 import React from 'react'
+import Header from '../Header/index'
 import Button from '../Button/index'
-import { container, blockOne, blockTwo, btnWhite } from './styles'
+import { container, btnWhite } from './styles'
 
 const LoginTrouble = () =>
-	<div style={container}>
-		<div style={blockOne}>
+	<>
+		<Header type='icon-link' icon='back' navigateTo='/' title='Reenviar confirmação' />
+		<div style={container}>
 			<label>Escolha a opção desejada</label>
-		</div>
-		<div style={blockTwo}>
 			<Button type='link' cta='Reenviar confirmação'
 				navigate={() => window.location.assign('/confirmar-email')}
 			/>
@@ -15,6 +15,6 @@ const LoginTrouble = () =>
 				navigate={() => window.location.assign('/resetar-senha')}
 			/>
 		</div>
-	</div>
+	</>
 
 export default LoginTrouble
