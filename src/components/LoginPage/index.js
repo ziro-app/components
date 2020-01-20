@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'wouter'
 import PropTypes from 'prop-types'
 import HeaderHome from '../HeaderHome/index'
 import LoginForm from '../LoginForm/index'
@@ -14,7 +15,7 @@ const LoginPage = ({ audience, sendToBackend }) => {
 				<br/>Acesse sua conta,
 			</h1>
 			<LoginForm sendToBackend={sendToBackend} />
-			<label style={help}>Problemas no acesso?</label>
+			<Link href='/problemas-acesso'><a style={help}>Problemas no acesso?</a></Link>
 		</>
 	)
 }

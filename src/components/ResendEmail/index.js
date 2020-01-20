@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'wouter'
 import PropTypes from 'prop-types'
 import Header from '../Header/index'
 import LoginForm from '../LoginForm/index'
@@ -8,7 +9,7 @@ const ResendEmail = ({ sendToBackend }) =>
 	<>
 		<Header type='icon-link' icon='back' navigateTo='/' title='Reenviar confirmação' />
 		<LoginForm sendToBackend={sendToBackend} />
-		<label style={help}>Problemas no acesso?</label>
+		<Link href='/problemas-acesso'><a style={help}>Problemas no acesso?</a></Link>
 	</>
 
 ResendEmail.propTypes = {
