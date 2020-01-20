@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import HeaderHome from '../HeaderHome/index'
 import LoginForm from '../LoginForm/index'
-import { welcome, subtitle, marker } from './styles'
+import { welcome, subtitle, marker, help } from './styles'
 
 const LoginPage = ({ audience, sendToBackend }) => {
 	return (
@@ -14,6 +14,7 @@ const LoginPage = ({ audience, sendToBackend }) => {
 				<br/>Acesse sua conta,
 			</h1>
 			<LoginForm sendToBackend={sendToBackend} />
+			<label style={help}>Problemas no acesso?</label>
 		</>
 	)
 }

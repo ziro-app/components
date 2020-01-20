@@ -1,4 +1,4 @@
-import { fontTitle } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor } from '../../Theme/variables'
 
 export const
 
@@ -15,4 +15,14 @@ subtitle = {
 marker = {
 	...subtitle,
 	background: `linear-gradient(transparent 60%, rgba(255,228,0,0.75) 100%)`,
+},
+
+help = {
+	display: 'grid',
+	marginTop: '20px',
+	fontFamily: fontTitle,
+	fontSize: fontSizeSmall,
+	color: primaryColor,
+	textAlign: 'center',
+	textDecoration: 'underline'
 }

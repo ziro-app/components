@@ -1,9 +1,13 @@
-import { fontTitle } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor } from '../../Theme/variables'
 
 export const
 
-title = {
+help = {
+	display: 'grid',
+	marginTop: '20px',
 	fontFamily: fontTitle,
-	fontSize: '2.1rem',
-	textAlign: 'center'
+	fontSize: fontSizeSmall,
+	color: primaryColor,
+	textAlign: 'center',
+	textDecoration: 'underline'
 }
