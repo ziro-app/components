@@ -155,7 +155,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.0.3": {
+    "vitorbarbosa19.ziro/confirm-email@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/ConfirmEmail/index.js",
@@ -814,7 +814,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.0.15": {
+    "vitorbarbosa19.ziro/login-page@0.0.16": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
@@ -829,6 +829,24 @@
         ],
         "mainFile": "src/components/LoginPage/index.js",
         "trackDir": "src/components/LoginPage",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/login-trouble@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/LoginTrouble/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/LoginTrouble/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/LoginTrouble/index.js",
+        "trackDir": "src/components/LoginTrouble",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -899,7 +917,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.0.3": {
+    "vitorbarbosa19.ziro/resend-email@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/ResendEmail/index.js",
@@ -914,6 +932,19 @@
         ],
         "mainFile": "src/components/ResendEmail/index.js",
         "trackDir": "src/components/ResendEmail",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/reset-pass@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ResetPass/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/ResetPass/index.js",
+        "trackDir": "src/components/ResetPass",
         "origin": "AUTHORED",
         "exported": true
     },

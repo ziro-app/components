@@ -8,7 +8,7 @@ const LoginTrouble = () => {
 	const [, setLocation] = useLocation()
 	return (
 		<>
-			<Header type='icon-link' icon='back' navigateTo='/' title='Reenviar confirmação' />
+			<Header type='icon-link' icon='back' navigateTo='/' title='Corrigir acesso' />
 			<div style={container}>
 				<label>Escolha a opção desejada</label>
 				<Button type='link' cta='Reenviar confirmação'

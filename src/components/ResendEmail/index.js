@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'wouter'
 import PropTypes from 'prop-types'
+import { Link } from 'wouter'
 import Header from '../Header/index'
 import LoginForm from '../LoginForm/index'
 import { help } from './styles'
