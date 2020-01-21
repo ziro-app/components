@@ -12,7 +12,7 @@ const LoginTrouble = () => {
 			<div style={container}>
 				<label>Escolha a opção desejada</label>
 				<Button type='link' cta='Reenviar confirmação'
-					navigate={() => setLocation('/confirmar-email')}
+					navigate={() => setLocation('/reenviar-email')}
 				/>
 				<Button type='link' cta='Resetar senha' style={btnWhite}
 					navigate={() => setLocation('/resetar-senha')}

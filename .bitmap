@@ -832,7 +832,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-trouble@0.0.1": {
+    "vitorbarbosa19.ziro/login-trouble@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/LoginTrouble/index.js",
