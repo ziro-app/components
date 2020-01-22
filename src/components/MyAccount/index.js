@@ -1,10 +1,11 @@
 import React from 'react'
+import { container } from './styles'
 
 const MyAccount = () =>
-	<>
-		<label>28.026.371/0001-61</label>
-		<label>R. Lubavitch, 71, Bom Retiro</label>
-		<label>01123-110, São Paulo - SP</label>
-	</>
+	<div style={container}>
+		<label>Trocar senha</label>
+		<label>Trocar email</label>
+		<label>Deletar conta</label>
+	</div>
 
 export default MyAccount
