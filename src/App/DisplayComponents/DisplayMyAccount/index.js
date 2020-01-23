@@ -5,6 +5,6 @@ import { containerWithPadding } from '../../../Theme/variables'
 
 export const DisplayMyAccount = () =>
 	<div style={containerWithPadding}>
-		<Header type='icon' title='Meus Dados' icon='menu' />
+		<Header type='icon' title='Minha Conta' icon='menu' />
 		<MyAccount />
 	</div>

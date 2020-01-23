@@ -904,6 +904,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/my-account@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/MyAccount/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/MyAccount/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/MyAccount/index.js",
+        "trackDir": "src/components/MyAccount",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/not-found@0.0.27": {
         "files": [
             {
