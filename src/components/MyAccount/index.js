@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'wouter'
 import Icon from '../Icon/index'
+import Footer from '../Footer/index'
 import { container, option, dot } from './styles'
 
 const MyAccount = () =>
@@ -23,6 +24,7 @@ const MyAccount = () =>
 				<span style={dot}>.</span>
 			</label>
 		</Link>
+		<Footer phone='+55 (11) 3334-0920' />
 	</div>
 
 export default MyAccount
