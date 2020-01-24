@@ -37,7 +37,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/button@0.0.4": {
+    "vitorbarbosa19.ziro/button@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/Button/index.js",
@@ -73,7 +73,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.0.28": {
+    "vitorbarbosa19.ziro/checkout@0.0.29": {
         "files": [
             {
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
@@ -155,7 +155,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.0.4": {
+    "vitorbarbosa19.ziro/confirm-email@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ConfirmEmail/index.js",
@@ -193,6 +193,19 @@
         ],
         "mainFile": "src/components/CreditCard/index.js",
         "trackDir": "src/components/CreditCard",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/delete-account@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/DeleteAccount/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/DeleteAccount/index.js",
+        "trackDir": "src/components/DeleteAccount",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -288,7 +301,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.0.26": {
+    "vitorbarbosa19.ziro/error-expired@0.0.27": {
         "files": [
             {
                 "relativePath": "src/components/ErrorExpired/index.js",
@@ -306,7 +319,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.0.26": {
+    "vitorbarbosa19.ziro/error-loading@0.0.27": {
         "files": [
             {
                 "relativePath": "src/components/ErrorLoading/index.js",
@@ -324,7 +337,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error@0.0.3": {
+    "vitorbarbosa19.ziro/error@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/Error/index.js",
@@ -378,7 +391,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form@0.0.10": {
+    "vitorbarbosa19.ziro/form@0.0.11": {
         "files": [
             {
                 "relativePath": "src/components/Form/ModalSubmit/index.js",
@@ -452,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/hero-image@0.0.2": {
+    "vitorbarbosa19.ziro/hero-image@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/HeroImage/index.js",
@@ -758,7 +771,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/landing@0.0.4": {
+    "vitorbarbosa19.ziro/landing@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/Landing/choose.png",
@@ -801,7 +814,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.0.6": {
+    "vitorbarbosa19.ziro/login-form@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/LoginForm/index.js",
@@ -814,7 +827,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.0.16": {
+    "vitorbarbosa19.ziro/login-page@0.0.17": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
@@ -832,7 +845,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-trouble@0.0.2": {
+    "vitorbarbosa19.ziro/login-trouble@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/LoginTrouble/index.js",
@@ -904,7 +917,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/my-account@0.0.1": {
+    "vitorbarbosa19.ziro/my-account@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/MyAccount/index.js",
@@ -922,7 +935,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.0.27": {
+    "vitorbarbosa19.ziro/not-found@0.0.28": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",
@@ -935,7 +948,20 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.0.4": {
+    "vitorbarbosa19.ziro/reauthenticate@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Reauthenticate/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/Reauthenticate/index.js",
+        "trackDir": "src/components/Reauthenticate",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/resend-email@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ResendEmail/index.js",
@@ -953,7 +979,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.0.1": {
+    "vitorbarbosa19.ziro/reset-pass@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ResetPass/index.js",
@@ -1025,7 +1051,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.0.22": {
+    "vitorbarbosa19.ziro/timeline@0.0.23": {
         "files": [
             {
                 "relativePath": "src/components/Timeline/index.js",
@@ -1063,6 +1089,32 @@
         ],
         "mainFile": "src/components/TransitionRoute/index.js",
         "trackDir": "src/components/TransitionRoute",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/update-email@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/UpdateEmail/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/UpdateEmail/index.js",
+        "trackDir": "src/components/UpdateEmail",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/update-pass@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/UpdatePass/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/UpdatePass/index.js",
+        "trackDir": "src/components/UpdatePass",
         "origin": "AUTHORED",
         "exported": true
     },
