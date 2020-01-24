@@ -9,6 +9,7 @@ btn = {
 	MozAppearance: 'none',
 	outline: 'none',
 	cursor: 'pointer',
+	width: '100%',
 	padding: '10px 0px',
 	border: 'none',
 	borderRadius: '20px',

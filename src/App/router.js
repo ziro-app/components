@@ -32,6 +32,7 @@ import { DisplayResetPass } from './DisplayComponents/DisplayResetPass/index'
 import { DisplayMyAccount } from './DisplayComponents/DisplayMyAccount/index'
 import { DisplayUpdateEmail } from './DisplayComponents/DisplayUpdateEmail/index'
 import { DisplayUpdatePass } from './DisplayComponents/DisplayUpdatePass/index'
+import { DisplayDeleteAccount } from './DisplayComponents/DisplayDeleteAccount/index'
 
 export const Router = () =>
 	<Switch>
@@ -67,5 +68,6 @@ export const Router = () =>
 		<Route path='/my-account'><DisplayMyAccount /></Route>
 		<Route path='/update-email'><DisplayUpdateEmail /></Route>
 		<Route path='/update-pass'><DisplayUpdatePass /></Route>
+		<Route path='/delete-account'><DisplayDeleteAccount /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
