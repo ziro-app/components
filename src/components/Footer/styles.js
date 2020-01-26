@@ -5,7 +5,7 @@ export const
 container = {
 	display: 'grid',
 	justifyItems: 'center',
-	margin: '20px 0 60px'
+	margin: '20px 0 0'
 },
 
 help = {

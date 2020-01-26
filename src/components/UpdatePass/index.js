@@ -25,7 +25,7 @@ const UpdatePass = ({ sendToBackend }) => {
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/conta' title='Atualizar senha' />
+			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar senha' />
 			<Form
 				buttonOnTop={true}
 				validations={validations}

@@ -7,7 +7,7 @@ import { containerWithPadding } from '@ziro/theme'
 const DeleteAccount = ({ click }) =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' navigateTo='/conta' title='Deletar conta' />
-		<Button type='click' cta='Confirmar exclusão de conta' click={click} />
+		<Button type='click' cta='Confirmar exclusão' click={click} />
 	</div>
 
 DeleteAccount.propTypes = {

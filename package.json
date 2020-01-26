@@ -19,7 +19,7 @@
   "dependencies": {
     "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",
-    "@ziro/theme": "^1.0.0",
+    "@ziro/theme": "^1.0.3",
     "framer-motion": "^1.7.3",
     "mapbox-gl": "^1.6.1",
     "react": "^16.12.0",

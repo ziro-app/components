@@ -19,7 +19,7 @@ const UpdateEmail = ({ sendToBackend }) => {
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/conta' title='Atualizar email' />
+			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar email' />
 			<Form
 				buttonOnTop={true}
 				validations={validations}
