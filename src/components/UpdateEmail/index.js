@@ -7,28 +7,41 @@ import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
 const UpdateEmail = ({ sendToBackend }) => {
-	const [email, setEmail] = useState('')
-	const state = { email, setEmail }
+	const [pass, setPass] = useState('')
+	const [newEmail, setNewEmail] = useState('')
+	const state = { pass, setPass, newEmail, setNewEmail }
 	const validations = [
 		{
-			name: 'email',
+			name: 'pass',
+			validation: value => !/^.{0,5}$/g.test(value), // tests for min length of 6 char
+			value: pass,
+			message: 'Mínimo 6 caracteres'
+		},{
+			name: 'newEmail',
 			validation: value => /^\S+@\S+\.\S+$/g.test(value), // tests for pattern a@b.c
-			value: email,
+			value: newEmail,
 			message: 'Formato inválido'
 		}
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar email' />
+			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar Email' />
 			<Form
-				buttonOnTop={true}
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 				inputs={[
-					<FormInput name='email' label='Novo Email' input={
+					<FormInput name='pass' label='Senha atual' input={
 						<InputText
-							value={email}
-							onChange={({ target: { value } }) => setEmail(value)}
+							value={pass}
+							onChange={({ target: { value } }) => setPass(value)}
+							placeholder='Sua senha atual'
+							type='password'
+						/>
+					}/>,
+					<FormInput name='newEmail' label='Novo email' input={
+						<InputText
+							value={newEmail}
+							onChange={({ target: { value } }) => setNewEmail(value)}
 							placeholder='Seu novo email'
 						/>
 					}/>
