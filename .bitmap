@@ -1100,7 +1100,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-pass@0.0.3": {
+    "vitorbarbosa19.ziro/update-pass@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/UpdatePass/index.js",

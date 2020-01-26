@@ -8,8 +8,9 @@ import { containerWithPadding } from '@ziro/theme'
 
 const UpdatePass = ({ sendToBackend }) => {
 	const [pass, setPass] = useState('')
+	const [newPass, setNewPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
-	const state = { pass, setPass, setConfirmPass }
+	const state = { pass, newPass, setPass, setNewPass, setConfirmPass }
 	const validations = [
 		{
 			name: 'pass',
@@ -17,8 +18,13 @@ const UpdatePass = ({ sendToBackend }) => {
 			value: pass,
 			message: 'Mínimo 6 caracteres'
 		},{
+			name: 'newPass',
+			validation: value => !/^.{0,5}$/g.test(value), // tests for min length of 6 char
+			value: newPass,
+			message: 'Mínimo 6 caracteres'
+		},{
 			name: 'confirmPass',
-			validation: value => value === pass,
+			validation: value => value === newPass,
 			value: confirmPass,
 			message: 'Deve ser igual ao campo anterior'
 		}
@@ -27,23 +33,30 @@ const UpdatePass = ({ sendToBackend }) => {
 		<div style={containerWithPadding}>
 			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar senha' />
 			<Form
-				buttonOnTop={true}
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 				inputs={[
-					<FormInput name='pass' label='Nova senha' input={
+					<FormInput name='pass' label='Senha atual' input={
 						<InputText
 							value={pass}
 							onChange={({ target: { value } }) => setPass(value)}
+							placeholder='Sua senha atual'
+							type='password'
+						/>
+					}/>,
+					<FormInput name='newPass' label='Nova senha' input={
+						<InputText
+							value={newPass}
+							onChange={({ target: { value } }) => setNewPass(value)}
 							placeholder='Sua nova senha'
 							type='password'
 						/>
 					}/>,
-					<FormInput name='confirmPass' label='Confirme a senha' input={
+					<FormInput name='confirmPass' label='Confirme nova senha' input={
 						<InputText
 							value={confirmPass}
 							onChange={({ target: { value } }) => setConfirmPass(value)}
-							placeholder='Mínimo 6 caracteres'
+							placeholder='Senha do campo anterior'
 							type='password'
 						/>
 					}/>
