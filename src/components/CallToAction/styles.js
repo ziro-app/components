@@ -5,28 +5,28 @@ export const
 container = {
 	display: 'grid',
 	alignItems: 'end',
-	height: '100%',
+	height: '100vh',
 	boxSizing: 'border-box',
 	padding: '20px 5% 0',
 	color: 'white',
 	background: `
 		linear-gradient(
-			rgba(0,0,0,0.25) 8%,
-			rgba(0,0,0,0.3) 16%,
-			rgba(0,0,0,0.35) 24%,
-			rgba(0,0,0,0.4) 32%,
-			rgba(0,0,0,0.45) 40%,
-			rgba(0,0,0,0.5) 48%,
-			rgba(0,0,0,0.55) 56%,
-			rgba(0,0,0,0.6) 64%,
-			rgba(0,0,0,0.65) 72%,
+			rgba(0,0,0,0.0) 8%,
+			rgba(0,0,0,0.0) 16%,
+			rgba(0,0,0,0.0) 24%,
+			rgba(0,0,0,0.1) 32%,
+			rgba(0,0,0,0.15) 40%,
+			rgba(0,0,0,0.2) 48%,
+			rgba(0,0,0,0.25) 56%,
+			rgba(0,0,0,0.35) 64%,
+			rgba(0,0,0,0.6) 72%,
 			rgba(0,0,0,0.7) 80%,
-			rgba(0,0,0,0.85) 85%,
+			rgba(0,0,0,0.75) 85%,
 			rgba(0,0,0,0.9) 90%,
 			rgba(0,0,0,0.95) 95%
 		),
 		center / cover
-		url('https://res.cloudinary.com/ziro/image/upload/v1568509821/home-cta_sa7tom.jpg')
+		url('https://res.cloudinary.com/ziro/image/upload/v1580064150/register-heroimg_rz8rek.jpg')
 	`
 },
 
