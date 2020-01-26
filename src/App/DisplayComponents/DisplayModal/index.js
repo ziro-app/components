@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Modal from '../../../components/Modal/index'
 import Button from '../../../components/Button/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayModal = () => {
 	const [isOpen, setIsOpen] = useState(false)

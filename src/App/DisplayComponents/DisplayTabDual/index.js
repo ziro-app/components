@@ -1,7 +1,7 @@
 import React from 'react'
 import TabDualTransition from '../../../components/TabDualTransition/index'
 import TabDualHeader from '../../../components/TabDualHeader/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 import { component } from './styles'
 
 //overflow: auto removes the scroll bar

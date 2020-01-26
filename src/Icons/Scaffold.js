@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { primaryColor } from '../Theme/variables'
+import { primaryColor } from '@ziro/theme'
 
 export const Scaffold = ({ svgPath, style, onClick, size, color, strokeWidth }) =>
 	<svg

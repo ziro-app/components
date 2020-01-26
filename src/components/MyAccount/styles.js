@@ -1,4 +1,4 @@
-import { primaryColor, secondaryColor } from '../../Theme/variables'
+import { primaryColor, secondaryColor } from '@ziro/theme'
 
 export const
 

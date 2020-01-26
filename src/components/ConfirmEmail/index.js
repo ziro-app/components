@@ -2,9 +2,9 @@ import React from 'react'
 import { useLocation } from 'wouter'
 import Badge from '../Badge/index'
 import Button from '../Button/index'
-import { successColor } from '../../Theme/variables'
+import { successColor } from '@ziro/theme'
 import { container, custom, blockOne, blockTwo, btnWhite } from './styles'
-import { containerWithPadding } from '../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 const ConfirmEmail = () => {
 	const [, setLocation] = useLocation()

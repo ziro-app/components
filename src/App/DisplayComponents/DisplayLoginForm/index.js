@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginForm from '../../../components/LoginForm/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayLoginForm = () =>
 	<div style={containerWithPadding}>

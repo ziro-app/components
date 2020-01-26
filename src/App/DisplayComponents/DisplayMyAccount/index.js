@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../../components/Header/index'
 import MyAccount from '../../../components/MyAccount/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayMyAccount = () =>
 	<div style={containerWithPadding}>

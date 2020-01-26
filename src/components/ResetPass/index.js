@@ -4,7 +4,7 @@ import Header from '../Header/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
-import { containerWithPadding } from '../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 const ResetPass = ({ sendToBackend }) => {
 	const [email, setEmail] = useState('')

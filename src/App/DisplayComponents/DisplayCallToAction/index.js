@@ -1,6 +1,6 @@
 import React from 'react'
 import CallToAction from '../../../components/CallToAction/index'
-import { container } from '../../../Theme/variables'
+import { container } from '@ziro/theme'
 
 export const DisplayCallToAction = () =>
 	<div style={container}>

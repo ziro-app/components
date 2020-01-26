@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { filterOptions } from './filterOptions'
 import Icon from '../Icon'
 import InputText from '../InputText'
-import { grayColor1 } from '../../Theme/variables'
+import { grayColor1 } from '@ziro/theme'
 import { container, close, modal, data } from './styles'
 import { initial, animate, transition } from './animation'
 

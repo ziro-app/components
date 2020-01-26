@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { svg } from './styles'
-import { primaryColor, grayColor2 } from '../../Theme/variables'
+import { primaryColor, grayColor2 } from '@ziro/theme'
 
 const Spinner = ({ size = '7rem', style = svg }) =>
 	<svg style={style} width={size} height={size} viewBox='0 0 24 24' strokeWidth='3' strokeLinecap='round'>

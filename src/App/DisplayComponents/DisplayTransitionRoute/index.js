@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'wouter'
 import TransitionRoute from '../../../components/TransitionRoute/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 import { component, nav } from './styles'
 
 export const DisplayTransitionRoute = () => {

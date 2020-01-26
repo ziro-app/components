@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import InputEdit from '../../../components/InputEdit/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayInputEdit = () => {
 	const [name, setName] = useState('Vitor Barbosa')

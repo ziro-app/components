@@ -4,7 +4,7 @@ import { Link } from 'wouter'
 import Header from '../Header/index'
 import LoginForm from '../LoginForm/index'
 import { help } from './styles'
-import { containerWithPadding } from '../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 const ResendEmail = ({ sendToBackend }) =>
 	<div style={containerWithPadding}>

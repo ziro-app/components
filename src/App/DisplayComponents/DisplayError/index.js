@@ -1,6 +1,6 @@
 import React from 'react'
 import Error from '../../../components/Error/index'
-import { containerWithPadding, primaryColor } from '../../../Theme/variables'
+import { containerWithPadding, primaryColor } from '@ziro/theme'
 
 export const DisplayError = () =>
 	<div style={containerWithPadding}>

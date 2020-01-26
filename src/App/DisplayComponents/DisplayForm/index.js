@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Form from '../../../components/Form/index'
 import FormInput from '../../../components/FormInput/index'
 import InputText from '../../../components/InputText/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayForm = () => {
 	const [email, setEmail] = useState('')

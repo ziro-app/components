@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
-import { primaryColor } from '../../Theme/variables'
+import { primaryColor } from '@ziro/theme'
 import { container } from './styles'
 import 'mapbox-gl/dist/mapbox-gl.css'
 

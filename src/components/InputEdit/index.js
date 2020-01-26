@@ -7,7 +7,7 @@ import InputText from '../InputText/index'
 import Badge from '../Badge/index'
 import Icon from '../Icon/index'
 import Spinner from '../Spinner/index'
-import { successColor, alertColor, warningColor } from '../../Theme/variables'
+import { successColor, alertColor, warningColor } from '@ziro/theme'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
 
 const InputEdit = ({ name, value, onChange, validateInput, submit, setError, error = '', warning = '', placeholder = '', isValidated = false, editable = true, isLoading = false }) => {

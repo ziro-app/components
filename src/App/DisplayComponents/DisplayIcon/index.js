@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../../../components/Icon/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 import { grid } from './styles'
 
 export const DisplayIcon = () =>

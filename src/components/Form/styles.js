@@ -1,4 +1,4 @@
-import { alertColor, successColor } from '../../Theme/variables'
+import { alertColor, successColor } from '@ziro/theme'
 
 export const
 

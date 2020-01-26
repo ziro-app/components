@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Dropdown from '../../../components/Dropdown/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayDropdown = () => {
 	const [selection, setSelection] = useState('')

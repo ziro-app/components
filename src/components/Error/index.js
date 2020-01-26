@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import Illustration from '../Illustration/index'
 import Button from '../Button/index'
-import { containerWithPadding } from '../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 import { container, svg, header } from './styles'
 
 const Error = ({ type, title, message, btnMsg, backRoute, style }) => {

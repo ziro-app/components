@@ -3,7 +3,7 @@ import Drawer from '../../../components/Drawer/index'
 import DrawerPanel from '../../../components/DrawerPanel/index'
 import Header from '../../../components/Header/index'
 import Icon from '../../../components/Icon/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayDrawer = () => {
 	const [isOpen, setIsOpen] = useState(true)

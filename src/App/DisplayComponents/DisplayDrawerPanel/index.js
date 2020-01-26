@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import DrawerPanel from '../../../components/DrawerPanel/index'
 import Icon from '../../../components/Icon/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayDrawerPanel = () => {
 	const [username, setUsername] = useState('')

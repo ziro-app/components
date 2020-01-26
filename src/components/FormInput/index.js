@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InputLabel from '../InputLabel/index'
 import Badge from '../Badge/index'
-import { alertColor } from '../../Theme/variables'
+import { alertColor } from '@ziro/theme'
 import { labelHeader, error } from './styles'
 
 const FormInput = ({ label, errorMsg, input }) =>

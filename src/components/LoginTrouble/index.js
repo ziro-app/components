@@ -3,7 +3,7 @@ import { useLocation } from 'wouter'
 import Header from '../Header/index'
 import Button from '../Button/index'
 import { container, btnWhite } from './styles'
-import { containerWithPadding } from '../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 const LoginTrouble = () => {
 	const [, setLocation] = useLocation()

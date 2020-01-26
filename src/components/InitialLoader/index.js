@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../Logo/index'
 import Spinner from '../Spinner/index'
-import { containerWithPadding } from '../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 import { container } from './styles'
 
 const InitialLoader = () =>

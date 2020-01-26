@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import InputText from '../../../components/InputText/index'
 import Button from '../../../components/Button/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayInputText = () => {
 	const [inputValue, setInputValue] = useState('')

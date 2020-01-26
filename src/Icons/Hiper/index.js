@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { primaryColor } from '../../Theme/variables'
+import { primaryColor } from '@ziro/theme'
 
 export const Hiper = ({ size = 50, color = primaryColor }) =>
 	<svg viewBox='80 0 620 480' width={size + 20} height={size}>

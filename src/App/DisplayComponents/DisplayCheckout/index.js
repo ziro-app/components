@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../../components/Header/index'
 import Checkout from '../../../components/Checkout/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayCheckout = () =>
 	<div style={containerWithPadding}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { primaryColor } from '../../Theme/variables'
+import { primaryColor } from '@ziro/theme'
 
 export const Amex = ({ size = 50, color = primaryColor }) =>
 	<svg viewBox='0 0 24 24' width={size} height={size}>

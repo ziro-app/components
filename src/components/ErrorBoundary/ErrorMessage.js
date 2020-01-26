@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../Logo/index'
 import Icon from '../Icon/index'
-import { containerWithPadding, alertColor } from '../../Theme/variables'
+import { containerWithPadding, alertColor } from '@ziro/theme'
 import { container, title, alert } from './styles'
 
 const ErrorMessage = () =>

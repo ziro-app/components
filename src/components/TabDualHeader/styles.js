@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeSmall, primaryColor, grayColor2 } from '../../Theme/variables'
+import { fontTitle, fontSizeSmall, primaryColor, grayColor2 } from '@ziro/theme'
 
 export const
 

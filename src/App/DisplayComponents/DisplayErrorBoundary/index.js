@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import ErrorBoundary from '../../../components/ErrorBoundary/index'
-import { container } from '../../../Theme/variables'
+import { container } from '@ziro/theme'
 
 const BuggyComponent = () => {
 	useEffect(() => { throw 'Error' }, [])

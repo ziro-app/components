@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../../components/Footer/index'
-import { containerWithPadding } from '../../../Theme/variables'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayFooter = () =>
 	<div style={containerWithPadding}>

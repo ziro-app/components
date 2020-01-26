@@ -1,4 +1,4 @@
-import { fontBody, fontSizeInput, primaryColor, grayColor1, grayColor2, grayColor3 } from '../../Theme/variables'
+import { fontBody, fontSizeInput, primaryColor, grayColor1, grayColor2, grayColor3 } from '@ziro/theme'
 
 export const inline = {
 	WebkitAppearance: 'none',
