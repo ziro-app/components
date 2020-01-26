@@ -4,6 +4,7 @@ import Header from '../Header/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
+import { containerWithPadding } from '../../Theme/variables'
 
 const UpdatePass = ({ sendToBackend }) => {
 	const [pass, setPass] = useState('')
@@ -23,7 +24,7 @@ const UpdatePass = ({ sendToBackend }) => {
 		}
 	]
 	return (
-		<>
+		<div style={containerWithPadding}>
 			<Header type='icon-link' icon='back' navigateTo='/conta' title='Atualizar senha' />
 			<Form
 				buttonOnTop={true}
@@ -48,7 +49,7 @@ const UpdatePass = ({ sendToBackend }) => {
 					}/>
 				]}
 			/>
-		</>
+		</div>
 	)
 }
 

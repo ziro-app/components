@@ -4,6 +4,7 @@ import Header from '../Header/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
+import { containerWithPadding } from '../../Theme/variables'
 
 const UpdateEmail = ({ sendToBackend }) => {
 	const [email, setEmail] = useState('')
@@ -17,7 +18,7 @@ const UpdateEmail = ({ sendToBackend }) => {
 		}
 	]
 	return (
-		<>
+		<div style={containerWithPadding}>
 			<Header type='icon-link' icon='back' navigateTo='/conta' title='Atualizar email' />
 			<Form
 				buttonOnTop={true}
@@ -33,7 +34,7 @@ const UpdateEmail = ({ sendToBackend }) => {
 					}/>
 				]}
 			/>
-		</>
+		</div>
 	)
 }
 
