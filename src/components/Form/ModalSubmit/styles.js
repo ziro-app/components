@@ -19,7 +19,7 @@ modalResult = {
 	justifyContent: 'center',
 	maxWidth: '300px',
 	width: '85%',
-	paddingBottom: '20px',
+	paddingBottom: '40px',
 	borderRadius: '3px',
 	textAlign: 'center',
 	background: 'white',
