@@ -9,7 +9,7 @@ import { containerWithPadding } from '@ziro/theme'
 const UpdateEmail = ({ sendToBackend }) => {
 	const [pass, setPass] = useState('')
 	const [newEmail, setNewEmail] = useState('')
-	const state = { pass, setPass, newEmail, setNewEmail }
+	const state = { pass, newEmail }
 	const validations = [
 		{
 			name: 'pass',
