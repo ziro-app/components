@@ -196,7 +196,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.0.4": {
+    "vitorbarbosa19.ziro/delete-account@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/DeleteAccount/index.js",
@@ -943,19 +943,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reauthenticate@0.0.3": {
-        "files": [
-            {
-                "relativePath": "src/components/Reauthenticate/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/components/Reauthenticate/index.js",
-        "trackDir": "src/components/Reauthenticate",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "vitorbarbosa19.ziro/resend-email@0.0.7": {
         "files": [
             {
@@ -1087,7 +1074,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.0.4": {
+    "vitorbarbosa19.ziro/update-email@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/UpdateEmail/index.js",
