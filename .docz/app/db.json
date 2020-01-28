@@ -1,0 +1,3866 @@
+{
+  "config": {
+    "title": "Components",
+    "description": "Component library for Ziro",
+    "menu": [],
+    "version": "1.0.0",
+    "repository": null,
+    "native": false,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "entries": [
+    {
+      "key": "src/index.mdx",
+      "value": {
+        "name": "Getting Started",
+        "route": "/",
+        "id": "6576455a124f9aaefd860597f03a8fe4",
+        "filepath": "src/index.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/index.mdx",
+        "link": "",
+        "slug": "src-index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "getting-started",
+            "depth": 1,
+            "value": "Getting Started"
+          },
+          {
+            "slug": "consistency",
+            "depth": 2,
+            "value": "Consistency"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/InputEdit/InputEdit.mdx",
+      "value": {
+        "name": "InputEdit",
+        "menu": "Components",
+        "id": "56453c2a161ad1afd157e10d5f959716",
+        "filepath": "src/App/WrapperComponents/InputEdit/InputEdit.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/InputEdit/InputEdit.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-input-edit-input-edit",
+        "route": "/src-app-wrapper-components-input-edit-input-edit",
+        "headings": [
+          {
+            "slug": "inputedit",
+            "depth": 1,
+            "value": "InputEdit"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/InputText/InputText.mdx",
+      "value": {
+        "name": "InputText",
+        "menu": "Components",
+        "id": "a802d9f6bff95bbda3cc7008276e3de3",
+        "filepath": "src/App/WrapperComponents/InputText/InputText.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/InputText/InputText.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-input-text-input-text",
+        "route": "/src-app-wrapper-components-input-text-input-text",
+        "headings": [
+          {
+            "slug": "inputtext",
+            "depth": 1,
+            "value": "InputText"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "using-disabled-propertie",
+            "depth": 2,
+            "value": "Using disabled propertie"
+          }
+        ]
+      }
+    }
+  ],
+  "props": [
+    {
+      "key": "src/App/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Scaffold.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Scaffold",
+          "methods": [],
+          "actualName": "Scaffold",
+          "props": {
+            "svgPath": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "element"
+                  },
+                  {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "element"
+                    }
+                  }
+                ]
+              },
+              "required": true,
+              "description": ""
+            },
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "24",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "2",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/ErrorLoading/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorLoading",
+          "methods": [],
+          "actualName": "ErrorLoading",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/NotFound/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NotFound",
+          "methods": [],
+          "actualName": "NotFound",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/PaymentError/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PaymentError",
+          "methods": [],
+          "actualName": "PaymentError",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/PaymentSuccess/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PaymentSuccess",
+          "methods": [],
+          "actualName": "PaymentSuccess",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/TimelineStart/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TimelineStart",
+          "methods": [],
+          "actualName": "TimelineStart",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Alert/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Alert",
+          "methods": [],
+          "actualName": "Alert",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Amex/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Amex",
+          "methods": [],
+          "actualName": "Amex",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "50",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Back/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Back",
+          "methods": [],
+          "actualName": "Back",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Calendar/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Calendar",
+          "methods": [],
+          "actualName": "Calendar",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Card/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Card",
+          "methods": [],
+          "actualName": "Card",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Close/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Close",
+          "methods": [],
+          "actualName": "Close",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Cnpj/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Cnpj",
+          "methods": [],
+          "actualName": "Cnpj",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Elo/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Elo",
+          "methods": [],
+          "actualName": "Elo",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "50",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Email/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Email",
+          "methods": [],
+          "actualName": "Email",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Facebook/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Facebook",
+          "methods": [],
+          "actualName": "Facebook",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Gear/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Gear",
+          "methods": [],
+          "actualName": "Gear",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Hiper/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Hiper",
+          "methods": [],
+          "actualName": "Hiper",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "50",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Id/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Id",
+          "methods": [],
+          "actualName": "Id",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Instagram/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Instagram",
+          "methods": [],
+          "actualName": "Instagram",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Location/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Location",
+          "methods": [],
+          "actualName": "Location",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Lock/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Lock",
+          "methods": [],
+          "actualName": "Lock",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Logout/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Logout",
+          "methods": [],
+          "actualName": "Logout",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Mastercard/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Mastercard",
+          "methods": [],
+          "actualName": "Mastercard",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "50",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Menu/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Menu",
+          "methods": [],
+          "actualName": "Menu",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Money/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Money",
+          "methods": [],
+          "actualName": "Money",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Pen/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Pen",
+          "methods": [],
+          "actualName": "Pen",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Present/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Present",
+          "methods": [],
+          "actualName": "Present",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Shopping/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Shopping",
+          "methods": [],
+          "actualName": "Shopping",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Success/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Success",
+          "methods": [],
+          "actualName": "Success",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Trending/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Trending",
+          "methods": [],
+          "actualName": "Trending",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Truck/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Truck",
+          "methods": [],
+          "actualName": "Truck",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/User/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "User",
+          "methods": [],
+          "actualName": "User",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Visa/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Visa",
+          "methods": [],
+          "actualName": "Visa",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "50",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Warning/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Warning",
+          "methods": [],
+          "actualName": "Warning",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Whats/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Whats",
+          "methods": [],
+          "actualName": "Whats",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Ziro/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Ziro",
+          "methods": [],
+          "actualName": "Ziro",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "45",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Zirocard/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Zirocard",
+          "methods": [],
+          "actualName": "Zirocard",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "30",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/About/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "About",
+          "methods": [],
+          "actualName": "About"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Badge/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Badge",
+          "methods": [],
+          "actualName": "Badge",
+          "props": {
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "10",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
+            },
+            "strokeWidth": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "3",
+                "computed": false
+              }
+            },
+            "message": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "style": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "object"
+                  },
+                  {
+                    "name": "func"
+                  }
+                ]
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "container(size, color)",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/CallToAction/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CallToAction",
+          "methods": [],
+          "actualName": "CallToAction",
+          "props": {
+            "headerText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "headerLinkPath": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "headerLinkClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "pillText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "ctaText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "btnPath": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "btnClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "btnText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Checkout/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Checkout",
+          "methods": [],
+          "actualName": "Checkout",
+          "props": {
+            "charge": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "maxInstallments": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "seller": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/ConfirmEmail/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ConfirmEmail",
+          "methods": [],
+          "actualName": "ConfirmEmail"
+        }
+      ]
+    },
+    {
+      "key": "src/components/CreditCard/CardNumbers.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CardNumbers",
+          "methods": [],
+          "actualName": "CardNumbers",
+          "props": {
+            "number": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "brand": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/CreditCard/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreditCard",
+          "methods": [],
+          "actualName": "CreditCard",
+          "props": {
+            "number": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "brand": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "cardholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "expiry": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "cvv": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/DeleteAccount/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DeleteAccount",
+          "methods": [],
+          "actualName": "DeleteAccount",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Drawer/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Drawer",
+          "methods": [],
+          "actualName": "Drawer",
+          "props": {
+            "isOpen": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "setIsOpen": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "children": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "object"
+                  },
+                  {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "element"
+                    }
+                  }
+                ]
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/DrawerPanel/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DrawerPanel",
+          "methods": [],
+          "actualName": "DrawerPanel",
+          "props": {
+            "username": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "userdata": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "options": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Dropdown/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Dropdown",
+          "methods": [],
+          "actualName": "Dropdown",
+          "props": {
+            "value": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "list": {
+              "type": {
+                "name": "array"
+              },
+              "required": true,
+              "description": ""
+            },
+            "submitting": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onChangeKeyboard": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "readOnly": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Error/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Error",
+          "methods": [],
+          "actualName": "Error",
+          "props": {
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "message": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "btnMsg": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "backRoute": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/ErrorBoundary/ErrorMessage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorMessage",
+          "methods": [],
+          "actualName": "ErrorMessage"
+        }
+      ]
+    },
+    {
+      "key": "src/components/ErrorBoundary/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorBoundary",
+          "methods": [],
+          "actualName": "ErrorBoundary",
+          "props": {
+            "children": {
+              "type": {
+                "name": "element"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/ErrorExpired/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorExpired",
+          "methods": [],
+          "actualName": "ErrorExpired"
+        }
+      ]
+    },
+    {
+      "key": "src/components/ErrorLoading/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorLoading",
+          "methods": [],
+          "actualName": "ErrorLoading",
+          "props": {
+            "message": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Footer/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Footer",
+          "methods": [],
+          "actualName": "Footer",
+          "props": {
+            "phone": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Form/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "useModalLayoutOnSubmit": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "successComponent": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "errorComponent": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "buttonName": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "buttonOnTop": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "validations": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "summary": {
+              "type": {
+                "name": "element"
+              },
+              "required": false,
+              "description": ""
+            },
+            "inputs": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "element"
+                }
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/FormInput/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormInput",
+          "methods": [],
+          "actualName": "FormInput",
+          "props": {
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "errorMsg": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "input": {
+              "type": {
+                "name": "element"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Header/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Header",
+          "methods": [],
+          "actualName": "Header",
+          "props": {
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "icon": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "setIsOpen": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "navigateTo": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/HeaderHome/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "HeaderHome",
+          "methods": [],
+          "actualName": "HeaderHome",
+          "props": {
+            "linkText": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "linkPath": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "linkClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "css": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "container",
+                "computed": true
+              }
+            },
+            "whiteText": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/HeroImage/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "HeroImage",
+          "methods": [],
+          "actualName": "HeroImage"
+        }
+      ]
+    },
+    {
+      "key": "src/components/InitialLoader/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InitialLoader",
+          "methods": [],
+          "actualName": "InitialLoader"
+        }
+      ]
+    },
+    {
+      "key": "src/components/InputLabel/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputLabel",
+          "methods": [],
+          "actualName": "InputLabel",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "hasBadge": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "badge": {
+              "type": {
+                "name": "element"
+              },
+              "required": false,
+              "description": ""
+            },
+            "hasUiState": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "displayUiState": {
+              "type": {
+                "name": "element"
+              },
+              "required": false,
+              "description": ""
+            },
+            "styleHeader": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "styleText": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "text",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/InputNotice/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputNotice",
+          "methods": [],
+          "actualName": "InputNotice",
+          "props": {
+            "uiState": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "hasError": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "error": {
+              "type": {
+                "name": "element"
+              },
+              "required": true,
+              "description": ""
+            },
+            "hasWarning": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "warning": {
+              "type": {
+                "name": "element"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/InputText/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputText",
+          "methods": [],
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "inline",
+                "computed": true
+              }
+            },
+            "css": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "styleTag",
+                "computed": true
+              }
+            },
+            "disabled": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "submitting": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Landing/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Landing",
+          "methods": [],
+          "actualName": "Landing"
+        }
+      ]
+    },
+    {
+      "key": "src/components/LoginForm/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginForm",
+          "methods": [],
+          "actualName": "LoginForm",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/LoginPage/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginPage",
+          "methods": [],
+          "actualName": "LoginPage",
+          "props": {
+            "audience": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/LoginTrouble/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginTrouble",
+          "methods": [],
+          "actualName": "LoginTrouble"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Logo/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Logo",
+          "methods": [],
+          "actualName": "Logo",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/MapBox/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MapBox",
+          "methods": [],
+          "actualName": "MapBox",
+          "props": {
+            "apiToken": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "center": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "[-46.638279672833505,-23.529533748594474]",
+                "computed": false
+              }
+            },
+            "zoom": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "14",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Modal/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Modal",
+          "methods": [],
+          "actualName": "Modal",
+          "props": {
+            "isOpen": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "setIsOpen": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "children": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "object"
+                  },
+                  {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "element"
+                    }
+                  }
+                ]
+              },
+              "required": true,
+              "description": ""
+            },
+            "boxStyle": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/MyAccount/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MyAccount",
+          "methods": [],
+          "actualName": "MyAccount"
+        }
+      ]
+    },
+    {
+      "key": "src/components/NotFound/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NotFound",
+          "methods": [],
+          "actualName": "NotFound",
+          "props": {
+            "fallback": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/ResendEmail/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ResendEmail",
+          "methods": [],
+          "actualName": "ResendEmail",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/ResetPass/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ResetPass",
+          "methods": [],
+          "actualName": "ResetPass",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Spinner/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Spinner",
+          "methods": [],
+          "actualName": "Spinner",
+          "props": {
+            "size": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'7rem'",
+                "computed": false
+              }
+            },
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "svg",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/TabDualHeader/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TabDualHeader",
+          "methods": [],
+          "actualName": "TabDualHeader",
+          "props": {
+            "pathOne": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "tabNameOne": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "pathTwo": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "tabNameTwo": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Timeline/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Timeline",
+          "methods": [],
+          "actualName": "Timeline",
+          "props": {
+            "transactions": {
+              "type": {
+                "name": "array"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/UpdateEmail/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UpdateEmail",
+          "methods": [],
+          "actualName": "UpdateEmail",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/UpdatePass/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UpdatePass",
+          "methods": [],
+          "actualName": "UpdatePass",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayAbout/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayAbout",
+          "methods": [],
+          "actualName": "DisplayAbout"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayCallToAction/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayCallToAction",
+          "methods": [],
+          "actualName": "DisplayCallToAction"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayCheckout/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayCheckout",
+          "methods": [],
+          "actualName": "DisplayCheckout"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayConfirmEmail/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayConfirmEmail",
+          "methods": [],
+          "actualName": "DisplayConfirmEmail"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayDeleteAccount/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayDeleteAccount",
+          "methods": [],
+          "actualName": "DisplayDeleteAccount"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayDrawer/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayDrawer",
+          "methods": [],
+          "actualName": "DisplayDrawer"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayDrawerPanel/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayDrawerPanel",
+          "methods": [],
+          "actualName": "DisplayDrawerPanel"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayDropdown/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayDropdown",
+          "methods": [],
+          "actualName": "DisplayDropdown"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayError/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayError",
+          "methods": [],
+          "actualName": "DisplayError"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayErrorBoundary/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayErrorBoundary",
+          "methods": [],
+          "actualName": "DisplayErrorBoundary"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayFooter/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayFooter",
+          "methods": [],
+          "actualName": "DisplayFooter"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayForm/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayForm",
+          "methods": [],
+          "actualName": "DisplayForm"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayHeader/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayHeader",
+          "methods": [],
+          "actualName": "DisplayHeader"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayHeaderHome/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayHeaderHome",
+          "methods": [],
+          "actualName": "DisplayHeaderHome"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayHeroImage/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayHeroImage",
+          "methods": [],
+          "actualName": "DisplayHeroImage"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayIcon/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayIcon",
+          "methods": [],
+          "actualName": "DisplayIcon"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayInputEdit/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayInputEdit",
+          "methods": [],
+          "actualName": "DisplayInputEdit"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayInputText/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayInputText",
+          "methods": [],
+          "actualName": "DisplayInputText"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayLanding/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayLanding",
+          "methods": [],
+          "actualName": "DisplayLanding"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayLoginForm/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayLoginForm",
+          "methods": [],
+          "actualName": "DisplayLoginForm"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayLoginPage/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayLoginPage",
+          "methods": [],
+          "actualName": "DisplayLoginPage"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayLoginTrouble/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayLoginTrouble",
+          "methods": [],
+          "actualName": "DisplayLoginTrouble"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayLogo/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayLogo",
+          "methods": [],
+          "actualName": "DisplayLogo"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayModal/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayModal",
+          "methods": [],
+          "actualName": "DisplayModal"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayMyAccount/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayMyAccount",
+          "methods": [],
+          "actualName": "DisplayMyAccount"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayNotFound/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayNotFound",
+          "methods": [],
+          "actualName": "DisplayNotFound"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayResendEmail/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayResendEmail",
+          "methods": [],
+          "actualName": "DisplayResendEmail"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayResetPass/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayResetPass",
+          "methods": [],
+          "actualName": "DisplayResetPass"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayTabDual/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayTabDual",
+          "methods": [],
+          "actualName": "DisplayTabDual"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayTimeline/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayTimeline",
+          "methods": [],
+          "actualName": "DisplayTimeline"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayTransitionRoute/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayTransitionRoute",
+          "methods": [],
+          "actualName": "DisplayTransitionRoute"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayUpdateEmail/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayUpdateEmail",
+          "methods": [],
+          "actualName": "DisplayUpdateEmail"
+        }
+      ]
+    },
+    {
+      "key": "src/App/DisplayComponents/DisplayUpdatePass/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DisplayUpdatePass",
+          "methods": [],
+          "actualName": "DisplayUpdatePass"
+        }
+      ]
+    },
+    {
+      "key": "src/App/WrapperComponents/InputText/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputTextWrapper",
+          "methods": [],
+          "actualName": "InputTextWrapper",
+          "props": {
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Objeto contendo propriedades de estilo utilizadas no input."
+            },
+            "css": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "String contendo o estilo inline utilizado no input."
+            },
+            "disabled": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Define se o campo está ou não habilitado para edição."
+            },
+            "submitting": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Define se o campo está sendo submetido."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Checkout/ModalSubmit/ErrorModal.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorModal",
+          "methods": [],
+          "actualName": "ErrorModal",
+          "props": {
+            "closeModal": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Checkout/ModalSubmit/SuccessModal.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SuccessModal",
+          "methods": [],
+          "actualName": "SuccessModal"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Checkout/Summary/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Summary",
+          "methods": [],
+          "actualName": "Summary",
+          "props": {
+            "charge": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "installments": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "seller": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Form/ModalSubmit/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ModalSubmit",
+          "methods": [],
+          "actualName": "ModalSubmit",
+          "props": {
+            "isOpen": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "submitting": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "error": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "successComponent": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "errorComponent": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/InputEdit/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputEdit",
+          "methods": [],
+          "actualName": "InputEdit",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "value": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "validateInput": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "submit": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "setError": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            },
+            "error": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "warning": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "isValidated": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "editable": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "true",
+                "computed": false
+              }
+            },
+            "isLoading": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/App/WrapperComponents/InputEdit/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputEditWrapper",
+          "methods": [],
+          "actualName": "InputEditWrapper",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Propriedade que define o nome da label acima do campo."
+            },
+            "value": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Propriedade que define o conteúdo do campo."
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Propriedade que define a função a ser executada quando o conteúdo do campo é modificado."
+            },
+            "validateInput": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Propriedade que define a função a ser executada para realizar a validação do conteúdo do campo."
+            },
+            "submit": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Propriedade que define a função a ser executada quando o formulário é submetido."
+            },
+            "setError": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Função executada para alterar as mensagens de erro."
+            },
+            "error": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Propriedade que define a mensagem de erro."
+            },
+            "warning": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Propriedade que define a mensagem de alerta."
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Propriedade que define o placeholder do campo."
+            },
+            "isValidated": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Propriedade que diz se o campo está preenchido corretamente."
+            },
+            "editable": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Propriedade que define se o campo é editável."
+            },
+            "isLoading": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Propriedade que diz se está sendo executado um processamento."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

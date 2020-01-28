@@ -9,6 +9,7 @@ import Icon from '../Icon/index'
 import Spinner from '../Spinner/index'
 import { successColor, alertColor, warningColor } from '@ziro/theme'
 import { container, save, spinner, inputInline, inputStylesheet } from './styles'
+import { css } from '@emotion/core';
 
 const InputEdit = ({ name, value, onChange, validateInput, submit, setError, error = '', warning = '', placeholder = '', isValidated = false, editable = true, isLoading = false }) => {
 	const [uiState, transition] = useMachine('idle')
@@ -51,27 +52,27 @@ const InputEdit = ({ name, value, onChange, validateInput, submit, setError, err
 			<InputNotice
 				uiState={uiState}
 				hasError={Boolean(error)}
-				error={<Badge type='alert' color={alertColor} message={error}/>}
+				error={<Badge type='alert' color={alertColor} message={error} />}
 				hasWarning={Boolean(warning)}
-				warning={<Badge type='warning' color={warningColor} message={warning}/>}
+				warning={<Badge type='warning' color={warningColor} message={warning} />}
 			/>
 			<InputLabel
 				name={name}
 				hasBadge={isValidated}
-				badge={<Badge type='success' color={successColor} message='validado'/>}
+				badge={<Badge type='success' color={successColor} message='validado' />}
 				hasUiState={editable}
 				displayUiState={display[uiState]}
 			/>
 			{!isLoading
 				? <InputText
 					style={inputInline}
-					css={inputStylesheet}
+					css={css`${inputStylesheet}`}
 					ref={input}
 					value={value}
 					onChange={updateInput}
 					placeholder={placeholder}
 					disabled={!editable || uiState === 'submitting'}
-				  />
+				/>
 				: <Spinner size={'2rem'} style={spinner} />}
 		</form>
 	)

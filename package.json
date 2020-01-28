@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "predocz:dev": "rm -r .docz",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "keywords": [],
   "author": "Vitor Barbosa",
@@ -17,9 +21,11 @@
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
     "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
+    "docz": "^2.2.0",
     "framer-motion": "^1.7.3",
     "mapbox-gl": "^1.6.1",
     "react": "^16.12.0",
