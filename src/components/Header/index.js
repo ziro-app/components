@@ -6,7 +6,7 @@ import { container, svg, text } from './styles'
 
 const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 	const component = {
-		'icon': 
+		'icon':
 			<>
 				<Icon type={icon || 'ziro'} style={svg(setIsOpen)} onClick={setIsOpen} />
 				<h1 style={text(false)}>{title}</h1>
@@ -26,10 +26,15 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 }
 
 Header.propTypes = {
+	/** Propriedade que define o tipo de cabeçalho (icóne, ícone e navegação ou só texto) */
 	type: PropTypes.string.isRequired,
+	/** Propriedade que define o título do cabeçalho */
 	title: PropTypes.string.isRequired,
+	/** Propriedade que define o ícone presente no cabeçalho */
 	icon: PropTypes.string,
+	/** Função que altera o estado do menu (abrir/fechar) */
 	setIsOpen: PropTypes.func,
+	/** Propriedade que define a rota a ser navegada */
 	navigateTo: PropTypes.string
 }
 

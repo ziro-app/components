@@ -4,9 +4,12 @@ menu: Components
 ---
 
 import { Playground, Props } from 'docz'
-import { InputTextWrapper as InputText } from './index.js'
+import { useState, useRef } from 'react'
+import InputText from '../../../components/InputText'
+import { containerWithPadding } from '@ziro/theme'
 
 # InputText
+Componente padrão utilizado para a entrada de textos nas aplicações. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o componente **Form**.
 
 ## Properties
 
@@ -16,12 +19,19 @@ import { InputTextWrapper as InputText } from './index.js'
 Exemplo de utilização padrão do componente InputText
 
 <Playground>
-  <InputText />
-</Playground>
-
-## Using disabled propertie
-Exemplo de utilização do componente InputText com a propriedade disabled
-
-<Playground>
-  <InputText disabled={true} />
+  {() => {
+    const [inputValue, setInputValue] = useState('')
+    const inputRef = useRef(null);
+    const onChange = ({ target: { value } }) => setInputValue(value)
+    const placeholder = 'Digite aqui'
+    const name = 'input'
+    const inputProps = { value: inputValue, onChange, placeholder, name, ref: inputRef }
+    
+    return (
+        <div style={containerWithPadding}>
+            <p>{inputValue}</p>
+            <InputText {...inputProps} />
+        </div>
+    )
+  }}
 </Playground>

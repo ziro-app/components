@@ -28,9 +28,84 @@
             "value": "Getting Started"
           },
           {
-            "slug": "consistency",
+            "slug": "componentes-documentados-atualmente",
             "depth": 2,
-            "value": "Consistency"
+            "value": "Componentes documentados atualmente"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/CallToAction/CallToAction.mdx",
+      "value": {
+        "name": "CallToAction",
+        "menu": "Components",
+        "id": "b5fa16c26b271bb70f7426c0d96606f8",
+        "filepath": "src/App/WrapperComponents/CallToAction/CallToAction.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/CallToAction/CallToAction.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-call-to-action-call-to-action",
+        "route": "/src-app-wrapper-components-call-to-action-call-to-action",
+        "headings": [
+          {
+            "slug": "calltoaction",
+            "depth": 1,
+            "value": "CallToAction"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/Drawer/Drawer.mdx",
+      "value": {
+        "name": "Drawer",
+        "menu": "Components",
+        "id": "be3fd0666d37ac0db464d1c689f0b106",
+        "filepath": "src/App/WrapperComponents/Drawer/Drawer.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/Drawer/Drawer.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-drawer-drawer",
+        "route": "/src-app-wrapper-components-drawer-drawer",
+        "headings": [
+          {
+            "slug": "drawer",
+            "depth": 1,
+            "value": "Drawer"
+          },
+          {
+            "slug": "drawerpanel",
+            "depth": 2,
+            "value": "DrawerPanel"
+          },
+          {
+            "slug": "properties-drawerpanel",
+            "depth": 3,
+            "value": "Properties  DrawerPanel"
+          },
+          {
+            "slug": "header",
+            "depth": 2,
+            "value": "Header"
+          },
+          {
+            "slug": "properties-header",
+            "depth": 3,
+            "value": "Properties  Header"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
           }
         ]
       }
@@ -91,11 +166,51 @@
             "slug": "basic-usage",
             "depth": 2,
             "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/TabDual/TabDualWrapper.mdx",
+      "value": {
+        "name": "TabDual",
+        "menu": "Components",
+        "id": "d0201c10392375dcc51f17e5181fdd38",
+        "filepath": "src/App/WrapperComponents/TabDual/TabDualWrapper.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/TabDual/TabDualWrapper.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-tab-dual-tab-dual-wrapper",
+        "route": "/src-app-wrapper-components-tab-dual-tab-dual-wrapper",
+        "headings": [
+          {
+            "slug": "tabdual",
+            "depth": 1,
+            "value": "TabDual"
           },
           {
-            "slug": "using-disabled-propertie",
+            "slug": "tabdualheader",
             "depth": 2,
-            "value": "Using disabled propertie"
+            "value": "TabDualHeader"
+          },
+          {
+            "slug": "properties-tabdualheader",
+            "depth": 3,
+            "value": "Properties  TabDualHeader"
+          },
+          {
+            "slug": "tabdualtransition",
+            "depth": 2,
+            "value": "TabDualTransition"
+          },
+          {
+            "slug": "properties-tabdualtransition",
+            "depth": 3,
+            "value": "Properties  TabDualTransition"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
           }
         ]
       }
@@ -192,126 +307,6 @@
               "description": "",
               "defaultValue": {
                 "value": "2",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/ErrorLoading/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ErrorLoading",
-          "methods": [],
-          "actualName": "ErrorLoading",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/NotFound/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NotFound",
-          "methods": [],
-          "actualName": "NotFound",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/PaymentError/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "PaymentError",
-          "methods": [],
-          "actualName": "PaymentError",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/PaymentSuccess/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "PaymentSuccess",
-          "methods": [],
-          "actualName": "PaymentSuccess",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/TimelineStart/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "TimelineStart",
-          "methods": [],
-          "actualName": "TimelineStart",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
                 "computed": false
               }
             }
@@ -1743,6 +1738,126 @@
       ]
     },
     {
+      "key": "src/Illustrations/ErrorLoading/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorLoading",
+          "methods": [],
+          "actualName": "ErrorLoading",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/NotFound/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NotFound",
+          "methods": [],
+          "actualName": "NotFound",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/PaymentError/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PaymentError",
+          "methods": [],
+          "actualName": "PaymentError",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/PaymentSuccess/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PaymentSuccess",
+          "methods": [],
+          "actualName": "PaymentSuccess",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/TimelineStart/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TimelineStart",
+          "methods": [],
+          "actualName": "TimelineStart",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/components/About/index.js",
       "value": [
         {
@@ -1846,56 +1961,56 @@
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que se refere ao texto apresentado em cima."
             },
             "headerLinkPath": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o link de redirecionamento ao clicar no texto em cima."
             },
             "headerLinkClick": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": ""
+              "description": "Função para o redirecionamento."
             },
             "pillText": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que se refere ao texto que possui cor de fundo em destaque."
             },
             "ctaText": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que se refere ao texto de slogan."
             },
             "btnPath": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o link de redirecionamento ao pressionar o botão."
             },
             "btnClick": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": ""
+              "description": "Função de click para o botão."
             },
             "btnText": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o texto do botão."
             }
           }
         }
@@ -2107,14 +2222,14 @@
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade referente ao username do usuário"
             },
             "userdata": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade referente ao documento de identificação do usuário"
             },
             "options": {
               "type": {
@@ -2124,7 +2239,7 @@
                 }
               },
               "required": true,
-              "description": ""
+              "description": "Array de objetos referente aos itens disponíveis no menu para que o usuário acesse"
             }
           }
         }
@@ -2459,35 +2574,35 @@
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade que define o tipo de cabeçalho (icóne, ícone e navegação ou só texto)"
             },
             "title": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade que define o título do cabeçalho"
             },
             "icon": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o ícone presente no cabeçalho"
             },
             "setIsOpen": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": ""
+              "description": "Função que altera o estado do menu (abrir/fechar)"
             },
             "navigateTo": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define a rota a ser navegada"
             }
           }
         }
@@ -2572,6 +2687,127 @@
           "displayName": "InitialLoader",
           "methods": [],
           "actualName": "InitialLoader"
+        }
+      ]
+    },
+    {
+      "key": "src/components/InputEdit/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "InputEdit",
+          "methods": [],
+          "actualName": "InputEdit",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Propriedade que define o nome da label acima do campo."
+            },
+            "value": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Propriedade que define o conteúdo do campo."
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Propriedade que define a função a ser executada quando o conteúdo do campo é modificado."
+            },
+            "validateInput": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Propriedade que define a função a ser executada para realizar a validação do conteúdo do campo."
+            },
+            "submit": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Propriedade que define a função a ser executada quando o formulário é submetido."
+            },
+            "setError": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Função executada para alterar as mensagens de erro."
+            },
+            "error": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Propriedade que define a mensagem de erro.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "warning": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Propriedade que define a mensagem de alerta.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Propriedade que define o placeholder do campo.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "isValidated": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Propriedade que diz se o campo está preenchido corretamente.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "editable": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Propriedade que define se o campo é editável.",
+              "defaultValue": {
+                "value": "true",
+                "computed": false
+              }
+            },
+            "isLoading": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Propriedade que diz se está sendo executado um processamento.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            }
+          }
         }
       ]
     },
@@ -2702,7 +2938,7 @@
                 "name": "object"
               },
               "required": false,
-              "description": "",
+              "description": "Objeto contendo propriedades de estilo utilizadas no input.",
               "defaultValue": {
                 "value": "inline",
                 "computed": true
@@ -2713,7 +2949,7 @@
                 "name": "string"
               },
               "required": false,
-              "description": "",
+              "description": "String contendo o estilo inline utilizado no input.",
               "defaultValue": {
                 "value": "styleTag",
                 "computed": true
@@ -2724,14 +2960,14 @@
                 "name": "bool"
               },
               "required": false,
-              "description": ""
+              "description": "Define se o campo está ou não habilitado para edição."
             },
             "submitting": {
               "type": {
                 "name": "bool"
               },
               "required": false,
-              "description": ""
+              "description": "Define se o campo está sendo submetido."
             }
           }
         }
@@ -3040,28 +3276,28 @@
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Refere-se a URL do conteúdo 1"
             },
             "tabNameOne": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Refere-se ao nome que será exibido no primeiro campo"
             },
             "pathTwo": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Refere-se a URL do conteúdo 2"
             },
             "tabNameTwo": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Refere-se ao nome que será exibido no segundo campo"
             }
           }
         }
@@ -3491,47 +3727,6 @@
       ]
     },
     {
-      "key": "src/App/WrapperComponents/InputText/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "InputTextWrapper",
-          "methods": [],
-          "actualName": "InputTextWrapper",
-          "props": {
-            "style": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Objeto contendo propriedades de estilo utilizadas no input."
-            },
-            "css": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "String contendo o estilo inline utilizado no input."
-            },
-            "disabled": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Define se o campo está ou não habilitado para edição."
-            },
-            "submitting": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Define se o campo está sendo submetido."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/components/Checkout/ModalSubmit/ErrorModal.js",
       "value": [
         {
@@ -3639,224 +3834,6 @@
               },
               "required": true,
               "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/components/InputEdit/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "InputEdit",
-          "methods": [],
-          "actualName": "InputEdit",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "value": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": ""
-            },
-            "validateInput": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": ""
-            },
-            "submit": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": ""
-            },
-            "setError": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": ""
-            },
-            "error": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "warning": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "isValidated": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "editable": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "true",
-                "computed": false
-              }
-            },
-            "isLoading": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/App/WrapperComponents/InputEdit/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "InputEditWrapper",
-          "methods": [],
-          "actualName": "InputEditWrapper",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Propriedade que define o nome da label acima do campo."
-            },
-            "value": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Propriedade que define o conteúdo do campo."
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Propriedade que define a função a ser executada quando o conteúdo do campo é modificado."
-            },
-            "validateInput": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Propriedade que define a função a ser executada para realizar a validação do conteúdo do campo."
-            },
-            "submit": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Propriedade que define a função a ser executada quando o formulário é submetido."
-            },
-            "setError": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Função executada para alterar as mensagens de erro."
-            },
-            "error": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Propriedade que define a mensagem de erro."
-            },
-            "warning": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Propriedade que define a mensagem de alerta."
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Propriedade que define o placeholder do campo."
-            },
-            "isValidated": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Propriedade que diz se o campo está preenchido corretamente."
-            },
-            "editable": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Propriedade que define se o campo é editável."
-            },
-            "isLoading": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Propriedade que diz se está sendo executado um processamento."
             }
           }
         }

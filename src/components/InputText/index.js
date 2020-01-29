@@ -13,9 +13,13 @@ const InputText = forwardRef(({ style = inline, css = styleTag, disabled, submit
 })
 
 InputText.propTypes = {
+	/** Objeto contendo propriedades de estilo utilizadas no input. */
 	style: PropTypes.object,
+	/** String contendo o estilo inline utilizado no input. */
 	css: PropTypes.string,
+	/** Define se o campo está ou não habilitado para edição. */
 	disabled: PropTypes.bool,
+	/** Define se o campo está sendo submetido. */
 	submitting: PropTypes.bool
 }
 

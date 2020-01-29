@@ -22,7 +22,9 @@ const TabDualTransition = ({ style, components }) => {
 }
 
 TabDualTransition.propTypes = {
+	/** Refere-se a um objeto com estilos css */
 	style: PropTypes.object,
+	/** Refere-se a um Array de objetos contendo as informações de rota e conteúdo de cada uma das páginas da tabela */
 	components: PropTypes.array.isRequired
 }
 

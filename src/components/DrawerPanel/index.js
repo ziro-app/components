@@ -38,8 +38,11 @@ const DrawerPanel = ({ username, userdata, options }) => {
 }
 
 DrawerPanel.propTypes = {
+	/** Propriedade referente ao username do usuário */
 	username: PropTypes.string.isRequired,
+	/** Propriedade referente ao documento de identificação do usuário */
 	userdata: PropTypes.string.isRequired,
+	/** Array de objetos referente aos itens disponíveis no menu para que o usuário acesse */
 	options: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
