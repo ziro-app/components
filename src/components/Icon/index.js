@@ -31,6 +31,7 @@ import { Money } from '../../Icons/Money/index'
 import { Gear } from '../../Icons/Gear/index'
 import { Present } from '../../Icons/Present/index'
 import { Trending } from '../../Icons/Trending/index'
+import { Globe } from '../../Icons/Globe/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -66,7 +67,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		money: <Money {...iconProps} />,
 		gear: <Gear {...iconProps} />,
 		present: <Present {...iconProps} />,
-		trending: <Trending {...iconProps} />
+		trending: <Trending {...iconProps} />,
+		globe: <Globe {...iconProps} />
 	}
 	return iconList[type]
 }
