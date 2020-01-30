@@ -1,6 +1,7 @@
 import React from 'react'
-import MapBox from '../MapBox/index'
 import Logo from '../Logo/index'
+import MapBox from '../MapBox/index'
+import SocialMedia from '../SocialMedia/index'
 import { container, name } from './styles'
 
 const About = () =>
@@ -11,6 +12,7 @@ const About = () =>
 		<label>R. Lubavitch, 71, Bom Retiro</label>
 		<label>01123-110, São Paulo - SP</label>
 		<MapBox />
+		<SocialMedia />
 	</div>
 
 export default About
