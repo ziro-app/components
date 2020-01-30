@@ -111,6 +111,161 @@
       }
     },
     {
+      "key": "src/App/WrapperComponents/Dropdown/Dropdown.mdx",
+      "value": {
+        "name": "Dropdown",
+        "menu": "Components",
+        "id": "a896082ad41fca64156ba9203612395d",
+        "filepath": "src/App/WrapperComponents/Dropdown/Dropdown.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/Dropdown/Dropdown.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-dropdown-dropdown",
+        "route": "/src-app-wrapper-components-dropdown-dropdown",
+        "headings": [
+          {
+            "slug": "dropdown",
+            "depth": 1,
+            "value": "Dropdown"
+          },
+          {
+            "slug": "properties",
+            "depth": 3,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/Error/Error.mdx",
+      "value": {
+        "name": "Error",
+        "menu": "Components",
+        "id": "d28f89d0d3050cec0f7160e5e171e300",
+        "filepath": "src/App/WrapperComponents/Error/Error.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/Error/Error.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-error-error",
+        "route": "/src-app-wrapper-components-error-error",
+        "headings": [
+          {
+            "slug": "error",
+            "depth": 1,
+            "value": "Error"
+          },
+          {
+            "slug": "properties-not-found",
+            "depth": 2,
+            "value": "Properties  Not Found"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 3,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "properties-error-boundary",
+            "depth": 2,
+            "value": "Properties  Error Boundary"
+          },
+          {
+            "slug": "basic-usage-1",
+            "depth": 3,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "properties-undef",
+            "depth": 2,
+            "value": "Properties  Undef"
+          },
+          {
+            "slug": "basic-usage-2",
+            "depth": 3,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/Form/Form.mdx",
+      "value": {
+        "name": "Form",
+        "menu": "Components",
+        "id": "592629fe8e33e2aaa1f45d71459a626a",
+        "filepath": "src/App/WrapperComponents/Form/Form.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/Form/Form.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-form-form",
+        "route": "/src-app-wrapper-components-form-form",
+        "headings": [
+          {
+            "slug": "form",
+            "depth": 1,
+            "value": "Form"
+          },
+          {
+            "slug": "properties-forminput",
+            "depth": 2,
+            "value": "Properties  FormInput"
+          },
+          {
+            "slug": "properties-form",
+            "depth": 2,
+            "value": "Properties  Form"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 3,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/Header/Header.mdx",
+      "value": {
+        "name": "Header",
+        "menu": "Components",
+        "id": "ea7be13822a561f969ca8a80ae5260b1",
+        "filepath": "src/App/WrapperComponents/Header/Header.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/Header/Header.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-header-header",
+        "route": "/src-app-wrapper-components-header-header",
+        "headings": [
+          {
+            "slug": "header",
+            "depth": 1,
+            "value": "Header"
+          },
+          {
+            "slug": "properties",
+            "depth": 3,
+            "value": "Properties"
+          },
+          {
+            "slug": "header-title-example",
+            "depth": 2,
+            "value": "Header title example"
+          },
+          {
+            "slug": "header-icon-example",
+            "depth": 2,
+            "value": "Header icon example"
+          },
+          {
+            "slug": "header-link-example",
+            "depth": 2,
+            "value": "Header link example"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/App/WrapperComponents/InputEdit/InputEdit.mdx",
       "value": {
         "name": "InputEdit",
@@ -171,6 +326,36 @@
       }
     },
     {
+      "key": "src/App/WrapperComponents/Modal/Modal.mdx",
+      "value": {
+        "name": "Modal",
+        "menu": "Components",
+        "id": "eaa9c96f9e3884a0f0f86866dcd8a9ae",
+        "filepath": "src/App/WrapperComponents/Modal/Modal.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/Modal/Modal.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-modal-modal",
+        "route": "/src-app-wrapper-components-modal-modal",
+        "headings": [
+          {
+            "slug": "modal",
+            "depth": 1,
+            "value": "Modal"
+          },
+          {
+            "slug": "properties",
+            "depth": 3,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/App/WrapperComponents/TabDual/TabDualWrapper.mdx",
       "value": {
         "name": "TabDual",
@@ -210,6 +395,36 @@
           {
             "slug": "basic-usage",
             "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/App/WrapperComponents/TimeLine/TimeLine.mdx",
+      "value": {
+        "name": "Timeline",
+        "menu": "Components",
+        "id": "710114ee5b4aa00552e130ed5bd5f939",
+        "filepath": "src/App/WrapperComponents/TimeLine/TimeLine.mdx",
+        "fullpath": "/home/wermeson/Documents/wermeson/ziro/components/src/App/WrapperComponents/TimeLine/TimeLine.mdx",
+        "link": "",
+        "slug": "src-app-wrapper-components-time-line-time-line",
+        "route": "/src-app-wrapper-components-time-line-time-line",
+        "headings": [
+          {
+            "slug": "timeline",
+            "depth": 1,
+            "value": "Timeline"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 3,
             "value": "Basic usage"
           }
         ]
@@ -307,6 +522,126 @@
               "description": "",
               "defaultValue": {
                 "value": "2",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/ErrorLoading/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ErrorLoading",
+          "methods": [],
+          "actualName": "ErrorLoading",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/NotFound/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NotFound",
+          "methods": [],
+          "actualName": "NotFound",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/PaymentError/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PaymentError",
+          "methods": [],
+          "actualName": "PaymentError",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/PaymentSuccess/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PaymentSuccess",
+          "methods": [],
+          "actualName": "PaymentSuccess",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Illustrations/TimelineStart/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TimelineStart",
+          "methods": [],
+          "actualName": "TimelineStart",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "150",
                 "computed": false
               }
             }
@@ -817,41 +1152,6 @@
       ]
     },
     {
-      "key": "src/Icons/Hiper/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Hiper",
-          "methods": [],
-          "actualName": "Hiper",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "50",
-                "computed": false
-              }
-            },
-            "color": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "primaryColor",
-                "computed": true
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/Icons/Id/index.js",
       "value": [
         {
@@ -894,6 +1194,41 @@
               },
               "required": false,
               "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Icons/Hiper/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Hiper",
+          "methods": [],
+          "actualName": "Hiper",
+          "props": {
+            "size": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "50",
+                "computed": false
+              }
+            },
+            "color": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "primaryColor",
+                "computed": true
+              }
             }
           }
         }
@@ -1738,126 +2073,6 @@
       ]
     },
     {
-      "key": "src/Illustrations/ErrorLoading/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ErrorLoading",
-          "methods": [],
-          "actualName": "ErrorLoading",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/NotFound/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NotFound",
-          "methods": [],
-          "actualName": "NotFound",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/PaymentError/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "PaymentError",
-          "methods": [],
-          "actualName": "PaymentError",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/PaymentSuccess/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "PaymentSuccess",
-          "methods": [],
-          "actualName": "PaymentSuccess",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Illustrations/TimelineStart/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "TimelineStart",
-          "methods": [],
-          "actualName": "TimelineStart",
-          "props": {
-            "size": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "150",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/components/About/index.js",
       "value": [
         {
@@ -2259,49 +2474,49 @@
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade que se refere ao valor escolhido"
             },
             "onChange": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": ""
+              "description": "Função executada ao ocorrer uma mudança de valor no campo"
             },
             "list": {
               "type": {
                 "name": "array"
               },
               "required": true,
-              "description": ""
+              "description": "Lista com todos os valores passíveis de escolha"
             },
             "submitting": {
               "type": {
                 "name": "bool"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que indica se o campo está sendo submetido"
             },
             "placeholder": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que especifica uma dica curta que descreve o valor esperado no campo de entrada"
             },
             "onChangeKeyboard": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": ""
+              "description": "Função executada ao haver uma interação do usuário com o teclado"
             },
             "readOnly": {
               "type": {
                 "name": "bool"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define se o campo será editável"
             }
           }
         }
@@ -2321,42 +2536,42 @@
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o tipo do erro."
             },
             "title": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o título do erro"
             },
             "message": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define a mensagem de erro"
             },
             "btnMsg": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o texto da mensagem no botão"
             },
             "backRoute": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define a rota de retorno"
             },
             "style": {
               "type": {
                 "name": "object"
               },
               "required": false,
-              "description": ""
+              "description": "Objeto que define o estilo do componente."
             }
           }
         }
@@ -2387,7 +2602,7 @@
                 "name": "element"
               },
               "required": true,
-              "description": ""
+              "description": "Componente de erro a ser informado ao usuário."
             }
           }
         }
@@ -2458,35 +2673,35 @@
                 "name": "bool"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define se será utilizado o ModalSubmit."
             },
             "successComponent": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": ""
+              "description": "Função usada para montar o componente de sucesso utilizado."
             },
             "errorComponent": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": ""
+              "description": "Função usada para montar o componente de falha utilizado."
             },
             "buttonName": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o texto do botão do formulário."
             },
             "buttonOnTop": {
               "type": {
                 "name": "bool"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define onde ficará o botão."
             },
             "validations": {
               "type": {
@@ -2496,21 +2711,21 @@
                 }
               },
               "required": true,
-              "description": ""
+              "description": "Array contendo objetos com funções de validação dos campos do formulário."
             },
             "sendToBackend": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": ""
+              "description": "Função executada ao submeter o formulário."
             },
             "summary": {
               "type": {
                 "name": "element"
               },
               "required": false,
-              "description": ""
+              "description": "Objeto contendo um resumo do formulário."
             },
             "inputs": {
               "type": {
@@ -2520,7 +2735,7 @@
                 }
               },
               "required": true,
-              "description": ""
+              "description": "Array contendo todos os objetos Input do formulário."
             }
           }
         }
@@ -2540,21 +2755,21 @@
                 "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade que define o nome acima do input."
             },
             "errorMsg": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define a mensagem de erro padrão."
             },
             "input": {
               "type": {
                 "name": "element"
               },
               "required": true,
-              "description": ""
+              "description": "Objeto de input para entrada do usuário."
             }
           }
         }
@@ -3118,14 +3333,14 @@
                 "name": "bool"
               },
               "required": true,
-              "description": ""
+              "description": "Propriedade que define o estado do componente (aberto/fechado)"
             },
             "setIsOpen": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": ""
+              "description": "Função que altera o estado do componente"
             },
             "children": {
               "type": {
@@ -3143,14 +3358,14 @@
                 ]
               },
               "required": true,
-              "description": ""
+              "description": "Array de objetos"
             },
             "boxStyle": {
               "type": {
                 "name": "object"
               },
               "required": false,
-              "description": ""
+              "description": "Propriedade que define o estilo do conteúdo do modal"
             }
           }
         }
@@ -3181,7 +3396,7 @@
                 "name": "string"
               },
               "required": false,
-              "description": ""
+              "description": "Rota na qual será feito o redirecionamento."
             }
           }
         }
@@ -3317,6 +3532,26 @@
                 "name": "array"
               },
               "required": true,
+              "description": "Array de transações do usuário. Cada transação possui dados como vendedor associado, valor, status e a data."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/UpdatePass/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UpdatePass",
+          "methods": [],
+          "actualName": "UpdatePass",
+          "props": {
+            "sendToBackend": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
               "description": ""
             }
           }
@@ -3331,26 +3566,6 @@
           "displayName": "UpdateEmail",
           "methods": [],
           "actualName": "UpdateEmail",
-          "props": {
-            "sendToBackend": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/components/UpdatePass/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UpdatePass",
-          "methods": [],
-          "actualName": "UpdatePass",
           "props": {
             "sendToBackend": {
               "type": {

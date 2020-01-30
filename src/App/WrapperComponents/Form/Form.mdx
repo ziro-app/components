@@ -1,0 +1,59 @@
+---
+name: Form
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import Form from '../../../components/Form/index'
+import FormInput from '../../../components/FormInput/index'
+import InputText from '../../../components/InputText/index'
+import { containerWithPadding } from '@ziro/theme'
+
+# Form
+Componente padrão de formulário formado pela composição de outros componentes, chamados de **FormInput**, cada um dos campos do formulário é dado por um desses componentes.
+**FormInput** por sua vez, é um componente que como dito anteriormente monta o campo do formulário, ele possui suas determinadas propriedades e como parâmetros recebe o nome do campo, uma mensagem de erro (caso o mesmo tenha validação) e por fim o campo em si.
+
+## Properties [FormInput]
+
+<Props of={FormInput} />
+
+## Properties [Form]
+
+<Props of={Form} />
+
+### Basic usage
+Exemplo de utilização do componente **Form**.
+
+<Playground>
+    {() => {
+		const [email, setEmail] = useState('')
+		const validations = [
+			{
+				name: 'email',
+				validation: value => /^\S+@\S+\.\S+$/g.test(value),
+				value: email,
+				message: 'Formato inválido'
+			}
+		]
+		return (
+			<div style={{padding: 20, width: 400, marginLeft: '30%'}}>
+				<Form
+					buttonOnTop={true}
+					validations={validations}
+					sendToBackend={() => new Promise((res,rej) => res('Ok'))}
+					inputs={[
+						<FormInput name='email' label='Email' input={
+							<InputText
+								value={email}
+								onChange={({ target: { value } }) => setEmail(value)}
+								placeholder='Seu email'
+							/>
+						}/>
+					]}
+				/>
+			</div>
+		)
+	}
+	}
+</Playground>

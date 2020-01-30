@@ -10,10 +10,10 @@ const Modal = ({ isOpen, setIsOpen, children, boxStyle }) => {
 	if (isOpen) {
 		return (
 			<div style={container}>
-				<animated.div style={boxStyle ? {...boxStyle, ...propsBox} : {...box, ...propsBox}}>
+				<animated.div style={boxStyle ? { ...boxStyle, ...propsBox } : { ...box, ...propsBox }}>
 					{children}
 				</animated.div>
-				<animated.div style={{...overlay, ...propsOverlay}} onClick={setIsOpen}></animated.div>
+				<animated.div style={{ ...overlay, ...propsOverlay }} onClick={setIsOpen}></animated.div>
 				<style>{disableScroll}</style>
 			</div>
 		)
@@ -21,12 +21,16 @@ const Modal = ({ isOpen, setIsOpen, children, boxStyle }) => {
 }
 
 Modal.propTypes = {
+	/** Propriedade que define o estado do componente (aberto/fechado) */
 	isOpen: PropTypes.bool.isRequired,
+	/** Função que altera o estado do componente */
 	setIsOpen: PropTypes.func.isRequired,
+	/** Array de objetos */
 	children: PropTypes.oneOfType([
 		PropTypes.object,
 		PropTypes.arrayOf(PropTypes.element)
 	]).isRequired,
+	/** Propriedade que define o estilo do conteúdo do modal */
 	boxStyle: PropTypes.object
 }
 

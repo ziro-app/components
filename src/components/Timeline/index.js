@@ -25,6 +25,7 @@ const Timeline = ({ transactions }) =>
 	</>
 
 Timeline.propTypes = {
+	/** Array de transações do usuário. Cada transação possui dados como vendedor associado, valor, status e a data. */
 	transactions: PropTypes.array.isRequired
 }
 

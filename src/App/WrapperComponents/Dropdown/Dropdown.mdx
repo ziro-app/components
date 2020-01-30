@@ -1,0 +1,36 @@
+---
+name: Dropdown
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import Dropdown from '../../../components/Dropdown/index'
+
+# Dropdown
+Componente de menu suspenso e alternável, permitindo que o usuário escolha ou preencha um valor a partir de uma lista predefinida.
+
+### Properties
+
+<Props of={Dropdown} />
+
+## Basic usage
+Exemplo de utilização do componente **Dropdown**.
+
+<Playground>
+    {() => {
+        const [selection, setSelection] = useState('')
+        return (
+            <div style={{padding: 20}}>
+                <Dropdown
+                    readOnly={false}
+                    value={selection}
+                    onChange={({ target: { value } }) => setSelection(value)}
+                    list={['Apples', 'Bananas', 'Oranges', 'Melons', 'Berries']}
+                    placeholder='Escolha uma opção'
+                    onChangeKeyboard={element => element ? setSelection(element.value) : null }
+                />
+            </div>
+        )
+    }}
+</Playground>

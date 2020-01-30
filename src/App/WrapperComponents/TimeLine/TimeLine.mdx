@@ -1,0 +1,63 @@
+---
+name: Timeline
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import Header from '../../../components/Header/index'
+import Timeline from '../../../components/Timeline/index'
+import { containerWithPadding } from '@ziro/theme'
+
+# Timeline
+Componente utilizado para fornecer o histórico de transações do usuário. Seu uso geralmente é dado ao lado do componente **Header**, que assume o papel de informar ao usuário a que se refere o histórico em questão.
+
+## Properties
+
+<Props of={Timeline} />
+
+### Basic usage
+Exemplo de utilização do componente **Timeline**.
+
+<Playground>
+    <div style={containerWithPadding}>
+		<Header type='icon' title='Meus Pagamentos' icon='menu' />
+		<Timeline transactions={[
+			{
+				seller: 'Karmani',
+				charge: '7.238,55',
+				status: 'Pago',
+				date: '30/ago'
+			},
+			{
+				seller: 'Cor Doce',
+				charge: '1.223,45',
+				status: 'Pago',
+				date: '30/ago'
+			},
+			{
+				seller: 'La Chocole',
+				charge: '6.778,99',
+				status: 'Pago',
+				date: '30/ago'
+			},
+			{
+				seller: 'Confeccoes Mauricio',
+				charge: '989,12',
+				status: 'Pago',
+				date: '27/ago'
+			},
+			{
+				seller: 'Salgunamu',
+				charge: '2.323,60',
+				status: 'Pago',
+				date: '27/ago'
+			},
+			{
+				seller: 'Jo Fashion',
+				charge: '4.450,55',
+				status: 'Pago',
+				date: '27/ago'
+			},
+		]} />
+	</div>
+</Playground>
