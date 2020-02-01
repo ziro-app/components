@@ -1,0 +1,68 @@
+---
+name: Error
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { useState, useEffect } from 'react'
+import Error from './index'
+import NotFound from '../NotFound/index'
+import ErrorBoundary from '../ErrorBoundary/index'
+import { containerWithPadding, primaryColor, container } from '@ziro/theme'
+
+# Error
+Conjunto de componentes que são utilizados para informar ao usuário quando ocorre algum tipo de erro, sendo eles:
+
+- **Not Found**: Página não encontrada.
+- **Boundary**: Erro na renderização da página.
+- **Undef**: Ocorreu algum erro.
+
+## Properties [Not Found]
+
+<Props of={NotFound} />
+
+### Basic usage
+Exemplo de utilização do componente **NotFound**.
+
+<Playground>
+    <NotFound fallback='/home' />
+</Playground>
+
+## Properties [Error Boundary]
+
+<Props of={ErrorBoundary} />
+
+### Basic usage
+Exemplo de utilização do componente **Error Boundary**.
+
+<Playground>
+	{() => {
+		const BuggyComponent = () => {
+			useEffect(() => { throw 'Error' }, [])
+			return <div style={container}>This is an error boundary</div>
+		}
+		return(
+			<ErrorBoundary>
+				<BuggyComponent />
+			</ErrorBoundary>
+		)
+	}}
+</Playground>
+
+## Properties [Undef]
+
+<Props of={Error} />
+
+### Basic usage
+Exemplo de utilização do componente **Error**.
+
+<Playground>
+    <div style={containerWithPadding}>
+		<Error style={{
+			display: 'grid',
+			gridRowGap: '15px',
+			color: primaryColor,
+			textAlign: 'center'
+		}} type={'timelineStart'}/>
+	</div>
+</Playground>

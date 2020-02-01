@@ -1,0 +1,55 @@
+---
+name: InputEdit
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import InputEdit from './index'
+import { containerWithPadding } from '@ziro/theme'
+
+# InputEdit
+Componente padrão utilizado para a entrada e validação de textos nas aplicações, uma variação do componente **EditText**. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o componente **Form**.
+
+## Properties
+
+<Props of={InputEdit} />
+
+## Basic usage
+Exemplo de utilização padrão do componente InputEdit
+
+<Playground>
+  {() => {
+    const [name, setName] = useState('')
+    const [errorName, setErrorName] = useState('')
+    const onChange = ({ target: { value } }) => setName(value)
+    const validateInput = () => {
+        if (name.length < 3) {
+            setErrorName('pelo menos 3 caracteres')
+            return false
+        } else {
+            setErrorName('')
+            return true
+        }
+    }
+    const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))
+    return (
+        <div style={ containerWithPadding }>
+            <InputEdit
+                name='Nome'
+                value={name}
+                onChange={onChange}
+                validateInput={validateInput}
+                submit={submit}
+                setError={setErrorName}
+                error={errorName}
+                warning='preencha o campo'
+                placeholder='digite aqui...'
+                isValidated={true}
+                editable={true}
+                isLoading={false}
+            />
+        </div >
+    )
+  }}
+</Playground>

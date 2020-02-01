@@ -35,10 +35,10 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 		}
 	}
 	useEffect(() => {
-		setOptions(readOnly ? list : filterOptions(list,value))
+		setOptions(readOnly ? list : filterOptions(list, value))
 		if (value) setIsSelected(true)
 		else setIsSelected(false)
-	}, [list,value])
+	}, [list, value])
 	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener('keydown', onKeyPress)
@@ -87,9 +87,9 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 	return (
 		<div style={container}>
 			{isSelected &&
-			<div style={close} onClick={clearSelection}>
-				<Icon type='close' size={16} color={grayColor1} />
-			</div>}
+				<div style={close} onClick={clearSelection}>
+					<Icon type='close' size={16} color={grayColor1} />
+				</div>}
 			<InputText
 				readOnly={readOnly}
 				onChange={handleSelection}
@@ -100,28 +100,35 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				placeholder={placeholder}
 			/>
 			{isOpen &&
-			<motion.div style={modal} initial={initial} animate={animate} transition={transition}>
-				{options.map((item, index) =>
-					<input
-						style={data(cursorPosition === index)}
-						value={item}
-						onMouseDown={handleSelection}
-						key={item}
-						id={index}
-						readOnly={true}
-					/>)}
-			</motion.div>}
+				<motion.div style={modal} initial={initial} animate={animate} transition={transition}>
+					{options.map((item, index) =>
+						<input
+							style={data(cursorPosition === index)}
+							value={item}
+							onMouseDown={handleSelection}
+							key={item}
+							id={index}
+							readOnly={true}
+						/>)}
+				</motion.div>}
 		</div>
 	)
 }
 
 Dropdown.propTypes = {
+	/** Propriedade que se refere ao valor escolhido */
 	value: PropTypes.string.isRequired,
+	/** Função executada ao ocorrer uma mudança de valor no campo */
 	onChange: PropTypes.func.isRequired,
+	/** Lista com todos os valores passíveis de escolha */
 	list: PropTypes.array.isRequired,
+	/** Propriedade que indica se o campo está sendo submetido */
 	submitting: PropTypes.bool,
+	/** Propriedade que especifica uma dica curta que descreve o valor esperado no campo de entrada */
 	placeholder: PropTypes.string,
+	/** Função executada ao haver uma interação do usuário com o teclado */
 	onChangeKeyboard: PropTypes.func,
+	/** Propriedade que define se o campo será editável */
 	readOnly: PropTypes.bool
 }
 

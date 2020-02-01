@@ -1,0 +1,5 @@
+# Config in docz docs for deploy in Netlify
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200

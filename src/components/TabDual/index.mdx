@@ -1,0 +1,50 @@
+---
+name: TabDual
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import TabDualHeader from '../TabDualHeader/index'
+import TabDualTransition from '../TabDualTransition/index'
+import { containerWithPadding } from '@ziro/theme'
+import { component } from './styles'
+
+# TabDual
+Este componente é dado pela composição de dois outros componentes, sendo eles **TabDualHeader** e **TabDualTransition**. Ambos não são componentes *Stand-alone*, não possuindo assim funcionalidades ao trabalharem indivualmente.
+
+## TabDualHeader
+Componente principal, responsável por montar o cabeçalho da tabela, contendo as opções que podem ser escolhidas e também por fazer roteamento do conteúdo a ser exibido.
+
+### Properties [TabDualHeader]
+
+<Props of={TabDualHeader} />
+
+## TabDualTransition
+Componente responsável por mostrar de fato o conteúdo da página e também por realizar a animação de transição entre elas. 
+
+### Properties [TabDualTransition]
+
+<Props of={TabDualTransition} />
+
+## Basic usage
+Exemplo de utilização padrão do componente **TabDual**
+
+<Playground>
+    <div style={containerWithPadding}>
+			<TabDualHeader
+				pathOne='/tab-dual/dados-1'
+				tabNameOne='Dados 1'
+				pathTwo='/tab-dual/dados-2'
+				tabNameTwo='Dados 2'
+			/>
+			<TabDualTransition components={[
+				{ path: '/tab-dual/dados-1', children: <div style={component}>
+					What is Lorem Ipsum?
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+				</div> },
+				{ path: '/tab-dual/dados-2', children: <div style={component}>				What is Lorem Ipsum?
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+				</div> }
+			]}/>
+		</div>
+</Playground>

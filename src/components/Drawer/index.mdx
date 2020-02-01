@@ -1,0 +1,80 @@
+---
+name: Drawer
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import Drawer from './index';
+import DrawerPanel from '../DrawerPanel/index'
+import Header from '../Header/index'
+import Icon from '../Icon/index'
+import { containerWithPadding } from '@ziro/theme'
+
+# Drawer
+Este é um componente *Stand-alone*, mas, seu uso mais comum é dado pela composição do mesmo com outros dois componentes, sendo eles **DrawerPanel** e **Header**.
+
+## DrawerPanel
+Componente responsável por apresentar as opções que podem ser acessadas pelo menu de navegação **Drawer**, bem como mostrar informações referentes ao usuário.
+
+### Properties [DrawerPanel]
+
+<Props of={DrawerPanel} />
+
+## Header
+Componente de cabeçalho, responsável por apresentar alguma mensagem para o usuário e também por abrir/fechar o componente menu **Drawer**.
+
+### Properties [Header]
+
+<Props of={Header} />
+
+## Basic usage
+Exemplo de utilização padrão do componente **Drawer**.
+
+<Playground>
+	{() => {
+		const [open, setOpen] = useState(false);
+		const username = 'Wermeson Rocha';
+		return (
+		<div style={containerWithPadding}>
+			<Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setOpen(true)} />
+			<Drawer isOpen={open} setIsOpen={() => setOpen(false)}>
+				<DrawerPanel
+					username={username}
+					userdata='CPF: 000.111.222-33'
+					options={[
+						{
+							path: '/drawer',
+							onClick: null,
+							icon: <Icon type='truck' size={16} strokeWidth={3} />,
+							text: 'Atendimentos'
+						},
+						{
+							path: '/drawer',
+							onClick: null,
+							icon: <Icon type='card' size={16} strokeWidth={3} />,
+							text: 'Pagamentos'
+						},
+						{
+							path: '/drawer',
+							onClick: null,
+							icon: <Icon type='user' size={16} strokeWidth={3} />,
+							text: 'Meus Dados'
+						},
+						{
+							path: '/drawer',
+							onClick: () => setOpen(false),
+							icon: <Icon type='logout' size={16} strokeWidth={3} />,
+							text: 'Sair'
+						},
+					]}
+				/>
+			</Drawer>
+			<div>
+				What is Lorem Ipsum?
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			</div>
+		</div>
+		)
+	}}
+</Playground>

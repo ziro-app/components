@@ -18,9 +18,13 @@ const TabDualHeader = ({ pathOne, pathTwo, tabNameOne, tabNameTwo }) => {
 }
 
 TabDualHeader.propTypes = {
+	/** Refere-se a URL do conteúdo 1 */
 	pathOne: PropTypes.string.isRequired,
+	/** Refere-se ao nome que será exibido no primeiro campo */
 	tabNameOne: PropTypes.string.isRequired,
+	/** Refere-se a URL do conteúdo 2 */
 	pathTwo: PropTypes.string.isRequired,
+	/** Refere-se ao nome que será exibido no segundo campo */
 	tabNameTwo: PropTypes.string.isRequired
 }
 

@@ -21,7 +21,7 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 							const InputTextWithSubmitting = cloneElement(element.props.input, { submitting })
 							const [match] = validations.filter(value => value.name === element.props.name)
 							return cloneElement(element, {
-								key: `${index}-${innerIndex}`, 
+								key: `${index}-${innerIndex}`,
 								input: InputTextWithSubmitting,
 								errorMsg: match ? errors[match.name] : match
 							})
@@ -38,12 +38,12 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 					}
 				})}
 				{buttonOnTop
-				?
+					?
 					<>
 						<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
 						<label style={submitTop(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 					</>
-				:
+					:
 					<>
 						{summary && summary}
 						{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
@@ -60,14 +60,23 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 }
 
 Form.propTypes = {
+	/** Propriedade que define se será utilizado o ModalSubmit. */
 	useModalLayoutOnSubmit: PropTypes.bool,
+	/** Função usada para montar o componente de sucesso utilizado. */
 	successComponent: PropTypes.func,
+	/** Função usada para montar o componente de falha utilizado. */
 	errorComponent: PropTypes.func,
+	/** Propriedade que define o texto do botão do formulário. */
 	buttonName: PropTypes.string,
+	/** Propriedade que define onde ficará o botão. */
 	buttonOnTop: PropTypes.bool,
+	/** Array contendo objetos com funções de validação dos campos do formulário. */
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
+	/** Função executada ao submeter o formulário. */
 	sendToBackend: PropTypes.func.isRequired,
+	/** Objeto contendo um resumo do formulário. */
 	summary: PropTypes.element,
+	/** Array contendo todos os objetos Input do formulário. */
 	inputs: PropTypes.arrayOf(PropTypes.element).isRequired
 }
 

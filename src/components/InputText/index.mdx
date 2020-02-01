@@ -1,0 +1,37 @@
+---
+name: InputText
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { useState, useRef } from 'react'
+import InputText from './index'
+import { containerWithPadding } from '@ziro/theme'
+
+# InputText
+Componente padrão utilizado para a entrada de textos nas aplicações. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o componente **Form**.
+
+## Properties
+
+<Props of={InputText} />
+
+## Basic usage
+Exemplo de utilização padrão do componente InputText
+
+<Playground>
+  {() => {
+    const [inputValue, setInputValue] = useState('')
+    const inputRef = useRef(null);
+    const onChange = ({ target: { value } }) => setInputValue(value)
+    const placeholder = 'Digite aqui'
+    const name = 'input'
+    const inputProps = { value: inputValue, onChange, placeholder, name, ref: inputRef }
+    
+    return (
+        <div style={containerWithPadding}>
+            <p>{inputValue}</p>
+            <InputText {...inputProps} />
+        </div>
+    )
+  }}
+</Playground>
