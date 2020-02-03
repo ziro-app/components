@@ -1,0 +1,55 @@
+---
+name: Icon
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import Icon from './index'
+import { containerWithPadding } from '@ziro/theme'
+import { grid } from './styles'
+
+# Icon
+Componente responsável por agrupar uma série de ícones utilizáveis nas aplicações da Ziro. Sua utilização geralmente é feita apenas com a escolha do ícone e do seu tamanho (por meio das propriedades *type* e *size*, respectivamente).
+
+## Properties
+
+<Props of={Icon} />
+
+## Basic usage
+Exemplo de utilização de todos os objetos disponíveis do componente **Icon**.
+
+<Playground>
+    <div style={{...containerWithPadding, ...grid}}>
+		<Icon type='ziro' size={24} />
+		<Icon type='amex' size={24} />
+		<Icon type='visa' size={24} />
+		<Icon type='mastercard' size={24} />
+		<Icon type='elo' size={24} />
+		<Icon type='hiper' size={24} />
+		<Icon type='success' />
+		<Icon type='alert' />
+		<Icon type='warning' />
+		<Icon type='pen' />
+		<Icon type='close' />
+		<Icon type='menu' />
+		<Icon type='truck' />
+		<Icon type='card' />
+		<Icon type='user' />
+		<Icon type='logout' />
+		<Icon type='shopping' />
+		<Icon type='back' />
+		<Icon type='cnpj' />
+		<Icon type='whats' size={24} />
+		<Icon type='lock' />
+		<Icon type='email' />
+		<Icon type='calendar' />
+		<Icon type='id' />
+		<Icon type='location' />
+		<Icon type='facebook' size={24} />
+		<Icon type='instagram' size={24} />
+		<Icon type='money' size={24} />
+		<Icon type='gear' size={24} />
+		<Icon type='present' size={24} />
+		<Icon type='trending' size={24} />
+	</div>
+</Playground>
