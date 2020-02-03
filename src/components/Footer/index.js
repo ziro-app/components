@@ -8,6 +8,7 @@ const Footer = ({ phone }) =>
 	</div>
 
 Footer.propTypes = {
+	/** Propriedade que define o número do telefone de ajuda. */
 	phone: PropTypes.string
 }
 
