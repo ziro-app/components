@@ -7,8 +7,18 @@ Esta é uma documentação básica sobre a biblioteca *front-end* desenvolvida e
 
 ## Componentes documentados atualmente
 
-- **CallToAction**    - **Form**    - **InputText**
-- **Drawer**    - **Header**    - **Modal**
-- **Dropdown**    - **HeroImage**   - **MyAccount**
-- **Error**   - **Icon**    - **TabDual**
-- **Footer**    - **InputEdit**   - **Timeline**
+- **CallToAction**
+- **Drawer**
+- **Dropdown**
+- **Error**
+- **Footer**
+- **Form**
+- **Header**
+- **HeroImage**
+- **Icon**
+- **InputEdit**
+- **InputText**
+- **Modal**
+- **MyAccount**
+- **TabDual**
+- **Timeline**
