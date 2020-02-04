@@ -28,6 +28,7 @@
     "mapbox-gl": "^1.6.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
     "react-spring": "^8.0.27",
     "webfontloader": "^1.6.28",
     "wouter": "^2.4.0"
