@@ -25,6 +25,7 @@
     "@ziro/theme": "^1.0.3",
     "docz": "^2.2.0",
     "framer-motion": "^1.7.3",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "mapbox-gl": "^1.6.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
