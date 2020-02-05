@@ -8,6 +8,8 @@ Esta é uma documentação básica sobre a biblioteca *front-end* desenvolvida e
 ## Componentes documentados atualmente
 
 - **CallToAction**
+- **ConfirmEmail**
+- **DeleteAccount**
 - **Drawer**
 - **Dropdown**
 - **Error**
@@ -24,5 +26,9 @@ Esta é uma documentação básica sobre a biblioteca *front-end* desenvolvida e
 - **LoginTrouble**
 - **Modal**
 - **MyAccount**
+- **ResendEmail**
+- **ResetPass**
 - **TabDual**
 - **Timeline**
+- **UpdateEmail**
+- **UpdatePass**

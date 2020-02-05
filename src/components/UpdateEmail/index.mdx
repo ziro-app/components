@@ -1,0 +1,23 @@
+---
+name: UpdateEmail
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import UpdateEmail from './index'
+
+# UpdateEmail
+Componente padrão utilizado no fluxo de alteração de *email*.
+
+## Properties
+
+<Props of={UpdateEmail} />
+
+## Basic usage
+Exemplo de utilização do componente **UpdateEmail**.
+
+<Playground>
+    <div style={{ height: 400 }} >
+        <UpdateEmail sendToBackend={() => () => new Promise((res, rej) => setTimeout(() => res('Enviado!'), 1500))} />
+    </div>
+</Playground>

@@ -33,7 +33,7 @@ const DeleteAccount = ({ sendToBackend }) => {
 							placeholder='Sua senha'
 							type='password'
 						/>
-					}/>
+					} />
 				]}
 			/>
 		</div>
@@ -41,6 +41,7 @@ const DeleteAccount = ({ sendToBackend }) => {
 }
 
 DeleteAccount.propTypes = {
+	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 
