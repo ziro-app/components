@@ -33,7 +33,7 @@ const LoginForm = ({ sendToBackend }) => {
 						onChange={({ target: { value } }) => setEmail(value)}
 						placeholder='Seu email'
 					/>
-				}/>,
+				} />,
 				<FormInput name='pass' label='Senha' input={
 					<InputText
 						value={pass}
@@ -41,13 +41,14 @@ const LoginForm = ({ sendToBackend }) => {
 						placeholder='Sua senha'
 						type='password'
 					/>
-				}/>
+				} />
 			]}
 		/>
 	)
 }
 
 LoginForm.propTypes = {
+	/** Função executada ao submeter o formulário. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

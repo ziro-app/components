@@ -1,0 +1,24 @@
+---
+name: LoginPage
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import LoginPage from './index'
+import { containerWithPadding } from '@ziro/theme'
+
+# LoginPage
+Componente padrão utilizado para realizar *login* nas aplicações da Ziro. **LoginPage** se trata de um formulário contendo os campos referentes ao *email* e a senha do usuário, onde ambos possuem suas respectivas funções de validação.
+
+## Properties
+
+<Props of={LoginPage} />
+
+## Basic usage
+Exemplo de utilização do componente **LoginPage**.
+
+<Playground>
+  <div style={containerWithPadding}>
+		<LoginPage audience='Lojista' sendToBackend={state => () => console.log(state)} />
+	</div>
+</Playground>

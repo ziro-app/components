@@ -19,6 +19,9 @@ Esta é uma documentação básica sobre a biblioteca *front-end* desenvolvida e
 - **Icon**
 - **InputEdit**
 - **InputText**
+- **LoginForm**
+- **LoginPage**
+- **LoginTrouble**
 - **Modal**
 - **MyAccount**
 - **TabDual**

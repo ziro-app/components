@@ -12,7 +12,7 @@ const LoginPage = ({ audience, sendToBackend }) => {
 			<h1 style={welcome}>
 				<label style={subtitle}>Bem-vindo,&nbsp;</label>
 				<label style={marker}>{audience}</label>
-				<br/>Acesse sua conta,
+				<br />Acesse sua conta,
 			</h1>
 			<LoginForm sendToBackend={sendToBackend} />
 			<Link href='/problemas-acesso'><a style={help}>Problemas no acesso?</a></Link>
@@ -21,7 +21,9 @@ const LoginPage = ({ audience, sendToBackend }) => {
 }
 
 LoginPage.propTypes = {
+	/** Propriedade que se refere ao público que é destinado o componente de login. */
 	audience: PropTypes.string.isRequired,
+	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 
