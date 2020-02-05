@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
 import { installmentOptions } from './utils/installmentUtils'
-import Header from '../Header/index'
 import CreditCard from '../CreditCard/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
@@ -142,10 +141,10 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 							<Dropdown
 								readOnly={true}
 								value={installments}
-								onChange={({ target: { value } }) => setInstallments(value.substring(0,1))}
+								onChange={({ target: { value } }) => setInstallments(value.substring(0, 1))}
 								list={installmentOptions(charge, maxInstallments)}
 								placeholder='Escolha quantas parcelas'
-								onChangeKeyboard={element => element ? setInstallments(element.value.substring(0,1)) : null }
+								onChangeKeyboard={element => element ? setInstallments(element.value.substring(0, 1)) : null}
 							/>
 						}
 					/>
@@ -159,9 +158,13 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 }
 
 Checkout.propTypes = {
+	/** Propriedade que define o valor total da compra. */
 	charge: PropTypes.string.isRequired,
+	/** Propriedade que define o número máximo de parcelas. */
 	maxInstallments: PropTypes.string.isRequired,
+	/** Propriedade que define o vendedor associado a compra. */
 	seller: PropTypes.string.isRequired,
+	/** Função executada ao submeter o formulário. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

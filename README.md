@@ -14,6 +14,7 @@ Esta é uma documentação básica sobre a biblioteca *front-end* desenvolvida e
 - **Footer**
 - **Form**
 - **Header**
+- **HeaderHome**
 - **HeroImage**
 - **Icon**
 - **InputEdit**
