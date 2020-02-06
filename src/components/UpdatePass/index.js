@@ -17,12 +17,12 @@ const UpdatePass = ({ sendToBackend }) => {
 			validation: value => !/^.{0,5}$/g.test(value), // tests for min length of 6 char
 			value: pass,
 			message: 'Mínimo 6 caracteres'
-		},{
+		}, {
 			name: 'newPass',
 			validation: value => !/^.{0,5}$/g.test(value), // tests for min length of 6 char
 			value: newPass,
 			message: 'Mínimo 6 caracteres'
-		},{
+		}, {
 			name: 'confirmPass',
 			validation: value => value === newPass,
 			value: confirmPass,
@@ -43,7 +43,7 @@ const UpdatePass = ({ sendToBackend }) => {
 							placeholder='Sua senha atual'
 							type='password'
 						/>
-					}/>,
+					} />,
 					<FormInput name='newPass' label='Nova senha' input={
 						<InputText
 							value={newPass}
@@ -51,7 +51,7 @@ const UpdatePass = ({ sendToBackend }) => {
 							placeholder='Sua nova senha'
 							type='password'
 						/>
-					}/>,
+					} />,
 					<FormInput name='confirmPass' label='Confirme nova senha' input={
 						<InputText
 							value={confirmPass}
@@ -59,7 +59,7 @@ const UpdatePass = ({ sendToBackend }) => {
 							placeholder='Senha do campo anterior'
 							type='password'
 						/>
-					}/>
+					} />
 				]}
 			/>
 		</div>
@@ -67,6 +67,7 @@ const UpdatePass = ({ sendToBackend }) => {
 }
 
 UpdatePass.propTypes = {
+	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

@@ -1,0 +1,23 @@
+---
+name: ResendEmail
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import ResendEmail from './index'
+
+# ResendEmail
+Componente padrão utilizado ao obter um erro no fluxo normal de cadastro, mais específicamente se o usuário não receber o *email* de confirmação.
+
+## Properties
+
+<Props of={ResendEmail} />
+
+## Basic usage
+Exemplo de utilização do componente **ResendEmail**.
+
+<Playground>
+	<div style={{ height: 500 }} >
+    	<ResendEmail sendToBackend={() => () => new Promise((res, rej) => setTimeout(() => res('Confirmação enviada!'), 1500))} />
+	</div>
+</Playground>

@@ -1,0 +1,23 @@
+---
+name: ResetPass
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import ResetPass from './index'
+
+# ResetPass
+Componente padrão utilizado no fluxo de recuperação de senha, mais específicamente usado para resetar a senha utilizada, em caso de esquecimento.
+
+## Properties
+
+<Props of={ResetPass} />
+
+## Basic usage
+Exemplo de utilização do componente **ResetPass**.
+
+<Playground>
+    <div style={{ height: 300 }} >
+        <ResetPass sendToBackend={() => () => new Promise((res, rej) => setTimeout(() => res('Enviado!'), 1500))} />
+    </div>
+</Playground>

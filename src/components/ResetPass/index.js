@@ -31,7 +31,7 @@ const ResetPass = ({ sendToBackend }) => {
 							onChange={({ target: { value } }) => setEmail(value)}
 							placeholder='Seu email'
 						/>
-					}/>
+					} />
 				]}
 			/>
 		</div>
@@ -39,6 +39,7 @@ const ResetPass = ({ sendToBackend }) => {
 }
 
 ResetPass.propTypes = {
+	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

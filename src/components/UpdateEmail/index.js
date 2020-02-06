@@ -16,7 +16,7 @@ const UpdateEmail = ({ sendToBackend }) => {
 			validation: value => !/^.{0,5}$/g.test(value), // tests for min length of 6 char
 			value: pass,
 			message: 'Mínimo 6 caracteres'
-		},{
+		}, {
 			name: 'newEmail',
 			validation: value => /^\S+@\S+\.\S+$/g.test(value), // tests for pattern a@b.c
 			value: newEmail,
@@ -37,14 +37,14 @@ const UpdateEmail = ({ sendToBackend }) => {
 							placeholder='Sua senha atual'
 							type='password'
 						/>
-					}/>,
+					} />,
 					<FormInput name='newEmail' label='Novo email' input={
 						<InputText
 							value={newEmail}
 							onChange={({ target: { value } }) => setNewEmail(value)}
 							placeholder='Seu novo email'
 						/>
-					}/>
+					} />
 				]}
 			/>
 		</div>
@@ -52,6 +52,7 @@ const UpdateEmail = ({ sendToBackend }) => {
 }
 
 UpdateEmail.propTypes = {
+	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

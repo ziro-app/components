@@ -1,0 +1,23 @@
+---
+name: DeleteAccount
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import DeleteAccount from './index'
+
+# DeleteAccount
+Componente padrão utilizado para a deleção de uma conta.
+
+## Properties
+
+<Props of={DeleteAccount} />
+
+## Basic usage
+Exemplo de utilização do componente **DeleteAccount**.
+
+<Playground>
+    <div style={{ height: 300 }} >
+        <DeleteAccount sendToBackend={() => () => new Promise((res, rej) => setTimeout(() => res('Enviado!'), 1500))} />
+    </div>
+</Playground>

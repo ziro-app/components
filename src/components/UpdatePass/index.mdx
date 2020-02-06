@@ -1,0 +1,23 @@
+---
+name: UpdatePass
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import UpdatePass from './index'
+
+# UpdatePass
+Componente padrão utilizado no fluxo de alteração de senha.
+
+## Properties
+
+<Props of={UpdatePass} />
+
+## Basic usage
+Exemplo de utilização do componente **UpdatePass**.
+
+<Playground>
+    <div style={{ height: 500 }} >
+        <UpdatePass sendToBackend={() => () => new Promise((res, rej) => setTimeout(() => res('Enviado!'), 1500))} />
+    </div>
+</Playground>

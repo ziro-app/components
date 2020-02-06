@@ -14,6 +14,7 @@ const ResendEmail = ({ sendToBackend }) =>
 	</div>
 
 ResendEmail.propTypes = {
+	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 
