@@ -21,9 +21,7 @@ const LoginPage = ({ audience, sendToBackend }) => {
 }
 
 LoginPage.propTypes = {
-	/** Propriedade que se refere ao público que é destinado o componente de login. */
 	audience: PropTypes.string.isRequired,
-	/** Função executada quando o formulário é submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

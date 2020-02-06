@@ -48,7 +48,6 @@ const LoginForm = ({ sendToBackend }) => {
 }
 
 LoginForm.propTypes = {
-	/** Função executada ao submeter o formulário. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

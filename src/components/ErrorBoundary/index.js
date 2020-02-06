@@ -13,6 +13,5 @@ export default class ErrorBoundary extends Component {
 }
 
 ErrorBoundary.propTypes = {
-	/** Componente de erro a ser informado ao usuário. */
 	children: PropTypes.element.isRequired
 }

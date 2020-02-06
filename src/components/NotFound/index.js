@@ -11,7 +11,6 @@ const NotFound = ({ fallback }) =>
 	/>
 
 NotFound.propTypes = {
-	/** Rota na qual será feito o redirecionamento. */
 	fallback: PropTypes.string
 }
 

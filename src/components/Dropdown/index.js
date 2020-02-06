@@ -116,19 +116,12 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 }
 
 Dropdown.propTypes = {
-	/** Propriedade que se refere ao valor escolhido */
 	value: PropTypes.string.isRequired,
-	/** Função executada ao ocorrer uma mudança de valor no campo */
 	onChange: PropTypes.func.isRequired,
-	/** Lista com todos os valores passíveis de escolha */
 	list: PropTypes.array.isRequired,
-	/** Propriedade que indica se o campo está sendo submetido */
 	submitting: PropTypes.bool,
-	/** Propriedade que especifica uma dica curta que descreve o valor esperado no campo de entrada */
 	placeholder: PropTypes.string,
-	/** Função executada ao haver uma interação do usuário com o teclado */
 	onChangeKeyboard: PropTypes.func,
-	/** Propriedade que define se o campo será editável */
 	readOnly: PropTypes.bool
 }
 

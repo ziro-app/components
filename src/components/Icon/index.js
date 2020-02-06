@@ -74,17 +74,11 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 }
 
 Icon.propTypes = {
-	/** Propriedade que define o ícone a ser usado. */
 	type: PropTypes.string.isRequired,
-	/** Objeto utilizado para estilizar o ícone. */
 	style: PropTypes.object,
-	/** Função que define à ação executada ao ocorrer o evento de click no ícone. */
 	onClick: PropTypes.func,
-	/** Propriedade que define o tamanho do ícone. */
 	size: PropTypes.number,
-	/** Propriedade que define a cor do ícone. */
 	color: PropTypes.string,
-	/** Propriedade que define a largura do traçado do ícone. */
 	strokeWidth: PropTypes.number
 }
 

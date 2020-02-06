@@ -22,17 +22,11 @@ const Error = ({ type, title, message, btnMsg, backRoute, style }) => {
 }
 
 Error.propTypes = {
-	/** Propriedade que define o tipo do erro. */
 	type: PropTypes.string,
-	/** Propriedade que define o título do erro */
 	title: PropTypes.string,
-	/** Propriedade que define a mensagem de erro */
 	message: PropTypes.string,
-	/** Propriedade que define o texto da mensagem no botão */
 	btnMsg: PropTypes.string,
-	/** Propriedade que define a rota de retorno */
 	backRoute: PropTypes.string,
-	/** Objeto que define o estilo do componente. */
 	style: PropTypes.object
 }
 

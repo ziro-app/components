@@ -158,13 +158,9 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 }
 
 Checkout.propTypes = {
-	/** Propriedade que define o valor total da compra. */
 	charge: PropTypes.string.isRequired,
-	/** Propriedade que define o número máximo de parcelas. */
 	maxInstallments: PropTypes.string.isRequired,
-	/** Propriedade que define o vendedor associado a compra. */
 	seller: PropTypes.string.isRequired,
-	/** Função executada ao submeter o formulário. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

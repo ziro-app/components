@@ -26,15 +26,10 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 }
 
 Header.propTypes = {
-	/** Propriedade que define o tipo de cabeçalho (icóne, ícone e navegação ou só texto) */
 	type: PropTypes.string.isRequired,
-	/** Propriedade que define o título do cabeçalho */
 	title: PropTypes.string.isRequired,
-	/** Propriedade que define o ícone presente no cabeçalho */
 	icon: PropTypes.string,
-	/** Função que altera o estado do menu (abrir/fechar) */
 	setIsOpen: PropTypes.func,
-	/** Propriedade que define a rota a ser navegada */
 	navigateTo: PropTypes.string
 }
 

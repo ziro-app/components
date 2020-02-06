@@ -21,16 +21,12 @@ const Modal = ({ isOpen, setIsOpen, children, boxStyle }) => {
 }
 
 Modal.propTypes = {
-	/** Propriedade que define o estado do componente (aberto/fechado) */
 	isOpen: PropTypes.bool.isRequired,
-	/** Função que altera o estado do componente */
 	setIsOpen: PropTypes.func.isRequired,
-	/** Array de objetos */
 	children: PropTypes.oneOfType([
 		PropTypes.object,
 		PropTypes.arrayOf(PropTypes.element)
 	]).isRequired,
-	/** Propriedade que define o estilo do conteúdo do modal */
 	boxStyle: PropTypes.object
 }
 

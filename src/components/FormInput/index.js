@@ -19,11 +19,8 @@ const FormInput = ({ label, errorMsg, input }) =>
 	</div>
 
 FormInput.propTypes = {
-	/** Propriedade que define o nome acima do input. */
 	label: PropTypes.string.isRequired,
-	/** Propriedade que define a mensagem de erro padrão. */
 	errorMsg: PropTypes.string,
-	/** Objeto de input para entrada do usuário. */
 	input: PropTypes.element.isRequired
 }
 
