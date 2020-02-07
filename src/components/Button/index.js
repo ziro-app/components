@@ -27,7 +27,15 @@ const Button = ({ type, cta, submitting, navigate, click, style }) => {
 				value={cta}
 				whileTap={tapAnimation}
 				type='submit'
-			/>
+			/>,
+		formClick:
+			<motion.input
+				onClick={click}
+				style={submitting ? btnDisabled : btnStyle}
+				value={cta}
+				whileTap={tapAnimation}
+				type='button'
+			/>,
 	}
 	return buttonTypes[type]
 }

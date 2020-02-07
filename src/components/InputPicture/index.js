@@ -61,7 +61,7 @@ const InputPicture = ({ facingMode, picture, setPicture }) => {
             <canvas style={{ width: 0, height: 0 }} ref={canvasRef}/>
             <div style={buttonContainer}>
                 <Button
-                    type="click"
+                    type="formClick"
                     cta={picture ? "Excluir" : "Tirar Foto"}
                     click={handleClick}
                     style={{ ...btn, ...btnHalf }}
