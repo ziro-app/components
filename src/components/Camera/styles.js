@@ -14,7 +14,8 @@ imageContainer = {
 
 buttonContainer = {
 	display: 'flex',
-	justifyContent: 'space-between'
+	justifyContent: 'space-between',
+	textAlign: 'center'
 },
 
 btnHalf = {
@@ -25,7 +26,6 @@ btnHalf = {
 inputHalf = {
 	display: 'inline',
 	width: '45%',
-	display: 'inline-flex',
 	justifyContent: 'center',
 },
 
