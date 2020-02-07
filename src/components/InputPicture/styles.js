@@ -2,11 +2,6 @@ import { fontTitle, fontSizeSmall, primaryColor, secondaryColor, fontSizeInput }
 
 export const
 
-container = {
-	display: 'grid',
-	gridRowGap: '20px'
-},
-
 imageContainer = {
 	padding: '10px 0px',
 	width: '100%',
