@@ -9,34 +9,17 @@ import Drawer from './index';
 import DrawerPanel from '../DrawerPanel/index'
 import Header from '../Header/index'
 import Icon from '../Icon/index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # Drawer
 Este é um componente *Stand-alone*, mas, seu uso mais comum é dado pela composição do mesmo com outros dois componentes, sendo eles **DrawerPanel** e **Header**.
-
-## DrawerPanel
-Componente responsável por apresentar as opções que podem ser acessadas pelo menu de navegação **Drawer**, bem como mostrar informações referentes ao usuário.
-
-### Properties [DrawerPanel]
-
-<Props of={DrawerPanel} />
-
-## Header
-Componente de cabeçalho, responsável por apresentar alguma mensagem para o usuário e também por abrir/fechar o componente menu **Drawer**.
-
-### Properties [Header]
-
-<Props of={Header} />
-
-## Basic usage
-Exemplo de utilização padrão do componente **Drawer**.
 
 <Playground>
 	{() => {
 		const [open, setOpen] = useState(false);
 		const username = 'Wermeson Rocha';
 		return (
-		<div style={containerWithPadding}>
+		<div style={{height: 500, ...containerWithoutHeight}}>
 			<Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setOpen(true)} />
 			<Drawer isOpen={open} setIsOpen={() => setOpen(false)}>
 				<DrawerPanel
@@ -78,3 +61,11 @@ Exemplo de utilização padrão do componente **Drawer**.
 		)
 	}}
 </Playground>
+
+### [DrawerPanel]
+
+<Props of={DrawerPanel} />
+
+### [Header]
+
+<Props of={Header} />

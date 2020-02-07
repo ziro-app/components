@@ -5,20 +5,13 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import CallToAction from './index'
-import { container } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # CallToAction
 **CallToAction** é um componente *Stand-alone*. Possui um potencial de reutilização bem baixa, podendo servir de referência de layout para páginas futuras. Um próximo passo para esse componente é mudar algumas coisas para ficar mais genérico.
 
-## Properties
-
-<Props of={CallToAction} />
-
-## Basic usage
-Exemplo de utilização padrão do componente **CallToAction**.
-
 <Playground>
-    <div style={container}>
+    <div style={{height: 680, ...containerWithoutHeight}}>
 		<CallToAction
 			headerText='Tem cadastro? LOGIN'
 			headerLinkPath='#'
@@ -30,3 +23,5 @@ Exemplo de utilização padrão do componente **CallToAction**.
 		/>
 	</div>
 </Playground>
+
+<Props of={CallToAction} />

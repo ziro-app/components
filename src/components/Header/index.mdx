@@ -6,55 +6,17 @@ menu: Components
 import { Playground, Props } from 'docz'
 import { useState } from 'react'
 import Header from './index'
+import { containerWithoutHeight } from '../../styles/index'
 
 # Header
 Componente de cabeçalho, responsável por apresentar alguma mensagem padrão, ícones e link's para o usuário.
 
-## Properties
+<Playground>
+	<div style={{height: 200, ...containerWithoutHeight}}>
+		<Header type='title-only' title='Header Title Example' />
+		<Header type='icon' title='Header Icon Example' icon='menu' setIsOpen={() => null} />
+		<Header type='icon-link' title='Header Link Example' icon='back' />
+	</div>
+</Playground>
 
 <Props of={Header} />
-
-## Header title example
-Exemplo de utilização do componente **Header** apenas com o título.
-
-<Playground>
-	<div style={{
-		maxWidth: '500px',
-		minHeight: '30vh',
-		boxSizing: 'border-box',
-		margin: '0 auto',
-		padding: '20px 20px 60px'
-}}>
-		<Header type='title-only' title='Header Title Only' />
-	</div>
-</Playground>
-
-## Header icon example
-Exemplo de utilização do componente **Header** com o título e ícone.
-
-<Playground>
-	<div style={{
-		maxWidth: '500px',
-		minHeight: '30vh',
-		boxSizing: 'border-box',
-		margin: '0 auto',
-		padding: '20px 20px 60px'
-}}>
-		<Header type='icon' title='Header Icon' icon='menu' setIsOpen={() => null} />
-	</div>
-</Playground>
-
-## Header link example
-Exemplo de utilização do componente **Header** com o título, ícone e *link*.
-
-<Playground>
-	<div style={{
-		maxWidth: '500px',
-		minHeight: '30vh',
-		boxSizing: 'border-box',
-		margin: '0 auto',
-		padding: '20px 20px 60px'
-}}>
-		<Header type='icon-link' title='Header Link' icon='back' />
-	</div>
-</Playground>

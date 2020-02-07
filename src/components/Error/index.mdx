@@ -9,31 +9,24 @@ import Error from './index'
 import NotFound from '../NotFound/index'
 import ErrorBoundary from '../ErrorBoundary/index'
 import { containerWithPadding, primaryColor, container } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # Error
-Conjunto de componentes que são utilizados para informar ao usuário quando ocorre algum tipo de erro, sendo eles:
+Conjunto de componentes que são utilizados para informar ao usuário quando ocorre algum tipo de erro. Vale ressaltar que esses componentes em situações reais são usados para preencher a tela inteira com o erro, mas nas seguintes demonstrações serão apresentados em tamanhos reduzidos. São eles:
 
 - **Not Found**: Página não encontrada.
 - **Boundary**: Erro na renderização da página.
 - **Undef**: Ocorreu algum erro.
 
-## Properties [Not Found]
-
-<Props of={NotFound} />
-
-### Basic usage
-Exemplo de utilização do componente **NotFound**.
+### [Not Found]
 
 <Playground>
-    <NotFound fallback='/home' />
+	<div style={{height: 400, ...containerWithoutHeight}}>
+    	<NotFound fallback='/home' />
+	</div>
 </Playground>
 
-## Properties [Error Boundary]
-
-<Props of={ErrorBoundary} />
-
-### Basic usage
-Exemplo de utilização do componente **Error Boundary**.
+### [Boundary]
 
 <Playground>
 	{() => {
@@ -42,22 +35,19 @@ Exemplo de utilização do componente **Error Boundary**.
 			return <div style={container}>This is an error boundary</div>
 		}
 		return(
-			<ErrorBoundary>
-				<BuggyComponent />
-			</ErrorBoundary>
+			<div style={{height: 300, ...containerWithoutHeight}}>
+				<ErrorBoundary>
+					<BuggyComponent />
+				</ErrorBoundary>
+			</div>
 		)
 	}}
 </Playground>
 
-## Properties [Undef]
-
-<Props of={Error} />
-
-### Basic usage
-Exemplo de utilização do componente **Error**.
+### [Undef]
 
 <Playground>
-    <div style={containerWithPadding}>
+    <div style={{height: 400, ...containerWithoutHeight}}>
 		<Error style={{
 			display: 'grid',
 			gridRowGap: '15px',
@@ -66,3 +56,15 @@ Exemplo de utilização do componente **Error**.
 		}} type={'timelineStart'}/>
 	</div>
 </Playground>
+
+### [Not Found]
+
+<Props of={NotFound} />
+
+### [Error Boundary]
+
+<Props of={ErrorBoundary} />
+
+### [Undef]
+
+<Props of={Error} />

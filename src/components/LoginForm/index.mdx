@@ -5,25 +5,17 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import LoginForm from './index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # LoginForm
-Componente padrão utilizado para realizar *login* nas aplicações da Ziro. **LoginForm** se trata de um formulário contendo os campos referentes ao *email* e a senha do usuário, onde ambos possuem suas respectivas funções de validação.
-
-## Properties
-
-<Props of={LoginForm} />
-
-## Basic usage
-Exemplo de utilização do componente **LoginForm**.
+Componente padrão utilizado para realizar *login* nas aplicações da Ziro. **LoginForm** se trata de um formulário contendo os campos referentes ao *email* e a senha do usuário, onde ambos possuem suas respectivas funções de validação. Um detalhe a ser observado na utilização deste componente é que a propriedade **sendToBackend** necessita que seja feito um encadeamento de funções, utilizando assim uma função intermediária.
 
 <Playground>
-  <div style={containerWithPadding}>
+  <div style={{height: 320, ...containerWithoutHeight}}>
 		<LoginForm
-			sendToBackend={state => () => {
-				console.log(state)
-				return new Promise((res,rej) => res(console.log('ok')))
-			}
-		}/>
+			sendToBackend={state => () => new Promise((res, rej) => setTimeout(() => res('Enviado!'), 1500))}
+		/>
 	</div>
 </Playground>
+
+<Props of={LoginForm} />

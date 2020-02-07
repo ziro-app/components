@@ -5,21 +5,14 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import Icon from './index'
-import { containerWithPadding } from '@ziro/theme'
 import { grid } from './styles'
+import { containerWithoutHeight } from '../../styles/index'
 
 # Icon
 Componente responsável por agrupar uma série de ícones utilizáveis nas aplicações da Ziro. Sua utilização geralmente é feita apenas com a escolha do ícone e do seu tamanho (por meio das propriedades *type* e *size*, respectivamente).
 
-## Properties
-
-<Props of={Icon} />
-
-## Basic usage
-Exemplo de utilização de todos os objetos disponíveis do componente **Icon**.
-
 <Playground>
-    <div style={{...containerWithPadding, ...grid}}>
+    <div style={{...grid, ...containerWithoutHeight}}>
 		<Icon type='ziro' size={24} />
 		<Icon type='amex' size={24} />
 		<Icon type='visa' size={24} />
@@ -53,3 +46,5 @@ Exemplo de utilização de todos os objetos disponíveis do componente **Icon**.
 		<Icon type='trending' size={24} />
 	</div>
 </Playground>
+
+<Props of={Icon} />

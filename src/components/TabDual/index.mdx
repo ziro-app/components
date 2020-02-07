@@ -6,31 +6,14 @@ menu: Components
 import { Playground, Props } from 'docz'
 import TabDualHeader from '../TabDualHeader/index'
 import TabDualTransition from '../TabDualTransition/index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 import { component } from './styles'
 
 # TabDual
 Este componente é dado pela composição de dois outros componentes, sendo eles **TabDualHeader** e **TabDualTransition**. Ambos não são componentes *Stand-alone*, não possuindo assim funcionalidades ao trabalharem indivualmente.
 
-## TabDualHeader
-Componente principal, responsável por montar o cabeçalho da tabela, contendo as opções que podem ser escolhidas e também por fazer roteamento do conteúdo a ser exibido.
-
-### Properties [TabDualHeader]
-
-<Props of={TabDualHeader} />
-
-## TabDualTransition
-Componente responsável por mostrar de fato o conteúdo da página e também por realizar a animação de transição entre elas. 
-
-### Properties [TabDualTransition]
-
-<Props of={TabDualTransition} />
-
-## Basic usage
-Exemplo de utilização padrão do componente **TabDual**
-
 <Playground>
-    <div style={containerWithPadding}>
+    <div style={{height: 300, ...containerWithoutHeight}}>
 			<TabDualHeader
 				pathOne='/tab-dual/dados-1'
 				tabNameOne='Dados 1'
@@ -48,3 +31,11 @@ Exemplo de utilização padrão do componente **TabDual**
 			]}/>
 		</div>
 </Playground>
+
+### [TabDualHeader]
+
+<Props of={TabDualHeader} />
+
+### [TabDualTransition]
+
+<Props of={TabDualTransition} />

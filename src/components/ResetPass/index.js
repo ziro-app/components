@@ -39,7 +39,6 @@ const ResetPass = ({ sendToBackend }) => {
 }
 
 ResetPass.propTypes = {
-	 submetido. */
 	sendToBackend: PropTypes.func.isRequired
 }
 

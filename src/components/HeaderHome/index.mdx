@@ -5,20 +5,15 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import HeaderHome from './index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # HeaderHome
 **HeaderHome** é um componente dado pela composição do componente **Icon** (mais específicamente o ícone da Ziro) com um *link* de navegação. Ele é utilizado mais comumente em ocasiões no qual se deseja disponibilizar um *link* direto para a página de cadastro ou de *login*.
 
-## Properties
-
-<Props of={HeaderHome} />
-
-## Basic usage
-Exemplo de utilização padrão do componente **HeaderHome**.
-
 <Playground>
-    <div style={{padding: 20, width: 500, marginLeft: '25%'}}>
-		<HeaderHome linkPath='#' linkText='Sem conta? CADASTRAR' />
+    <div style={{height: 100, ...containerWithoutHeight}}>
+		<HeaderHome linkPath='#' linkText='Sem conta? CADASTRAR' linkClick={e => e.preventDefault()} />
 	</div>
 </Playground>
+
+<Props of={HeaderHome} />

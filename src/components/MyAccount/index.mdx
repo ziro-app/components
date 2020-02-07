@@ -6,16 +6,13 @@ menu: Components
 import { Playground, Props } from 'docz'
 import MyAccount from './index'
 import Header from '../Header/index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # MyAccount
 Componente dado pela composição dos componentes **Header** e o próprio **MyAccount**. **MyAccount** é formado pela composição de componentes **Link** e disponibiliza ao usuários opções de gerencia sobre sua conta, como a funcionalidade de **alterar sua senha**.
 
-## Basic usage
-Exemplo de utilização do componente **MyAccount**.
-
 <Playground>
-    <div style={containerWithPadding}>
+    <div style={{height: 400, ...containerWithoutHeight}}>
 		<Header type='icon' title='Minha Conta' icon='menu' />
 		<MyAccount />
 	</div>

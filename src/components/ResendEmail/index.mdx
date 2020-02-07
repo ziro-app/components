@@ -5,19 +5,15 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import ResendEmail from './index'
+import { containerWithoutHeight } from '../../styles/index'
 
 # ResendEmail
-Componente padrão utilizado ao obter um erro no fluxo normal de cadastro, mais específicamente se o usuário não receber o *email* de confirmação.
-
-## Properties
-
-<Props of={ResendEmail} />
-
-## Basic usage
-Exemplo de utilização do componente **ResendEmail**.
+Componente padrão utilizado ao obter um erro no fluxo normal de cadastro, mais específicamente se o usuário não receber o *email* de confirmação. Um detalhe a ser observado na utilização deste componente é que a propriedade **sendToBackend** necessita que seja feito um encadeamento de funções, utilizando assim uma função intermediária.
 
 <Playground>
-	<div style={{ height: 500 }} >
+	<div style={{height: 450, ...containerWithoutHeight}} >
     	<ResendEmail sendToBackend={() => () => new Promise((res, rej) => setTimeout(() => res('Confirmação enviada!'), 1500))} />
 	</div>
 </Playground>
+
+<Props of={ResendEmail} />

@@ -3,17 +3,15 @@ name: ConfirmEmail
 menu: Components
 ---
 
-import ConfirmEmail from './index'
 import { Playground, Props } from 'docz'
+import ConfirmEmail from './index'
+import { containerWithoutHeight } from '../../styles/index'
 
 # ConfirmEmail
 Componente padrão utilizado no fluxo de cadastro, mais específicamente na confirmação do *email* fornecido pelo usuário. O componente apresenta textos informativos e também botões contendo as opções disponíveis para avançar no processo.
 
-## Basic usage
-Exemplo de utilização do componente **ConfirmEmail**.
-
 <Playground>
-    <div style={{height: 350}} >
+    <div style={{height: 380, ...containerWithoutHeight}} >
         <ConfirmEmail />
     </div>
 </Playground>

@@ -7,22 +7,16 @@ import { Playground, Props } from 'docz'
 import { useState } from 'react'
 import Modal from './index'
 import Button from '../Button/index'
+import { containerWithoutHeight } from '../../styles/index'
 
 # Modal
 Componente em forma de caixa de diálogo/janela *pop-up* exibida na parte superior da página atual.
-
-## Properties
-
-<Props of={Modal} />
-
-## Basic usage
-Exemplo de utilização do componente **Modal**.
 
 <Playground>
     {() => {
         const [isOpen, setIsOpen] = useState(false)
         return (
-            <div style={{padding: 20, maxWidth: 200, marginLeft: '30%'}}>
+            <div style={{height: 80, ...containerWithoutHeight}}>
                 <Modal isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
                     <div>
                         What is Lorem Ipsum?
@@ -34,3 +28,5 @@ Exemplo de utilização do componente **Modal**.
         )
     }}
 </Playground>
+
+<Props of={Modal} />

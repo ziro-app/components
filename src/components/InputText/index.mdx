@@ -6,17 +6,10 @@ menu: Components
 import { Playground, Props } from 'docz'
 import { useState, useRef } from 'react'
 import InputText from './index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # InputText
 Componente padrão utilizado para a entrada de textos nas aplicações. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o componente **Form**.
-
-## Properties
-
-<Props of={InputText} />
-
-## Basic usage
-Exemplo de utilização padrão do componente **InputText**.
 
 <Playground>
   {() => {
@@ -28,10 +21,12 @@ Exemplo de utilização padrão do componente **InputText**.
     const inputProps = { value: inputValue, onChange, placeholder, name, ref: inputRef }
     
     return (
-        <div style={containerWithPadding}>
+        <div style={{height: 100, ...containerWithoutHeight}}>
             <p>{inputValue}</p>
             <InputText {...inputProps} />
         </div>
     )
   }}
 </Playground>
+
+<Props of={InputText} />

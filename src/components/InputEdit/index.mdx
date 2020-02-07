@@ -6,17 +6,10 @@ menu: Components
 import { Playground, Props } from 'docz'
 import { useState } from 'react'
 import InputEdit from './index'
-import { containerWithPadding } from '@ziro/theme'
+import { containerWithoutHeight } from '../../styles/index'
 
 # InputEdit
 Componente padrão utilizado para a entrada e validação de textos nas aplicações, uma variação do componente **EditText**. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o componente **Form**.
-
-## Properties
-
-<Props of={InputEdit} />
-
-## Basic usage
-Exemplo de utilização padrão do componente InputEdit
 
 <Playground>
   {() => {
@@ -34,7 +27,7 @@ Exemplo de utilização padrão do componente InputEdit
     }
     const submit = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'), 1000))
     return (
-        <div style={ containerWithPadding }>
+        <div style={{ height: 100, ...containerWithoutHeight}}>
             <InputEdit
                 name='Nome'
                 value={name}
@@ -53,3 +46,5 @@ Exemplo de utilização padrão do componente InputEdit
     )
   }}
 </Playground>
+
+<Props of={InputEdit} />
