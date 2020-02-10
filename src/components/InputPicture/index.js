@@ -4,7 +4,7 @@ import Button from '../Button'
 import { btn } from '../Button/styles'
 import { imageContainer, buttonContainer, btnHalf, inputHalf, input } from './styles'
 
-const InputPicture = ({ facingMode, picture, setPicture }) => {
+const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg }) => {
 
     const videoRef = useRef(null)
     const canvasRef = useRef(null)
@@ -17,7 +17,7 @@ const InputPicture = ({ facingMode, picture, setPicture }) => {
                     videoRef.current.srcObject = stream
                 }
             })
-            .catch(error => console.log({ error }))
+            .catch(error => onErrorMsg(error))
     },[picture])
 
     const handleClick = useCallback(() => {
@@ -88,6 +88,7 @@ InputPicture.propTypes = {
     picture: PropTypes.string.isRequired,
     setPicture: PropTypes.func.isRequired,
     facingMode: PropTypes.string,
+    onErrorMsg: PropTypes.func.isRequired
 }
 
 export default InputPicture
