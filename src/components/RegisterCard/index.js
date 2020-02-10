@@ -49,7 +49,7 @@ const RegisterCard = ({ sendToBackend }) => {
 				brand={brand}
 				cardholder={cardholder}
 				expiry={expiry}
-				cvv={'***'}
+				cvv={cvv}
 			/>
 			<Form
 				useModalLayoutOnSubmit={true}

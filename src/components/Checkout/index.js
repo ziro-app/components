@@ -52,6 +52,12 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 			value: cpf,
 			message: 'Deve conter 11 dígitos'
 		},
+		{
+			name: 'installments',
+			validation: value => !!value,
+			value: installments,
+			message: 'Campo obrigatório'
+		}
 	]
 	return (
 		<div style={container}>
