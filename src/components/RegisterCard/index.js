@@ -1,26 +1,21 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
-import { installmentOptions } from './utils/installmentUtils'
 import CreditCard from '../CreditCard/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
-import Dropdown from '../Dropdown/index'
-import { Summary } from './Summary/index'
 import { SuccessModal } from './ModalSubmit/SuccessModal'
 import { ErrorModal } from './ModalSubmit/ErrorModal'
 import { container, dual, regulatory, ziro } from './styles'
 
-const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
+const RegisterCard = ({ sendToBackend }) => {
 	const [number, setNumber] = useState('')
 	const [cardholder, setCardholder] = useState('')
-	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
-	const [cpf, setCpf] = useState('')
-	const [installments, setInstallments] = useState('')
-	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
-	const state = { number, cardholder, expiry, cvv, cpf, installments, brand }
+	const [expiry, setExpiry] = useState('')
+	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked] = useCard(number)
+	const state = { number, cardholder, expiry, cvv }
 	const validations = [
 		{
 			name: 'number',
@@ -46,12 +41,6 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 			value: cvv,
 			message: 'Revise campo'
 		},
-		{
-			name: 'cpf',
-			validation: value => !!value && value.length === 14,
-			value: cpf,
-			message: 'Deve conter 11 dígitos'
-		},
 	]
 	return (
 		<div style={container}>
@@ -60,16 +49,15 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 				brand={brand}
 				cardholder={cardholder}
 				expiry={expiry}
-				cvv={cvv}
+				cvv={'***'}
 			/>
 			<Form
 				useModalLayoutOnSubmit={true}
 				successComponent={() => <SuccessModal />}
 				errorComponent={props => <ErrorModal closeModal={props} />}
-				buttonName='Confirmar'
+				buttonName='Registrar'
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
-				summary={<Summary charge={charge} installments={installments} seller={seller} />}
 				inputs={[
 					<FormInput
 						name='number'
@@ -117,31 +105,6 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 							}
 						/>
 					</div>,
-					<FormInput
-						name='cpf'
-						label='CPF do titular'
-						input={
-							<InputText
-								value={cpf}
-								onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
-								placeholder='111.222.333-44'
-							/>
-						}
-					/>,
-					<FormInput
-						name='installments'
-						label='Parcelamento'
-						input={
-							<Dropdown
-								readOnly={true}
-								value={installments}
-								onChange={({ target: { value } }) => setInstallments(value.substring(0, 1))}
-								list={installmentOptions(charge, maxInstallments)}
-								placeholder='Escolha quantas parcelas'
-								onChangeKeyboard={element => element ? setInstallments(element.value.substring(0, 1)) : null}
-							/>
-						}
-					/>
 				]}
 			/>
 			<div style={regulatory}>
@@ -151,11 +114,8 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 	)
 }
 
-Checkout.propTypes = {
-	charge: PropTypes.string.isRequired,
-	maxInstallments: PropTypes.string.isRequired,
-	seller: PropTypes.string.isRequired,
+RegisterCard.propTypes = {
 	sendToBackend: PropTypes.func.isRequired
 }
 
-export default Checkout
+export default RegisterCard
