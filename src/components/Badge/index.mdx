@@ -1,0 +1,19 @@
+---
+name: Badge
+menu: Components
+route: /badge
+---
+
+import { Playground, Props } from 'docz'
+import Badge from './index'
+
+# Badge
+Componente *stand-alone*. Possui baixo potencial de reutilização, podendo servir de referência de layout para páginas futuras. Um próximo passo para esse componente é torná-lo genérico.
+
+<Playground>
+    <div>
+		<Badge type='alert' message='Hello' />
+	</div>
+</Playground>
+
+<Props of={Badge} />
