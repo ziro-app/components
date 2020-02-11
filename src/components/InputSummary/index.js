@@ -32,9 +32,9 @@ const InputSummary = ({ charge, maxInstallments, seller, installments, setInstal
 					<Dropdown
 						readOnly={true}
 						value={installments}
-						onChange={({ target: { value: _value } }) => {
-							setInstallments(_value)
-							setInstallmentValue(installmentCharge(charge,_value).toString())
+						onChange={({ target: { value } }) => {
+							setInstallments(value)
+							setInstallmentValue(installmentCharge(charge,value).toString())
 						}}
 						list={installmentsOptions}
 						placeholder='1'
