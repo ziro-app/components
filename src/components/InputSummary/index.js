@@ -5,24 +5,23 @@ import Dropdown from '../Dropdown'
 import { installmentCharge } from './installmentUtils'
 import { summary, title, service, total, totalRow, sellerTitle, totalAfterInstallments, totalAfterInstallmentsTitle, installmentsRow, midText } from './styles'
 
-const Summary = ({ charge, maxInstallments, seller, onChange }) => {
-	const [installments, setInstallments] = useState('1')
+const InputSummary = ({ charge, maxInstallments, seller, installments, setInstallments, installmentValue, setInstallmentValue }) => {
+
+	useEffect(() => {
+		setInstallmentValue(charge)
+		setInstallments('1')
+	},[])
+
 	const [installmentsOptions] = useState(() => {
 		let options = []
 		for (let i = 1; i <= maxInstallments; i++)
 			options.push(i)
 		return options
 	})
-	const [value, setValue] = useState(charge)
-
-	useEffect(() => {
-		onChange && onChange({ installments, installmentValue: value })
-	},[installments,value])
 
 	return (
 		<>
 			<div style={summary}>
-				<div style={title}>Resumo da fatura</div>
 				<div style={sellerTitle}>{seller}</div>
 				<div style={service}>
 					<label>valor</label>
@@ -35,18 +34,18 @@ const Summary = ({ charge, maxInstallments, seller, onChange }) => {
 						value={installments}
 						onChange={({ target: { value: _value } }) => {
 							setInstallments(_value)
-							setValue(installmentCharge(charge,_value))
+							setInstallmentValue(installmentCharge(charge,_value).toString())
 						}}
 						list={installmentsOptions}
 						placeholder='1'
 						onChangeKeyboard={element => element ? setInstallments(element.value) : null}
 					/>
 					<label style={midText}>{installments ? (installments == '1' ? 'vez' : 'vezes')+' de ' : ''}</label>
-					<label style={total}>{currencyFormat(value)}</label>
+					<label style={total}>{currencyFormat(installmentValue)}</label>
 				</div>
 				<div style={totalRow}>
 					<label style={totalAfterInstallmentsTitle}>total</label>
-					<label style={totalAfterInstallments}>{currencyFormat(value*installments)}</label>
+					<label style={totalAfterInstallments}>{currencyFormat(installmentValue*installments)}</label>
 				</div>
 			</div>
 		</>
@@ -54,11 +53,14 @@ const Summary = ({ charge, maxInstallments, seller, onChange }) => {
 }
 	
 
-Summary.propTypes = {
+InputSummary.propTypes = {
 	charge: PropTypes.string.isRequired,
 	maxInstallments: PropTypes.string.isRequired,
 	seller: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired
+	installments: PropTypes.string.isRequired,
+	setInstallments: PropTypes.func.isRequired,
+	installmentValue: PropTypes.string.isRequired,
+	setInstallmentValue: PropTypes.func.isRequired
 }
 
-export default Summary
+export default InputSummary
