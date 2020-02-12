@@ -119,6 +119,6 @@ label {
     border-top: 1px solid #efefef !important;
 }
 
-.css-1r75nr {
+.css-1r75nr + .css-1r75nr {
     border-top: 1px solid #efefef !important;
 }
