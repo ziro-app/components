@@ -27,6 +27,11 @@
                 "name": "index.js"
             },
             {
+                "relativePath": "src/components/Badge/index.mdx",
+                "test": false,
+                "name": "index.mdx"
+            },
+            {
                 "relativePath": "src/components/Badge/styles.js",
                 "test": false,
                 "name": "styles.js"
@@ -61,6 +66,11 @@
                 "relativePath": "src/components/CallToAction/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/CallToAction/index.mdx",
+                "test": false,
+                "name": "index.mdx"
             },
             {
                 "relativePath": "src/components/CallToAction/styles.js",
