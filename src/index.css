@@ -45,7 +45,7 @@ label {
     font-size: 1.6rem;
 }
 
-/* styles for Docz */
+/* styles to fix Docz lame CSS */
 
 .css-1vci3bl {
     font-family: 'Rubik' !important;
@@ -82,7 +82,12 @@ label {
 
 .css-10jmuvw-Prop {
     font-family: 'Work Sans' !important;
-    font-size: 1.8rem !important;    
+    font-size: 1.8rem !important;
+}
+
+.css-4fkzcu {
+    font-family: 'Work Sans' !important;
+    font-size: 1.8rem !important;
 }
 
 .css-a76kz8-Props {
@@ -100,6 +105,11 @@ label {
     color: black !important;
 }
 
+.css-1ftd3os {
+    font-weight: 500 !important;
+    color: black !important;
+}
+
 .css-nxr1xe {
     border: none !important;
     border-radius: 6px !important;
@@ -108,6 +118,3 @@ label {
 .css-10jmuvw-Prop + .css-10jmuvw-Prop {
     border-top: 1px solid #efefef !important;
 }
-
-
-
