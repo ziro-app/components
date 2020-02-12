@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Scaffold } from '../Scaffold'
 
 export const Facebook = ({ style, onClick, size, color, strokeWidth }) =>
 	<svg style={style} onClick={onClick} width={size} height={size} viewBox='0 0 24 24' fill={color}>
