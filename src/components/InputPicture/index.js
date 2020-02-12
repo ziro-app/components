@@ -1,6 +1,7 @@
 import React, { useRef, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
+import { motion } from 'framer-motion'
 import { imageContainer, buttonContainer, btn, inputBtn, input } from './styles'
 
 const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload }) => {
@@ -66,7 +67,10 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
                 {
                     allowUpload ?
 
-                        <div style={inputBtn}>
+                        <motion.a
+                            style={inputBtn}
+                            whileTap={{ scale: 0.95 }}
+                        >
                             <label htmlFor="file_upload" style={input}>Upload</label>
                             <input
                                 ref={inputRef}
@@ -78,7 +82,7 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
                                 style={{ opacity: 0, width: 0, height: 0 }}
                                 onChange={fileHandler}
                             />
-                        </div>
+                        </motion.a>
 
                     : null
                 }
