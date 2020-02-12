@@ -92,7 +92,8 @@ InputPicture.propTypes = {
     picture: PropTypes.string,
     setPicture: PropTypes.func.isRequired,
     facingMode: PropTypes.string,
-    onErrorMsg: PropTypes.func
+    onErrorMsg: PropTypes.func,
+    allowUpload: PropTypes.bool,
 }
 
 export default InputPicture
