@@ -1,4 +1,5 @@
-import { fontTitle, fontSizeSmall, primaryColor, secondaryColor, fontSizeInput } from '@ziro/theme'
+import { btn as defBtn } from '../Button/styles'
+import { fontTitle, fontSizeInput, gradient } from '@ziro/theme'
 
 export const
 
@@ -10,15 +11,21 @@ imageContainer = {
 buttonContainer = {
 	display: 'flex',
 	justifyContent: 'space-between',
-	textAlign: 'center'
+	textAlign: 'center',
+	padding: '10px 0px',
 },
 
-btnHalf = {
-	display: 'inline',
-	width: '45%',
-},
+btn = (half, picture) => ({
+	...defBtn,
+	...(half ? {
+		display: 'inline',
+		width: '45%',
+	}:{}),
+	background: picture ? "linear-gradient(#BA3A3A 10%, #B33 30%, #B22 60%, #800)" : gradient,
+}),
 
-inputHalf = {
+inputBtn = {
+	...defBtn,
 	display: 'inline',
 	width: '45%',
 	justifyContent: 'center',

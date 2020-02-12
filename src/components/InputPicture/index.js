@@ -1,16 +1,15 @@
-import React, { useRef, useCallback, useLayoutEffect } from 'react'
+import React, { useRef, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
-import { btn } from '../Button/styles'
-import { imageContainer, buttonContainer, btnHalf, inputHalf, input } from './styles'
+import { imageContainer, buttonContainer, btn, inputBtn, input } from './styles'
 
-const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg }) => {
+const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload }) => {
 
     const videoRef = useRef(null)
     const canvasRef = useRef(null)
     const inputRef = useRef(null)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         navigator.mediaDevices.getUserMedia({ video: { facingMode: facingMode == 'front' ? 'user' : { ideal:  'environment' } } })
             .then((stream) => {
                 if (videoRef.current) {
@@ -18,7 +17,7 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg }) => {
                 }
             })
             .catch(error => onErrorMsg(error))
-    },[picture])
+    },[])
 
     const handleClick = useCallback(() => {
         if(!picture && canvasRef.current && videoRef.current) {
@@ -31,7 +30,7 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg }) => {
         }
         else {
             setPicture(null)
-            inputRef.current.value = ""
+            if(inputRef.current) inputRef.current.value = ""
         }
     },[picture])
 
@@ -45,50 +44,55 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg }) => {
 
     return (
         <>
-            {
-                picture ?
-                <img
-                    style={imageContainer}
-                    src={picture}
-                />
-                :
-                <video
-                    style={imageContainer}
-                    ref={videoRef}
-                    autoPlay
-                />
-            }
-            <canvas style={{ width: 0, height: 0 }} ref={canvasRef}/>
+            <img
+                style={imageContainer}
+                src={picture}
+                hidden={!picture}
+            />
+            <video
+                style={imageContainer}
+                ref={videoRef}
+                hidden={!!picture}
+                autoPlay
+            />
+            <canvas hidden={true} ref={canvasRef}/>
             <div style={buttonContainer}>
                 <Button
                     type="formClick"
                     cta={picture ? "Excluir" : "Tirar Foto"}
                     click={handleClick}
-                    style={{ ...btn, ...btnHalf }}
+                    style={btn(allowUpload,picture)}
                 />
-                <div style={{ ...btn, ...inputHalf }}>
-                    <label htmlFor="file_upload" style={input}>Upload</label>
-                    <input
-                        ref={inputRef}
-                        name="file_upload"
-                        id="file_upload"
-                        type="file"
-                        accept="image/*"
-                        multiple={false}
-                        style={{ opacity: 0, width: 0, height: 0 }}
-                        onChange={fileHandler}
-                    />
-                </div>
+                {
+                    allowUpload ?
+
+                        <div style={inputBtn}>
+                            <label htmlFor="file_upload" style={input}>Upload</label>
+                            <input
+                                ref={inputRef}
+                                name="file_upload"
+                                id="file_upload"
+                                type="file"
+                                accept="image/*"
+                                multiple={false}
+                                style={{ opacity: 0, width: 0, height: 0 }}
+                                onChange={fileHandler}
+                            />
+                        </div>
+
+                    : null
+                }
+                
             </div>
         </>
     )
 }
 
 InputPicture.propTypes = {
-    picture: PropTypes.string.isRequired,
+    picture: PropTypes.string,
     setPicture: PropTypes.func.isRequired,
     facingMode: PropTypes.string,
-    onErrorMsg: PropTypes.func.isRequired
+    onErrorMsg: PropTypes.func
 }
 
 export default InputPicture
