@@ -6,13 +6,17 @@ route: /badge
 
 import { Playground, Props } from 'docz'
 import Badge from './index'
+import { primaryColor, secondaryColor, alertColor, successColor } from '@ziro/theme'
 
 # Badge
 Cria um ícone acompanhado de um texto.
 
 <Playground>
-    <div>
-		<Badge type='alert' message='Hello' />
+	<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto', margin: '0 auto 20px' }}>
+		<Badge type='lock' message='Primary' size={16} color={primaryColor} />
+		<Badge type='truck' message='Secondary' size={16} color={secondaryColor} />
+		<Badge type='alert' message='Alert' size={16} color={alertColor} />
+		<Badge type='cnpj' message='Success' size={16} color={successColor} />
 	</div>
 </Playground>
 

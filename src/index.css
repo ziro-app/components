@@ -88,7 +88,14 @@ label {
     color: black !important;
 }
 
+.css-nxr1xe {
+    border: none !important;
+    border-radius: 6px !important;
+}
 
+.css-10jmuvw-Prop + .css-10jmuvw-Prop {
+    border-top: 1px solid #efefef !important;
+}
 
 
 
