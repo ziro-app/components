@@ -1,0 +1,51 @@
+---
+name: InputPicture
+menu: Componentes
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import InputPicture from './index'
+import Form from '../Form'
+import FormInput from '../FormInput'
+
+# InputPicture
+**InputPicture** é um componente XYZ.
+
+<Playground>
+    {() => {
+		const [picture,setPicture] = useState('')
+		return (
+			<div>
+				<Form
+				buttonOnTop={true}
+				validations={[
+					{
+						name: 'picture',
+						validation: value => !!value,
+						value: picture,
+						message: 'É necessário tirar uma foto',
+					}
+				]}
+				sendToBackend={() =>
+				new Promise((res, rej) => setTimeout(() => res('Ok'), 1500))
+				}
+				inputs={[
+				<FormInput
+					name="photo"
+					label="Foto"
+					input={
+					<InputPicture
+						picture={picture}
+						setPicture={setPicture}
+						/>
+					}
+				/>,
+				]}
+			/>
+			</div>
+		)
+	}}
+</Playground>
+
+<Props of={InputPicture} />
