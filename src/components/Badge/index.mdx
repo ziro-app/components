@@ -13,7 +13,7 @@ import { containerDocz } from '../../stylesDocz'
 Cria um ícone acompanhado de um texto.
 
 <Playground>
-	<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto', margin: '0 auto 20px', ...containerDocz}>
+	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto auto', margin: '0 auto 20px' }}>
 		<Badge type='lock' message='Primary' size={16} color={primaryColor} />
 		<Badge type='truck' message='Secondary' size={16} color={secondaryColor} />
 		<Badge type='alert' message='Alert' size={16} color={alertColor} />
