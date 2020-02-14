@@ -5,8 +5,6 @@ import ShooterOverlay from './shooterOverlay'
 
 const CameraOverlay = ({ turnOn, turnOff, takePicture, deletePicture, isOnPreview, cameraState, onSend, onClose, allowSwap }) => {
 
-    console.log({ cameraState, allowSwap })
-
     return (
         <AnimatePresence>
             {
