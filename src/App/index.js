@@ -35,6 +35,8 @@ import { DisplayUpdatePass } from './DisplayComponents/DisplayUpdatePass/index'
 import { DisplayDeleteAccount } from './DisplayComponents/DisplayDeleteAccount/index'
 import { DisplaySocialMedia } from './DisplayComponents/DisplaySocialMedia/index'
 import { DisplayInputPicture } from './DisplayComponents/DisplayInputPicture/index'
+import { DisplayCamera } from './DisplayComponents/DisplayCamera/index'
+import { DisplayCameraContainer } from './DisplayComponents/DisplayCameraContainer/index'
 
 export const App = () =>
 	<Switch>
@@ -73,5 +75,7 @@ export const App = () =>
 		<Route path='/delete-account'><DisplayDeleteAccount /></Route>
 		<Route path='/social-media'><DisplaySocialMedia /></Route>
 		<Route path='/input-picture'><DisplayInputPicture /></Route>
+		<Route path='/camera'><DisplayCamera /></Route>
+		<Route path='/camera-container'><DisplayCameraContainer /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
