@@ -9,7 +9,6 @@ export const useCamera = (onTakePicture, onError) => {
     const canvasRef = useRef(null)
 
     const turnOn = useCallback((facingMode) => {
-        console.log({ facingMode })
         return navigator.mediaDevices.getUserMedia({ 
             video: { facingMode: facingMode == 'front' ? 'user' : { ideal:  'environment' } } 
         }).then((stream) => {
