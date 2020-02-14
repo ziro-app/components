@@ -46,7 +46,14 @@ const Camera = ({
             {
                 children &&
                 React.Children.map(children, (child) => 
-                    React.cloneElement(child, { turnOn, turnOff, takePicture, deletePicture, isOnPreview: !!picture, cameraState })
+                    React.cloneElement(child, {
+                        turnOn: (facingMode) => turnOn(facingMode||initialFacingMode),
+                        turnOff,
+                        takePicture,
+                        deletePicture,
+                        isOnPreview: !!picture,
+                        cameraState
+                    })
                 )
             }
         </div>
