@@ -35,6 +35,7 @@ import { DisplayUpdatePass } from './DisplayComponents/DisplayUpdatePass/index'
 import { DisplayDeleteAccount } from './DisplayComponents/DisplayDeleteAccount/index'
 import { DisplaySocialMedia } from './DisplayComponents/DisplaySocialMedia/index'
 import { DisplayInputPicture } from './DisplayComponents/DisplayInputPicture/index'
+import { DisplayFormRegisterStoreowner } from './DisplayComponents/DisplayFormRegisterStoreowner/index'
 
 export const App = () =>
 	<Switch>
@@ -73,5 +74,6 @@ export const App = () =>
 		<Route path='/delete-account'><DisplayDeleteAccount /></Route>
 		<Route path='/social-media'><DisplaySocialMedia /></Route>
 		<Route path='/input-picture'><DisplayInputPicture /></Route>
+		<Route path='/form-registerStoreowner'><DisplayFormRegisterStoreowner /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
