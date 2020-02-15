@@ -42,7 +42,6 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
             reader.readAsDataURL(event.target.files[0])
         }
     })
-
     return (
         <>
             <img

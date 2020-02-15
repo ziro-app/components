@@ -36,6 +36,8 @@ import { DisplayDeleteAccount } from './DisplayComponents/DisplayDeleteAccount/i
 import { DisplaySocialMedia } from './DisplayComponents/DisplaySocialMedia/index'
 import { DisplayInputPicture } from './DisplayComponents/DisplayInputPicture/index'
 import { DisplayFormRegisterStoreowner } from './DisplayComponents/DisplayFormRegisterStoreowner/index'
+import { DisplayCamera } from './DisplayComponents/DisplayCamera/index'
+import { DisplayCameraContainer } from './DisplayComponents/DisplayCameraContainer/index'
 
 export const App = () =>
 	<Switch>
@@ -75,5 +77,7 @@ export const App = () =>
 		<Route path='/social-media'><DisplaySocialMedia /></Route>
 		<Route path='/input-picture'><DisplayInputPicture /></Route>
 		<Route path='/form-registerStoreowner'><DisplayFormRegisterStoreowner /></Route>
+		<Route path='/camera'><DisplayCamera /></Route>
+		<Route path='/camera-container'><DisplayCameraContainer /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

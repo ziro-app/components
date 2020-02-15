@@ -4,14 +4,16 @@ menu: Componentes
 route: /call-to-action
 ---
 
+import '../../index.css'
 import { Playground, Props } from 'docz'
 import CallToAction from './index'
+import { containerDocz } from '../../stylesDocz'
 
 # CallToAction
 Componente *stand-alone*. Possui baixo potencial de reutilização, podendo servir de referência de layout para páginas futuras. Um próximo passo para esse componente é torná-lo genérico.
 
 <Playground>
-    <div>
+    <div style={containerDocz}>
 		<CallToAction
 			headerText='Tem cadastro? LOGIN'
 			headerLinkPath='#'

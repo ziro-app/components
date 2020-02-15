@@ -1,0 +1,22 @@
+---
+name: Button
+menu: Componentes
+route: /button
+---
+
+import { Playground, Props } from 'docz'
+import Button from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# Button
+Cria um botão genérico que pode ser usado em forms (submit), como navegação (link) e para chamar eventos (click).
+
+<Playground>
+	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
+		<Button type='submit' cta='Submit' />
+		<Button type='link' cta='Link' navigate={() => null} />
+		<Button type='click' cta='Click' click={() => null} />
+	</div>
+</Playground>
+
+<Props of={Button} />

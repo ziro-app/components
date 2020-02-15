@@ -4,7 +4,7 @@ import Icon from '../Icon/index'
 import { container } from './styles'
 import { primaryColor } from '@ziro/theme'
 
-const Badge = ({ type, size = 10, color = primaryColor, strokeWidth = 3, message, style = container(size, color) }) =>
+const Badge = ({ type, message, size = 10, color = primaryColor, strokeWidth = 3, style = container(size, color) }) =>
 	<label style={style}>
 		<Icon type={type} size={size} color={color} strokeWidth={strokeWidth} />
 		{message}
@@ -12,10 +12,10 @@ const Badge = ({ type, size = 10, color = primaryColor, strokeWidth = 3, message
 
 Badge.propTypes = {
 	type: PropTypes.string.isRequired,
+	message: PropTypes.string.isRequired,
 	size: PropTypes.number,
 	color: PropTypes.string,
 	strokeWidth: PropTypes.number,
-	message: PropTypes.string.isRequired,
 	style: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 }
 
