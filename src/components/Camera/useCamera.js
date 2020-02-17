@@ -28,7 +28,7 @@ export const useCamera = (onTakePicture, onError) => {
 
     const takePicture = useCallback(() => {
         if(!picture && canvasRef.current && videoRef.current) {
-            const { videoHeight, videoWidth, parentElement:{ clientHeight, clientWidth } } = videoRef.current
+            let { videoHeight, videoWidth, parentElement:{ clientHeight, clientWidth } } = videoRef.current
 
             const sx = videoWidth > clientWidth ? (videoWidth-clientWidth)/2 : 0
             const sy = videoHeight > clientHeight ? (videoHeight-clientHeight)/2 : 0

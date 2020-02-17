@@ -5,7 +5,7 @@ export const DisplayCameraContainer = () => {
 	return (
 		<CameraContainer
 			startOnMount={true}
-			onTakePictur={(picture) => console.log({ picture })}
+			onTakePicture={(picture) => console.log({ picture })}
 			allowSwap={true}
 		/>
 	)

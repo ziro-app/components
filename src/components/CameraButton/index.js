@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { shooterBtn, toggleBtn } from './styles'
 import { VideoOff } from '../../Icons/VideoOff'
 import { VideoOn } from '../../Icons/VideoOn'
-import { VideoUser } from '../../Icons/VideoUser'
+import { VideoToggle } from '../../Icons/VideoToggle'
 import { Close } from '../../Icons/Close'
 
 const CameraButton = ({ type, click, toggle, size=50 }) => {
@@ -31,10 +31,14 @@ const CameraButton = ({ type, click, toggle, size=50 }) => {
 					toggle == 'on' &&
 					<VideoOn size={size/2} color='white'/>
 				}
-				{
-					toggle == 'front' &&
-					<VideoUser size={size/2} color='white'/>
-				}
+			</motion.a>,
+		toggle:
+			<motion.a
+				onClick={click}
+				style={toggleBtn(size)}
+				whileTap={{ scale: 0.95 }}
+			>
+				<VideoToggle size={size/2} color='white'/>
 			</motion.a>,
 		close:
 			<motion.a

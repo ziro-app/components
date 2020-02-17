@@ -3,33 +3,11 @@ import Proptypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { shooterDownContainer, shooterUpContainer } from './styles'
 import CameraButton from '../CameraButton'
+import { useShooter } from './useShooter'
 
 const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, allowSwap }) => {
 
-    const [toggleIcon, setToggleIcon] = useState(cameraState == 'off' ? 'on' : 'off')
-
-    const toggle = useCallback(() => {
-        if (allowSwap) {
-            switch(cameraState) {
-                case 'off':
-                    turnOn('rear')
-                    setToggleIcon('front')
-                    return
-                case 'front':
-                    turnOff()
-                    setToggleIcon('on')
-                    return
-                default:
-                    turnOn('front')
-                    setToggleIcon('off')
-                    return
-            }
-        }
-        else {
-            cameraState == 'off' ? turnOn() : turnOff()
-            setToggleIcon(cameraState == 'off' ? 'on' : 'off')
-        }
-    },[cameraState, allowSwap])
+    const [onOff, frontRear, toggleOnOff, toggleFrontRear] = useShooter(cameraState, turnOn, turnOff)
 
     return (
         <>
@@ -44,11 +22,20 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
                 type='close'
                 click={onClose}
             />
-            <CameraButton
-                type='video'
-                toggle={toggleIcon}
-                click={toggle}
-            />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '10px'}}>
+                {
+                    allowSwap &&
+                    <CameraButton
+                        type='toggle'
+                        click={toggleFrontRear}
+                    />
+                }
+                <CameraButton
+                    type='video'
+                    toggle={onOff}
+                    click={toggleOnOff}
+                />
+            </div>
         </motion.div>
         <motion.div
             key='shooterDown'

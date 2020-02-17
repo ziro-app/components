@@ -38,7 +38,7 @@ const Camera = ({
                     animate={previewEnterAnimation}
                     exit={previewExitAnimation}
                 >
-                    <img src={picture} hidden={!picture}/>
+                    <img style={{ display: 'block' }} src={picture} />
                 </motion.div>
             }
         </div>
