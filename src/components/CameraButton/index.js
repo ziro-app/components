@@ -7,21 +7,24 @@ import { VideoOn } from '../../Icons/VideoOn'
 import { VideoToggle } from '../../Icons/VideoToggle'
 import { Close } from '../../Icons/Close'
 
-const CameraButton = ({ type, click, toggle, size=50 }) => {
+const CameraButton = ({ type, click, toggle, size=50, disabled }) => {
+	const anim = !disabled && { scale: 0.95 }
 	const buttonTypes = {
 		shooter:
-			<motion.a
-				onClick={click}
-				style={shooterBtn(size).border}
-				whileTap={{ scale: 0.95 }}
-			>
-				<div style={shooterBtn(size).middle}/>
-			</motion.a>,
+			(({ border, middle }) => (
+				<motion.a
+					onClick={disabled ? undefined : click}
+					style={border}
+					whileTap={anim}
+				>
+					<div style={middle}/>
+				</motion.a>
+			))(shooterBtn(size,disabled)),
 		video:
 			<motion.a
-				onClick={click}
+				onClick={disabled ? undefined : click}
 				style={toggleBtn(size)}
-				whileTap={{ scale: 0.95 }}
+				whileTap={anim}
 			>
 				{
 					toggle == 'off' &&
@@ -34,9 +37,9 @@ const CameraButton = ({ type, click, toggle, size=50 }) => {
 			</motion.a>,
 		toggle:
 			<motion.a
-				onClick={click}
+				onClick={disabled ? undefined : click}
 				style={toggleBtn(size)}
-				whileTap={{ scale: 0.95 }}
+				whileTap={anim}
 			>
 				<VideoToggle size={size/2} color='white'/>
 			</motion.a>,

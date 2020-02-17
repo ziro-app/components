@@ -1,7 +1,7 @@
 
 export const
 
-shooterBtn= (size) => ({
+shooterBtn= (size, disabled) => ({
 	border: {
 		display:'flex',
 		width: size,
@@ -9,7 +9,7 @@ shooterBtn= (size) => ({
 		borderRadius: '50%',
 		borderWidth: '5px',
 		borderStyle: 'solid',
-		borderColor: 'white',
+		borderColor: disabled ? 'grey' : 'white',
 		background: 'transparent',
 		justifyContent: 'center',
 		alignItems: 'center'
@@ -18,7 +18,7 @@ shooterBtn= (size) => ({
 		width: size-5,
 		height: size-5,
 		borderRadius: '50%',
-		background: 'white'
+		background: disabled ? 'grey' : 'white'
 	}
 }),
 

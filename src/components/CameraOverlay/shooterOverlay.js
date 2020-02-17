@@ -48,6 +48,7 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
                 type='shooter'
                 size={60}
                 click={takePicture}
+                disabled={cameraState=='off'}
             />
         </motion.div>
         </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Camera from '../Camera'
 import CameraOverlay from '../CameraOverlay'
+import CameraFallback from '../CameraFallback'
 
 const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, onTakePicture, allowSwap }) => {
     return (
@@ -8,6 +9,7 @@ const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, onT
             startOnMount={startOnMount}
             initialFacingMode={initialFacingMode}
             onTakePicture={onTakePicture}
+            fallbackComponent={<CameraFallback/>}
         >
             <CameraOverlay
                 onSend={onSend}

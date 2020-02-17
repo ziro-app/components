@@ -11,6 +11,7 @@ const Camera = ({
     startOnMount,
     onTakePicture,
     onError,
+    fallbackComponent,
     previewBackground = 'white',
     previewEnterAnimation = { scale: 0.8, translateY: '-8%', boxShadow: shadow },
     previewExitAnimation = { scale: 1.2, translateY: '8%' }
@@ -41,6 +42,9 @@ const Camera = ({
                     <img style={{ display: 'block' }} src={picture} />
                 </motion.div>
             }
+        </div>
+        <div key='fallback' style={overlay}>
+            { !(videoRef.current && videoRef.current.srcObject) && fallbackComponent }
         </div>
         <div key='overlay' style={overlay}>
             {
