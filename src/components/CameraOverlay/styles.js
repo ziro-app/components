@@ -34,4 +34,10 @@ shooterUpContainer = {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px'
+},
+
+shooterTogglesContainer = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gridColumnGap: '10px'
 }

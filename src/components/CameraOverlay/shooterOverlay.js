@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import Proptypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { shooterDownContainer, shooterUpContainer } from './styles'
+import { shooterDownContainer, shooterUpContainer, shooterTogglesContainer } from './styles'
 import CameraButton from '../CameraButton'
 import { useShooter } from './useShooter'
 
@@ -22,7 +22,7 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
                 type='close'
                 click={onClose}
             />
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '10px'}}>
+            <div style={shooterTogglesContainer}>
                 {
                     allowSwap &&
                     <CameraButton

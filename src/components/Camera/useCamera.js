@@ -4,27 +4,37 @@ export const useCamera = (onTakePicture, onError) => {
 
     const [picture, setPicture] = useState(null)
     const [cameraState, setCameraState] = useState('off')
+    const [track, setTrack] = useState(null)
 
     const videoRef = useRef(null)
     const canvasRef = useRef(null)
 
     const turnOn = useCallback((facingMode) => {
-        return navigator.mediaDevices.getUserMedia({ 
+        if(track) {
+            track.stop()
+            setTrack(null)
+        }
+        navigator.mediaDevices.getUserMedia({ 
             video: { facingMode: facingMode == 'front' ? 'user' : { ideal:  'environment' } } 
         }).then((stream) => {
             if (videoRef.current) {
                 videoRef.current.srcObject = stream
                 setCameraState(facingMode||'on')
+                setTrack(stream.getTracks()[0])
             }
         }).catch((error) => onError && onError(error))
-    },[])
+    },[onError, track])
 
     const turnOff = useCallback(() => {
         if(videoRef.current) {
             videoRef.current.srcObject = null
             setCameraState('off')
+            if(track) {
+                track.stop()
+                setTrack(null)
+            }
         }
-    },[])
+    },[track])
 
     const takePicture = useCallback(() => {
         if(!picture && canvasRef.current && videoRef.current) {
