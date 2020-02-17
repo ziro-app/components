@@ -71,6 +71,7 @@ Camera.proptypes = {
     startOnMount: PropTypes.bool,
     onTakePicture: PropTypes.func,
     onError: PropTypes.func,
+    fallbackComponent: PropTypes.element,
     previewBackground: PropTypes.string,
     previewEnterAnimation: PropTypes.object,
     previewExitAnimation: PropTypes.object

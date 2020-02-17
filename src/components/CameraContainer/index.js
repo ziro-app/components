@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Proptypes from 'prop-types'
 import Camera from '../Camera'
 import CameraOverlay from '../CameraOverlay'
 import CameraFallback from '../CameraFallback'
@@ -30,6 +31,15 @@ const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, onT
             />
         </Camera>
     )
+}
+
+CameraContainer.proptypes = {
+    startOnMount: Proptypes.bool,
+    initialFacingMode: Proptypes.string,
+    onSend: Proptypes.func.isRequired,
+    onClose: Proptypes.func.isRequired,
+    onTakePicture: Proptypes.func,
+    allowSwap: Proptypes.bool
 }
 
 export default CameraContainer

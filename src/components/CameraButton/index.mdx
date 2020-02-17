@@ -1,7 +1,6 @@
 ---
 name: CameraButton
 menu: Componentes
-route: /button
 ---
 
 import { Playground, Props } from 'docz'
@@ -9,11 +8,13 @@ import CameraButton from './index'
 import { containerDocz } from '../../stylesDocz'
 
 # Button
-Cria um botão de camera que pode ser *shooter*
+Cria um botão de camera que pode ser *shooter*, *toggle* ou *video*
 
 <Playground>
 	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
-		<Button type='shooter' />
+		<CameraButton type='shooter' />
+		<CameraButton type='toggle' />
+		<CameraButton type='video' position='on'/>
 	</div>
 </Playground>
 

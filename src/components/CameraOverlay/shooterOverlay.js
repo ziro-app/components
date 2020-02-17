@@ -34,7 +34,7 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
                 }
                 <CameraButton
                     type='video'
-                    toggle={onOff}
+                    position={onOff}
                     click={toggleOnOff}
                 />
             </div>
@@ -58,7 +58,12 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
 }
 
 ShooterOverlay.proptypes = {
-    takePicture: Proptypes.func.isRequired
+    takePicture: Proptypes.func.isRequired,
+    cameraState: Proptypes.string,
+    turnOn: Proptypes.func.isRequired,
+    turnOff: Proptypes.func.isRequired,
+    onClose: Proptypes.func,
+    allowSwap: Proptypes.string
 }
 
 export default ShooterOverlay

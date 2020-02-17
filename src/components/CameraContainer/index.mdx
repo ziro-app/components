@@ -1,0 +1,24 @@
+---
+name: CameraContainer
+menu: Componentes
+route: /camera-container
+---
+
+import { Playground, Props } from 'docz'
+import CameraContainer from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# Button
+Cria um container com a camera, os overlays de *shooter* e de *preview*, assim como o *modal* para mostrar as mensagens de erro 
+
+<Playground>
+	<div style={containerDocz}>
+		<CameraContainer
+			startOnMount={true}
+			onTakePicture={(picture) => console.log({ picture })}
+			allowSwap={false}
+		/>
+	</div>
+</Playground>
+
+<Props of={CameraContainer} />

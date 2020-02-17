@@ -7,7 +7,7 @@ import { VideoOn } from '../../Icons/VideoOn'
 import { VideoToggle } from '../../Icons/VideoToggle'
 import { Close } from '../../Icons/Close'
 
-const CameraButton = ({ type, click, toggle, size=50, disabled }) => {
+const CameraButton = ({ type, click, position, size=50, disabled }) => {
 	const anim = !disabled && { scale: 0.95 }
 	const buttonTypes = {
 		shooter:
@@ -27,11 +27,11 @@ const CameraButton = ({ type, click, toggle, size=50, disabled }) => {
 				whileTap={anim}
 			>
 				{
-					toggle == 'off' &&
+					position == 'off' &&
 					<VideoOff size={size/2} color='white'/>
 				}
 				{
-					toggle == 'on' &&
+					position == 'on' &&
 					<VideoOn size={size/2} color='white'/>
 				}
 			</motion.a>,
@@ -58,6 +58,9 @@ const CameraButton = ({ type, click, toggle, size=50, disabled }) => {
 CameraButton.propTypes = {
 	type: PropTypes.string.isRequired,
 	click: PropTypes.func,
+	position: PropTypes.string,
+	size: PropTypes.number,
+	disabled: PropTypes.bool
 }
 
 export default CameraButton
