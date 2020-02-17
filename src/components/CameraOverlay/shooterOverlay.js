@@ -24,11 +24,13 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
             />
             <div style={shooterTogglesContainer}>
                 {
-                    allowSwap &&
+                    allowSwap ?
                     <CameraButton
                         type='toggle'
                         click={toggleFrontRear}
                     />
+                    :
+                    <div/>
                 }
                 <CameraButton
                     type='video'
