@@ -9,7 +9,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Footer from '../Footer/index'
 
-const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, name: affiliateName, cpf: affiliateCpf, searchCnpj, fetch }) => {
+const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, affiliateName, affiliateCpf, searchCnpj, fetch }) => {
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
