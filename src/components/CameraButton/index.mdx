@@ -8,13 +8,14 @@ import CameraButton from './index'
 import { containerDocz } from '../../stylesDocz'
 
 # CameraButton
-Cria um botão de camera que pode ser *shooter*, *toggle* ou *video*
+Cria um botão de camera que pode ser *shooter*, *swap*, *video* ou *close*
 
 <Playground>
-	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
+	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
 		<CameraButton type='shooter' />
 		<CameraButton type='toggle' />
 		<CameraButton type='video' position='on'/>
+		<CameraButton type='close'/>
 	</div>
 </Playground>
 

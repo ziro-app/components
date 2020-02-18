@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useEffect, useState } from 'react'
 
-export const useCamera = (onTakePicture, onError) => {
+export const useCamera = (onTakePicture, onError, startOnMount, initialFacingMode) => {
 
     const [picture, setPicture] = useState(null)
     const [cameraState, setCameraState] = useState('off')
@@ -57,6 +57,8 @@ export const useCamera = (onTakePicture, onError) => {
     },[picture,onTakePicture])
 
     const deletePicture = useCallback(() => setPicture(null))
+
+    useEffect(() => { startOnMount && turnOn(initialFacingMode) },[])
 
     return [picture, videoRef, canvasRef, turnOn, turnOff, takePicture, deletePicture, cameraState]
     

@@ -22,13 +22,13 @@ shooterBtn= (size, disabled) => ({
 	}
 }),
 
-toggleBtn= (size) => ({
+btn= (size,disabled) => ({
 	display: 'flex',
 	width: size,
 	height: size,
 	borderRadius: '50%',
 	borderStyle: 'none',
-	background: 'rgba(0,0,0,0.5)',
+	background: disabled ? 'rgba(200,200,200)' : 'rgba(0,0,0,0.5)',
 	justifyContent: 'center',
 	alignItems: 'center'
 })

@@ -17,9 +17,7 @@ const Camera = ({
     previewExitAnimation = { scale: 1.2, translateY: '8%' }
 }) => {
 
-    const [picture, videoRef, canvasRef, turnOn, turnOff, takePicture, deletePicture, cameraState] = useCamera(onTakePicture,onError)
-
-    useEffect(() => { startOnMount && turnOn(initialFacingMode) },[])
+    const [picture, videoRef, canvasRef, turnOn, turnOff, takePicture, deletePicture, cameraState] = useCamera(onTakePicture,onError,startOnMount,initialFacingMode)
 
     useDisablePinchZoomEffect()
 

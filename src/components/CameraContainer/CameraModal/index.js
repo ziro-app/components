@@ -5,7 +5,7 @@ import { container, svg, title, modal } from './styles'
 import { motion } from 'framer-motion'
 import { btn } from '../../Button/styles'
 
-const CameraModal = ({ isOpen, errorTitle, errorMessage, onRequestClose }) => {
+const CameraModal = ({ isOpen, errorTitle, errorMessage, onRequestClose, illustration='paymentError' }) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -13,7 +13,7 @@ const CameraModal = ({ isOpen, errorTitle, errorMessage, onRequestClose }) => {
             boxStyle={modal}
         >
             <div style={container}>
-                <div style={svg}><Illustration type='paymentError' /></div>
+                <div style={svg}><Illustration type={illustration} /></div>
                 <label style={title}>{errorTitle}</label>
                 <label>{errorMessage}</label>
                 <motion.a

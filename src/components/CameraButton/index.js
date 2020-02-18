@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { shooterBtn, toggleBtn } from './styles'
+import { shooterBtn, btn } from './styles'
 import { VideoOff } from '../../Icons/VideoOff'
 import { VideoOn } from '../../Icons/VideoOn'
 import { VideoToggle } from '../../Icons/VideoToggle'
@@ -23,7 +23,7 @@ const CameraButton = ({ type, click, position, size=50, disabled }) => {
 		video:
 			<motion.a
 				onClick={disabled ? undefined : click}
-				style={toggleBtn(size)}
+				style={btn(size,disabled)}
 				whileTap={anim}
 			>
 				{
@@ -35,19 +35,19 @@ const CameraButton = ({ type, click, position, size=50, disabled }) => {
 					<VideoOn size={size/2} color='white'/>
 				}
 			</motion.a>,
-		toggle:
+		swap:
 			<motion.a
 				onClick={disabled ? undefined : click}
-				style={toggleBtn(size)}
+				style={btn(size,disabled)}
 				whileTap={anim}
 			>
 				<VideoToggle size={size/2} color='white'/>
 			</motion.a>,
 		close:
 			<motion.a
-				onClick={click}
-				style={toggleBtn(size)}
-				whileTap={{ scale: 0.95 }}
+				onClick={disabled ? undefined : click}
+				style={btn(size,disabled)}
+				whileTap={anim}
 			>
 				<Close size={0.6*size} color='white' strokeWidth={2}/>
 			</motion.a>,

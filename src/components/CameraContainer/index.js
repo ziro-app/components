@@ -4,7 +4,7 @@ import Camera from '../Camera'
 import CameraOverlay from '../CameraOverlay'
 import CameraFallback from '../CameraFallback'
 import CameraModal from './CameraModal'
-import * as errors from './CameraModal/errors'
+import * as errors from './errors'
 
 const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, onTakePicture, allowSwap }) => {
 

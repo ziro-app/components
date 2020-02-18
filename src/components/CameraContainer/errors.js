@@ -12,7 +12,7 @@ NotAllowedError = {
 
 NotFoundError = {
     title: 'Nenhuma câmera encontrada',
-    message: 'Nenhum dispositivo para captura de imagens foi encontrado, por favor efetue essa operação em um dispositivo com câmera.'
+    message: 'Nenhum dispositivo para captura de imagens foi encontrado, por favor efetue essa operação em um dispositivo com câmera.',
 },
 
 NotReadableError = {
