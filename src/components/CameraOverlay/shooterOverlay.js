@@ -26,7 +26,7 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
                 {
                     allowSwap ?
                     <CameraButton
-                        type='toggle'
+                        type='swap'
                         click={toggleFrontRear}
                     />
                     :
