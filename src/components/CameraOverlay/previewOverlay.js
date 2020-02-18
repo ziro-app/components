@@ -28,7 +28,7 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
     )
 }
 
-PreviewOverlay.proptypes = {
+PreviewOverlay.propTypes = {
     onDelete: Proptypes.func.isRequired,
     onSend: Proptypes.func.isRequired
 }

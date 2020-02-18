@@ -1,17 +1,20 @@
 export const
 
 container = (background) => ({
-    display: 'flex',
-    position: 'fixed',
+    display: 'grid',
     width: '100%',
-    height: '100%',
+    height: '100vh',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
     background
 }),
 
 overlay = {
-    position: 'fixed',
+    display: 'grid',
     width: '100%',
-    height: '100%'
+    height: '100vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
 }

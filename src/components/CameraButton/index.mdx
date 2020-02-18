@@ -4,6 +4,7 @@ menu: Componentes
 ---
 
 import { Playground, Props } from 'docz'
+import { useState } from 'react'
 import CameraButton from './index'
 import { containerDocz } from '../../stylesDocz'
 
@@ -11,12 +12,19 @@ import { containerDocz } from '../../stylesDocz'
 Cria um botão de camera que pode ser *shooter*, *swap*, *video* ou *close*
 
 <Playground>
-	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
-		<CameraButton type='shooter' />
-		<CameraButton type='toggle' />
-		<CameraButton type='video' position='on'/>
-		<CameraButton type='close'/>
-	</div>
+	{() => {
+		const [position, setPosition] = useState('on')
+		return (
+			<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', alignItems: 'center', justifyContent: 'center' }}>
+				<div style={{ background: 'grey' }}>
+					<CameraButton type='shooter' />
+				</div>
+				<CameraButton type='swap' />
+				<CameraButton type='video' position={position} click={() => setPosition(old => old === 'on' ? 'off' : 'on')}/>
+				<CameraButton type='close'/>
+			</div>
+		)
+	}}
 </Playground>
 
-<Props of={Button} />
+<Props of={CameraButton} />

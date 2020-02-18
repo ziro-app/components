@@ -64,7 +64,7 @@ const Camera = ({
 
 }
 
-Camera.proptypes = {
+Camera.propTypes = {
     initialFacingMode: PropTypes.string,
     startOnMount: PropTypes.bool,
     onTakePicture: PropTypes.func,

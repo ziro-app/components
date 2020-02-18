@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, {  } from 'react'
 import Proptypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { shooterDownContainer, shooterUpContainer, shooterTogglesContainer } from './styles'
@@ -7,7 +7,7 @@ import { useShooter } from './useShooter'
 
 const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, allowSwap }) => {
 
-    const [onOff, frontRear, toggleOnOff, toggleFrontRear] = useShooter(cameraState, turnOn, turnOff)
+    const [onOff,, toggleOnOff, toggleFrontRear] = useShooter(cameraState, turnOn, turnOff)
 
     return (
         <>
@@ -57,7 +57,7 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
     )
 }
 
-ShooterOverlay.proptypes = {
+ShooterOverlay.propTypes = {
     takePicture: Proptypes.func.isRequired,
     cameraState: Proptypes.string,
     turnOn: Proptypes.func.isRequired,

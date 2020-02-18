@@ -11,14 +11,14 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
     const inputRef = useRef(null)
 
     useEffect(() => {
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: facingMode == 'front' ? 'user' : { ideal:  'environment' } } })
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: facingMode === 'front' ? 'user' : { ideal:  'environment' } } })
             .then((stream) => {
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream
                 }
             })
             .catch(error => onErrorMsg(error))
-    },[])
+    },[facingMode, onErrorMsg])
 
     const handleClick = useCallback(() => {
         if(!picture && canvasRef.current && videoRef.current) {
@@ -33,7 +33,7 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
             setPicture(null)
             if(inputRef.current) inputRef.current.value = ""
         }
-    },[picture])
+    },[picture, setPicture])
 
     const fileHandler = useCallback((event) => {
         if(event.target.files.length) {
@@ -41,7 +41,7 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
             reader.onload = (e) => setPicture(e.target.result)
             reader.readAsDataURL(event.target.files[0])
         }
-    })
+    },[setPicture])
     return (
         <>
             <img
