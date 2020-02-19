@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
 import { shadow } from '@ziro/theme'
 import { useCamera, useDisablePinchZoomEffect } from './useCamera'
-import { container, overlay } from './styles'
+import { container, overlay, animateContainer } from './styles'
 
 const Camera = ({
     children,
@@ -22,6 +22,7 @@ const Camera = ({
     useDisablePinchZoomEffect()
 
     return (
+        <div style={animateContainer}>
         <AnimatePresence>
         <div key='container' style={container(!!picture ? previewBackground : 'black' )}>
             <canvas hidden={true} ref={canvasRef}/>
@@ -60,6 +61,7 @@ const Camera = ({
             }
         </div>
         </AnimatePresence>
+        </div>
     )
 
 }

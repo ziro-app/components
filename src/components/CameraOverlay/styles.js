@@ -15,12 +15,13 @@ previewContainer = {
 shooterDownContainer = {
     display: 'flex',
     position: 'absolute',
-    width: '100vw',
     height: '20%',
     background: 'rgba(0,0,0,0.5)', 
-    bottom: '0px',
+    bottom: 0,
+    right: 0,
+    left: 0,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 },
 
 shooterUpContainer = {

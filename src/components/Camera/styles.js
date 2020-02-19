@@ -1,5 +1,9 @@
 export const
 
+animateContainer = {
+    position: 'relative'
+},
+
 container = (background) => ({
     display: 'grid',
     width: '100%',
@@ -11,10 +15,10 @@ container = (background) => ({
 }),
 
 overlay = {
-    display: 'grid',
-    width: '100%',
-    height: '100vh',
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: 'absolute',
     overflow: 'hidden',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
 }
