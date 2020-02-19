@@ -13,7 +13,7 @@ import { containerDocz } from '../../stylesDocz'
 Componente para utilização da camera do dispositivo, pode ser usado *stand-alone* ou com componentes filhos que serão colocados como overlay, os componentes filhos recebem as funções *turnOn*,*turnOff*,*takePicture* e *deletePicture*, assim como o booleano *isOnPreview* e a string *cameraState*, que são auto-explicativos.
 
 <Playground>
-    <div style={{ ...containerDocz, height: '100vh' }}>
+    <div style={ containerDocz }>
 		<Camera
 			startOnMount={true}
 		/>
