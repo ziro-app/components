@@ -38,6 +38,8 @@ import { DisplayInputPicture } from './DisplayComponents/DisplayInputPicture/ind
 import { DisplayFormRegisterStoreowner } from './DisplayComponents/DisplayFormRegisterStoreowner/index'
 import { DisplayCamera } from './DisplayComponents/DisplayCamera/index'
 import { DisplayCameraContainer } from './DisplayComponents/DisplayCameraContainer/index'
+import { DisplaySummary } from './DisplayComponents/DisplaySummary/index'
+import { DisplayFlowSummary } from './DisplayComponents/DisplayFlowSummary/index'
 
 export const App = () =>
 	<Switch>
@@ -79,5 +81,7 @@ export const App = () =>
 		<Route path='/form-registerStoreowner'><DisplayFormRegisterStoreowner /></Route>
 		<Route path='/camera'><DisplayCamera /></Route>
 		<Route path='/camera-container'><DisplayCameraContainer /></Route>
+		<Route path='/summary'><DisplaySummary/></Route>
+		<Route path='/flow-summary'><DisplayFlowSummary/></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
