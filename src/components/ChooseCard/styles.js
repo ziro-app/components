@@ -1,4 +1,4 @@
-import { primaryColor, secondaryColor, gradient } from '@ziro/theme'
+import { primaryColor, secondaryColor, gradient, shadow } from '@ziro/theme'
 
 export const
 
@@ -9,7 +9,8 @@ cardContainer = (selected) => ({
     alignItems: 'center',
     padding: '0px 10px',
     borderRadius: '15px',
-    background: selected ? gradient : 'transparent'
+    background: selected ? '#F0F0F0' : 'transparent',
+    border: selected ? '1px solid #C0C0C0' : '1px solid transparent'
 }),
 
-color = (selected) => selected ? secondaryColor : primaryColor
+color = primaryColor

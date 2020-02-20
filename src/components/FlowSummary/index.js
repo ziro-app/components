@@ -6,6 +6,7 @@ import FlowButtonsWrapper from '../FlowButtonsWrapper'
 const FlowSummary = ({ seller, charge, maxInstallments, misc, onNext }) => {
     return (
         <FlowButtonsWrapper
+            title='Fatura'
             next={{
                 title: 'próximo',
                 onClick: onNext

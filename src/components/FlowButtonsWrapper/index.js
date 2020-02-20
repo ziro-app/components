@@ -1,11 +1,13 @@
 import React from 'react'
 import Button from '../Button'
-import { doubleButton, singleButton, container } from './styles'
+import Header from '../Header'
+import { doubleButton, singleButton, container, content } from './styles'
 
-const FlowButtonsWrapper = ({ children, next, previous }) => {
+const FlowButtonsWrapper = ({ children, title, next, previous }) => {
     return (
         <div style={container}>
-            <div style={{ padding: '20px 0px' }}>
+            <Header type='title-only' title={title}/>
+            <div style={content}>
                 {children}
             </div>
             <div style={next && previous ? doubleButton : singleButton}>

@@ -11,15 +11,15 @@ const ChooseCard = ({ numbers, onChange, onNewCard }) => {
     useEffect(() => onChange && onChange(numbers[selected]),[selected])
 
     return (
-        <div style={{ display: 'grid', gridGap: '20px' }}>
+        <div style={{ display: 'grid', alignItems: 'center', height: '100%' }}>
             {
                 numbers &&
                 numbers.map((number,index) => {
                     const brand = matchCreditCardBrand(number)
                     return (
                         <div onClick={() => setSelected(index)} style={cardContainer(selected===index)}>
-                            { brand ? <Icon type={brand} size={30} color={color(selected===index)}/> : <div style={{ width: 30, height: 30 }}/> }
-                            <h1 style={{ color: color(selected===index) }}>{number}</h1>
+                            { brand ? <Icon type={brand} size={30} color={color}/> : <div style={{ width: 30, height: 30 }}/> }
+                            <h1 style={{ color }}>{number}</h1>
                         </div>
                     )
                 })

@@ -6,6 +6,7 @@ import FlowButtonsWrapper from '../FlowButtonsWrapper'
 const FlowChooseCard = ({ numbers, onChange, onNewCard, onNext, onPrevious }) => {
     return (
         <FlowButtonsWrapper
+            title='Escolha um cartão'
             next={{
                 title: 'finalizar',
                 onClick: onNext
