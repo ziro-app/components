@@ -24,7 +24,6 @@
     "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
-    "bit-bin": "^14.7.4",
     "docz": "^2.2.0",
     "framer-motion": "^1.7.3",
     "gatsby-plugin-web-font-loader": "^1.0.4",
