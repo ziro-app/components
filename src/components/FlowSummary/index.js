@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Summary from '../Summary'
 import FlowButtonsWrapper from '../FlowButtonsWrapper'
 
@@ -18,6 +19,11 @@ const FlowSummary = ({ seller, charge, maxInstallments, misc, onNext }) => {
             />
         </FlowButtonsWrapper>
     )
+}
+
+FlowSummary.propTypes = {
+    ...Summary.propTypes,
+    onNext: PropTypes.func.isRequired
 }
 
 export default FlowSummary

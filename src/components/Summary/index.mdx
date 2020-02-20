@@ -1,0 +1,25 @@
+---
+name: Summary
+menu: Componentes
+---
+
+import { Playground, Props } from 'docz'
+import Summary from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# Summary
+Componente responsável por exibir um resumo da fatura recebida, com uma prop *misc* que pode mostrar informações extras
+
+<Playground>
+	<Summary
+		seller='loja x'
+		charge='1234567'
+		maxInstallments = '8'
+		misc={{
+			title: 'Sobre a loja',
+			text: 'Essa é uma loja x'
+		}}
+	/>
+</Playground>
+
+<Props of={Summary} />
