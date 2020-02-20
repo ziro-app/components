@@ -40,6 +40,8 @@ import { DisplayCamera } from './DisplayComponents/DisplayCamera/index'
 import { DisplayCameraContainer } from './DisplayComponents/DisplayCameraContainer/index'
 import { DisplaySummary } from './DisplayComponents/DisplaySummary/index'
 import { DisplayFlowSummary } from './DisplayComponents/DisplayFlowSummary/index'
+import { DisplayChooseCard } from './DisplayComponents/DisplayChooseCard/index'
+import { DisplayFlowChooseCard } from './DisplayComponents/DisplayFlowChooseCard/index'
 
 export const App = () =>
 	<Switch>
@@ -83,5 +85,7 @@ export const App = () =>
 		<Route path='/camera-container'><DisplayCameraContainer /></Route>
 		<Route path='/summary'><DisplaySummary/></Route>
 		<Route path='/flow-summary'><DisplayFlowSummary/></Route>
+		<Route path='/choose-card'><DisplayChooseCard/></Route>
+		<Route path='/flow-choose-card'><DisplayFlowChooseCard/></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

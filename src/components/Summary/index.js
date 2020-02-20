@@ -1,51 +1,47 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import currencyFormat from '@ziro/currency-format'
-import { container, title, subTitle, doubleRow, tripleRow, separatorRow, separator, middleItem, values } from './styles'
+import Header from '../Header'
+import { container, title, subTitle, doubleRow, tripleRow, separatorRow, separator, middleItem, values, content, header } from './styles'
 
 const quotient = (dividend, divisor) => parseInt((dividend/100/divisor).toFixed(2) * 100, 10)
 
 const Summary = ({ charge, maxInstallments, seller, misc }) => {
     return (
-        <>
-			<div style={container}>
-				<div style={title}>{seller}</div>
-                <div style={container}>
-                    <div style={doubleRow}>
-                        <label>valor</label>
-                        <label style={subTitle}>{currencyFormat(charge)}</label>
+        <div style={container}>
+            <div style={doubleRow}>
+                <h1 style={title}>{seller}</h1>
+                <h1 style={subTitle}>{currencyFormat(charge)}</h1>
+            </div>
+            <h1 style={header}>Parcelamento</h1>
+            <div style={tripleRow}>
+                <label style={values}>1</label>
+                <label style={middleItem}>vez de</label>
+                <label style={{ ...values, textAlign: 'end' }}>{currencyFormat(charge)}</label>
+            </div>
+            {
+                maxInstallments > 1 &&
+                [
+                    <div key='separator' style={separatorRow}>
+                        <div style={separator}/>
+                        <label style={middleItem}>até</label>
+                        <div style={separator}/>
+                    </div>,
+                    <div key='max' style={tripleRow}>
+                        <label style={values}>{maxInstallments}</label>
+                        <label style={middleItem}>vezes de</label>
+                        <label style={{ ...values, textAlign: 'end' }}>{currencyFormat(quotient(charge,maxInstallments))}</label>
                     </div>
-                    <label style={subTitle}>Opções de parcelamento</label>
-                    <div style={tripleRow}>
-                        <label style={values}>{1}</label>
-                        <label style={middleItem}>{'vez de'}</label>
-                        <label style={{ ...values, textAlign: 'end' }}>{currencyFormat(charge)}</label>
-                    </div>
-                    {
-                        maxInstallments > 1 &&
-                        [
-                            <div key='separator' style={separatorRow}>
-                                <div style={separator}/>
-                                <label style={middleItem}>{'até'}</label>
-                                <div style={separator}/>
-                            </div>,
-                            <div key='max' style={tripleRow}>
-                                <label style={values}>{maxInstallments}</label>
-                                <label style={middleItem}>{'vezes de'}</label>
-                                <label style={{ ...values, textAlign: 'end' }}>{currencyFormat(quotient(charge,maxInstallments))}</label>
-                            </div>
-                        ]
-                    }
-                    {
-                        misc &&
-                        [
-                            <label style={subTitle}>{misc.title}</label>,
-                            <label style={container}>{misc.text}</label>
-                        ]
-                    }
-                </div>
-			</div>
-		</>
+                ]
+            }
+            {
+                misc &&
+                [
+                    <h1 style={header}>{misc.title}</h1>,
+                    <div style={content}>{misc.text}</div>
+                ]
+            }
+		</div>
     )
 }
 

@@ -5,7 +5,7 @@ export const
 
 container = {
 	display: 'grid',
-	padding: 10
+	padding: '10px'
 },
 
 title = {
@@ -20,6 +20,11 @@ subTitle = {
 	fontSize: 20
 },
 
+header = {
+	fontFamily: fontTitle,
+	textAlign: 'center'
+},
+
 values = {
 	fontFamily: fontTitle,
 	fontSize: 16
@@ -30,12 +35,12 @@ doubleRow = {
 	gridTemplateColumns: 'auto auto',
 	alignItems: 'center',
 	justifyContent: 'space-between',
-	padding: '20px',
 },
 
 tripleRow = {
 	...doubleRow,
-	gridTemplateColumns: '1fr 2fr 3fr'
+	gridTemplateColumns: '1fr 2fr 3fr',
+	padding: '20px 40px'
 },
 
 separatorRow = {
@@ -53,4 +58,9 @@ separator = {
 middleItem = {
 	textAlign: 'center',
 	fontSize: fontSizeSmall
+},
+
+content = {
+	fontSize: fontSizeSmall,
+	padding: '20px'
 }

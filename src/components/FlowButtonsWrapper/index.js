@@ -5,7 +5,9 @@ import { doubleButton, singleButton, container } from './styles'
 const FlowButtonsWrapper = ({ children, next, previous }) => {
     return (
         <div style={container}>
-            {children}
+            <div style={{ padding: '20px 0px' }}>
+                {children}
+            </div>
             <div style={next && previous ? doubleButton : singleButton}>
                 {
                     previous &&

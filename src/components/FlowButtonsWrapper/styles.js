@@ -2,10 +2,8 @@ export const
 
 doubleButton = {
     display: 'grid',
-    margin: '5%',
     gridTemplateColumns: '1fr 1fr',
-    gridGap: '5%',
-    bottom: 0,
+    gridGap: '5%'
 },
 
 singleButton = {
@@ -15,7 +13,6 @@ singleButton = {
 
 container = {
     display: 'grid',
-    height: '100vh',
-    alignContent: 'space-between',
-    gridTemplateRows: 'auto auto'
+    gridTemplateRows: '1fr auto',
+    alignItems: 'center'
 }
