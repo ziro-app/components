@@ -24,11 +24,13 @@ const ChooseCard = ({ numbers, onChange, onNewCard }) => {
                     )
                 })
             }
+            <div style={{ padding: '20px 0px' }}>
             <Button
                 type='click'
                 click={() => onNewCard && onNewCard()}
                 cta='Novo Cartão'
             />
+            </div>
         </div>
     )
 }
