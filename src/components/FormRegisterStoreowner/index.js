@@ -41,11 +41,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [advisors, setAdvisors] = useState([])
 
 	const setState = {
-		setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
+		setAffiliateName, setAffiliateCpf, setAdvisor, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
 		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setEmail
 	}
 	const state = {
-		affiliateName, affiliateCpf, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
+		affiliateName, affiliateCpf, advisor, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
 		rua, numero, complemento, bairro, cep, cidade, estado, fone, email, ...setState, cnpjValid
 	}
 	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates), [])
