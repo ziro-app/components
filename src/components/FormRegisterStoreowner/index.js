@@ -8,8 +8,9 @@ import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Footer from '../Footer/index'
+import Dropdown from '../Dropdown/index'
 
-const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, affiliateName, affiliateCpf, searchCnpj, fetch }) => {
+const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, searchCnpj, fetch }) => {
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
@@ -33,6 +34,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, affili
 	const [estado, setEstado] = useState('')
 	const [fone, setFone] = useState('')
 	const [email, setEmail] = useState('')
+	const [affiliateName, setAffiliateName] = useState('')
+	const [affiliateCpf, setAffiliateCpf] = useState('')
+	const [affiliates, setAffiliates] = useState([{ 0: "279.601.038-44", 1: "Samuel Lima" }, { 0: "329.094.378-09", 1: "Karina Mota" }, { 0: "307.365.118-73", 1: "Aline Vieira" }, { 0: "326.800.328-10", 1: "Aline Maciel" }, { 0: "227.163.738-41", 1: "Amanda Guimarães" }, { 0: "372.655.338-01", 1: "Maria Bizerra" }, { 0: "433.766.938-89", 1: "Kalyne Vieira" }, { 0: "056.217.244-02", 1: "Rizoan Moura" }, { 0: "366.932.918-80", 1: "Bruna Ferreira Da Silva" }, { 0: "000.000.000-00", 1: "Gisele Patrícia Caires" }, { 0: "000.000.000-00", 1: "Vanessa ." }, { 0: "348.252.665-68", 1: "Sueli Cavalcante" }])
+	const [advisor, setAdvisor] = useState('')
+	const [advisors, setAdvisors] = useState(["Rubia", "David", "Paulo", "Vivian", "Rita"])
 
 	const setState = {
 		setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
@@ -42,7 +48,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, affili
 		affiliateName, affiliateCpf, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
 		rua, numero, complemento, bairro, cep, cidade, estado, fone, email, ...setState, cnpjValid
 	}
-	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners), [])
+	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates), [])
 	useEffect(() => setCnpjValid(false), [cnpj])
 	const validations = [
 		{
@@ -150,7 +156,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, affili
 					<FormInput name='rg' label='RG' input={
 						<InputText
 							value={rg}
-							onChange={({ target: { value } }) => setRg(maskInput(value, '############', true))}
+							onChange={({ target: { value } }) => setRg(maskInput(value, '##############', true))}
 							placeholder='00.111.222-3'
 						/>
 					} />,
@@ -258,7 +264,48 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, affili
 							onChange={({ target: { value } }) => setEmail(value)}
 							placeholder='email@gmail.com'
 						/>
-					} />
+					} />,
+					hasAffiliated ? <FormInput name='affiliate' label='Afiliado' input={
+						<Dropdown
+							value={affiliateName}
+							onChange={({ target: { value } }) => {
+								if (value !== '') {
+									let person = affiliates.find(element => element[1] === value)
+									setAffiliateCpf(person[0])
+									setAffiliateName(person[1])
+								} else {
+									setAffiliateCpf('')
+									setAffiliateName('')
+								}
+							}}
+							onChangeKeyboard={element => {
+								if (element) {
+									let person = affiliates.find(element => element[1] === value)
+									setAffiliateCpf(person[0])
+									setAffiliateName(person[1])
+								} else {
+									setAffiliateCpf('')
+									setAffiliateName('')
+								}
+							}
+							}
+							list={affiliates.map(affiliate => Object.values(affiliate)[1])}
+							placeholder="Nome do afiliado"
+							readOnly={true}
+						/>
+					} /> : <FormInput label='' name='' input={<></>} />,
+					hasAdvisor ? <FormInput name='advisor' label='Assessor' input={
+						<Dropdown
+							value={advisor}
+							onChange={({ target: { value } }) => setAdvisor(value)}
+							onChangeKeyboard={element =>
+								element ? setAdvisor(element.value) : null
+							}
+							list={advisors}
+							placeholder="Nome do assessor"
+						/>
+					} /> : <FormInput label='' name='' input={<></>} />
+
 				]}
 			/>
 			<Footer phone='+55 (11) 3334-0920' />

@@ -133,11 +133,6 @@
     "vitorbarbosa19.ziro/camera-container@0.1.0": {
         "files": [
             {
-                "relativePath": "src/components/CameraContainer/CameraModal/errors.js",
-                "test": false,
-                "name": "errors.js"
-            },
-            {
                 "relativePath": "src/components/CameraContainer/CameraModal/index.js",
                 "test": false,
                 "name": "index.js"
@@ -146,6 +141,11 @@
                 "relativePath": "src/components/CameraContainer/CameraModal/styles.js",
                 "test": false,
                 "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/CameraContainer/errors.js",
+                "test": false,
+                "name": "errors.js"
             },
             {
                 "relativePath": "src/components/CameraContainer/index.js",
@@ -551,7 +551,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.0": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.1": {
         "files": [
             {
                 "relativePath": "src/components/FormRegisterStoreowner/GetCnpj/index.js",
