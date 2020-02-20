@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { btn, btnDisabled } from './styles'
+import { btn, btnDisabled, btnDestructive } from './styles'
 
-const Button = ({ type, cta, submitting, navigate, click, style }) => {
-	const btnStyle = style || btn
+const Button = ({ type, cta, submitting, navigate, click, style, destructive }) => {
+	const btnStyle = destructive ? btnDestructive : style || btn
 	const tapAnimation = submitting ? null : { scale: 0.95 }
 	const buttonTypes = {
 		submit:
@@ -38,7 +38,8 @@ Button.propTypes = {
 	submitting: PropTypes.bool,
 	navigate: PropTypes.func,
 	click: PropTypes.func,
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+	destructive: PropTypes.bool
 }
 
 export default Button

@@ -2,7 +2,7 @@ export const
 
 container = {
     display: 'flex',
-    position: 'fixed',
+    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 0,

@@ -1,7 +1,7 @@
 export const
 
 previewContainer = {
-    position: 'fixed',
+    position: 'absolute',
     background: 'white',
     bottom: '0px',
     right: '0px',
@@ -14,22 +14,23 @@ previewContainer = {
 
 shooterDownContainer = {
     display: 'flex',
-    position: 'fixed',
-    width: '100%',
+    position: 'absolute',
     height: '20%',
     background: 'rgba(0,0,0,0.5)', 
-    bottom: '0px',
+    bottom: 0,
+    right: 0,
+    left: 0,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 },
 
 shooterUpContainer = {
     display: 'flex',
-    position: 'fixed',
+    position: 'absolute',
     height: '10%',
-    top: '0px',
-    right: '0px',
-    left: '0px',
+    top: 0,
+    right: 0,
+    left: 0,
     background: 'transparent', 
     justifyContent: 'space-between',
     alignItems: 'center',

@@ -32,7 +32,7 @@ const CameraOverlay = ({ turnOn, turnOff, takePicture, deletePicture, isOnPrevie
     )
 }
 
-CameraOverlay.proptypes = {
+CameraOverlay.propTypes = {
     turnOn: Proptypes.func.isRequired,
     turnOff: Proptypes.func.isRequired,
     takePicture: Proptypes.func.isRequired,

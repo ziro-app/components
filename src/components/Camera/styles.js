@@ -1,17 +1,24 @@
 export const
 
+animateContainer = {
+    position: 'relative'
+},
+
 container = (background) => ({
-    display: 'flex',
-    position: 'fixed',
+    display: 'grid',
     width: '100%',
-    height: '100%',
+    height: '100vh',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
     background
 }),
 
 overlay = {
-    position: 'fixed',
-    width: '100%',
-    height: '100%'
+    position: 'absolute',
+    overflow: 'hidden',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
 }

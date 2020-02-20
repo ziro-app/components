@@ -58,7 +58,13 @@ export const useCamera = (onTakePicture, onError, startOnMount, initialFacingMod
 
     const deletePicture = useCallback(() => setPicture(null))
 
-    useEffect(() => { startOnMount && turnOn(initialFacingMode) },[])
+    useEffect(() => {
+        startOnMount && turnOn(initialFacingMode)
+        return () => {
+            const stream = videoRef.current && videoRef.current.srcObject
+            stream && stream.getTracks()[0].stop()
+        }
+    },[])
 
     return [picture, videoRef, canvasRef, turnOn, turnOff, takePicture, deletePicture, cameraState]
     

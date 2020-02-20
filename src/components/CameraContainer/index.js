@@ -33,7 +33,7 @@ const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, onT
     )
 }
 
-CameraContainer.proptypes = {
+CameraContainer.propTypes = {
     startOnMount: Proptypes.bool,
     initialFacingMode: Proptypes.string,
     onSend: Proptypes.func.isRequired,

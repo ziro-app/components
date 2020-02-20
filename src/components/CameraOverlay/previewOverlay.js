@@ -17,6 +17,7 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
             <Button
                 type='click'
                 cta='excluir'
+                destructive={true}
                 click={onDelete}
             />
             <Button
@@ -28,7 +29,7 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
     )
 }
 
-PreviewOverlay.proptypes = {
+PreviewOverlay.propTypes = {
     onDelete: Proptypes.func.isRequired,
     onSend: Proptypes.func.isRequired
 }

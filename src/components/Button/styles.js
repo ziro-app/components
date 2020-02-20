@@ -27,4 +27,9 @@ btnDisabled = {
 	background: 'none',
 	backgroundColor: grayColor4,
 	boxShadow: 'none'
+},
+
+btnDestructive = {
+	...btn,
+	background: 'linear-gradient(#BA3A3A 10%, #B33 30%, #B22 60%, #800)'
 }
