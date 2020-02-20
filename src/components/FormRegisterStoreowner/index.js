@@ -36,9 +36,9 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [email, setEmail] = useState('')
 	const [affiliateName, setAffiliateName] = useState('')
 	const [affiliateCpf, setAffiliateCpf] = useState('')
-	const [affiliates, setAffiliates] = useState([{ 0: "279.601.038-44", 1: "Samuel Lima" }, { 0: "329.094.378-09", 1: "Karina Mota" }, { 0: "307.365.118-73", 1: "Aline Vieira" }, { 0: "326.800.328-10", 1: "Aline Maciel" }, { 0: "227.163.738-41", 1: "Amanda Guimarães" }, { 0: "372.655.338-01", 1: "Maria Bizerra" }, { 0: "433.766.938-89", 1: "Kalyne Vieira" }, { 0: "056.217.244-02", 1: "Rizoan Moura" }, { 0: "366.932.918-80", 1: "Bruna Ferreira Da Silva" }, { 0: "000.000.000-00", 1: "Gisele Patrícia Caires" }, { 0: "000.000.000-00", 1: "Vanessa ." }, { 0: "348.252.665-68", 1: "Sueli Cavalcante" }])
+	const [affiliates, setAffiliates] = useState([])
 	const [advisor, setAdvisor] = useState('')
-	const [advisors, setAdvisors] = useState(["Rubia", "David", "Paulo", "Vivian", "Rita"])
+	const [advisors, setAdvisors] = useState([])
 
 	const setState = {
 		setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
