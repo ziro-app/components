@@ -4,7 +4,7 @@ doubleButton = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridGap: '5%',
-    padding: '5% 0px'
+    padding: '5% 20px'
 },
 
 singleButton = {
@@ -13,12 +13,15 @@ singleButton = {
 },
 
 container = {
+    overflow: 'hidden',
     display: 'grid',
-    height: '85vh',
+    height: '90vh',
     gridTemplateRows: 'auto 1fr auto',
-    padding: '5vh 20px'
+    padding: '20px 0px'
 },
 
 content = {
-    overflow: 'scroll'
+    overflowY: 'auto',
+    overflowX: 'visible',
+    padding: '0px 20px'
 }
