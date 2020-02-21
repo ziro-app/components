@@ -1,16 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Summary from '../Summary'
-import FlowButtonsWrapper from '../FlowButtonsWrapper'
+import FlowManager from '../FlowManager'
 
-const FlowSummary = ({ seller, charge, maxInstallments, misc, onNext }) => {
+const FlowSummary = ({ seller, charge, maxInstallments, misc, next, onError }) => {
     return (
-        <FlowButtonsWrapper
+        <FlowManager
             title='Fatura'
             next={{
                 title: 'próximo',
-                onClick: onNext
+                ...next
             }}
+            onError={onError}
         >
             <Summary
                 seller={seller}
@@ -18,13 +19,17 @@ const FlowSummary = ({ seller, charge, maxInstallments, misc, onNext }) => {
                 maxInstallments={maxInstallments}
                 misc={misc}
             />
-        </FlowButtonsWrapper>
+        </FlowManager>
     )
 }
 
 FlowSummary.propTypes = {
     ...Summary.propTypes,
-    onNext: PropTypes.func.isRequired
+    next: PropTypes.shape({
+        onClick: PropTypes.func,
+        location: PropTypes.string
+    }).isRequired,
+    onError: PropTypes.func
 }
 
 export default FlowSummary

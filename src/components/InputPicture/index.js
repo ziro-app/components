@@ -18,6 +18,10 @@ const InputPicture = ({ facingMode, picture, setPicture, onErrorMsg, allowUpload
                 }
             })
             .catch(error => onErrorMsg(error))
+        return () => {
+            const stream = videoRef.current && videoRef.current.srcObject
+            stream && stream.getTracks()[0].stop()
+        }
     },[facingMode, onErrorMsg])
 
     const handleClick = useCallback(() => {

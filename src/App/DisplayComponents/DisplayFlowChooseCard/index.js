@@ -1,11 +1,9 @@
 import React from 'react'
-import Header from '../../../components/Header/index'
 import FlowChooseCard from '../../../components/FlowChooseCard'
-import { containerWithPadding } from '@ziro/theme'
-import { useLocation } from 'wouter'
+import { useState } from 'react'
 
 export const DisplayFlowChooseCard = () => {
-	const [,setLocation] = useLocation()
+	const [selected, setSelected] = useState(null)
 	return (
 		<FlowChooseCard
 			numbers={[
@@ -18,10 +16,12 @@ export const DisplayFlowChooseCard = () => {
 				'9382 **** **** **** 4930',
 				'9403 **** **** **** 3928'
 			]}
-			onChange={(number) => console.log({ number })}
-			onNewCard={() => setLocation('/register-card')}
-			onNext={() => {}}
-			onPrevious={() => setLocation('/flow-summary')}
+			onChange={setSelected}
+			previous={{
+				location: '/flow-summary',
+				onClick: () => new Promise((res,rej) => selected ? res() : rej('noCard'))
+			}}
+			onError={(error) => console.log({ error })}
 		/>
 	)
 }

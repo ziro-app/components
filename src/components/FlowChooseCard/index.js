@@ -1,34 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ChooseCard from '../ChooseCard'
-import FlowButtonsWrapper from '../FlowButtonsWrapper'
+import FlowManager from '../FlowManager'
 
-const FlowChooseCard = ({ numbers, onChange, onNewCard, onNext, onPrevious }) => {
+const FlowChooseCard = ({ numbers, onChange, onNewCard, next, previous, onError }) => {
     return (
-        <FlowButtonsWrapper
+        <FlowManager
             title='Escolha um cartão'
             next={{
-                title: 'finalizar',
-                onClick: onNext
+                title: 'próximo',
+                ...next
             }}
             previous={{
                 title: 'voltar',
-                onClick: onPrevious
+                ...previous
             }}
+            onError={onError}
         >
             <ChooseCard
                 numbers={numbers}
                 onChange={onChange}
                 onNewCard={onNewCard}
             />
-        </FlowButtonsWrapper>
+        </FlowManager>
     )
 }
 
 FlowChooseCard.propTypes = {
     ...ChooseCard.propTypes,
-    onNext: PropTypes.func.isRequired,
-    onPrevious: PropTypes.func.isRequired
+    next: PropTypes.shape({
+        onClick: PropTypes.func,
+        location: PropTypes.string
+    }).isRequired,
+    previous: PropTypes.shape({
+        onClick: PropTypes.func,
+        location: PropTypes.string
+    }).isRequired,
+    onError: PropTypes.func
 }
 
 export default FlowChooseCard

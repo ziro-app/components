@@ -15,7 +15,7 @@ singleButton = {
 container = {
     overflow: 'hidden',
     display: 'grid',
-    height: '90vh',
+    height: '85vh',
     gridTemplateRows: 'auto 1fr auto',
     padding: '20px 0px'
 },
