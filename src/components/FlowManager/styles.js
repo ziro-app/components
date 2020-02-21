@@ -17,7 +17,7 @@ container = {
     display: 'grid',
     height: '85vh',
     gridTemplateRows: 'auto 1fr auto',
-    padding: '20px 0px'
+    padding: '20px 0px',
 },
 
 content = {

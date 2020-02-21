@@ -32,6 +32,7 @@ import { Gear } from '../../Icons/Gear/index'
 import { Present } from '../../Icons/Present/index'
 import { Trending } from '../../Icons/Trending/index'
 import { Globe } from '../../Icons/Globe/index'
+import { Add } from '../../Icons/Add/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -68,7 +69,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		gear: <Gear {...iconProps} />,
 		present: <Present {...iconProps} />,
 		trending: <Trending {...iconProps} />,
-		globe: <Globe {...iconProps} />
+		globe: <Globe {...iconProps} />,
+		add: <Add {...iconProps} />
 	}
 	return iconList[type]
 }

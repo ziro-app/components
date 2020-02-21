@@ -3,24 +3,18 @@ import PropTypes from 'prop-types'
 import ChooseCard from '../ChooseCard'
 import FlowManager from '../FlowManager'
 
-const FlowChooseCard = ({ numbers, onChange, onNewCard, next, previous, onError }) => {
+const FlowChooseCard = ({ numbers, onChange, newCard, next, previous, onError }) => {
     return (
         <FlowManager
             title='Escolha um cartão'
-            next={{
-                title: 'próximo',
-                ...next
-            }}
-            previous={{
-                title: 'voltar',
-                ...previous
-            }}
+            next={{ title: 'próximo', ...next }}
+            previous={{ title: 'voltar', ...previous }}
             onError={onError}
         >
             <ChooseCard
                 numbers={numbers}
                 onChange={onChange}
-                onNewCard={onNewCard}
+                newCard={newCard}
             />
         </FlowManager>
     )

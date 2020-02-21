@@ -4,7 +4,8 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '20px'
+	gridRowGap: '20px',
+	padding: '10px 0px'
 },
 
 dual = {

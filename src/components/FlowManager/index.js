@@ -7,7 +7,7 @@ import { useRouter } from 'wouter'
 import { useEffect } from 'react'
 import { useCallback } from 'react'
 
-const FlowManager = ({ children, title, next, previous, onError }) => {
+const FlowManager = ({ children, title, next, previous, onError, overflow = 'hidden', height = '85vh' }) => {
 
     const router = useRouter()
     const [,setLocation] = router.hook()
@@ -52,7 +52,7 @@ const FlowManager = ({ children, title, next, previous, onError }) => {
     })
 
     return (
-        <div style={container}>
+        <div style={{ ...container, overflow, height }}>
             <AnimatePresence>
                 <motion.div
                     key={title+'header'}
@@ -62,7 +62,8 @@ const FlowManager = ({ children, title, next, previous, onError }) => {
                     variants={{
                         goForward: { opacity: 0 },
                         normal: { opacity: 1 },
-                        goBack: { opacity: 0 }
+                        goBack: { opacity: 0 },
+                        diverge: { opacity: 0 }
                     }}
                 >
                     <Header type='title-only' title={title}/>
@@ -73,7 +74,8 @@ const FlowManager = ({ children, title, next, previous, onError }) => {
                     initial={
                         router.lastFlowButton === 'previous' ? { x: '-150%' } :
                         router.lastFlowButton === 'next' ? { x: '150%' } :
-                        { x: '0%', opacity: 0 }
+                        router.lastFlowButton === 'diverge' ? { y: '20%', opacity: 0 } :
+                        { scale: 1, x: '0%', y: '0%', opacity: 0 }
                     }
                     animate={controls}
                     exit={{}}
@@ -81,10 +83,18 @@ const FlowManager = ({ children, title, next, previous, onError }) => {
                     variants={{
                         goBack: { x: '150%' },
                         goForward: { x: '-150%' },
-                        normal: { x: '0%', opacity: 1 }
+                        normal: { scale: 1, x: '0%', y: '0%', opacity: 1 },
+                        diverge: { scale: 0.8, opacity: 0 }
                     }}
                 >
-                    {children}
+                    {
+                        React.Children.map(children, (child) => {
+                            return React.cloneElement(child , {
+                                onDiverge,
+                                onConverge
+                            })
+                        })
+                    }
                 </motion.div>
                 <motion.div
                     key={title+'buttons'}
@@ -96,7 +106,8 @@ const FlowManager = ({ children, title, next, previous, onError }) => {
                     variants={{
                         goForward: { opacity: 0 },
                         normal: { opacity: 1 },
-                        goBack: { opacity: 0 }
+                        goBack: { opacity: 0 },
+                        diverge: { opacity: 0 }
                     }}
                 >
                     {

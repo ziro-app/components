@@ -21,6 +21,9 @@ export const DisplayFlowChooseCard = () => {
 				location: '/flow-summary',
 				onClick: () => new Promise((res,rej) => selected ? res() : rej('noCard'))
 			}}
+			newCard={{
+				location: '/flow-register-card'
+			}}
 			onError={(error) => console.log({ error })}
 		/>
 	)

@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react'
 import { matchCreditCardBrand } from '../Checkout/utils/matchCreditCardBrand'
 import Icon from '../Icon'
-import Button from '../Button'
 import { cardContainer, color } from './styles'
+import { motion } from 'framer-motion'
 
-const ChooseCard = ({ numbers, onChange, onNewCard }) => {
+const ChooseCard = ({ numbers, onChange, newCard, onDiverge, onConverge }) => {
 
     const [selected, setSelected] = useState(null)
 
     useEffect(() => onChange && onChange(numbers[selected]),[selected])
 
     return (
-        <div style={{ display: 'grid', alignItems: 'center', height: '100%' }}>
+        <div style={{ display: 'grid', alignItems: 'start', height: '100%', alignContent: 'start' }}>
             {
                 numbers &&
                 numbers.map((number,index) => {
                     const brand = matchCreditCardBrand(number)
                     return (
-                        <div onClick={() => setSelected(index)} style={cardContainer(selected===index)}>
-                            { brand ? <Icon type={brand} size={30} color={color}/> : <div style={{ width: 30, height: 30 }}/> }
-                            <h1 style={{ color }}>{number}</h1>
-                        </div>
+                        [
+                            <div onClick={() => setSelected(index)} style={cardContainer(selected===index)}>
+                                { brand ? <Icon type={brand} size={30} color={color}/> : <div style={{ width: 30, height: 30 }}/> }
+                                <h2 style={{ color }}>{number}</h2>
+                            </div>,
+                            <div style={{ background: '#e0e0e0', height: '1px', margin: '5px 100px' }}/>
+                        ]
+
                     )
                 })
             }
-            <div style={{ padding: '20px 0px' }}>
-            <Button
-                type='click'
-                click={() => onNewCard && onNewCard()}
-                cta='Novo Cartão'
-            />
-            </div>
+             <motion.div
+                onClick={() => {
+                    newCard.onClick ?
+                    newCard.onClick().then(() => onDiverge && onDiverge(newCard.location))
+                    :
+                    onDiverge && onDiverge(newCard.location)
+                }}
+                style={cardContainer(false)}
+                whileTap={{ scale: 0.95 }}
+            >
+                <Icon type='add' size={30} color={'grey'}/>
+                <h2 style={{ color: 'grey' }}>Adcionar novo cartão</h2>
+            </motion.div>
         </div>
     )
 }
