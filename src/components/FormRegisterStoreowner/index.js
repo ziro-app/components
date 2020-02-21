@@ -280,7 +280,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							}}
 							onChangeKeyboard={element => {
 								if (element) {
-									let person = affiliates.find(element => element[1] === value)
+									let person = affiliates.find(affiliate => affiliate[1] === element.value)
 									setAffiliateCpf(person[0])
 									setAffiliateName(person[1])
 								} else {
