@@ -44,6 +44,7 @@ import { DisplayChooseCard } from './DisplayComponents/DisplayChooseCard/index'
 import { DisplayFlowChooseCard } from './DisplayComponents/DisplayFlowChooseCard/index'
 import { DisplayRegsiterCard } from './DisplayComponents/DisplayRegisterCard/index'
 import { DisplayFlowRegisterCard } from './DisplayComponents/DisplayFlowRegisterCard/index'
+import { DisplayImageUpload } from './DisplayComponents/DisplayImageUpload/index'
 
 export const App = () =>
 	<Switch>
@@ -91,5 +92,6 @@ export const App = () =>
 		<Route path='/flow-choose-card'><DisplayFlowChooseCard/></Route>
 		<Route path='/register-card'><DisplayRegsiterCard/></Route>
 		<Route path='/flow-register-card'><DisplayFlowRegisterCard/></Route>
+		<Route path='/image-upload'><DisplayImageUpload/></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
