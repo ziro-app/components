@@ -6,22 +6,18 @@ const ImageUpload = () => {
 	const handleDragEnter = e => {
 		e.preventDefault()
 		e.stopPropagation()
-		console.log('enter')
 	}
 	const handleDragLeave = e => {
 		e.preventDefault()
 		e.stopPropagation()
-		console.log('leave')
 	}
 	const handleDragOver = e => {
 		e.preventDefault()
 		e.stopPropagation()
-		// console.log('over')
 	}
 	const handleDrop = e => {
 		e.preventDefault()
 		e.stopPropagation()
-		console.log('drop')
 		console.log(e.dataTransfer.files)
 	}
 	return (
