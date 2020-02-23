@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { dropzone, button, input, styleTag } from './styles'
 
-const ImageUpload = () => {
+const ImageUpload = ({ sendToBackend }) => {
 	const handleDragEnter = e => {
 		e.preventDefault()
 		e.stopPropagation()
@@ -15,10 +15,11 @@ const ImageUpload = () => {
 		e.preventDefault()
 		e.stopPropagation()
 	}
-	const handleDrop = e => {
+	const handleDrop = async e => {
 		e.preventDefault()
 		e.stopPropagation()
-		console.log(e.dataTransfer.files)
+		const result = await sendToBackend(e.dataTransfer.files)
+		console.log(result)
 	}
 	return (
 		<div
@@ -45,6 +46,10 @@ const ImageUpload = () => {
 			/>
 		</div>
 	)
+}
+
+ImageUpload.propTypes = {
+	sendToBackend: PropTypes.func.isRequired
 }
 
 export default ImageUpload
