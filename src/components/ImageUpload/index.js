@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { dropzone, button, input, styleTag } from './styles'
 
@@ -18,17 +19,30 @@ const ImageUpload = ({ sendToBackend }) => {
 	const handleDrop = async e => {
 		e.preventDefault()
 		e.stopPropagation()
-		const result = await sendToBackend(e.dataTransfer.files)
-		console.log(result)
+		try {
+			const result = await sendToBackend(Array.from(e.dataTransfer.files))
+			console.log(result)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+	const handleChange = async e => {
+		try {
+			const result = await sendToBackend(Array.from(e.target.files))
+			console.log(result)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 	return (
 		<div
 			style={dropzone}
 			className='dropzone'
-			onDragEnter={e => handleDragEnter(e)}
-			onDragLeave={e => handleDragLeave(e)}
-			onDragOver={e => handleDragOver(e)}
-			onDrop={e => handleDrop(e)}
+			onDragEnter={handleDragEnter}
+			onDragLeave={handleDragLeave}
+			onDragOver={handleDragOver}
+			onDrop={handleDrop}
+			onChange={handleChange}
 		>
 			<style>{styleTag}</style>
 			<label>Arraste imagens ou escolha do dispositivo</label>

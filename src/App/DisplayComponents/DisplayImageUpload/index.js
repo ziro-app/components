@@ -4,5 +4,5 @@ import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayImageUpload = () =>
 	<div style={containerWithPadding}>
-		<ImageUpload />
+		<ImageUpload sendToBackend={data => console.log(data)} />
 	</div>
