@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { dropzone, instructions, button, input, styleTag } from './styles'
+import { dropzone, instructions, button, btnDisabled, input, styleTag } from './styles'
 
-const ImageUpload = ({ sendToBackend }) => {
+const ImageUpload = ({ sendToBackend, isDisabled = false }) => {
 	const handleDragEnter = e => {
 		e.preventDefault()
 		e.stopPropagation()
@@ -19,19 +19,23 @@ const ImageUpload = ({ sendToBackend }) => {
 	const handleDrop = async e => {
 		e.preventDefault()
 		e.stopPropagation()
-		try {
-			const result = await sendToBackend(Array.from(e.dataTransfer.files))
-			console.log(result)
-		} catch (error) {
-			console.log(error)
+		if (!isDisabled) {
+			try {
+				const result = await sendToBackend(Array.from(e.dataTransfer.files))
+				console.log(result)
+			} catch (error) {
+				console.log(error)
+			}
 		}
 	}
 	const handleChange = async e => {
-		try {
-			const result = await sendToBackend(Array.from(e.target.files))
-			console.log(result)
-		} catch (error) {
-			console.log(error)
+		if (!isDisabled) {
+			try {
+				const result = await sendToBackend(Array.from(e.target.files))
+				console.log(result)
+			} catch (error) {
+				console.log(error)
+			}
 		}
 	}
 	return (
@@ -47,12 +51,13 @@ const ImageUpload = ({ sendToBackend }) => {
 			<style>{styleTag}</style>
 			<label style={instructions}>Arraste imagens ou escolha do dispositivo</label>
 			<motion.label
-				style={button}
+				style={isDisabled ? btnDisabled : button}
 				htmlFor='input-file'
-				whileTap={{ scale: 0.95 }}
+				whileTap={isDisabled ? null : { scale: 0.95 }}
 				>Escolher
 			</motion.label>
 			<input
+				disabled={isDisabled}
 				style={input}
 				id='input-file'
 				type='file'
@@ -63,7 +68,8 @@ const ImageUpload = ({ sendToBackend }) => {
 }
 
 ImageUpload.propTypes = {
-	sendToBackend: PropTypes.func.isRequired
+	sendToBackend: PropTypes.func.isRequired,
+	isDisabled: PropTypes.bool
 }
 
 export default ImageUpload

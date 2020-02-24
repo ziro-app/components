@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeInput, gradient, shadow, primaryColor, grayColor3 } from '@ziro/theme'
+import { fontTitle, fontSizeInput, gradient, shadow, primaryColor, grayColor3, grayColor4 } from '@ziro/theme'
 
 export const
 
@@ -33,6 +33,15 @@ button = {
 	color: '#FFF',
 	background: gradient,
 	boxShadow: `${shadow}`
+},
+
+btnDisabled = {
+	...button,
+	cursor: 'initial',
+	color: primaryColor,
+	background: 'none',
+	backgroundColor: grayColor4,
+	boxShadow: 'none'
 },
 
 input = {
