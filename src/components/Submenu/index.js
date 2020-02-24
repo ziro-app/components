@@ -1,15 +1,18 @@
 import React from 'react'
+import { Link } from 'wouter'
 import PropTypes from 'prop-types'
-import { instructions } from './styles'
+import { container, instructions, optionStyle } from './styles'
 
 const Submenu = ({ options }) =>
-	<div>
+	<div style={container}>
 		<label style={instructions}>Escolha a ferramenta desejada</label>
-		{options}
+		{options.map(option =>
+			<Link><a style={optionStyle}>{option}</a></Link>
+		)}
 	</div>
 
 Submenu.propTypes = {
-	options: PropTypes.array.isRequired
+	options: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired
 }
 
 export default Submenu
