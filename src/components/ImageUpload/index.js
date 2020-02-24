@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { dropzone, button, input, styleTag } from './styles'
+import { dropzone, instructions, button, input, styleTag } from './styles'
 
 const ImageUpload = ({ sendToBackend }) => {
 	const handleDragEnter = e => {
@@ -45,7 +45,7 @@ const ImageUpload = ({ sendToBackend }) => {
 			onChange={handleChange}
 		>
 			<style>{styleTag}</style>
-			<label>Arraste imagens ou escolha do dispositivo</label>
+			<label style={instructions}>Arraste imagens ou escolha do dispositivo</label>
 			<motion.label
 				style={button}
 				htmlFor='input-file'

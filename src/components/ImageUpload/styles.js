@@ -13,6 +13,10 @@ dropzone = {
 	textAlign: 'center'
 },
 
+instructions = {
+	marginTop: '20px'
+},
+
 button = {
 	display: 'block', // necessary for link version
 	WebkitAppearance: 'none',

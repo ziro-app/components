@@ -45,6 +45,7 @@ import { DisplayFlowChooseCard } from './DisplayComponents/DisplayFlowChooseCard
 import { DisplayRegsiterCard } from './DisplayComponents/DisplayRegisterCard/index'
 import { DisplayFlowRegisterCard } from './DisplayComponents/DisplayFlowRegisterCard/index'
 import { DisplayImageUpload } from './DisplayComponents/DisplayImageUpload/index'
+import { DisplaySubmenu } from './DisplayComponents/DisplaySubmenu/index'
 
 export const App = () =>
 	<Switch>
@@ -86,12 +87,13 @@ export const App = () =>
 		<Route path='/form-registerStoreowner'><DisplayFormRegisterStoreowner /></Route>
 		<Route path='/camera'><DisplayCamera /></Route>
 		<Route path='/camera-container'><DisplayCameraContainer /></Route>
-		<Route path='/summary'><DisplaySummary/></Route>
-		<Route path='/flow-summary'><DisplayFlowSummary/></Route>
-		<Route path='/choose-card'><DisplayChooseCard/></Route>
-		<Route path='/flow-choose-card'><DisplayFlowChooseCard/></Route>
-		<Route path='/register-card'><DisplayRegsiterCard/></Route>
-		<Route path='/flow-register-card'><DisplayFlowRegisterCard/></Route>
-		<Route path='/image-upload'><DisplayImageUpload/></Route>
+		<Route path='/summary'><DisplaySummary /></Route>
+		<Route path='/flow-summary'><DisplayFlowSummary /></Route>
+		<Route path='/choose-card'><DisplayChooseCard /></Route>
+		<Route path='/flow-choose-card'><DisplayFlowChooseCard /></Route>
+		<Route path='/register-card'><DisplayRegsiterCard /></Route>
+		<Route path='/flow-register-card'><DisplayFlowRegisterCard /></Route>
+		<Route path='/image-upload'><DisplayImageUpload /></Route>
+		<Route path='/submenu'><DisplaySubmenu /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
