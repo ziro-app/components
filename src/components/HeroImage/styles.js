@@ -10,6 +10,7 @@ container = device => ({
 	maxWidth: device === 'smallMobile' ? '500px' : device === 'mobile' ? '500px' : '1200px',
 	boxSizing: 'border-box',
 	margin: '0 auto',
+	padding: '20px 20px 60px',
 	color: primaryColor
 }),
 
@@ -66,7 +67,7 @@ btn = device => ({
 	boxShadow: `${shadow}`
 }),
 
-image = device => ({
+image = {
 	maxWidth: '500px',
-	width: device === 'smallMobile' ? '95%' : device === 'mobile' ? '95%' : '100%'
-})
+	width: '100%'
+}

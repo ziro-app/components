@@ -40,7 +40,7 @@ const HeroImage = () => {
 				<div style={btnContainer(device)}><Button style={btn(device)} type='submit' cta='Acessar app' /></div>
 			</div>
 			<div style={blockTwo}>
-				<img style={image(device)} src={phones} />
+				<img style={image} src={phones} />
 			</div>
 		</div>
 	)
