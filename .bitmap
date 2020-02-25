@@ -885,7 +885,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/image-upload@0.0.9": {
+    "vitorbarbosa19.ziro/image-upload@0.0.10": {
         "files": [
             {
                 "relativePath": "src/components/ImageUpload/index.js",
@@ -1238,6 +1238,18 @@
         ],
         "mainFile": "src/components/SocialMedia/index.js",
         "trackDir": "src/components/SocialMedia",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/spinner-with-div@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/SpinnerWithDiv/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/SpinnerWithDiv/index.js",
         "origin": "AUTHORED",
         "exported": true
     },

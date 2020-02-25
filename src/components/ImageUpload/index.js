@@ -19,24 +19,10 @@ const ImageUpload = ({ sendToBackend, isDisabled = false }) => {
 	const handleDrop = async e => {
 		e.preventDefault()
 		e.stopPropagation()
-		if (!isDisabled) {
-			try {
-				const result = await sendToBackend(Array.from(e.dataTransfer.files))
-				console.log(result)
-			} catch (error) {
-				console.log(error)
-			}
-		}
+		if (!isDisabled) await sendToBackend(Array.from(e.dataTransfer.files))
 	}
 	const handleChange = async e => {
-		if (!isDisabled) {
-			try {
-				const result = await sendToBackend(Array.from(e.target.files))
-				console.log(result)
-			} catch (error) {
-				console.log(error)
-			}
-		}
+		if (!isDisabled) await sendToBackend(Array.from(e.target.files))
 	}
 	return (
 		<div
