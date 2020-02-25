@@ -4,26 +4,28 @@ export const
 
 hero = {
 	display: 'grid',
-	gridRowGap: '5px',
+	gridRowGap: '20px',
 	color: primaryColor
 },
 
 heroCall = {
 	position: 'relative',
 	fontFamily: fontTitle,
-	fontSize: '3.2rem',
+	fontSize: '3.6rem',
+	fontWeight: '600',
 	lineHeight: '1.2',
-	textAlign: 'left'
+	textAlign: 'left',
+	textTransform: 'uppercase'
 },
 
 marker = {
 	position: 'absolute',
-	bottom: '6px',
+	bottom: '2px',
 	left: '0',
-	width: '140px',
-	height: '8px',
+	width: '300px',
+	height: '14px',
 	zIndex: '-1',
-	background: 'rgba(255,228,0,0.75)'
+	background: 'rgba(255,228,0,0.55)'
 },
 
 heroText = {
