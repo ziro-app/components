@@ -6,14 +6,31 @@ import { container, blockOne, blockTwo, callToAction, marker, explainer, btnCont
 const HeroImage = () => {
 	const [device, setDevice] = useState('phone')
 	useEffect(() => {
-		const media = window.matchMedia('(max-width: 1200px)')
-		if (!media.matches) setDevice('desktop')
-		const listener = ({ matches }) => {
-			if (matches) setDevice('phone')
-			else setDevice('desktop')
+		const smallMobile = window.matchMedia('(max-width: 399px)')
+		const mobile = window.matchMedia('(min-width: 400px) and (max-width: 1199px)')
+		const desktop = window.matchMedia('(min-width: 1200px)')
+		// define user device
+		if (smallMobile.matches) setDevice('smallMobile')
+		if (mobile.matches) setDevice('mobile')
+		if (desktop.matches) setDevice('desktop')
+		// define listeners
+		const listenerSmallMobile = ({ matches }) => {
+			if (matches) setDevice('smallMobile')
 		}
-		media.addListener(listener)
-		return () => media.removeListener(listener)
+		const listenerMobile = ({ matches }) => {
+			if (matches) setDevice('mobile')
+		}
+		const listenerDesktop = ({ matches }) => {
+			if (matches) setDevice('desktop')
+		}
+		// add listeners
+		smallMobile.addListener(listenerSmallMobile)
+		mobile.addListener(listenerMobile)
+		desktop.addListener(listenerDesktop)
+		// cleanup
+		return () => smallMobile.removeListener(listenerSmallMobile)
+		return () => mobile.removeListener(listenerMobile)
+		return () => desktop.removeListener(listenerDesktop)
 	}, [])
 	return (
 		<div style={container(device)}>
