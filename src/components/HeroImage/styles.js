@@ -2,57 +2,16 @@ import { fontTitle, primaryColor, gradient, shadow } from '@ziro/theme'
 
 export const
 
-hero = {
+container = device => ({
 	display: 'grid',
-	gridRowGap: '20px',
-	color: primaryColor
-},
-
-heroCall = {
-	position: 'relative',
-	fontFamily: fontTitle,
-	fontSize: '3.6rem',
-	fontWeight: '600',
-	lineHeight: '1.2',
-	textAlign: 'left',
-	textTransform: 'uppercase'
-},
-
-marker = {
-	position: 'absolute',
-	bottom: '2px',
-	left: '0',
-	width: '300px',
-	height: '14px',
-	zIndex: '-1',
-	background: 'rgba(255,228,0,0.55)'
-},
-
-heroText = {
-	fontSize: '2.1rem',
-	textAlign: 'start'
-},
-
-heroImg = {
-	marginTop: '30px',
-	width: '100%'
-},
-
-button = {
-	display: 'grid',
-	marginTop: '5px',
-	width: window.innerWidth < 400 ? '55%' : '40%'
-},
-
-desktopContainer = {
-	display: 'grid',
-	gridTemplateColumns: '1fr 1fr',
+	gridTemplateColumns: device === 'phone' ? '1fr' : '1fr 1fr',
+	gridRowGap: '40px',
 	gridColumnGap: '50px',
-	maxWidth: '1200px',
+	maxWidth: device === 'phone' ? '500px' : '1200px',
 	boxSizing: 'border-box',
 	margin: '0 auto',
 	color: primaryColor
-},
+}),
 
 blockOne = {
 	display: 'grid',
@@ -65,35 +24,31 @@ blockTwo = {
 	justifyItems: 'center'
 },
 
-desktopCall = {
+callToAction = device => ({
 	fontFamily: fontTitle,
-	fontSize: '3.8rem',
+	fontSize: device === 'phone' ? '3.2rem' : '3.8rem',
 	fontWeight: '600',
 	lineHeight: '1.2',
 	textAlign: 'left',
 	textTransform: 'uppercase'
+}),
+
+marker = {
+	background: `linear-gradient(transparent 55%, rgba(255,228,0,1) 100%)`
 },
 
-desktopMarker = {
-	background: `linear-gradient(transparent 50%, rgba(255,228,0,1) 100%)`
-},
-
-desktopText = {
-	fontSize: '2.4rem',
+explainer = device => ({
+	fontSize: device === 'phone' ? '2.1rem' : '2.4rem',
 	textAlign: 'start'
-},
+}),
 
-desktopImage = {
-	maxWidth: '500px'
-},
-
-desktopButton = {
+btnContainer = device => ({
 	display: 'grid',
-	width: '50%',
+	width: device === 'phone' ? '60%' : '50%',
 	marginTop: '5px',
-},
+}),
 
-btn = {
+btn = device => ({
 	display: 'block', // necessary for link version
 	WebkitAppearance: 'none',
 	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
@@ -105,28 +60,13 @@ btn = {
 	border: 'none',
 	borderRadius: '20px',
 	fontFamily: fontTitle,
-	fontSize: '1.8rem',
+	fontSize: device === 'phone' ? '1.5rem' : '1.8rem',
 	color: '#FFF',
 	background: gradient,
 	boxShadow: `${shadow}`
-}
+}),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+image = device => ({
+	maxWidth: '500px',
+	width: device === 'phone' ? '90%' : '100%'
+})
