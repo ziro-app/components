@@ -128,6 +128,16 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			validation: value => /^\S+@\S+\.\S+$/g.test(value), // tests for pattern a@b.c
 			value: email,
 			message: 'Formato inválido'
+		}, {
+			name: 'affiliate',
+			validation: value => affiliates.find(affiliate => affiliate[1] === value),
+			value: affiliateName,
+			message: 'Afiliado inválido'
+		}, {
+			name: 'advisor',
+			validation: value => advisors.includes(value),
+			value: advisor,
+			message: 'Assessor inválido'
 		}
 	]
 	if (isLoading) return <div style={{ display: 'grid' }}><Spinner size='5rem' /></div>
@@ -303,6 +313,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							}
 							list={advisors}
 							placeholder="Nome do assessor"
+							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />
 

@@ -410,6 +410,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/dropdown-edit@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/DropdownEdit/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/DropdownEdit/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/dropdown@0.1.1": {
         "files": [
             {
@@ -1396,5 +1408,5 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "version": "14.7.4"
+    "version": "14.7.6"
 }
