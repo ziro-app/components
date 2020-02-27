@@ -1,18 +1,47 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../Button/index'
 import phones from './phones.png'
-import { hero, heroCall, marker, heroText, heroImg, button } from './styles'
+import { container, blockOne, blockTwo, callToAction, marker, explainer, btnContainer, btn, image } from './styles'
 
 const HeroImage = () => {
+	const [device, setDevice] = useState('phone')
 	useEffect(() => {
-		window.matchMedia('(max-width: 680px)').addListener(({ matches }) => console.log(matches))
+		const smallMobile = window.matchMedia('(max-width: 399px)')
+		const mobile = window.matchMedia('(min-width: 400px) and (max-width: 1199px)')
+		const desktop = window.matchMedia('(min-width: 1200px)')
+		// define user device
+		if (smallMobile.matches) setDevice('smallMobile')
+		if (mobile.matches) setDevice('mobile')
+		if (desktop.matches) setDevice('desktop')
+		// define listeners
+		const listenerSmallMobile = ({ matches }) => {
+			if (matches) setDevice('smallMobile')
+		}
+		const listenerMobile = ({ matches }) => {
+			if (matches) setDevice('mobile')
+		}
+		const listenerDesktop = ({ matches }) => {
+			if (matches) setDevice('desktop')
+		}
+		// add listeners
+		smallMobile.addListener(listenerSmallMobile)
+		mobile.addListener(listenerMobile)
+		desktop.addListener(listenerDesktop)
+		// cleanup
+		return () => smallMobile.removeListener(listenerSmallMobile)
+		return () => mobile.removeListener(listenerMobile)
+		return () => desktop.removeListener(listenerDesktop)
 	}, [])
 	return (
-		<div style={hero}>
-			<p style={heroCall}>Compre sem dificuldade roupas femininas para revender<span style={marker}></span></p>
-			<p style={heroText}>A Ziro facilita na escolha de fornecedores, no despacho e no pagamento da sua mercadoria</p>
-			<div style={button}><Button type='submit' cta='Fale conosco' /></div>
-			<img style={heroImg} src={phones} />
+		<div style={container(device)}>
+			<div style={blockOne}>
+				<p style={callToAction(device)}>Compre no Bom Retiro para <span style={marker}>revender</span></p>
+				<p style={explainer(device)}>Compre qualquer produto de qualquer marca, sem se preocupar com cadastro, logística ou pagamento.</p>
+				<div style={btnContainer(device)}><Button style={btn(device)} type='submit' cta='Acessar app' /></div>
+			</div>
+			<div style={blockTwo}>
+				<img style={image} src={phones} />
+			</div>
 		</div>
 	)
 }
