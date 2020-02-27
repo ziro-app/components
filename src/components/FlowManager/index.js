@@ -1,133 +1,47 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Button from '../Button'
 import Header from '../Header'
 import { doubleButton, singleButton, container, content } from './styles'
-import { AnimatePresence, useAnimation, motion } from 'framer-motion'
-import { useRouter } from 'wouter'
-import { useEffect } from 'react'
-import { useCallback } from 'react'
+import { FlowDiv } from './FlowDiv.js'
 
-const FlowManager = ({ children, title, next, previous, onError, overflow = 'hidden', height = '85vh' }) => {
+export { useAnimatedLocation } from './useAnimatedLocation'
 
-    const router = useRouter()
-    const [,setLocation] = router.hook()
-    const controls = useAnimation()
-
-    useEffect(() => { controls.start('normal') },[])
-
-    const onClickNext = useCallback(() => {
-        router.lastFlowButton = 'next'
-        next.onClick ? next.onClick()
-            .then(() => controls.start('goForward'))
-            .then(() => next.location && setLocation(next.location))
-            .catch(onError)
-            :
-            controls.start('goForward')
-            .then(() => next.location && setLocation(next.location))
-            .catch(onError)
-    },[controls,router,next])
-
-    const onClickPrevious = useCallback(() => {
-        router.lastFlowButton = 'previous'
-        previous.onClick ? previous.onClick()
-            .then(() => controls.start('goBack'))
-            .then(() => previous.location && setLocation(previous.location))
-            .catch(onError)
-            :
-            controls.start('goBack')
-            .then(() => previous.location && setLocation(previous.location))
-            .catch(onError)
-    },[controls,router,previous])
-
-    const onDiverge = useCallback((location) => {
-        router.lastFlowButton = 'diverge'
-        controls.start('diverge')
-        .then(() => location && setLocation(location))
-    },[controls,router])
-
-    const onConverge = useCallback((location) => {
-        router.lastFlowButton = 'converge'
-        controls.start('converge')
-        .then(() => location && setLocation(location))
-    })
+const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'próximo', previousTitle = 'voltar', overflow = 'hidden', height = '85vh' }) => {
 
     return (
         <div style={{ ...container, overflow, height }}>
-            <AnimatePresence>
-                <motion.div
-                    key={title+'header'}
-                    initial={{ opacity: 0 }}
-                    animate={controls}
-                    exit={{}}
-                    variants={{
-                        goForward: { opacity: 0 },
-                        normal: { opacity: 1 },
-                        goBack: { opacity: 0 },
-                        diverge: { opacity: 0 }
-                    }}
-                >
-                    <Header type='title-only' title={title}/>
-                </motion.div>
-                <motion.div
-                    key={title+'content'}
-                    style={content}
-                    initial={
-                        router.lastFlowButton === 'previous' ? { x: '-150%' } :
-                        router.lastFlowButton === 'next' ? { x: '150%' } :
-                        router.lastFlowButton === 'diverge' ? { y: '20%', opacity: 0 } :
-                        { scale: 1, x: '0%', y: '0%', opacity: 0 }
-                    }
-                    animate={controls}
-                    exit={{}}
-                    transition={{ type: 'tween' }}
-                    variants={{
-                        goBack: { x: '150%' },
-                        goForward: { x: '-150%' },
-                        normal: { scale: 1, x: '0%', y: '0%', opacity: 1 },
-                        diverge: { scale: 0.8, opacity: 0 }
-                    }}
-                >
-                    {
-                        React.Children.map(children, (child) => {
-                            return React.cloneElement(child , {
-                                onDiverge,
-                                onConverge
-                            })
-                        })
-                    }
-                </motion.div>
-                <motion.div
-                    key={title+'buttons'}
-                    style={next && previous ? doubleButton : singleButton}
-                    initial={{ opacity: 0 }}
-                    animate={controls}
-                    exit={{}}
-                    transition={{ type: 'tween' }}
-                    variants={{
-                        goForward: { opacity: 0 },
-                        normal: { opacity: 1 },
-                        goBack: { opacity: 0 },
-                        diverge: { opacity: 0 }
-                    }}
-                >
+            <FlowDiv controls={controls}>
+                <Header type='title-only' title={title}/>
+            </FlowDiv>
+            <FlowDiv
+                controls={controls}
+                normal={{ scale: 1, x: '0%', y: '0%', opacity: 1 }}
+                next={{ x: '-150%' }}
+                previous={{ x: '150%' }}
+                diverge={{ scale: 0.8, opacity: 0 }}
+                converge={{ y: '20%', opacity: 0 }}
+                style={content}
+            >
+                {children}
+            </FlowDiv>
+            <FlowDiv controls={controls} style={next && previous ? doubleButton : singleButton}>
                     {
                         previous &&
                         <Button
                             type='click'
-                            cta={previous.title}
-                            click={onClickPrevious}
+                            cta={previousTitle}
+                            click={previous}
                         />
                     }
                     {
                         next &&
                         <Button
                             type='click'
-                            cta={next.title}
-                            click={onClickNext}
+                            cta={nextTitle}
+                            click={next}
                         />
                     }
-                </motion.div>
-            </AnimatePresence>
+            </FlowDiv>
         </div>
     )
 }

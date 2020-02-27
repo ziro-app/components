@@ -1,16 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Summary from '../Summary'
-import FlowManager from '../FlowManager'
+import FlowManager, { useAnimatedLocation } from '../FlowManager'
 
 const FlowSummary = ({ seller, charge, maxInstallments, misc, next, onError }) => {
+
+    const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation(onError)
+
     return (
         <FlowManager
             title='Fatura'
-            next={{
-                title: 'próximo',
-                ...next
-            }}
+            controls={controls}
+            next={() => onNext(next.onClick, next.location)}
             onError={onError}
         >
             <Summary

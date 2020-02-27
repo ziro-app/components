@@ -4,7 +4,7 @@ import Icon from '../Icon'
 import { cardContainer, color } from './styles'
 import { motion } from 'framer-motion'
 
-const ChooseCard = ({ numbers, onChange, newCard, onDiverge, onConverge }) => {
+const ChooseCard = ({ numbers, onChange, newCard }) => {
 
     const [selected, setSelected] = useState(null)
 
@@ -29,12 +29,7 @@ const ChooseCard = ({ numbers, onChange, newCard, onDiverge, onConverge }) => {
                 })
             }
              <motion.div
-                onClick={() => {
-                    newCard.onClick ?
-                    newCard.onClick().then(() => onDiverge && onDiverge(newCard.location))
-                    :
-                    onDiverge && onDiverge(newCard.location)
-                }}
+                onClick={newCard}
                 style={cardContainer(false)}
                 whileTap={{ scale: 0.95 }}
             >

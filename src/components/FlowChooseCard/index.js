@@ -1,20 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ChooseCard from '../ChooseCard'
-import FlowManager from '../FlowManager'
+import FlowManager, { useAnimatedLocation } from '../FlowManager'
 
 const FlowChooseCard = ({ numbers, onChange, newCard, next, previous, onError }) => {
+
+    const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation(onError)
+
     return (
         <FlowManager
             title='Escolha um cartão'
-            next={{ title: 'próximo', ...next }}
-            previous={{ title: 'voltar', ...previous }}
+            controls={controls}
+            next={() => onNext(next.onClick, next.location)}
+            previous={() => onPrevious(previous.onClick, previous.location)}
             onError={onError}
         >
             <ChooseCard
                 numbers={numbers}
                 onChange={onChange}
-                newCard={newCard}
+                newCard={() => {
+                    console.log('clicked')
+                    onDiverge(newCard.onClick, newCard.location)
+                }}
             />
         </FlowManager>
     )

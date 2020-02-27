@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import RegisterCard from '../RegisterCard'
-import FlowManager from '../FlowManager'
+import FlowManager, { useAnimatedLocation } from '../FlowManager'
 
 const FlowRegisterCard = ({ numbers, onChange, onSend, onError }) => {
+
+    const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation(onError)
+
     return (
         <FlowManager
             title='Adcionar um novo cartão'
+            controls={controls}
             onError={onError}
             height={'100vh'}
         >
