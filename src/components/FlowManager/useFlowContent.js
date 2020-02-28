@@ -7,6 +7,8 @@ export const useFlowContent = () => {
     const [scrollMaxInset, setScrollMaxInset] = useState(0)
     const [scrollInsetTop, setScrollInsetTop] = useState(0)
     const [scrollInsetBottom, setScrollInsetBottom] = useState(0)
+    const [overflowY, setOverflowY] = useState('auto')
+    const [overflowX, setOverflowX] = useState('hidden')
 
     const onScroll = useCallback(({ target }) => {
         if(target==ref.current) {
@@ -22,9 +24,11 @@ export const useFlowContent = () => {
             const maxInset = scrollHeight-clientHeight-scrollTop
             setScrollInsetBottom(maxInset)
             setScrollMaxInset(maxInset)
+            setOverflowY(maxInset ? 'auto' : 'visible')
+            setOverflowX(maxInset ? 'hidden' : 'visible')
         }
     },[ref.current])
 
-    return [{ ref, onScroll }, scrollMaxInset, scrollInsetBottom, scrollInsetTop]
+    return [{ ref, onScroll }, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX]
     
 }

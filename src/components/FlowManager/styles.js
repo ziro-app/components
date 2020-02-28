@@ -26,8 +26,8 @@ container = {
 },
 
 content = {
-    overflowY: 'auto',
-    overflowX: 'visible',
+    position: 'relative',
+    overflowX: 'hidden',
     padding: '0px 20px'
 },
 

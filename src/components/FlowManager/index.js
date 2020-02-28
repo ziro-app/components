@@ -7,18 +7,16 @@ import { useFlowContent } from './useFlowContent'
 
 export { useAnimatedLocation } from './useAnimatedLocation'
 
-const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'próximo', previousTitle = 'voltar', contentOverflow }) => {
+const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'próximo', previousTitle = 'voltar' }) => {
 
-    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop] = useFlowContent()
-
-    console.log({ scrollMaxInset, scrollInsetBottom, scrollInsetTop })
+    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX] = useFlowContent()
 
     return (
-        <div style={{ ...container }}>
+        <div style={ container }>
             <FlowDiv controls={controls}>
                 <Header type='title-only' title={title}/>
             </FlowDiv>
-            <div style={{ position: 'relative', display: 'grid', overflow: contentOverflow||'hidden', gridTemplate: 'auto' }}>
+            <div style={{ position: 'relative', display: 'grid', overflowY, overflowX, gridTemplate: 'auto' }}>
                 <FlowDiv controls={controls}>
                     <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
                 </FlowDiv>
@@ -29,7 +27,7 @@ const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'p
                     previous={{ x: '150%' }}
                     diverge={{ scale: 0.8, opacity: 0 }}
                     converge={{ y: '20%', opacity: 0 }}
-                    style={{ ...content, overflowY: contentOverflow||'auto' }}
+                    style={{ ...content, overflowY, overflowX }}
                     contentScroll={contentScroll}
                 >
                     {children}
