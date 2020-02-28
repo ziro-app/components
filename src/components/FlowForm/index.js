@@ -10,7 +10,7 @@ import { ModalSubmit } from '../Form/ModalSubmit/index'
 import { whiteSpace, submit, submitTop } from '../Form/styles'
 import { scrollShadowTop, scrollShadowBottom, content, singleButton, doubleButton, container } from '../FlowManager/styles'
 
-const FlowForm = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, previous, previousName, buttonOnTop, validations, next, summary, inputs, controls, topView }) => {
+const FlowForm = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, previous, previousName, buttonOnTop, validations, next, summary, inputs, controls, topView, title }) => {
 	
 	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
 
@@ -25,7 +25,7 @@ const FlowForm = ({ useModalLayoutOnSubmit, successComponent, errorComponent, bu
 		<form onSubmit={submitForm(validations, next)}>
 			<div style={container}>
 				<FlowDiv controls={controls}>
-					<Header type='title-only' title={'Registrar Cartão'}/>
+					<Header type='title-only' title={title}/>
 				</FlowDiv>
 				<FlowDiv
 					controls={controls}
@@ -133,7 +133,9 @@ FlowForm.propTypes = {
 	previous: PropTypes.func,
 	previousName: PropTypes.string,
 	summary: PropTypes.element,
-	inputs: PropTypes.arrayOf(PropTypes.element).isRequired
+	inputs: PropTypes.arrayOf(PropTypes.element).isRequired,
+	topView: PropTypes.element,
+	title: PropTypes.string.isRequired
 }
 
 export default FlowForm

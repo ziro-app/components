@@ -50,6 +50,7 @@ const FlowRegisterCard = ({ next, previous }) => {
 	return (
 			<FlowForm
 				controls={controls}
+				title='Registrar novo cartão'
 				previous={() => onConverge(previous.onClick && previous.onClick(state), previous.location)}
 				previousName={'voltar'}
 				useModalLayoutOnSubmit={true}
