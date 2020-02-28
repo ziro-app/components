@@ -4,8 +4,8 @@ export const
 
 cardContainer = (selected) => ({
     display: 'grid',
-    gridTemplateColumns: 'auto 1fr',
-    justifyContent: 'start',
+    gridTemplateColumns: 'auto auto',
+    justifyContent: 'center',
     alignItems: 'center',
     padding: '0px 20px',
     borderRadius: '15px',

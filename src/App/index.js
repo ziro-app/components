@@ -42,6 +42,8 @@ import { DisplaySummary } from './DisplayComponents/DisplaySummary/index'
 import { DisplayFlowSummary } from './DisplayComponents/DisplayFlowSummary/index'
 import { DisplayChooseCard } from './DisplayComponents/DisplayChooseCard/index'
 import { DisplayFlowChooseCard } from './DisplayComponents/DisplayFlowChooseCard/index'
+import { DisplayChooseInstallment } from './DisplayComponents/DisplayChooseInstallment/index'
+import { DisplayFlowChooseInstallment } from './DisplayComponents/DisplayFlowChooseInstallment'
 import { DisplayRegsiterCard } from './DisplayComponents/DisplayRegisterCard/index'
 import { DisplayFlowRegisterCard } from './DisplayComponents/DisplayFlowRegisterCard/index'
 import { DisplayImageUpload } from './DisplayComponents/DisplayImageUpload/index'
@@ -91,6 +93,8 @@ export const App = () =>
 		<Route path='/flow-summary'><DisplayFlowSummary /></Route>
 		<Route path='/choose-card'><DisplayChooseCard /></Route>
 		<Route path='/flow-choose-card'><DisplayFlowChooseCard /></Route>
+		<Route path='/choose-installment'><DisplayChooseInstallment /></Route>
+		<Route path='/flow-choose-installment'><DisplayFlowChooseInstallment /></Route>
 		<Route path='/register-card'><DisplayRegsiterCard /></Route>
 		<Route path='/flow-register-card'><DisplayFlowRegisterCard /></Route>
 		<Route path='/image-upload'><DisplayImageUpload /></Route>

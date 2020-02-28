@@ -10,7 +10,6 @@ export const useAnimatedLocation = (onError) => {
     useEffect(() => { controls.start('normal') },[])
 
     const navigate = useCallback(async (direction, onClick, location) => {
-        console.log({ direction, onClick, location })
         try {
             onClick && await onClick()
             await controls.start(direction)
@@ -22,10 +21,10 @@ export const useAnimatedLocation = (onError) => {
         }
     },[controls,router,onError])
 
-    const next = (onClick, location) => navigate('next', onClick, location)
-    const previous = (onClick, location) => navigate('previous', onClick, location)
-    const diverge = (onClick, location) => navigate('diverge', onClick, location)
-    const converge = (onClick, location) => navigate('converge', onClick, location)
+    const next = useCallback((onClick, location) => navigate('next', onClick, location), [navigate])
+    const previous = useCallback((onClick, location) => navigate('previous', onClick, location), [navigate])
+    const diverge = useCallback((onClick, location) => navigate('diverge', onClick, location), [navigate])
+    const converge = useCallback((onClick, location) => navigate('converge', onClick, location), [navigate])
 
     return [next, previous, diverge, converge, controls]
 
