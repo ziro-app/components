@@ -2,17 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ChooseInstallment from '../ChooseInstallment'
 import FlowManager, { useAnimatedLocation } from '../FlowManager'
+import { useState } from 'react'
 
-const FlowChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, onChange, next, previous, onError }) => {
+const FlowChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, next, previous, onError }) => {
 
     const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation(onError)
+
+    const [installments, setInstallments] = useState()
+
+    const state = { installments }
 
     return (
         <FlowManager
             title='Finalizar'
             controls={controls}
-            next={() => onNext(next.onClick, next.location)}
-            previous={() => onPrevious(previous.onClick, previous.location)}
+            next={() => onNext(next.onClick && next.onClick(state), next.location)}
+            nextTitle='finalizar'
+            previous={() => onPrevious(previous.onClick && previous.onClick(state), previous.location)}
             onError={onError}
             contentOverflow={'visible'}
         >
@@ -21,7 +27,7 @@ const FlowChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, on
                 maxInstallments={maxInstallments}
                 seller={seller}
                 cardNumber={cardNumber}
-                onChange={onChange}
+                onChange={setInstallments}
             />
         </FlowManager>
     )

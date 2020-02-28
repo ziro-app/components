@@ -13,8 +13,7 @@ singleButton = {
 },
 
 container = {
-    overflowY: 'auto',
-    overflowX: 'hidden',
+    overflow: 'hidden',
     display: 'grid',
     position: 'absolute',
     top: 0,
@@ -22,7 +21,8 @@ container = {
     right: 0,
     left: 0,
     gridTemplateRows: 'auto 1fr auto',
-    padding: '20px 0px',
+    paddingTop: '20px',
+    boxSizing: 'border-box'
 },
 
 content = {
@@ -32,6 +32,7 @@ content = {
 },
 
 scrollShadowTop = (insetTop, maxInset) => ({
+    zIndex: 10,
     position: 'absolute',
     top: 0,
     right: 0,
@@ -42,6 +43,7 @@ scrollShadowTop = (insetTop, maxInset) => ({
 }),
 
 scrollShadowBottom = (insetBottom, maxInset) => ({
+    zIndex: 10,
     position: 'absolute',
     bottom: 0,
     right: 0,

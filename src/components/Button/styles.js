@@ -32,4 +32,11 @@ btnDisabled = {
 btnDestructive = {
 	...btn,
 	background: 'linear-gradient(#BA3A3A 10%, #B33 30%, #B22 60%, #800)'
+},
+
+btnLight = {
+	...btn,
+	background: 'linear-gradient(rgb(240, 240, 240) 10%, rgb(245, 245, 245) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))',
+	color: '#000',
+	textAlign: 'center'
 }

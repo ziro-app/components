@@ -43,6 +43,7 @@ const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'p
                             type='click'
                             cta={previousTitle}
                             click={previous}
+                            style='light'
                         />
                     }
                     {

@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { btn, btnDisabled, btnDestructive } from './styles'
+import { btn, btnDisabled, btnDestructive, btnLight } from './styles'
 
-const Button = ({ type, cta, submitting, navigate, click, style, destructive }) => {
-	const btnStyle = destructive ? btnDestructive : style || btn
+const Button = ({ type, cta, submitting, navigate, click, style, blockSubmit }) => {
+	const btnStyle = (() => {
+		switch(style) {
+			case 'light' : return btnLight
+			case 'destructive': return btnDestructive
+			default: return style || btn
+		}
+	})()
 	const tapAnimation = submitting ? null : { scale: 0.95 }
 	const buttonTypes = {
 		submit:
@@ -26,7 +32,7 @@ const Button = ({ type, cta, submitting, navigate, click, style, destructive }) 
 				style={submitting ? btnDisabled : btnStyle}
 				value={cta}
 				whileTap={tapAnimation}
-				type='submit'
+				type={ blockSubmit ? 'button' : 'submit'}
 			/>
 	}
 	return buttonTypes[type]

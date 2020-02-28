@@ -11,7 +11,7 @@ const ChooseCard = ({ numbers, onChange, newCard }) => {
     useEffect(() => onChange && onChange(numbers[selected]),[selected])
 
     return (
-        <div style={{ display: 'grid', alignItems: 'start', height: '100%', alignContent: 'start' }}>
+        <div style={{ display: 'grid', alignItems: 'start', height: '100%', alignContent: 'start', padding: '10px 0px' }}>
             {
                 numbers &&
                 numbers.map((number,index) => {
@@ -22,7 +22,7 @@ const ChooseCard = ({ numbers, onChange, newCard }) => {
                                 { brand ? <Icon type={brand} size={30} color={color}/> : <div style={{ width: 30, height: 30 }}/> }
                                 <h2 style={{ color }}>{number}</h2>
                             </div>,
-                            <div style={{ background: '#e0e0e0', height: '1px', margin: '5px 100px' }}/>
+                            <div style={{ background: '#e0e0e0', height: '1px', margin: '0px 50px' }}/>
                         ]
 
                     )
