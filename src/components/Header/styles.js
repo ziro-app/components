@@ -21,7 +21,7 @@ text = oneColumn => ({
 	color: primaryColor
 }),
 
-containerSticky = {
+containerSticky = showHeader => ({
 	position: 'fixed',
 	top: '0',
 	left: '0',
@@ -33,6 +33,7 @@ containerSticky = {
 	margin: '0',
 	fontFamily: fontTitle,
 	color: primaryColor,
+	opacity: showHeader ? 1 : 0,
 	background: 'white',
 	boxShadow: '0px 2px 4px 0px rgba(34,34,34,0.25)'
-}
+})
