@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { containerSticky, text } from './styles'
+import { motion } from 'framer-motion'
+import { containerSticky } from './styles'
+import { animate, transition } from './animation'
 
 const Sticky = ({ title }) => {
 	const [scrollY, setScrollY] = useState(window.scrollY)
@@ -15,7 +17,9 @@ const Sticky = ({ title }) => {
 		return () => window.removeEventListener('scroll', toggleHeader)
 	}, [])
 	return (
-		<label style={containerSticky(showHeader)}>{title}</label>
+		<motion.label style={containerSticky} animate={animate(showHeader)} transition={transition}>
+			{title}
+		</motion.label>
 	)
 }
 
