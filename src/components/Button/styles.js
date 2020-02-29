@@ -16,6 +16,7 @@ btn = {
 	fontFamily: fontTitle,
 	fontSize: fontSizeInput,
 	color: '#FFF',
+	textAlign: 'center',
 	background: gradient,
 	boxShadow: `${shadow}`
 },
@@ -37,6 +38,5 @@ btnDestructive = {
 btnLight = {
 	...btn,
 	background: 'linear-gradient(rgb(240, 240, 240) 10%, rgb(245, 245, 245) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))',
-	color: '#000',
-	textAlign: 'center'
+	color: '#000'
 }

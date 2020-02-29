@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor } from '@ziro/theme'
+import { fontTitle, primaryColor, gradient } from '@ziro/theme'
 
 export const
 
@@ -26,13 +26,38 @@ containerSticky = {
 	top: '0',
 	left: '0',
 	display: 'grid',
+	gridTemplateColumns: '70px 1fr 50px',
 	alignItems: 'center',
 	justifyItems: 'center',
 	width: '100%',
-	height: '40px',
+	height: '50px',
 	margin: '0',
+	padding: '0 20px',
 	fontFamily: fontTitle,
 	color: primaryColor,
 	background: 'white',
 	boxShadow: '0px 2px 4px 0px rgba(34,34,34,0.25)'
+},
+
+button = {
+	display: 'block', // necessary for link version
+	WebkitAppearance: 'none',
+	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+	MozAppearance: 'none',
+	outline: 'none',
+	cursor: 'pointer',
+	width: '100%',
+	padding: '8px 0px',
+	border: 'none',
+	borderRadius: '20px',
+	fontFamily: fontTitle,
+	fontSize: '1.2rem',
+	color: '#FFF',
+	textAlign: 'center',
+	background: gradient,
+	boxShadow: `rgba(34, 34, 34, 0.5) 0px 2px 15px -4px`
+},
+
+headerTitle = {
+	marginLeft: '-60px'
 }

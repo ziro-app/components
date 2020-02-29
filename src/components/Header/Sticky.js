@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { containerSticky } from './styles'
+import Button from '../Button/index'
+import { containerSticky, button, headerTitle } from './styles'
 import { animate, transition } from './animation'
 
 const Sticky = ({ title }) => {
@@ -17,9 +18,10 @@ const Sticky = ({ title }) => {
 		return () => window.removeEventListener('scroll', toggleHeader)
 	}, [])
 	return (
-		<motion.label style={containerSticky} animate={animate(showHeader)} transition={transition}>
-			{title}
-		</motion.label>
+		<motion.div style={containerSticky} animate={animate(showHeader)} transition={transition}>
+			<Button type='link' cta='Login' style={button} />
+			<label style={headerTitle}>{title}</label>
+		</motion.div>
 	)
 }
 
