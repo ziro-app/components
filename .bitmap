@@ -563,27 +563,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.2": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.4": {
         "files": [
             {
+                "name": "index.js",
                 "relativePath": "src/components/FormRegisterStoreowner/GetCnpj/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/components/FormRegisterStoreowner/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.mdx",
                 "relativePath": "src/components/FormRegisterStoreowner/index.mdx",
-                "test": false,
-                "name": "index.mdx"
+                "test": false
             },
             {
+                "name": "styles.js",
                 "relativePath": "src/components/FormRegisterStoreowner/styles.js",
-                "test": false,
-                "name": "styles.js"
+                "test": false
             }
         ],
         "mainFile": "src/components/FormRegisterStoreowner/index.js",
@@ -650,6 +650,16 @@
     "vitorbarbosa19.ziro/header@0.1.1": {
         "files": [
             {
+                "relativePath": "src/components/Header/Sticky.js",
+                "test": false,
+                "name": "Sticky.js"
+            },
+            {
+                "relativePath": "src/components/Header/animation.js",
+                "test": false,
+                "name": "animation.js"
+            },
+            {
                 "relativePath": "src/components/Header/index.js",
                 "test": false,
                 "name": "index.js"
@@ -671,6 +681,11 @@
                 "relativePath": "src/components/HeroImage/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/HeroImage/phones-shadow.png",
+                "test": false,
+                "name": "phones-shadow.png"
             },
             {
                 "relativePath": "src/components/HeroImage/phones.png",
@@ -1176,14 +1191,14 @@
     "vitorbarbosa19.ziro/my-account@0.1.1": {
         "files": [
             {
+                "name": "index.js",
                 "relativePath": "src/components/MyAccount/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "styles.js",
                 "relativePath": "src/components/MyAccount/styles.js",
-                "test": false,
-                "name": "styles.js"
+                "test": false
             }
         ],
         "mainFile": "src/components/MyAccount/index.js",

@@ -306,7 +306,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							}
 							}
 							list={affiliates.map(affiliate => Object.values(affiliate)[1])}
-							placeholder="Nome do afiliado(a)"
+							placeholder="Nome do(a) afiliado(a)"
 							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />,
@@ -318,7 +318,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 								element ? setAdvisor(element.value) : null
 							}
 							list={advisors}
-							placeholder="Nome do assessor(a)"
+							placeholder="Nome do(a) assessor(a)"
 							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />,
@@ -330,7 +330,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 								element ? setSalesman(element.value) : null
 							}
 							list={sellers}
-							placeholder="Nome do vendedor(a)"
+							placeholder="Nome do(a) vendedor(a)"
 							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />
