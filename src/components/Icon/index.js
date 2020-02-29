@@ -33,6 +33,8 @@ import { Present } from '../../Icons/Present/index'
 import { Trending } from '../../Icons/Trending/index'
 import { Globe } from '../../Icons/Globe/index'
 import { Add } from '../../Icons/Add/index'
+import { Send } from '../../Icons/Send/index'
+import { Filter } from '../../Icons/Filter/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -70,7 +72,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		present: <Present {...iconProps} />,
 		trending: <Trending {...iconProps} />,
 		globe: <Globe {...iconProps} />,
-		add: <Add {...iconProps} />
+		add: <Add {...iconProps} />,
+		send: <Send {...iconProps} />,
+		filter: <Filter {...iconProps} />
 	}
 	return iconList[type]
 }

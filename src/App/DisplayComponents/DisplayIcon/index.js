@@ -37,4 +37,7 @@ export const DisplayIcon = () =>
 		<Icon type='present' size={24} />
 		<Icon type='trending' size={24} />
 		<Icon type='globe' size={24} />
+		<Icon type='add' size={24} />
+		<Icon type='send' size={24} />
+		<Icon type='filter' size={24} />
 	</div>
