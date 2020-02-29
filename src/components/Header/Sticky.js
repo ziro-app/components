@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { text } from './styles'
+import { containerSticky, text } from './styles'
 
 const Sticky = ({ title }) => {
 	useEffect(() => {
@@ -11,7 +11,7 @@ const Sticky = ({ title }) => {
 		return () => window.removeEventListener('scroll', toggleHeader)
 	}, [])
 	return (
-		<h1 style={text(true)}>{title}</h1>
+		<label style={containerSticky}>{title}</label>
 	)
 }
 

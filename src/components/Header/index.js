@@ -20,8 +20,9 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 		'title-only': <h1 style={text(true)}>{title}</h1>,
 		'sticky': <Sticky title={title} />
 	}
+	if (type === 'sticky') return <Sticky title={title} />
 	return (
-		<div style={container(type === 'title-only' || type === 'sticky')}>
+		<div style={container(type === 'title-only')}>
 			{component[type]}
 		</div>
 	)

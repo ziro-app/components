@@ -19,4 +19,20 @@ text = oneColumn => ({
 	margin: oneColumn ? '0' : '0 0 0 -30px',
 	fontFamily: fontTitle,
 	color: primaryColor
-})
+}),
+
+containerSticky = {
+	position: 'fixed',
+	top: '0',
+	left: '0',
+	display: 'grid',
+	alignItems: 'center',
+	justifyItems: 'center',
+	width: '100%',
+	height: '40px',
+	margin: '0',
+	fontFamily: fontTitle,
+	color: primaryColor,
+	background: 'white',
+	boxShadow: '0px 2px 4px 0px rgba(34,34,34,0.25)'
+}
