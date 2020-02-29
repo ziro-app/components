@@ -26,11 +26,12 @@ containerSticky = {
 	top: '0',
 	left: '0',
 	display: 'grid',
-	gridTemplateColumns: '70px 1fr 50px',
+	gridTemplateColumns: '60px 1fr auto',
 	alignItems: 'center',
 	justifyItems: 'center',
 	width: '100%',
 	height: '50px',
+	boxSizing: 'border-box',
 	margin: '0',
 	padding: '0 20px',
 	fontFamily: fontTitle,
@@ -59,5 +60,5 @@ button = {
 },
 
 headerTitle = {
-	marginLeft: '-60px'
+	marginLeft: '-50px'
 }
