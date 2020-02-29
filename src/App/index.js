@@ -48,6 +48,7 @@ import { DisplayFlowRegisterCard } from './DisplayComponents/DisplayFlowRegister
 import { DisplayImageUpload } from './DisplayComponents/DisplayImageUpload/index'
 import { DisplaySubmenu } from './DisplayComponents/DisplaySubmenu/index'
 import { DisplayHeaderSticky } from './DisplayComponents/DisplayHeaderSticky/index'
+import { DisplayFilter } from './DisplayComponents/DisplayFilter/index'
 
 export const App = () =>
 	<Switch>
@@ -99,5 +100,6 @@ export const App = () =>
 		<Route path='/image-upload'><DisplayImageUpload /></Route>
 		<Route path='/submenu'><DisplaySubmenu /></Route>
 		<Route path='/header-sticky'><DisplayHeaderSticky /></Route>
+		<Route path='/filter'><DisplayFilter /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
