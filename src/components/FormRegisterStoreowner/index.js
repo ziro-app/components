@@ -7,10 +7,9 @@ import GetCnpj from './GetCnpj/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
-import Footer from '../Footer/index'
 import Dropdown from '../Dropdown/index'
 
-const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, searchCnpj, fetch }) => {
+const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, searchCnpj, fetch }) => {
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
@@ -39,16 +38,18 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [affiliates, setAffiliates] = useState([])
 	const [advisor, setAdvisor] = useState('')
 	const [advisors, setAdvisors] = useState([])
+	const [salesman, setSalesman] = useState('')
+	const [sellers, setSellers] = useState([])
 
 	const setState = {
-		setAffiliateName, setAffiliateCpf, setAdvisor, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
+		setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
 		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setEmail
 	}
 	const state = {
-		affiliateName, affiliateCpf, advisor, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
+		affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
 		rua, numero, complemento, bairro, cep, cidade, estado, fone, email, ...setState, cnpjValid
 	}
-	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates), [])
+	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates, setSellers), [])
 	useEffect(() => setCnpjValid(false), [cnpj])
 	const validations = [
 		{
@@ -132,12 +133,17 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			name: 'affiliate',
 			validation: value => affiliates.find(affiliate => affiliate[1] === value),
 			value: affiliateName,
-			message: 'Afiliado inválido'
+			message: 'Afiliado(a) inválido(a)'
 		}, {
 			name: 'advisor',
 			validation: value => advisors.includes(value),
 			value: advisor,
-			message: 'Assessor inválido'
+			message: 'Assessor(a) inválido(a)'
+		}, {
+			name: 'salesman',
+			validation: value => sellers.includes(value),
+			value: salesman,
+			message: 'Vendedor(a) inválido(a)'
 		}
 	]
 	if (isLoading) return <div style={{ display: 'grid' }}><Spinner size='5rem' /></div>
@@ -275,7 +281,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							placeholder='email@gmail.com'
 						/>
 					} />,
-					hasAffiliated ? <FormInput name='affiliate' label='Afiliado' input={
+					hasAffiliated ? <FormInput name='affiliate' label='Afiliado(a)' input={
 						<Dropdown
 							value={affiliateName}
 							onChange={({ target: { value } }) => {
@@ -300,11 +306,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							}
 							}
 							list={affiliates.map(affiliate => Object.values(affiliate)[1])}
-							placeholder="Nome do afiliado"
+							placeholder="Nome do afiliado(a)"
 							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />,
-					hasAdvisor ? <FormInput name='advisor' label='Assessor' input={
+					hasAdvisor ? <FormInput name='advisor' label='Assessor(a)' input={
 						<Dropdown
 							value={advisor}
 							onChange={({ target: { value } }) => setAdvisor(value)}
@@ -312,14 +318,25 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 								element ? setAdvisor(element.value) : null
 							}
 							list={advisors}
-							placeholder="Nome do assessor"
+							placeholder="Nome do assessor(a)"
+							readOnly={true}
+						/>
+					} /> : <FormInput label='' name='' input={<></>} />,
+					haveSalesman ? <FormInput name='salesman' label='Vendedor(a)' input={
+						<Dropdown
+							value={salesman}
+							onChange={({ target: { value } }) => setSalesman(value)}
+							onChangeKeyboard={element =>
+								element ? setSalesman(element.value) : null
+							}
+							list={sellers}
+							placeholder="Nome do vendedor(a)"
 							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />
 
 				]}
 			/>
-			<Footer phone='+55 (11) 3334-0920' />
 		</>
 	)
 }
