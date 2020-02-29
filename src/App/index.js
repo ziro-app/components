@@ -47,6 +47,7 @@ import { DisplayFlowChooseInstallment } from './DisplayComponents/DisplayFlowCho
 import { DisplayFlowRegisterCard } from './DisplayComponents/DisplayFlowRegisterCard/index'
 import { DisplayImageUpload } from './DisplayComponents/DisplayImageUpload/index'
 import { DisplaySubmenu } from './DisplayComponents/DisplaySubmenu/index'
+import { DisplayHeaderSticky } from './DisplayComponents/DisplayHeaderSticky/index'
 
 export const App = () =>
 	<Switch>
@@ -97,5 +98,6 @@ export const App = () =>
 		<Route path='/flow-register-card'><DisplayFlowRegisterCard /></Route>
 		<Route path='/image-upload'><DisplayImageUpload /></Route>
 		<Route path='/submenu'><DisplaySubmenu /></Route>
+		<Route path='/header-sticky'><DisplayHeaderSticky /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

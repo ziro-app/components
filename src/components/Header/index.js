@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
+import Sticky from './Sticky'
 import Icon from '../Icon/index'
 import { container, svg, text } from './styles'
 
@@ -16,10 +17,11 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 				<Link to={navigateTo}><Icon type={icon || 'ziro'} style={svg(navigateTo)} /></Link>
 				<h1 style={text(false)}>{title}</h1>
 			</>,
-		'title-only': <h1 style={text(true)}>{title}</h1>
+		'title-only': <h1 style={text(true)}>{title}</h1>,
+		'sticky': <Sticky title={title} />
 	}
 	return (
-		<div style={container(type === 'title-only')}>
+		<div style={container(type === 'title-only' || type === 'sticky')}>
 			{component[type]}
 		</div>
 	)
