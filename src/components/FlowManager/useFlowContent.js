@@ -24,8 +24,8 @@ export const useFlowContent = () => {
             const maxInset = scrollHeight-clientHeight-scrollTop
             setScrollInsetBottom(maxInset)
             setScrollMaxInset(maxInset)
-            setOverflowY(maxInset ? 'auto' : 'visible')
-            setOverflowX(maxInset ? 'hidden' : 'visible')
+            setOverflowY(maxInset > 5 ? 'auto' : 'visible')
+            setOverflowX(maxInset > 5 ? 'hidden' : 'visible')
         }
     },[ref.current])
 

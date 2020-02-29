@@ -9,10 +9,13 @@ export const DisplayFlowChooseInstallment = () => {
 			charge='60078'
 			maxInstallments='6'
 			cardNumber='4839 **** 4382'
-			onChange={(installment) => console.log({ installment })}
 			previous={{
 				location: '/flow-choose-card'
 			}}
+			next={{
+				onClick: ({ installments }) => () => new Promise((res,rej) => installments ? res() : rej('noInstallments'))
+			}}
+			onError={(error) => console.log({ error })}
 		/>
 	)
 }

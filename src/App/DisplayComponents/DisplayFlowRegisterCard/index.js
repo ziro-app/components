@@ -3,9 +3,17 @@ import FlowRegisterCard from '../../../components/FlowRegisterCard'
 import { useState } from 'react'
 
 export const DisplayFlowRegisterCard = () => {
-	const [selected, setSelected] = useState(null)
 	return (
 		<FlowRegisterCard
+			previous={{
+				location: '/flow-choose-card'
+			}}
+			next={{
+				onClick: (state) => () => {
+					console.log({ state })
+					return new Promise((res,rej) => setTimeout(() => res('ok'),1000))
+				}
+			}}
 		/>
 	)
 }

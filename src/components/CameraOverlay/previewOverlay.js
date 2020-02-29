@@ -17,7 +17,7 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
             <Button
                 type='click'
                 cta='excluir'
-                destructive={true}
+                style='destructive'
                 click={onDelete}
             />
             <Button

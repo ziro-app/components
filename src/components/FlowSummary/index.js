@@ -11,7 +11,7 @@ const FlowSummary = ({ seller, charge, maxInstallments, misc, next, onError }) =
         <FlowManager
             title='Fatura'
             controls={controls}
-            next={() => onNext(next.onClick, next.location)}
+            next={() => onNext(next.onClick && next.onClick(), next.location)}
             onError={onError}
         >
             <Summary
