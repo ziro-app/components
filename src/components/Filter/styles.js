@@ -30,7 +30,7 @@ filterTag = {
 
 },
 
-tag = {
+option = {
 	display: 'grid',
 	gridTemplateColumns: '1fr auto'
 },
