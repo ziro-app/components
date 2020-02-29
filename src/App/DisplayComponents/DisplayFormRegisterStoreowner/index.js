@@ -7,7 +7,7 @@ export const DisplayFormRegisterStoreowner = () => {
 
 	return (
 		<div style={containerWithPadding}>
-			<FormRegisterStoreowner isLoading={isLoading} setIsLoading={setIsLoading} sendToBackend={() => () => console.log('sendToBackend')} searchCnpj={() => () => console.log('searchCnpj')} fetch={() => console.log('Your fetch function')} hasAdvisor={true} hasAffiliated={true} />
+			<FormRegisterStoreowner isLoading={isLoading} setIsLoading={setIsLoading} sendToBackend={() => () => console.log('sendToBackend')} searchCnpj={() => () => console.log('searchCnpj')} fetch={() => console.log('Your fetch function')} hasAdvisor={true} hasAffiliated={true} haveSalesman={true} />
 		</div>
 	)
 }
