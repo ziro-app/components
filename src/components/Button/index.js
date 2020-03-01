@@ -1,39 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
-import { btn, btnDisabled, btnDestructive, btnLight } from './styles'
+import { regular, disabled, destructive, light } from './styles'
 
-const Button = ({ type, cta, submitting, navigate, click, style, blockSubmit }) => {
-	const btnStyle = (() => {
-		switch(style) {
-			case 'light' : return btnLight
-			case 'destructive': return btnDestructive
-			default: return style || btn
-		}
-	})()
+const Button = ({ type, cta, submitting, navigate, click, style, template = 'regular' }) => {
+	const btnStyle = {
+		regular: regular,
+		destructive: destructive,
+		light: light,
+	}
 	const tapAnimation = submitting ? null : { scale: 0.95 }
 	const buttonTypes = {
 		submit:
 			<motion.input
-				style={submitting ? btnDisabled : btnStyle}
+				style={submitting ? disabled : style || btnStyle[template]}
 				value={cta}
 				whileTap={tapAnimation}
 				type='submit'
 			/>,
-		link:
-			<motion.a
-				onClick={navigate}
-				style={submitting ? btnDisabled : btnStyle}
-				whileTap={tapAnimation}
-			>{cta}</motion.a>,
-		click:
+		button:
 			<motion.input
-				onClick={click}
-				style={submitting ? btnDisabled : btnStyle}
+				style={submitting ? disabled : style || btnStyle[template]}
 				value={cta}
 				whileTap={tapAnimation}
-				type={ blockSubmit ? 'button' : 'submit'}
-			/>
+				onClick={click}
+				type='button'
+			/>,
+		link:
+			<motion.a
+				style={submitting ? disabled : style || btnStyle[template]}
+				whileTap={tapAnimation}
+				onClick={navigate}
+			>{cta}</motion.a>
 	}
 	return buttonTypes[type]
 }
@@ -45,7 +43,7 @@ Button.propTypes = {
 	navigate: PropTypes.func,
 	click: PropTypes.func,
 	style: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-	destructive: PropTypes.bool
+	template: PropTypes.string
 }
 
 export default Button

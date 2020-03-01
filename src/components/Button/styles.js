@@ -2,7 +2,7 @@ import { fontTitle, fontSizeInput, gradient, shadow, primaryColor, grayColor4 } 
 
 export const
 
-btn = {
+regular = {
 	display: 'block', // necessary for link version
 	WebkitAppearance: 'none',
 	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
@@ -21,8 +21,8 @@ btn = {
 	boxShadow: `${shadow}`
 },
 
-btnDisabled = {
-	...btn,
+disabled = {
+	...regular,
 	cursor: 'initial',
 	color: primaryColor,
 	background: 'none',
@@ -30,13 +30,13 @@ btnDisabled = {
 	boxShadow: 'none'
 },
 
-btnDestructive = {
-	...btn,
+destructive = {
+	...regular,
 	background: 'linear-gradient(#BA3A3A 10%, #B33 30%, #B22 60%, #800)'
 },
 
-btnLight = {
-	...btn,
+light = {
+	...regular,
 	background: 'linear-gradient(rgb(240, 240, 240) 10%, rgb(245, 245, 245) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))',
 	color: '#000'
 }

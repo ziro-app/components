@@ -9,18 +9,13 @@ container = {
 	margin: '0 auto',
 	padding: '20px 20px 60px',
 	background: 'white',
-	display: 'grid',
-	alignContent: 'start'
+	display: 'grid'
 },
 
 filter = {
 	display: 'grid',
-	gridRowGap: '15px'
-},
-
-title = {
-	fontFamily: fontTitle,
-	textTransform: 'uppercase'
+	gridRowGap: '15px',
+	alignContent: 'start'
 },
 
 description = {
@@ -69,5 +64,5 @@ radioSelected = {
 },
 
 apply = {
-
+	alignSelf: 'end'
 }

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 // import { motion } from 'framer-motion'
-// import Button from '../Button/index'
+import Button from '../Button/index'
 // import Icon from '../Icon/index'
-import { container, filter, title, description, filterTag, option, name, nameSelected, radio, radioSelected, apply } from './styles'
+import { container, filter, description, filterTag, option, name, nameSelected, radio, radioSelected, apply } from './styles'
 // import { animate, transition } from './animation'
 
 const Filter = () => {
@@ -11,7 +11,6 @@ const Filter = () => {
 	const handleRadio = ({ target: { value } }) => setTag(value)
 	return (
 		<div style={container}>
-			<label style={title}>Mostrar marcas</label>
 			<div style={filter}>
 				<label style={description}>Que vendem tendências:</label>
 				<div style={filterTag}>
@@ -41,7 +40,9 @@ const Filter = () => {
 					</div>
 				</div>
 			</div>
-			<div style={apply}>Mostrar</div>
+			<div style={apply}>
+				<Button type='click' cta='Mostrar' style='btnLight' />
+			</div>
 		</div>
 	)
 }
