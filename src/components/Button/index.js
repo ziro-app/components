@@ -4,11 +4,7 @@ import { motion } from 'framer-motion'
 import { regular, disabled, destructive, light } from './styles'
 
 const Button = ({ type, cta, submitting, navigate, click, style, template = 'regular' }) => {
-	const btnStyle = {
-		regular: regular,
-		destructive: destructive,
-		light: light,
-	}
+	const btnStyle = { regular, destructive, light }
 	const tapAnimation = submitting ? null : { scale: 0.95 }
 	const buttonTypes = {
 		submit:

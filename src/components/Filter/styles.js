@@ -64,5 +64,8 @@ radioSelected = {
 },
 
 apply = {
-	alignSelf: 'end'
+	alignSelf: 'end',
+	display: 'grid',
+	gridTemplateColumns: '1fr 1fr',
+	gridColumnGap: '15px'
 }

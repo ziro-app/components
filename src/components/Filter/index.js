@@ -41,7 +41,8 @@ const Filter = () => {
 				</div>
 			</div>
 			<div style={apply}>
-				<Button type='click' cta='Mostrar' style='btnLight' />
+				<Button type='button' cta='Limpar' template='light' />
+				<Button type='button' cta='Mostrar' template='regular' />
 			</div>
 		</div>
 	)
