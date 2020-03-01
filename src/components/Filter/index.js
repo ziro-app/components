@@ -7,7 +7,8 @@ import { container, filter, description, filterTag, option, name, nameSelected, 
 const Filter = () => {
 	const trends = ['animal print', 'tweed', 'retilinea']
 	const [tag, setTag] = useState('')
-	const handleRadio = ({ target: { value } }) => setTag(value)
+	const handleRadioInput = ({ target: { value } }) => setTag(value)
+	const handleRadioSvg = value => setTag(value)
 	return (
 		<div style={container}>
 			<div style={filter}>
@@ -22,14 +23,14 @@ const Filter = () => {
 								</label>
 								<input
 									style={{ display: 'none' }}
-									onChange={handleRadio}
+									onChange={handleRadioInput}
 									checked={isActive}
 									type='radio'
 									name='trend'
 									value={trend}
 									id={trend}
 								/>
-								<RadioSvg isActive={isActive} />
+								<RadioSvg isActive={isActive} onClick={handleRadioSvg.bind(null, trend)} />
 							</div>
 						)
 					})}
