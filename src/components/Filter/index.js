@@ -9,6 +9,7 @@ const Filter = () => {
 	const [tag, setTag] = useState('')
 	const handleRadioInput = ({ target: { value } }) => setTag(value)
 	const handleRadioSvg = value => setTag(value)
+	const reset = () => setTag('')
 	return (
 		<div style={container}>
 			<div style={filter}>
@@ -37,7 +38,7 @@ const Filter = () => {
 				</div>
 			</div>
 			<div style={apply}>
-				<Button type='button' cta='Limpar' template='light' />
+				<Button type='button' cta='Limpar' template='light' click={reset} />
 				<Button type='button' cta='Mostrar' template='regular' />
 			</div>
 		</div>
