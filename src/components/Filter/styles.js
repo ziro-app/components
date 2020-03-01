@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeInput, gradient, shadow, primaryColor, grayColor4 } from '@ziro/theme'
+import { fontTitle, primaryColor } from '@ziro/theme'
 
 export const
 
@@ -9,7 +9,8 @@ container = {
 	margin: '0 auto',
 	padding: '20px 20px 60px',
 	background: 'white',
-	display: 'grid'
+	display: 'grid',
+	color: primaryColor
 },
 
 filter = {
@@ -41,26 +42,6 @@ name = {
 nameSelected = {
 	...name,
 	fontWeight: 500
-},
-
-radio = {
-	WebkitAppearance: 'none',
-	MozAppearance: 'none',
-	MsAppearance: 'none',
-	OAppearance: 'none',
-	appearance: 'none',
-	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-	outline: 'none',
-	width: '15px',
-	height: '15px',
-	border: `1px solid ${primaryColor}`,
-	borderRadius: '50%'
-},
-
-radioSelected = {
-	...radio,
-	background: primaryColor,
-	boxShadow: shadow
 },
 
 apply = {
