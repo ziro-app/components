@@ -18,11 +18,10 @@ body = {
 
 filter = {
 	display: 'grid',
-	gridRowGap: '15px'
+	gridRowGap: '10px'
 },
 
 description = {
-	marginBottom: '5px',
 	fontFamily: fontTitle
 },
 

@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Header from '../Header/index'
 import Button from '../Button/index'
 import RadioSvg from '../RadioSvg/index'
 import { container, body, filter, description, filterTag, option, name, nameSelected, apply } from './styles'
 
-const Filter = () => {
-	const trends = ['animal print', 'tweed', 'retilinea']
+const Filter = ({ trends }) => {
 	const [tag, setTag] = useState('')
 	const handleRadioInput = ({ target: { value } }) => setTag(value)
 	const handleRadioSvg = value => setTag(value)
@@ -50,6 +49,7 @@ const Filter = () => {
 }
 
 Filter.propTypes = {
+	trends: PropTypes.array.isRequired
 }
 
 export default Filter
