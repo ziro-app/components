@@ -5,7 +5,7 @@ import Sticky from './Sticky'
 import Icon from '../Icon/index'
 import { container, svg, text } from './styles'
 
-const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
+const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilter }) => {
 	const component = {
 		'icon': 
 			<>
@@ -20,7 +20,7 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo }) => {
 		'title-only': <h1 style={text(true)}>{title}</h1>,
 		'sticky': <Sticky title={title} />
 	}
-	if (type === 'sticky') return <Sticky title={title} />
+	if (type === 'sticky') return <Sticky title={title} hideButton={hideButton} hideFilter={hideFilter} />
 	return (
 		<div style={container(type === 'title-only')}>
 			{component[type]}
@@ -33,7 +33,9 @@ Header.propTypes = {
 	title: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	setIsOpen: PropTypes.func,
-	navigateTo: PropTypes.string
+	navigateTo: PropTypes.string,
+	hideButton: PropTypes.bool,
+	hideFilter: PropTypes.bool
 }
 
 export default Header

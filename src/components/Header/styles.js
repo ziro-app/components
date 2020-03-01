@@ -21,11 +21,11 @@ text = oneColumn => ({
 	color: primaryColor
 }),
 
-containerSticky = {
+containerSticky = hideButton => ({
 	position: 'fixed',
 	top: '0',
 	display: 'grid',
-	gridTemplateColumns: '80px 1fr auto',
+	gridTemplateColumns: hideButton ? '20px 1fr' : '80px 1fr auto',
 	alignItems: 'center',
 	justifyItems: 'center',
 	maxWidth: '500px',
@@ -38,7 +38,7 @@ containerSticky = {
 	color: primaryColor,
 	background: 'white',
 	boxShadow: '0px 2px 4px 0px rgba(34,34,34,0.25)'
-},
+}),
 
 button = {
 	display: 'block', // necessary for link version
@@ -59,6 +59,6 @@ button = {
 	boxShadow: `rgba(34, 34, 34, 0.5) 0px 2px 15px -4px`
 },
 
-headerTitle = {
-	marginLeft: '-50px'
-}
+headerTitle = hideButton => ({
+	marginLeft: hideButton ? '-20px' : '-50px'
+})
