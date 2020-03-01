@@ -24,11 +24,11 @@ text = oneColumn => ({
 containerSticky = {
 	position: 'fixed',
 	top: '0',
-	left: '0',
 	display: 'grid',
-	gridTemplateColumns: '60px 1fr auto',
+	gridTemplateColumns: '80px 1fr auto',
 	alignItems: 'center',
 	justifyItems: 'center',
+	maxWidth: '500px',
 	width: '100%',
 	height: '50px',
 	boxSizing: 'border-box',

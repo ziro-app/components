@@ -15,7 +15,7 @@ const Error = ({ type, title, message, btnMsg, backRoute, style }) => {
 			</div>
 			<label style={header}>{title || 'Ocorreu um erro'}</label>
 			<label>{message || 'Tente novamente ou contate suporte'}</label>
-			<Button type='click' cta={btnMsg || 'Retornar'} click={() => window.location.assign('/')} />
+			<Button type='button' cta={btnMsg || 'Retornar'} click={() => window.location.assign('/')} />
 		</div>
 	)
 }
