@@ -8,15 +8,17 @@ container = {
 	boxSizing: 'border-box',
 	margin: '0 auto',
 	padding: '20px 20px 60px',
-	background: 'white',
+	background: 'white'
+},
+
+body = {
 	display: 'grid',
 	color: primaryColor
 },
 
 filter = {
 	display: 'grid',
-	gridRowGap: '15px',
-	alignContent: 'start'
+	gridRowGap: '15px'
 },
 
 description = {
@@ -45,8 +47,8 @@ nameSelected = {
 },
 
 apply = {
-	alignSelf: 'end',
 	display: 'grid',
 	gridTemplateColumns: '1fr 1fr',
-	gridColumnGap: '15px'
+	gridColumnGap: '15px',
+	margin: '40px 0 0'
 }
