@@ -42,7 +42,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/button@0.1.1": {
+    "vitorbarbosa19.ziro/button@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/Button/index.js",
@@ -130,7 +130,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.1": {
+    "vitorbarbosa19.ziro/camera-container@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/CameraContainer/CameraModal/index.js",
@@ -186,7 +186,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-overlay@0.1.1": {
+    "vitorbarbosa19.ziro/camera-overlay@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/CameraOverlay/index.js",
@@ -252,7 +252,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.1": {
+    "vitorbarbosa19.ziro/checkout@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/Checkout/ModalSubmit/ErrorModal.js",
@@ -315,7 +315,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.1": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/ConfirmEmail/index.js",
@@ -356,7 +356,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.1.1": {
+    "vitorbarbosa19.ziro/delete-account@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/DeleteAccount/index.js",
@@ -473,7 +473,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.1.1": {
+    "vitorbarbosa19.ziro/error-expired@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/ErrorExpired/index.js",
@@ -509,7 +509,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error@0.1.1": {
+    "vitorbarbosa19.ziro/error@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/Error/index.js",
@@ -524,6 +524,28 @@
         ],
         "mainFile": "src/components/Error/index.js",
         "trackDir": "src/components/Error",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/filter@0.0.3": {
+        "files": [
+            {
+                "relativePath": "src/components/Filter/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Filter/styles.js",
+                "test": false,
+                "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/RadioSvg/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/Filter/index.js",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -563,7 +585,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.4": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.6": {
         "files": [
             {
                 "name": "index.js",
@@ -591,7 +613,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form@0.1.1": {
+    "vitorbarbosa19.ziro/form@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/Form/ModalSubmit/index.js",
@@ -647,7 +669,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/header@0.1.1": {
+    "vitorbarbosa19.ziro/header@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/Header/Sticky.js",
@@ -675,7 +697,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/hero-image@0.1.1": {
+    "vitorbarbosa19.ziro/hero-image@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/HeroImage/index.js",
@@ -703,172 +725,192 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/icon@0.1.1": {
+    "vitorbarbosa19.ziro/icon@1.0.0": {
         "files": [
             {
+                "name": "index.js",
+                "relativePath": "src/Icons/Add/index.js",
+                "test": false
+            },
+            {
+                "name": "index.js",
                 "relativePath": "src/Icons/Alert/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Amex/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Back/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Calendar/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Card/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
+                "relativePath": "src/Icons/Close/index.js",
+                "test": false
+            },
+            {
+                "name": "index.js",
                 "relativePath": "src/Icons/Cnpj/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Elo/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Email/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Facebook/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
+                "relativePath": "src/Icons/Filter/index.js",
+                "test": false
+            },
+            {
+                "name": "index.js",
                 "relativePath": "src/Icons/Gear/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Globe/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Hiper/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Id/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Instagram/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Location/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Lock/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Logout/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Mastercard/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Menu/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Money/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Pen/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Present/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "Scaffold.js",
                 "relativePath": "src/Icons/Scaffold.js",
-                "test": false,
-                "name": "Scaffold.js"
+                "test": false
             },
             {
+                "name": "index.js",
+                "relativePath": "src/Icons/Send/index.js",
+                "test": false
+            },
+            {
+                "name": "index.js",
                 "relativePath": "src/Icons/Shopping/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Success/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Trending/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Truck/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/User/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Visa/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Warning/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Whats/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/Icons/Ziro/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/components/Icon/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             }
         ],
         "mainFile": "src/components/Icon/index.js",
@@ -1001,7 +1043,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/input-picture@0.1.1": {
+    "vitorbarbosa19.ziro/input-picture@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/InputPicture/index.js",
@@ -1042,7 +1084,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/landing@0.1.1": {
+    "vitorbarbosa19.ziro/landing@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/Landing/choose.png",
@@ -1085,7 +1127,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.1.1": {
+    "vitorbarbosa19.ziro/login-form@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/LoginForm/index.js",
@@ -1098,7 +1140,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.1.1": {
+    "vitorbarbosa19.ziro/login-page@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/LoginPage/index.js",
@@ -1116,7 +1158,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-trouble@0.1.1": {
+    "vitorbarbosa19.ziro/login-trouble@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/LoginTrouble/index.js",
@@ -1188,7 +1230,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/my-account@0.1.1": {
+    "vitorbarbosa19.ziro/my-account@0.1.4": {
         "files": [
             {
                 "name": "index.js",
@@ -1206,7 +1248,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.1.1": {
+    "vitorbarbosa19.ziro/not-found@0.1.2": {
         "files": [
             {
                 "relativePath": "src/components/NotFound/index.js",
@@ -1219,7 +1261,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.1": {
+    "vitorbarbosa19.ziro/resend-email@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/ResendEmail/index.js",
@@ -1237,7 +1279,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.1.1": {
+    "vitorbarbosa19.ziro/reset-pass@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/ResetPass/index.js",
@@ -1397,7 +1439,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.1": {
+    "vitorbarbosa19.ziro/update-email@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/UpdateEmail/index.js",
@@ -1410,7 +1452,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-pass@0.1.1": {
+    "vitorbarbosa19.ziro/update-pass@0.1.3": {
         "files": [
             {
                 "relativePath": "src/components/UpdatePass/index.js",
