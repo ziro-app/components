@@ -1,6 +1,14 @@
-import { primaryColor, secondaryColor, gradient, shadow, grayColor1, grayColor3 } from '@ziro/theme'
+import { primaryColor, secondaryColor, gradient, shadow, grayColor1, grayColor3, fontBody } from '@ziro/theme'
 
 export const
+
+container = {
+    display: 'grid',
+    alignItems: 'start',
+    height: '100%',
+    alignContent: 'start',
+    padding: '10px 0px'
+},
 
 cardContainer = (selected) => ({
     zIndex: selected ? 10 : 0,
@@ -16,4 +24,13 @@ cardContainer = (selected) => ({
     margin: '-1px 0px'
 }),
 
-color = primaryColor
+separator = {
+    background: '#e0e0e0',
+    height: '1px',
+    margin: '0px 50px'
+},
+
+cardNumber = {
+    fontFamily: fontBody,
+    color: primaryColor
+}
