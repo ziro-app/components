@@ -1,55 +1,70 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Button from '../Button'
 import Header from '../Header'
-import { doubleButton, singleButton, container, content, scrollShadowTop, scrollShadowBottom } from './styles'
 import { FlowDiv } from './FlowDiv.js'
 import { useFlowContent } from './useFlowContent'
+import { contentTransitions as _contentTransitions, flowElementsTransitions as _flowElementsTransitions } from './defaultTransitions'
+import { doubleButton, singleButton, container, content, contentContainer, scrollShadowTop, scrollShadowBottom } from './styles'
 
 export { useAnimatedLocation } from './useAnimatedLocation'
 
-const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'próximo', previousTitle = 'voltar' }) => {
+const FlowManager = ({
+    children,
+    title,
+    controls,
+    next,
+    previous,
+    nextTitle = 'próximo',
+    previousTitle = 'voltar',
+    header,
+    topView,
+    contentTransitions = _contentTransitions,
+    flowElementsTransitions = _flowElementsTransitions,
+}) => {
 
     const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX] = useFlowContent()
 
     return (
         <div style={ container }>
-            <FlowDiv controls={controls}>
-                <Header type='title-only' title={title}/>
+            <FlowDiv {...flowElementsTransitions} controls={controls}>
+                { header || <Header type='title-only' title={title}/> }
             </FlowDiv>
-            <div style={{ position: 'relative', display: 'grid', overflowY, overflowX, gridTemplate: 'auto' }}>
-                <FlowDiv controls={controls}>
-                    <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
+            {
+                topView &&
+                <FlowDiv {...contentTransitions} controls={controls}>
+                    {topView}
                 </FlowDiv>
-                <FlowDiv
-                    controls={controls}
-                    normal={{ scale: 1, x: '0%', y: '0%', opacity: 1 }}
-                    next={{ x: '-150%' }}
-                    previous={{ x: '150%' }}
-                    diverge={{ scale: 0.8, opacity: 0 }}
-                    converge={{ y: '20%', opacity: 0 }}
+            }
+            <FlowDiv
+                {...contentTransitions}
+                controls={controls}
+                style={{ ...contentContainer, overflowY, overflowX }}
+            >
+                <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
+                <div
+                    ref={contentScroll.ref}
                     style={{ ...content, overflowY, overflowX }}
-                    contentScroll={contentScroll}
+                    onScroll={contentScroll.onScroll}
                 >
                     {children}
-                </FlowDiv>
-                <FlowDiv controls={controls}>
-                    <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/>
-                </FlowDiv>
-            </div>
-            <FlowDiv controls={controls} style={next && previous ? doubleButton : singleButton}>
+                </div>
+                <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/>
+            </FlowDiv>
+            <FlowDiv {...flowElementsTransitions} controls={controls} style={next && previous ? doubleButton : singleButton}>
                     {
                         previous &&
                         <Button
-                            type='click'
+                            type='button'
                             cta={previousTitle}
                             click={previous}
-                            style='light'
+                            template='light'
                         />
                     }
                     {
                         next &&
                         <Button
-                            type='click'
+                            type='button'
                             cta={nextTitle}
                             click={next}
                         />
@@ -57,6 +72,27 @@ const FlowManager = ({ children, title, controls, next, previous, nextTitle = 'p
             </FlowDiv>
         </div>
     )
+}
+
+const Transitions = PropTypes.shape({
+    normal: PropTypes.object,
+    next: PropTypes.object,
+    previous: PropTypes.object,
+    diverge: PropTypes.object,
+    converge: PropTypes.object
+})
+
+FlowManager.propTypes = {
+    title: PropTypes.string,
+    controls: PropTypes.object,
+    next: PropTypes.func,
+    previous: PropTypes.func,
+    nextTitle: PropTypes.string,
+    previousTitle: PropTypes.string,
+    header: PropTypes.element,
+    topView: PropTypes.element,
+    contentTransitions: Transitions,
+    flowElementsTransitions: Transitions,
 }
 
 export default FlowManager

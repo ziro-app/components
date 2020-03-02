@@ -21,11 +21,12 @@ export const useFlowContent = () => {
     useEffect(() => {
         if(ref.current) {
             const { clientHeight, scrollHeight, scrollTop } = ref.current
-            const maxInset = scrollHeight-clientHeight-scrollTop
+            let maxInset = scrollHeight-clientHeight-scrollTop
+            maxInset = maxInset > 10 ? maxInset: 0
             setScrollInsetBottom(maxInset)
             setScrollMaxInset(maxInset)
-            setOverflowY(maxInset > 5 ? 'auto' : 'visible')
-            setOverflowX(maxInset > 5 ? 'hidden' : 'visible')
+            setOverflowY(maxInset ? 'auto' : 'visible')
+            setOverflowX(maxInset ? 'hidden' : 'visible')
         }
     },[ref.current])
 

@@ -15,7 +15,7 @@ export const useAnimatedLocation = (onError) => {
             if(location) {
                 await controls.start(direction)
                 router.lastFlowButton = direction
-                location && setLocation(location)
+                setLocation(location)
             }
         }
         catch(error) {

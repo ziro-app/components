@@ -31,6 +31,12 @@ content = {
     padding: '0px 20px'
 },
 
+contentContainer = {
+    position: 'relative',
+    display: 'grid',
+    gridTemplate: 'auto'
+},
+
 scrollShadowTop = (insetTop, maxInset) => ({
     zIndex: 10,
     position: 'absolute',

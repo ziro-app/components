@@ -11,13 +11,12 @@ export const FlowDiv = ({
     controls,
     style,
     children,
-    contentScroll = {},
-    normal = { opacity: 1 },
-    next = { opacity: 0 },
-    previous = { opacity: 0 },
-    diverge = { opacity: 0 },
-    converge = { opacity: 0 },
-    transition= { type: 'tween'}
+    normal,
+    next,
+    previous,
+    diverge,
+    converge,
+    transition = { type: 'tween'}
 }) => {
     const { lastFlowButton } = useRouter()
 
@@ -33,13 +32,11 @@ export const FlowDiv = ({
 
     return (
         <motion.div
-            ref={contentScroll.ref}
             style={style}
             animate={controls}
             transition={transition}
             variants={{ normal, next, previous, diverge, converge }}
             initial={initial}
-            onScroll={contentScroll.onScroll}
         >
             {children}
         </motion.div>
