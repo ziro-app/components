@@ -21,7 +21,7 @@ const _CardRow = ({ number, isSelected, setSelected }) => {
 
 _CardRow.propTypes = {
     number: PropTypes.string.isRequired,
-    setSelected: PropTypes.func.isRequired,
+    setSelected: PropTypes.func,
     isSelected: PropTypes.bool,
 }
 
