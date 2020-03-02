@@ -1,49 +1,62 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import Modal from '../FlowModal'
 import ChooseInstallment from '../ChooseInstallment'
 import FlowManager, { useAnimatedLocation } from '../FlowManager'
-import { useState } from 'react'
+import * as Errors from './errors'
 
-const FlowChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, next, previous, onError }) => {
+const FlowChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, next, previous }) => {
 
-    const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation(onError)
+    const [error, setError] = useState()
+
+    const { onNext, onPrevious, controls } = useAnimatedLocation(setError)
 
     const [installments, setInstallments] = useState()
 
     const state = { installments }
 
+    const _onNext = useCallback(() => {
+        const nextOnClick = async () => {
+            if(!installments) throw 'NO_INSTALLMENTS'
+            next.onClick && await next.onClick(state)
+        }
+        onNext(nextOnClick, next.location)
+    },[next, installments, onNext, state])
+
+    const _onPrevious = useCallback(() => {
+        const previousOnClick = async () => {
+            previous.onClick && await previous.onClick(state)
+        }
+        onPrevious(previousOnClick, previous.location)
+    },[previous, onPrevious, state])
+
     return (
-        <FlowManager
-            title='Finalizar'
-            controls={controls}
-            next={() => onNext(next.onClick && next.onClick(state), next.location)}
-            nextTitle='finalizar'
-            previous={() => onPrevious(previous.onClick && previous.onClick(state), previous.location)}
-            onError={onError}
-            contentOverflow={'visible'}
-        >
-            <ChooseInstallment
-                charge={charge}
-                maxInstallments={maxInstallments}
-                seller={seller}
-                cardNumber={cardNumber}
-                onChange={setInstallments}
+        <>
+            <FlowManager
+                title='Finalizar'
+                controls={controls}
+                next={_onNext}
+                nextTitle={'finalizar'}
+                previous={_onPrevious}
+            >
+                <ChooseInstallment
+                    charge={charge}
+                    maxInstallments={maxInstallments}
+                    seller={seller}
+                    cardNumber={cardNumber}
+                    installments={installments}
+                    setInstallments={setInstallments}
+                />
+            </FlowManager>
+            <Modal
+                isOpen={!!error}
+                errorTitle={error && Errors[error].title}
+                errorMessage={error && Errors[error].message}
+                onRequestClose={() => setError()}
             />
-        </FlowManager>
+        </>
     )
 }
 
-FlowChooseInstallment.propTypes = {
-    ...ChooseInstallment.propTypes,
-    next: PropTypes.shape({
-        onClick: PropTypes.func,
-        location: PropTypes.string
-    }).isRequired,
-    previous: PropTypes.shape({
-        onClick: PropTypes.func,
-        location: PropTypes.string
-    }).isRequired,
-    onError: PropTypes.func
-}
 
 export default FlowChooseInstallment

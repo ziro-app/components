@@ -20,21 +20,21 @@ const FlowChooseCard = ({ numbers, newCard, next, previous }) => {
             next.onClick && await next.onClick(state)
         }
         onNext(nextOnClick, next.location)
-    },[next, selected, onNext])
+    },[next, selected, onNext, state])
 
     const _onPrevious = useCallback(() => {
         const previousOnClick = async () => {
             previous.onClick && await previous.onClick(state)
         }
         onPrevious(previousOnClick, previous.location)
-    },[previous, onPrevious])
+    },[previous, onPrevious, state])
 
     const _onNewCard = useCallback(() => {
         const newCardOnClick = async () => {
             newCard.onClick && await newCard.onClick(state)
         }
         onDiverge(newCardOnClick, newCard.location)
-    },[newCard, onDiverge])
+    },[newCard, onDiverge, state])
 
     return (
         <>
