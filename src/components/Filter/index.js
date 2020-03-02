@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useLocation } from 'wouter'
 import Header from '../Header/index'
 import Button from '../Button/index'
 import RadioSvg from '../RadioSvg/index'
 import { container, body, filter, description, filterTag, option, name, nameSelected, apply } from './styles'
 
 const Filter = ({ trends }) => {
+	const [, setLocation] = useLocation()
 	const [tag, setTag] = useState('')
 	const handleRadioInput = ({ target: { value } }) => setTag(value)
 	const handleRadioSvg = value => setTag(value)
 	const reset = () => setTag('')
+	const applyFilter = () => {
+		const param = tag.replace(/\s/g,'-')
+		return setLocation(`/galeria?trend=${param}`)
+	}
 	return (
 		<div style={container}>
 			<Header type='icon-link' title='Mostrar marcas' icon='close' navigateTo='/galeria' />
@@ -41,7 +47,7 @@ const Filter = ({ trends }) => {
 				</div>
 				<div style={apply}>
 					<Button type='button' cta='Limpar' template='light' click={reset} />
-					<Button type='button' cta='Mostrar' template='regular' />
+					<Button type='button' cta='Mostrar' template='regular' click={applyFilter} />
 				</div>
 			</div>
 		</div>

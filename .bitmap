@@ -527,7 +527,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/filter@0.0.6": {
+    "vitorbarbosa19.ziro/filter@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/Filter/index.js",
