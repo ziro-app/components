@@ -10,7 +10,7 @@ const ChooseCard = ({ numbers, selected, setSelected, newCard }) =>
             numbers &&
             numbers.map((number,index) => {
                 const _setSelected = useCallback(() => setSelected(index), [setSelected, index])
-                return <CardRow number={number} isSelected={selected===index} setSelected={_setSelected}/>
+                return <CardRow key={index} number={number} isSelected={selected===index} setSelected={_setSelected}/>
             })
         }
             <AddCard onClick={newCard}/>
@@ -23,4 +23,4 @@ ChooseCard.propsTypes = {
     newCard: PropTypes.func
 }
 
-export default React.memo(ChooseCard)
+export default ChooseCard
