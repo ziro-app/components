@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Header from '../../../components/Header/index'
 import Summary from '../../../components/Summary'
+import { containerWithPadding } from '@ziro/theme'
 
 export const DisplaySummary = () => {
 	return (
-		<Summary
-            seller='LOJA X'
-            charge='1234567'
-            maxInstallments='12'
-            misc={{
-                title: 'Sobre a loja',
-                text: 'Essa é uma loja x'
-            }}
-        />
+		<div style={containerWithPadding}>
+            <Header type='title-only' title='Nova Fatura'/>
+            <Summary
+                seller='Crisfael'
+                charge='60078'
+                maxInstallments='6'
+                misc={{
+                    title: 'Sobre a loja',
+                    text: 'A Crisfael é um parceira Ziro'
+                }}
+            />
+        </div>
 	)
 }

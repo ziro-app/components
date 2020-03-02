@@ -13,7 +13,7 @@ const ChooseCard = ({ numbers, selected, setSelected, newCard }) =>
                 return <CardRow key={index} number={number} isSelected={selected===index} setSelected={_setSelected}/>
             })
         }
-            <AddCard onClick={newCard}/>
+        <AddCard onClick={newCard}/>
     </div>
 
 ChooseCard.propsTypes = {

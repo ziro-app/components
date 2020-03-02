@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../../components/Header/index'
 import ChooseInstallment from '../../../components/ChooseInstallment'
 import { containerWithPadding } from '@ziro/theme'
-import { useState } from 'react'
 
 export const DisplayChooseInstallment = () => {
 
