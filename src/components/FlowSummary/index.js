@@ -5,7 +5,7 @@ import FlowManager, { useAnimatedLocation } from '../FlowManager'
 
 const FlowSummary = ({ seller, charge, maxInstallments, misc, next, onError }) => {
 
-    const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation(onError)
+    const { onNext, controls } = useAnimatedLocation(onError)
 
     return (
         <FlowManager

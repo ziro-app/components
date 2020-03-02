@@ -24,11 +24,11 @@ export const useAnimatedLocation = (onError) => {
         }
     },[controls,router,onError])
 
-    const next = useCallback((onClick, location) => navigate('next', onClick, location), [navigate])
-    const previous = useCallback((onClick, location) => navigate('previous', onClick, location), [navigate])
-    const diverge = useCallback((onClick, location) => navigate('diverge', onClick, location), [navigate])
-    const converge = useCallback((onClick, location) => navigate('converge', onClick, location), [navigate])
+    const onNext = useCallback((onClick, location) => navigate('next', onClick, location), [navigate])
+    const onPrevious = useCallback((onClick, location) => navigate('previous', onClick, location), [navigate])
+    const onDiverge = useCallback((onClick, location) => navigate('diverge', onClick, location), [navigate])
+    const onConverge = useCallback((onClick, location) => navigate('converge', onClick, location), [navigate])
 
-    return [next, previous, diverge, converge, controls]
+    return { onNext, onPrevious, onDiverge, onConverge, controls }
 
 }
