@@ -5,12 +5,14 @@ import CreditCard from '../CreditCard/index'
 import FlowForm from '../FlowForm/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
+import Modal from '../FlowModal'
 import { useAnimatedLocation } from '../FlowManager'
-import { SuccessModal } from './ModalSubmit/SuccessModal'
-import { ErrorModal } from './ModalSubmit/ErrorModal'
 import { container, dual } from './styles'
+import { useCallback } from 'react'
 
 const FlowRegisterCard = ({ next, previous }) => {
+
+	const { onNext, onConverge, controls } = useAnimatedLocation()
 
 	const [number, setNumber] = useState('')
 	const [cardholder, setCardholder] = useState('')
@@ -18,8 +20,6 @@ const FlowRegisterCard = ({ next, previous }) => {
 	const [cvv, setCvv] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
 	const state = { number, cardholder, expiry, cvv, brand }
-
-	const [onNext, onPrevious, onDiverge, onConverge, controls] = useAnimatedLocation()
 
 	const validations = [
 		{
@@ -47,18 +47,34 @@ const FlowRegisterCard = ({ next, previous }) => {
 			message: 'Revise campo'
 		},
 	]
+
+	const _onNext = useCallback(() => {
+		const nextOnClick = async () => {
+			return next.onClick && await next.onClick(state)
+		}
+		return onNext(nextOnClick, next.location)
+	},[next, state, onNext])
+
+	const _onPrevious = useCallback(() => {
+		const previousOnClick = async () => {
+			return previous.onClick && await previous.onClick(state)
+		}
+		return onConverge(previousOnClick, previous.location)
+	},[previous, state, onConverge])
+
+	const [error, setError] = useState()
+
 	return (
+		<>
 			<FlowForm
 				controls={controls}
 				title='Registrar novo cartão'
-				previous={() => onConverge(previous.onClick && previous.onClick(state), previous.location)}
+				previous={_onPrevious}
 				previousName={'voltar'}
-				useModalLayoutOnSubmit={true}
-				successComponent={() => <SuccessModal />}
-				errorComponent={props => <ErrorModal closeModal={props} />}
-				buttonName='próximo'
+				next={_onNext}
+				nextName='próximo'
 				validations={validations}
-				next={() => onNext(next.onClick && next.onClick(state),next.location)}
+				setError={setError}
 				topView={
 					<CreditCard
 						number={numberMaskedCard}
@@ -117,6 +133,13 @@ const FlowRegisterCard = ({ next, previous }) => {
 					</div>
 				]}
 			/>
+			<Modal
+				isOpen={!!error}
+				onRequestClose={() => setError()}
+				errorTitle={'Ocorreu um problema'}
+				errorMessage={'Não foi possível registrar o cartão, por favor tente novamente.'}
+			/>
+		</>
 	)
 }
 

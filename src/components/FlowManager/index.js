@@ -30,12 +30,9 @@ const FlowManager = ({
             <FlowDiv {...flowElementsTransitions} controls={controls}>
                 { header || <Header type='title-only' title={title}/> }
             </FlowDiv>
-            {
-                topView &&
-                <FlowDiv {...contentTransitions} controls={controls}>
-                    {topView}
-                </FlowDiv>
-            }
+            <FlowDiv {...contentTransitions} controls={controls}>
+                {topView}
+            </FlowDiv>
             <FlowDiv
                 {...contentTransitions}
                 controls={controls}

@@ -11,12 +11,13 @@ export const useAnimatedLocation = (onError) => {
 
     const navigate = useCallback(async (direction, onClick, location) => {
         try {
-            onClick && await onClick()
+            const msg = onClick && await onClick()
             if(location) {
                 await controls.start(direction)
                 router.lastFlowButton = direction
                 setLocation(location)
             }
+            return msg
         }
         catch(error) {
             if(onError) onError(error)

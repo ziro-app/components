@@ -20,7 +20,7 @@ container = {
     bottom: 0,
     right: 0,
     left: 0,
-    gridTemplateRows: 'auto 1fr auto',
+    gridTemplateRows: 'auto auto 1fr auto',
     paddingTop: '20px',
     boxSizing: 'border-box'
 },

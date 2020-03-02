@@ -9,9 +9,9 @@ export const DisplayFlowRegisterCard = () => {
 				location: '/flow-choose-card'
 			}}
 			next={{
-				onClick: (state) => () => {
+				onClick: (state) => {
 					console.log({ state })
-					return new Promise((res,rej) => setTimeout(() => res('ok'),1000))
+					return new Promise((res,rej) => setTimeout(() => rej('ok'),1000))
 				}
 			}}
 		/>
