@@ -50,6 +50,7 @@ import { DisplaySubmenu } from './DisplayComponents/DisplaySubmenu/index'
 import { DisplayHeaderSticky } from './DisplayComponents/DisplayHeaderSticky/index'
 import { DisplayFilter } from './DisplayComponents/DisplayFilter/index'
 import { DisplayButton } from './DisplayComponents/DisplayButton/index'
+import { DisplayUploadPhoto } from './DisplayComponents/DisplayUploadPhoto'
 
 export const App = () =>
 	<Switch>
@@ -103,5 +104,6 @@ export const App = () =>
 		<Route path='/header-sticky'><DisplayHeaderSticky /></Route>
 		<Route path='/filter'><DisplayFilter /></Route>
 		<Route path='/button'><DisplayButton /></Route>
+		<Route path='/upload-photo'><DisplayUploadPhoto /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

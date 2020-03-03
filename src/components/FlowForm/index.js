@@ -93,7 +93,7 @@ const FlowForm = ({
 					}
 					<Button type='submit' cta={nextName || 'Enviar'} submitting={submitting} />
 				</FlowDiv>
-				<ModalSubmit isOpen={submitting} submitting={submitting} error={false} errorComponent={() => <div/>} successComponent={() => <div/>}/>
+				<ModalSubmit isOpen={submitting} submitting={submitting} error={false} errorComponent={() => null} successComponent={() => null}/>
 			</div>
 		</form>
 	)

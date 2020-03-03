@@ -15,13 +15,13 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
             style={previewContainer}
         >
             <Button
-                type='click'
+                type='button'
                 cta='excluir'
-                style='destructive'
+                template='destructive'
                 click={onDelete}
             />
             <Button
-                type='click'
+                type='button'
                 cta='enviar'
                 click={onSend}
             />

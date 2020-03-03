@@ -38,7 +38,7 @@ const FlowManager = ({
                 controls={controls}
                 style={{ ...contentContainer, overflowY, overflowX }}
             >
-                <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
+                { !!scrollInsetTop && <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/> }
                 <div
                     ref={contentScroll.ref}
                     style={{ ...content, overflowY, overflowX }}
@@ -46,7 +46,7 @@ const FlowManager = ({
                 >
                     {children}
                 </div>
-                <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/>
+                { !!scrollInsetBottom && <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/> }
             </FlowDiv>
             <FlowDiv {...flowElementsTransitions} controls={controls} style={next && previous ? doubleButton : singleButton}>
                     {
