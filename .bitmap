@@ -252,7 +252,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.6": {
+    "vitorbarbosa19.ziro/checkout@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/Checkout/ModalSubmit/ErrorModal.js",
@@ -356,7 +356,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.1.6": {
+    "vitorbarbosa19.ziro/delete-account@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/DeleteAccount/index.js",
@@ -527,7 +527,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/filter@0.0.7": {
+    "vitorbarbosa19.ziro/filter@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/Filter/index.js",
@@ -669,7 +669,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/header@0.1.6": {
+    "vitorbarbosa19.ziro/header@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/Header/Sticky.js",
@@ -940,6 +940,11 @@
                 "name": "index.js"
             },
             {
+                "relativePath": "src/Illustrations/ProfileData/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
                 "relativePath": "src/Illustrations/TimelineStart/index.js",
                 "test": false,
                 "name": "index.js"
@@ -1043,29 +1048,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/input-picture@0.1.2": {
-        "files": [
-            {
-                "relativePath": "src/components/InputPicture/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/components/InputPicture/index.mdx",
-                "test": false,
-                "name": "index.mdx"
-            },
-            {
-                "relativePath": "src/components/InputPicture/styles.js",
-                "test": false,
-                "name": "styles.js"
-            }
-        ],
-        "mainFile": "src/components/InputPicture/index.js",
-        "trackDir": "src/components/InputPicture",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "vitorbarbosa19.ziro/input-text@0.1.0": {
         "files": [
             {
@@ -1158,7 +1140,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-trouble@0.1.6": {
+    "vitorbarbosa19.ziro/login-trouble@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/LoginTrouble/index.js",
@@ -1261,7 +1243,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.6": {
+    "vitorbarbosa19.ziro/resend-email@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/ResendEmail/index.js",
@@ -1279,7 +1261,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.1.6": {
+    "vitorbarbosa19.ziro/reset-pass@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/ResetPass/index.js",
@@ -1439,7 +1421,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.6": {
+    "vitorbarbosa19.ziro/update-email@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/UpdateEmail/index.js",
@@ -1452,7 +1434,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-pass@0.1.6": {
+    "vitorbarbosa19.ziro/update-pass@0.1.7": {
         "files": [
             {
                 "relativePath": "src/components/UpdatePass/index.js",

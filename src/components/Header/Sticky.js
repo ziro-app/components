@@ -13,8 +13,8 @@ const Sticky = ({ title, hideButton, hideFilter }) => {
 	const [showHeader, setShowHeader] = useState(true)
 	useEffect(() => {
 		const toggleHeader = () => setScrollY(prevScrollY => {
-			if (prevScrollY > window.scrollY) setShowHeader(true)
-			else setShowHeader(false)
+			if (prevScrollY > window.scrollY + 25) setShowHeader(true)
+			if (prevScrollY < window.scrollY - 25) setShowHeader(false)
 			return window.scrollY
 		})
 		window.addEventListener('scroll', toggleHeader)
