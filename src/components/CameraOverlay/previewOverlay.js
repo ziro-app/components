@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Button from '../Button'
 import { previewContainer } from './styles'
 
-const PreviewOverlay = ({ onDelete, onSend }) => {
+const PreviewOverlay = ({ onDelete, onSend, deleteName, sendName }) => {
     return (
         <motion.div
             key='previewButtons'
@@ -16,13 +16,13 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
         >
             <Button
                 type='button'
-                cta='excluir'
+                cta={deleteName||'excluir'}
                 template='destructive'
                 click={onDelete}
             />
             <Button
                 type='button'
-                cta='enviar'
+                cta={sendName||'enviar'}
                 click={onSend}
             />
         </motion.div>
@@ -31,7 +31,9 @@ const PreviewOverlay = ({ onDelete, onSend }) => {
 
 PreviewOverlay.propTypes = {
     onDelete: Proptypes.func.isRequired,
-    onSend: Proptypes.func.isRequired
+    onSend: Proptypes.func.isRequired,
+    deleteName: Proptypes.string,
+    sendName: Proptypes.string
 }
 
 export default PreviewOverlay

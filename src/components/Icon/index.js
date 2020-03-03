@@ -35,6 +35,8 @@ import { Globe } from '../../Icons/Globe/index'
 import { Add } from '../../Icons/Add/index'
 import { Send } from '../../Icons/Send/index'
 import { Filter } from '../../Icons/Filter/index'
+import { Camera } from '../../Icons/Camera/index'
+import { Upload } from '../../Icons/Upload/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -74,7 +76,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		globe: <Globe {...iconProps} />,
 		add: <Add {...iconProps} />,
 		send: <Send {...iconProps} />,
-		filter: <Filter {...iconProps} />
+		filter: <Filter {...iconProps} />,
+		camera: <Camera {...iconProps} />,
+		upload: <Upload {...iconProps} />
 	}
 	return iconList[type]
 }

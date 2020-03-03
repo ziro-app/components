@@ -23,7 +23,7 @@ const FlowManager = ({
     flowElementsTransitions = _flowElementsTransitions,
 }) => {
 
-    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX] = useFlowContent()
+    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX] = useFlowContent(children)
 
     return (
         <div style={ container }>
@@ -41,7 +41,7 @@ const FlowManager = ({
                 { !!scrollInsetTop && <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/> }
                 <div
                     ref={contentScroll.ref}
-                    style={{ ...content, overflowY, overflowX }}
+                    style={{ ...content, overflowX, overflowY }}
                     onScroll={contentScroll.onScroll}
                 >
                     {children}
