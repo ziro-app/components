@@ -1,11 +1,12 @@
 import React from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import FlowManager from '../FlowManager'
+import FlowManager, { useAnimatedLocation } from '../FlowManager'
 import UploadPhoto from '../UploadPhoto'
 import Modal from '../FlowModal'
 import CameraContainer from '../CameraContainer'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { useCameraAsOverlay } from './useCameraAsOverlay'
+import { shadow } from '@ziro/theme'
 
 const FlowUploadPhoto = () => {
 
@@ -13,23 +14,28 @@ const FlowUploadPhoto = () => {
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const [isModalOpen, setModalOpen] = useState(true)
+    const [isModalOpen, setModalOpen] = useState(false)
 
     const onCloseModal = useCallback(() => {
         setModalOpen(false)
         openCamera()
     },[setModalOpen, openCamera])
 
-    const previewControls = useAnimation()
+    const picRef = useRef(null)
+
+    const { controls } = useAnimatedLocation(undefined, () => setModalOpen(true))
 
     return (
         <>
             <FlowManager
+                controls={controls}
                 title='Foto do documento'
                 next={() => {}}
                 previous={() => {}}
+                hookDeps={[picture]}
             >
                 <UploadPhoto
+                    ref={picRef}
                     picture={picture}
                     setPicture={setPicture}
                     onRequestCamera={openCamera}
@@ -43,7 +49,7 @@ const FlowUploadPhoto = () => {
                     initial={{ y: '100%' }}
                     variants={{
                         close: { y: '100%' },
-                        closeAfterSend: { opacity: 0 },
+                        closeAfterSend: { opacity: 0, y: '20%' },
                         open: { y: '0%' }
                     }}
                 >

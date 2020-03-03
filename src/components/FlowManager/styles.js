@@ -25,21 +25,9 @@ container = {
     boxSizing: 'border-box'
 },
 
-content = {
-    position: 'relative',
-    overflowX: 'hidden',
-    padding: '0px 20px'
-},
-
-contentContainer = {
-    position: 'relative',
-    display: 'grid',
-    gridTemplate: 'auto'
-},
-
 scrollShadowTop = (insetTop, maxInset) => ({
     zIndex: 10,
-    position: 'absolute',
+    position: 'sticky',
     top: 0,
     right: 0,
     left: 0,
@@ -50,7 +38,7 @@ scrollShadowTop = (insetTop, maxInset) => ({
 
 scrollShadowBottom = (insetBottom, maxInset) => ({
     zIndex: 10,
-    position: 'absolute',
+    position: 'sticky',
     bottom: 0,
     right: 0,
     left: 0,

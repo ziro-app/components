@@ -11,8 +11,9 @@ export const DisplayFlowRegisterCard = () => {
 			next={{
 				onClick: (state) => {
 					console.log({ state })
-					return new Promise((res,rej) => setTimeout(() => rej('ok'),1000))
-				}
+					return new Promise((res,rej) => setTimeout(() => res('ok'),1000))
+				},
+				location: '/flow-upload-photo'
 			}}
 		/>
 	)

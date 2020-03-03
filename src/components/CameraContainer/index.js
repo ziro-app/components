@@ -6,7 +6,7 @@ import CameraFallback from '../CameraFallback'
 import CameraModal from './CameraModal'
 import * as errors from './errors'
 
-const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, sendName, deleteName, allowSwap, fallbackComponent, previewEnterAnimation }) => {
+const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, sendName, deleteName, allowSwap, fallbackComponent, previewEnterAnimation, previewBackground }) => {
 
     const [error, setError] = useState(null)
     const [picture, setPicture] = useState()
@@ -19,6 +19,7 @@ const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, sen
             onError={({ name }) => setError(errors[name])}
             fallbackComponent={fallbackComponent || <CameraFallback/>}
             previewEnterAnimation={previewEnterAnimation}
+            previewBackground={previewBackground}
         >
             <CameraOverlay
                 onSend={() => onSend(picture)}

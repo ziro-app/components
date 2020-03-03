@@ -2,12 +2,12 @@ import React, { useEffect, useCallback } from 'react'
 import { useRouter } from 'wouter'
 import { useAnimation } from 'framer-motion'
 
-export const useAnimatedLocation = (onError) => {
+export const useAnimatedLocation = (onError, onMount) => {
     const router = useRouter()
     const [,setLocation] = router.hook()
     const controls = useAnimation()
 
-    useEffect(() => { controls.start('normal') },[])
+    useEffect(() => { controls.start('normal').then(onMount) },[])
 
     const navigate = useCallback(async (direction, onClick, location) => {
         try {
