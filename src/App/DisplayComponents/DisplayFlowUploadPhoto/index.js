@@ -5,6 +5,9 @@ import { useLocation } from 'wouter'
 export const DisplayFlowUploadPhoto = () => {
     return (
         <FlowUploadPhoto
+            previous={{
+                location: '/flow-register-card'
+            }}
         />
     )
 }

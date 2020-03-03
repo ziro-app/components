@@ -8,7 +8,7 @@ import { useState, useCallback, useRef } from 'react'
 import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { shadow } from '@ziro/theme'
 
-const FlowUploadPhoto = () => {
+const FlowUploadPhoto = ({ next, previous }) => {
 
     const [picture, setPicture] = useState()
 
@@ -23,7 +23,14 @@ const FlowUploadPhoto = () => {
 
     const picRef = useRef(null)
 
-    const { controls } = useAnimatedLocation(undefined, () => setModalOpen(true))
+    const { onPrevious, controls } = useAnimatedLocation(undefined, () => setModalOpen(true))
+
+    const _onPrevious = useCallback(() => {
+        const previousOnClick = async () => {
+            previous.onClick && await previous.onClick()
+        }
+        onPrevious(previousOnClick, previous.location)
+    },[previous.onClick, previous.location, onPrevious])
 
     return (
         <>
@@ -31,7 +38,7 @@ const FlowUploadPhoto = () => {
                 controls={controls}
                 title='Foto do documento'
                 next={() => {}}
-                previous={() => {}}
+                previous={_onPrevious}
                 hookDeps={[picture]}
             >
                 <UploadPhoto
