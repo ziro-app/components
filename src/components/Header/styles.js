@@ -25,7 +25,7 @@ containerSticky = hideButton => ({
 	position: 'fixed',
 	top: '0',
 	display: 'grid',
-	gridTemplateColumns: hideButton ? '20px 1fr' : '80px 1fr auto',
+	gridTemplateColumns: hideButton ? '20px 1fr' : 'auto 1fr 80px',
 	alignItems: 'center',
 	justifyItems: 'center',
 	maxWidth: '500px',
@@ -60,5 +60,5 @@ button = {
 },
 
 headerTitle = hideButton => ({
-	marginLeft: hideButton ? '-20px' : '-50px'
+	marginLeft: hideButton ? '-20px' : '0'
 })
