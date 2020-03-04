@@ -1,29 +1,24 @@
 import React from 'react'
 import Proptypes from 'prop-types'
 import { motion } from 'framer-motion'
-import Button from '../Button'
-import { previewContainer } from './styles'
+import ImagePreview from '../ImagePreview'
+import Header from '../Header'
 
-const PreviewOverlay = ({ onDelete, onSend, deleteName, sendName }) => {
+const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
+
     return (
         <motion.div
-            key='previewButtons'
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            transition={{ type: 'tween' }}
-            style={previewContainer}
+            initial={{ scale: window.innerWidth/(window.innerWidth-40) }}
+            animate={{ scale: 1 }}
+            style={{ background: 'white', display: 'grid', padding: '20px', gridGap: '20px', gridTemplateRows: 'auto 1fr', position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
         >
-            <Button
-                type='button'
-                cta={deleteName||'excluir'}
-                template='destructive'
-                click={onDelete}
-            />
-            <Button
-                type='button'
-                cta={sendName||'enviar'}
-                click={onSend}
+            <Header type='title-only' title='Preview'/>
+            <ImagePreview
+                picture={picture}
+                primaryIcon='check'
+                primaryAction={onAccept}
+                secondaryIcon='trash'
+                secondaryAction={deletePicture}
             />
         </motion.div>
     )

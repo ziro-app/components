@@ -56,7 +56,7 @@ const FlowUploadPhoto = ({ next, previous }) => {
                     initial={{ y: '100%' }}
                     variants={{
                         close: { y: '100%' },
-                        closeAfterSend: { opacity: 0, y: '20%' },
+                        closeAfterSend: { opacity: 0 },
                         open: { y: '0%' }
                     }}
                 >

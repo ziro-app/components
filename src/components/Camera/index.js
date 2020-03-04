@@ -12,9 +12,7 @@ const Camera = ({
     onTakePicture,
     onError,
     fallbackComponent,
-    previewBackground = 'white',
-    previewEnterAnimation = { scale: 0.8, translateY: '-8%', boxShadow: shadow },
-    previewExitAnimation = { scale: 1.2, translateY: '8%' }
+    previewComponent
 }) => {
 
     const [picture, videoRef, canvasRef, turnOn, turnOff, takePicture, deletePicture, cameraState] = useCamera(onTakePicture,onError,startOnMount,initialFacingMode)
@@ -23,44 +21,37 @@ const Camera = ({
 
     return (
         <div style={animateContainer}>
-        <AnimatePresence>
-        <div key='container' style={container(!!picture ? previewBackground : 'black' )}>
-            <canvas hidden={true} ref={canvasRef}/>
-            <video
-                style={{ objectFit: 'cover' }}
-                ref={videoRef}
-                hidden={!!picture}
-                autoPlay
-            />
+            <div key='container' style={container('black')}>
+                <canvas hidden={true} ref={canvasRef}/>
+                <video
+                    style={{ objectFit: 'cover' }}
+                    ref={videoRef}
+                    hidden={!!picture}
+                    autoPlay
+                />
+            </div>
+            <div key='fallback' style={overlay}>
+                { !(videoRef.current && videoRef.current.srcObject) && fallbackComponent }
+            </div>
+            <div key='cameraOverlay' style={overlay}>
+                {
+                    children && !picture &&
+                    React.Children.map(children, (child) => 
+                        React.cloneElement(child, {
+                            turnOn: (facingMode) => turnOn(facingMode||initialFacingMode),
+                            turnOff,
+                            takePicture,
+                            cameraState
+                        })
+                    )
+                }
+            </div>
             {
                 picture &&
-                <motion.div
-                    animate={previewEnterAnimation}
-                    exit={previewExitAnimation}
-                >
-                    <img style={{ display: 'block' }} src={picture} />
-                </motion.div>
+                <div key='previewOverlay' style={overlay}>
+                    { React.cloneElement(previewComponent, { picture, deletePicture, videoRect: videoRef.current && videoRef.current.getBoundingClientRect() }) }
+                </div>
             }
-        </div>
-        <div key='fallback' style={overlay}>
-            { !(videoRef.current && videoRef.current.srcObject) && fallbackComponent }
-        </div>
-        <div key='overlay' style={overlay}>
-            {
-                children &&
-                React.Children.map(children, (child) => 
-                    React.cloneElement(child, {
-                        turnOn: (facingMode) => turnOn(facingMode||initialFacingMode),
-                        turnOff,
-                        takePicture,
-                        deletePicture,
-                        isOnPreview: !!picture,
-                        cameraState
-                    })
-                )
-            }
-        </div>
-        </AnimatePresence>
         </div>
     )
 

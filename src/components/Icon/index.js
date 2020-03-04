@@ -37,6 +37,8 @@ import { Send } from '../../Icons/Send/index'
 import { Filter } from '../../Icons/Filter/index'
 import { Camera } from '../../Icons/Camera/index'
 import { Upload } from '../../Icons/Upload/index'
+import { Trash } from '../../Icons/Trash/index'
+import { Check } from '../../Icons/Check/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -78,7 +80,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		send: <Send {...iconProps} />,
 		filter: <Filter {...iconProps} />,
 		camera: <Camera {...iconProps} />,
-		upload: <Upload {...iconProps} />
+		upload: <Upload {...iconProps} />,
+		trash: <Trash {...iconProps} />,
+		check: <Check {...iconProps} />
 	}
 	return iconList[type]
 }

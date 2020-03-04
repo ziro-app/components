@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Proptypes from 'prop-types'
 import Camera from '../Camera'
-import CameraOverlay from '../CameraOverlay'
 import CameraFallback from '../CameraFallback'
 import CameraModal from './CameraModal'
+import { PreviewOverlay, ShooterOverlay } from '../CameraOverlay'
 import * as errors from './errors'
 
-const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, sendName, deleteName, allowSwap, fallbackComponent, previewEnterAnimation, previewBackground }) => {
+const CameraContainer = ({ startOnMount, initialFacingMode, onClose, onSend, allowSwap, fallbackComponent }) => {
 
     const [error, setError] = useState(null)
     const [picture, setPicture] = useState()
@@ -18,16 +18,13 @@ const CameraContainer = ({ startOnMount, initialFacingMode, onSend, onClose, sen
             onTakePicture={setPicture}
             onError={({ name }) => setError(errors[name])}
             fallbackComponent={fallbackComponent || <CameraFallback/>}
-            previewEnterAnimation={previewEnterAnimation}
-            previewBackground={previewBackground}
+            previewComponent={
+                <PreviewOverlay
+                    onAccept={() => onSend(picture)}
+                />
+            }
         >
-            <CameraOverlay
-                onSend={() => onSend(picture)}
-                onClose={onClose}
-                allowSwap={allowSwap}
-                sendName={sendName}
-                deleteName={deleteName}
-            />
+            <ShooterOverlay onClose={onClose} allowSwap={allowSwap}/>
             <CameraModal
                 isOpen={!!error}
                 errorTitle={error && error.title}
