@@ -1,36 +1,33 @@
-import { primaryColor, secondaryColor, gradient, shadow, grayColor1, grayColor3, fontBody } from '@ziro/theme'
+import { primaryColor, fontBody } from '@ziro/theme'
 
 export const
 
 container = {
     display: 'grid',
-    alignItems: 'start',
-    height: '100%',
-    alignContent: 'start',
-    padding: '10px 0px'
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gridColumnGap: '10px'
 },
 
-cardContainer = (selected) => ({
-    zIndex: selected ? 10 : 0,
+cardContainer = {
     display: 'grid',
-    gridTemplateColumns: 'auto auto',
-    justifyContent: 'center',
+    gridTemplateColumns: '60px 1fr',
+    boxShadow: '0px 0px 3px 0px rgba(34, 34, 34, 0.3)',
+    height: '60px',
     alignItems: 'center',
-    padding: '0px 20px',
-    borderRadius: '15px',
-    border: `2px solid ${ selected ? grayColor1 : 'transparent'}`,
-    gridColumnGap: '20px',
-    boxShadow: `${ selected ? 'rgba(34,34,34,0.3)' : 'transparent'} 0px 3px 10px -3px`,
-    margin: '-1px 0px'
-}),
+    margin: '5px 0px'
+},
 
-separator = {
-    background: '#e0e0e0',
-    height: '1px',
-    margin: '0px 50px'
+brandContainer = {
+    display: 'grid',
+    width: 60,
+    height: 60,
+    background: '#303030',
+    alignItems: 'center',
+    justifyContent: 'center'
 },
 
 cardNumber = {
     fontFamily: fontBody,
-    color: primaryColor
+    color: primaryColor,
+    textAlign: 'center'
 }

@@ -25,7 +25,7 @@ const ChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, instal
         <div style={container}>
             <SellerAndChargeRow seller={seller} charge={charge}/>
             <h1 style={header}>Cartão</h1>
-            <CardRow number={cardNumber} isSelected={true}/>
+            <CardRow number={cardNumber} isSelected={false}/>
             <h1 style={header}>Parcelas</h1>
             <ChooseInstallmentRow
                 installmentsOptions={installmentsOptions}

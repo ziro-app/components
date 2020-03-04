@@ -7,7 +7,7 @@ import { FlowDiv } from '../FlowManager/FlowDiv'
 import { useFlowContent } from '../FlowManager/useFlowContent'
 import { ModalSubmit } from '../Form/ModalSubmit/index'
 import { contentTransitions as _contentTransitions, flowElementsTransitions as _flowElementTransitions } from '../FlowManager/defaultTransitions'
-import { scrollShadowTop, scrollShadowBottom, content, singleButton, doubleButton, container } from '../FlowManager/styles'
+import { scrollShadowTop, scrollShadowBottom, content, singleButton, doubleButton, container, contentContainer } from '../FlowManager/styles'
 
 const FlowForm = ({
 	next,
@@ -27,7 +27,7 @@ const FlowForm = ({
 	
 	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
 
-	const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX] = useFlowContent()
+	const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflow] = useFlowContent()
 
 	useEffect(() => {
 		if(submitting) setError()
@@ -46,15 +46,11 @@ const FlowForm = ({
 				<FlowDiv
 					{...contentTransitions}
 					controls={controls}
-					style={{ ...content, overflowY, overflowX }}
+					contentScroll={contentScroll}
+					style={{ ...contentContainer, overflow }}
 				>
-					<div style={{ position: 'relative', display: 'grid', overflowY, overflowX, gridTemplate: 'auto' }}>
 						<div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
-						<div
-							ref={contentScroll.ref}
-							onScroll={contentScroll.onScroll}
-							style={{ ...content, overflowY, overflowX, padding: '0px 20px' }}
-						>
+						<div style={{ ...content, padding: '0px 20px' }}>
 							{inputs.map((reactElement, index) => {
 								if (reactElement.type === 'div') {
 									const children = reactElement.props.children.map((element, innerIndex) => {
@@ -79,7 +75,6 @@ const FlowForm = ({
 							})}
 						</div>
 						<div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/>
-					</div>
 				</FlowDiv>
 				<FlowDiv {...flowElementsTransitions} controls={controls} style={next && previous ? doubleButton : singleButton}>
 					{

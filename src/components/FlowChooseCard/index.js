@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import ChooseCard from '../ChooseCard'
+import { CardRow } from '../ChooseCard/cardRow'
 import FlowManager, { useAnimatedLocation } from '../FlowManager'
 import Modal from '../FlowModal'
 import * as Errors from './errors'
@@ -8,7 +9,7 @@ import * as Errors from './errors'
 const FlowChooseCard = ({ numbers, newCard, next, previous }) => {
 
     const [selected, setSelected] = useState()
-    const state = useMemo(() => ({ number: selected && numbers[selected] }),[selected,numbers])
+    const state = useMemo(() => ({ number: numbers[selected] }),[selected,numbers])
 
     const [error, setError] = useState()
 
@@ -16,7 +17,7 @@ const FlowChooseCard = ({ numbers, newCard, next, previous }) => {
 
     const _onNext = useCallback(() => {
         const nextOnClick = async () => {
-            if(!selected) throw 'NO_CARD'
+            if(!state.number) throw 'NO_CARD'
             next.onClick && await next.onClick(state)
         }
         onNext(nextOnClick, next.location)
@@ -43,6 +44,18 @@ const FlowChooseCard = ({ numbers, newCard, next, previous }) => {
                 controls={controls}
                 next={_onNext}
                 previous={_onPrevious}
+                topView={
+                    <div style={{ margin: '10px', padding: '5px 10px 0px 10px', border: 'grey dashed 2px', borderRadius: 10 }}>
+                        {
+                            state.number ?
+                            <CardRow number={state.number||''} isSelected={false} setSelected={() => {}}/>
+                            :
+                            <div style={{ display: 'grid', alignItems: 'center', height: '60px', textAlign: 'center', margin: '5px 0px 10px 0px' }}>
+                                <label style={{ color: 'grey' }}>Nenhum cartão escolhido</label>
+                            </div>
+                        }
+                    </div>
+                }
             >
                 <ChooseCard
                     numbers={numbers}

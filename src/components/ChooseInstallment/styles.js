@@ -5,7 +5,6 @@ export const
 
 container = {
 	display: 'grid',
-	padding: '10px'
 },
 
 title = {

@@ -39,7 +39,7 @@ doubleRow = {
 
 tripleRow = {
 	...doubleRow,
-	gridTemplateColumns: '1fr 2fr 3fr',
+	gridTemplateColumns: 'auto auto auto',
 	padding: '20px 40px'
 },
 

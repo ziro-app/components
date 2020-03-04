@@ -1,13 +1,12 @@
 import React from 'react'
 import Icon from '../Icon'
 import PropTypes from 'prop-types'
-import { primaryColor } from '@ziro/theme'
+import { brandContainer } from './styles'
 
 const _BrandIcon = ({ brand }) =>
-    brand ?
-        <Icon type={brand} size={30} color={primaryColor}/>
-    :
-        <div style={{ width: 30, height: 30 }}/>
+    <div style={brandContainer}>
+        { brand && <Icon type={brand} size={35} color='white'/> }
+    </div>
 
 _BrandIcon.propTypes = {
     brand: PropTypes.string

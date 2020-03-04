@@ -2,16 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import { motion } from 'framer-motion'
-import { cardContainer } from './styles'
+import { cardContainer, cardNumber, brandContainer } from './styles'
 
 const _AddCard = ({ onClick, color = 'grey' }) => 
     <motion.div
         onClick={onClick}
-        style={cardContainer(false)}
+        style={cardContainer}
         whileTap={{ scale: 0.95 }}
     >
-        <Icon type='add' size={30} color={color}/>
-        <h2 style={{ color }}>Adcionar novo cartão</h2>
+        <div style={{ ...brandContainer, background: '#F0F0F0' }}>
+            <Icon type='add' size={35} color={color}/>
+        </div>
+        <h2 style={{ ...cardNumber, color }}>Adcionar novo cartão</h2>
     </motion.div>
 
 _AddCard.propTypes = {

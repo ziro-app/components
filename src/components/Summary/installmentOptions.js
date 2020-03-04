@@ -31,7 +31,7 @@ const Separator = React.memo(_Separator)
 
 const _InstallmentOptions = ({ charge, maxInstallments }) =>
     <>
-        <InstallmentOption value='1' text='vez de' charge={charge}/>
+        <InstallmentOption value='' text='À vista' charge={charge}/>
         {
             maxInstallments > 1 &&
             <>
