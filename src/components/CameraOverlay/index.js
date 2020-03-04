@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import PreviewOverlay from './previewOverlay'
 import ShooterOverlay from './shooterOverlay'
 
-const CameraOverlay = ({ turnOn, turnOff, takePicture, deletePicture, isOnPreview, cameraState, onSend, onClose, allowSwap }) => {
+const CameraOverlay = ({ turnOn, turnOff, takePicture, deletePicture, isOnPreview, cameraState, onSend, onClose, allowSwap, deleteName, sendName }) => {
 
     return (
         <AnimatePresence>
@@ -14,6 +14,8 @@ const CameraOverlay = ({ turnOn, turnOff, takePicture, deletePicture, isOnPrevie
                 <PreviewOverlay
                     onDelete={deletePicture}
                     onSend={onSend}
+                    deleteName={deleteName}
+                    sendName={sendName}
                 />
 
                 :
@@ -41,7 +43,9 @@ CameraOverlay.propTypes = {
     cameraState: Proptypes.string,
     onSend: Proptypes.func,
     onClose: Proptypes.func,
-    allowSwap: Proptypes.bool
+    allowSwap: Proptypes.bool,
+    deleteName: Proptypes.string,
+    sendName: Proptypes.string
 }
 
 export default CameraOverlay

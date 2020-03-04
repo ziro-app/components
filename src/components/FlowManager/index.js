@@ -5,7 +5,7 @@ import Header from '../Header'
 import { FlowDiv } from './FlowDiv.js'
 import { useFlowContent } from './useFlowContent'
 import { contentTransitions as _contentTransitions, flowElementsTransitions as _flowElementsTransitions } from './defaultTransitions'
-import { doubleButton, singleButton, container, content, contentContainer, scrollShadowTop, scrollShadowBottom } from './styles'
+import { doubleButton, singleButton, container, scrollShadowTop, scrollShadowBottom } from './styles'
 
 export { useAnimatedLocation } from './useAnimatedLocation'
 
@@ -19,11 +19,12 @@ const FlowManager = ({
     previousTitle = 'voltar',
     header,
     topView,
+    hookDeps,
     contentTransitions = _contentTransitions,
     flowElementsTransitions = _flowElementsTransitions,
 }) => {
 
-    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX] = useFlowContent()
+    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflow] = useFlowContent(hookDeps)
 
     return (
         <div style={ container }>
@@ -35,18 +36,15 @@ const FlowManager = ({
             </FlowDiv>
             <FlowDiv
                 {...contentTransitions}
+                contentScroll={contentScroll}
                 controls={controls}
-                style={{ ...contentContainer, overflowY, overflowX }}
+                style={{ overflow }}
             >
-                { !!scrollInsetTop && <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/> }
-                <div
-                    ref={contentScroll.ref}
-                    style={{ ...content, overflowY, overflowX }}
-                    onScroll={contentScroll.onScroll}
-                >
+                <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
+                <div style={{ overflow: 'visible', padding: '0px 20px' }}>
                     {children}
                 </div>
-                { !!scrollInsetBottom && <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/> }
+                <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/>
             </FlowDiv>
             <FlowDiv {...flowElementsTransitions} controls={controls} style={next && previous ? doubleButton : singleButton}>
                     {

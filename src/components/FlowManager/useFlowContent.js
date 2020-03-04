@@ -1,35 +1,44 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
-export const useFlowContent = () => {
+export const useFlowContent = (deps) => {
 
     const ref = useRef(null)
 
     const [scrollMaxInset, setScrollMaxInset] = useState(0)
     const [scrollInsetTop, setScrollInsetTop] = useState(0)
     const [scrollInsetBottom, setScrollInsetBottom] = useState(0)
-    const [overflowY, setOverflowY] = useState('auto')
-    const [overflowX, setOverflowX] = useState('hidden')
+    const [overflow, setOverflow] = useState('auto')
 
-    const onScroll = useCallback(({ target }) => {
-        if(target==ref.current) {
+    const onScroll = useCallback(() => {
+        if(ref.current) {
             const { clientHeight, scrollHeight, scrollTop } = ref.current
             setScrollInsetTop(scrollTop)
             setScrollInsetBottom(scrollHeight-clientHeight-scrollTop)
         }
     },[setScrollInsetBottom,setScrollInsetTop])
 
-    useEffect(() => {
-        if(ref.current) {
+    const setContent = useCallback(() => {
+        if(ref.current && overflow==='auto') {
             const { clientHeight, scrollHeight, scrollTop } = ref.current
-            let maxInset = scrollHeight-clientHeight-scrollTop
-            maxInset = maxInset > 10 ? maxInset: 0
-            setScrollInsetBottom(maxInset)
+            const maxInset = scrollHeight-clientHeight
+            const scrollBottom = maxInset ? maxInset - scrollTop : 0
+            setScrollInsetBottom(scrollBottom)
             setScrollMaxInset(maxInset)
-            setOverflowY(maxInset ? 'auto' : 'visible')
-            setOverflowX(maxInset ? 'hidden' : 'visible')
+            if(!maxInset) setOverflow('visible')
         }
-    },[ref.current])
+        else {
+            setOverflow('auto')
+        }
+    },[overflow])
 
-    return [{ ref, onScroll }, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflowY, overflowX]
+    useEffect(() => { setContent() },[ref.current && ref.current.clientHeight, ...(deps||[])])
+
+    useEffect(() => {
+        window.addEventListener('resize', setContent)
+        return () => window.removeEventListener('resize', setContent)
+    })
+
+    return [{ ref, onScroll }, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflow]
     
 }

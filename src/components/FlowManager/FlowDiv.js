@@ -16,7 +16,8 @@ export const FlowDiv = ({
     previous,
     diverge,
     converge,
-    transition = { type: 'tween'}
+    transition = { type: 'tween'},
+    contentScroll = {}
 }) => {
     const { lastFlowButton } = useRouter()
 
@@ -32,6 +33,8 @@ export const FlowDiv = ({
 
     return (
         <motion.div
+            ref={contentScroll.ref}
+            onScroll={contentScroll.onScroll}
             style={style}
             animate={controls}
             transition={transition}

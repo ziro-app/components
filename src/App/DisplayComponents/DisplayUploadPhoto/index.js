@@ -5,9 +5,16 @@ import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayUploadPhoto = () => {
 
+	const [picture, setPicture] = useState()
+
 	return (
-		<UploadPhoto
+		<div style={containerWithPadding}>
+			<Header type='title-only' title='Upload do documento'/>
+			<UploadPhoto
+				picture={picture}
+				setPicture={setPicture}
 			/>
+		</div>
 	)
 
 }
