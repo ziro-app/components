@@ -4,7 +4,7 @@ import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayHeaderSticky = () =>
 	<div style={{ maxWidth: '500px', minHeight: '100vh', margin: '0 auto' }}>
-		<Header type='sticky' title='Catálogo' hideButton={true} hideFilter={true} />
+		<Header type='sticky' title='Cadastre-se para' hideButton={false} hideFilter={false} />
 		<div style={{ marginTop: '60px', padding: '0 20px' }}>
 			What is Lorem Ipsum?
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

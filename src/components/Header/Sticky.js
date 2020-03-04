@@ -22,16 +22,16 @@ const Sticky = ({ title, hideButton, hideFilter }) => {
 	}, [])
 	return (
 		<motion.div style={containerSticky(hideButton)} animate={animate(showHeader)} transition={transition}>
-			{hideButton ?
+			{hideFilter ?
 				<Link to='/'><Icon type='back' size={18} style={svg('/')} /></Link>
 				:
-				<Button type='link' cta='Comprar' navigate={() => setLocation('/cadastrar')} style={button} />
+				<Icon type='filter' size={18} onClick={() => setLocation('/filtro')} style={{ cursor: 'pointer' }} />
 			}
 			<label style={headerTitle(hideButton)}>{title}</label>
-			{hideFilter ?
+			{hideButton ?
 				null
 				:
-				<Icon type='filter' size={18} onClick={() => setLocation('/filtro')} style={{ cursor: 'pointer' }} />
+				<Button type='link' cta='Comprar' navigate={() => setLocation('/cadastrar')} style={button} />
 			}
 		</motion.div>
 	)
