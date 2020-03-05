@@ -14,6 +14,7 @@ const Calendar = ({ inputDate, setInputDate }) => {
             onDayChange={day => setInputDate(formatDate(day))}
             formatDate={formatDate}
             dayPickerProps={dayPickerProps}
+            style={{ width: '100%' }}
         />
     )
 }

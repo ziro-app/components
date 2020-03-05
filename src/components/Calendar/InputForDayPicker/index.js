@@ -1,14 +1,17 @@
 import React, { forwardRef } from 'react'
-import { input, inputFocus } from './styles'
+import { input, inputFocus, styleTag } from './styles'
 
 const InputForDayPicker = forwardRef((props, ref) => {
     return (
-        <input
-            readOnly={true}
-            onKeyPress={event => event.preventDefault()}
-            style={props.value ? inputFocus : input}
-            {...props}
-        />
+        <>
+            <style>{styleTag}</style>
+            <input
+                readOnly={true}
+                onKeyPress={event => event.preventDefault()}
+                style={props.value ? inputFocus : input}
+                {...props}
+            />
+        </>
     )
 })
 
