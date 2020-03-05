@@ -65,6 +65,38 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/calendar@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Calendar/InputForDayPicker/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Calendar/InputForDayPicker/styles.js",
+                "test": false,
+                "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/Calendar/dayPickerProps.js",
+                "test": false,
+                "name": "dayPickerProps.js"
+            },
+            {
+                "relativePath": "src/components/Calendar/formatDate.js",
+                "test": false,
+                "name": "formatDate.js"
+            },
+            {
+                "relativePath": "src/components/Calendar/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/Calendar/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/call-to-action@0.1.2": {
         "files": [
             {
