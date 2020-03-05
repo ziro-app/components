@@ -65,7 +65,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/calendar@0.0.2": {
+    "vitorbarbosa19.ziro/calendar@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Calendar/InputForDayPicker/index.js",
