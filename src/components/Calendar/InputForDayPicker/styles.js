@@ -11,7 +11,6 @@ export const
         borderRadius: '8px',
         fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
         width: '100%',
-        height: '30px',
         padding: '8px 22px',
         backgroundColor: '#FDFDFD',
         fontSize: fontSizeInput,

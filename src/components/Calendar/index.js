@@ -3,6 +3,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from './InputForDayPicker/index'
 import formatDate from './formatDate'
 import { dayPickerProps } from './dayPickerProps'
+import 'react-day-picker/lib/style.css'
 
 const Calendar = ({ inputDate, setInputDate }) => {
     return (
