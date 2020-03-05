@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import InputForDayPicker from './InputForDayPicker/index'
 import formatDate from './formatDate'
 import { dayPickerProps } from './dayPickerProps'
 
-const Calendar = () => {
-    const [inputDate, setInputDate] = useState('')
+const Calendar = ({ inputDate, setInputDate }) => {
     return (
         <DayPickerInput
             component={InputForDayPicker}
