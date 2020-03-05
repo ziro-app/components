@@ -52,7 +52,11 @@ import { DisplayFilter } from './DisplayComponents/DisplayFilter/index'
 import { DisplayButton } from './DisplayComponents/DisplayButton/index'
 import { DisplayUploadPhoto } from './DisplayComponents/DisplayUploadPhoto'
 import { DisplayFlowUploadPhoto } from './DisplayComponents/DisplayFlowUploadPhoto'
+<<<<<<< HEAD
 import { DisplayTabFlow } from './DisplayComponents/DisplayTabFlow'
+=======
+import { DisplayCalendar } from './DisplayComponents/DisplayCalendar'
+>>>>>>> 195faba298584e8dc90b425c4c11309653cf3c3b
 
 export const App = () =>
 	<Switch>
@@ -109,5 +113,6 @@ export const App = () =>
 		<Route path='/upload-photo'><DisplayUploadPhoto /></Route>
 		<Route path='/flow-upload-photo'><DisplayFlowUploadPhoto /></Route>
 		<Route path='/tab-flow/:any'><DisplayTabFlow /></Route>
+		<Route path='/calendar'><DisplayCalendar /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
