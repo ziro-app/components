@@ -1,93 +1,94 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Button from '../Button'
-import Header from '../Header'
-import { FlowDiv } from './FlowDiv.js'
-import { useFlowContent } from './useFlowContent'
-import { contentTransitions as _contentTransitions, flowElementsTransitions as _flowElementsTransitions } from './defaultTransitions'
-import { doubleButton, singleButton, container, scrollShadowTop, scrollShadowBottom } from './styles'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence, useAnimation } from 'framer-motion'
+import { container, headerContainer, footerContainer } from './styles'
+import { flowContext } from './hooks'
 
-export { useAnimatedLocation } from './useAnimatedLocation'
+export * from './hooks'
 
-const FlowManager = ({
-    children,
-    title,
-    controls,
-    next,
-    previous,
-    nextTitle = 'próximo',
-    previousTitle = 'voltar',
-    header,
-    topView,
-    hookDeps,
-    contentTransitions = _contentTransitions,
-    flowElementsTransitions = _flowElementsTransitions,
-}) => {
+const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
 
-    const [contentScroll, scrollMaxInset, scrollInsetBottom, scrollInsetTop, overflow] = useFlowContent(hookDeps)
+    const headerRef = useRef()
+    const footerRef = useRef()
+    const [header, setHeader] = useState(defaultHeader)
+    const [footer, setFooter] = useState(defaultFooter)
+
+    const contentControls = useAnimation()
+    const flowControls = useAnimation()
+
+    useEffect(() => {
+        const paddingTop = header && headerRef.current && headerRef.current.clientHeight || 0
+        const paddingBottom = footer && footerRef.current && footerRef.current.clientHeight || 0
+        contentControls.start({ paddingTop, paddingBottom })
+    },[header, footer])
+
+    const context = {
+        header,
+        defaultHeader,
+        setHeader,
+        footer,
+        defaultFooter,
+        setFooter,
+        contentControls,
+        flowControls
+    }
 
     return (
-        <div style={ container }>
-            <FlowDiv {...flowElementsTransitions} controls={controls}>
-                { header || <Header type='title-only' title={title}/> }
-            </FlowDiv>
-            <FlowDiv {...contentTransitions} controls={controls}>
-                {topView}
-            </FlowDiv>
-            <FlowDiv
-                {...contentTransitions}
-                contentScroll={contentScroll}
-                controls={controls}
-                style={{ overflow }}
-            >
-                <div style={scrollShadowTop(scrollInsetTop, scrollMaxInset)}/>
-                <div style={{ overflow: 'visible', padding: '0px 20px' }}>
-                    {children}
-                </div>
-                <div style={scrollShadowBottom(scrollInsetBottom, scrollMaxInset)}/>
-            </FlowDiv>
-            <FlowDiv {...flowElementsTransitions} controls={controls} style={next && previous ? doubleButton : singleButton}>
-                    {
-                        previous &&
-                        <Button
-                            type='button'
-                            cta={previousTitle}
-                            click={previous}
-                            template='light'
-                        />
-                    }
-                    {
-                        next &&
-                        <Button
-                            type='button'
-                            cta={nextTitle}
-                            click={next}
-                        />
-                    }
-            </FlowDiv>
+        <div style={container}>
+            <flowContext.Provider value={context}>
+                <AnimatePresence>
+                {
+                    children &&
+                    <motion.div
+                        key='content'
+                        initial={{ opacity: 1 }}
+                        animate={contentControls}
+                        exit={{ opacity: 0 }}
+                        transition={{ type: 'tween' }}
+                    >
+                        {children}
+                    </motion.div>
+                }
+                {
+                    header &&
+                    <motion.div
+                        key='header'
+                        ref={headerRef}
+                        transition={{
+                            type: 'spring',
+                            damping: 150,
+                            stiffness: 500
+                        }}
+                        initial={{ y: '-100%' }}
+                        animate={{ y: '0%' }}
+                        exit={{ y: '-100%' }}
+                        style={headerContainer}
+                    >
+                        {header}
+                    </motion.div>
+                }
+                {
+                    footer &&
+                    <motion.div
+                        key='footer'
+                        ref={footerRef}
+                        transition={{
+                            type: 'spring',
+                            damping: 150,
+                            stiffness: 500
+                        }}
+                        initial={{ y: '100%' }}
+                        animate={{ y: '0%' }}
+                        exit={{ y: '100%' }}
+                        style={footerContainer}
+                    >
+                        {footer}
+                    </motion.div>
+                }
+                </AnimatePresence>
+            </flowContext.Provider>
         </div>
     )
-}
 
-const Transitions = PropTypes.shape({
-    normal: PropTypes.object,
-    next: PropTypes.object,
-    previous: PropTypes.object,
-    diverge: PropTypes.object,
-    converge: PropTypes.object
-})
-
-FlowManager.propTypes = {
-    title: PropTypes.string,
-    controls: PropTypes.object,
-    next: PropTypes.func,
-    previous: PropTypes.func,
-    nextTitle: PropTypes.string,
-    previousTitle: PropTypes.string,
-    header: PropTypes.element,
-    topView: PropTypes.element,
-    contentTransitions: Transitions,
-    flowElementsTransitions: Transitions,
 }
 
 export default FlowManager

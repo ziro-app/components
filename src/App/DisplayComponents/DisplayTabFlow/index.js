@@ -1,6 +1,6 @@
 import React from 'react'
-import { Switch, Route, useLocation } from 'wouter'
-import FlowManager from '../../../components/FlowManagerV2'
+import { Switch, Route } from 'wouter'
+import FlowManager from '../../../components/FlowManager'
 import Tab1 from './tab1'
 import Tab2 from './tab2'
 import Tab3 from './tab3'
