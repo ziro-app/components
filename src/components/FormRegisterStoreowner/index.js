@@ -287,8 +287,10 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							onChange={({ target: { value } }) => {
 								if (value !== '') {
 									let person = affiliates.find(element => element[1] === value)
-									setAffiliateCpf(person[0])
-									setAffiliateName(person[1])
+									if (person) {
+										setAffiliateCpf(person[0])
+										setAffiliateName(person[1])
+									}
 								} else {
 									setAffiliateCpf('')
 									setAffiliateName('')
@@ -297,8 +299,10 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							onChangeKeyboard={element => {
 								if (element) {
 									let person = affiliates.find(affiliate => affiliate[1] === element.value)
-									setAffiliateCpf(person[0])
-									setAffiliateName(person[1])
+									if (person) {
+										setAffiliateCpf(person[0])
+										setAffiliateName(person[1])
+									}
 								} else {
 									setAffiliateCpf('')
 									setAffiliateName('')

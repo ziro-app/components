@@ -6,17 +6,17 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const UpdateEmail = ({ sendToBackend }) => {
+const UpdateEmail = ({ row, sendToBackend }) => {
 	const [pass, setPass] = useState('')
 	const [newEmail, setNewEmail] = useState('')
-	const state = { pass, newEmail }
+	const state = { row, pass, newEmail }
 	const validations = [
 		{
 			name: 'pass',
 			validation: value => !/^.{0,5}$/g.test(value), // tests for min length of 6 char
 			value: pass,
 			message: 'Mínimo 6 caracteres'
-		},{
+		}, {
 			name: 'newEmail',
 			validation: value => /^\S+@\S+\.\S+$/g.test(value), // tests for pattern a@b.c
 			value: newEmail,
@@ -37,14 +37,14 @@ const UpdateEmail = ({ sendToBackend }) => {
 							placeholder='Sua senha atual'
 							type='password'
 						/>
-					}/>,
+					} />,
 					<FormInput name='newEmail' label='Novo email' input={
 						<InputText
 							value={newEmail}
 							onChange={({ target: { value } }) => setNewEmail(value)}
 							placeholder='Seu novo email'
 						/>
-					}/>
+					} />
 				]}
 			/>
 		</div>
