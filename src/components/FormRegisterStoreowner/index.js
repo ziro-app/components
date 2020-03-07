@@ -35,7 +35,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [email, setEmail] = useState('')
 	const [affiliateName, setAffiliateName] = useState('')
 	const [affiliateCpf, setAffiliateCpf] = useState('')
-	const [affiliates, setAffiliates] = useState([])
+	const [affiliates, setAffiliates] = useState([{ 0: "279.601.038-44", 1: "Absolutti - Samuel Lima" }, { 0: "329.094.378-09", 1: "Mais Um - Karina Mota" }, { 0: "307.365.118-73", 1: "Duplo Sentido - Aline Vieira" }, { 0: "326.800.328-10", 1: "Duplo Sentido - Aline Maciel" }, { 0: "227.163.738-41", 1: "Averara - Amanda Guimarães" }, { 0: "372.655.338-01", 1: "Tuart - Maria Bizerra" }])
 	const [advisor, setAdvisor] = useState('')
 	const [advisors, setAdvisors] = useState([])
 	const [salesman, setSalesman] = useState('')
@@ -131,17 +131,17 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			message: 'Formato inválido'
 		}, {
 			name: 'affiliate',
-			validation: value => value === '' | affiliates.find(affiliate => affiliate[1] === value),
+			validation: value => value === '' || affiliates.find(affiliate => affiliate[1] === value),
 			value: affiliateName,
 			message: 'Afiliado(a) inválido(a)'
 		}, {
 			name: 'advisor',
-			validation: value => value === '' | advisors.includes(value),
+			validation: value => value === '' || advisors.includes(value),
 			value: advisor,
 			message: 'Assessor(a) inválido(a)'
 		}, {
 			name: 'salesman',
-			validation: value => value === '' | sellers.includes(value),
+			validation: value => value === '' || sellers.includes(value),
 			value: salesman,
 			message: 'Vendedor(a) inválido(a)'
 		}
@@ -338,7 +338,6 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							readOnly={true}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />
-
 				]}
 			/>
 		</>
