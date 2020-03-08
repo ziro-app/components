@@ -5,7 +5,7 @@ import { useAnimatedLocation } from '../FlowManager'
 import { gridTransition, elementTransition } from './transitions'
 import { container, button, iconContainer, titleContainer, titleFont } from './styles'
 
-const BottomTabBar = ({ buttons = [] }) => {
+const BottomTabBar = ({ buttons = [], options = {} }) => {
 
     const [currentLocation, setLocation] = useAnimatedLocation()
     const [currentIndex, gridTemplateColumns] = useMemo(() => ([
@@ -30,7 +30,7 @@ const BottomTabBar = ({ buttons = [] }) => {
 
                     return (
                         <motion.div
-                            animate={{ gridTemplateRows: isSelected ? '1fr 1fr' : '10fr 1fr' }}
+                            animate={{ gridTemplateRows: isSelected || options.keepText ? '1fr 1fr' : '10fr 1fr' }}
                             transition={elementTransition}
                             style={button}
                             onClick={onClick}
@@ -46,11 +46,15 @@ const BottomTabBar = ({ buttons = [] }) => {
                                 }
                             </motion.div>
                             <motion.div
-                                animate={{ scale: isSelected ? 1 : 0, opacity: isSelected ? 1 : 0 }}
+                                animate={options.keepText ?
+                                    { scale: isSelected ? 1 : 0.8 }
+                                    :
+                                    { scale: isSelected ? 1 : 0, opacity: isSelected ? 1 : 0 }
+                                }
                                 transition={elementTransition}
                                 style={titleContainer}
                             >
-                                <label style={titleFont}>{title}</label>
+                                <label style={{ ...titleFont, color: isSelected ? 'black' : 'grey' }}>{title}</label>
                             </motion.div>
                         </motion.div>
                     )

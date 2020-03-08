@@ -8,11 +8,14 @@ export * from './hooks'
 const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
 
     const headerRef = useRef()
-    const footerRef = useRef()
     const [header, setHeader] = useState(defaultHeader)
     const [hideHeader, setHideHeader] = useState(false)
+
+    const footerRef = useRef()
     const [footer, setFooter] = useState(defaultFooter)
     const [hideFooter, setHideFooter] = useState(false)
+
+    const contentRef = useRef()
 
     const [cache, setCache] = useState({})
 
@@ -20,10 +23,10 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
     const flowControls = useAnimation()
 
     useEffect(() => {
-        const paddingTop = header && headerRef.current && headerRef.current.clientHeight || 0
-        const paddingBottom = footer && footerRef.current && footerRef.current.clientHeight || 0
+        const paddingTop = !hideHeader && header && headerRef.current && headerRef.current.clientHeight || 0
+        const paddingBottom = !hideFooter && footer && footerRef.current && footerRef.current.clientHeight || 0
         contentControls.start({ paddingTop, paddingBottom })
-    },[header, footer])
+    },[header, footer, hideHeader, hideFooter])
 
     const context = {
         //headerContext
@@ -38,6 +41,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
         setFooter,
         hideFooter,
         setHideFooter,
+        //contentContext
+        contentRef: contentRef.current,
         //flowContext
         contentControls,
         flowControls,
@@ -54,6 +59,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
                     children &&
                     <motion.div
                         key='content'
+                        ref={contentRef}
                         initial={{ opacity: 1 }}
                         animate={contentControls}
                         exit={{ opacity: 0 }}

@@ -6,24 +6,26 @@ import { BottomTabBar } from './bottomBar'
 export default () => {
 
     useHeader(null,[])
-    useFooter(<BottomTabBar/>,[])
+    useFooter()
 
-    const [counter, setCounter] = useCache('counter',0)
-    const [counter2, setCounter2] = useCache('counter2',0)
-
-    console.log({ counter, counter2 })
+    const [counter, setCounter] = useCache(0)
+    const [counter2, setCounter2] = useCache(0)
 
     return (
         <div style={{ display: 'grid', background: 'blue', height: '100%', width: '100%' }}>
             {Array.from(new Array(10)).map((_,index) => {
                 return <label>{index}</label>
             })}
-            <div style={{ background: 'yellow', height: 50 }}
+            <div style={{ background: 'yellow', height: 50, margin: '10px' }}
                 onClick={() => setCounter(old => old+1)}
-            />
-            <div style={{ background: 'yellow', height: 50 }}
+            >
+                <label>{`click to test cache: ${counter}`}</label>
+            </div>
+            <div style={{ background: 'yellow', height: 50, margin: '10px' }}
                 onClick={() => setCounter2(old => old+1)}
-            />
+            >
+                <label>{`click to test cache: ${counter2}`}</label>
+            </div>
         </div>
     )
 }

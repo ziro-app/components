@@ -21,6 +21,9 @@ export const BottomTabBar = () => {
                     icon: 'user'
                 }
             ]}
+            options={{
+                keepText: false
+            }}
         />
     )
 }

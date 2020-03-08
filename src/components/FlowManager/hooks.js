@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation } from 'wouter'
 import { useCallback } from 'react'
 import * as defaultAnimations from './defaultAnimations'
+import { useRef } from 'react'
 
 const showError = () => console.error('NO_FLOW_CONTEXT')
 
 const SCROLL_Y = Symbol('SCROLL_Y')
-const SCROLL_Y_HIDE_HEADER = Symbol('SCROLL_Y_HIDE_HEADER')
-const SCROLL_Y_HIDE_FOOTER = Symbol('SCROLL_Y_HIDE_FOOTER')
+const SCROLL_Y_HIDE = Symbol('SCROLL_Y_HIDE')
+
+const cacheCalls = new Map()
 
 export const
 
@@ -24,6 +26,8 @@ flowContext = React.createContext({
     setFooter: showError,
     hideFooter: null,
     setHideFooter: showError,
+    //contentContext
+    contentRef: null,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -32,24 +36,20 @@ flowContext = React.createContext({
     setCache: showError,
 }),
 
-useHeader = (header, deps) => {
-    const { setHeader } = useContext(flowContext)
-    useEffect(() => setHeader(header), deps)
+useHeader = (header, deps = []) => {
+    const { setHeader, defaultHeader } = useContext(flowContext)
+    useEffect(() => {
+        if(header===undefined) setHeader(defaultHeader)
+        else setHeader(header)
+    }, deps)
 },
 
-useDefaultHeader = () => {
-    const { defaultHeader, setHeader } = useContext(flowContext)
-    useEffect(() => setHeader(defaultHeader),[defaultHeader])
-},
-
-useFooter = (footer, deps) => {
-    const { setFooter } = useContext(flowContext)
-    useEffect(() => setFooter(footer), deps)
-},
-
-useDefaultFooter = () => {
-    const { defaultFooter, setFooter } = useContext(flowContext)
-    useEffect(() => setFooter(defaultFooter), [defaultFooter])
+useFooter = (footer, deps = []) => {
+    const { setFooter, defaultFooter } = useContext(flowContext)
+    useEffect(() => {
+        if(footer===undefined) setFooter(defaultFooter)
+        else setFooter(footer)
+    }, deps)
 },
 
 useAnimatedLocation = () => {
@@ -65,26 +65,38 @@ useAnimatedLocation = () => {
     return [_location, navigate]
 },
 
-useCache = (name, initialValue) => {
+useCache = (initialValue, name) => {
+    if(name && /^[0-9]*$/gm.test(name.toString())) {
+        console.error('useCache keys cannot contain only numbers to avoid key collision')
+        return [undefined, () => console.error('change key to use this value')]
+    }
     const { cache, setCache } = useContext(flowContext)
-    const [location] = useLocation()
+    const [location] = useState(window.location.pathname)
+    const [index] = useState(() => {
+        if(name) return name
+        const index = cacheCalls.has(location) && cacheCalls.get(location) || 0
+        cacheCalls.set(location,index+1)
+        return index
+    })
     const setValue = useCallback((value) => {
         setCache(oldCache => ({
             ...oldCache,
-            [location]: {
+            [location] : {
                 ...(oldCache[location]||{}),
-                [name]: typeof value === 'function' ?
-                    value(oldCache[location] && oldCache[location][name] || initialValue)
-                    : value
+                [index]: typeof value === 'function' ? value(oldCache[location] && oldCache[location][index]) : value
             }
         }))
-    },[setCache,location])
-    useLayoutEffect(() => { !cache[location] || !cache[location][name] ? setValue(initialValue) : null },[])
-    return [cache[location] && cache[location][name] || initialValue, setValue]
+    },[setCache, location])
+    useLayoutEffect(() => {
+        (!cache[location] || !cache[location][index]) && setValue(initialValue)
+        return () => cacheCalls.set(location,0)
+    },[])
+    const value = cache[location] ? cache[location][index] : undefined
+    return [ value ? value : initialValue, setValue]
 },
 
 usePersistentScroll = (deps = []) => {
-    const [scrollY, setScrollY] = useCache(SCROLL_Y,0)
+    const [scrollY, setScrollY] = useCache(0, SCROLL_Y)
     useEffect(() => {
         const saveScroll = () => setScrollY(window.scrollY)
         window.addEventListener('scroll', saveScroll)
@@ -96,40 +108,66 @@ usePersistentScroll = (deps = []) => {
     },deps)
 },
 
-useHideHeaderOnScroll = (hideThreshold = 25, showThreshold = 1) => {
-    const { setHideHeader } = useContext(flowContext)
-    const [scrollY, setScrollY] = useCache(SCROLL_Y_HIDE_HEADER,window.scrollY)
-    console.log({ scrollY })
+useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {
+    const { setHideHeader, setHideFooter, contentRef } = useContext(flowContext)
+    const [scrollY, setScrollY] = useCache(window.scrollY,SCROLL_Y_HIDE)
 	useEffect(() => {
-        setHideHeader(false)
+        if(!contentRef) return
 		const toggleHeader = () => setScrollY(prevScrollY => {
-			if (prevScrollY > window.scrollY + showThreshold) setHideHeader(false)
-			if (prevScrollY < window.scrollY - hideThreshold) setHideHeader(true)
+			if (prevScrollY > window.scrollY + showThreshold) {
+                if (element === 'both' || element === 'header') setHideHeader(false)
+                if (element === 'both' || element === 'footer') setHideFooter(false)
+            }
+			if (prevScrollY < window.scrollY - hideThreshold) {
+                if(element === 'both' || element === 'header') setHideHeader(true)
+                if(element === 'both' || element === 'footer') setHideFooter(true)
+            }
 			return window.scrollY
-		})
-        setTimeout(() => window.addEventListener('scroll', toggleHeader),1000)
+        })
+        window.addEventListener('scroll', toggleHeader)
 		return () => {
             window.removeEventListener('scroll', toggleHeader)
             setHideHeader(false)
         }
-	}, [])
+	}, [contentRef])
 },
 
-useHideFooterOnScroll = (hideThreshold = 25, showThreshold = 1) => {
-    const { setHideFooter } = useContext(flowContext)
-    const [scrollY, setScrollY] = useCache(SCROLL_Y_HIDE_FOOTER,window.scrollY)
-    console.log({ scrollY })
-	useEffect(() => {
-        setHideFooter(false)
-		const toggleFooter = () => setScrollY(prevScrollY => {
-			if (prevScrollY > window.scrollY + showThreshold) setHideFooter(false)
-			if (prevScrollY < window.scrollY - hideThreshold) setHideFooter(true)
-			return window.scrollY
-        })
-        setTimeout(() => window.addEventListener('scroll', toggleFooter),1000)
-		return () => {
-            window.removeEventListener('scroll', toggleFooter)
-            setHideFooter(false)
+useScrollBottom = (type = 'absolute') => {
+    const { contentRef } = useContext(flowContext)
+    const [scrollBottom, setScrollBottom] = useState(undefined)
+    useEffect(() => {
+        if(!contentRef) return
+        const check = () => {
+            const { clientHeight } = contentRef
+            const { innerHeight, scrollY } = window
+            const excursion = clientHeight - innerHeight
+            setScrollBottom(type === 'percentage' ? (excursion - scrollY)/excursion : (excursion - scrollY))
         }
-	}, [])
+        window.addEventListener('scroll', check)
+        check()
+        return () => window.removeEventListener('scroll', check)
+    }, [contentRef])
+    return scrollBottom
+},
+
+useIsContentConsumed = () => {
+    const ref = useRef()
+    const [isVisualized, setVisualized] = useCache(false)
+    useEffect(() => {
+        if(!ref.current) return
+        const check = () => {
+            const { offsetTop, clientHeight } = ref.current
+            const { scrollY, innerHeight } = window
+            const currentVisualized = scrollY+innerHeight
+            const contentToVisualize = offsetTop + clientHeight
+            if(currentVisualized>=contentToVisualize && !isVisualized) {
+                setVisualized(true)
+                window.removeEventListener('scroll', check)
+            }
+        }
+        !isVisualized && window.addEventListener('scroll', check)
+        check()
+        return () => window.removeEventListener('scroll', check)
+    },[ref.current])
+    return [ref, isVisualized]
 }
