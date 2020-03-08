@@ -42,22 +42,22 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.1": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.4": {
         "files": [
             {
+                "name": "index.js",
                 "relativePath": "src/components/BottomTabBar/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "styles.js",
                 "relativePath": "src/components/BottomTabBar/styles.js",
-                "test": false,
-                "name": "styles.js"
+                "test": false
             },
             {
+                "name": "transitions.js",
                 "relativePath": "src/components/BottomTabBar/transitions.js",
-                "test": false,
-                "name": "transitions.js"
+                "test": false
             }
         ],
         "mainFile": "src/components/BottomTabBar/index.js",
@@ -604,7 +604,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.1": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/FlowManager/defaultAnimations.js",

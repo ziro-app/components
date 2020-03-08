@@ -1,16 +1,29 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache } from '../../../components/FlowManager'
+import { BottomTabBar } from './bottomBar'
 
 export default () => {
 
-    useHeader(null)
+    useHeader(null,[])
+    useFooter(<BottomTabBar/>,[])
+
+    const [counter, setCounter] = useCache('counter',0)
+    const [counter2, setCounter2] = useCache('counter2',0)
+
+    console.log({ counter, counter2 })
 
     return (
         <div style={{ display: 'grid', background: 'blue', height: '100%', width: '100%' }}>
-            {Array.from(new Array(100)).map((_,index) => {
+            {Array.from(new Array(10)).map((_,index) => {
                 return <label>{index}</label>
             })}
+            <div style={{ background: 'yellow', height: 50 }}
+                onClick={() => setCounter(old => old+1)}
+            />
+            <div style={{ background: 'yellow', height: 50 }}
+                onClick={() => setCounter2(old => old+1)}
+            />
         </div>
     )
 }

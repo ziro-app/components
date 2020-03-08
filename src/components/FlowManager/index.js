@@ -10,7 +10,11 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
     const headerRef = useRef()
     const footerRef = useRef()
     const [header, setHeader] = useState(defaultHeader)
+    const [hideHeader, setHideHeader] = useState(false)
     const [footer, setFooter] = useState(defaultFooter)
+    const [hideFooter, setHideFooter] = useState(false)
+
+    const [cache, setCache] = useState({})
 
     const contentControls = useAnimation()
     const flowControls = useAnimation()
@@ -22,14 +26,24 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
     },[header, footer])
 
     const context = {
+        //headerContext
         header,
         defaultHeader,
         setHeader,
+        hideHeader,
+        setHideHeader,
+        //footerContext
         footer,
         defaultFooter,
         setFooter,
+        hideFooter,
+        setHideFooter,
+        //flowContext
         contentControls,
-        flowControls
+        flowControls,
+        //cacheContext
+        cache,
+        setCache,
     }
 
     return (
@@ -49,7 +63,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
                     </motion.div>
                 }
                 {
-                    header &&
+                    header && !hideHeader &&
                     <motion.div
                         key='header'
                         ref={headerRef}
@@ -67,7 +81,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
                     </motion.div>
                 }
                 {
-                    footer &&
+                    footer && !hideFooter &&
                     <motion.div
                         key='footer'
                         ref={footerRef}
