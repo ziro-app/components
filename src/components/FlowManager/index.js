@@ -25,10 +25,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
     const [hijackAnimation, setHijackAnimation] = useState([])
     const [currentAnimation, setCurrentAnimation] = useState()
 
-    const isHijaked = useCallback((location) => {
-        console.log({ location })
-        return hijackAnimation.some((loc) => loc === location)
-    },[hijackAnimation])
+    const isHijaked = useCallback((location) => hijackAnimation.some((loc) => loc === location),[hijackAnimation])
     const setHijaked = useCallback((location) => {
         hijackAnimation.every((loc) => loc !== location) && setHijackAnimation(loc => [...loc,location])
     },[hijackAnimation, setHijackAnimation])
