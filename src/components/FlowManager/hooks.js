@@ -150,7 +150,10 @@ useScrollBottom = (type = 'absolute',deps = []) => {
     const { contentRef } = useContext(flowContext)
     const [scrollBottom, setScrollBottom] = useState(undefined)
     const check = useCallback(() => {
-        if(!contentRef) return
+        if(!contentRef) {
+            setScrollBottom(undefined)
+            return
+        }
         const { clientHeight } = contentRef
         const { innerHeight, scrollY } = window
         const excursion = clientHeight - innerHeight
@@ -162,7 +165,7 @@ useScrollBottom = (type = 'absolute',deps = []) => {
         window.addEventListener('scroll', check)
         return () => window.removeEventListener('scroll', check)
     }, [contentRef])
-    useEffect(check,deps)
+    useEffect(check,[contentRef && contentRef.clientHeight, ...deps])
     return scrollBottom
 },
 

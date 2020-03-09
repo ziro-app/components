@@ -18,12 +18,13 @@ export default () => {
     const scroll = useScrollBottom('absolute',[numbers.length])
 
     useEffect(() => {
-        setInterval(() => {
-            setNumbers(old => [...old, Array.from(new Array(100))])
-        },5000)
+        const interval = setInterval(() => {
+            setNumbers(old => [...old, old.length])
+        },500)
+        return () => clearInterval(interval)
     })
 
-    console.log({ scroll })
+    console.log({ scroll, numbers })
 
     return (
         <div style={{ display: 'grid', background: 'yellow', height: '100%', width: '100%' }}>
