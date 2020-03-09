@@ -31,6 +31,12 @@ flowContext = React.createContext({
     //flowContext
     contentControls: null,
     flowControls: null,
+    isAnimating: null,
+    setIsAnimating: showError,
+    isHijaked: showError,
+    setHijaked: showError,
+    currentAnimation: null,
+    setCurrentAnimation: showError,
     //cacheContext
     cache: null,
     setCache: showError,
@@ -55,16 +61,34 @@ useFooter = (footer, deps = []) => {
 },
 
 useAnimatedLocation = () => {
-    const { contentControls } = useContext(flowContext)
+    const { contentControls, setIsAnimating, isHijaked, currentAnimation, setCurrentAnimation } = useContext(flowContext)
     const [_location,setLocation] = useLocation()
+    const [shouldEnter, setShouldEnter] = useState(false)
+
+    useEffect(() => {
+
+        if(!shouldEnter) return
+        setShouldEnter(false)
+        if(isHijaked(_location)) {
+            setIsAnimating(false)
+            return
+        }
+
+        contentControls &&
+        currentAnimation &&
+        currentAnimation.enter &&
+        contentControls.start(currentAnimation.enter).then(() => setIsAnimating(false))
+
+    },[shouldEnter])
+
     const navigate = useCallback(async (animation = {}, location) => {
-        // if string, look for a default animation
-        const { exit, initial, enter } = typeof animation === 'string' ? defaultAnimations[animation] || {} : animation
-        // animate the exit, change location, set initial state and animate entrance
-        contentControls && exit && await contentControls.start(exit)
+        const anim = typeof animation === 'string' ? defaultAnimations[animation] || {} : animation
+        setCurrentAnimation(anim)
+        setIsAnimating(true)
+        contentControls && anim.exit && await contentControls.start(anim.exit)
         setLocation(location)
-        contentControls && initial && contentControls.set(initial)
-        contentControls && enter && await contentControls.start(enter)
+        contentControls && anim.initial && contentControls.set(anim.initial)
+        setShouldEnter(true)
     },[contentControls, setLocation])
     return [_location, navigate]
 },
@@ -110,16 +134,28 @@ useCache = (initialValue, name) => {
 //here deps are not to watch their change,
 //but rather if they are all true and scroll can happen
 usePersistentScroll = (deps = []) => {
+    const { isAnimating, contentControls, contentRef, setHijaked, currentAnimation } = useContext(flowContext)
     const [scrollY, setScrollY] = useCache(0, SCROLL_Y)
+    const [hasScrolled, setHasScrolled] = useState(false)
     useEffect(() => {
         const saveScroll = () => setScrollY(window.scrollY)
         window.addEventListener('scroll', saveScroll)
         return () => window.removeEventListener('scroll', saveScroll)
     },[])
-    useLayoutEffect(() => {
-        if(!deps.length) window.scrollTo(0,scrollY)
-        else deps.every(dep => dep) && window.scrollTo(0, scrollY)
-    },deps)
+    useEffect(() => {
+        if(isAnimating || !contentRef || hasScrolled) return
+        if(deps.length && deps.some(dep => !dep)) return
+        if(contentControls && currentAnimation) {
+            contentControls.start(currentAnimation.initial)
+                .then(() => {
+                    window.scrollTo(0, scrollY)
+                    setHasScrolled(true)
+                    contentControls.start(currentAnimation.enter)
+                })
+        }
+        else window.scrollTo(0, scrollY)
+    },[isAnimating,...deps])
+    useLayoutEffect(() => setHijaked(window.location.pathname),[])
 },
 
 useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {

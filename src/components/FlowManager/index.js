@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { container, headerContainer, footerContainer } from './styles'
 import { flowContext } from './hooks'
@@ -21,6 +21,17 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
 
     const contentControls = useAnimation()
     const flowControls = useAnimation()
+    const [isAnimating, setIsAnimating] = useState(false)
+    const [hijackAnimation, setHijackAnimation] = useState([])
+    const [currentAnimation, setCurrentAnimation] = useState()
+
+    const isHijaked = useCallback((location) => {
+        console.log({ location })
+        return hijackAnimation.some((loc) => loc === location)
+    },[hijackAnimation])
+    const setHijaked = useCallback((location) => {
+        hijackAnimation.every((loc) => loc !== location) && setHijackAnimation(loc => [...loc,location])
+    },[hijackAnimation, setHijackAnimation])
 
     useEffect(() => {
         const paddingTop = !hideHeader && header && headerRef.current && headerRef.current.clientHeight || 0
@@ -46,6 +57,12 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
         //flowContext
         contentControls,
         flowControls,
+        isAnimating,
+        setIsAnimating,
+        isHijaked,
+        setHijaked,
+        currentAnimation,
+        setCurrentAnimation,
         //cacheContext
         cache,
         setCache,
