@@ -78,8 +78,6 @@ useCache = (initialValue, name) => {
     const { cache, setCache } = useContext(flowContext)
     //use state to keep location fixed between component transitions
     const [location] = useState(window.location.pathname)
-    //use first render var to send the initial value until the state is setted
-    const [firstRender, setFirstRender] = useState(true)
     //get the index of anonymous calls be keeping a map of each location set of calls,
     //calls should be always the same, and in the same order, theorethically, if the
     //number of calls change, this is not a problem, since the order doesn't change
@@ -101,12 +99,11 @@ useCache = (initialValue, name) => {
     },[setCache, location])
     useEffect(() => {
         //set the initial value if none was found on mount
-        (!cache[location] || !cache[location][index]) && setValue(initialValue)
+        (!cache[location] || !cache[location][index]) && setValue(initialValue === undefined ? null : initialValue)
         //remember to reset the calls map, so in the next mount the index starts on 0
         return () => cacheCalls.set(location,0)
     },[])
-    if(firstRender) setFirstRender(false)
-    const value = firstRender ? initialValue : cache[location] && cache[location][index]
+    const value = cache[location] && cache[location][index] !== undefined ? cache[location][index] : initialValue
     return [value, setValue]
 },
 
