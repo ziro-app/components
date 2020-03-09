@@ -155,6 +155,7 @@ useScrollBottom = (type = 'absolute') => {
             const { clientHeight } = contentRef
             const { innerHeight, scrollY } = window
             const excursion = clientHeight - innerHeight
+            innerHeight > clientHeight ? setScrollBottom(undefined) :
             setScrollBottom(type === 'percentage' ? (excursion - scrollY)/excursion : (excursion - scrollY))
         }
         window.addEventListener('scroll', check)
