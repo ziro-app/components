@@ -1,6 +1,5 @@
 import React, { useMemo, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import Icon from '../Icon'
 import { useAnimatedLocation } from '../FlowManager'
 import { gridTransition, elementTransition } from './transitions'
 import { container, button, iconContainer, titleContainer, titleFont } from './styles'
@@ -40,10 +39,7 @@ const BottomTabBar = ({ buttons = [], options = {} }) => {
                                 transition={elementTransition}
                                 style={iconContainer}
                             >
-                                {
-                                    icon &&
-                                    <Icon type={icon} size={20} color={isSelected ? 'black' : 'grey'} strokeWidth={1}/>
-                                }
+                                {icon}
                             </motion.div>
                             <motion.div
                                 animate={options.keepText ?
