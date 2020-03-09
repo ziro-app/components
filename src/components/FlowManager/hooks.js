@@ -146,22 +146,23 @@ useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {
 	}, [contentRef])
 },
 
-useScrollBottom = (type = 'absolute') => {
+useScrollBottom = (type = 'absolute',deps = []) => {
     const { contentRef } = useContext(flowContext)
     const [scrollBottom, setScrollBottom] = useState(undefined)
+    const check = useCallback(() => {
+        if(!contentRef) return
+        const { clientHeight } = contentRef
+        const { innerHeight, scrollY } = window
+        const excursion = clientHeight - innerHeight
+        innerHeight > clientHeight ? setScrollBottom(undefined) :
+        setScrollBottom(type === 'percentage' ? (excursion - scrollY)/excursion : (excursion - scrollY))
+    },[contentRef])
     useEffect(() => {
         if(!contentRef) return
-        const check = () => {
-            const { clientHeight } = contentRef
-            const { innerHeight, scrollY } = window
-            const excursion = clientHeight - innerHeight
-            innerHeight > clientHeight ? setScrollBottom(undefined) :
-            setScrollBottom(type === 'percentage' ? (excursion - scrollY)/excursion : (excursion - scrollY))
-        }
         window.addEventListener('scroll', check)
-        check()
         return () => window.removeEventListener('scroll', check)
     }, [contentRef])
+    useEffect(check,deps)
     return scrollBottom
 },
 

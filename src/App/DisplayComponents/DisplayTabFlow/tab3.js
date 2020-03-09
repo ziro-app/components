@@ -3,6 +3,7 @@ import Header from '../../../components/Header'
 import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useScrollBottom, useIsContentConsumed } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { useEffect } from 'react'
+import { useState } from 'react'
 
 export default () => {
 
@@ -12,13 +13,23 @@ export default () => {
     usePersistentScroll()
     useHideOnScroll()
 
+    const [numbers, setNumbers] = useState([])
+
+    const scroll = useScrollBottom('absolute',[numbers.length])
+
+    useEffect(() => {
+        setInterval(() => {
+            setNumbers(old => [...old, Array.from(new Array(100))])
+        },5000)
+    })
+
+    console.log({ scroll })
+
     return (
         <div style={{ display: 'grid', background: 'yellow', height: '100%', width: '100%' }}>
-            {Array.from(new Array(100)).map((_,index) => {
+            {numbers.map((_,index) => {
 
-                const [ref, isConsumed] = useIsContentConsumed(0.8)
-
-                return <label ref={ref}>{index + (isConsumed ? ' visualized' : '')}</label>
+                return <label>{index}</label>
             })}
         </div>
     )
