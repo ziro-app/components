@@ -39,6 +39,9 @@ import { Camera } from '../../Icons/Camera/index'
 import { Upload } from '../../Icons/Upload/index'
 import { Trash } from '../../Icons/Trash/index'
 import { Check } from '../../Icons/Check/index'
+import { Star } from '../../Icons/Star/index'
+import { Search } from '../../Icons/Search/index'
+import { ShoppingBag } from '../../Icons/ShoppingBag/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth }
@@ -82,7 +85,10 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
 		camera: <Camera {...iconProps} />,
 		upload: <Upload {...iconProps} />,
 		trash: <Trash {...iconProps} />,
-		check: <Check {...iconProps} />
+		check: <Check {...iconProps} />,
+		star: <Star {...iconProps} />,
+		search: <Search {...iconProps} />,
+		shoppingBag: <ShoppingBag {...iconProps} />
 	}
 	return iconList[type]
 }
