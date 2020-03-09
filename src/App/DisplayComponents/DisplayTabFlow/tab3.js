@@ -16,7 +16,7 @@ export default () => {
         <div style={{ display: 'grid', background: 'yellow', height: '100%', width: '100%' }}>
             {Array.from(new Array(100)).map((_,index) => {
 
-                const [ref, isConsumed] = useIsContentConsumed()
+                const [ref, isConsumed] = useIsContentConsumed(0.8)
 
                 return <label ref={ref}>{index + (isConsumed ? ' visualized' : '')}</label>
             })}

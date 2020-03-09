@@ -39,6 +39,7 @@ flowContext = React.createContext({
 useHeader = (header, deps = []) => {
     const { setHeader, defaultHeader } = useContext(flowContext)
     useEffect(() => {
+        //check for undefined to let null pass
         if(header===undefined) setHeader(defaultHeader)
         else setHeader(header)
     }, deps)
@@ -47,6 +48,7 @@ useHeader = (header, deps = []) => {
 useFooter = (footer, deps = []) => {
     const { setFooter, defaultFooter } = useContext(flowContext)
     useEffect(() => {
+        //check for undefined to let null pass
         if(footer===undefined) setFooter(defaultFooter)
         else setFooter(footer)
     }, deps)
@@ -56,7 +58,9 @@ useAnimatedLocation = () => {
     const { contentControls } = useContext(flowContext)
     const [_location,setLocation] = useLocation()
     const navigate = useCallback(async (animation = {}, location) => {
+        // if string, look for a default animation
         const { exit, initial, enter } = typeof animation === 'string' ? defaultAnimations[animation] || {} : animation
+        // animate the exit, change location, set initial state and animate entrance
         contentControls && exit && await contentControls.start(exit)
         setLocation(location)
         contentControls && initial && contentControls.set(initial)
@@ -66,18 +70,26 @@ useAnimatedLocation = () => {
 },
 
 useCache = (initialValue, name) => {
+    //block names with only numbers because the anonymous calls are been indexed by number
     if(name && /^[0-9]*$/gm.test(name.toString())) {
-        console.error('useCache keys cannot contain only numbers to avoid key collision')
-        return [undefined, () => console.error('change key to use this value')]
+        console.error(name+': useCache keys cannot contain only numbers to avoid key collision')
+        return [undefined, () => console.error(name+': change key to use this value')]
     }
     const { cache, setCache } = useContext(flowContext)
+    //use state to keep location fixed between component transitions
     const [location] = useState(window.location.pathname)
+    //use first render var to send the initial value until the state is setted
+    const [firstRender, setFirstRender] = useState(true)
+    //get the index of anonymous calls be keeping a map of each location set of calls,
+    //calls should be always the same, and in the same order, theorethically, if the
+    //number of calls change, this is not a problem, since the order doesn't change
     const [index] = useState(() => {
         if(name) return name
-        const index = cacheCalls.has(location) && cacheCalls.get(location) || 0
-        cacheCalls.set(location,index+1)
-        return index
+        const _index = cacheCalls.has(location) && cacheCalls.get(location) || 0
+        cacheCalls.set(location,_index+1)
+        return _index
     })
+    //use this callback as a reducer to the cache, but without a fixed number of keys
     const setValue = useCallback((value) => {
         setCache(oldCache => ({
             ...oldCache,
@@ -87,14 +99,19 @@ useCache = (initialValue, name) => {
             }
         }))
     },[setCache, location])
-    useLayoutEffect(() => {
+    useEffect(() => {
+        //set the initial value if none was found on mount
         (!cache[location] || !cache[location][index]) && setValue(initialValue)
+        //remember to reset the calls map, so in the next mount the index starts on 0
         return () => cacheCalls.set(location,0)
     },[])
-    const value = cache[location] ? cache[location][index] : undefined
-    return [ value ? value : initialValue, setValue]
+    if(firstRender) setFirstRender(false)
+    const value = firstRender ? initialValue : cache[location] && cache[location][index]
+    return [value, setValue]
 },
 
+//here deps are not to watch their change,
+//but rather if they are all true and scroll can happen
 usePersistentScroll = (deps = []) => {
     const [scrollY, setScrollY] = useCache(0, SCROLL_Y)
     useEffect(() => {
@@ -150,22 +167,31 @@ useScrollBottom = (type = 'absolute') => {
     return scrollBottom
 },
 
-useIsContentConsumed = () => {
+useIsContentConsumed = (threshold = 0.5) => {
+    const { contentRef } = useContext(flowContext)
     const ref = useRef()
     const [isVisualized, setVisualized] = useCache(false)
     useEffect(() => {
-        if(!ref.current) return
+        if(!contentRef || !ref.current || isVisualized) return
         const check = () => {
+
+            const { clientHeight: contentHeight } = contentRef
             const { offsetTop, clientHeight } = ref.current
             const { scrollY, innerHeight } = window
-            const currentVisualized = scrollY+innerHeight
+
+            //get current visualized: amount that has been scrolled + percentage of the escreen to scroll
+            const currentVisualized = scrollY+((1-threshold)*innerHeight)
+            //get bottommost y coordinate of contet: amount content is distant from y = 0 + height of content
             const contentToVisualize = offsetTop + clientHeight
-            if(currentVisualized>=contentToVisualize && !isVisualized) {
+            //get how much of scroll has left: entire height - amount scrolled - screen height
+            const scrollBottom = contentHeight - scrollY - innerHeight
+
+            if(currentVisualized>=contentToVisualize || scrollBottom===0) {
                 setVisualized(true)
                 window.removeEventListener('scroll', check)
             }
         }
-        !isVisualized && window.addEventListener('scroll', check)
+        window.addEventListener('scroll', check)
         check()
         return () => window.removeEventListener('scroll', check)
     },[ref.current])
