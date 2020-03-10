@@ -22,8 +22,8 @@ const BottomTabBar = ({ buttons = [] }) => {
                         isSelected ?
                             currentLocation === location ? null
                             : setLocation('goRight',location)
-                            : setLocation(animation, location),[currentIndex]
-                    ,[isSelected, currentLocation])
+                            : setLocation(animation, location)
+                    ,[currentIndex, isSelected, currentLocation])
 
                     return (
                         <div style={button} onClick={onClick}>
