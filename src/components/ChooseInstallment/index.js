@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { SellerAndChargeRow } from '../SellerAndChargeRow'
 import { CardRow } from '../ChooseCard/cardRow'
-import { ChooseInstallmentRow } from './ChooseInstallmentRow'
+import { ChooseInstallmentRow } from './chooseInstallmentRow'
 import { TotalRow } from './totalRow'
 import { container, header } from './styles'
 
