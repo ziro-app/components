@@ -6,7 +6,7 @@ const BottomTabBar = ({ buttons = [] }) => {
 
     const [currentLocation, setLocation] = useAnimatedLocation()
     const [currentIndex, gridTemplateColumns] = useMemo(() => ([
-        buttons.findIndex(({ location }) => currentLocation.startsWith(location)),
+        buttons.findIndex(({ location, secondaryLocations = [] }) => currentLocation.startsWith(location) || secondaryLocations.some(loc => currentLocation.startsWith(loc))),
         buttons.map(() => '1fr').join(' ')
     ])
     ,[currentLocation,buttons])
@@ -18,7 +18,12 @@ const BottomTabBar = ({ buttons = [] }) => {
                     
                     const isSelected = useMemo(() => currentIndex === index, [currentIndex])
                     const animation = useMemo(() => currentIndex > index ? 'goRight' : 'goLeft', [currentIndex])
-                    const onClick = useCallback(() => isSelected ? null : setLocation(animation, location),[currentIndex])
+                    const onClick = useCallback(() => 
+                        isSelected ?
+                            currentLocation === location ? null
+                            : setLocation('goRight',location)
+                            : setLocation(animation, location),[currentIndex]
+                    ,[isSelected, currentLocation])
 
                     return (
                         <div style={button} onClick={onClick}>
