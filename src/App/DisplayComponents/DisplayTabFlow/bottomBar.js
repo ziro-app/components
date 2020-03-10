@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from '../../../components/Icon'
 import BottomBar from '../../../components/BottomTabBar'
 
 export const BottomTabBar = () => {
@@ -7,23 +8,21 @@ export const BottomTabBar = () => {
             buttons={[
                 {
                     location: '/tab-flow/1',
-                    title: 'Tab1',
-                    icon: 'success'
+                    icon: (isSelected) => <Icon type='star' size={24} strokeWidth={1} fill={isSelected}/>
                 },
                 {
                     location: '/tab-flow/2',
-                    title: 'Tab2',
-                    icon: 'lock'
+                    icon: (isSelected) => <Icon type='search' size={24} strokeWidth={isSelected?2:1}/>
                 },
                 {
                     location: '/tab-flow/3',
-                    title: 'Tab3',
-                    icon: 'user'
+                    icon: (isSelected) => <Icon type='shoppingBag' size={24} strokeWidth={1} fill={isSelected}/>
+                },
+                {
+                    location: '/tab-flow/4',
+                    icon: (isSelected) => <Icon type='user' size={24} strokeWidth={1} fill={isSelected}/>
                 }
             ]}
-            options={{
-                keepText: false
-            }}
         />
     )
 }

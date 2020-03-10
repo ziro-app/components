@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { primaryColor } from '@ziro/theme'
 
-export const Scaffold = ({ svgPath, style, onClick, size, color, strokeWidth }) =>
+export const Scaffold = ({ svgPath, style, onClick, size, color, strokeWidth, fill }) =>
 	<svg
 		style={style}
 		onClick={onClick}
@@ -11,7 +11,7 @@ export const Scaffold = ({ svgPath, style, onClick, size, color, strokeWidth }) 
 		stroke={color}
 		strokeWidth={strokeWidth}
 		viewBox='0 0 24 24'
-		fill='none'
+		fill={fill?color:"none"}
 		strokeLinecap='round'
 		strokeLinejoin='round'
 	>

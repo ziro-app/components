@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache, useAnimatedLocation } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 
 export default () => {
@@ -8,7 +8,7 @@ export default () => {
     useHeader(null,[])
     useFooter()
 
-    const [counter, setCounter] = useCache(0)
+    const [location, setLocation] = useAnimatedLocation()
     const [counter2, setCounter2] = useCache(0)
 
     return (
@@ -17,9 +17,9 @@ export default () => {
                 return <label>{index}</label>
             })}
             <div style={{ background: 'yellow', height: 50, margin: '10px' }}
-                onClick={() => setCounter(old => old+1)}
+                onClick={() => setLocation('goLeft','/tab-flow/2')}
             >
-                <label>{`click to test cache: ${counter}`}</label>
+                <label>{`click to test cache`}</label>
             </div>
             <div style={{ background: 'yellow', height: 50, margin: '10px' }}
                 onClick={() => setCounter2(old => old+1)}

@@ -24,6 +24,23 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
     const [isAnimating, setIsAnimating] = useState(false)
     const [hijackAnimation, setHijackAnimation] = useState([])
     const [currentAnimation, setCurrentAnimation] = useState()
+    const [shouldEnter, setShouldEnter] = useState(false)
+
+    useEffect(() => {
+
+        if(!shouldEnter) return
+        setShouldEnter(false)
+        if(isHijaked(window.location.pathname)) {
+            setIsAnimating(false)
+            return
+        }
+
+        contentControls &&
+        currentAnimation &&
+        currentAnimation.enter &&
+        contentControls.start(currentAnimation.enter).then(() => setIsAnimating(false))
+
+    },[shouldEnter])
 
     const isHijaked = useCallback((location) => hijackAnimation.some((loc) => loc === location),[hijackAnimation])
     const setHijaked = useCallback((location) => {
@@ -60,6 +77,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
         setHijaked,
         currentAnimation,
         setCurrentAnimation,
+        shouldEnter,
+        setShouldEnter,
         //cacheContext
         cache,
         setCache,

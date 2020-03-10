@@ -43,8 +43,8 @@ import { Star } from '../../Icons/Star/index'
 import { Search } from '../../Icons/Search/index'
 import { ShoppingBag } from '../../Icons/ShoppingBag/index'
 
-const Icon = ({ type, style, onClick, size, color, strokeWidth }) => {
-	const iconProps = { style, onClick, size, color, strokeWidth }
+const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
+	const iconProps = { style, onClick, size, color, strokeWidth, fill }
 	const iconList = {
 		ziro: <Ziro {...iconProps} />,
 		amex: <Amex {...iconProps} />,

@@ -37,6 +37,8 @@ flowContext = React.createContext({
     setHijaked: showError,
     currentAnimation: null,
     setCurrentAnimation: showError,
+    shouldEnter: null,
+    setShouldEnter: showError,
     //cacheContext
     cache: null,
     setCache: showError,
@@ -61,25 +63,8 @@ useFooter = (footer, deps = []) => {
 },
 
 useAnimatedLocation = () => {
-    const { contentControls, setIsAnimating, isHijaked, currentAnimation, setCurrentAnimation } = useContext(flowContext)
+    const { contentControls, setIsAnimating, isHijaked, currentAnimation, setCurrentAnimation, setShouldEnter } = useContext(flowContext)
     const [_location,setLocation] = useLocation()
-    const [shouldEnter, setShouldEnter] = useState(false)
-
-    useEffect(() => {
-
-        if(!shouldEnter) return
-        setShouldEnter(false)
-        if(isHijaked(_location)) {
-            setIsAnimating(false)
-            return
-        }
-
-        contentControls &&
-        currentAnimation &&
-        currentAnimation.enter &&
-        contentControls.start(currentAnimation.enter).then(() => setIsAnimating(false))
-
-    },[shouldEnter])
 
     const navigate = useCallback(async (animation = {}, location) => {
         const anim = typeof animation === 'string' ? defaultAnimations[animation] || {} : animation
