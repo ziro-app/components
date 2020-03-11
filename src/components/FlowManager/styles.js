@@ -6,8 +6,8 @@ container = {
     bottom: 0,
     right: 0,
     left: 0,
-    overflowY: 'scroll',
-    overflowX: 'hidden'
+    overflow: 'hidden',
+    margin: 'auto',
 },
 
 headerContainer = {
@@ -30,5 +30,5 @@ footerContainer = {
     width: '100%',
     boxSizing: 'border-box',
     background: 'white',
-    boxShadow: '0px -2px 4px 0px rgba(34,34,34,0.25)'
+    boxShadow: '0px -2px 4px 0px rgba(34,34,34,0.25)',
 }

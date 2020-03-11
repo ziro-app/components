@@ -5,7 +5,7 @@ import { flowContext } from './hooks'
 
 export * from './hooks'
 
-const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
+const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, background }) => {
 
     const headerRef = useRef()
     const [header, setHeader] = useState(defaultHeader)
@@ -86,7 +86,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
     }
 
     return (
-        <div style={container}>
+        <div style={{ ...container, maxWidth, background }}>
             <flowContext.Provider value={context}>
                 <AnimatePresence>
                 {
@@ -115,7 +115,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
                         initial={{ y: '-100%' }}
                         animate={{ y: '0%' }}
                         exit={{ y: '-100%' }}
-                        style={headerContainer}
+                        style={{ ...headerContainer, maxWidth }}
                     >
                         {header}
                     </motion.div>
@@ -133,7 +133,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
                         initial={{ y: '100%' }}
                         animate={{ y: '0%' }}
                         exit={{ y: '100%' }}
-                        style={footerContainer}
+                        style={{ ...footerContainer, maxWidth }}
                     >
                         {footer}
                     </motion.div>
