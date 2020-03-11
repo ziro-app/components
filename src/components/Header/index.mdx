@@ -1,0 +1,24 @@
+---
+name: Header
+menu: Componentes
+route: /header
+---
+
+import { Playground, Props } from 'docz'
+import Header from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# Header
+Componente de cabeçalho, responsável por apresentar alguma mensagem padrão, ícones e link's para o usuário.
+
+<Playground>
+    {() => {
+        return(
+            <div style={{...containerDocz, padding: '10px'}}>
+                <Header type='title-only' title='Header Title Only' />
+                <Header type='icon' title='Header Icon' icon='menu' setIsOpen={() => null} />
+                <Header type='icon-link' title='Header Link' icon='back' />
+            </div>
+        )
+    }}
+</Playground>

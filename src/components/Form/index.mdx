@@ -1,0 +1,47 @@
+---
+name: Form
+menu: Componentes
+route: /form
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import Form from './index'
+import FormInput from '../FormInput'
+import InputText from '../InputText'
+import { containerDocz } from '../../stylesDocz'
+
+# Form
+Componente padrão de formulário formado pela composição de componentes **FormInput**, com a possibilidade de adicionar funções de validação para cada campo.
+
+<Playground>
+    {() => {
+        const [email, setEmail] = useState('')
+        const validations = [
+            {
+                name: 'email',
+                validation: value => /^\S+@\S+\.\S+$/g.test(value), // tests for pattern a@b.c
+                value: email,
+                message: 'Formato inválido'
+            }
+        ]
+        return (
+            <div style={containerDocz}>
+                <Form
+                    buttonOnTop={true}
+                    validations={validations}
+                    sendToBackend={() => new Promise((res,rej) => res('Ok'))}
+                    inputs={[
+                        <FormInput name='email' label='Email' input={
+                            <InputText
+                                value={email}
+                                onChange={({ target: { value } }) => setEmail(value)}
+                                placeholder='Seu email'
+                            />
+                        }/>
+                    ]}
+                />
+            </div>
+        )
+    }}
+</Playground>
