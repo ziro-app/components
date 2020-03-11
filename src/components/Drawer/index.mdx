@@ -1,0 +1,62 @@
+---
+name: Drawer
+menu: Componentes
+route: /drawer
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import Drawer from './index'
+import DrawerPanel from '../DrawerPanel'
+import Header from '../Header'
+import Icon from '../Icon'
+import { containerDocz } from '../../stylesDocz'
+
+# Drawer
+Componente de navegação estilo gavetas, utilizado como menu lateral nas aplicações.
+
+<Playground>
+    {() => {
+        const [isOpen, setIsOpen] = useState(false)
+        return (
+            <div style={containerDocz}>
+                <Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setIsOpen(true)} />
+                <Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
+                    <DrawerPanel
+                        username='Vitor Almeida Barbosa'
+                        userdata='28.026.371/0001-61'
+                        options={[
+                            {
+                                path: '/drawer',
+                                onClick: null,
+                                icon: <Icon type='truck' size={16} strokeWidth={3} />,
+                                text: 'Atendimentos'
+                            },
+                            {
+                                path: '/drawer',
+                                onClick: null,
+                                icon: <Icon type='card' size={16} strokeWidth={3} />,
+                                text: 'Pagamentos'
+                            },
+                            {
+                                path: '/drawer',
+                                onClick: null,
+                                icon: <Icon type='user' size={16} strokeWidth={3} />,
+                                text: 'Meus Dados'
+                            },
+                            {
+                                path: '/drawer',
+                                onClick: () => setIsOpen(false),
+                                icon: <Icon type='logout' size={16} strokeWidth={3} />,
+                                text: 'Sair'
+                            },
+                        ]}
+                    />
+                </Drawer>
+            </div>
+        )
+    }
+}
+</Playground>
+
+<Props of={Drawer} />

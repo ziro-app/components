@@ -1,0 +1,36 @@
+---
+name: TabDual
+menu: Componentes
+route: /tabdual
+---
+
+import { Playground, Props } from "docz";
+import { useState } from "react";
+import TabDualTransition from '../TabDualTransition'
+import TabDualHeader from '../TabDualHeader'
+import { containerDocz } from "../../stylesDocz";
+
+# TabDual
+
+Componente utilizado para apresentação de informações por meio de abas em uma tabela. Dado pela composição de dois outros componentes, sendo eles **TabDualHeader** e **TabDualTransition**.
+
+<Playground>
+  <div style={{...containerDocz, height: 400}}>
+        <TabDualHeader
+            pathOne='/tab-dual/dados-1'
+            tabNameOne='Dados 1'
+            pathTwo='/tab-dual/dados-2'
+            tabNameTwo='Dados 2'
+        />
+        <TabDualTransition components={[
+            { path: '/tab-dual/dados-1', children: <div style={{display: 'grid', placeItems: 'center', marginTop: '20px', fontSize: '1.8rem'}}>
+                What is Lorem Ipsum?
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div> },
+            { path: '/tab-dual/dados-2', children: <div style={{display: 'grid', placeItems: 'center', marginTop: '20px', fontSize: '1.8rem'}}>
+                What is Lorem Ipsum?
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div> }
+        ]}/>
+    </div>
+</Playground>

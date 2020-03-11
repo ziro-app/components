@@ -1,0 +1,78 @@
+---
+name: Error
+menu: Componentes
+route: /error
+---
+
+import { Playground, Props } from "docz";
+import { useState, useEffect } from "react";
+import Error from "./index";
+import NotFound from "../NotFound/index";
+import ErrorBoundary from "../ErrorBoundary/index";
+import { primaryColor, container } from "@ziro/theme";
+import { containerDocz } from "../../stylesDocz";
+
+# Error
+
+Conjunto de componentes que são utilizados para informar ao usuário quando ocorre algum tipo de erro. Vale ressaltar que esses componentes em situações reais são usados para preencher a tela inteira com o erro, mas nas seguintes demonstrações serão apresentados em tamanhos reduzidos. São eles:
+
+- **Not Found**: Página não encontrada.
+- **Boundary**: Erro na renderização da página.
+- **Undef**: Ocorreu algum erro.
+
+**[Not Found]**
+
+<Playground>
+  <div style={{...containerDocz, height: 400}}>
+    <NotFound fallback="/error" />
+  </div>
+</Playground>
+
+**[Boundary]**
+
+<Playground>
+  {() => {
+  const BuggyComponent = () => {
+    useEffect(() => {
+      throw 'Error'
+    }, [])
+    return <div style={container}>This is an error boundary</div>
+  }
+  return (
+    <div style={{ height: 300, ...containerDocz }}>
+      <ErrorBoundary>
+        <BuggyComponent />
+      </ErrorBoundary>
+    </div>
+  )
+}}
+</Playground>
+
+**[Undef]**
+
+<Playground>
+  <div style={{ height: 400, ...containerDocz }}>
+    <Error
+            style={{
+            display: 'grid',
+            gridRowGap: '15px',
+            color: primaryColor,
+            textAlign: 'center',
+            }}
+            type={'timelineStart'}
+        />
+    </div>
+</Playground>
+
+
+**[Not Found]**
+
+<Props of={NotFound} />
+
+**[Boundary]**
+
+<Props of={ErrorBoundary} />
+
+**[Undef]**
+
+<Props of={Error} />

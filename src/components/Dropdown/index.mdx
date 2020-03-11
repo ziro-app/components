@@ -1,0 +1,34 @@
+---
+name: Dropdown
+menu: Componentes
+route: /dropdown
+---
+
+import { Playground, Props } from "docz";
+import { useState } from "react";
+import Dropdown from "./index";
+import { containerDocz } from "../../stylesDocz";
+
+# Dropdown
+
+Componente de menu suspenso e alternável, permitindo que o usuário escolha ou preencha um valor a partir de uma lista predefinida.
+
+<Playground>
+  {() => {
+    const [selection, setSelection] = useState("");
+    return (
+      <div style={{...containerDocz, height: 80}}>
+        <Dropdown
+          readOnly={false}
+          value={selection}
+          onChange={({ target: { value } }) => setSelection(value)}
+          list={["Apples", "Bananas", "Oranges", "Melons", "Berries"]}
+          placeholder="Escolha uma opção"
+          onChangeKeyboard={element =>
+            element ? setSelection(element.value) : null
+          }
+        />
+      </div>
+    );
+  }}
+</Playground>

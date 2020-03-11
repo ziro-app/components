@@ -1,0 +1,34 @@
+---
+name: Modal
+menu: Componentes
+route: /modal
+---
+
+import { Playground, Props } from "docz";
+import { useState } from "react";
+import Modal from "./index";
+import Button from "../Button";
+import { containerDocz } from "../../stylesDocz";
+
+# Modal
+
+Conjunto de componentes que são utilizados para informar ao usuário quando ocorre algum tipo de erro. Vale ressaltar que esses componentes em situações reais são usados para preencher a tela inteira com o erro, mas nas seguintes demonstrações serão apresentados em tamanhos reduzidos. São eles:
+
+<Playground>
+  {() => {
+    const [isOpen, setIsOpen] = useState(false)
+	return (
+		<div style={{...containerDocz, height: 80, padding: 10}}>
+			<Modal isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
+				<div>
+					What is Lorem Ipsum?
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+				</div>
+			</Modal>
+			<div style={{ display: 'grid' }} onClick={() => setIsOpen(true)}><Button type='submit' cta='Open Modal' /></div>
+		</div>
+	)
+  }}
+</Playground>
+
+<Props of={Modal} />
