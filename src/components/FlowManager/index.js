@@ -35,6 +35,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter }) => {
             return
         }
 
+        if(!contentRef) return
         contentControls &&
         currentAnimation &&
         currentAnimation.enter &&

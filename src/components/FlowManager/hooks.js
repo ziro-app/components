@@ -63,11 +63,10 @@ useFooter = (footer, deps = []) => {
 },
 
 useAnimatedLocation = () => {
-    const { contentControls, setIsAnimating, setCurrentAnimation, setShouldEnter, contentRef } = useContext(flowContext)
+    const { contentControls, setIsAnimating, setCurrentAnimation, setShouldEnter } = useContext(flowContext)
     const [_location,setLocation] = useLocation()
 
     const navigate = useCallback(async (animation = {}, location) => {
-        if(!contentRef) return
         const anim = typeof animation === 'string' ? defaultAnimations[animation] || {} : animation
         setCurrentAnimation(anim)
         setIsAnimating(true)

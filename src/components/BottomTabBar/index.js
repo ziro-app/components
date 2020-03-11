@@ -24,7 +24,7 @@ const BottomTabBar = ({ buttons = [] }) => {
                             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
                             : setLocation('goRight',location)
                             : setLocation(animation, location)
-                    ,[currentIndex, isSelected, currentLocation])
+                    ,[isSelected, currentLocation])
 
                     return (
                         <div style={button} onClick={onClick}>
