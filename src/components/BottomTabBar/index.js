@@ -20,10 +20,11 @@ const BottomTabBar = ({ buttons = [] }) => {
                     const animation = useMemo(() => currentIndex > index ? 'goRight' : 'goLeft', [currentIndex])
                     const onClick = useCallback(() => 
                         isSelected ?
-                            currentLocation === location ? window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+                            currentLocation === location ?
+                            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
                             : setLocation('goRight',location)
                             : setLocation(animation, location)
-                    ,[currentIndex, isSelected, currentLocation])
+                    ,[isSelected, currentLocation])
 
                     return (
                         <div style={button} onClick={onClick}>
