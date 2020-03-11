@@ -1,0 +1,34 @@
+---
+name: Dropdown
+menu: Componentes
+route: /dropdown
+---
+
+import { Playground, Props } from "docz";
+import { useState } from "react";
+import Dropdown from "./index";
+import { containerDocz } from "../../stylesDocz";
+
+# Dropdown
+
+Conjunto de componentes que são utilizados para informar ao usuário quando ocorre algum tipo de erro. Vale ressaltar que esses componentes em situações reais são usados para preencher a tela inteira com o erro, mas nas seguintes demonstrações serão apresentados em tamanhos reduzidos. São eles:
+
+<Playground>
+  {() => {
+    const [selection, setSelection] = useState("");
+    return (
+      <div style={{...containerDocz, height: 80}}>
+        <Dropdown
+          readOnly={false}
+          value={selection}
+          onChange={({ target: { value } }) => setSelection(value)}
+          list={["Apples", "Bananas", "Oranges", "Melons", "Berries"]}
+          placeholder="Escolha uma opção"
+          onChangeKeyboard={element =>
+            element ? setSelection(element.value) : null
+          }
+        />
+      </div>
+    );
+  }}
+</Playground>
