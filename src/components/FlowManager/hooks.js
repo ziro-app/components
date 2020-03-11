@@ -63,10 +63,11 @@ useFooter = (footer, deps = []) => {
 },
 
 useAnimatedLocation = () => {
-    const { contentControls, setIsAnimating, isHijaked, currentAnimation, setCurrentAnimation, setShouldEnter } = useContext(flowContext)
+    const { contentControls, setIsAnimating, setCurrentAnimation, setShouldEnter, contentRef } = useContext(flowContext)
     const [_location,setLocation] = useLocation()
 
     const navigate = useCallback(async (animation = {}, location) => {
+        if(!contentRef) return
         const anim = typeof animation === 'string' ? defaultAnimations[animation] || {} : animation
         setCurrentAnimation(anim)
         setIsAnimating(true)
@@ -75,6 +76,7 @@ useAnimatedLocation = () => {
         contentControls && anim.initial && contentControls.set(anim.initial)
         setShouldEnter(true)
     },[contentControls, setLocation])
+
     return [_location, navigate]
 },
 
@@ -167,19 +169,19 @@ useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {
 	}, [contentRef])
 },
 
-useScrollBottom = (type = 'absolute',deps = []) => {
+useScrollPagination = (threshold=window.innerHeight,deps = []) => {
     const { contentRef } = useContext(flowContext)
-    const [scrollBottom, setScrollBottom] = useState(undefined)
+    const [shouldUpdate, setShouldUpdate] = useState(false)
     const check = useCallback(() => {
         if(!contentRef) {
-            setScrollBottom(undefined)
+            setShouldUpdate(false)
             return
         }
         const { clientHeight } = contentRef
         const { innerHeight, scrollY } = window
         const excursion = clientHeight - innerHeight
-        innerHeight > clientHeight ? setScrollBottom(undefined) :
-        setScrollBottom(type === 'percentage' ? (excursion - scrollY)/excursion : (excursion - scrollY))
+        innerHeight > clientHeight ? setShouldUpdate(false) :
+        setShouldUpdate((excursion - scrollY)<threshold)
     },[contentRef])
     useEffect(() => {
         if(!contentRef) return
@@ -187,7 +189,7 @@ useScrollBottom = (type = 'absolute',deps = []) => {
         return () => window.removeEventListener('scroll', check)
     }, [contentRef])
     useEffect(check,[contentRef && contentRef.clientHeight, ...deps])
-    return scrollBottom
+    return shouldUpdate
 },
 
 useIsContentConsumed = (threshold = 0.5) => {
@@ -219,4 +221,13 @@ useIsContentConsumed = (threshold = 0.5) => {
         return () => window.removeEventListener('scroll', check)
     },[ref.current])
     return [ref, isVisualized]
+},
+
+useCachedEffect = (key, effect, deps=[]) => {
+    const [_deps, setDeps] = useCache([], key)
+    useEffect(() => {
+        if(deps.every((dep,index) => dep===_deps[index])) return
+        setDeps(deps)
+        effect()
+    },deps)
 }
