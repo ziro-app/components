@@ -27,7 +27,7 @@ const BottomTabBar = ({ buttons = [] }) => {
                     ,[isSelected, currentLocation])
 
                     return (
-                        <div style={button} onClick={onClick}>
+                        <div key={location} style={button} onClick={onClick}>
                                 {icon(isSelected)}
                         </div>
                     )

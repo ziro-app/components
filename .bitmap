@@ -24,7 +24,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.22": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.24": {
         "files": [
             {
                 "name": "index.js",
@@ -581,7 +581,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.15": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.16": {
         "files": [
             {
                 "relativePath": "src/components/FlowManager/defaultAnimations.js",
