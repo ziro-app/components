@@ -6,6 +6,7 @@ import { ErrorLoading } from '../../Illustrations/ErrorLoading/index'
 import { NotFound } from '../../Illustrations/NotFound/index'
 import { TimelineStart } from '../../Illustrations/TimelineStart/index'
 import { ProfileData } from '../../Illustrations/ProfileData/index'
+import { Buy } from '../../Illustrations/Buy'
 
 const Illustration = ({ type, size }) => {
 	const illustrationProps = { size }
@@ -15,7 +16,8 @@ const Illustration = ({ type, size }) => {
 		errorLoading: <ErrorLoading {...illustrationProps} />,
 		notFound: <NotFound {...illustrationProps} />,
 		timelineStart: <TimelineStart {...illustrationProps} />,
-		profileData: <ProfileData {...illustrationProps} />
+		profileData: <ProfileData {...illustrationProps} />,
+		buy: <Buy {...illustrationProps} />
 	}
 	return illustrationList[type]
 }
