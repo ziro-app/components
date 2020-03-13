@@ -1523,6 +1523,11 @@
                 "name": "index.js"
             },
             {
+                "relativePath": "src/components/Timeline/index.mdx",
+                "test": false,
+                "name": "index.mdx"
+            },
+            {
                 "relativePath": "src/components/Timeline/styles.js",
                 "test": false,
                 "name": "styles.js"
