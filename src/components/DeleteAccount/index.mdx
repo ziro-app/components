@@ -1,0 +1,20 @@
+---
+name: DeleteAccount
+menu: Componentes
+route: /delete-account
+---
+
+import { Playground, Props } from 'docz'
+import DeleteAccount from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# DeleteAccount
+Componente padrão utilizado para a deleção de uma conta nas aplicações Ziro. Para deixá-lo reutilizável dentro das aplicações, a função de deleção deve ser fornecida pelo programador de acordo com o contexto de utilização.
+
+<Playground>
+	<div style={{ ...containerDocz, height: '230px', display: 'grid', gridTemplateColumns: 'auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
+		<DeleteAccount sendToBackend={ () => () => new Promise((res, rej) => setTimeout(() => res('Excluído!'), 1500)) } />
+	</div>
+</Playground>
+
+<Props of={DeleteAccount} />

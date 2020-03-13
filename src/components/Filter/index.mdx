@@ -1,0 +1,20 @@
+---
+name: Filter
+menu: Componentes
+route: /filter
+---
+
+import { Playground, Props } from 'docz'
+import Filter from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# Filter
+Componente utilizado para fazer a filtragem de marcas que vendem determinados tipos de roupas.
+
+<Playground>
+	<div style={{height: '350px'}} >
+		<Filter trends={['animal print', 'tweed', 'retilinea']} />
+	</div>
+</Playground>
+
+<Props of={Filter} />
