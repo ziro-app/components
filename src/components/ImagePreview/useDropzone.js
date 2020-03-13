@@ -24,10 +24,10 @@ export const useDropzone = (isDisabled, setPicture) => {
 		e.stopPropagation()
     })
     
-	const onDrop = useCallback(({ preventDefault, stopPropagation, dataTransfer: { files: { [0]: image } } })  => {
-		preventDefault()
-		stopPropagation()
-		if (!isDisabled && image) fileReader.readAsDataURL(e.dataTransfer.files[0])
+	const onDrop = useCallback((e)  => {
+		e.preventDefault()
+		e.stopPropagation()
+		if (!isDisabled && e.dataTransfer.files[0].image) fileReader.readAsDataURL(e.dataTransfer.files[0])
     },[isDisabled, fileReader])
     
 	const onChange = useCallback(({ target: { files: { [0]: image } } }) => {
