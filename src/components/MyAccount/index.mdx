@@ -1,0 +1,26 @@
+---
+name: MyAccount
+menu: Componentes
+route: /my-account
+---
+
+import { Playground, Props } from 'docz'
+import MyAccount from './index'
+import Header from '../Header'
+import { containerDocz } from '../../stylesDocz'
+
+# MyAccount
+Componente dado pela composição dos componentes **Header** e o próprio **MyAccount**. **MyAccount** disponibiliza ao usuários opções de gerência sobre sua conta, como a funcionalidade de **alterar sua senha**.
+
+<Playground>
+    {() => {
+        return(
+            <div style={{...containerDocz, height: '350px'}}>
+                <Header type='icon' title='Minha Conta' icon='menu' />
+                <MyAccount />
+            </div>
+        )
+    }}
+</Playground>
+
+<Props of={MyAccount} />

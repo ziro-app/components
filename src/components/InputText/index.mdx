@@ -1,0 +1,35 @@
+---
+name: InputText
+menu: Componentes
+route: /input-text
+---
+
+import { Playground, Props } from 'docz'
+import { useState, useRef } from 'react'
+import InputText from './index'
+import Button from '../Button'
+import { containerDocz } from '../../stylesDocz'
+
+# InputText
+Componente padrão utilizado para a entrada de textos nas aplicações. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o **Form**.
+
+<Playground>
+    {() => {
+        const [inputValue, setInputValue] = useState('')
+        const [submitting, setSubmitting] = useState(false)
+        const inputRef = useRef(null)
+        const onChange = ({ target: { value } }) => setInputValue(value)
+        const placeholder = 'Digite aqui'
+        const name = 'input'
+        const inputProps = { value: inputValue, submitting, onChange, placeholder, name, ref: inputRef }
+        return (
+            <div style={{...containerDocz, height: '180px'}}>
+                <p>{inputValue}</p>
+                <InputText {...inputProps} />
+                <div style={{ display: 'grid', marginTop: '40px' }} onClick={() => setSubmitting(!submitting)}><Button type='submit' cta='Disable input' /></div>
+            </div>
+        )
+    }}
+</Playground>
+
+<Props of={InputText} />
