@@ -54,6 +54,7 @@ import { DisplayUploadPhoto } from './DisplayComponents/DisplayUploadPhoto'
 // import { DisplayFlowUploadPhoto } from './DisplayComponents/DisplayFlowUploadPhoto'
 import { DisplayTabFlow } from './DisplayComponents/DisplayTabFlow'
 import { DisplayCalendar } from './DisplayComponents/DisplayCalendar'
+import { DisplayIllustration } from './DisplayComponents/DisplayIllustration'
 
 export const App = () =>
 	<Switch>
@@ -111,5 +112,6 @@ export const App = () =>
 		{/* <Route path='/flow-upload-photo'><DisplayFlowUploadPhoto /></Route> */}
 		<Route path='/tab-flow/:any'><DisplayTabFlow /></Route>
 		<Route path='/calendar'><DisplayCalendar /></Route>
+		<Route path='/illustration'><DisplayIllustration /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
