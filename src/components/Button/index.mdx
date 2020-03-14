@@ -13,7 +13,7 @@ import { fontTitle, fontSizeInput, primaryColor } from '@ziro/theme'
 Cria um botão genérico que pode ser usado em forms (submit), como navegação (link) e para chamar eventos (click).
 
 <Playground>
-	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto', gridColumnGap: '30px', margin: '0 auto 20px', textAlign: 'center' }}>
+	<div style={{ ...containerDocz, display: 'grid', gridTemplateColumns: 'auto auto auto', gridColumnGap: '30px', gridRowGap: '20px', margin: '0 auto 20px', textAlign: 'center' }}>
 		<Button type='submit' cta='Submit' template='regular' />
 		<Button type='button' cta='Click' template='destructive' click={() => null} />
 		<Button type='link' cta='Link' template='light' navigate={() => null} />
