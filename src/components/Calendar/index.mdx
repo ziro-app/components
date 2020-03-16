@@ -1,0 +1,27 @@
+---
+name: Calendar
+menu: Componentes
+route: /calendar
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react'
+import Calendar from './index'
+import { containerDocz } from '../../stylesDocz'
+
+# Calendar
+Componente de calendário padrão utilizado nos aplicativos da Ziro.
+
+<Playground>
+    {() => {
+        const [inputDate, setInputDate] = useState('')
+        const [focused, setFocused] = useState(false)
+        return (
+            <div style={{...containerDocz, height: '80px', padding: 15}}>
+                <Calendar inputDate={inputDate} setInputDate={setInputDate} focused={focused} setFocused={setFocused} placeholder={'Data de início'} readOnly={true} />
+            </div>
+        )
+    }}
+</Playground>
+
+<Props of={Calendar} />
