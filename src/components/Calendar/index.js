@@ -29,8 +29,8 @@ const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, r
         <>
             <style>{focused? styleTagFocus : styleTag}</style>
             <SingleDatePicker
-                date={inputDate}
-                onDateChange={date => date? setInputDate(date) : setInputDate('')}
+                date={inputDate? moment(inputDate.split('/').reverse().join('/')) : ''}
+                onDateChange={date => date? setInputDate(date.format("DD/MM/YYYY")) : setInputDate('')}
                 focused={focused}
                 onFocusChange={({ focused }) => setFocused(focused) }
                 id="calendar"
