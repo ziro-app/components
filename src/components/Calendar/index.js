@@ -11,8 +11,9 @@ import { styleTag, styleTagFocus } from './styles'
 // OutsideRange -> Flag que ativa/desativa o filtro nas datas
 // Before = true -> Desabilita o intervalo anterior ao dia corrente ou a uma data específica
 // Before = false -> Desabilita o intervalor posterior ao dia corrente ou a uma data específica
+// Callback -> Função adicional executada ao modificar a data, caso necessite
 
-const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, readOnly = true, outsideRange = false, before, choosedDate = '' }) => {
+const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, readOnly = true, outsideRange = false, before, choosedDate = '', callback = null }) => {
     moment.locale('pt-br', pt)
 
     const disableDates = day => {
@@ -30,7 +31,13 @@ const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, r
             <style>{focused? styleTagFocus : styleTag}</style>
             <SingleDatePicker
                 date={inputDate? moment(inputDate.split('/').reverse().join('/')) : ''}
-                onDateChange={date => date? setInputDate(date.format("DD/MM/YYYY")) : setInputDate('')}
+                onDateChange={date => {
+                    if(date){
+                        setInputDate(date.format("DD/MM/YYYY"))
+                        if(callback) callback()
+                    } else setInputDate('')
+                }
+                }
                 focused={focused}
                 onFocusChange={({ focused }) => setFocused(focused) }
                 id="calendar"
