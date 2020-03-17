@@ -32,10 +32,9 @@ const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, r
             <SingleDatePicker
                 date={inputDate? moment(inputDate.split('/').reverse().join('/')) : ''}
                 onDateChange={date => {
-                    if(date){
-                        setInputDate(date.format("DD/MM/YYYY"))
-                        if(callback) callback()
-                    } else setInputDate('')
+                    if(date) setInputDate(date.format("DD/MM/YYYY"))
+                    else setInputDate('')
+                    if(callback) callback()
                 }
                 }
                 focused={focused}
