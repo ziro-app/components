@@ -1,13 +1,30 @@
 import React from 'react'
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
+import isAfterDay from 'react-dates/lib/utils/isAfterDay';
+import isBeforeDay from 'react-dates/lib/utils/isBeforeDay';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment'
 import pt from 'moment/locale/pt-br'
 import { styleTag, styleTagFocus } from './styles'
 
-const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, readOnly = true }) => {
+// OutsideRange -> Flag que ativa/desativa o filtro nas datas
+// Before = true -> Desabilita o intervalo anterior ao dia corrente ou a uma data específica
+// Before = false -> Desabilita o intervalor posterior ao dia corrente ou a uma data específica
+
+const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, readOnly = true, outsideRange = false, before, choosedDate = '' }) => {
     moment.locale('pt-br', pt)
+
+    const disableDates = day => {
+        if(before){
+            if(choosedDate) return isBeforeDay(day, moment(choosedDate.split('/').reverse().join('/')))
+            else return isBeforeDay(day, moment())
+        } else {
+            if(choosedDate) return isAfterDay(day, moment(choosedDate.split('/').reverse().join('/')))
+            else return isAfterDay(day, moment())
+        }
+    }
+
     return(
         <>
             <style>{focused? styleTagFocus : styleTag}</style>
@@ -23,6 +40,7 @@ const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, r
                 numberOfMonths={1}
                 readOnly={readOnly}
                 hideKeyboardShortcutsPanel={true}
+                isOutsideRange={outsideRange? day => disableDates(day) : () => false}
             />
         </>
     )
