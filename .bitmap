@@ -83,7 +83,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/calendar@0.0.11": {
+    "vitorbarbosa19.ziro/calendar@0.0.12": {
         "files": [
             {
                 "relativePath": "src/components/Calendar/index.js",
