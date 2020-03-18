@@ -663,7 +663,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.23": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.24": {
         "files": [
             {
                 "name": "index.js",
