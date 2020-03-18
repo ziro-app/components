@@ -298,7 +298,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 						<Dropdown
 							value={affiliateName}
 							onChange={({ target: { value } }) => {
-								if (value !== '') {
+								if (value !== '' && value !== 'Nenhum') {
 									let person = affiliates.find(element => element[1] === value)
 									if (person) {
 										setAffiliateCpf(person[0])
@@ -306,11 +306,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 									}
 								} else {
 									setAffiliateCpf('')
-									setAffiliateName('')
+									setAffiliateName(value === 'Nenhum'? 'Nenhum' : '')
 								}
 							}}
 							onChangeKeyboard={element => {
-								if (element) {
+								if (element && element.value !== 'Nenhum') {
 									let person = affiliates.find(affiliate => affiliate[1] === element.value)
 									if (person) {
 										setAffiliateCpf(person[0])
@@ -318,11 +318,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 									}
 								} else {
 									setAffiliateCpf('')
-									setAffiliateName('')
+									setAffiliateName(element.value === 'Nenhum'? 'Nenhum' : '')
 								}
 							}
 							}
-							list={affiliates.map(affiliate => Object.values(affiliate)[1])}
+							list={affiliates.map(affiliate => affiliate === 'Nenhum'? 'Nenhum' : Object.values(affiliate)[1])}
 							placeholder="Nome do(a) afiliado(a)"
 							readOnly={true}
 						/>
