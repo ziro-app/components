@@ -39,22 +39,18 @@ import { DisplayFormRegisterStoreowner } from './DisplayComponents/DisplayFormRe
 import { DisplayCamera } from './DisplayComponents/DisplayCamera/index'
 import { DisplayCameraContainer } from './DisplayComponents/DisplayCameraContainer/index'
 import { DisplaySummary } from './DisplayComponents/DisplaySummary/index'
-import { DisplayFlowSummary } from './DisplayComponents/DisplayFlowSummary/index'
 import { DisplayChooseCard } from './DisplayComponents/DisplayChooseCard/index'
-// import { DisplayFlowChooseCard } from './DisplayComponents/DisplayFlowChooseCard/index'
 import { DisplayChooseInstallment } from './DisplayComponents/DisplayChooseInstallment/index'
-// import { DisplayFlowChooseInstallment } from './DisplayComponents/DisplayFlowChooseInstallment'
-// import { DisplayFlowRegisterCard } from './DisplayComponents/DisplayFlowRegisterCard/index'
 import { DisplayImageUpload } from './DisplayComponents/DisplayImageUpload/index'
 import { DisplaySubmenu } from './DisplayComponents/DisplaySubmenu/index'
 import { DisplayHeaderSticky } from './DisplayComponents/DisplayHeaderSticky/index'
 import { DisplayFilter } from './DisplayComponents/DisplayFilter/index'
 import { DisplayButton } from './DisplayComponents/DisplayButton/index'
 import { DisplayUploadPhoto } from './DisplayComponents/DisplayUploadPhoto'
-// import { DisplayFlowUploadPhoto } from './DisplayComponents/DisplayFlowUploadPhoto'
 import { DisplayTabFlow } from './DisplayComponents/DisplayTabFlow'
 import { DisplayCalendar } from './DisplayComponents/DisplayCalendar'
 import { DisplayIllustration } from './DisplayComponents/DisplayIllustration'
+import { DisplayFlowAntiFraude } from './DisplayComponents/DisplayFlowAntiFraude'
 
 export const App = () =>
 	<Switch>
@@ -97,21 +93,17 @@ export const App = () =>
 		<Route path='/camera'><DisplayCamera /></Route>
 		<Route path='/camera-container'><DisplayCameraContainer /></Route>
 		<Route path='/summary'><DisplaySummary /></Route>
-		{/* <Route path='/flow-summary'><DisplayFlowSummary /></Route> */}
 		<Route path='/choose-card'><DisplayChooseCard /></Route>
-		{/* <Route path='/flow-choose-card'><DisplayFlowChooseCard /></Route> */}
 		<Route path='/choose-installment'><DisplayChooseInstallment /></Route>
-		{/* <Route path='/flow-choose-installment'><DisplayFlowChooseInstallment /></Route> */}
-		{/* <Route path='/flow-register-card'><DisplayFlowRegisterCard /></Route> */}
 		<Route path='/image-upload'><DisplayImageUpload /></Route>
 		<Route path='/submenu'><DisplaySubmenu /></Route>
 		<Route path='/header-sticky'><DisplayHeaderSticky /></Route>
 		<Route path='/filter'><DisplayFilter /></Route>
 		<Route path='/button'><DisplayButton /></Route>
 		<Route path='/upload-photo'><DisplayUploadPhoto /></Route>
-		{/* <Route path='/flow-upload-photo'><DisplayFlowUploadPhoto /></Route> */}
 		<Route path='/tab-flow/:any'><DisplayTabFlow /></Route>
 		<Route path='/calendar'><DisplayCalendar /></Route>
 		<Route path='/illustration'><DisplayIllustration /></Route>
+		<Route path='/anti-fraude/:any'><DisplayFlowAntiFraude /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>

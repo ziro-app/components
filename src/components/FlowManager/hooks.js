@@ -28,6 +28,8 @@ flowContext = React.createContext({
     setHideFooter: showError,
     //contentContext
     contentRef: null,
+    //modalContext
+    setModal: showError,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -60,6 +62,14 @@ useFooter = (footer, deps = []) => {
         if(footer===undefined) setFooter(defaultFooter)
         else setFooter(footer)
     }, deps)
+},
+
+useModal = (modal, deps = []) => {
+    const { setModal } = useContext(flowContext)
+    useEffect(() => {
+        setModal(modal)
+        return () => setModal()
+    },deps)
 },
 
 useAnimatedLocation = () => {
@@ -109,7 +119,7 @@ useCache = (initialValue, name) => {
     },[setCache, location])
     useEffect(() => {
         //set the initial value if none was found on mount
-        (!cache[location] || !cache[location][index]) && setValue(initialValue === undefined ? null : initialValue)
+        (!cache[location] || cache[location][index]===undefined) && setValue(initialValue === undefined ? null : initialValue)
         //remember to reset the calls map, so in the next mount the index starts on 0
         return () => cacheCalls.set(location,0)
     },[])

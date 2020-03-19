@@ -17,6 +17,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
 
     const contentRef = useRef()
 
+    const [modal, setModal] = useState()
+
     const [cache, setCache] = useState({})
 
     const contentControls = useAnimation()
@@ -52,7 +54,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         const paddingTop = !hideHeader && header && headerRef.current && headerRef.current.clientHeight || 0
         const paddingBottom = !hideFooter && footer && footerRef.current && footerRef.current.clientHeight || 0
         contentControls.start({ paddingTop, paddingBottom })
-    },[header, footer, hideHeader, hideFooter])
+    },[header, footer, hideHeader, hideFooter ])
 
     const context = {
         //headerContext
@@ -69,6 +71,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         setHideFooter,
         //contentContext
         contentRef: contentRef.current,
+        //modalContext
+        setModal,
         //flowContext
         contentControls,
         flowControls,
@@ -139,6 +143,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                     </motion.div>
                 }
                 </AnimatePresence>
+                { modal }
             </flowContext.Provider>
         </div>
     )

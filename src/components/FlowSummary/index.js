@@ -1,36 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Summary from '../Summary'
-import FlowManager, { useAnimatedLocation } from '../FlowManager'
+import { useHeader, useFooter, useAnimatedLocation } from '../FlowManager'
+import BottomFlowButtons from '../BottomFlowButtons'
+import Header from '../HeaderFlow'
+import { useCallback } from 'react'
 
-const FlowSummary = ({ seller, charge, maxInstallments, misc, next, onError }) => {
+const FlowSummary = ({ seller, charge, maxInstallments, misc, nextLocation }) => {
 
-    const { onNext, controls } = useAnimatedLocation(onError)
+    const setLocation = useAnimatedLocation()[1]
+    const onNext = useCallback(() => setLocation('goLeft',nextLocation), [nextLocation, setLocation])
+
+    useFooter(<BottomFlowButtons next={onNext} />)
+    useHeader(<Header title='Sumário' />)
 
     return (
-        <FlowManager
-            title='Fatura'
-            controls={controls}
-            next={() => onNext(next.onClick && next.onClick(), next.location)}
-            onError={onError}
-        >
             <Summary
                 seller={seller}
                 charge={charge}
                 maxInstallments={maxInstallments}
                 misc={misc}
             />
-        </FlowManager>
     )
 }
 
 FlowSummary.propTypes = {
     ...Summary.propTypes,
-    next: PropTypes.shape({
-        onClick: PropTypes.func,
-        location: PropTypes.string
-    }).isRequired,
-    onError: PropTypes.func
+    nextLocation: PropTypes.string.isRequired
 }
 
 export default FlowSummary

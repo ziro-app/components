@@ -2,75 +2,76 @@ import React, { useState, useMemo, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import ChooseCard from '../ChooseCard'
 import { CardRow } from '../ChooseCard/cardRow'
-import FlowManager, { useAnimatedLocation } from '../FlowManager'
+import { useCache, useHeader, useFooter, useModal, useAnimatedLocation } from '../FlowManager'
 import Modal from '../FlowModal'
+import Header from '../HeaderFlow'
+import BottomFlowButtons from '../BottomFlowButtons'
 import * as Errors from './errors'
 
 const FlowChooseCard = ({ numbers, newCard, next, previous }) => {
 
-    const [selected, setSelected] = useState()
-    const state = useMemo(() => ({ number: numbers[selected] }),[selected,numbers])
+    const setLocation = useAnimatedLocation()[1]
 
+    const [selected, setSelected] = useCache(undefined, 'selectedCard')
     const [error, setError] = useState()
 
-    const { onNext, onPrevious, onDiverge, controls } = useAnimatedLocation(setError)
+    const state = useMemo(() => ({ number: numbers[selected] }),[selected, numbers])
 
-    const _onNext = useCallback(() => {
-        const nextOnClick = async () => {
-            if(!state.number) throw 'NO_CARD'
-            next.onClick && await next.onClick(state)
-        }
-        onNext(nextOnClick, next.location)
-    },[next, selected, onNext, state])
+    const onNext = useCallback(() => {
+        if(next.onClick) next.onClick(state)
+            .then(() => next.location && setLocation('goLeft', next.location))
+            .catch(setError)
+        else next.location && setLocation('goLeft', next.location)
+    },[next, state])
 
-    const _onPrevious = useCallback(() => {
-        const previousOnClick = async () => {
-            previous.onClick && await previous.onClick(state)
-        }
-        onPrevious(previousOnClick, previous.location)
-    },[previous, onPrevious, state])
+    const onPrevious = useCallback(() => {
+        if(previous.onClick) previous.onClick(state)
+            .then(() => previous.location && setLocation('goRight', previous.location))
+            .catch(setError)
+        else previous.location && setLocation('goRight', previous.location)
+    },[previous, state])
 
-    const _onNewCard = useCallback(() => {
-        const newCardOnClick = async () => {
-            newCard.onClick && await newCard.onClick(state)
-        }
-        onDiverge(newCardOnClick, newCard.location)
-    },[newCard, onDiverge, state])
+    const onNewCard = useCallback(() => {
+        if(newCard.onClick) newCard.onClick(state)
+            .then(() => newCard.location && setLocation('diverge', newCard.location))
+            .catch(setError)
+        else newCard.location && setLocation('diverge', newCard.location)
+    },[newCard, state])
 
-    return (
+    useHeader(
         <>
-            <FlowManager
-                title='Escolha um cartão'
-                controls={controls}
-                next={_onNext}
-                previous={_onPrevious}
-                topView={
-                    <div style={{ margin: '10px', padding: '5px 10px 0px 10px', border: 'grey dashed 2px', borderRadius: 10 }}>
-                        {
-                            state.number ?
-                            <CardRow number={state.number||''} isSelected={false} setSelected={() => {}}/>
-                            :
-                            <div style={{ display: 'grid', alignItems: 'center', height: '60px', textAlign: 'center', margin: '5px 0px 10px 0px' }}>
-                                <label style={{ color: 'grey' }}>Nenhum cartão escolhido</label>
-                            </div>
-                        }
+            <Header title='Escolha um cartão'/>
+            <div style={{ margin: '10px', padding: '5px 10px 0px 10px', border: 'grey dashed 2px', borderRadius: 10 }}>
+                {
+                    state.number ?
+                    <CardRow number={state.number||''} isSelected={false} setSelected={() => {}}/>
+                    :
+                    <div style={{ display: 'grid', alignItems: 'center', height: '60px', textAlign: 'center', margin: '5px 0px 10px 0px' }}>
+                        <label style={{ color: 'grey' }}>Nenhum cartão escolhido</label>
                     </div>
                 }
-            >
-                <ChooseCard
-                    numbers={numbers}
-                    selected={selected}
-                    setSelected={setSelected}
-                    newCard={_onNewCard}
-                />
-            </FlowManager>
-            <Modal
-                isOpen={!!error}
-                errorTitle={error && Errors[error].title}
-                errorMessage={error && Errors[error].message}
-                onRequestClose={() => setError()}
-            />
+            </div>
         </>
+    ,[state])
+
+    useFooter(<BottomFlowButtons next={onNext} previous={onPrevious} />, [onNext, onPrevious])
+
+    useModal(
+        <Modal
+            isOpen={!!error}
+            errorTitle={error && Errors[error].title}
+            errorMessage={error && Errors[error].message}
+            onRequestClose={() => setError()}
+        />
+    ,[error])
+
+    return (
+        <ChooseCard
+            numbers={numbers}
+            selected={selected}
+            setSelected={setSelected}
+            newCard={onNewCard}
+        />
     )
 }
 

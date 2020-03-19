@@ -1,25 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useCard } from './utils/useCard'
 import CreditCard from '../CreditCard/index'
-import FlowForm from '../FlowForm/index'
-import FormInput from '../FormInput/index'
-import InputText from '../InputText/index'
-import Modal from '../FlowModal'
-import { useAnimatedLocation } from '../FlowManager'
+import FormInput from '../FormInput'
+import InputText from '../InputText'
+import FlowForm from '../FlowForm'
+import Header from '../HeaderFlow'
 import { container, dual } from './styles'
-import { useCallback } from 'react'
+import { useHeader, useAnimatedLocation } from '../FlowManager'
+import { useMemo } from 'react'
 
 const FlowRegisterCard = ({ next, previous }) => {
-
-	const { onNext, onConverge, controls } = useAnimatedLocation()
 
 	const [number, setNumber] = useState('')
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
-	const state = { number, cardholder, expiry, cvv, brand }
+	const state = useMemo(() => ({ number, cardholder, expiry, cvv, brand }),[number, cardholder, expiry, cvv, brand])
 
 	const validations = [
 		{
@@ -48,98 +46,88 @@ const FlowRegisterCard = ({ next, previous }) => {
 		},
 	]
 
-	const _onNext = useCallback(() => {
-		const nextOnClick = async () => {
-			return next.onClick && await next.onClick(state)
-		}
-		return onNext(nextOnClick, next.location)
-	},[next, state, onNext])
+	useHeader(
+		<div style={{ height: 65+Math.min(window.innerWidth,300)/1.75 }}>
+			<Header title='Registrar novo cartão'/>
+			<CreditCard
+				number={numberMaskedCard}
+				brand={brand}
+				cardholder={cardholder}
+				expiry={expiry}
+				cvv={cvv}
+			/>
+		</div>
+	)
 
-	const _onPrevious = useCallback(() => {
-		const previousOnClick = async () => {
-			return previous.onClick && await previous.onClick(state)
-		}
-		return onConverge(previousOnClick, previous.location)
-	},[previous, state, onConverge])
+	const setLocation = useAnimatedLocation()[1]
 
-	const [error, setError] = useState()
+	const _onNext = useCallback(async () => {
+		const result = next.onClick && await next.onClick(state)
+		next.location && setLocation('goLeft', next.location)
+		return result
+	},[next, state, setLocation])
+
+	const _onPrevious = useCallback(async () => {
+		const result = previous.onClick && await previous.onClick(state)
+		previous.location && setLocation('converge', previous.location)
+		return result
+	},[previous, state, setLocation])
 
 	return (
-		<>
-			<FlowForm
-				controls={controls}
-				title='Registrar novo cartão'
-				previous={_onPrevious}
-				previousName={'voltar'}
-				next={_onNext}
-				nextName='próximo'
-				validations={validations}
-				setError={setError}
-				topView={
-					<CreditCard
-						number={numberMaskedCard}
-						brand={brand}
-						cardholder={cardholder}
-						expiry={expiry}
-						cvv={cvv}
+		<FlowForm
+			next={_onNext}
+			previous={_onPrevious}
+			validations={validations}
+			setError={(error) => console.log({ error })}
+			inputs={[
+				<FormInput
+					name='number'
+					label='Número do cartão'
+					input={
+						<InputText
+							value={number}
+							onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
+							placeholder='1234 1234 1234 1234'
+						/>
+					}
+				/>,
+				<FormInput
+					name='cardholder'
+					label='Titular do cartão'
+					input={
+						<InputText
+							value={cardholder}
+							onChange={({ target: { value } }) => setCardholder(value)}
+							placeholder='Fernando(a) da Silva'
+						/>
+					}
+				/>,
+				<div style={dual}>
+					<FormInput
+						name='expiry'
+						label='Validade'
+						input={
+							<InputText
+								value={expiry}
+								onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
+								placeholder='01/24'
+							/>
+						}
 					/>
-				}
-				inputs={[
 					<FormInput
-						name='number'
-						label='Número do cartão'
+						name='cvv'
+						label='CVV'
 						input={
 							<InputText
-								value={number}
-								onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
-								placeholder='1234 1234 1234 1234'
+								value={cvv}
+								onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
+								placeholder='1111'
 							/>
 						}
-					/>,
-					<FormInput
-						name='cardholder'
-						label='Titular do cartão'
-						input={
-							<InputText
-								value={cardholder}
-								onChange={({ target: { value } }) => setCardholder(value)}
-								placeholder='Fernando(a) da Silva'
-							/>
-						}
-					/>,
-					<div style={dual}>
-						<FormInput
-							name='expiry'
-							label='Validade'
-							input={
-								<InputText
-									value={expiry}
-									onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
-									placeholder='01/24'
-								/>
-							}
-						/>
-						<FormInput
-							name='cvv'
-							label='CVV'
-							input={
-								<InputText
-									value={cvv}
-									onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
-									placeholder='1111'
-								/>
-							}
-						/>
-					</div>
-				]}
-			/>
-			<Modal
-				isOpen={!!error}
-				onRequestClose={() => setError()}
-				errorTitle={'Ocorreu um problema'}
-				errorMessage={'Não foi possível registrar o cartão, por favor tente novamente.'}
-			/>
-		</>
+					/>
+				</div>
+			]}
+		/>
 	)
 }
 
