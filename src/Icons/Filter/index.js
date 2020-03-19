@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Scaffold } from '../Scaffold'
 
-export const Filter = ({ style, onClick, size, color, strokeWidth }) =>
+export const Filter = ({ style, onClick, size, color, strokeWidth, fill }) =>
 	<Scaffold
 		svgPath={
 			<>
@@ -14,6 +14,7 @@ export const Filter = ({ style, onClick, size, color, strokeWidth }) =>
 		size={size}
 		color={color}
 		strokeWidth={strokeWidth}
+		fill={fill}
 	/>
 
 Filter.propTypes = {

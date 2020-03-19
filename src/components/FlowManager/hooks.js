@@ -239,4 +239,9 @@ useCachedEffect = (key, effect, deps=[]) => {
         setDeps(deps)
         effect()
     },deps)
+},
+
+useAnimation = () => {
+    const { contentControls, flowControls } = useContext(flowContext)
+    return [contentControls, flowControls]
 }

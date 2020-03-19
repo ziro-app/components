@@ -32,6 +32,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [cidade, setCidade] = useState('')
 	const [estado, setEstado] = useState('')
 	const [fone, setFone] = useState('')
+	const [whats, setWhats] = useState('')
 	const [email, setEmail] = useState('')
 	const [affiliateName, setAffiliateName] = useState('')
 	const [affiliateCpf, setAffiliateCpf] = useState('')
@@ -43,11 +44,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 
 	const setState = {
 		setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
-		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setEmail
+		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setWhats, setEmail
 	}
 	const state = {
 		affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
-		rua, numero, complemento, bairro, cep, cidade, estado, fone, email, ...setState, cnpjValid
+		rua, numero, complemento, bairro, cep, cidade, estado, fone, whats, email, ...setState, cnpjValid
 	}
 	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates, setSellers), [])
 	useEffect(() => setCnpjValid(false), [cnpj])
@@ -65,17 +66,17 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 		},
 		{
 			name: 'rg',
-			validation: value => !!value,
+			validation: value => value === '' || !!value,
 			value: rg,
 			message: 'Campo obrigatório'
 		}, {
 			name: 'cpf',
-			validation: value => value.length === 14,
+			validation: value => value === '' || value.length === 14,
 			value: cpf,
 			message: 'Formato inválido'
 		}, {
 			name: 'birth',
-			validation: value => /^(?:(?:31(\/)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/.test(value),
+			validation: value => value === '' || /^(?:(?:31(\/)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/.test(value),
 			value: birth,
 			message: 'Data inválida'
 		},
@@ -121,8 +122,13 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			message: 'Formato inválido'
 		}, {
 			name: 'fone',
-			validation: value => value.length >= 14,
+			validation: value => value === '' || value.length >= 14,
 			value: fone,
+			message: 'Formato inválido'
+		}, {
+			name: 'whats',
+			validation: value => value === '' || value.length >= 14,
+			value: whats,
 			message: 'Formato inválido'
 		}, {
 			name: 'email',
@@ -131,17 +137,17 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			message: 'Formato inválido'
 		}, {
 			name: 'affiliate',
-			validation: value => value === '' || affiliates.find(affiliate => affiliate[1] === value),
+			validation: value => affiliates.find(affiliate => affiliate[1] === value),
 			value: affiliateName,
 			message: 'Afiliado(a) inválido(a)'
 		}, {
 			name: 'advisor',
-			validation: value => value === '' || advisors.includes(value),
+			validation: value => advisors.includes(value),
 			value: advisor,
 			message: 'Assessor(a) inválido(a)'
 		}, {
 			name: 'salesman',
-			validation: value => value === '' || sellers.includes(value),
+			validation: value => sellers.includes(value),
 			value: salesman,
 			message: 'Vendedor(a) inválido(a)'
 		}
@@ -267,10 +273,17 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							placeholder='SP'
 						/>
 					} />,
-					<FormInput name='fone' label='Telefone' input={
+					<FormInput name='fone' label='Telefone da loja' input={
 						<InputText
 							value={fone}
 							onChange={({ target: { value } }) => setFone(maskInput(value, '(##) #####-####', true))}
+							placeholder='(11) 91122-3344'
+						/>
+					} />,
+					<FormInput name='whats' label='Whatsapp' input={
+						<InputText
+							value={whats}
+							onChange={({ target: { value } }) => setWhats(maskInput(value, '(##) #####-####', true))}
 							placeholder='(11) 91122-3344'
 						/>
 					} />,
@@ -285,7 +298,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 						<Dropdown
 							value={affiliateName}
 							onChange={({ target: { value } }) => {
-								if (value !== '') {
+								if (value !== '' && value !== 'Nenhum') {
 									let person = affiliates.find(element => element[1] === value)
 									if (person) {
 										setAffiliateCpf(person[0])
@@ -293,11 +306,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 									}
 								} else {
 									setAffiliateCpf('')
-									setAffiliateName('')
+									setAffiliateName(value === 'Nenhum'? 'Nenhum' : '')
 								}
 							}}
 							onChangeKeyboard={element => {
-								if (element) {
+								if (element && element.value !== 'Nenhum') {
 									let person = affiliates.find(affiliate => affiliate[1] === element.value)
 									if (person) {
 										setAffiliateCpf(person[0])
@@ -305,11 +318,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 									}
 								} else {
 									setAffiliateCpf('')
-									setAffiliateName('')
+									setAffiliateName(element.value === 'Nenhum'? 'Nenhum' : '')
 								}
 							}
 							}
-							list={affiliates.map(affiliate => Object.values(affiliate)[1])}
+							list={affiliates.map(affiliate => affiliate === 'Nenhum'? 'Nenhum' : Object.values(affiliate)[1])}
 							placeholder="Nome do(a) afiliado(a)"
 							readOnly={true}
 						/>
