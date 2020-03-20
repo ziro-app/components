@@ -14,6 +14,7 @@ export const useCameraAsOverlay = () => {
 
     const closeAfterSend = useCallback(async () => {
         await cameraControls.start('closeAfterSend')
+        cameraControls.set('close')
         setCameraOpen(false)
     },[cameraControls, setCameraOpen])
 

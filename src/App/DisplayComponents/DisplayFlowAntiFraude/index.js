@@ -4,6 +4,7 @@ import Summary from '../../../components/FlowSummary'
 import ChooseCard from '../../../components/FlowChooseCard'
 import ChooseInstallments from '../../../components/FlowChooseInstallments'
 import RegisterCard from '../../../components/FlowRegisterCard'
+import UploadPhoto from '../../../components/FlowUploadPhoto'
 import { Route, Switch, useLocation } from 'wouter'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -86,6 +87,47 @@ export const DisplayFlowAntiFraude = () => {
                             }}
                             previous={{
                                 location: 'anti-fraude/choose-card'
+                            }}
+                        />
+                    </Route>
+                    <Route path='/anti-fraude/document-photo'>
+                        <UploadPhoto
+                            next={{
+                                onClick: ({ picture }) => {
+                                    console.log({ picture })
+                                    return new Promise((res, rej) => {
+                                        if(!picture) rej('NO_PHOTO')
+                                        setTimeout(res,1000)
+                                    })
+                                },
+                                location: 'anti-fraude/selfie'
+                            }}
+                            previous={{ location: 'anti-fraude/register-card' }}
+                            title='Foto do documento'
+                            modal={{
+                                illustration: 'profileData',
+                                title: 'Documento',
+                                message: 'Para registrar um novo cartão é necessário enviar uma foto do documento do portador'
+                            }}
+                        />
+                    </Route>
+                    <Route path='/anti-fraude/selfie'>
+                        <UploadPhoto
+                            next={{
+                                onClick: ({ picture }) => {
+                                    console.log({ picture })
+                                    return new Promise((res, rej) => {
+                                        if(!picture) rej('NO_PHOTO')
+                                        setTimeout(res,1000)
+                                    })
+                                }
+                            }}
+                            previous={{ location: 'anti-fraude/document-photo' }}
+                            title='Selfie'
+                            modal={{
+                                illustration: 'profileData',
+                                title: 'Selfie',
+                                message: 'Para registrar um novo cartão é necessário enviar uma selfie do portador'
                             }}
                         />
                     </Route>

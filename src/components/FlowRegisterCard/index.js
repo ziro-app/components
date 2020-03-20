@@ -57,7 +57,7 @@ const FlowRegisterCard = ({ next, previous }) => {
 				cvv={cvv}
 			/>
 		</div>
-	)
+	,[numberMaskedCard, brand, cardholder, expiry, cvv])
 
 	const setLocation = useAnimatedLocation()[1]
 

@@ -12,7 +12,7 @@ const FlowChooseCard = ({ numbers, newCard, next, previous }) => {
 
     const setLocation = useAnimatedLocation()[1]
 
-    const [selected, setSelected] = useCache(undefined, 'selectedCard')
+    const [selected, setSelected] = useState()
     const [error, setError] = useState()
 
     const state = useMemo(() => ({ number: numbers[selected] }),[selected, numbers])
