@@ -6,7 +6,6 @@ import { BottomTabBar } from './bottomBar'
 export default () => {
 
     useHeader(null,[])
-    useFooter()
 
     const [location, setLocation] = useAnimatedLocation()
     const [counter2, setCounter2] = useCache(0)

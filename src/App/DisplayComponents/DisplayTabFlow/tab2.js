@@ -6,7 +6,6 @@ import { BottomTabBar } from './bottomBar'
 export default () => {
 
     useHeader(<Header type='title-only' title='tab2'/>,[])
-    useFooter()
 
     const [counter, setCounter] = useCache(0)
     const [counter2, setCounter2] = useCache(0)

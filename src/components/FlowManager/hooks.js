@@ -53,6 +53,8 @@ useHeader = (header, deps = []) => {
         if(header===undefined) setHeader(defaultHeader)
         else setHeader(header)
     }, deps)
+
+    useEffect(() => () => setHeader(defaultHeader), [])
 },
 
 useFooter = (footer, deps = []) => {
@@ -62,6 +64,8 @@ useFooter = (footer, deps = []) => {
         if(footer===undefined) setFooter(defaultFooter)
         else setFooter(footer)
     }, deps)
+
+    useEffect(() => () => setFooter(defaultFooter), [])
 },
 
 useModal = (modal, deps = []) => {

@@ -1,14 +1,20 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useScrollBottom, useIsContentConsumed } from '../../../components/FlowManager'
+import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useAnimatedLocation } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { useEffect } from 'react'
 import { useState } from 'react'
 
 export default () => {
 
+    const setLocation = useAnimatedLocation()[1]
+
     useHeader(<Header type='title-only' title='tab4'/>,[])
-    useFooter()
+    useFooter(
+        <div style={{ height: '50px' }}>
+            <label onClick={() => setLocation('goRight','/tab-flow/3')}>tab3</label>
+        </div>
+    )
 
     usePersistentScroll()
     useHideOnScroll()
