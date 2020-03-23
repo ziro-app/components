@@ -42,6 +42,7 @@ import { Check } from '../../Icons/Check/index'
 import { Star } from '../../Icons/Star/index'
 import { Search } from '../../Icons/Search/index'
 import { ShoppingBag } from '../../Icons/ShoppingBag/index'
+import { ChevronUp } from '../../Icons/ChevronUp/index'
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
 	const iconProps = { style, onClick, size, color, strokeWidth, fill }
@@ -88,7 +89,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
 		check: <Check {...iconProps} />,
 		star: <Star {...iconProps} />,
 		search: <Search {...iconProps} />,
-		shoppingBag: <ShoppingBag {...iconProps} />
+		shoppingBag: <ShoppingBag {...iconProps} />,
+		chevronUp: <ChevronUp {...iconProps} />
 	}
 	return iconList[type]
 }
