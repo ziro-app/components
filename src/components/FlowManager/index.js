@@ -95,8 +95,6 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         setCache,
     }
 
-    console.log({ scrollPosition })
-
     return (
         <div style={{ ...container, maxWidth, background }}>
             <flowContext.Provider value={context}>
