@@ -18,6 +18,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
     const contentRef = useRef()
 
     const [modal, setModal] = useState()
+    const [scroll, setScroll] = useState(true)
+    const [scrollPosition, setScrollPosition] = useState(0)
 
     const [cache, setCache] = useState({})
 
@@ -73,6 +75,10 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         contentRef: contentRef.current,
         //modalContext
         setModal,
+        scroll,
+        setScroll,
+        scrollPosition,
+        setScrollPosition,
         //flowContext
         contentControls,
         flowControls,
@@ -89,6 +95,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         setCache,
     }
 
+    console.log({ scrollPosition })
+
     return (
         <div style={{ ...container, maxWidth, background }}>
             <flowContext.Provider value={context}>
@@ -102,6 +110,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                         animate={contentControls}
                         exit={{ opacity: 0 }}
                         transition={{ type: 'tween' }}
+                        style={{ position: scroll ? 'relative' : 'fixed', top: scroll ? 0 : -scrollPosition, width: '100%' }}
                     >
                         {children}
                     </motion.div>

@@ -30,6 +30,10 @@ flowContext = React.createContext({
     contentRef: null,
     //modalContext
     setModal: showError,
+    scroll: null,
+    setScroll: showError,
+    scrollPosition: null,
+    setScrollPosition: showError,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -74,6 +78,28 @@ useModal = (modal, deps = []) => {
         setModal(modal)
         return () => setModal()
     },deps)
+},
+
+useScroll = (scroll) => {
+    const { scroll: _scroll, setScroll, scrollPosition, setScrollPosition, setHideFooter, setHideHeader, hideFooter, hideHeader } = useContext(flowContext)
+    const [shouldPreventHide, setShouldPreventHide] = useState(false)
+    useEffect(() => {
+        setScroll(scroll)
+        if(!scroll) { setScrollPosition(window.pageYOffset) }
+    },[scroll])
+    useEffect(() => {
+        if(_scroll) {
+            window.scrollTo(0,scrollPosition)
+            setShouldPreventHide(true)
+        }
+    },[_scroll])
+    useEffect(() => {
+        if(shouldPreventHide) {
+            hideHeader && setHideHeader(false)
+            hideFooter && setHideFooter(false)
+            setShouldPreventHide(false)
+        }
+    },[hideFooter, hideHeader])
 },
 
 useAnimatedLocation = () => {
