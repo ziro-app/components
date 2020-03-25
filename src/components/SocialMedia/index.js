@@ -11,7 +11,7 @@ const SocialMedia = () =>
 			() => window.open('https://instagram.com/ziromoda', '_blank')
 		}/>
 		<Icon type='globe' style={{ cursor: 'pointer' }} size={24} onClick={
-			() => window.open('https://ziromoda.com.br/ziroblog', '_blank')
+			() => window.open('https://ziro.com.br', '_blank')
 		}/>
 	</div>
 
