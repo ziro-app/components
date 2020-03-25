@@ -108,7 +108,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                         animate={contentControls}
                         exit={{ opacity: 0 }}
                         transition={{ type: 'tween' }}
-                        style={{ position: scroll ? 'relative' : 'fixed', top: scroll ? 0 : -scrollPosition, width: '100%' }}
+                        style={{ position: scroll ? 'relative' : 'fixed', top: scroll ? 0 : -scrollPosition, width: '100%', maxWidth }}
                     >
                         {children}
                     </motion.div>
@@ -150,7 +150,9 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                     </motion.div>
                 }
                 </AnimatePresence>
-                { modal }
+                <div style={{ maxWidth }}>
+                    { modal }
+                </div>
             </flowContext.Provider>
         </div>
     )

@@ -1,7 +1,9 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache, useGlobalCache } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
+import { BRANDS } from './cacheKeys'
+import { useEffect } from 'react'
 
 export default () => {
 
@@ -9,6 +11,14 @@ export default () => {
 
     const [counter, setCounter] = useCache(0)
     const [counter2, setCounter2] = useCache(0)
+
+    const [brands, setBrands] = useGlobalCache(undefined, BRANDS)
+
+    console.log({ brands })
+
+    useEffect(() => {
+        setBrands('seila')
+    },[])
 
     return (
         <div style={{ display: 'grid', background: 'red', height: '100%', width: '100%' }}>

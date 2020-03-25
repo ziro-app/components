@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache, useAnimatedLocation } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache, useAnimatedLocation, useGlobalCache } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
+import { BRANDS } from './cacheKeys'
 
 export default () => {
 
@@ -9,6 +10,10 @@ export default () => {
 
     const [location, setLocation] = useAnimatedLocation()
     const [counter2, setCounter2] = useCache(0)
+
+    const [brands, setBrands] = useGlobalCache(undefined, BRANDS)
+
+    console.log({ brands })
 
     return (
         <div style={{ display: 'grid', background: 'blue', height: '100%', width: '100%' }}>
