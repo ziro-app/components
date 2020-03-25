@@ -157,6 +157,21 @@ useCache = (initialValue, name) => {
     return [value, setValue]
 },
 
+useGlobalCache = (initialValue, key) => {
+    const { cache, setCache } = useContext(flowContext)
+    const setValue = useCallback((value) => {
+        setCache(oldCache => ({
+            ...oldCache,
+            [key]: typeof value === 'function' ? value(oldCache[key]) : value
+        }))
+    },[setCache])
+    useEffect(() => {
+        (cache[key]===undefined) && setValue(initialValue === undefined ? null : initialValue)
+    },[])
+    const value = cache[key] === undefined ? initialValue : cache[key]
+    return [value, setValue]
+},
+
 //here deps are not to watch their change,
 //but rather if they are all true and scroll can happen
 usePersistentScroll = (deps = []) => {
