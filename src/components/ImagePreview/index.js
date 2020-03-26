@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { circularButtonContainer, dropzone } from './styles'
 import Icon from '../Icon'
@@ -40,10 +40,14 @@ const _CircularInput = ({ template, isDisabled }) =>
 const CircularInput = React.memo(_CircularInput)
 
 const ImagePreview = ({ picture, primaryIcon, primaryAction, secondaryIcon, secondaryAction, dropzoneProps={}, instructions, isDisabled = false }) => {
+    const [minHeight, setMinHeight] = useState('')
+    useEffect(() => {
+        window ? setMinHeight(Math.min(window.innerWidth, 500)) : setMinHeight(500)
+    }, []);
 
     return (
         <div>
-            <div style={dropzone} {...dropzoneProps}>
+            <div style={{...dropzone, minHeight}} {...dropzoneProps}>
                 {
                     picture ?
                         <img style={{ maxWidth: '100%', boxShadow: shadow }} src={picture}/>

@@ -22,6 +22,5 @@ dropzone = {
     borderRadius: '6px',
     color: 'black',
     textAlign: 'center',
-    padding: '20px',
-    minHeight: Math.min(window.innerWidth, 500)
+    padding: '20px'
 }
