@@ -386,7 +386,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.1.20": {
+    "vitorbarbosa19.ziro/delete-account@0.1.21": {
         "files": [
             {
                 "relativePath": "src/components/DeleteAccount/index.js",
@@ -1597,7 +1597,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.21": {
+    "vitorbarbosa19.ziro/update-email@0.1.22": {
         "files": [
             {
                 "relativePath": "src/components/UpdateEmail/index.js",
@@ -1610,7 +1610,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-pass@0.1.20": {
+    "vitorbarbosa19.ziro/update-pass@0.1.21": {
         "files": [
             {
                 "relativePath": "src/components/UpdatePass/index.js",

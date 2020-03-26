@@ -6,7 +6,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const DeleteAccount = ({ sendToBackend }) => {
+const DeleteAccount = ({ sendToBackend, navigateTo = '/conta' }) => {
 	const [pass, setPass] = useState('')
 	const state = { pass }
 	const validations = [
@@ -19,7 +19,7 @@ const DeleteAccount = ({ sendToBackend }) => {
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/conta' title='Deletar Conta' />
+			<Header type='icon-link' icon='back' navigateTo={navigateTo} title='Deletar Conta' />
 			<Form
 				buttonOnTop={true}
 				buttonName='Confirmar exclusão'
@@ -41,7 +41,8 @@ const DeleteAccount = ({ sendToBackend }) => {
 }
 
 DeleteAccount.propTypes = {
-	sendToBackend: PropTypes.func.isRequired
+	sendToBackend: PropTypes.func.isRequired,
+	navigateTo: PropTypes.string
 }
 
 export default DeleteAccount

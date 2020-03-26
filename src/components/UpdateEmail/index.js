@@ -6,7 +6,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const UpdateEmail = ({ row, sendToBackend }) => {
+const UpdateEmail = ({ row, sendToBackend, navigateTo = '/conta' }) => {
 	const [pass, setPass] = useState('')
 	const [newEmail, setNewEmail] = useState('')
 	const state = { row, pass, newEmail }
@@ -25,7 +25,7 @@ const UpdateEmail = ({ row, sendToBackend }) => {
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar Email' />
+			<Header type='icon-link' icon='back' navigateTo={navigateTo} title='Trocar Email' />
 			<Form
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
@@ -52,7 +52,8 @@ const UpdateEmail = ({ row, sendToBackend }) => {
 }
 
 UpdateEmail.propTypes = {
-	sendToBackend: PropTypes.func.isRequired
+	sendToBackend: PropTypes.func.isRequired,
+	navigateTo: PropTypes.string
 }
 
 export default UpdateEmail

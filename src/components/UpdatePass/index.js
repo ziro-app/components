@@ -6,7 +6,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const UpdatePass = ({ sendToBackend }) => {
+const UpdatePass = ({ sendToBackend, navigateTo = '/conta' }) => {
 	const [pass, setPass] = useState('')
 	const [newPass, setNewPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
@@ -31,7 +31,7 @@ const UpdatePass = ({ sendToBackend }) => {
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/conta' title='Trocar senha' />
+			<Header type='icon-link' icon='back' navigateTo={navigateTo} title='Trocar senha' />
 			<Form
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
@@ -67,7 +67,8 @@ const UpdatePass = ({ sendToBackend }) => {
 }
 
 UpdatePass.propTypes = {
-	sendToBackend: PropTypes.func.isRequired
+	sendToBackend: PropTypes.func.isRequired,
+	navigateTo: PropTypes.string
 }
 
 export default UpdatePass
