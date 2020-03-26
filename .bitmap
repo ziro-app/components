@@ -1301,7 +1301,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-trouble@0.1.19": {
+    "vitorbarbosa19.ziro/login-trouble@0.1.20": {
         "files": [
             {
                 "relativePath": "src/components/LoginTrouble/index.js",
@@ -1414,7 +1414,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.20": {
+    "vitorbarbosa19.ziro/resend-email@0.1.21": {
         "files": [
             {
                 "relativePath": "src/components/ResendEmail/index.js",
@@ -1432,7 +1432,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.1.20": {
+    "vitorbarbosa19.ziro/reset-pass@0.1.21": {
         "files": [
             {
                 "relativePath": "src/components/ResetPass/index.js",

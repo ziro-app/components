@@ -6,7 +6,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const ResetPass = ({ sendToBackend }) => {
+const ResetPass = ({ sendToBackend, navigateTo = '/conta' }) => {
 	const [email, setEmail] = useState('')
 	const state = { email, setEmail }
 	const validations = [
@@ -19,7 +19,7 @@ const ResetPass = ({ sendToBackend }) => {
 	]
 	return (
 		<div style={containerWithPadding}>
-			<Header type='icon-link' icon='back' navigateTo='/' title='Resetar senha' />
+			<Header type='icon-link' icon='back' navigateTo={navigateTo} title='Resetar senha' />
 			<Form
 				buttonOnTop={true}
 				validations={validations}
@@ -39,7 +39,8 @@ const ResetPass = ({ sendToBackend }) => {
 }
 
 ResetPass.propTypes = {
-	sendToBackend: PropTypes.func.isRequired
+	sendToBackend: PropTypes.func.isRequired,
+	navigateTo: PropTypes.string
 }
 
 export default ResetPass
