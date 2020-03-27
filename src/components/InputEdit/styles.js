@@ -47,4 +47,8 @@ inputStylesheet = `
 	input::placeholder {
 	   	color: ${grayColor2};
 	}
+	#inputEdit:focus {
+		border: none !important;
+		box-shadow: none !important;
+	}
 `

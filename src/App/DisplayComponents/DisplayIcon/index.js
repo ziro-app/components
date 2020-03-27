@@ -40,4 +40,5 @@ export const DisplayIcon = () =>
 		<Icon type='add' size={24} />
 		<Icon type='send' size={24} />
 		<Icon type='filter' size={24} />
+		<Icon type='file' size={24} />
 	</div>

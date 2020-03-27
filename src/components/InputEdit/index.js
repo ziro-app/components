@@ -71,6 +71,7 @@ const InputEdit = ({ name, value, onChange, validateInput, submit, setError, err
 					onChange={updateInput}
 					placeholder={placeholder}
 					disabled={!editable || uiState === 'submitting'}
+					id='inputEdit'
 				  />
 				: <Spinner size={'2rem'} style={spinner} />}
 		</form>
