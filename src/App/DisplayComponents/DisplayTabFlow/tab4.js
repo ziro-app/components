@@ -10,11 +10,6 @@ export default () => {
     const setLocation = useAnimatedLocation()[1]
 
     useHeader(<Header type='title-only' title='tab4'/>,[])
-    useFooter(
-        <div style={{ height: '50px' }}>
-            <label onClick={() => setLocation('goRight','/tab-flow/3')}>tab3</label>
-        </div>
-    )
 
     usePersistentScroll()
     useHideOnScroll()
