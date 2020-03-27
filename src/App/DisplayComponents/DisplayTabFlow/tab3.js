@@ -12,12 +12,6 @@ export default () => {
     const setLocation = useAnimatedLocation()[1]
     const [scroll, setScroll] = useState(true)
 
-    useFooter(
-        <div style={{ height: '50px' }}>
-            <label onClick={() => setScroll(old => !old)}>tab2</label>
-        </div>
-    )
-
     usePersistentScroll()
     useHideOnScroll()
 
