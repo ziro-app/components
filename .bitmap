@@ -42,7 +42,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.32": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.33": {
         "files": [
             {
                 "name": "index.js",
