@@ -13,6 +13,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
+	const [searchedName, setSearchedName] = useState('')
 	// form fields
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -43,7 +44,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [sellers, setSellers] = useState([])
 
 	const setState = {
-		setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
+		setSearchedName, setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
 		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setWhats, setEmail
 	}
 	const state = {
@@ -127,7 +128,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			message: 'Formato inválido'
 		}, {
 			name: 'whats',
-			validation: value => value === '' || value.length >= 14,
+			validation: value => /(^\(\d{2}\) \d{5}\-\d{4}$)/.test(value),
 			value: whats,
 			message: 'Formato inválido'
 		}, {
@@ -296,27 +297,31 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 					} />,
 					hasAffiliated ? <FormInput name='affiliate' label='Afiliado(a)' input={
 						<Dropdown
-							value={affiliateName}
+							value={searchedName}
 							onChange={({ target: { value } }) => {
 								if (value !== '' && value !== 'Nenhum') {
+									setSearchedName(value)
 									let person = affiliates.find(element => element[1] === value)
 									if (person) {
 										setAffiliateCpf(person[0])
 										setAffiliateName(person[1])
 									}
 								} else {
+									setSearchedName('')
 									setAffiliateCpf('')
 									setAffiliateName(value === 'Nenhum'? 'Nenhum' : '')
 								}
 							}}
 							onChangeKeyboard={element => {
 								if (element && element.value !== 'Nenhum') {
+									setSearchedName(element.value)
 									let person = affiliates.find(affiliate => affiliate[1] === element.value)
 									if (person) {
 										setAffiliateCpf(person[0])
 										setAffiliateName(person[1])
 									}
 								} else {
+									setSearchedName('')
 									setAffiliateCpf('')
 									setAffiliateName(element.value === 'Nenhum'? 'Nenhum' : '')
 								}
@@ -324,7 +329,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							}
 							list={affiliates.map(affiliate => affiliate === 'Nenhum'? 'Nenhum' : Object.values(affiliate)[1])}
 							placeholder="Nome do(a) afiliado(a)"
-							readOnly={true}
+							readOnly={false}
 						/>
 					} /> : <FormInput label='' name='' input={<></>} />,
 					hasAdvisor ? <FormInput name='advisor' label='Assessor(a)' input={
