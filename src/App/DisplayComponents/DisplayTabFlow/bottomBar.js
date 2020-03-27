@@ -16,7 +16,8 @@ export const BottomTabBar = () => {
                 },
                 {
                     location: '/tab-flow/3',
-                    icon: (isSelected) => <Icon type='star' size={24} strokeWidth={1} fill={isSelected}/>
+                    icon: (isSelected) => <Icon type='star' size={24} strokeWidth={1} fill={isSelected}/>,
+                    notificationNumber: 3
                 },
                 {
                     location: '/tab-flow/4',

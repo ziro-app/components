@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from 'react'
 import { useAnimatedLocation } from '../FlowManager'
-import { container, button } from './styles'
+import { container, button, notification } from './styles'
 
 const BottomTabBar = ({ buttons = [] }) => {
 
@@ -14,7 +14,7 @@ const BottomTabBar = ({ buttons = [] }) => {
     return (
         <div style={{ ...container, gridTemplateColumns }}>
             {
-                buttons.map(({ icon, location },index) => {
+                buttons.map(({ icon, location, notificationNumber },index) => {
                     
                     const isSelected = useMemo(() => currentIndex === index, [currentIndex])
                     const animation = useMemo(() => currentIndex > index ? 'goRight' : 'goLeft', [currentIndex])
@@ -29,6 +29,11 @@ const BottomTabBar = ({ buttons = [] }) => {
                     return (
                         <div key={location} style={button} onClick={onClick}>
                                 {icon(isSelected)}
+                                {notificationNumber &&
+                                    <div style={notification}>
+                                    {notificationNumber}
+                                    </div>
+                                }
                         </div>
                     )
                 })
