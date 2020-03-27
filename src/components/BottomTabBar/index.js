@@ -29,7 +29,7 @@ const BottomTabBar = ({ buttons = [] }) => {
                     return (
                         <div key={location} style={button} onClick={onClick}>
                                 {icon(isSelected)}
-                                {notificationNumber && notificationNumber > 1 ?
+                                {notificationNumber && notificationNumber > 0 ?
                                     <div style={notification}>
                                     {notificationNumber}
                                     </div>
