@@ -137,11 +137,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			value: email,
 			message: 'Formato inválido'
 		}, {
-			name: 'affiliate',
-			validation: value => affiliates.find(affiliate => affiliate[1] === value),
-			value: affiliateName,
-			message: 'Afiliado(a) inválido(a)'
-		}, {
+            name: 'affiliate',
+            validation: value => value === 'NENHUM' || affiliates.find(affiliate => affiliate[1] === value),
+            value: affiliateName,
+            message: 'Afiliado(a) inválido(a)'
+        }, {
 			name: 'advisor',
 			validation: value => advisors.includes(value),
 			value: advisor,
@@ -299,7 +299,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 						<Dropdown
 							value={searchedName}
 							onChange={({ target: { value } }) => {
-								if (value !== '' && value !== 'Nenhum') {
+								if (value !== '' && value !== 'NENHUM') {
 									setSearchedName(value)
 									let person = affiliates.find(element => element[1] === value)
 									if (person) {
@@ -309,11 +309,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 								} else {
 									setSearchedName('')
 									setAffiliateCpf('')
-									setAffiliateName(value === 'Nenhum'? 'Nenhum' : '')
+									setAffiliateName(value === 'NENHUM'? 'NENHUM' : '')
 								}
 							}}
 							onChangeKeyboard={element => {
-								if (element && element.value !== 'Nenhum') {
+								if (element && element.value !== 'NENHUM') {
 									setSearchedName(element.value)
 									let person = affiliates.find(affiliate => affiliate[1] === element.value)
 									if (person) {
@@ -323,11 +323,11 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 								} else {
 									setSearchedName('')
 									setAffiliateCpf('')
-									setAffiliateName(element.value === 'Nenhum'? 'Nenhum' : '')
+									setAffiliateName(element.value === 'NENHUM'? 'NENHUM' : '')
 								}
 							}
 							}
-							list={affiliates.map(affiliate => affiliate === 'Nenhum'? 'Nenhum' : Object.values(affiliate)[1])}
+							list={affiliates.map(affiliate => affiliate === 'NENHUM'? 'NENHUM' : Object.values(affiliate)[1])}
 							placeholder="Nome do(a) afiliado(a)"
 							readOnly={false}
 						/>
