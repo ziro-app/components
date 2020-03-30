@@ -307,7 +307,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 										setAffiliateName(person[1])
 									}
 								} else {
-									setSearchedName('')
+									setSearchedName(value === 'NENHUM'? 'NENHUM' : '')
 									setAffiliateCpf('')
 									setAffiliateName(value === 'NENHUM'? 'NENHUM' : '')
 								}
@@ -321,7 +321,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 										setAffiliateName(person[1])
 									}
 								} else {
-									setSearchedName('')
+									setSearchedName(element.value === 'NENHUM'? 'NENHUM' : '')
 									setAffiliateCpf('')
 									setAffiliateName(element.value === 'NENHUM'? 'NENHUM' : '')
 								}
