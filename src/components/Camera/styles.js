@@ -1,9 +1,7 @@
 export const
 
 animateContainer = {
-    position: 'relative',
-    maxWidth: '500px',
-    margin: 'auto'
+    position: 'relative'
 },
 
 container = (background) => ({

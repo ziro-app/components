@@ -22,5 +22,6 @@ dropzone = {
     borderRadius: '6px',
     color: 'black',
     textAlign: 'center',
-    padding: '20px'
+    padding: '20px',
+    minHeight: '80vw'
 }
