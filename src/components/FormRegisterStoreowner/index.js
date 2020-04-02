@@ -137,18 +137,18 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			value: email,
 			message: 'Formato inválido'
 		}, {
-            name: 'affiliate',
-            validation: value => value === 'NENHUM' || affiliates.find(affiliate => affiliate[1] === value),
-            value: affiliateName,
-            message: 'Afiliado(a) inválido(a)'
-        }, {
+			name: 'affiliate',
+			validation: value => hasAffiliated ? value === 'NENHUM' || affiliates.find(affiliate => affiliate[1] === value) : true,
+			value: affiliateName,
+			message: 'Afiliado(a) inválido(a)'
+		}, {
 			name: 'advisor',
-			validation: value => advisors.includes(value),
+			validation: value => hasAdvisor ? advisors.includes(value) : true,
 			value: advisor,
 			message: 'Assessor(a) inválido(a)'
 		}, {
 			name: 'salesman',
-			validation: value => sellers.includes(value),
+			validation: value => haveSalesman ? sellers.includes(value) : true,
 			value: salesman,
 			message: 'Vendedor(a) inválido(a)'
 		}
@@ -307,9 +307,9 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 										setAffiliateName(person[1])
 									}
 								} else {
-									setSearchedName(value === 'NENHUM'? 'NENHUM' : '')
+									setSearchedName(value === 'NENHUM' ? 'NENHUM' : '')
 									setAffiliateCpf('')
-									setAffiliateName(value === 'NENHUM'? 'NENHUM' : '')
+									setAffiliateName(value === 'NENHUM' ? 'NENHUM' : '')
 								}
 							}}
 							onChangeKeyboard={element => {
@@ -321,13 +321,13 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 										setAffiliateName(person[1])
 									}
 								} else {
-									setSearchedName(element.value === 'NENHUM'? 'NENHUM' : '')
+									setSearchedName(element.value === 'NENHUM' ? 'NENHUM' : '')
 									setAffiliateCpf('')
-									setAffiliateName(element.value === 'NENHUM'? 'NENHUM' : '')
+									setAffiliateName(element.value === 'NENHUM' ? 'NENHUM' : '')
 								}
 							}
 							}
-							list={affiliates.map(affiliate => affiliate === 'NENHUM'? 'NENHUM' : Object.values(affiliate)[1])}
+							list={affiliates.map(affiliate => affiliate === 'NENHUM' ? 'NENHUM' : Object.values(affiliate)[1])}
 							placeholder="Nome do(a) afiliado(a)"
 							readOnly={false}
 						/>
