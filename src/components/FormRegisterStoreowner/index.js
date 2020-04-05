@@ -9,7 +9,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Dropdown from '../Dropdown/index'
 
-const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, searchCnpj, fetch }) => {
+const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, searchCnpj, fetch, appAffiliateName = '', appAffiliateCpf = '' }) => {
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
@@ -48,7 +48,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setWhats, setEmail
 	}
 	const state = {
-		affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
+		appAffiliateName, appAffiliateCpf, affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
 		rua, numero, complemento, bairro, cep, cidade, estado, fone, whats, email, ...setState, cnpjValid
 	}
 	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates, setSellers), [])
