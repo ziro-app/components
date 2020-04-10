@@ -82,7 +82,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/calendar@0.0.12": {
+    "vitorbarbosa19.ziro/calendar@0.0.13": {
         "files": [
             {
                 "name": "index.js",
@@ -90,9 +90,9 @@
                 "test": false
             },
             {
-                "name": "styles.js",
-                "relativePath": "src/components/Calendar/styles.js",
-                "test": false
+                "relativePath": "src/components/Calendar/styles.css",
+                "test": false,
+                "name": "styles.css"
             }
         ],
         "mainFile": "src/components/Calendar/index.js",

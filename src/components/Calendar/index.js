@@ -6,7 +6,7 @@ import isBeforeDay from 'react-dates/lib/utils/isBeforeDay';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment'
 import pt from 'moment/locale/pt-br'
-import { styleTag, styleTagFocus } from './styles'
+import './styles.css'
 
 // OutsideRange -> Flag que ativa/desativa o filtro nas datas
 // Before = true -> Desabilita o intervalo anterior ao dia corrente ou a uma data específica
@@ -15,7 +15,6 @@ import { styleTag, styleTagFocus } from './styles'
 
 const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, readOnly = true, outsideRange = false, before, choosedDate = '', callback = null }) => {
     moment.locale('pt-br', pt)
-
     const disableDates = day => {
         if(before){
             if(choosedDate) return isBeforeDay(day, moment(choosedDate.split('/').reverse().join('/')))
@@ -25,18 +24,15 @@ const Calendar = ({ inputDate, setInputDate, focused, setFocused, placeholder, r
             else return isAfterDay(day, moment())
         }
     }
-
     return(
         <>
-            <style>{focused? styleTagFocus : styleTag}</style>
             <SingleDatePicker
-                date={inputDate? moment(inputDate.split('/').reverse().join('/')) : ''}
+                date={inputDate? moment(inputDate.split('/').reverse().join('/')) : null}
                 onDateChange={date => {
                     if(date) setInputDate(date.format("DD/MM/YYYY"))
                     else setInputDate('')
                     if(callback) callback()
-                }
-                }
+                }}
                 focused={focused}
                 onFocusChange={({ focused }) => setFocused(focused) }
                 id="calendar"

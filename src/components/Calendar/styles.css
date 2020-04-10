@@ -1,0 +1,46 @@
+.SingleDatePicker {
+	width: 100%;
+}
+
+.SingleDatePickerInput__showClearDate {
+	padding: 0;
+}
+
+.SingleDatePickerInput__withBorder {
+	width: 100%;
+	border: none;
+}
+
+.DateInput {
+	width: 100%;
+}
+
+.DateInput_input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px 22px;
+	border: 2px solid #E0E0E0;
+	border-radius: 8px;
+	font-family: 'Work Sans', 'system-ui', 'sans-serif';
+	font-weight: 400;
+	font-size: 1.5rem;
+	line-height: initial;
+	color: #222222;
+	background-color: #FDFDFD;
+	box-shadow: rgba(34,34,34,0.3) 0px 3px 10px -3px;
+}
+
+.DateInput_input::placeholder {
+   	color: #BDBDBD;
+}
+.DateInput_input:focus {
+	border: 2px solid #828282;
+	box-shadow: rgba(34, 34, 34, 0.3) 0px 3px 10px -2px;
+}
+
+.CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
+	background: #222;
+}
