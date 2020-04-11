@@ -8,7 +8,7 @@ const Wrapper = ({ children }) =>
 	        <title>Docz</title>
 	        <link rel="icon"
 	            type="image/png"
-	            href="https://res.cloudinary.com/ziro/image/upload/v1561160634/logo-app_fwothv.png" />
+	            href="https://res.cloudinary.com/ziro/image/upload/v1583861558/favicon.png" />
 	    </Helmet>
 	    {children}
 	</>
