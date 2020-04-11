@@ -7,6 +7,7 @@ import { NotFound } from '../../Illustrations/NotFound/index'
 import { TimelineStart } from '../../Illustrations/TimelineStart/index'
 import { ProfileData } from '../../Illustrations/ProfileData/index'
 import { Buy } from '../../Illustrations/Buy'
+import { RegisterSuccess } from '../../Illustrations/RegisterSuccess'
 
 const Illustration = ({ type, size }) => {
 	const illustrationProps = { size }
@@ -17,7 +18,8 @@ const Illustration = ({ type, size }) => {
 		notFound: <NotFound {...illustrationProps} />,
 		timelineStart: <TimelineStart {...illustrationProps} />,
 		profileData: <ProfileData {...illustrationProps} />,
-		buy: <Buy {...illustrationProps} />
+		buy: <Buy {...illustrationProps} />,
+		registerSuccess: <RegisterSuccess {...illustrationProps} />
 	}
 	return illustrationList[type]
 }

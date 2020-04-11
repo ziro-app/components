@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'wouter'
-import Badge from '../Badge/index'
+import Illustration from '../Illustration/index'
 import Button from '../Button/index'
 import { successColor } from '@ziro/theme'
 import { container, custom, blockOne, blockTwo, btnWhite } from './styles'
@@ -11,13 +11,8 @@ const ConfirmEmail = () => {
 	return (
 		<div style={containerWithPadding}>
 			<div style={container}>
-				<Badge
-					type='success'
-					style={custom(18, successColor)}
-					size={21}
-					color={successColor}
-					message='Cadastro feito com sucesso!'
-				/>
+				<div style={{ display: 'grid', justifyItems: 'center' }}><Illustration type='registerSuccess' size={125} /></div>
+				<div style={custom(18, successColor)}>Cadastro feito com sucesso!</div>
 				<div style={blockOne}>
 					<label>Email de confirmação enviado</label>
 					<label>Clique no link recebido para liberar seu login</label>
