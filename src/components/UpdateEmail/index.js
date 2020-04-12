@@ -43,6 +43,8 @@ const UpdateEmail = ({ row, sendToBackend, navigateTo = '/conta' }) => {
 							value={newEmail}
 							onChange={({ target: { value } }) => setNewEmail(value)}
 							placeholder='Seu novo email'
+							inputmode='email'
+							autocomplete='email'
 						/>
 					} />
 				]}

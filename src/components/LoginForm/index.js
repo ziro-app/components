@@ -32,8 +32,10 @@ const LoginForm = ({ sendToBackend }) => {
 						value={email}
 						onChange={({ target: { value } }) => setEmail(value)}
 						placeholder='Seu email'
+						inputmode='email'
+						autocomplete='email'
 					/>
-				}/>,
+				} />,
 				<FormInput name='pass' label='Senha' input={
 					<InputText
 						value={pass}
@@ -41,7 +43,7 @@ const LoginForm = ({ sendToBackend }) => {
 						placeholder='Sua senha'
 						type='password'
 					/>
-				}/>
+				} />
 			]}
 		/>
 	)

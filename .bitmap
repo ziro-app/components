@@ -281,7 +281,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.25": {
+    "vitorbarbosa19.ziro/checkout@0.1.27": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -662,7 +662,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.38": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.39": {
         "files": [
             {
                 "name": "index.js",
@@ -1284,7 +1284,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.1.16": {
+    "vitorbarbosa19.ziro/login-form@0.1.18": {
         "files": [
             {
                 "name": "index.js",
@@ -1297,7 +1297,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.1.16": {
+    "vitorbarbosa19.ziro/login-page@0.1.18": {
         "files": [
             {
                 "name": "index.js",
@@ -1428,7 +1428,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.24": {
+    "vitorbarbosa19.ziro/resend-email@0.1.26": {
         "files": [
             {
                 "name": "index.js",
@@ -1611,7 +1611,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.25": {
+    "vitorbarbosa19.ziro/update-email@0.1.26": {
         "files": [
             {
                 "name": "index.js",

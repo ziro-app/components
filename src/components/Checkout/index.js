@@ -86,6 +86,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 								value={number}
 								onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
 								placeholder='1234 1234 1234 1234'
+								inputmode='numeric'
 							/>
 						}
 					/>,
@@ -109,6 +110,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 									value={expiry}
 									onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
 									placeholder='01/24'
+									inputmode='numeric'
 								/>
 							}
 						/>
@@ -120,6 +122,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 									value={cvv}
 									onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
 									placeholder='1111'
+									inputmode='numeric'
 								/>
 							}
 						/>
@@ -132,6 +135,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 								value={cpf}
 								onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
 								placeholder='111.222.333-44'
+								inputmode='numeric'
 							/>
 						}
 					/>,
@@ -142,10 +146,10 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 							<Dropdown
 								readOnly={true}
 								value={installments}
-								onChange={({ target: { value } }) => setInstallments(value.substring(0,1))}
+								onChange={({ target: { value } }) => setInstallments(value.substring(0, 1))}
 								list={installmentOptions(charge, maxInstallments)}
 								placeholder='Escolha quantas parcelas'
-								onChangeKeyboard={element => element ? setInstallments(element.value.substring(0,1)) : null }
+								onChangeKeyboard={element => element ? setInstallments(element.value.substring(0, 1)) : null}
 							/>
 						}
 					/>
