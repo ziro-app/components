@@ -1446,7 +1446,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.1.24": {
+    "vitorbarbosa19.ziro/reset-pass@0.1.25": {
         "files": [
             {
                 "name": "index.js",
