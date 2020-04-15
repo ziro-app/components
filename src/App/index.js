@@ -51,6 +51,7 @@ import { DisplayTabFlow } from './DisplayComponents/DisplayTabFlow'
 import { DisplayCalendar } from './DisplayComponents/DisplayCalendar'
 import { DisplayIllustration } from './DisplayComponents/DisplayIllustration'
 import { DisplayFlowAntiFraude } from './DisplayComponents/DisplayFlowAntiFraude'
+import { DisplayToastNotification } from './DisplayComponents/DisplayToastNotification'
 
 export const App = () =>
 	<Switch>
@@ -105,5 +106,6 @@ export const App = () =>
 		<Route path='/calendar'><DisplayCalendar /></Route>
 		<Route path='/illustration'><DisplayIllustration /></Route>
 		<Route path='/anti-fraude/:any'><DisplayFlowAntiFraude /></Route>
+		<Route path='/toast-notification'><DisplayToastNotification /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
