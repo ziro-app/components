@@ -4,10 +4,10 @@ import { useSpring, animated } from 'react-spring'
 import { animateBox } from './animation'
 import { box } from './styles'
 
-const ToastNotification = ({ isOpen, setIsOpen, children, boxStyle }) => {
+const ToastNotification = ({ isOpen, setIsOpen, children, timeout = 3000, boxStyle }) => {
 	useEffect(() => {
 		if (isOpen) {
-			const timeoutFunction = setTimeout(() => setIsOpen(false), 1000)
+			const timeoutFunction = setTimeout(() => setIsOpen(false), timeout)
 			return () => clearTimeout(timeoutFunction)
 		}
 	}, [isOpen])
@@ -28,6 +28,7 @@ ToastNotification.propTypes = {
 		PropTypes.object,
 		PropTypes.arrayOf(PropTypes.element)
 	]).isRequired,
+	timeout: PropTypes.number,
 	boxStyle: PropTypes.object
 }
 
