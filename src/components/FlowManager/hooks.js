@@ -11,6 +11,13 @@ const SCROLL_Y_HIDE = Symbol('SCROLL_Y_HIDE')
 
 const cacheCalls = new Map()
 
+const defaultMessageModal = {
+    title: 'Erro',
+    message: 'Ocorreu um erro desconhecido',
+    firstButtonTitle: 'ok',
+    illustration: 'paymentError'
+}
+
 export const
 
 flowContext = React.createContext({
@@ -34,6 +41,9 @@ flowContext = React.createContext({
     setScroll: showError,
     scrollPosition: null,
     setScrollPosition: showError,
+    //messageModalContext
+    messageModal: null,
+    setMessageModal: showError,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -78,6 +88,19 @@ useModal = (modal, deps = []) => {
         setModal(modal)
         return () => setModal()
     },deps)
+},
+
+useMessageModal = (messageModalObject) => {
+    const { messageModal, setMessageModal } = useContext(flowContext)
+    const [message, setMessage] = useState()
+    useEffect(() => {
+        if(!message) setMessageModal()
+        else setMessageModal({ ...defaultMessageModal, ...(messageModalObject && messageModalObject[message]||{}) })
+    },[message])
+    useEffect(() => {
+        if(!messageModal) setMessage()
+    },[messageModal])
+    return setMessage
 },
 
 useScroll = (scroll) => {
@@ -200,11 +223,12 @@ usePersistentScroll = (deps = []) => {
 },
 
 useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {
-    const { setHideHeader, setHideFooter, contentRef } = useContext(flowContext)
+    const { isAnimating, setHideHeader, setHideFooter, contentRef } = useContext(flowContext)
     const [scrollY, setScrollY] = useCache(window.scrollY,SCROLL_Y_HIDE)
 	useEffect(() => {
-        if(!contentRef) return
+        if(!contentRef || isAnimating) return
 		const toggleHeader = () => setScrollY(prevScrollY => {
+            if (contentRef.clientHeight < 1.5 * window.innerHeight) return window.scrollY;
 			if (prevScrollY > window.scrollY + showThreshold) {
                 if (element === 'both' || element === 'header') setHideHeader(false)
                 if (element === 'both' || element === 'footer') setHideFooter(false)
@@ -220,7 +244,7 @@ useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {
             window.removeEventListener('scroll', toggleHeader)
             setHideHeader(false)
         }
-	}, [contentRef])
+	}, [contentRef, isAnimating])
 },
 
 useScrollPagination = (threshold=window.innerHeight,deps = []) => {

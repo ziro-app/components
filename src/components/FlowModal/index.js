@@ -2,10 +2,19 @@ import React from 'react'
 import Modal from '../Modal'
 import Button from '../Button'
 import Illustration from '../Illustration/index'
-import { container, svg, title, modal } from './styles'
+import { container, svg, title as titleStyle, modal } from './styles'
 import { motion } from 'framer-motion'
 
-const _Modal = ({ isOpen, errorTitle, errorMessage, onRequestClose, illustration='paymentError', buttonName='ok' }) => {
+const _Modal = ({
+    isOpen,
+    title = 'Erro',
+    message = 'Ocorreu um erro desconhecido',
+    firstButtonTitle = 'ok',
+    firstButtonAction,
+    secondButtonTitle,
+    secondButtonAction,
+    illustration = 'paymentError'
+}) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -14,13 +23,23 @@ const _Modal = ({ isOpen, errorTitle, errorMessage, onRequestClose, illustration
         >
             <div style={container}>
                 <div style={svg}><Illustration type={illustration} /></div>
-                <label style={title}>{errorTitle}</label>
-                <label>{errorMessage}</label>
-                <Button
-                    type='button'
-                    click={onRequestClose}
-                    cta={buttonName}
-                />
+                <label style={titleStyle}>{title}</label>
+                <label>{message}</label>
+                <div style={{ display: 'grid', gridTemplateColumns: secondButtonTitle ? '1fr 1fr' : '1fr', gridGap: '10px' }}>
+                    <Button
+                        type='button'
+                        click={firstButtonAction}
+                        cta={firstButtonTitle}
+                    />
+                    {
+                        secondButtonTitle &&
+                        <Button
+                            type='button'
+                            click={secondButtonAction}
+                            cta={secondButtonTitle}
+                        />
+                    }
+                </div>
             </div>
         </Modal>
     )

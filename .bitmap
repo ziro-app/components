@@ -41,7 +41,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.34": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.35": {
         "files": [
             {
                 "name": "index.js",
@@ -598,7 +598,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.23": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.24": {
         "files": [
             {
                 "name": "defaultAnimations.js",
@@ -619,10 +619,19 @@
                 "name": "styles.js",
                 "relativePath": "src/components/FlowManager/styles.js",
                 "test": false
+            },
+            {
+                "relativePath": "src/components/FlowModal/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/FlowModal/styles.js",
+                "test": false,
+                "name": "styles.js"
             }
         ],
         "mainFile": "src/components/FlowManager/index.js",
-        "trackDir": "src/components/FlowManager",
         "origin": "AUTHORED",
         "exported": true
     },

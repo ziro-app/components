@@ -1,8 +1,24 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache, useAnimatedLocation, useGlobalCache } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache, useAnimatedLocation, useGlobalCache, useMessageModal } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { BRANDS } from './cacheKeys'
+
+const messageModalObject = (action) => ({
+    firstError: {
+        title: 'Erro 1',
+        message: 'Ocorreu o primeiro erro',
+        firstButtonTitle: 'Sair',
+        secondButtonTitle: 'Pagina 2',
+        secondButtonAction: action,
+    },
+    success: {
+        title: 'Sucesso',
+        message: 'Tudo deu bom',
+        firstButtonTitle: 'ISSO AI',
+        illustration: 'buy'
+    }
+})
 
 export default () => {
 
@@ -13,7 +29,7 @@ export default () => {
 
     const [brands, setBrands] = useGlobalCache(undefined, BRANDS)
 
-    console.log({ brands })
+    const setMessageModal = useMessageModal(messageModalObject(() => setLocation('goLeft', '/tab-flow/2')))
 
     return (
         <div style={{ display: 'grid', background: 'blue', height: '100%', width: '100%' }}>
@@ -21,12 +37,12 @@ export default () => {
                 return <label>{index}</label>
             })}
             <div style={{ background: 'yellow', height: 50, margin: '10px' }}
-                onClick={() => setLocation('goLeft','/tab-flow/2')}
+                onClick={() => setMessageModal('firstError')}
             >
                 <label>{`click to test cache`}</label>
             </div>
             <div style={{ background: 'yellow', height: 50, margin: '10px' }}
-                onClick={() => setCounter2(old => old+1)}
+                onClick={() => setMessageModal('success')}
             >
                 <label>{`click to test cache: ${counter2}`}</label>
             </div>

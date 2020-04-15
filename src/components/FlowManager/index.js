@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { container, headerContainer, footerContainer } from './styles'
 import { flowContext } from './hooks'
+import MessageModalComponent from '../FlowModal'
 
 export * from './hooks'
 
@@ -22,6 +23,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
     const [scrollPosition, setScrollPosition] = useState(0)
 
     const [cache, setCache] = useState({})
+
+    const [messageModal, setMessageModal] = useState()
 
     const contentControls = useAnimation()
     const flowControls = useAnimation()
@@ -79,6 +82,9 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         setScroll,
         scrollPosition,
         setScrollPosition,
+        //messageModalContext
+        messageModal,
+        setMessageModal,
         //flowContext
         contentControls,
         flowControls,
@@ -152,6 +158,22 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                 </AnimatePresence>
                 <div style={{ maxWidth }}>
                     { modal }
+                    <MessageModalComponent
+                        isOpen={!!messageModal}
+                        title={messageModal && messageModal.title||''}
+                        message={messageModal && messageModal.message||''}
+                        firstButtonTitle={messageModal && messageModal.firstButtonTitle||''}
+                        firstButtonAction={() => {
+                            messageModal && messageModal.firstButtonAction && messageModal.firstButtonAction()
+                            setMessageModal()
+                        }}
+                        secondButtonTitle={messageModal && messageModal.secondButtonTitle||''}
+                        secondButtonAction={() => {
+                            messageModal && messageModal.secondButtonAction && messageModal.secondButtonAction()
+                            setMessageModal()
+                        }}
+                        illustration={messageModal && messageModal.illustration||''}
+                    />
                 </div>
             </flowContext.Provider>
         </div>
