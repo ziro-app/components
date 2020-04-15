@@ -1602,6 +1602,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/toast-notification@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ToastNotification/animation.js",
+                "test": false,
+                "name": "animation.js"
+            },
+            {
+                "relativePath": "src/components/ToastNotification/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ToastNotification/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/ToastNotification/index.js",
+        "trackDir": "src/components/ToastNotification",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/transition-route@0.1.0": {
         "files": [
             {
