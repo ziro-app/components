@@ -6,10 +6,10 @@ import { box } from './styles'
 
 const ToastNotification = ({ isOpen, setIsOpen, children, boxStyle }) => {
 	useEffect(() => {
-		const hideAfterTimeout = () => {
-			setTimeout(() => setIsOpen(false), 3000)
+		if (isOpen) {
+			const timeoutFunction = setTimeout(() => setIsOpen(false), 1000)
+			return () => clearTimeout(timeoutFunction)
 		}
-		if (isOpen) hideAfterTimeout()
 	}, [isOpen])
 	const propsBox = useSpring(animateBox(isOpen))
 	if (isOpen) {
