@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Buy = ({ size = 150 }) => (
+export const WithoutFavorites = ({ size = 150 }) => (
   <svg
     id="b1c121f6-5782-4527-a6ee-a39cd8953237"
     data-name="Layer 1"
@@ -236,6 +236,6 @@ export const Buy = ({ size = 150 }) => (
     />
   </svg>
 );
-Buy.propTypes = {
+WithoutFavorites.propTypes = {
   size: PropTypes.number,
 };
