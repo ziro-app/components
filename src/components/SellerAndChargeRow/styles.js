@@ -5,7 +5,7 @@ export const
 
 title = {
 	fontFamily: fontTitle,
-	fontSize: 30,
+	fontSize: 20,
 	fontWeight: fontWeightTitle,
 	textTransform: 'uppercase',
 },

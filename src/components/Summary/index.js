@@ -4,10 +4,29 @@ import { container, content, header } from './styles'
 import { SellerAndChargeRow } from '../SellerAndChargeRow'
 import { InstallmentOptions } from './installmentOptions'
 
-const Summary = ({ charge, maxInstallments, seller, misc }) => {
+const Summary = ({ charge, maxInstallments, seller, misc, cartItem }) => {
     return (
         <div style={container}>
             <SellerAndChargeRow seller={seller} charge={charge}/>
+            {cartItem && (
+                <div>
+                {Object.values(cartItem.products).map((product, index) =>
+                    product.requestedQuantities && Object.values(product.requestedQuantities).length ? (
+                    <div style={{ display: 'grid' }}>
+                        <label>{`Peça ${index + 1}`}</label>
+                        <div style={{ display: 'grid', padding: '10px' }}>
+                        {Object.entries(product.requestedQuantities).map(([key, qty]) => (
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
+                            <label style={{ fontSize: 12 }}>{`${key}:`}</label>
+                            <label style={{ fontSize: 12 }}>{qty}</label>
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+                    ) : null,
+                )}
+                </div>
+            )}
             <h1 style={header}>Parcelamento</h1>
             <InstallmentOptions charge={charge} maxInstallments={maxInstallments}/>
             {

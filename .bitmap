@@ -41,6 +41,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/bottom-flow-buttons@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/BottomFlowButtons/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/BottomFlowButtons/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/bottom-tab-bar@0.0.37": {
         "files": [
             {
@@ -1478,6 +1490,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/seller-and-charge-row@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/SellerAndChargeRow/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/SellerAndChargeRow/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/SellerAndChargeRow/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/social-media@0.1.14": {
         "files": [
             {
@@ -1540,6 +1569,33 @@
             }
         ],
         "mainFile": "src/components/Submenu/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/summary@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Summary/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Summary/index.mdx",
+                "test": false,
+                "name": "index.mdx"
+            },
+            {
+                "relativePath": "src/components/Summary/installmentOptions.js",
+                "test": false,
+                "name": "installmentOptions.js"
+            },
+            {
+                "relativePath": "src/components/Summary/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/Summary/index.js",
         "origin": "AUTHORED",
         "exported": true
     },
