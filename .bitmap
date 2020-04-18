@@ -356,6 +356,38 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/choose-card@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ChooseCard/addCard.js",
+                "test": false,
+                "name": "addCard.js"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/brandIcon.js",
+                "test": false,
+                "name": "brandIcon.js"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/cardRow.js",
+                "test": false,
+                "name": "cardRow.js"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/ChooseCard/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/confirm-email@0.1.18": {
         "files": [
             {
