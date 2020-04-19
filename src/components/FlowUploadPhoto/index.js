@@ -92,7 +92,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
                 onRequestClose={ () => error ? setError() : onCloseModal()}
             />
         </>
-    ,[isCameraOpen, isModalOpen, error])
+    ,[onCloseModal, isCameraOpen, isModalOpen, error])
 
     return (
         <UploadPhoto
