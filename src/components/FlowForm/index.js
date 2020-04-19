@@ -39,7 +39,7 @@ const FlowForm = ({
 	return (
 		<form>
 			<div style={container}>
-				<div style={{ ...content, padding: '0px 20px' }}>
+				<div style={{ ...content, padding: '10px 20px' }}>
 					{inputs.map((reactElement, index) => {
 						if (reactElement.type === 'div') {
 							const children = reactElement.props.children.map((element, innerIndex) => {
