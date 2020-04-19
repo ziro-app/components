@@ -356,7 +356,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.1": {
+    "vitorbarbosa19.ziro/choose-card@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/addCard.js",

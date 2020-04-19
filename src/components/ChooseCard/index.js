@@ -4,6 +4,8 @@ import { CardRow } from './cardRow'
 import { AddCard } from './addCard'
 import { container } from './styles'
 
+export { CardRow }
+
 const ChooseCard = ({ numbers, selected, setSelected, newCard }) => 
     <div style={container}>
         {
