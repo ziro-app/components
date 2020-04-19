@@ -723,6 +723,28 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/FlowUploadPhoto/errors.js",
+                "test": false,
+                "name": "errors.js"
+            },
+            {
+                "relativePath": "src/components/FlowUploadPhoto/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/FlowUploadPhoto/useCameraAsOverlay.js",
+                "test": false,
+                "name": "useCameraAsOverlay.js"
+            }
+        ],
+        "mainFile": "src/components/FlowUploadPhoto/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/footer@0.1.0": {
         "files": [
             {
@@ -1821,6 +1843,19 @@
         ],
         "mainFile": "src/components/UpdatePass/index.js",
         "trackDir": "src/components/UpdatePass",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/upload-photo@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/UploadPhoto/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/UploadPhoto/index.js",
+        "trackDir": "src/components/UploadPhoto",
         "origin": "AUTHORED",
         "exported": true
     },
