@@ -16,9 +16,14 @@ svg = isClickable => ({
 }),
 
 text = oneColumn => ({
+	width: '100%',
 	margin: oneColumn ? '0' : '0 0 0 -30px',
 	fontFamily: fontTitle,
-	color: primaryColor
+	color: primaryColor,
+	textAlign: 'center',
+	overflow: 'hidden',
+	textOverflow: 'ellipsis',
+	whiteSpace: 'nowrap'
 }),
 
 containerSticky = hideButton => ({

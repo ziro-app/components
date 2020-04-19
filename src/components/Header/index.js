@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
 import Sticky from './Sticky'
@@ -6,6 +6,14 @@ import Icon from '../Icon/index'
 import { container, svg, text } from './styles'
 
 const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilter }) => {
+	useEffect(() => {
+		if (type !== 'title-only') {
+			const headerText = document.getElementById(title).lastChild
+			const isEllipsisActive = headerText.offsetWidth < headerText.scrollWidth
+			if (isEllipsisActive)
+				headerText.style.margin = '0px'
+		}
+	}, [])
 	const component = {
 		'icon': 
 			<>
@@ -22,7 +30,7 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilt
 	}
 	if (type === 'sticky') return <Sticky title={title} hideButton={hideButton} hideFilter={hideFilter} />
 	return (
-		<div style={container(type === 'title-only')}>
+		<div style={container(type === 'title-only')} id={title}> {/* header titles must be different if several header are on same page */}
 			{component[type]}
 		</div>
 	)
