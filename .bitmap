@@ -642,6 +642,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/flow-form@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/FlowForm/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/FlowForm/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/flow-manager@0.0.26": {
         "files": [
             {
@@ -676,6 +688,38 @@
             }
         ],
         "mainFile": "src/components/FlowManager/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/flow-register-card@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/FlowRegisterCard/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/styles.js",
+                "test": false,
+                "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/utils/brands.js",
+                "test": false,
+                "name": "brands.js"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/utils/matchCreditCardBrand.js",
+                "test": false,
+                "name": "matchCreditCardBrand.js"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/utils/useCard.js",
+                "test": false,
+                "name": "useCard.js"
+            }
+        ],
+        "mainFile": "src/components/FlowRegisterCard/index.js",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -783,6 +827,19 @@
         ],
         "mainFile": "src/components/Form/index.js",
         "trackDir": "src/components/Form",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/header-flow@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/HeaderFlow/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/HeaderFlow/index.js",
+        "trackDir": "src/components/HeaderFlow",
         "origin": "AUTHORED",
         "exported": true
     },
