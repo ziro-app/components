@@ -16,7 +16,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const setMessage = useMessageModal(errors(modal))
+    const setMessage = useMessageModal(errors(modal,openCamera))
 
     const setLocation = useAnimatedLocation()[1]
 

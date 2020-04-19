@@ -1,4 +1,4 @@
-export const errors = ({ title, message, illustration }) => ({
+export const errors = ({ title, message, illustration },openCamera) => ({
     NO_PHOTO: {
         title: 'Nenhuma foto',
         message: 'Para continuar é necessário tirar uma foto'
@@ -6,6 +6,7 @@ export const errors = ({ title, message, illustration }) => ({
     START: {
         title,
         message,
-        illustration
+        illustration,
+        firstButtonAction: openCamera
     }
 })
