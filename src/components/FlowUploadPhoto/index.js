@@ -89,7 +89,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
                 illustration={error ? undefined : modal.illustration}
                 errorTitle={error ? Errors[error].title : modal.title}
                 errorMessage={error ? Errors[error].message : modal.message}
-                onRequestClose={error ? () => setError() : onCloseModal()}
+                onRequestClose={ () => error ? setError() : onCloseModal()}
             />
         </>
     ,[isCameraOpen, isModalOpen, error])
