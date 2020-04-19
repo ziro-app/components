@@ -44,6 +44,8 @@ flowContext = React.createContext({
     //messageModalContext
     messageModal: null,
     setMessageModal: showError,
+    //submitModal
+    setIsSubmitting: showError,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -101,6 +103,11 @@ useMessageModal = (messageModalObject) => {
         if(!messageModal) setMessage()
     },[messageModal])
     return setMessage
+},
+
+useSubmitModal = () => {
+    const { setIsSubmitting } = useContext(flowContext)
+    return setIsSubmitting
 },
 
 useScroll = (scroll) => {

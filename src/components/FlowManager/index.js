@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { container, headerContainer, footerContainer } from './styles'
 import { flowContext } from './hooks'
 import MessageModalComponent from '../FlowModal'
+import { ModalSubmit } from '../Form'
 
 export * from './hooks'
 
@@ -25,6 +26,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
     const [cache, setCache] = useState({})
 
     const [messageModal, setMessageModal] = useState()
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const contentControls = useAnimation()
     const flowControls = useAnimation()
@@ -85,6 +87,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         //messageModalContext
         messageModal,
         setMessageModal,
+        //submittingModal
+        setIsSubmitting,
         //flowContext
         contentControls,
         flowControls,
@@ -173,6 +177,13 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                             setMessageModal()
                         }}
                         illustration={messageModal && messageModal.illustration||''}
+                    />
+                    <ModalSubmit
+                        isOpen={isSubmitting}
+                        submitting={isSubmitting}
+                        error={false}
+                        errorComponent={() => null}
+                        successComponent={() => null}
                     />
                 </div>
             </flowContext.Provider>
