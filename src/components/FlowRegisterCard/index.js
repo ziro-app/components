@@ -19,7 +19,7 @@ const FlowRegisterCard = ({ next, previous }) => {
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
 	const state = useMemo(() => ({ number, cardholder, expiry, cvv, brand }),[number, cardholder, expiry, cvv, brand])
 
-	const validations = [
+	const validations = useMemo(() => [
 		{
 			name: 'number',
 			validation: value => !!value && value.replace(/\s/g, '').length >= 12,
@@ -44,7 +44,7 @@ const FlowRegisterCard = ({ next, previous }) => {
 			value: cvv,
 			message: 'Revise campo'
 		},
-	]
+	],[number,cardholder,expiry,cvv])
 
 	useHeader(
 		<div style={{ height: 65+Math.min(window.innerWidth,300)/1.75 }}>
