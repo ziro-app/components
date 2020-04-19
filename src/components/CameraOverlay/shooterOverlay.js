@@ -58,10 +58,10 @@ const ShooterOverlay = ({ takePicture, cameraState, turnOn, turnOff, onClose, al
 }
 
 ShooterOverlay.propTypes = {
-    takePicture: Proptypes.func.isRequired,
+    takePicture: Proptypes.func,
     cameraState: Proptypes.string,
-    turnOn: Proptypes.func.isRequired,
-    turnOff: Proptypes.func.isRequired,
+    turnOn: Proptypes.func,
+    turnOff: Proptypes.func,
     onClose: Proptypes.func,
     allowSwap: Proptypes.string
 }

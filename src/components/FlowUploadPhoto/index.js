@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { useAnimatedLocation, useHeader, useFooter, useModal } from '../FlowManager'
+import { useAnimatedLocation, useHeader, useFooter, useModal, useMessageModal } from '../FlowManager'
 import UploadPhoto from '../UploadPhoto'
 import Modal from '../FlowModal'
 import Header from '../HeaderFlow'
@@ -10,7 +10,7 @@ import { useState, useCallback, useRef } from 'react'
 import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { shadow } from '@ziro/theme'
 import { useEffect } from 'react'
-import * as Errors from './errors'
+import { errors } from './errors'
 
 const FlowUploadPhoto = ({ next, previous, title, modal }) => {
 
@@ -18,21 +18,14 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const [isModalOpen, setModalOpen] = useState(true)
-
-    const [error, setError] = useState()
+    const setMessage = useMessageModal(errors(modal))
 
     const setLocation = useAnimatedLocation()[1]
 
     useEffect(() => {
         setPicture()
-        setModalOpen(true)
+        setMessage('START')
     },[title])
-
-    const onCloseModal = useCallback(() => {
-        setModalOpen(false)
-        openCamera()
-    },[setModalOpen, openCamera])
 
     const _onPrevious = useCallback(async () => {
         try {
@@ -40,7 +33,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
             previous.location && setLocation('goRight', previous.location)
         }
         catch(error) {
-            setError(error)
+            setMessage(error)
         }
     },[picture, previous])
 
@@ -50,7 +43,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
             next.location && setLocation('goLeft', next.location)
         }
         catch(error) {
-            setError(error)
+            setMessage(error)
         }
     },[picture, next])
 
@@ -59,7 +52,6 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
     useFooter(<BottomFlowButtons previous={_onPrevious} next={_onNext} />,[_onPrevious, _onNext])
 
     useModal(
-        <>
             <motion.div
                 animate={cameraControls}
                 transition={{ type: 'tween' }}
@@ -84,15 +76,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
                     />
                 }
             </motion.div>
-            <Modal
-                isOpen={isModalOpen || error}
-                illustration={error ? undefined : modal.illustration}
-                errorTitle={error ? Errors[error].title : modal.title}
-                errorMessage={error ? Errors[error].message : modal.message}
-                onRequestClose={ () => error ? setError() : onCloseModal()}
-            />
-        </>
-    ,[onCloseModal, isCameraOpen, isModalOpen, error])
+    ,[isCameraOpen])
 
     return (
         <UploadPhoto
