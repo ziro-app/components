@@ -1,15 +1,15 @@
-import React, { useEffect, cloneElement, useMemo } from 'react'
+import React, { cloneElement, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from '../Form/utils/useForm'
 import { ModalSubmit } from '../Form/ModalSubmit'
 import { container, content } from '../FlowManager/styles'
 import BottomFlowButtons from '../BottomFlowButtons'
-import { useFooter, useAnimatedLocation, useModal } from '../FlowManager'
+import { useFooter, useModal, useSubmitModal } from '../FlowManager'
+import { useEffect } from 'react'
 
 const FlowForm = ({
 	validations,
 	inputs,
-	setError,
 	next,
 	nextName,
 	previous,
@@ -20,11 +20,6 @@ const FlowForm = ({
 
 	const _validations = useMemo(() => validations, validations.map(({ value }) => value))
 
-	useEffect(() => {
-		if(submitting) setError()
-		else if(submitError) setError(submitMsg||true)
-	},[submitting, submitError, submitMsg])
-
 	useFooter(
 		<BottomFlowButtons 
 			next={() => submitForm(_validations, next)({ preventDefault: () => {} })}
@@ -34,7 +29,9 @@ const FlowForm = ({
 		/>
 	,[_validations, next, previous, previousName, nextName])
 
-	useModal(<ModalSubmit isOpen={submitting} submitting={submitting} error={false} errorComponent={() => null} successComponent={() => null}/>,[submitting])
+	const setSubmitModal = useSubmitModal()
+
+	useEffect(() => { setSubmitModal(submitting) },[submitting])
 	
 	return (
 		<form>
