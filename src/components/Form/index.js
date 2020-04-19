@@ -6,6 +6,8 @@ import Spinner from '../Spinner/index'
 import { ModalSubmit } from './ModalSubmit/index'
 import { container, whiteSpace, submit, submitTop } from './styles'
 
+export { ModalSubmit }
+
 const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, buttonOnTop, validations, sendToBackend, summary, inputs }) => {
 	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
 	useEffect(() => {
