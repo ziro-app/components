@@ -10,7 +10,7 @@ import { container, dual } from './styles'
 import { useHeader, useAnimatedLocation } from '../FlowManager'
 import { useMemo } from 'react'
 
-const FlowRegisterCard = ({ next, previous }) => {
+const FlowRegisterCard = ({ next, previous, header }) => {
 
 	const [number, setNumber] = useState('')
 	const [cardholder, setCardholder] = useState('')
@@ -48,7 +48,7 @@ const FlowRegisterCard = ({ next, previous }) => {
 
 	useHeader(
 		<div style={{ height: 65+Math.min(window.innerWidth,300)/1.75 }}>
-			<Header title='Registrar novo cartão'/>
+			{header}
 			<CreditCard
 				number={numberMaskedCard}
 				brand={brand}
@@ -57,7 +57,7 @@ const FlowRegisterCard = ({ next, previous }) => {
 				cvv={cvv}
 			/>
 		</div>
-	,[numberMaskedCard, brand, cardholder, expiry, cvv])
+	,[header, numberMaskedCard, brand, cardholder, expiry, cvv])
 
 	const setLocation = useAnimatedLocation()[1]
 
