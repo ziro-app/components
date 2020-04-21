@@ -31,6 +31,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const [toast, setToast] = useState()
+    const toastControls = useAnimation()
 
     const contentControls = useAnimation()
     const flowControls = useAnimation()
@@ -65,6 +66,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         const paddingTop = !hideHeader && header && headerRef.current && headerRef.current.clientHeight || 0
         const paddingBottom = !hideFooter && footer && footerRef.current && footerRef.current.clientHeight || 0
         contentControls.start({ paddingTop, paddingBottom })
+        toastControls.start({ paddingTop, paddingBottom })
     },[header, footer, hideHeader, hideFooter ])
 
     const context = {
@@ -132,7 +134,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                     <motion.div
                         key='toast'
                         initial={{ opacity: 1 }}
-                        animate={contentControls}
+                        animate={toastControls}
                         exit={{ opacity: 0 }}
                         style={{ position: 'fixed', width: '100%', maxWidth }}
                     >
