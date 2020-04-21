@@ -16,7 +16,6 @@ headerContainer = {
     display: 'grid',
     width: '100%',
     boxSizing: 'border-box',
-    background: 'white',
     boxShadow: '0px 2px 4px 0px rgba(34,34,34,0.25)',
     overflow: 'hidden',
     transformOrigin: '50% 0%'
@@ -29,6 +28,5 @@ footerContainer = {
     display: 'grid',
     width: '100%',
     boxSizing: 'border-box',
-    background: 'white',
     boxShadow: '0px -2px 4px 0px rgba(34,34,34,0.25)',
 }
