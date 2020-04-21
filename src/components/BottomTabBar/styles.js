@@ -5,7 +5,8 @@ export const
 container = {
     display: 'grid',
     padding: '10px',
-    background: 'white'
+    background: 'white',
+    boxShadow: '0px -2px 4px 0px rgba(34,34,34,0.25)',
 },
 
 button = {
