@@ -4,7 +4,8 @@ export const
 
 container = {
     display: 'grid',
-    padding: '10px'
+    padding: '10px',
+    background: 'white'
 },
 
 button = {
