@@ -30,6 +30,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
     const [messageModal, setMessageModal] = useState()
     const [isSubmitting, setIsSubmitting] = useState(false)
 
+    const [toast, setToast] = useState()
+
     const contentControls = useAnimation()
     const flowControls = useAnimation()
     const [isAnimating, setIsAnimating] = useState(false)
@@ -91,6 +93,8 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         setMessageModal,
         //submittingModal
         setIsSubmitting,
+        //toastContext
+        setToast,
         //flowContext
         contentControls,
         flowControls,
@@ -125,6 +129,15 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                         {children}
                     </motion.div>
                 }
+                    <motion.div
+                        key='toast'
+                        initial={{ opacity: 1 }}
+                        animate={contentControls}
+                        exit={{ opacity: 0 }}
+                        style={{ position: 'fixed', width: '100%', maxWidth }}
+                    >
+                        {toast}
+                    </motion.div>
                 {
                     header && !hideHeader &&
                     <motion.div

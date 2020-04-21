@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useAnimatedLocation, useScroll } from '../../../components/FlowManager'
+import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useAnimatedLocation, useScroll, useToastModal } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -28,19 +28,22 @@ export default () => {
         return () => clearInterval(interval)
     })
 
+    useToastModal(
+        <Toast
+            isOpen={toastOpen}
+            setIsOpen={setToastOpen}
+            boxStyle={{ position: 'fixed', width: window.innerWidth, background: 'white', height: '60px' }}
+        >
+            <label>Seila</label>
+        </Toast>,
+        [toastOpen])
+
     return (
         <div style={{ display: 'grid', background: 'yellow', height: '100%', width: '100%' }}>
             {numbers.map((_,index) => {
 
                 return <label onClick={() => setToastOpen(true)}>{index}</label>
             })}
-            <Toast
-                isOpen={toastOpen}
-                setIsOpen={setToastOpen}
-                boxStyle={{ position: 'fixed', width: window.innerWidth, background: 'white', height: '60px' }}
-            >
-                <label>Seila</label>
-            </Toast>
         </div>
     )
 }

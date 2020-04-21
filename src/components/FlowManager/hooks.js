@@ -46,6 +46,8 @@ flowContext = React.createContext({
     setMessageModal: showError,
     //submitModal
     setIsSubmitting: showError,
+    //toastContext
+    setToast: showError,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -108,6 +110,13 @@ useMessageModal = (messageModalObject) => {
 useSubmitModal = () => {
     const { setIsSubmitting } = useContext(flowContext)
     return setIsSubmitting
+},
+
+useToastModal = (toast, deps=[]) => {
+    const { setToast } = useContext(flowContext)
+    useEffect(() => {
+        setToast(toast)
+    },deps)
 },
 
 useScroll = (scroll) => {
