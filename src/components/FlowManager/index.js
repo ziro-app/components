@@ -66,7 +66,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         const paddingTop = !hideHeader && header && headerRef.current && headerRef.current.clientHeight || 0
         const paddingBottom = !hideFooter && footer && footerRef.current && footerRef.current.clientHeight || 0
         contentControls.start({ paddingTop, paddingBottom })
-        toastControls.start({ paddingTop, paddingBottom })
+        toastControls.start({ paddingTop })
     },[header, footer, hideHeader, hideFooter ])
 
     const context = {
