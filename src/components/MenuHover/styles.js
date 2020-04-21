@@ -17,10 +17,10 @@ container = {
 menuOptions = {
 	display: 'flex',
 	justifyContent: 'space-between',
-	width: '75%'
+	width: '80%'
 },
 
-option = {
+name = {
 	fontFamily: fontTitle,
 	fontSize: '1.4rem'
 }
