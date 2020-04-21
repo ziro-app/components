@@ -45,8 +45,6 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
         }
     },[picture, next])
 
-    useHeader(<Header title={title} />,[title])
-
     useFooter(<BottomFlowButtons previous={_onPrevious} next={_onNext} />,[_onPrevious, _onNext])
 
     useModal(
