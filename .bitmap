@@ -1524,6 +1524,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/menu-hover@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/MenuHover/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/MenuHover/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/MenuHover/index.js",
+        "trackDir": "src/components/MenuHover",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/modal@0.1.1": {
         "files": [
             {
