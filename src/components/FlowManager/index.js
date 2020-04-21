@@ -3,7 +3,9 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { container, headerContainer, footerContainer } from './styles'
 import { flowContext } from './hooks'
 import MessageModalComponent from '../FlowModal'
-import { ModalSubmit } from '../Form'
+import Modal from '../Modal/index'
+import Spinner from '../Spinner/index'
+import { modalSubmitting, svg } from '../Form/ModalSubmit/styles'
 
 export * from './hooks'
 
@@ -178,13 +180,9 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                         }}
                         illustration={messageModal && messageModal.illustration||''}
                     />
-                    <ModalSubmit
-                        isOpen={isSubmitting}
-                        submitting={isSubmitting}
-                        error={false}
-                        errorComponent={() => null}
-                        successComponent={() => null}
-                    />
+                    <Modal isOpen={isSubmitting} setIsOpen={() => null} boxStyle={modalSubmitting}>
+                        <Spinner style={svg} size={'5.5rem'} />
+                    </Modal>
                 </div>
             </flowContext.Provider>
         </div>
