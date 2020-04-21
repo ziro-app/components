@@ -2,7 +2,7 @@ import React, { useMemo, useCallback } from 'react';
 import { useAnimatedLocation } from '../FlowManager';
 import { container, button, notification } from './styles';
 
-const BottomTabBar = ({ buttons = [] }) => {
+const BottomTabBarByIndex = ({ buttons = [] }) => {
   const [currentLocation, setLocation] = useAnimatedLocation();
   const [currentIndex, gridTemplateColumns] = useMemo(
     () => [
@@ -57,4 +57,4 @@ const BottomTabBar = ({ buttons = [] }) => {
   );
 };
 
-export default BottomTabBar;
+export default BottomTabBarByIndex;

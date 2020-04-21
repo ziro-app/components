@@ -53,7 +53,25 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.51": {
+    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/BottomTabBarByIndex/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/BottomTabBarByIndex/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/BottomTabBarByIndex/index.js",
+        "trackDir": "src/components/BottomTabBarByIndex",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.52": {
         "files": [
             {
                 "name": "index.js",
@@ -356,7 +374,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.17": {
+    "vitorbarbosa19.ziro/choose-card@0.0.18": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/addCard.js",
@@ -642,7 +660,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.17": {
+    "vitorbarbosa19.ziro/flow-form@0.0.18": {
         "files": [
             {
                 "relativePath": "src/components/FlowForm/index.js",
@@ -691,7 +709,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.20": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.21": {
         "files": [
             {
                 "relativePath": "src/components/FlowRegisterCard/index.js",
@@ -723,7 +741,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.18": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.19": {
         "files": [
             {
                 "relativePath": "src/components/FlowUploadPhoto/errors.js",
@@ -781,7 +799,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.57": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.58": {
         "files": [
             {
                 "name": "index.js",
@@ -1557,7 +1575,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.1.25": {
+    "vitorbarbosa19.ziro/not-found@0.1.26": {
         "files": [
             {
                 "name": "index.js",
