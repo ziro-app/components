@@ -10,13 +10,13 @@ const Summary = ({ charge, maxInstallments, seller, misc, cartItem }) => {
             <SellerAndChargeRow seller={seller} charge={charge}/>
             {cartItem && (
                 <div>
-                {Object.values(cartItem.products).map((product, index) =>
+                {Object.entries(cartItem.products).map(([productId,product], index) =>
                     product.requestedQuantities && Object.values(product.requestedQuantities).length ? (
-                    <div style={{ display: 'grid' }}>
+                    <div key={productId} style={{ display: 'grid' }}>
                         <label>{`Peça ${index + 1}`}</label>
                         <div style={{ display: 'grid', padding: '10px' }}>
                         {Object.entries(product.requestedQuantities).map(([key, qty]) => (
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
+                            <div key={key} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
                             <label style={{ fontSize: 12 }}>{`${key}:`}</label>
                             <label style={{ fontSize: 12 }}>{qty}</label>
                             </div>

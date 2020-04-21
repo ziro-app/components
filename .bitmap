@@ -1683,7 +1683,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/summary@0.0.1": {
+    "vitorbarbosa19.ziro/summary@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/Summary/index.js",
