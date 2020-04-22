@@ -16,7 +16,6 @@ headerContainer = {
     display: 'grid',
     width: '100%',
     boxSizing: 'border-box',
-    overflow: 'hidden',
     transformOrigin: '50% 0%'
 },
 

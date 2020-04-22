@@ -1,4 +1,4 @@
-import { secondaryColor } from '@ziro/theme'
+import { fontTitle, secondaryColor } from '@ziro/theme'
 
 export const
 
@@ -6,7 +6,7 @@ container = {
     display: 'grid',
     padding: '10px',
     background: 'white',
-    boxShadow: '0px -2px 4px 0px rgba(34,34,34,0.25)',
+    boxShadow: '0px -2px 4px 0px rgba(34,34,34,0.25)'
 },
 
 button = {
@@ -18,15 +18,18 @@ button = {
 },
 
 notification = {
-    width: 15,
-    height: 15,
+    width: 18,
+    height: 18,
     background: secondaryColor,
     position: 'absolute',
-    top: '20%',
-    right: '30%',
+    top: '12%',
+    right: '12%',
     borderRadius: '50%',
     display: 'grid',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: '1px 1px 2px rgb(0,0,0,0.3) '
+    fontFamily: fontTitle,
+    fontSize: '0.8rem',
+    fontWeight: '600',
+    boxShadow: '1px 1px 2px rgb(0,0,0,0.3)'
 }
