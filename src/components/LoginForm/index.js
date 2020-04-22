@@ -32,8 +32,8 @@ const LoginForm = ({ sendToBackend }) => {
 						value={email}
 						onChange={({ target: { value } }) => setEmail(value)}
 						placeholder='Seu email'
-						inputmode='email'
-						autocomplete='email'
+						inputMode='email'
+						autoComplete='email'
 					/>
 				} />,
 				<FormInput name='pass' label='Senha' input={

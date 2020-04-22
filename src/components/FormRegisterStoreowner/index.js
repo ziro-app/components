@@ -181,7 +181,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={rg}
 							onChange={({ target: { value } }) => setRg(maskInput(value, '##############', true))}
 							placeholder='00.111.222-3'
-							inputmode='numeric'
+							inputMode='numeric'
 						/>
 					} />,
 					<FormInput name='cpf' label='CPF' input={
@@ -189,7 +189,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={cpf}
 							onChange={({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))}
 							placeholder='000.111.222-33'
-							inputmode='numeric'
+							inputMode='numeric'
 						/>
 					} />,
 					<FormInput name='birth' label='Nascimento' input={
@@ -197,7 +197,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={birth}
 							onChange={({ target: { value } }) => setBirth(maskInput(value, '##/##/####', true))}
 							placeholder='01/01/1990'
-							inputmode='numeric'
+							inputMode='numeric'
 						/>
 					} />,
 					<FormInput name='insta' label='Instagram da Loja' input={
@@ -212,7 +212,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={ie}
 							onChange={({ target: { value } }) => setIe(maskInput(value, '#############', true))}
 							placeholder='consulte pelo Sintegra'
-							inputmode='numeric'
+							inputMode='numeric'
 						/>
 					} />,
 					<FormInput name='razao' label='Razão Social' input={
@@ -241,7 +241,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={numero}
 							onChange={({ target: { value } }) => setNumero(maskInput(value.toUpperCase(), '######', true))}
 							placeholder='117'
-							inputmode='numeric'
+							inputMode='numeric'
 						/>
 					} />,
 					<FormInput name='complemento' label='Complemento' input={
@@ -263,7 +263,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={cep}
 							onChange={({ target: { value } }) => setCep(maskInput(value, '##.###-###', true))}
 							placeholder='01.123-110'
-							inputmode='numeric'
+							inputMode='numeric'
 						/>
 					} />,
 					<FormInput name='cidade' label='Cidade' input={
@@ -285,7 +285,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={fone}
 							onChange={({ target: { value } }) => setFone(maskInput(value, '(##) #####-####', true))}
 							placeholder='(11) 91122-3344'
-							inputmode='tel'
+							inputMode='tel'
 						/>
 					} />,
 					<FormInput name='whats' label='Whatsapp' input={
@@ -293,7 +293,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={whats}
 							onChange={({ target: { value } }) => setWhats(maskInput(value, '(##) #####-####', true))}
 							placeholder='(11) 91122-3344'
-							inputmode='tel'
+							inputMode='tel'
 						/>
 					} />,
 					<FormInput name='email' label='Email' input={
@@ -301,8 +301,8 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							value={email}
 							onChange={({ target: { value } }) => setEmail(value)}
 							placeholder='email@gmail.com'
-							inputmode='email'
-							autocomplete='email'
+							inputMode='email'
+							autoComplete='email'
 						/>
 					} />,
 					hasAffiliated ? <FormInput name='affiliate' label='Afiliado(a)' input={

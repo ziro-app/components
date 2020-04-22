@@ -86,7 +86,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 								value={number}
 								onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
 								placeholder='1234 1234 1234 1234'
-								inputmode='numeric'
+								inputMode='numeric'
 							/>
 						}
 					/>,
@@ -110,7 +110,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 									value={expiry}
 									onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
 									placeholder='01/24'
-									inputmode='numeric'
+									inputMode='numeric'
 								/>
 							}
 						/>
@@ -122,7 +122,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 									value={cvv}
 									onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
 									placeholder='1111'
-									inputmode='numeric'
+									inputMode='numeric'
 								/>
 							}
 						/>
@@ -135,7 +135,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 								value={cpf}
 								onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
 								placeholder='111.222.333-44'
-								inputmode='numeric'
+								inputMode='numeric'
 							/>
 						}
 					/>,

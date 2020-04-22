@@ -20,7 +20,7 @@ const GetCnpj = ({ cnpj, setState, storeowners, setCnpjValid, searchCnpj }) => {
                         value={cnpj}
                         onChange={({ target: { value } }) => setCnpj(maskInput(value, '##.###.###/####-##', true))}
                         placeholder='00.111.222/0001-33'
-                        inputmode='numeric'
+                        inputMode='numeric'
                     />
                 } />
             ]}

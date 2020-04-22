@@ -311,7 +311,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.47": {
+    "vitorbarbosa19.ziro/checkout@0.1.48": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -374,7 +374,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.22": {
+    "vitorbarbosa19.ziro/choose-card@0.0.23": {
         "files": [
             {
                 "name": "addCard.js",
@@ -799,7 +799,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.62": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.63": {
         "files": [
             {
                 "name": "index.js",
@@ -1444,7 +1444,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.1.36": {
+    "vitorbarbosa19.ziro/login-form@0.1.37": {
         "files": [
             {
                 "name": "index.js",
@@ -1457,7 +1457,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.1.36": {
+    "vitorbarbosa19.ziro/login-page@0.1.37": {
         "files": [
             {
                 "name": "index.js",
@@ -1606,7 +1606,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.44": {
+    "vitorbarbosa19.ziro/resend-email@0.1.45": {
         "files": [
             {
                 "name": "index.js",
@@ -1624,7 +1624,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.1.43": {
+    "vitorbarbosa19.ziro/reset-pass@0.1.44": {
         "files": [
             {
                 "name": "index.js",
@@ -1856,7 +1856,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.44": {
+    "vitorbarbosa19.ziro/update-email@0.1.45": {
         "files": [
             {
                 "name": "index.js",
