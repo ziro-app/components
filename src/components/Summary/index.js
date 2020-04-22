@@ -9,7 +9,7 @@ const Summary = ({ charge, maxInstallments, misc, cartItem }) => {
     const totalQty = useMemo(() => {
         return Object.values(cartItem.products).reduce((prev,cur) => {
             if(!cur.requestedQuantities || !Object.values(cur.requestedQuantities).length) return prev
-            return prev+Object.values(cur.requestedQuantities).reduce((_prev,_cur) => _prev+_cur,0)
+            return prev+Object.values(cur.requestedQuantities).reduce((_prev,_cur) => _prev+parseInt(_cur),0)
         },0)
     },[products])
     return (
@@ -35,8 +35,8 @@ const Summary = ({ charge, maxInstallments, misc, cartItem }) => {
                 )}
                 </div>
             )}
-            <h1 style={header}>Parcelamento</h1>
-            <InstallmentOptions charge={charge} maxInstallments={maxInstallments}/>
+            {/* <h1 style={header}>Parcelamento</h1>
+            <InstallmentOptions charge={charge} maxInstallments={maxInstallments}/> */}
             {
                 misc &&
                 <>
@@ -49,7 +49,6 @@ const Summary = ({ charge, maxInstallments, misc, cartItem }) => {
 }
 
 Summary.propTypes = {
-    seller: PropTypes.string.isRequired,
     charge: PropTypes.string.isRequired,
     maxInstallments: PropTypes.string.isRequired,
     misc: PropTypes.shape({

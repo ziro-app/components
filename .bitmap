@@ -1719,7 +1719,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/summary@0.0.4": {
+    "vitorbarbosa19.ziro/summary@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/Summary/index.js",
