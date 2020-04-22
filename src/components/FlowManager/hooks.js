@@ -48,6 +48,8 @@ flowContext = React.createContext({
     setIsSubmitting: showError,
     //toastContext
     setToast: showError,
+    //historyContext
+    history: null,
     //flowContext
     contentControls: null,
     flowControls: null,
@@ -84,6 +86,11 @@ useFooter = (footer, deps = []) => {
     }, deps)
 
     useEffect(() => () => setFooter(defaultFooter), [])
+},
+
+useHistory = () => {
+    const { history } = useContext(flowContext)
+    return history
 },
 
 useModal = (modal, deps = []) => {

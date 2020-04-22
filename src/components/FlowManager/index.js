@@ -6,6 +6,7 @@ import MessageModalComponent from '../FlowModal'
 import Modal from '../Modal/index'
 import Spinner from '../Spinner/index'
 import { modalSubmitting, svg } from '../Form/ModalSubmit/styles'
+import { useLocation } from 'wouter'
 
 export * from './hooks'
 
@@ -32,6 +33,14 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
 
     const [toast, setToast] = useState()
     const toastControls = useAnimation()
+
+    const [history, setHistory] = useState([])
+    const [location] = useLocation()
+
+    useEffect(() => {
+        if(location === history[history.length-2]) setHistory(old => old.slice(0,old.length-1))
+        else setHistory(old => [...old,location])
+    },[location])
 
     const contentControls = useAnimation()
     const flowControls = useAnimation()
@@ -97,6 +106,9 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
         setIsSubmitting,
         //toastContext
         setToast,
+        //historyContext
+        history,
+        setHistory,
         //flowContext
         contentControls,
         flowControls,

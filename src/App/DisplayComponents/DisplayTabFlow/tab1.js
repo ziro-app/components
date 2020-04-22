@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache, useAnimatedLocation, useGlobalCache, useMessageModal } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache, useAnimatedLocation, useGlobalCache, useMessageModal, useHistory } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { BRANDS } from './cacheKeys'
 
@@ -21,6 +21,9 @@ const messageModalObject = (action) => ({
 })
 
 export default () => {
+    const history = useHistory()
+
+    console.log({ history })
 
     useHeader(null,[])
 

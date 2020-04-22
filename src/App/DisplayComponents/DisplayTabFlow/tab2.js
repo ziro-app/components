@@ -1,11 +1,14 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache, useGlobalCache } from '../../../components/FlowManager'
+import { useHeader, useFooter, useCache, useGlobalCache, useHistory } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { BRANDS } from './cacheKeys'
 import { useEffect } from 'react'
 
 export default () => {
+    const history = useHistory()
+
+    console.log({ history })
 
     useHeader(<Header type='title-only' title='tab2'/>,[])
 

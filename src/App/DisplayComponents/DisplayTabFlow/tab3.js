@@ -1,12 +1,15 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useAnimatedLocation, useScroll, useToastModal } from '../../../components/FlowManager'
+import { useHeader, useFooter, usePersistentScroll, useHideOnScroll, useAnimatedLocation, useScroll, useToastModal, useHistory } from '../../../components/FlowManager'
 import { BottomTabBar } from './bottomBar'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Toast from '../../../components/ToastNotification'
 
 export default () => {
+    const history = useHistory()
+
+    console.log({ history })
 
     useHeader(<Header type='title-only' title='tab3'/>,[])
 
