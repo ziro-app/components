@@ -3,7 +3,7 @@ import { fontTitle, fontWeightTitle } from '@ziro/theme'
 
 export const
 
-title = {
+titleStyle = {
 	fontFamily: fontTitle,
 	fontSize: 20,
 	fontWeight: fontWeightTitle,

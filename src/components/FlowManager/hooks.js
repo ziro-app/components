@@ -129,11 +129,16 @@ useToastModal = (toast, deps=[]) => {
 useScroll = (scroll) => {
     const { scroll: _scroll, setScroll, scrollPosition, setScrollPosition, setHideFooter, setHideHeader, hideFooter, hideHeader } = useContext(flowContext)
     const [shouldPreventHide, setShouldPreventHide] = useState(false)
+    const [mount, setMount] = useState(true)
     useEffect(() => {
         setScroll(scroll)
         if(!scroll) { setScrollPosition(window.pageYOffset) }
     },[scroll])
     useEffect(() => {
+        if(mount) {
+            setMount(false)
+            return
+        }
         if(_scroll) {
             window.scrollTo(0,scrollPosition)
             setShouldPreventHide(true)

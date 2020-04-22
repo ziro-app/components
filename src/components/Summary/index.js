@@ -3,11 +3,19 @@ import PropTypes from 'prop-types'
 import { container, content, header } from './styles'
 import { SellerAndChargeRow } from '../SellerAndChargeRow'
 import { InstallmentOptions } from './installmentOptions'
+import { useMemo } from 'react'
 
-const Summary = ({ charge, maxInstallments, seller, misc, cartItem }) => {
+const Summary = ({ charge, maxInstallments, misc, cartItem }) => {
+    const totalQty = useMemo(() => {
+        return Object.values(cartItem.products).reduce((prev,cur) => {
+            if(!cur.requestedQuantities || !Object.values(cur.requestedQuantities).length) return prev
+            return prev+Object.values(cur.requestedQuantities).reduce((_prev,_cur) => _prev+_cur,0)
+        },0)
+    },[products])
     return (
         <div style={container}>
-            <SellerAndChargeRow seller={seller} charge={charge}/>
+            <SellerAndChargeRow title='Total' quantity={charge}/>
+            <SellerAndChargeRow title='Peças' quantity={totalQty}/>
             {cartItem && (
                 <div>
                 {Object.entries(cartItem.products).map(([productId,product], index) =>

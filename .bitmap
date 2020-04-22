@@ -53,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.8": {
+    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/BottomTabBarByIndex/index.js",
@@ -71,7 +71,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.60": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.61": {
         "files": [
             {
                 "name": "index.js",
@@ -660,7 +660,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.23": {
+    "vitorbarbosa19.ziro/flow-form@0.0.24": {
         "files": [
             {
                 "name": "index.js",
@@ -672,7 +672,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.43": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.44": {
         "files": [
             {
                 "name": "defaultAnimations.js",
@@ -709,7 +709,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.26": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.27": {
         "files": [
             {
                 "name": "index.js",
@@ -741,7 +741,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.24": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.25": {
         "files": [
             {
                 "name": "errors.js",
@@ -1637,7 +1637,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/seller-and-charge-row@0.0.1": {
+    "vitorbarbosa19.ziro/seller-and-charge-row@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SellerAndChargeRow/index.js",
@@ -1719,7 +1719,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/summary@0.0.2": {
+    "vitorbarbosa19.ziro/summary@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/Summary/index.js",
