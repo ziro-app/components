@@ -53,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.6": {
+    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/BottomTabBarByIndex/index.js",

@@ -1,4 +1,4 @@
-import { secondaryColor } from '@ziro/theme'
+import { fontTitle, secondaryColor } from '@ziro/theme'
 
 export const
 
