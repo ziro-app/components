@@ -53,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.7": {
+    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/BottomTabBarByIndex/index.js",
@@ -71,7 +71,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.59": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.60": {
         "files": [
             {
                 "name": "index.js",
@@ -660,7 +660,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.22": {
+    "vitorbarbosa19.ziro/flow-form@0.0.23": {
         "files": [
             {
                 "name": "index.js",
@@ -672,7 +672,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.42": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.43": {
         "files": [
             {
                 "name": "defaultAnimations.js",
@@ -709,7 +709,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.25": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.26": {
         "files": [
             {
                 "name": "index.js",
@@ -741,7 +741,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.23": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.24": {
         "files": [
             {
                 "name": "errors.js",
