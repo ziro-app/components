@@ -53,6 +53,7 @@ import { DisplayIllustration } from './DisplayComponents/DisplayIllustration'
 import { DisplayFlowAntiFraude } from './DisplayComponents/DisplayFlowAntiFraude'
 import { DisplayToastNotification } from './DisplayComponents/DisplayToastNotification'
 import { DisplayMenuHover } from './DisplayComponents/DisplayMenuHover'
+import { DisplayBottomTabBar } from './DisplayComponents/DisplayBottomTabBar'
 
 export const App = () =>
 	<Switch>
@@ -109,5 +110,6 @@ export const App = () =>
 		<Route path='/anti-fraude/:any'><DisplayFlowAntiFraude /></Route>
 		<Route path='/toast-notification'><DisplayToastNotification /></Route>
 		<Route path='/menu-hover'><DisplayMenuHover /></Route>
+		<Route path='/bottom-tab-bar'><DisplayBottomTabBar /></Route>
 		<Route path='/:any*'>Página não encontrada</Route>
 	</Switch>
