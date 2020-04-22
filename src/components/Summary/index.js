@@ -11,7 +11,7 @@ const Summary = ({ charge, maxInstallments, misc, cartItem }) => {
             if(!cur.requestedQuantities || !Object.values(cur.requestedQuantities).length) return prev
             return prev+Object.values(cur.requestedQuantities).reduce((_prev,_cur) => _prev+parseInt(_cur),0)
         },0)
-    },[products])
+    },[cartItem])
     return (
         <div style={container}>
             <SellerAndChargeRow title='Total' quantity={charge}/>
