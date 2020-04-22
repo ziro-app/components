@@ -5,7 +5,7 @@ import { container, menuOptions, name } from './styles'
 const MenuHover = ({ options, addContainerStyle }) =>
 	<div style={{...container, ...addContainerStyle}}>
 		<div style={menuOptions}>
-			{options.map((option, index) => <label key={index} style={name}>{option}</label>)}
+			{options.map(({ label, onClick }, index) => <label key={index} style={name} onClick={onClick}>{label}</label>)}
 		</div>
 	</div>
 
