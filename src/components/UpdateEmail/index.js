@@ -41,7 +41,7 @@ const UpdateEmail = ({ row, sendToBackend, navigateTo = '/conta' }) => {
 					<FormInput name='newEmail' label='Novo email' input={
 						<InputText
 							value={newEmail}
-							onChange={({ target: { value } }) => setNewEmail(value)}
+							onChange={({ target: { value } }) => setNewEmail(value ? value.toLowerCase() : '')}
 							placeholder='Seu novo email'
 							inputMode='email'
 							autoComplete='email'

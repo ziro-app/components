@@ -30,7 +30,7 @@ const LoginForm = ({ sendToBackend }) => {
 				<FormInput name='email' label='Email' input={
 					<InputText
 						value={email}
-						onChange={({ target: { value } }) => setEmail(value)}
+						onChange={({ target: { value } }) => setEmail(value ? value.toLowerCase() : '')}
 						placeholder='Seu email'
 						inputMode='email'
 						autoComplete='email'
