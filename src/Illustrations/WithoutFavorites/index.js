@@ -29,8 +29,8 @@ export const WithoutFavorites = ({ size = 150 }) => (
       y2="713.3182"
       fill="none"
       stroke="#3f3d56"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M600.33937,388.0591l-11.29579-10.19c-40.11346-36.82891-66.59588-60.73266-66.59588-90.50937,0-24.294,18.69325-43.10068,42.84042-43.10068a46.07871,46.07871,0,0,1,35.05125,16.45724,46.07692,46.07692,0,0,1,35.05125-16.45724c24.14717,0,42.84042,18.80672,42.84042,43.10068,0,29.77708-26.48279,53.68084-66.59588,90.50937Z"
@@ -128,7 +128,7 @@ export const WithoutFavorites = ({ size = 150 }) => (
       transform="translate(-147.83937 -93.3409)"
       fill="none"
       stroke="#000"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
       opacity="0.1"
     />
     <path
@@ -162,8 +162,8 @@ export const WithoutFavorites = ({ size = 150 }) => (
       y2="711.84111"
       fill="none"
       stroke="#3f3d56"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <line
       x1="415.65873"
@@ -172,8 +172,8 @@ export const WithoutFavorites = ({ size = 150 }) => (
       y2="711.84111"
       fill="none"
       stroke="#3f3d56"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <line
       x1="481.13592"
@@ -182,8 +182,8 @@ export const WithoutFavorites = ({ size = 150 }) => (
       y2="638.63149"
       fill="#3f3d56"
       stroke="#3f3d56"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <circle
       cx="481.13592"
@@ -211,8 +211,8 @@ export const WithoutFavorites = ({ size = 150 }) => (
       transform="translate(-147.83937 -93.3409)"
       fill="none"
       stroke="#3f3d56"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M860.9622,800.29531c-.72062.869-1.35643,1.61076-1.87927,2.21833-1.1586,1.32112-1.81567,2.0135-1.81567,2.0135s-.79828-1.00323-2.14062-2.88246c-7.36862-10.27226-31.07114-46.79747-29.24137-88.9887q.14838-3.317.48748-6.56322,2.08768,2.2254,4.06228,4.61332C858.17158,744.15811,860.75729,789.1682,860.9622,800.29531Z"
@@ -231,8 +231,8 @@ export const WithoutFavorites = ({ size = 150 }) => (
       y2="532.53065"
       fill="none"
       stroke="#3f3d56"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
   </svg>
 );
