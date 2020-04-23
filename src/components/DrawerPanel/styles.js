@@ -2,11 +2,11 @@ import { fontTitle, fontBody, fontSizeInput, fontSizeSmall, primaryColor, grayCo
 
 export const
 
-header = {
+header = v2style => ({
 	display: 'grid',
 	gridRowGap: '3px',
-	padding: '20px 0 10%'
-},
+	padding: v2style ? '0' : '20px 0 10%'
+}),
 
 welcome = {
 	fontFamily: fontTitle,
@@ -42,11 +42,11 @@ cnpj = {
 	color: grayColor1
 },
 
-nav = {
+nav = v2style => ({
 	display: 'grid',
-	gridRowGap: '25px',
-	marginTop: '20px'
-},
+	gridRowGap: v2style ? '20px' : '25px', //20px
+	marginTop: v2style ? '25px' : '20px' //25px
+}),
 
 navlink = {
 	display: 'grid',

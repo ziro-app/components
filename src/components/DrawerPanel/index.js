@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import { Link } from 'wouter'
 import { header, welcome, word, color, name, cnpj, nav, navlink, navicon, navtext, navsoon } from './styles'
 
-const DrawerPanel = ({ username, userdata, options }) => {
+const DrawerPanel = ({ username, userdata, options, v2style }) => {
 	const [highlightBoxWidth, setHighlightBoxWidth] = useState(0)
 	const highlightBox = useCallback(htmlNode => {
 		if (htmlNode) setHighlightBoxWidth(htmlNode.getBoundingClientRect().width)
 	}, [username])
 	return (
 		<>
-			<div style={header}>
+			<div style={header(v2style)}>
 				<label style={welcome}>
 					Olá,&nbsp;
 					<span style={word}>
@@ -22,7 +22,7 @@ const DrawerPanel = ({ username, userdata, options }) => {
 				</label>
 				<label style={cnpj}>{userdata}</label>
 			</div>
-			<div style={nav}>
+			<div style={nav(v2style)}>
 				{options.map(({ path, onClick, icon, text, soon }, index) =>
 					<Link style={navlink} to={path} onClick={onClick} key={index}>
 						<div style={navicon}>{icon}</div>
@@ -40,7 +40,8 @@ const DrawerPanel = ({ username, userdata, options }) => {
 DrawerPanel.propTypes = {
 	username: PropTypes.string.isRequired,
 	userdata: PropTypes.string.isRequired,
-	options: PropTypes.arrayOf(PropTypes.object).isRequired
+	options: PropTypes.arrayOf(PropTypes.object).isRequired,
+	v2style: PropTypes.bool
 }
 
 export default DrawerPanel
