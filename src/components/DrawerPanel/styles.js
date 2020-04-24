@@ -8,12 +8,12 @@ header = v2style => ({
 	padding: v2style ? '0' : '20px 0 10%'
 }),
 
-welcome = {
+welcome = v2style => ({
 	fontFamily: fontTitle,
-	fontSize: '1.8rem',
+	fontSize: v2style ? '2.1rem' : '1.8rem',
 	fontWeight: '600',
 	color: primaryColor
-},
+}),
 
 word = {
 	position: 'relative'
@@ -37,15 +37,15 @@ name = {
 	textOverflow: 'ellipsis'
 },
 
-cnpj = {
-	fontSize: fontSizeSmall,
+cnpj = v2style => ({
+	fontSize: v2style ? fontSizeInput : fontSizeSmall,
 	color: grayColor1
-},
+}),
 
 nav = v2style => ({
 	display: 'grid',
-	gridRowGap: v2style ? '20px' : '25px', //20px
-	marginTop: v2style ? '25px' : '20px' //25px
+	gridRowGap: v2style ? '20px' : '25px',
+	marginTop: v2style ? '25px' : '20px'
 }),
 
 navlink = {
@@ -55,24 +55,24 @@ navlink = {
 	alignItems: 'center'
 },
 
-navicon = {
+navicon = v2style => ({
 	display: 'grid',
 	alignItems: 'center',
 	justifyItems: 'center',
-	width: '30px',
-	height: '30px',
+	width: v2style ? '35px' : '30px',
+	height: v2style ? '35px' : '30px',
 	borderRadius: '100%',
 	boxShadow: `0px 3px 11px -4px rgba(34,34,34,0.7)`
-},
+}),
 
-navtext = {
+navtext = v2style => ({
 	fontFamily: fontTitle,
-	fontSize: fontSizeInput,
+	fontSize: v2style ? '1.8rem' : fontSizeInput,
 	fontWeight: '600',
 	textTransform: 'uppercase',
 	color: primaryColor,
 	cursor: 'pointer'
-},
+}),
 
 navsoon = {
 	fontFamily: fontBody,
