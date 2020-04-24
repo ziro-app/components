@@ -151,6 +151,9 @@ useScroll = (scroll) => {
             setShouldPreventHide(false)
         }
     },[hideFooter, hideHeader])
+    useEffect(() => () => {
+        setScroll(true)
+    },[])
 },
 
 useAnimatedLocation = () => {
