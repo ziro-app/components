@@ -11,7 +11,7 @@ const DrawerPanel = ({ username, userdata, options, v2style }) => {
 	return (
 		<>
 			<div style={header(v2style)}>
-				<label style={welcome}>
+				<label style={welcome(v2style)}>
 					Olá,&nbsp;
 					<span style={word}>
 						<span style={color(highlightBoxWidth)}></span>
@@ -20,13 +20,13 @@ const DrawerPanel = ({ username, userdata, options, v2style }) => {
 						</span>
 					</span>
 				</label>
-				<label style={cnpj}>{userdata}</label>
+				<label style={cnpj(v2style)}>{userdata}</label>
 			</div>
 			<div style={nav(v2style)}>
 				{options.map(({ path, onClick, icon, text, soon }, index) =>
 					<Link style={navlink} to={path} onClick={onClick} key={index}>
-						<div style={navicon}>{icon}</div>
-						<label style={navtext}>
+						<div style={navicon(v2style)}>{icon}</div>
+						<label style={navtext(v2style)}>
 							{text}
 							{soon && <label style={navsoon}>&nbsp;(breve)</label>}
 						</label>

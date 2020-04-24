@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/drawer-panel@0.1.2": {
+    "vitorbarbosa19.ziro/drawer-panel@0.1.4": {
         "files": [
             {
                 "name": "index.js",

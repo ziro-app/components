@@ -10,7 +10,7 @@ header = v2style => ({
 
 welcome = v2style => ({
 	fontFamily: fontTitle,
-	fontSize: v2style ? '2.1rem' : '1.8rem',
+	fontSize: v2style ? '1.9rem' : '1.8rem',
 	fontWeight: '600',
 	color: primaryColor
 }),
@@ -38,7 +38,7 @@ name = {
 },
 
 cnpj = v2style => ({
-	fontSize: v2style ? fontSizeInput : fontSizeSmall,
+	fontSize: v2style ? '1.4rem' : fontSizeSmall,
 	color: grayColor1
 }),
 
@@ -67,7 +67,7 @@ navicon = v2style => ({
 
 navtext = v2style => ({
 	fontFamily: fontTitle,
-	fontSize: v2style ? '1.8rem' : fontSizeInput,
+	fontSize: v2style ? '1.6rem' : fontSizeInput,
 	fontWeight: '600',
 	textTransform: 'uppercase',
 	color: primaryColor,
