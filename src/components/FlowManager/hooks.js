@@ -275,7 +275,8 @@ useHideOnScroll = (element = 'both',hideThreshold = 25, showThreshold = 5) => {
             window.removeEventListener('scroll', toggleHeader)
             setHideHeader(false)
         }
-	}, [contentRef, isAnimating])
+    }, [contentRef, isAnimating])
+    return [setHideHeader, setHideFooter]
 },
 
 useScrollPagination = (threshold=window.innerHeight,deps = []) => {
