@@ -35,7 +35,6 @@ const Card = ({
   useToast,
   wLocation,
   setWLocation,
-  endPageAfterNavigation,
   test = true,
 }) => {
   useEffect(() => {
@@ -49,7 +48,6 @@ const Card = ({
   window.onbeforeunload = () => {
     localStorage.clear();
   };
-  console.log(endPageAfterNavigation);
   if (test === true) {
     //uid = 'doesntChangeNothing';
     photo = [
@@ -75,130 +73,128 @@ const Card = ({
 
   return (
     <>
-      <div style={container} id="list">
-        {photo.map(
-          (
-            {
-              brandName,
-              url,
-              productId,
-              howMuchDays,
-              plural,
-              today,
-              pluralCart,
-              cartUsersQuantity,
-              cartAdded,
-            },
-            index
-          ) => (
-            <RImg
-              key={url}
-              src={url}
-              style={image}
-              container={(children) => (
-                <motion.div
-                  style={card}
-                  initial={{ opacity: 0, y: '-5%' }}
-                  animate={{ opacity: 1, y: '0%' }}
-                  transition={{
-                    type: 'tween',
-                    delay: index < 5 ? (3 * index) / 10 : 0,
-                  }}
-                >
-                  {children}
-                  <div style={cardBottom}>
-                    <div style={icons(showPrice)}>
-                      <div onClick={() => onFavoritePress(productId)}>
-                        <Icon
-                          type="heart"
-                          size={24}
-                          strokeWidth={1}
-                          fill={favoriteIds.includes(productId)}
-                        />
-                      </div>
-                      <div
-                        onClick={() =>
-                          onCartPress(brandName, productId)
-                        }
-                      >
-                        <Icon
-                          type="shoppingBag"
-                          size={24}
-                          strokeWidth={1}
-                          fill={cartIds.includes(productId)}
-                        />
-                      </div>
-                      {/* eslint-disable-next-line no-nested-ternary */}
-                      {cartIds.includes(productId) ||
-                      cartUsersQuantity > 0 ? (
-                        cartAdded || cartIds.includes(productId) ? (
-                          <div style={cart}>
-                            {cartUsersQuantity > 0 ? (
-                              <label style={{ fontSize: '12px' }}>
-                                Você e outra{pluralCart}{' '}
-                                {cartUsersQuantity} pessoa
-                                {pluralCart} colocaram na sacola
-                              </label>
-                            ) : (
-                              <label style={{ fontSize: '12px' }}>
-                                Você colocou este item em sua sacola
-                              </label>
-                            )}
-                          </div>
-                        ) : (
-                          <div style={cart}>
+      {photo.map(
+        (
+          {
+            brandName,
+            url,
+            productId,
+            howMuchDays,
+            plural,
+            today,
+            pluralCart,
+            cartUsersQuantity,
+            cartAdded,
+          },
+          index
+        ) => (
+          <RImg
+            key={url}
+            src={url}
+            style={image}
+            container={(children) => (
+              <motion.div
+                style={card}
+                initial={{ opacity: 0, y: '-5%' }}
+                animate={{ opacity: 1, y: '0%' }}
+                transition={{
+                  type: 'tween',
+                  delay: index < 5 ? (3 * index) / 10 : 0,
+                }}
+              >
+                {children}
+                <div style={cardBottom}>
+                  <div style={icons(showPrice)}>
+                    <div onClick={() => onFavoritePress(productId)}>
+                      <Icon
+                        type="heart"
+                        size={24}
+                        strokeWidth={1}
+                        fill={favoriteIds.includes(productId)}
+                      />
+                    </div>
+                    <div
+                      onClick={() =>
+                        onCartPress(brandName, productId)
+                      }
+                    >
+                      <Icon
+                        type="shoppingBag"
+                        size={24}
+                        strokeWidth={1}
+                        fill={cartIds.includes(productId)}
+                      />
+                    </div>
+                    {/* eslint-disable-next-line no-nested-ternary */}
+                    {cartIds.includes(productId) ||
+                    cartUsersQuantity > 0 ? (
+                      cartAdded || cartIds.includes(productId) ? (
+                        <div style={cart}>
+                          {cartUsersQuantity > 0 ? (
                             <label style={{ fontSize: '12px' }}>
-                              {' '}
-                              Na sacola de {cartUsersQuantity} pessoa
-                              {pluralCart}{' '}
+                              Você e outra{pluralCart}{' '}
+                              {cartUsersQuantity} pessoa
+                              {pluralCart} colocaram na sacola
                             </label>
-                          </div>
-                        )
+                          ) : (
+                            <label style={{ fontSize: '12px' }}>
+                              Você colocou este item em sua sacola
+                            </label>
+                          )}
+                        </div>
                       ) : (
-                        <div />
-                      )}
-                      {!uid ? (
-                        <label
-                          style={priceButton}
-                          onClick={() => setWLocation('/cadastrar')}
-                        >
-                          ver preço
-                        </label>
-                      ) : (
-                        <div />
-                      )}
-                    </div>
-
-                    <div style={info}>
+                        <div style={cart}>
+                          <label style={{ fontSize: '12px' }}>
+                            {' '}
+                            Na sacola de {cartUsersQuantity} pessoa
+                            {pluralCart}{' '}
+                          </label>
+                        </div>
+                      )
+                    ) : (
+                      <div />
+                    )}
+                    {!uid ? (
                       <label
-                        style={brand}
-                        onClick={() =>
-                          setLocation(
-                            'goLeft',
-                            `marcas/${brandName
-                              .replace(/\s/g, '-')
-                              .toLowerCase()}`
-                          )
-                        }
+                        style={priceButton}
+                        onClick={() => setWLocation('/cadastrar')}
                       >
-                        {showBrandName ? brandName : null}
+                        ver preço
                       </label>
-                      {today ? (
-                        <label style={timestampStyle}>Hoje</label>
-                      ) : (
-                        <label style={timestampStyle}>
-                          {howMuchDays} dia{plural} atrás
-                        </label>
-                      )}
-                    </div>
+                    ) : (
+                      <div />
+                    )}
                   </div>
-                </motion.div>
-              )}
-              loaderContainer={() => <div key={url} />}
-            />
-          )
-        )}
-      </div>
+
+                  <div style={info}>
+                    <label
+                      style={brand}
+                      onClick={() =>
+                        setLocation(
+                          'goLeft',
+                          `marcas/${brandName
+                            .replace(/\s/g, '-')
+                            .toLowerCase()}`
+                        )
+                      }
+                    >
+                      {showBrandName ? brandName : null}
+                    </label>
+                    {today ? (
+                      <label style={timestampStyle}>Hoje</label>
+                    ) : (
+                      <label style={timestampStyle}>
+                        {howMuchDays} dia{plural} atrás
+                      </label>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+            loaderContainer={() => <div key={url} />}
+          />
+        )
+      )}
     </>
   );
 };
