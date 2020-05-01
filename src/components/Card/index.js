@@ -200,8 +200,8 @@ const Card = ({
 };
 
 Card.propTypes = {
-  cartIds: PropTypes.arrayOf(PropTypes.object),
-  favoriteIds: PropTypes.arrayOf(PropTypes.object),
+  cartIds: PropTypes.arrayOf(PropTypes.string),
+  favoriteIds: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Card;
