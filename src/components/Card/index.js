@@ -31,14 +31,14 @@ const Card = ({
   test = true,
 }) => {
   if (test === true) {
-    uid = 'doesntChangeNothing';
+    //uid = 'doesntChangeNothing';
     photo = [
       {
         brandName: 'Salgunamu',
         description: 'Vestido forro',
         favQuantity: 0,
         photoPeriod: 'Nova',
-        cartQuantity: 0,
+        cartQuantity: 1,
         price: '14990',
         pricetag: 'Não',
         productId: 'hKxUGL9CuKScXvBQ98Ve',
@@ -107,7 +107,9 @@ const Card = ({
                     {/* eslint-disable-next-line no-nested-ternary */}
                     {cartIds.includes(productId) && cartQuantity > 0 && (
                       <label style={{ fontSize: '12px' }}>
-                        Na sacola de {cartQuantity} pessoa
+                        Na sua sacola e de outra
+                        {cartQuantity > 1 && 's'} {cartQuantity}{' '}
+                        pessoa
                         {cartQuantity > 1 && 's'}
                       </label>
                     )}
