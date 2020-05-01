@@ -13,7 +13,6 @@ import {
   image,
   info,
   timestampStyle,
-  cart,
   values,
 } from './styles';
 import PropTypes from 'prop-types';
@@ -25,11 +24,8 @@ const Card = ({
   showPrice = true,
   favoriteIds,
   cartIds,
-  photos,
   photo,
   uid,
-  useToast,
-  wLocation,
   setWLocation,
   setLocation,
   test = true,
@@ -53,16 +49,8 @@ const Card = ({
       },
     ];
     favoriteIds = ['hKxUGL9CuKScXvBQ98Ve'];
-    cartIds = ['ahKxUGL9CuKScXvBQ98Ve'];
+    cartIds = ['hKxUGL9CuKScXvBQ98Ve'];
   }
-
-  const priceFormatting = useCallback((price) => {
-    price = price.toString().replace(/\D/g, '');
-    price = price.toString().replace(/(\d)(\d{8})$/, '$1.$2');
-    price = price.toString().replace(/(\d)(\d{5})$/, '$1.$2');
-    price = price.toString().replace(/(\d)(\d{2})$/, '$1,$2');
-    return price;
-  });
 
   return (
     <>
@@ -124,7 +112,7 @@ const Card = ({
                       </label>
                     )}
                     {cartIds.includes(productId) &&
-                      cartQuantity === 0 && (
+                      (cartQuantity === 0 || !cartQuantity) && (
                         <label style={{ fontSize: '12px' }}>
                           Você colocou este item na sacola
                         </label>
