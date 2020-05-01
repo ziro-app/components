@@ -34,6 +34,8 @@ const Card = ({
   useToast,
   wLocation,
   setWLocation,
+  shouldFetchMore,
+  setShouldKeepFecthing,
   test = true,
 }) => {
   useEffect(() => {
@@ -43,6 +45,29 @@ const Card = ({
   const initialCount = () =>
     Number(window.localStorage.getItem('sliceMax')) || 20;
   const [sliceMax, setSliceMax] = useState(initialCount);
+
+  const [renderNumber, setRenderNumber] = useState(0);
+
+  const memoizedCallback = useCallback(() => {
+    let firstRender = renderNumber;
+    firstRender += 1;
+    setRenderNumber(firstRender);
+    // console.log(photos.length, renderNumber, shouldFetchMore);
+    if (photos.length > 10 && renderNumber > 2 && shouldFetchMore) {
+      window.localStorage.setItem('sliceMax', String(sliceMax + 20));
+      setSliceMax(sliceMax + 20);
+    }
+    if (photos.length > 10 && renderNumber === 1 && shouldFetchMore) {
+      // console.log('entrou após navegação');
+      window.localStorage.setItem('sliceMax', String(sliceMax + 20));
+      setSliceMax(sliceMax + 20);
+    }
+    if (sliceMax === 500) {
+      // console.log('entrou 500');
+      setShouldKeepFecthing(true);
+    }
+  }, [shouldFetchMore]);
+  useMemo(memoizedCallback, [shouldFetchMore]);
 
   window.onbeforeunload = () => {
     localStorage.clear();
