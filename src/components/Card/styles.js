@@ -40,10 +40,14 @@ export const container = {
   icons = (showPrice) => ({
     display: 'grid',
     gridTemplateColumns: 'auto auto 1fr 50px',
-    gridGap: showPrice ? '15px' : '20px',
+    gridGap: '20px',
     alignItems: 'center',
     justifyItems: 'center',
   }),
+  values = {
+    fontFamily: fontTitle,
+    fontSize: '1.1rem',
+  },
   priceButton = {
     justifySelf: 'end',
     display: 'grid',

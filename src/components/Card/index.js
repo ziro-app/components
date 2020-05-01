@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useAnimatedLocation } from '../FlowManager';
+import currencyFormat from '@ziro/currency-format';
 import { motion } from 'framer-motion';
 import Icon from '../Icon';
 import RImg from 'react-image';
@@ -13,6 +14,7 @@ import {
   info,
   timestampStyle,
   cart,
+  values,
 } from './styles';
 import PropTypes from 'prop-types';
 
@@ -51,7 +53,7 @@ const Card = ({
       },
     ];
     favoriteIds = ['hKxUGL9CuKScXvBQ98Ve'];
-    cartIds = ['hKxUGL9CuKScXvBQ98Ve'];
+    cartIds = ['ahKxUGL9CuKScXvBQ98Ve'];
   }
 
   const priceFormatting = useCallback((price) => {
@@ -135,7 +137,9 @@ const Card = ({
                         </label>
                       )}
                     {!cartIds.includes(productId) &&
-                      cartQuantity === 0 && <div />}
+                      (cartQuantity === 0 || !cartQuantity) && (
+                        <div />
+                      )}
 
                     {!uid ? (
                       <label
@@ -145,8 +149,8 @@ const Card = ({
                         ver preço
                       </label>
                     ) : price ? (
-                      <label style={priceButton}>
-                        {priceFormatting(price)}
+                      <label style={values}>
+                        {currencyFormat(price)}
                       </label>
                     ) : (
                       <div />
