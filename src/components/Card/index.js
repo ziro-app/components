@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-  useMemo,
-} from 'react';
+import React, { useEffect } from 'react';
 import { useAnimatedLocation } from '../FlowManager';
 import { motion } from 'framer-motion';
 import Icon from '../Icon';
@@ -12,7 +7,6 @@ import {
   brand,
   card,
   cardBottom,
-  container,
   icons,
   priceButton,
   image,
@@ -35,19 +29,9 @@ const Card = ({
   useToast,
   wLocation,
   setWLocation,
+  setLocation,
   test = true,
 }) => {
-  useEffect(() => {
-    wLocation === '/' && setWLocation('/novidades');
-  }, []);
-  const [, setLocation] = useAnimatedLocation();
-  const initialCount = () =>
-    Number(window.localStorage.getItem('sliceMax')) || 20;
-  const [sliceMax, setSliceMax] = useState(initialCount);
-
-  window.onbeforeunload = () => {
-    localStorage.clear();
-  };
   if (test === true) {
     //uid = 'doesntChangeNothing';
     photo = [
