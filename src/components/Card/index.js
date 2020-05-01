@@ -34,6 +34,7 @@ const Card = ({
   useToast,
   wLocation,
   setWLocation,
+  endPageAfterNavigation,
   test = true,
 }) => {
   useEffect(() => {
@@ -47,7 +48,7 @@ const Card = ({
   window.onbeforeunload = () => {
     localStorage.clear();
   };
-
+  console.log(endPageAfterNavigation);
   if (test === true) {
     //uid = 'doesntChangeNothing';
     photos = [
