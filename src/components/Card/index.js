@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useAnimatedLocation } from '../FlowManager';
 import { motion } from 'framer-motion';
 import Icon from '../Icon';
@@ -33,27 +33,34 @@ const Card = ({
   test = true,
 }) => {
   if (test === true) {
-    //uid = 'doesntChangeNothing';
+    uid = 'doesntChangeNothing';
     photo = [
       {
         brandName: 'Salgunamu',
-        cartAdded: false,
-        cartUsersQuantity: 0,
-        howMuchDays: 1,
-        likesUsers: undefined,
-        plural: '',
-        pluralCart: '',
-        productId: '4N83pCtkkrQm8hLY1dQL',
-        today: true,
+        description: 'Vestido forro',
+        favQuantity: 0,
+        photoPeriod: 'Nova',
+        cartQuantity: 0,
+        price: '14990',
+        pricetag: 'Não',
+        productId: 'hKxUGL9CuKScXvBQ98Ve',
+        status: 'available',
+        timeInDays: 2,
         url:
-          'https://firebasestorage.googleapis.com/v0/b/ziro-app-data.appspot.com/o/Salgunamu%2FSalgunamu-1588270812994-159%2C90.jpeg?alt=media&token=060e81f8-f6a8-44a9-b7a6-c03478032fa2',
+          'https://firebasestorage.googleapis.com/v0/b/ziro-app-data.appspot.com/o/Salgunamu%2FSalgunamu-1588112070123-VESTIDO%20COM%20FORRO%20149%2C90.jpg?alt=media&token=50ed388c-ab3f-4a82-aaad-18a2933a5d3c',
       },
     ];
-    favoriteIds = ['4N83pCtkkrQm8hLY1dQL'];
-    cartIds = ['4N83pCtkkrQm8hLY1dQL'];
+    favoriteIds = ['hKxUGL9CuKScXvBQ98Ve'];
+    cartIds = ['hKxUGL9CuKScXvBQ98Ve'];
   }
 
-  if (uid) showPrice = false;
+  const priceFormatting = useCallback((price) => {
+    price = price.toString().replace(/\D/g, '');
+    price = price.toString().replace(/(\d)(\d{8})$/, '$1.$2');
+    price = price.toString().replace(/(\d)(\d{5})$/, '$1.$2');
+    price = price.toString().replace(/(\d)(\d{2})$/, '$1,$2');
+    return price;
+  });
 
   return (
     <>
@@ -63,12 +70,10 @@ const Card = ({
             brandName,
             url,
             productId,
-            howMuchDays,
-            plural,
-            today,
-            pluralCart,
-            cartUsersQuantity,
-            cartAdded,
+            timeInDays,
+            cartQuantity,
+            favQuantity,
+            price,
           },
           index
         ) => (
@@ -110,40 +115,38 @@ const Card = ({
                       />
                     </div>
                     {/* eslint-disable-next-line no-nested-ternary */}
-                    {cartIds.includes(productId) ||
-                    cartUsersQuantity > 0 ? (
-                      cartAdded || cartIds.includes(productId) ? (
-                        <div style={cart}>
-                          {cartUsersQuantity > 0 ? (
-                            <label style={{ fontSize: '12px' }}>
-                              Você e outra{pluralCart}{' '}
-                              {cartUsersQuantity} pessoa
-                              {pluralCart} colocaram na sacola
-                            </label>
-                          ) : (
-                            <label style={{ fontSize: '12px' }}>
-                              Você colocou este item em sua sacola
-                            </label>
-                          )}
-                        </div>
-                      ) : (
-                        <div style={cart}>
-                          <label style={{ fontSize: '12px' }}>
-                            {' '}
-                            Na sacola de {cartUsersQuantity} pessoa
-                            {pluralCart}{' '}
-                          </label>
-                        </div>
-                      )
-                    ) : (
-                      <div />
+                    {cartIds.includes(productId) && cartQuantity > 0 && (
+                      <label style={{ fontSize: '12px' }}>
+                        Na sacola de {cartQuantity} pessoa
+                        {cartQuantity > 1 && 's'}
+                      </label>
                     )}
+                    {cartIds.includes(productId) &&
+                      cartQuantity === 0 && (
+                        <label style={{ fontSize: '12px' }}>
+                          Você colocou este item na sacola
+                        </label>
+                      )}
+                    {!cartIds.includes(productId) &&
+                      cartQuantity > 0 && (
+                        <label style={{ fontSize: '12px' }}>
+                          Na sacola de {cartQuantity} pessoa
+                          {cartQuantity > 1 && 's'}
+                        </label>
+                      )}
+                    {!cartIds.includes(productId) &&
+                      cartQuantity === 0 && <div />}
+
                     {!uid ? (
                       <label
                         style={priceButton}
                         onClick={() => setWLocation('/cadastrar')}
                       >
                         ver preço
+                      </label>
+                    ) : price ? (
+                      <label style={priceButton}>
+                        {priceFormatting(price)}
                       </label>
                     ) : (
                       <div />
@@ -164,11 +167,11 @@ const Card = ({
                     >
                       {showBrandName ? brandName : null}
                     </label>
-                    {today ? (
+                    {timeInDays === 0 ? (
                       <label style={timestampStyle}>Hoje</label>
                     ) : (
                       <label style={timestampStyle}>
-                        {howMuchDays} dia{plural} atrás
+                        {timeInDays} dia{timeInDays > 0 && 's'} atrás
                       </label>
                     )}
                   </div>
