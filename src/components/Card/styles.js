@@ -24,29 +24,35 @@ export const container = {
   image = {
     objectFit: 'contain',
     width: '100%',
+    borderTopLeftRadius: '3px',
+    borderTopRightRadius: '3px'
   },
   brand = {},
+  cartQty = {
+    fontSize: '1.2rem',
+    color: grayColor1
+  },
   timestampStyle = {
     color: grayColor1,
-    fontSize: '12px',
+    fontSize: '1.2rem',
     justifySelf: 'end',
   },
   cardBottom = {
     display: 'grid',
     alignItems: 'center',
-    gridRowGap: '6px',
+    gridRowGap: '10px',
     padding: '10px 10px 20px',
   },
   icons = (showPrice) => ({
     display: 'grid',
-    gridTemplateColumns: 'auto auto 1fr 50px',
-    gridGap: '20px',
-    alignItems: 'center',
-    justifyItems: 'center',
+    gridTemplateColumns: 'auto auto 1fr auto',
+    gridGap: '10px',
+    alignItems: 'end',
+    justifyItems: 'start',
   }),
   values = {
     fontFamily: fontTitle,
-    fontSize: '1.1rem',
+    fontSize: '1.5rem',
   },
   priceButton = {
     justifySelf: 'end',
@@ -56,9 +62,9 @@ export const container = {
     MozAppearance: 'none',
     outline: 'none',
     cursor: 'pointer',
-    width: '100%',
+    width: '60px',
     maxWidth: '100px',
-    padding: '6px 2px',
+    padding: '6px 0px',
     border: 'none',
     borderRadius: '20px',
     fontFamily: fontTitle,

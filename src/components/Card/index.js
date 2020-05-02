@@ -12,6 +12,7 @@ import {
   priceButton,
   image,
   info,
+  cartQty,
   timestampStyle,
   values,
 } from './styles';
@@ -31,14 +32,14 @@ const Card = ({
   test = true,
 }) => {
   if (test === true) {
-    //uid = 'doesntChangeNothing';
+    // uid = 'doesntChangeNothing';
     photo = [
       {
         brandName: 'Salgunamu',
         description: 'Vestido forro',
         favQuantity: 0,
         photoPeriod: 'Nova',
-        cartQuantity: 1,
+        cartQuantity: 2,
         price: '14990',
         pricetag: 'Não',
         productId: 'hKxUGL9CuKScXvBQ98Ve',
@@ -84,7 +85,7 @@ const Card = ({
                 {children}
                 <div style={cardBottom}>
                   <div style={icons(showPrice)}>
-                    <div onClick={() => onFavoritePress(productId)}>
+                    <div style={{display: 'grid'}} onClick={() => onFavoritePress(productId)}>
                       <Icon
                         type="heart"
                         size={24}
@@ -92,7 +93,7 @@ const Card = ({
                         fill={favoriteIds.includes(productId)}
                       />
                     </div>
-                    <div
+                    <div style={{display: 'grid'}}
                       onClick={() =>
                         onCartPress(brandName, productId)
                       }
@@ -104,25 +105,22 @@ const Card = ({
                         fill={cartIds.includes(productId)}
                       />
                     </div>
-                    {/* eslint-disable-next-line no-nested-ternary */}
                     {cartIds.includes(productId) && cartQuantity > 0 && (
-                      <label style={{ fontSize: '12px' }}>
-                        Na sua sacola e de outra
-                        {cartQuantity > 1 && 's'} {cartQuantity}{' '}
-                        pessoa
+                      <label style={cartQty}>
+                        Adic. em {cartQuantity} sacola
                         {cartQuantity > 1 && 's'}
                       </label>
                     )}
                     {cartIds.includes(productId) &&
                       (cartQuantity === 0 || !cartQuantity) && (
-                        <label style={{ fontSize: '12px' }}>
-                          Você colocou este item na sacola
+                        <label style={cartQty}>
+                          Adic. em 1 sacola
                         </label>
                       )}
                     {!cartIds.includes(productId) &&
                       cartQuantity > 0 && (
-                        <label style={{ fontSize: '12px' }}>
-                          Na sacola de {cartQuantity} pessoa
+                        <label style={cartQty}>
+                          Adic. em {cartQuantity} sacola
                           {cartQuantity > 1 && 's'}
                         </label>
                       )}
@@ -130,13 +128,12 @@ const Card = ({
                       (cartQuantity === 0 || !cartQuantity) && (
                         <div />
                       )}
-
                     {!uid ? (
                       <label
                         style={priceButton}
                         onClick={() => setWLocation('/cadastrar')}
                       >
-                        ver preço
+                        preço
                       </label>
                     ) : price ? (
                       <label style={values}>
