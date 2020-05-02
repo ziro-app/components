@@ -1,5 +1,5 @@
 import React from 'react';
 import Card from '../../../components/Card/index';
-import { containerWithPadding } from '@ziro/theme';
+import { container } from '@ziro/theme';
 
-export const DisplayCard = () => <div style={containerWithPadding}><Card /></div>;
+export const DisplayCard = () => <div style={container}><Card /></div>;

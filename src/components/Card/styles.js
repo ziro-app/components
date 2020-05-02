@@ -46,7 +46,7 @@ export const container = {
   icons = (showPrice) => ({
     display: 'grid',
     gridTemplateColumns: 'auto auto 1fr auto',
-    gridGap: '10px',
+    gridGap: '15px',
     alignItems: 'end',
     justifyItems: 'start',
   }),
