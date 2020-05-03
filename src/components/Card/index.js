@@ -153,7 +153,7 @@ const Card = ({
                     <label
                       style={brand}
                       onClick={() => {
-                        setLoccation
+                        setLocation
                           ? setLocation(
                               'goLeft',
                               `marcas/${brandName
