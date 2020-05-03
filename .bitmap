@@ -483,7 +483,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/drawer-panel@0.1.4": {
+    "vitorbarbosa19.ziro/drawer-panel@0.1.5": {
         "files": [
             {
                 "name": "index.js",

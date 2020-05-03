@@ -48,12 +48,12 @@ nav = v2style => ({
 	marginTop: v2style ? '25px' : '20px'
 }),
 
-navlink = {
+navlink = v2style => ({
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '10px',
+	gridColumnGap: v2style ? '20px' : '10px',
 	alignItems: 'center'
-},
+}),
 
 navicon = v2style => ({
 	display: 'grid',

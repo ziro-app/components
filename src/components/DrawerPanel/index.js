@@ -24,7 +24,7 @@ const DrawerPanel = ({ username, userdata, options, v2style }) => {
 			</div>
 			<div style={nav(v2style)}>
 				{options.map(({ path, onClick, icon, text, soon }, index) =>
-					<Link style={navlink} to={path} onClick={onClick} key={index}>
+					<Link style={navlink(v2style)} to={path} onClick={onClick} key={index}>
 						<div style={navicon(v2style)}>{icon}</div>
 						<label style={navtext(v2style)}>
 							{text}
