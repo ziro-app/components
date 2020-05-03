@@ -112,7 +112,7 @@ const Card = ({
                     </div>
                     {cartIds.includes(productId) && cartQuantity > 0 && (
                       <label style={cartQty}>
-                        Adic. em {cartQuantity} sacola
+                        Adic. em {cartQuantity + 1} sacola
                         {cartQuantity > 1 && 's'}
                       </label>
                     )}
