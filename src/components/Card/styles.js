@@ -4,6 +4,7 @@ import {
   fontSizeInput,
   gradient,
   shadow,
+  alertColor
 } from '@ziro/theme';
 
 export const container = {
@@ -21,13 +22,34 @@ export const container = {
     boxShadow: 'rgba(34, 34, 34, 0.3) 0px 0px 12px -3px',
     background: 'white',
   },
+  overlayContainer = {
+    position: 'relative'
+  },
+  overlay = {
+    position: 'absolute',
+    bottom: '0',
+    display: 'grid',
+    alignItems: 'center',
+    width: '100%',
+    height: window.innerWidth < 500 ? '12%' : '10%',
+    fontFamily: fontTitle,
+    fontSize: window.innerWidth < 500 ? '1.5rem' : '1.8rem',
+    fontWeight: '600',
+    color: 'white',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    background: alertColor, //'rgba(34,34,34,0.9)',
+    boxShadow: 'rgba(34, 34, 34, 0.3) 0px -5px 15px -1px',
+  },
   image = {
     objectFit: 'contain',
     width: '100%',
     borderTopLeftRadius: '3px',
     borderTopRightRadius: '3px'
   },
-  brand = {},
   cartQty = {
     fontSize: '1.2rem',
     color: grayColor1

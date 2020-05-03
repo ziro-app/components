@@ -5,8 +5,9 @@ import { motion } from 'framer-motion';
 import Icon from '../Icon';
 import RImg from 'react-image';
 import {
-  brand,
   card,
+  overlay,
+  overlayContainer,
   cardBottom,
   icons,
   priceButton,
@@ -44,7 +45,7 @@ const Card = ({
         price: '14990',
         pricetag: 'Não',
         productId: 'hKxUGL9CuKScXvBQ98Ve',
-        status: 'available',
+        status: 'soldOut',
         timeInDays: 2,
         url:
           'https://firebasestorage.googleapis.com/v0/b/ziro-app-data.appspot.com/o/Salgunamu%2FSalgunamu-1588112070123-VESTIDO%20COM%20FORRO%20149%2C90.jpg?alt=media&token=50ed388c-ab3f-4a82-aaad-18a2933a5d3c',
@@ -66,6 +67,7 @@ const Card = ({
             cartQuantity,
             favQuantity,
             price,
+            status
           },
           index
         ) => (
@@ -83,13 +85,13 @@ const Card = ({
                   delay: index < 5 ? (3 * index) / 10 : 0,
                 }}
               >
-                {children}
+                <div style={overlayContainer}>
+                  {status === 'soldOut' ? <div style={overlay}>esgotado</div> : null}
+                  {children}
+                </div>
                 <div style={cardBottom}>
                   <div style={icons(showPrice)}>
-                    <div
-                      style={{ display: 'grid' }}
-                      onClick={() => onFavoritePress(productId)}
-                    >
+                    <div style={{ display: 'grid' }} onClick={() => onFavoritePress(productId)}>
                       <Icon
                         type="heart"
                         size={24}
@@ -151,7 +153,6 @@ const Card = ({
 
                   <div style={info}>
                     <label
-                      style={brand}
                       onClick={() => {
                         setLocation
                           ? setLocation(

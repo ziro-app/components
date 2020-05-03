@@ -38,5 +38,5 @@ destructive = {
 light = {
 	...regular,
 	background: 'linear-gradient(rgb(240, 240, 240) 10%, rgb(245, 245, 245) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))',
-	color: '#000'
+	color: primaryColor
 }

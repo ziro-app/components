@@ -37,6 +37,7 @@ const _Modal = ({
                             type='button'
                             click={secondButtonAction}
                             cta={secondButtonTitle}
+                            template='light'
                         />
                     }
                 </div>
