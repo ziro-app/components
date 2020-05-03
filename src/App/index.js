@@ -55,6 +55,7 @@ import { DisplayToastNotification } from './DisplayComponents/DisplayToastNotifi
 import { DisplayMenuHover } from './DisplayComponents/DisplayMenuHover';
 import { DisplayBottomTabBar } from './DisplayComponents/DisplayBottomTabBar';
 import { DisplayCard } from './DisplayComponents/DisplayCard';
+import { DisplayDetails } from './DisplayComponents/DisplayDetails';
 
 export const App = () => (
   <Switch>
@@ -222,6 +223,9 @@ export const App = () => (
     </Route>
     <Route path="/card">
       <DisplayCard />
+    </Route>
+    <Route path="/details">
+      <DisplayDetails />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>
