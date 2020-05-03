@@ -29,6 +29,7 @@ const Card = ({
   uid,
   setWLocation,
   setLocation,
+  isFeatured = true,
   test = true,
 }) => {
   if (test === true) {
@@ -85,7 +86,10 @@ const Card = ({
                 {children}
                 <div style={cardBottom}>
                   <div style={icons(showPrice)}>
-                    <div style={{display: 'grid'}} onClick={() => onFavoritePress(productId)}>
+                    <div
+                      style={{ display: 'grid' }}
+                      onClick={() => onFavoritePress(productId)}
+                    >
                       <Icon
                         type="heart"
                         size={24}
@@ -93,7 +97,8 @@ const Card = ({
                         fill={favoriteIds.includes(productId)}
                       />
                     </div>
-                    <div style={{display: 'grid'}}
+                    <div
+                      style={{ display: 'grid' }}
                       onClick={() =>
                         onCartPress(brandName, productId)
                       }
@@ -147,14 +152,16 @@ const Card = ({
                   <div style={info}>
                     <label
                       style={brand}
-                      onClick={() =>
-                        setLocation(
-                          'goLeft',
-                          `marcas/${brandName
-                            .replace(/\s/g, '-')
-                            .toLowerCase()}`
-                        )
-                      }
+                      onClick={() => {
+                        setLoccation
+                          ? setLocation(
+                              'goLeft',
+                              `marcas/${brandName
+                                .replace(/\s/g, '-')
+                                .toLowerCase()}`
+                            )
+                          : null;
+                      }}
                     >
                       {showBrandName ? brandName : null}
                     </label>
