@@ -30,6 +30,7 @@ const Card = ({
   uid,
   setWLocation,
   setLocation,
+  onClickSoldOut,
   isFeatured = true,
   test = true,
 }) => {
@@ -67,7 +68,7 @@ const Card = ({
             cartQuantity,
             favQuantity,
             price,
-            status
+            status,
           },
           index
         ) => (
@@ -86,12 +87,22 @@ const Card = ({
                 }}
               >
                 <div style={overlayContainer}>
-                  {status === 'soldOut' ? <div style={overlay}>esgotado</div> : null}
+                  {status === 'soldOut' ? (
+                    <div style={overlay}>esgotado</div>
+                  ) : null}
                   {children}
                 </div>
                 <div style={cardBottom}>
                   <div style={icons(showPrice)}>
-                    <div style={{ display: 'grid' }} onClick={() => onFavoritePress(productId)}>
+                    <div
+                      style={{ display: 'grid' }}
+                      onClick={() => {
+                        !favoriteIds.includes(productId) &&
+                        status === 'soltOut'
+                          ? onClickSoldOut()
+                          : onFavoritePress(productId);
+                      }}
+                    >
                       <Icon
                         type="heart"
                         size={24}
@@ -101,9 +112,12 @@ const Card = ({
                     </div>
                     <div
                       style={{ display: 'grid' }}
-                      onClick={() =>
-                        onCartPress(brandName, productId)
-                      }
+                      onClick={() => {
+                        !cartIds.includes(productId) &&
+                        status === 'soltOut'
+                          ? onClickSoldOut()
+                          : onCartPress(brandName, productId);
+                      }}
                     >
                       <Icon
                         type="shoppingBag"
