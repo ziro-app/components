@@ -1,16 +1,11 @@
-import { fontTitle, primaryColor, secondaryColor } from '@ziro/theme'
+import { fontTitle, primaryColor, secondaryColor, grayColor4 } from '@ziro/theme'
 
 export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '40px',
+	gridRowGap: '12px',
 	color: primaryColor
-},
-
-infoBlock = {
-	display: 'grid',
-	gridRowGap: '12px'
 },
 
 titleStyle = {
@@ -25,16 +20,27 @@ dot = {
   color: secondaryColor
 },
 
-bodyStyle = {
+body = (numberOfColumns, customGrid) => ({
 	display: 'grid',
-	gridRowGap: '6px'
-},
+	gridTemplateColumns: `repeat(${numberOfColumns}, 1fr)`,
+	alignItems: 'end',
+	justifyItems: 'center',
+	gridRowGap: '5px',
+	...customGrid,
+}),
 
-info = {
-	display: 'grid',
-	gridTemplateColumns: '1fr 1fr 1fr 1fr',
+cellHeader = {
+	fontFamily: fontTitle,
+	fontSize: '1.4rem'
 },
 
 cell = {
-	fontSize: '1.5rem'
+	fontSize: '1.4rem'
+},
+
+cellTotal = {
+	width: '100%',
+	fontSize: '1.4rem',
+	textAlign: 'center',
+	background: grayColor4
 }

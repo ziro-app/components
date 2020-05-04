@@ -483,6 +483,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/details@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/details/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/details/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/details/index.js",
+        "trackDir": "src/components/details",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/drawer-panel@0.1.5": {
         "files": [
             {
@@ -1807,6 +1825,24 @@
         ],
         "mainFile": "src/components/TabDualTransition/index.js",
         "trackDir": "src/components/TabDualTransition",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/table@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/table/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/table/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/table/index.js",
+        "trackDir": "src/components/table",
         "origin": "AUTHORED",
         "exported": true
     },
