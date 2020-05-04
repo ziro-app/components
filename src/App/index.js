@@ -56,6 +56,7 @@ import { DisplayMenuHover } from './DisplayComponents/DisplayMenuHover';
 import { DisplayBottomTabBar } from './DisplayComponents/DisplayBottomTabBar';
 import { DisplayCard } from './DisplayComponents/DisplayCard';
 import { DisplayDetails } from './DisplayComponents/DisplayDetails';
+import { DisplayTable } from './DisplayComponents/DisplayTable';
 
 export const App = () => (
   <Switch>
@@ -226,6 +227,9 @@ export const App = () => (
     </Route>
     <Route path="/details">
       <DisplayDetails />
+    </Route>
+    <Route path="/table">
+      <DisplayTable />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

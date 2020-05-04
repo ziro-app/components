@@ -1,6 +1,7 @@
 import React from 'react';
 import Details from '../../../components/Details/index';
 import Header from '../../../components/Header/index';
+import Button from '../../../components/Button/index';
 import { containerWithPadding, successColor } from '@ziro/theme';
 
 const blocks = [
@@ -53,4 +54,6 @@ export const DisplayDetails = () =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' title='Detalhes' navigateTo='home' />
 		<Details blocks={blocks} />
+		<div style={{marginBottom: '60px'}}></div>
+		<Button type='button' cta='Gerar comprovante' />
 	</div>
