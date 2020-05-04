@@ -98,8 +98,8 @@ const Card = ({
                       style={{ display: 'grid' }}
                       onClick={() => {
                         !favoriteIds.includes(productId) &&
-                        status === 'soltOut'
-                          ? onClickSoldOut
+                        status === 'soldOut'
+                          ? onClickSoldOut()
                           : onFavoritePress(productId);
                       }}
                     >
@@ -114,8 +114,8 @@ const Card = ({
                       style={{ display: 'grid' }}
                       onClick={() => {
                         !cartIds.includes(productId) &&
-                        status === 'soltOut'
-                          ? onClickSoldOut
+                        status === 'soldOut'
+                          ? onClickSoldOut()
                           : onCartPress(brandName, productId);
                       }}
                     >
