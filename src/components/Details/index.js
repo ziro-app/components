@@ -1,42 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { container, infoBlock, header, body, info, title, content } from './styles'
+import { container, infoBlock, headerStyle, dot, bodyStyle, info, titleStyle, contentStyle } from './styles'
 
-const Details = props => {
-	return (
-		<div style={container}>
-			<div style={infoBlock}>
-				<label style={header}>Compra</label>
-				<div style={body}>
-					<div style={info}>
-						<label style={title}>Marca</label>
-						<label style={content}>Crisfael</label>
-					</div>
-					<div style={info}>
-						<label style={title}>Valor</label>
-						<label style={content}>3000,33</label>
-					</div>
+const Details = ({ blocks }) =>
+	<div style={container}>
+		{blocks.map(({ header, body }, indexHeader) =>
+			<div style={infoBlock} key={indexHeader}>
+				<label style={headerStyle}>{header}
+					<label style={dot}>&nbsp;.</label>
+				</label>
+				<div style={bodyStyle}>
+					{body.map(({ title, content, color }, indexBody) =>
+						<div style={info} key={indexBody}>
+							<label style={titleStyle}>{title}</label>
+							<label style={contentStyle(color)}>{content}</label>
+						</div>
+					)}
 				</div>
 			</div>
-			<div style={infoBlock}>
-				<label style={header}>Cartão</label>
-				<div style={body}>
-					<div style={info}>
-						<label style={title}>Bandeira</label>
-						<label style={content}>Mastercard</label>
-					</div>
-					<div style={info}>
-						<label style={title}>Número</label>
-						<label style={content}>4444...1111</label>
-					</div>
-				</div>
-			</div>
-		</div>
-	)
-}
+		)}
+	</div>
 
 Details.propTypes = {
-
+	blocks: PropTypes.array.isRequired
 }
 
 export default Details

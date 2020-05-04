@@ -1,10 +1,56 @@
 import React from 'react';
 import Details from '../../../components/Details/index';
 import Header from '../../../components/Header/index';
-import { containerWithPadding } from '@ziro/theme';
+import { containerWithPadding, successColor } from '@ziro/theme';
+
+const blocks = [
+	{
+		header: 'Compra',
+		body: [
+			{
+				title: 'Marca',
+				content: 'Crisfael'
+			},
+			{
+				title: 'Valor',
+				content: 'R$3.000,33'
+			},
+			{
+				title: 'Forma',
+				content: 'crédito 3x'
+			},
+			{
+				title: 'Data',
+				content: '23/02/20'
+			},
+			{
+				title: 'Status',
+				content: 'Aprovada',
+				color: successColor
+			},
+		]
+	},
+	{
+		header: 'Cartão',
+		body: [
+			{
+				title: 'Bandeira',
+				content: 'Mastercard'
+			},
+			{
+				title: 'Número',
+				content: '4444...1111'
+			},
+			{
+				title: 'Portador',
+				content: 'Fulano de tal'
+			}
+		]
+	},
+]
 
 export const DisplayDetails = () =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' title='Detalhes' navigateTo='home' />
-		<Details />
+		<Details blocks={blocks} />
 	</div>
