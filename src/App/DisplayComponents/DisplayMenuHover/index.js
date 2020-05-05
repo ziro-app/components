@@ -29,7 +29,7 @@ export const DisplayMenuHover = () =>
 		/>
 		<MenuHover
 			options={[
-				{ label: 'Filtro', onClick: () => null },
+				{ label: 'Filtro', onClick: () => window.location.replace('/home'), icon: 'filter' },
 			]}
 			maxWidth='100px'
 		/>

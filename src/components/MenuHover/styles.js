@@ -22,7 +22,21 @@ menuOptions = numberOfColumns => ({
 	width: '100%'
 }),
 
-name = {
-	fontFamily: fontTitle,
-	fontSize: '1.4rem'
+withIcon = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '5px',
+	alignItems: 'center'
+},
+
+name = icon => {
+	if (icon) return ({
+		fontFamily: fontTitle,
+		fontSize: '1.4rem',
+		...withIcon
+	})
+	return ({
+		fontFamily: fontTitle,
+		fontSize: '1.4rem'
+	})
 }
