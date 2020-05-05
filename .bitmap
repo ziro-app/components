@@ -311,7 +311,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.22": {
+    "vitorbarbosa19.ziro/card@0.0.27": {
         "files": [
             {
                 "relativePath": "src/components/Card/index.js",
@@ -1846,7 +1846,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.1.30": {
+    "vitorbarbosa19.ziro/timeline@0.1.31": {
         "files": [
             {
                 "name": "index.js",

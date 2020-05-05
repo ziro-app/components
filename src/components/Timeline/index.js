@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import Illustration from '../Illustration/index'
 import { after, afterWelcome, wrapper, sellerCss, chargeCss, statusCss, dateCss, start, welcome, illustration, empty } from './styles'
 
-const Timeline = ({ transactions }) =>
+const Timeline = ({ transactions, onClick = () => null }) =>
 	<>
 		<style>{after}</style>
 		{transactions.map(({ seller, charge, status, date }, key) =>
-			<div style={wrapper} className='timeline' key={key}>
+			<div style={wrapper} className='timeline' key={key} onClick={onClick}>
 				<label style={sellerCss}>{seller}</label>
 				<label style={chargeCss}>{charge}</label>
 				<label style={statusCss}>{status}</label>
@@ -25,7 +25,8 @@ const Timeline = ({ transactions }) =>
 	</>
 
 Timeline.propTypes = {
-	transactions: PropTypes.array.isRequired
+	transactions: PropTypes.array.isRequired,
+	onClick: PropTypes.func
 }
 
 export default Timeline

@@ -15,7 +15,7 @@ import {
   empty,
 } from './styles';
 
-const Timeline = ({ transaction }) => {
+const PaymentDetail = ({ transaction }) => {
   transaction = [
     {
       seller: 'Karmani',
@@ -52,8 +52,8 @@ const Timeline = ({ transaction }) => {
   </>;
 };
 
-Timeline.propTypes = {
+PaymentDetail.propTypes = {
   transactions: PropTypes.array.isRequired,
 };
 
-export default Timeline;
+export default PaymentDetail;
