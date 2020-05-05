@@ -18,7 +18,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/badge@1.0.28": {
+    "vitorbarbosa19.ziro/badge@1.0.29": {
         "files": [
             {
                 "name": "index.js",
@@ -329,7 +329,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.56": {
+    "vitorbarbosa19.ziro/checkout@0.1.57": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -392,7 +392,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.33": {
+    "vitorbarbosa19.ziro/choose-card@0.0.34": {
         "files": [
             {
                 "name": "addCard.js",
@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.1.44": {
+    "vitorbarbosa19.ziro/delete-account@0.1.45": {
         "files": [
             {
                 "name": "index.js",
@@ -547,7 +547,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/dropdown-edit@0.0.34": {
+    "vitorbarbosa19.ziro/dropdown-edit@0.0.35": {
         "files": [
             {
                 "name": "index.js",
@@ -745,7 +745,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.37": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.38": {
         "files": [
             {
                 "name": "index.js",
@@ -817,7 +817,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-input@0.1.31": {
+    "vitorbarbosa19.ziro/form-input@0.1.32": {
         "files": [
             {
                 "name": "index.js",
@@ -835,7 +835,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.71": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.72": {
         "files": [
             {
                 "name": "index.js",
@@ -1365,7 +1365,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/input-edit@0.1.33": {
+    "vitorbarbosa19.ziro/input-edit@0.1.34": {
         "files": [
             {
                 "name": "index.js",
@@ -1485,7 +1485,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.1.40": {
+    "vitorbarbosa19.ziro/login-form@0.1.41": {
         "files": [
             {
                 "name": "index.js",
@@ -1498,7 +1498,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.1.42": {
+    "vitorbarbosa19.ziro/login-page@0.1.43": {
         "files": [
             {
                 "name": "index.js",
@@ -1565,7 +1565,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/menu-hover@0.0.3": {
+    "vitorbarbosa19.ziro/menu-hover@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/MenuHover/index.js",
@@ -1647,7 +1647,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.50": {
+    "vitorbarbosa19.ziro/resend-email@0.1.51": {
         "files": [
             {
                 "name": "index.js",
@@ -1665,7 +1665,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/reset-pass@0.1.47": {
+    "vitorbarbosa19.ziro/reset-pass@0.1.48": {
         "files": [
             {
                 "name": "index.js",
@@ -1915,7 +1915,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.48": {
+    "vitorbarbosa19.ziro/update-email@0.1.49": {
         "files": [
             {
                 "name": "index.js",
@@ -1928,7 +1928,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-pass@0.1.44": {
+    "vitorbarbosa19.ziro/update-pass@0.1.45": {
         "files": [
             {
                 "name": "index.js",
