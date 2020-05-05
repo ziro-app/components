@@ -55,5 +55,5 @@ export const DisplayTimeline = () =>
 				status: 'Pago',
 				date: '27/ago'
 			},
-		]} />
+		]} onClick={({ transaction }) => console.log(transaction)} />
 	</div>

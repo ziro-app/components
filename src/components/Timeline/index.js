@@ -19,7 +19,7 @@ const Timeline = ({ transactions, onClick = () => null }) =>
 	<>
 		<style>{after}</style>
 		{transactions.map((transaction, key) =>
-			<div style={wrapper} className='timeline' key={key} onClick={(transaction) => onClick(transaction)}>
+			<div style={wrapper} className='timeline' key={key} onClick={() => onClick({ transaction })}>
 				<label style={sellerCss}>{transaction.seller}</label>
 				<label style={chargeCss}>{transaction.charge}</label>
 				<label style={statusCss}>{transaction.status}</label>
