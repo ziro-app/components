@@ -1,17 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Illustration from '../Illustration/index'
-import { after, afterWelcome, wrapper, sellerCss, chargeCss, statusCss, dateCss, start, welcome, illustration, empty } from './styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Illustration from '../Illustration/index';
+import {
+	after,
+	afterWelcome,
+	wrapper,
+	sellerCss,
+	chargeCss,
+	statusCss,
+	dateCss,
+	start,
+	welcome,
+	illustration,
+	empty,
+} from './styles';
 
 const Timeline = ({ transactions, onClick = () => null }) =>
 	<>
 		<style>{after}</style>
-		{transactions.map(({ seller, charge, status, date }, key) =>
-			<div style={wrapper} className='timeline' key={key} onClick={onClick}>
-				<label style={sellerCss}>{seller}</label>
-				<label style={chargeCss}>{charge}</label>
-				<label style={statusCss}>{status}</label>
-				<label style={dateCss}>{date}</label>
+		{transactions.map((transaction, key) =>
+			<div style={wrapper} className='timeline' key={key} onClick={(transaction) => onClick(transaction)}>
+				<label style={sellerCss}>{transaction.seller}</label>
+				<label style={chargeCss}>{transaction.charge}</label>
+				<label style={statusCss}>{transaction.status}</label>
+				<label style={dateCss}>{transaction.date}</label>
 			</div>
 		)}
 		<style>{afterWelcome}</style>
@@ -26,7 +38,7 @@ const Timeline = ({ transactions, onClick = () => null }) =>
 
 Timeline.propTypes = {
 	transactions: PropTypes.array.isRequired,
-	onClick: PropTypes.func
-}
+	onClick: PropTypes.func,
+};
 
-export default Timeline
+export default Timeline;
