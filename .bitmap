@@ -483,21 +483,21 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/details@0.0.1": {
+    "vitorbarbosa19.ziro/details@0.0.2": {
         "files": [
             {
-                "relativePath": "src/components/details/index.js",
+                "relativePath": "src/components/Details/index.js",
                 "test": false,
                 "name": "index.js"
             },
             {
-                "relativePath": "src/components/details/styles.js",
+                "relativePath": "src/components/Details/styles.js",
                 "test": false,
                 "name": "styles.js"
             }
         ],
-        "mainFile": "src/components/details/index.js",
-        "trackDir": "src/components/details",
+        "mainFile": "src/components/Details/index.js",
+        "trackDir": "src/components/Details",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -1828,25 +1828,25 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/table@0.0.1": {
+    "vitorbarbosa19.ziro/table@0.0.2": {
         "files": [
             {
-                "relativePath": "src/components/table/index.js",
+                "relativePath": "src/components/Table/index.js",
                 "test": false,
                 "name": "index.js"
             },
             {
-                "relativePath": "src/components/table/styles.js",
+                "relativePath": "src/components/Table/styles.js",
                 "test": false,
                 "name": "styles.js"
             }
         ],
-        "mainFile": "src/components/table/index.js",
-        "trackDir": "src/components/table",
+        "mainFile": "src/components/Table/index.js",
+        "trackDir": "src/components/Table",
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.1.34": {
+    "vitorbarbosa19.ziro/timeline@0.1.35": {
         "files": [
             {
                 "name": "index.js",

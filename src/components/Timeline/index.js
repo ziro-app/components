@@ -22,7 +22,7 @@ const Timeline = ({ transactions, onClick = () => null }) =>
 			<div style={wrapper} className='timeline' key={key} onClick={() => onClick({ transaction })}>
 				<label style={sellerCss}>{transaction.seller}</label>
 				<label style={chargeCss}>{transaction.charge}</label>
-				<label style={statusCss}>{transaction.status}</label>
+				<label style={statusCss(transaction.statusColor)}>{transaction.status}</label>
 				<label style={dateCss}>{transaction.date}</label>
 			</div>
 		)}

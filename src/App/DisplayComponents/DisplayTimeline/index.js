@@ -53,7 +53,8 @@ export const DisplayTimeline = () =>
 				seller: 'Crisfael',
 				charge: '1.299,02',
 				status: 'Pago',
-				date: '27/ago'
+				date: '27/ago',
+				statusColor: '#bb2124'
 			},
 		]} onClick={({ transaction }) => console.log(transaction)} />
 	</div>
