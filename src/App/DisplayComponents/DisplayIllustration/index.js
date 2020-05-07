@@ -13,5 +13,6 @@ export const DisplayIllustration = () => (
     <Illustration type="profileData" size={200} />
     <Illustration type="buy" size={200} />
     <Illustration type="withoutCartItem" size={200} />
+    <Illustration type="waiting" size={200} />
   </div>
 );

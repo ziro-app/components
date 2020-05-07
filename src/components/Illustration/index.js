@@ -10,6 +10,7 @@ import { Buy } from '../../Illustrations/Buy';
 import { RegisterSuccess } from '../../Illustrations/RegisterSuccess';
 import { WithoutFavorites } from '../../Illustrations/WithoutFavorites';
 import { WithoutCartItem } from '../../Illustrations/WithoutCartItem';
+import { Waiting } from '../../Illustrations/Waiting';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -24,6 +25,7 @@ const Illustration = ({ type, size }) => {
     registerSuccess: <RegisterSuccess {...illustrationProps} />,
     withoutFavorites: <WithoutFavorites {...illustrationProps} />,
     withoutCartItem: <WithoutCartItem {...illustrationProps} />,
+    waiting: <Waiting {...illustrationProps} />,
   };
   return illustrationList[type];
 };
