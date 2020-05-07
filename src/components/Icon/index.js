@@ -46,6 +46,8 @@ import { ChevronUp } from '../../Icons/ChevronUp/index';
 import { File } from '../../Icons/File/index';
 import { Home } from '../../Icons/Home/index';
 import { Heart } from './../../Icons/Heart/index';
+import { Cart } from './../../Icons/Cart/index';
+import { Forward } from './../../Icons/Forward/index';
 
 const Icon = ({
   type,
@@ -54,7 +56,7 @@ const Icon = ({
   size,
   color,
   strokeWidth,
-  fill
+  fill,
 }) => {
   const iconProps = {
     style,
@@ -62,7 +64,7 @@ const Icon = ({
     size,
     color,
     strokeWidth,
-    fill
+    fill,
   };
   const iconList = {
     ziro: <Ziro {...iconProps} />,
@@ -111,7 +113,9 @@ const Icon = ({
     chevronUp: <ChevronUp {...iconProps} />,
     file: <File {...iconProps} />,
     home: <Home {...iconProps} />,
-    heart: <Heart {...iconProps} />
+    heart: <Heart {...iconProps} />,
+    cart: <Cart {...iconProps} />,
+    forward: <Forward {...iconProps} />,
   };
   return iconList[type];
 };
@@ -122,7 +126,7 @@ Icon.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.number,
   color: PropTypes.string,
-  strokeWidth: PropTypes.number
+  strokeWidth: PropTypes.number,
 };
 
 export default Icon;

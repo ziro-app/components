@@ -57,6 +57,7 @@ import { DisplayBottomTabBar } from './DisplayComponents/DisplayBottomTabBar';
 import { DisplayCard } from './DisplayComponents/DisplayCard';
 import { DisplayDetails } from './DisplayComponents/DisplayDetails';
 import { DisplayTable } from './DisplayComponents/DisplayTable';
+import { DisplayPaymentDetail } from './DisplayComponents/DisplayPaymentDetail';
 
 export const App = () => (
   <Switch>
@@ -230,6 +231,9 @@ export const App = () => (
     </Route>
     <Route path="/table">
       <DisplayTable />
+    </Route>
+    <Route path="/payment-detail">
+      <DisplayPaymentDetail />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>
