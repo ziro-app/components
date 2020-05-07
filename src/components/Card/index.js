@@ -48,6 +48,7 @@ const Card = ({
   onClickSoldOut,
   isFeatured = true,
   test = true,
+  setModalHowToBuyOpen,
 
   selectedCard = 1,
 }) => {
@@ -324,7 +325,7 @@ const Card = ({
                             <label
                               style={howToBuy}
                               onClick={() =>
-                                setWLocation('/cadastrar')
+                                setModalHowToBuyOpen(true)
                               }
                             >
                               Como Comprar?
