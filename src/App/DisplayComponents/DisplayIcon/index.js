@@ -40,5 +40,17 @@ export const DisplayIcon = () =>
 		<Icon type='add' size={24} />
 		<Icon type='send' size={24} />
 		<Icon type='filter' size={24} />
+		<Icon type='camera' size={24} />
+		<Icon type='upload' size={24} />
+		<Icon type='trash' size={24} />
+		<Icon type='check' size={24} />
+		<Icon type='star' size={24} />
+		<Icon type='search' size={24} />
+		<Icon type='shoppingBag' size={24} />
+		<Icon type='chevronUp' size={24} />
 		<Icon type='file' size={24} />
+		<Icon type='home' size={24} />
+		<Icon type='heart' size={24} />
+		<Icon type='cart' size={24} />
+		<Icon type='forward' size={24} />
 	</div>
