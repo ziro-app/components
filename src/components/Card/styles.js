@@ -8,6 +8,7 @@ import {
   fontSizeSmall,
   primaryColor,
   fontSizeNormal,
+  fontBody,
 } from '@ziro/theme';
 
 export const container = {
@@ -15,8 +16,7 @@ export const container = {
     gridGap: '20px',
     alignContent: 'start',
     minHeight: '100vh',
-    maxWidth:
-      window.innerWidth > 500 ? '385px' : window.innerWidth - 15,
+    maxWidth: window.innerWidth > 500 ? '385px' : window.innerWidth - 15,
     margin: '0 auto',
   },
   card = {
@@ -47,6 +47,10 @@ export const container = {
     background: alertColor, //'rgba(34,34,34,0.9)',
     boxShadow: 'rgba(34, 34, 34, 0.3) 0px -5px 15px -1px',
   },
+  brandStyle = {
+    fontSize: '1.5rem',
+    fontFamily: fontTitle,
+  },
   image = {
     objectFit: 'contain',
     width: '100%',
@@ -68,9 +72,9 @@ export const container = {
     gridRowGap: '10px',
     padding: '10px 10px 20px',
   },
-  icons = (showPrice) => ({
+  icons = showPrice => ({
     display: 'grid',
-    gridTemplateColumns: 'auto auto 1fr auto',
+    gridTemplateColumns: 'auto auto 1fr',
     gridGap: '15px',
     alignItems: 'end',
     justifyItems: 'start',
@@ -138,8 +142,7 @@ export const container = {
     gridGap: '20px',
     alignContent: 'start',
     minHeight: '100vh',
-    maxWidth:
-      window.innerWidth > 500 ? '385px' : window.innerWidth - 15,
+    maxWidth: window.innerWidth > 500 ? '385px' : window.innerWidth - 15,
     margin: '0 auto',
   },
   card2 = {
@@ -191,7 +194,7 @@ export const container = {
     gridRowGap: '10px',
     padding: '10px 10px 20px',
   },
-  icons2 = (showPrice) => ({
+  icons2 = showPrice => ({
     display: 'grid',
     gridTemplateColumns: 'auto auto auto',
     gridGap: '15px',
@@ -266,9 +269,19 @@ export const container = {
   info4 = {
     //display: 'grid',
     //gridTemplateColumns: '1fr',
+    color: grayColor1,
     alignItems: 'center',
     justifyItems: 'start',
     fontSize: '1.2rem',
+  },
+  descriptionStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    alignItems: 'center',
+    justifyItems: 'start',
+    fontFamily: fontBody,
+    fontSize: fontSizeNormal,
+    color: primaryColor,
   },
   cart2 = {
     margin: '0px',

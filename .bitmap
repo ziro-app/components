@@ -314,9 +314,34 @@
     "vitorbarbosa19.ziro/card@0.0.36": {
         "files": [
             {
+                "relativePath": "src/components/Card/brandTimestampRow.js",
+                "test": false,
+                "name": "brandTimestampRow.js"
+            },
+            {
+                "relativePath": "src/components/Card/howToBuyRow.js",
+                "test": false,
+                "name": "howToBuyRow.js"
+            },
+            {
+                "relativePath": "src/components/Card/iconRow.js",
+                "test": false,
+                "name": "iconRow.js"
+            },
+            {
                 "relativePath": "src/components/Card/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Card/priceRow.js",
+                "test": false,
+                "name": "priceRow.js"
+            },
+            {
+                "relativePath": "src/components/Card/rows.js",
+                "test": false,
+                "name": "rows.js"
             },
             {
                 "relativePath": "src/components/Card/styles.js",
