@@ -22,6 +22,7 @@ export const DisplayCard = () => {
   ];
   const favoriteIds = ['hKxUGL9CuKScXvBQ98Ve'];
   const cartIds = ['hKxUGL9CuKScXvBQ98Ve'];
+  const rows = [{}];
   return (
     <div style={container}>
       <Card
@@ -31,6 +32,7 @@ export const DisplayCard = () => {
         photo={photo}
         uid={false}
         test={false}
+        rows={rows}
       />
     </div>
   );
