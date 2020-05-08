@@ -97,14 +97,13 @@ const Card = ({
                           status === 'soldOut'
                             ? onClickSoldOut()
                             : onFavoritePress(productId);
-                        }}
-                      >
-                        <Icon
-                          type="heart"
-                          size={24}
-                          strokeWidth={1}
-                          fill={favoriteIds.includes(productId)}
-                        />
+                        }}>
+                          <Icon
+                            type="heart"
+                            size={24}
+                            strokeWidth={1}
+                            fill={favoriteIds.includes(productId)}
+                          />
                       </div>
                       <div
                         style={{ display: 'grid' }}
@@ -113,14 +112,13 @@ const Card = ({
                           status === 'soldOut'
                             ? onClickSoldOut()
                             : onCartPress(brandName, productId);
-                        }}
-                      >
-                        <Icon
-                          type="cart"
-                          size={24}
-                          strokeWidth={1}
-                          fill={cartIds.includes(productId)}
-                        />
+                        }}>
+                          <Icon
+                            type="cart"
+                            size={24}
+                            strokeWidth={1}
+                            fill={cartIds.includes(productId)}
+                          />
                       </div>
                       {cartIds.includes(productId) &&
                         cartQuantity > 0 && (
@@ -128,13 +126,13 @@ const Card = ({
                             Adic. em {cartQuantity + 1} sacola
                             {cartQuantity > 0 && 's'}
                           </label>
-                        )}
+                      )}
                       {cartIds.includes(productId) &&
                         (cartQuantity === 0 || !cartQuantity) && (
                           <label style={cartQty}>
                             Adic. em 1 sacola
                           </label>
-                        )}
+                      )}
                       {!cartIds.includes(productId) &&
                         cartQuantity > 0 && (
                           <label style={cartQty}>
@@ -222,14 +220,13 @@ const Card = ({
                             status === 'soldOut'
                               ? onClickSoldOut()
                               : onFavoritePress(productId);
-                          }}
-                        >
-                          <Icon
-                            type="heart"
-                            size={24}
-                            strokeWidth={1}
-                            fill={favoriteIds.includes(productId)}
-                          />
+                          }}>
+                            <Icon
+                              type="heart"
+                              size={24}
+                              strokeWidth={1}
+                              fill={favoriteIds.includes(productId)}
+                            />
                         </div>
                         <div
                           style={{ display: 'grid' }}
@@ -238,14 +235,13 @@ const Card = ({
                             status === 'soldOut'
                               ? onClickSoldOut()
                               : onCartPress(brandName, productId);
-                          }}
-                        >
-                          <Icon
-                            type="cart"
-                            size={24}
-                            strokeWidth={1}
-                            fill={cartIds.includes(productId)}
-                          />
+                          }}>
+                            <Icon
+                              type="cart"
+                              size={24}
+                              strokeWidth={1}
+                              fill={cartIds.includes(productId)}
+                            />
                         </div>
                         {cartIds.includes(productId) &&
                           cartQuantity > 0 && (
@@ -273,7 +269,6 @@ const Card = ({
                             <div />
                           )}
                       </div>
-
                       <div style={info2}>
                         <label
                           style={info4}
@@ -286,49 +281,24 @@ const Card = ({
                                     .toLowerCase()}`
                                 )
                               : null;
-                          }}
-                        >
-                          Mín. 6 peças, frete gratis
+                          }}>
+                            Mín. 6 peças, frete gratis
                         </label>
-                        {!uid ? (
-                          <label
-                            style={priceButton2}
-                            onClick={() => setWLocation('/cadastrar')}
-                          >
-                            ver preço
-                          </label>
-                        ) : price ? (
-                          <label style={values}>
-                            {currencyFormat(price)}
-                          </label>
-                        ) : (
-                          <div />
-                        )}
+                        {!uid
+                          ? <label style={priceButton2} onClick={() => setWLocation('/cadastrar')}>ver preço</label>
+                          : price
+                            ? <label style={values}>{currencyFormat(price)}</label>
+                            : <div />
+                        }
                       </div>
-
                       {!uid ? (
                         <>
                           <div style={info2}>
-                            {!uid ? (
-                              <label
-                                style={registerButton}
-                                onClick={() =>
-                                  setWLocation('/cadastrar')
-                                }
-                              >
-                                Cadastre-se
-                              </label>
-                            ) : (
-                              <div />
-                            )}
-                            <label
-                              style={howToBuy}
-                              onClick={() =>
-                                setWLocation('/cadastrar')
-                              }
-                            >
-                              Como Comprar?
-                            </label>
+                            {!uid
+                              ? <label style={registerButton} onClick={() => setWLocation('/cadastrar')}>Cadastre-se</label>
+                              : null
+                            }
+                            <label style={howToBuy} onClick={() => setWLocation('/cadastrar')}>Como Comprar?</label>
                           </div>
                           <div style={info3}>
                             <div
@@ -346,27 +316,27 @@ const Card = ({
                                         .toLowerCase()}`
                                     )
                                   : null;
-                              }}
-                            >
-                              <label>
-                                {showBrandName ? brandName : null}
-                              </label>
-                              <Icon
-                                type="forward"
-                                size={16}
-                                strokeWidth={1}
-                              />
+                              }}>
+                                <label>
+                                  {showBrandName ? brandName : null}
+                                </label>
+                                <Icon
+                                  type="forward"
+                                  size={16}
+                                  strokeWidth={1}
+                                />
                             </div>
-                            {timeInDays === 0 ? (
+                            {timeInDays === 0
+                              ?
                               <label style={timestampStyle2}>
                                 Hoje
                               </label>
-                            ) : (
+                              :
                               <label style={timestampStyle2}>
                                 {timeInDays} dia
                                 {timeInDays > 0 && 's'} atrás
                               </label>
-                            )}
+                            }
                           </div>
                         </>
                       ) : (
