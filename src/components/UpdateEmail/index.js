@@ -6,10 +6,10 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const UpdateEmail = ({ row, sendToBackend, navigateTo = '/conta' }) => {
+const UpdateEmail = ({ zoopId, row, sendToBackend, navigateTo = '/conta' }) => {
 	const [pass, setPass] = useState('')
 	const [newEmail, setNewEmail] = useState('')
-	const state = { row, pass, newEmail }
+	const state = { zoopId, row, pass, newEmail }
 	const validations = [
 		{
 			name: 'pass',

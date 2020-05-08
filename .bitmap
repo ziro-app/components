@@ -1930,7 +1930,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.51": {
+    "vitorbarbosa19.ziro/update-email@0.1.52": {
         "files": [
             {
                 "name": "index.js",
