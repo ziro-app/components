@@ -311,7 +311,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.35": {
+    "vitorbarbosa19.ziro/card@0.0.36": {
         "files": [
             {
                 "relativePath": "src/components/Card/index.js",
@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.1.47": {
+    "vitorbarbosa19.ziro/delete-account@0.1.48": {
         "files": [
             {
                 "name": "index.js",
@@ -1930,7 +1930,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.51": {
+    "vitorbarbosa19.ziro/update-email@0.1.52": {
         "files": [
             {
                 "name": "index.js",
