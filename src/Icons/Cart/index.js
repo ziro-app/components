@@ -13,12 +13,12 @@ export const Cart = ({
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    fill={fill}
+    fill={fill ? primaryColor : 'none'}
     stroke="currentColor"
     strokeWidth={strokeWidth}
     strokeLinecap="round"
     strokeLinejoin="round"
-    class="feather feather-shopping-cart"
+    className="feather feather-shopping-cart"
     color={color}
   >
     <circle cx="9" cy="21" r="1"></circle>

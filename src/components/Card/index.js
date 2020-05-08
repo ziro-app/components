@@ -48,6 +48,7 @@ const Card = ({
   onClickSoldOut,
   isFeatured = true,
   test = true,
+  setModalHowToBuyOpen,
 
   selectedCard = 1,
 }) => {
@@ -254,13 +255,13 @@ const Card = ({
                         {cartIds.includes(productId) &&
                           (cartQuantity === 0 || !cartQuantity) && (
                             <label style={cartQty2}>
-                              Adic. em 1 sacola
+                              Na sua sacola
                             </label>
                           )}
                         {!cartIds.includes(productId) &&
                           cartQuantity > 0 && (
                             <label style={cartQty2}>
-                              Adic. em {cartQuantity} sacola
+                              Adicionado em {cartQuantity} sacola
                               {cartQuantity > 1 && 's'}
                             </label>
                           )}
@@ -362,11 +363,13 @@ const Card = ({
                               <label>
                                 {showBrandName ? brandName : null}
                               </label>
-                              <Icon
-                                type="forward"
-                                size={16}
-                                strokeWidth={1}
-                              />
+                              {setLocation ? (
+                                <Icon
+                                  type="forward"
+                                  size={16}
+                                  strokeWidth={1}
+                                />
+                              ) : null}
                             </div>
                             {timeInDays === 0 ? (
                               <label style={timestampStyle2}>
