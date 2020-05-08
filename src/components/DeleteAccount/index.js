@@ -6,9 +6,9 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const DeleteAccount = ({ sendToBackend, navigateTo = '/conta' }) => {
+const DeleteAccount = ({ zoopId, sendToBackend, navigateTo = '/conta' }) => {
 	const [pass, setPass] = useState('')
-	const state = { pass }
+	const state = { zoopId, pass }
 	const validations = [
 		{
 			name: 'pass',
@@ -33,7 +33,7 @@ const DeleteAccount = ({ sendToBackend, navigateTo = '/conta' }) => {
 							placeholder='Sua senha'
 							type='password'
 						/>
-					}/>
+					} />
 				]}
 			/>
 		</div>
