@@ -311,32 +311,32 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.36": {
+    "vitorbarbosa19.ziro/card@0.0.37": {
         "files": [
             {
-                "relativePath": "src/components/Card/brandTimestampRow.js",
+                "relativePath": "src/components/Card/FirstRow.js",
                 "test": false,
-                "name": "brandTimestampRow.js"
+                "name": "FirstRow.js"
             },
             {
-                "relativePath": "src/components/Card/howToBuyRow.js",
+                "relativePath": "src/components/Card/FourthRow.js",
                 "test": false,
-                "name": "howToBuyRow.js"
+                "name": "FourthRow.js"
             },
             {
-                "relativePath": "src/components/Card/iconRow.js",
+                "relativePath": "src/components/Card/SecondRow.js",
                 "test": false,
-                "name": "iconRow.js"
+                "name": "SecondRow.js"
+            },
+            {
+                "relativePath": "src/components/Card/ThirdRow.js",
+                "test": false,
+                "name": "ThirdRow.js"
             },
             {
                 "relativePath": "src/components/Card/index.js",
                 "test": false,
                 "name": "index.js"
-            },
-            {
-                "relativePath": "src/components/Card/priceRow.js",
-                "test": false,
-                "name": "priceRow.js"
             },
             {
                 "relativePath": "src/components/Card/rows.js",

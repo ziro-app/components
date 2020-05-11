@@ -232,9 +232,6 @@ export const App = () => (
     <Route path="/table">
       <DisplayTable />
     </Route>
-    <Route path="/payment-detail">
-      <DisplayPaymentDetail />
-    </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>
 );

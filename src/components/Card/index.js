@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useAnimatedLocation } from '../FlowManager';
 
 import { motion } from 'framer-motion';
@@ -9,28 +9,7 @@ import {
   overlay,
   overlayContainer,
   cardBottom,
-  icons,
-  priceButton,
   image,
-  info,
-  cartQty,
-  timestampStyle,
-  values,
-  card2,
-  overlay2,
-  overlayContainer2,
-  cardBottom2,
-  icons2,
-  priceButton2,
-  image2,
-  info2,
-  cartQty2,
-  timestampStyle2,
-  values2,
-  registerButton,
-  howToBuy,
-  info3,
-  info4,
 } from './styles';
 import FirstRow from './FirstRow';
 import SecondRow from './SecondRow';
@@ -53,19 +32,21 @@ const Card = ({
   isFeatured = true,
   setModalHowToBuyOpen,
 }) => {
-  const { brandName, url, productId, timeInDays, cartQuantity, favQuantity, price, status, description } = photo;
+  const { brandName, url, productId, timeInDays, cartQuantity, favQuantity, price, status, description,
+    minimumItemQty,
+    freeShipping } = photo;
   return (
     <RImg
       key={url}
       src={url}
-      style={image2}
+      style={image}
       container={children => (
-        <div style={card2}>
-          <div style={overlayContainer2}>
-            {status === 'soldOut' ? <div style={overlay2}>esgotado</div> : null}
+        <div style={card}>
+          <div style={overlayContainer}>
+            {status === 'soldOut' ? <div style={overlay}>esgotado</div> : null}
             {children}
           </div>
-          <div style={cardBottom2}>
+          <div style={cardBottom}>
             <FirstRow
               cartIds={cartIds}
               favoriteIds={favoriteIds}
@@ -73,11 +54,13 @@ const Card = ({
               cartQuantity={cartQuantity}
               onClickSoldOut={onClickSoldOut}
               brandName={brandName}
+              onFavoritePress={onFavoritePress}
+              onCartPress={onCartPress}
             />
 
-            <SecondRow description={description} uid={uid} setWLocation={setWLocation} price={price} setLocation={setLocation} brandName />
+            <SecondRow description={description} uid={uid} setWLocation={setWLocation} price={price} setLocation={setLocation}  />
 
-            <ThirdRow setLocation={setLocation} showBrandName={showBrandName} brandName={brandName} timeInDays={timeInDays} />
+            <ThirdRow setLocation={setLocation} showBrandName={showBrandName} brandName={brandName} minimumItemQty={minimumItemQty} freeShipping={freeShipping} timeInDays={timeInDays} />
             <FourthRow brandName={brandName} uid={uid} setWLocation={setWLocation} setModalHowToBuyOpen={setModalHowToBuyOpen} />
           </div>
         </div>
@@ -90,6 +73,17 @@ const Card = ({
 Card.propTypes = {
   cartIds: PropTypes.arrayOf(PropTypes.string),
   favoriteIds: PropTypes.arrayOf(PropTypes.string),
+  onFavoritePress: PropTypes.func,
+  onCartPress: PropTypes.func,
+  showBrandName: PropTypes.bool,
+  showPrice : PropTypes.bool,
+  photo: PropTypes.object,
+  uid: PropTypes.string,
+  setWLocation: PropTypes.func,
+  setLocation: PropTypes.func,
+  onClickSoldOut: PropTypes.func,
+  isFeatured: PropTypes.bool,
+  setModalHowToBuyOpen: PropTypes.func,
 };
 
 export default Card;

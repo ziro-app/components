@@ -1,36 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { icons, cartQty2 } from './styles';
+import { icons, cartQty } from './styles';
 import Icon from '../Icon';
 
-const FirstRow = ({ cartIds, favoriteIds, productId, cartQuantity, brandName, onClickSoldOut }) => {
+const FirstRow = ({ cartIds, favoriteIds, productId, cartQuantity, brandName, onClickSoldOut, onFavoritePress, onCartPress }) => {
   return (
     <div style={icons()}>
       <div
         style={{ display: 'grid' }}
         onClick={() => {
-          !favoriteIds.includes(productId) && status === 'soldOut' ? onClickSoldOut() : onFavoritePress(productId);
+          onClickSoldOut && onFavoritePress ?(!favoriteIds.includes(productId) && status === 'soldOut' ? onClickSoldOut() : onFavoritePress(productId)): null
         }}
       >
         <Icon type="heart" size={24} strokeWidth={1} fill={favoriteIds.includes(productId)} />
       </div>
       <div
         style={{ display: 'grid' }}
-        onClick={() => {
-          !cartIds.includes(productId) && status === 'soldOut' ? onClickSoldOut() : onCartPress(brandName, productId);
+        onClick={() => {onClickSoldOut && onCartPress ?(!cartIds.includes(productId) && status === 'soldOut' ? onClickSoldOut() : onCartPress(brandName, productId)) : null
         }}
       >
         <Icon type="cart" size={24} strokeWidth={1} fill={cartIds.includes(productId)} />
       </div>
       {cartIds.includes(productId) && cartQuantity > 0 && (
-        <label style={cartQty2}>
-          Na sua sacola e de mais {cartQuantity + 1} pessoa
+        <label style={cartQty}>
+          Na sua sacola e de mais {cartQuantity} pessoa
           {cartQuantity > 1 && 's'}
         </label>
       )}
-      {cartIds.includes(productId) && (cartQuantity === 0 || !cartQuantity) && <label style={cartQty2}>Na sua sacola</label>}
+      {cartIds.includes(productId) && (cartQuantity === 0 || !cartQuantity) && <label style={cartQty}>Na sua sacola</label>}
       {!cartIds.includes(productId) && cartQuantity > 0 && (
-        <label style={cartQty2}>
+        <label style={cartQty}>
           Adicionado em {cartQuantity} sacola
           {cartQuantity > 1 && 's'}
         </label>
@@ -39,5 +38,6 @@ const FirstRow = ({ cartIds, favoriteIds, productId, cartQuantity, brandName, on
     </div>
   );
 };
+
 
 export default FirstRow;

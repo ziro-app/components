@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { registerButton, howToBuy, info2, info4, brandStyle } from './styles';
+import { howToBuy, info2, brandStyle } from './styles';
+
+import Icon from '../Icon';
 
 const FourthRow = ({ brandName, setLocation, setModalHowToBuyOpen }) => {
   return (
@@ -18,7 +20,7 @@ const FourthRow = ({ brandName, setLocation, setModalHowToBuyOpen }) => {
         <label style={brandStyle}>{brandName}</label>
         {setLocation ? <Icon type="forward" size={16} strokeWidth={1} /> : null}
       </div>
-      <label style={howToBuy} onClick={() => setModalHowToBuyOpen(true)}>
+      <label style={howToBuy} onClick={() => setModalHowToBuyOpen ?setModalHowToBuyOpen(true) : null}>
         Como Comprar?
       </label>
     </div>
