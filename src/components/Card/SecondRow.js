@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { values, priceButton, info2, descriptionStyle } from './styles';
 import currencyFormat from '@ziro/currency-format';
 
-const SecondRow = ({ uid, setWLocation, price, setLocation, brandName, description }) => {
+const SecondRow = ({ uid, setWLocation, price, description }) => {
   return (
     <div style={info2}>
       <label style={descriptionStyle}>{description}</label>

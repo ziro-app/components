@@ -61,7 +61,7 @@ const Card = ({
             <SecondRow description={description} uid={uid} setWLocation={setWLocation} price={price} setLocation={setLocation}  />
 
             <ThirdRow setLocation={setLocation} showBrandName={showBrandName} brandName={brandName} minimumItemQty={minimumItemQty} freeShipping={freeShipping} timeInDays={timeInDays} />
-            <FourthRow brandName={brandName} uid={uid} setWLocation={setWLocation} setModalHowToBuyOpen={setModalHowToBuyOpen} />
+            <FourthRow setLocation={setLocation} brandName={brandName} uid={uid} setWLocation={setWLocation} setModalHowToBuyOpen={setModalHowToBuyOpen} />
           </div>
         </div>
       )}
