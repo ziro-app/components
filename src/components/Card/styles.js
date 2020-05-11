@@ -143,7 +143,7 @@ export const container = {
   },
   descriptionStyle = {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: 'auto',
     alignItems: 'center',
     justifyItems: 'start',
     fontFamily: fontBody,
