@@ -30,7 +30,7 @@ const FirstRow = ({ cartIds, favoriteIds, productId, cartQuantity, brandName, on
       {cartIds.includes(productId) && (cartQuantity === 0 || !cartQuantity) && <label style={cartQty}>Na sua sacola</label>}
       {!cartIds.includes(productId) && cartQuantity > 0 && (
         <label style={cartQty}>
-          Adicionado em {cartQuantity} sacola
+          Na sacola de {cartQuantity} pessoa
           {cartQuantity > 1 && 's'}
         </label>
       )}

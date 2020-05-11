@@ -1,9 +1,7 @@
 import {
   grayColor1,
   fontTitle,
-  fontSizeInput,
   gradient,
-  shadow,
   alertColor,
   fontSizeSmall,
   primaryColor,
@@ -48,7 +46,7 @@ export const container = {
     boxShadow: 'rgba(34, 34, 34, 0.3) 0px -5px 15px -1px',
   },
   brandStyle = {
-    fontSize: '1.5rem',
+    fontSize: '1.6rem',
     fontFamily: fontTitle,
   },
   image = {
@@ -78,7 +76,7 @@ export const container = {
     justifySelf: 'end',
     display: 'grid',
     fontFamily: fontTitle,
-    fontSize: '1.5rem',
+    fontSize: '1.6rem',
   },
   info = {
     display: 'grid',
@@ -131,7 +129,7 @@ export const container = {
   },
   info3 = {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: 'auto 1fr',
     alignItems: 'center',
     justifyItems: 'start',
   },
