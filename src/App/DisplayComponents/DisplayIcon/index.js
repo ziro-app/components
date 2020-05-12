@@ -4,7 +4,7 @@ import { containerWithPadding } from '@ziro/theme'
 import { grid } from './styles'
 
 export const DisplayIcon = () =>
-	<div style={{...containerWithPadding, ...grid}}>
+	<div style={{ ...containerWithPadding, ...grid }}>
 		<Icon type='ziro' size={24} />
 		<Icon type='amex' size={24} />
 		<Icon type='visa' size={24} />
@@ -53,4 +53,5 @@ export const DisplayIcon = () =>
 		<Icon type='heart' size={24} />
 		<Icon type='cart' size={24} />
 		<Icon type='forward' size={24} />
+		<Icon type='help' size={24} />
 	</div>

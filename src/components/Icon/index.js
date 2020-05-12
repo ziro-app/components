@@ -48,6 +48,7 @@ import { Home } from '../../Icons/Home/index';
 import { Heart } from './../../Icons/Heart/index';
 import { Cart } from './../../Icons/Cart/index';
 import { Forward } from './../../Icons/Forward/index';
+import { Help } from './../../Icons/Help/index';
 
 const Icon = ({
   type,
@@ -116,6 +117,7 @@ const Icon = ({
     heart: <Heart {...iconProps} />,
     cart: <Cart {...iconProps} />,
     forward: <Forward {...iconProps} />,
+    help: <Help {...iconProps} />,
   };
   return iconList[type];
 };
