@@ -9,16 +9,17 @@ const FourthRow = ({ brandName, setLocation, setModalHowToBuyOpen }) => {
     <div style={info2}>
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: 'grid',
+          gridTemplateColumns: '1fr auto',
+          gridColumnGap: '3px',
+          alignItems: 'center'
         }}
         onClick={() => {
           setLocation ? setLocation('goLeft', `marcas/${brandName.replace(/\s/g, '-').toLowerCase()}`) : null;
         }}
       >
         <label style={brandStyle}>{brandName}</label>
-        {setLocation ? <Icon type="forward" size={16} strokeWidth={1} /> : null}
+        {setLocation ? <Icon type="forward" size={13} strokeWidth={1} /> : null}
       </div>
       <label style={howToBuy} onClick={() => setModalHowToBuyOpen ?setModalHowToBuyOpen(true) : null}>
         Como Comprar?

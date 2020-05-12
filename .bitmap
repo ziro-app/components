@@ -311,42 +311,42 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.41": {
+    "vitorbarbosa19.ziro/card@0.0.43": {
         "files": [
             {
+                "name": "FirstRow.js",
                 "relativePath": "src/components/Card/FirstRow.js",
-                "test": false,
-                "name": "FirstRow.js"
+                "test": false
             },
             {
+                "name": "FourthRow.js",
                 "relativePath": "src/components/Card/FourthRow.js",
-                "test": false,
-                "name": "FourthRow.js"
+                "test": false
             },
             {
+                "name": "SecondRow.js",
                 "relativePath": "src/components/Card/SecondRow.js",
-                "test": false,
-                "name": "SecondRow.js"
+                "test": false
             },
             {
+                "name": "ThirdRow.js",
                 "relativePath": "src/components/Card/ThirdRow.js",
-                "test": false,
-                "name": "ThirdRow.js"
+                "test": false
             },
             {
+                "name": "index.js",
                 "relativePath": "src/components/Card/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "rows.js",
                 "relativePath": "src/components/Card/rows.js",
-                "test": false,
-                "name": "rows.js"
+                "test": false
             },
             {
+                "name": "styles.js",
                 "relativePath": "src/components/Card/styles.js",
-                "test": false,
-                "name": "styles.js"
+                "test": false
             }
         ],
         "mainFile": "src/components/Card/index.js",
