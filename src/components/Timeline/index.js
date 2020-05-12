@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Illustration from '../Illustration/index';
 import Button from '../Button/index';
+import SpinnerWithDiv from '../SpinnerWithDiv/index';
 import {
 	after,
 	afterWelcome,
@@ -16,7 +17,7 @@ import {
 	empty,
 } from './styles';
 
-const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false }) =>
+const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false, isSearching = false }) =>
 	<>
 		<style>{after}</style>
 		{transactions.map((transaction, key) =>
@@ -35,12 +36,17 @@ const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = 
 		{!hasMore && <div style={illustration}><Illustration type='timelineStart' /></div>}
 		{transactions && transactions.length === 0 &&
 			<label style={empty}>Você ainda não realizou pagamentos</label>}
-		{hasMore && <Button
-			type="button"
-			cta={ctaButton ? ctaButton : 'Carregar mais'}
-			template={btnTemplate ? btnTemplate : 'regular'}
-			click={btnMoreClick}
-		/>}
+		{hasMore && !isSearching &&
+			<Button
+				type="button"
+				cta={ctaButton ? ctaButton : 'Carregar mais'}
+				template={btnTemplate ? btnTemplate : 'regular'}
+				click={btnMoreClick}
+			/>
+		}
+		{hasMore && isSearching &&
+			<SpinnerWithDiv />
+		}
 	</>
 
 Timeline.propTypes = {
@@ -49,7 +55,8 @@ Timeline.propTypes = {
 	btnMoreClick: PropTypes.func,
 	btnTemplate: PropTypes.string,
 	ctaButton: PropTypes.string,
-	hasMore: PropTypes.bool
+	hasMore: PropTypes.bool,
+	isSearching: PropTypes.bool
 };
 
 export default Timeline;
