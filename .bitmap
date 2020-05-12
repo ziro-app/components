@@ -676,7 +676,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error@0.1.38": {
+    "vitorbarbosa19.ziro/error@0.1.39": {
         "files": [
             {
                 "name": "index.js",
@@ -860,7 +860,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.77": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.78": {
         "files": [
             {
                 "name": "index.js",
@@ -1679,7 +1679,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.1.41": {
+    "vitorbarbosa19.ziro/not-found@0.1.42": {
         "files": [
             {
                 "name": "index.js",
