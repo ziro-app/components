@@ -44,7 +44,7 @@ export const DisplayTimeline = () =>
 				date: '27/ago'
 			},
 			{
-				seller: 'Loubucca',
+				seller: 'Wermeson Rocha da Silva',
 				charge: '5.671,77',
 				status: 'Pago',
 				date: '27/ago'
@@ -56,5 +56,5 @@ export const DisplayTimeline = () =>
 				date: '27/ago',
 				statusColor: '#bb2124'
 			},
-		]} onClick={({ transaction }) => console.log(transaction)} />
+		]} transactionClick={({ transaction }) => console.log(transaction)} btnMoreClick={() => console.log('Função usada para carregar mais dados')} hasMore={true} />
 	</div>

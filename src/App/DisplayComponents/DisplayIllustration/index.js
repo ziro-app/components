@@ -14,5 +14,6 @@ export const DisplayIllustration = () => (
     <Illustration type="buy" size={200} />
     <Illustration type="withoutCartItem" size={200} />
     <Illustration type="waiting" size={200} />
+    <Illustration type="noData" size={200} />
   </div>
 );

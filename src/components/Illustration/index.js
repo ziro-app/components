@@ -11,6 +11,7 @@ import { RegisterSuccess } from '../../Illustrations/RegisterSuccess';
 import { WithoutFavorites } from '../../Illustrations/WithoutFavorites';
 import { WithoutCartItem } from '../../Illustrations/WithoutCartItem';
 import { Waiting } from '../../Illustrations/Waiting';
+import { NoData } from '../../Illustrations/NoData';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -26,6 +27,7 @@ const Illustration = ({ type, size }) => {
     withoutFavorites: <WithoutFavorites {...illustrationProps} />,
     withoutCartItem: <WithoutCartItem {...illustrationProps} />,
     waiting: <Waiting {...illustrationProps} />,
+    noData: <NoData {...illustrationProps} />,
   };
   return illustrationList[type];
 };

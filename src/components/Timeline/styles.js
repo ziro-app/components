@@ -2,24 +2,27 @@ import { fontTitle, fontSizeInput, primaryColor, grayColor1, grayColor2, grayCol
 
 export const
 
-	wrapper = {
+	wrapper = (withoutBorder) => ({
 		position: 'relative',
 		display: 'grid',
-		borderLeft: `3px ${grayColor4} solid`,
-		marginLeft: '7px',
+		borderLeft: withoutBorder ? '' : `3px ${grayColor4} solid`,
+		marginLeft: withoutBorder ? '10px' : '7px',
 		padding: '0 0 40px 20px',
 		cursor: 'pointer',
 		gridTemplate: `
 		'supplier value'
 		'status date'
 		/ 60% 40%`
-	},
+	}),
 
 	sellerCss = {
 		gridArea: 'supplier',
 		marginTop: '-4px',
 		fontSize: fontSizeInput,
-		cursor: 'pointer'
+		cursor: 'pointer',
+		textOverflow: 'ellipsis',
+		overflow: 'hidden',
+		whiteSpace: 'nowrap'
 	},
 
 	chargeCss = {
