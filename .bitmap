@@ -311,7 +311,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.43": {
+    "vitorbarbosa19.ziro/card@0.0.44": {
         "files": [
             {
                 "name": "FirstRow.js",
