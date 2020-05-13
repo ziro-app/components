@@ -16,7 +16,10 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const setMessage = useMessageModal(errors(modal,openCamera))
+    const setMessage = useMessageModal(errors(modal,() => {
+        if(log) console.log('opening camera', { openCamera })
+        openCamera()
+    }))
 
     const setLocation = useAnimatedLocation()[1]
 
@@ -74,7 +77,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
             </motion.div>
     ,[isCameraOpen])
 
-    if(log) console.log({ isCameraOpen, useModal, cameraControls: cameraControls.valueOf })
+    if(log) console.log({ isCameraOpen, useModal, cameraControls: cameraControls.valueOf() })
 
     return (
         <UploadPhoto
