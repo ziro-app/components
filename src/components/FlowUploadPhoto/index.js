@@ -10,19 +10,23 @@ import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modal }) => {
+const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
 
     const [picture, setPicture] = useState()
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const setMessage = useMessageModal(errors(modal,openCamera))
+    const setMessage = useMessageModal(errors(modal,() => {
+        if(log) console.log('opening camera', { openCamera })
+        openCamera()
+    }))
 
     const setLocation = useAnimatedLocation()[1]
 
     useEffect(() => {
         setPicture()
         setMessage('START')
+        cameraControls.set('close')
     },[title])
 
     const _onPrevious = useCallback(async () => {
@@ -73,6 +77,8 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
                 }
             </motion.div>
     ,[isCameraOpen])
+
+    if(log) console.log({ isCameraOpen, useModal, cameraControls: cameraControls.valueOf() })
 
     return (
         <UploadPhoto
