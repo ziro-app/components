@@ -10,7 +10,7 @@ import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modal }) => {
+const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
 
     const [picture, setPicture] = useState()
 
@@ -73,6 +73,8 @@ const FlowUploadPhoto = ({ next, previous, title, modal }) => {
                 }
             </motion.div>
     ,[isCameraOpen])
+
+    if(log) console.log({ isCameraOpen, useModal, cameraControls: cameraControls.valueOf })
 
     return (
         <UploadPhoto
