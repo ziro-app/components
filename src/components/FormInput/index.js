@@ -5,12 +5,14 @@ import Badge from '../Badge/index'
 import { alertColor } from '@ziro/theme'
 import { labelHeader, error } from './styles'
 
-const FormInput = ({ label, errorMsg, input }) =>
+const FormInput = ({ label, LabelComponent, errorMsg, input }) =>
 	<div>
-		<InputLabel
-			styleHeader={labelHeader}
-			name={label}
-		/>
+		{LabelComponent
+			? <LabelComponent />
+			: <InputLabel
+				styleHeader={labelHeader}
+				name={label}
+		/>}
 		{input}
 		<label style={error}>
 			&nbsp;
@@ -20,6 +22,7 @@ const FormInput = ({ label, errorMsg, input }) =>
 
 FormInput.propTypes = {
 	label: PropTypes.string.isRequired,
+	LabelComponent: PropTypes.element,
 	errorMsg: PropTypes.string,
 	input: PropTypes.element.isRequired
 }
