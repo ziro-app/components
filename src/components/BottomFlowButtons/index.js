@@ -4,7 +4,7 @@ import Button from '../Button'
 const BottomFlowButtons = ({ next, nextTitle = 'próximo', previous, previousTitle = 'voltar', submit = false }) => {
 
     return (
-        <div style={{ display: 'grid', gridTemplateColumns: next && previous ? '1fr 1fr' : '1fr', padding: '20px', gridGap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: next && previous ? '1fr 1fr' : '1fr', padding: '20px', gridGap: '20px', background: 'white' }}>
             {
                 previous &&
                 <Button

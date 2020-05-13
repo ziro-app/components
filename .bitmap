@@ -41,7 +41,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-flow-buttons@0.0.3": {
+    "vitorbarbosa19.ziro/bottom-flow-buttons@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/BottomFlowButtons/index.js",
@@ -721,7 +721,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.36": {
+    "vitorbarbosa19.ziro/flow-form@0.0.37": {
         "files": [
             {
                 "name": "index.js",
@@ -770,7 +770,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.43": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.44": {
         "files": [
             {
                 "name": "index.js",
@@ -802,7 +802,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.40": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.41": {
         "files": [
             {
                 "name": "errors.js",
