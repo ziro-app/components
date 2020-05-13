@@ -26,6 +26,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
     useEffect(() => {
         setPicture()
         setMessage('START')
+        cameraControls.set('close')
     },[title])
 
     const _onPrevious = useCallback(async () => {
