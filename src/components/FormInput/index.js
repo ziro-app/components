@@ -8,11 +8,11 @@ import { labelHeader, error } from './styles'
 const FormInput = ({ label, LabelComponent, errorMsg, input }) =>
 	<div>
 		{LabelComponent
-			? <LabelComponent />
+			? LabelComponent
 			: <InputLabel
 				styleHeader={labelHeader}
 				name={label}
-		/>}
+			/>}
 		{input}
 		<label style={error}>
 			&nbsp;
