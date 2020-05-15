@@ -4,10 +4,10 @@ import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 
-const LoginForm = ({ sendToBackend }) => {
+const LoginForm = ({ sendToBackend, history }) => {
 	const [email, setEmail] = useState('')
 	const [pass, setPass] = useState('')
-	const state = { email, pass, setEmail, setPass }
+	const state = { email, pass, setEmail, setPass, history }
 	const validations = [
 		{
 			name: 'email',

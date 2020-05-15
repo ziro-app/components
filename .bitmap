@@ -1535,7 +1535,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-form@0.1.46": {
+    "vitorbarbosa19.ziro/login-form@0.1.47": {
         "files": [
             {
                 "name": "index.js",
@@ -1548,7 +1548,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.1.48": {
+    "vitorbarbosa19.ziro/login-page@0.1.49": {
         "files": [
             {
                 "name": "index.js",
@@ -1697,7 +1697,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.56": {
+    "vitorbarbosa19.ziro/resend-email@0.1.57": {
         "files": [
             {
                 "name": "index.js",
