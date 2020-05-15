@@ -32,9 +32,7 @@ const Card = ({
   isFeatured = true,
   setModalHowToBuyOpen,
 }) => {
-  const { brandName, url, productId, timeInDays, cartQuantity, favQuantity, price, status, description,
-    minimumItemQty,
-    freeShipping } = photo;
+  const { brandName, url, productId, timeInDays, cartQuantity, favQuantity, price, status, description, minimumItemQty, freeShipping } = photo;
   return (
     <RImg
       key={url}

@@ -48,7 +48,7 @@ export const DisplayCard = () => {
     status: 'available',
     timeInDays: 2,
     minimumItemQty:6,
-    freeShipping:true,
+    freeShipping:'sim',
     url:
       'https://firebasestorage.googleapis.com/v0/b/ziro-app-data.appspot.com/o/Salgunamu%2FSalgunamu-1588112070123-VESTIDO%20COM%20FORRO%20149%2C90.jpg?alt=media&token=50ed388c-ab3f-4a82-aaad-18a2933a5d3c',
   };

@@ -7,11 +7,12 @@ import Modal from '../Modal/index'
 import Spinner from '../Spinner/index'
 import { modalSubmitting, svg } from '../Form/ModalSubmit/styles'
 import { useLocation } from 'wouter'
+import { createBrowserHistory } from 'history';
 
 export * from './hooks'
 
 const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, background }) => {
-
+    const browserHistory = createBrowserHistory();
     const headerRef = useRef()
     const [header, setHeader] = useState(defaultHeader)
     const [hideHeader, setHideHeader] = useState(false)
@@ -35,11 +36,12 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
     const toastControls = useAnimation()
 
     const [history, setHistory] = useState([])
+    const newLocation = browserHistory.location;
     const [location] = useLocation()
 
     useEffect(() => {
         if(location === history[history.length-2]) setHistory(old => old.slice(0,old.length-1))
-        else setHistory(old => [...old,location])
+        else setHistory(old => [...old,{pathname: newLocation.pathname,search: newLocation.search}])
     },[location])
 
     const contentControls = useAnimation()

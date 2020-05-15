@@ -7,6 +7,7 @@ export const DisplayModal = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	return (
 		<div style={containerWithPadding}>
+			<div style={{height:'3000px'}}>Teste com scroll</div>
 			<Modal isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<div>
 					What is Lorem Ipsum?
@@ -14,6 +15,7 @@ export const DisplayModal = () => {
 				</div>
 			</Modal>
 			<div style={{ display: 'grid' }} onClick={() => setIsOpen(true)}><Button type='submit' cta='Open Modal' /></div>
+
 		</div>
 	)
 }
