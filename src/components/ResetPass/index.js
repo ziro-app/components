@@ -6,9 +6,9 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const ResetPass = ({ sendToBackend, navigateTo = '/conta' }) => {
+const ResetPass = ({ sendToBackend, navigateTo = '/conta',history = null }) => {
 	const [email, setEmail] = useState('')
-	const state = { email, setEmail }
+	const state = { email, setEmail, history }
 	const validations = [
 		{
 			name: 'email',

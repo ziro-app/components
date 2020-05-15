@@ -6,10 +6,10 @@ import LoginForm from '../LoginForm/index'
 import { help } from './styles'
 import { containerWithPadding } from '@ziro/theme'
 
-const ResendEmail = ({ sendToBackend, navigateTo = '/conta' }) =>
+const ResendEmail = ({ sendToBackend, navigateTo = '/conta',history = null }) =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' navigateTo={navigateTo} title='Reenviar confirmação' />
-		<LoginForm sendToBackend={sendToBackend} />
+		<LoginForm sendToBackend={sendToBackend} history={history} />
 		<Link href='/problemas-acesso'><a style={help}>Problemas no acesso?</a></Link>
 	</div>
 
