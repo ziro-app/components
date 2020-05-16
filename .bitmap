@@ -354,7 +354,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.64": {
+    "vitorbarbosa19.ziro/checkout@0.1.65": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -417,7 +417,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.41": {
+    "vitorbarbosa19.ziro/choose-card@0.0.42": {
         "files": [
             {
                 "name": "addCard.js",
@@ -824,7 +824,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/footer@0.1.1": {
+    "vitorbarbosa19.ziro/footer@0.1.2": {
         "files": [
             {
                 "name": "index.js",
@@ -1661,7 +1661,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/my-account@0.1.37": {
+    "vitorbarbosa19.ziro/my-account@0.1.38": {
         "files": [
             {
                 "name": "index.js",

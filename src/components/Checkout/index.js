@@ -18,10 +18,9 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 	const [cardholder, setCardholder] = useState('')
 	const [expiry, setExpiry] = useState('')
 	const [cvv, setCvv] = useState('')
-	const [cpf, setCpf] = useState('')
 	const [installments, setInstallments] = useState('')
-	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked, cpfMasked] = useCard(number)
-	const state = { number, cardholder, expiry, cvv, cpf, installments, brand }
+	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
+	const state = { number, cardholder, expiry, cvv, installments, brand }
 	const validations = [
 		{
 			name: 'number',
@@ -46,12 +45,6 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 			validation: value => !!value && value.length >= 3,
 			value: cvv,
 			message: 'Revise campo'
-		},
-		{
-			name: 'cpf',
-			validation: value => !!value && value.length === 14,
-			value: cpf,
-			message: 'Deve conter 11 dígitos'
 		},
 		{
 			name: 'installments',
@@ -127,18 +120,6 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
 							}
 						/>
 					</div>,
-					<FormInput
-						name='cpf'
-						label='CPF do titular'
-						input={
-							<InputText
-								value={cpf}
-								onChange={({ target: { value } }) => setCpf(cpfMasked(value))}
-								placeholder='111.222.333-44'
-								inputMode='numeric'
-							/>
-						}
-					/>,
 					<FormInput
 						name='installments'
 						label='Parcelamento'

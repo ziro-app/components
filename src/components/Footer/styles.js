@@ -12,5 +12,6 @@ help = {
 	fontFamily: fontTitle,
 	fontSize: fontSizeSmall,
 	color: primaryColor,
-	textDecoration: 'underline'
+	textDecoration: 'underline',
+	cursor: 'pointer'
 }
