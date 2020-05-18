@@ -10,12 +10,12 @@ import { container, dual } from './styles'
 import { useHeader, useAnimatedLocation } from '../FlowManager'
 import { useMemo } from 'react'
 
-const FlowRegisterCard = ({ next, previous, header }) => {
+const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialCardHolder = '', initialExpiry = '', initialCvv = '' }) => {
 
-	const [number, setNumber] = useState('')
-	const [cardholder, setCardholder] = useState('')
-	const [expiry, setExpiry] = useState('')
-	const [cvv, setCvv] = useState('')
+	const [number, setNumber] = useState(initialNumber)
+	const [cardholder, setCardholder] = useState(initialCardHolder)
+	const [expiry, setExpiry] = useState(initialExpiry)
+	const [cvv, setCvv] = useState(initialCvv)
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
 	const state = useMemo(() => ({ number, cardholder, expiry, cvv, brand }),[number, cardholder, expiry, cvv, brand])
 
