@@ -32,7 +32,8 @@ export const
 
 	info = {
 		display: 'grid',
-		gridTemplateColumns: '1fr 2fr',
+		gridTemplateColumns: 'auto auto',
+		gridColumnGap: '10px',
 		textAlign: 'end'
 	},
 
