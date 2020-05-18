@@ -32,17 +32,24 @@ export const
 
 	info = {
 		display: 'grid',
-		gridTemplateColumns: '1fr auto'
+		gridTemplateColumns: '1fr 1fr',
+		textAlign: 'end'
 	},
 
 	titleStyle = {
 		fontFamily: fontTitle,
-		fontSize: '1.5rem'
+		fontSize: '1.5rem',
+		textAlign: 'start',
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		whiteSpace: 'nowrap'
 	},
 
 	contentStyle = color => ({
-		justifySelf: 'end',
 		fontSize: '1.5rem',
 		fontWeight: color ? '500' : '400',
-		color: color ? color : primaryColor
+		color: color ? color : primaryColor,
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		whiteSpace: 'nowrap'
 	})

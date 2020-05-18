@@ -9,8 +9,8 @@ const blocks = [
 		header: 'Compra',
 		body: [
 			{
-				title: 'Marca',
-				content: 'Crisfael'
+				title: 'Título com nome bastante comprido',
+				content: 'Marca com nome bastante comprido'
 			},
 			{
 				title: 'Valor',
