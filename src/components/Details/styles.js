@@ -32,7 +32,7 @@ export const
 
 	info = {
 		display: 'grid',
-		gridTemplateColumns: '1fr 1fr',
+		gridTemplateColumns: '1fr 2fr',
 		textAlign: 'end'
 	},
 
