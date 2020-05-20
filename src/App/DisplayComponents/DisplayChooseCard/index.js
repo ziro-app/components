@@ -7,23 +7,23 @@ export const DisplayChooseCard = () => {
 
 	const [selected, setSelected] = useState()
 
-	const numbers = useMemo(() => ([
-		'4839 **** **** **** 4382',
-		'5049 **** **** **** 3928',
-		'9382 **** **** **** 4930',
-		'9403 **** **** **** 3928'
-	]),[])
+	const cards = useMemo(() => [
+		{
+			number: '4839 **** **** **** 4382',
+			status: 'pendingApproval'
+		},
+		{
+			number: '5049 **** **** **** 3928',
+			status: 'approved'
+		}
+	],[])
 
-	console.log({ selected: numbers[selected] })
+	console.log({ selected: cards[selected] })
 
 	return (
 		<div style={containerWithPadding}>
 			<Header type='title-only' title='Escolha o Cartão'/>
-			<ChooseCard
-				numbers={numbers}
-				selected={selected}
-				setSelected={setSelected}
-			/>
+			<ChooseCard cards={cards} selected={selected} onClick={setSelected}/>
 		</div>
 	)
 

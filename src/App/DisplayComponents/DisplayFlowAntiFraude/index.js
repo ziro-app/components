@@ -33,11 +33,11 @@ export const DisplayFlowAntiFraude = () => {
                     </Route>
                     <Route path='/anti-fraude/choose-card'>
                         <ChooseCard
-                            numbers={[
-                                '4839 **** **** **** 4382',
-                                '5049 **** **** **** 3928',
-                                '9382 **** **** **** 4930',
-                                '9403 **** **** **** 3928'
+                            cards={[
+                                {
+                                    number: '5403 **** **** ****',
+                                    status: 'peddingApproval'
+                                }
                             ]}
                             next={{
                                 onClick: ({ number }) => {

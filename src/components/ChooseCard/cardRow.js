@@ -1,38 +1,37 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { memo } from 'react'
+import { exact, string, func, bool } from 'prop-types'
 import { motion } from 'framer-motion'
 import { matchCreditCardBrand } from '../Checkout/utils/matchCreditCardBrand'
 import { BrandIcon } from './brandIcon'
 import { cardContainer, cardNumber } from './styles'
 import { useMemo } from 'react'
 
-const _CardRow = ({ number, isSelected, setSelected }) => {
+const visible = { scaleY: 1, height: 70, opacity: 1 }
+const invisible = { scaleY: 0, height: 0, opacity: 0 }
+
+const _CardRow = ({ card: { number, status }, isSelected, onClick }) => {
 
     const brand = matchCreditCardBrand(number)
+    const animate = useMemo(() => isSelected ? invisible : visible, [isSelected])
 
     return (
-        <motion.div
-            initial={{ scaleY: 1, height: 70, opacity: 1 }}
-            animate={
-                isSelected ?
-                { scaleY: 0, height: 0, opacity: 0 }
-                :
-                { scaleY: 1, height: 70, opacity: 1 }
-            }
-            onClick={setSelected}
-        >
+        <motion.div initial={visible} animate={animate} onClick={onClick} whileTap={{ scale: 0.95 }}>
             <div style={cardContainer}>
                 <BrandIcon brand={brand}/>
-                <h2 style={cardNumber}>{number}</h2>
+                <div style={{ display: 'grid', alignItems: 'center' }}>
+                    <label style={cardNumber}>{number}</label>
+                    {status==='pendingApproval' &&
+                        <label style={{ fontSize: 10, textAlign: 'center' }}>aprovação pendente</label>}
+                </div>
             </div>
         </motion.div>
     )
 }
 
 _CardRow.propTypes = {
-    number: PropTypes.string.isRequired,
-    setSelected: PropTypes.func,
-    isSelected: PropTypes.bool,
+    card: exact({ number: string.isRequired, status: string.isRequired }).isRequired,
+    setSelected: func,
+    isSelected: bool,
 }
 
-export const CardRow = React.memo(_CardRow)
+export const CardRow = memo(_CardRow)

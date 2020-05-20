@@ -1,28 +1,29 @@
 import React, { useCallback } from 'react'
-import PropTypes from 'prop-types'
+import { arrayOf, exact, number, func, string } from 'prop-types'
 import { CardRow } from './cardRow'
 import { AddCard } from './addCard'
 import { container } from './styles'
 
 export { CardRow }
 
-const ChooseCard = ({ numbers, selected, setSelected, newCard }) => 
+const ChooseCard = ({ cards, selected, onClick, newCard }) => 
     <div style={container}>
-        {
-            numbers &&
-            numbers.map((number,index) => {
-                const _setSelected = useCallback(() => setSelected(index), [setSelected, index])
-                return <CardRow key={index} number={number} isSelected={selected===index} setSelected={_setSelected}/>
-            })
-        }
+        {cards.map((card,index) =>
+            <CardRow
+                key={index}
+                card={card}
+                isSelected={selected===index}
+                onClick={onClick.bind(null,index)}
+            />
+        )}
         <AddCard onClick={newCard}/>
     </div>
 
 ChooseCard.propsTypes = {
-    numbers: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selected: PropTypes.number,
-    setSelected: PropTypes.func,
-    newCard: PropTypes.func
+    cards: arrayOf(exact({ number: string.isRequired, status: string.isRequired })).isRequired,
+    selected: number,
+    onClick: func,
+    newCard: func
 }
 
 export default ChooseCard
