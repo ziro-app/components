@@ -12,6 +12,11 @@ const data = [
 			['2','1.000,11','950,00','23/04'],
 			['3','1.000,11','950,00','23/05']
 		],
+		rowsClicks: [
+			() => window.location.assign('/table/1'),
+			() => window.location.assign('/table/2'),
+			() => window.location.assign('/table/3')
+		],
 		totals: ['-','3.000,33','2.850,00','-']
 	}
 ]

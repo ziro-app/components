@@ -4,7 +4,7 @@ import { container, titleStyle, dot, body, cellHeader, cell, cellTotal } from '.
 
 const Table = ({ data, customGrid }) =>
 	<>
-		{data.map(({ title, header, rows, totals }, index) =>
+		{data.map(({ title, header, rows, rowsClicks, totals }, index) =>
 			<div style={container} key={index}>
 				<label style={titleStyle}>{title}
 					<label style={dot}>&nbsp;.</label>
@@ -17,7 +17,7 @@ const Table = ({ data, customGrid }) =>
 					)}
 					{rows.map((row, indexRow) =>
 						row.map((column, indexColumn) =>
-							<label style={cell} key={`${index}${indexRow}${indexColumn}`}>
+							<label style={cell} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks[indexRow]}>
 								{column}
 							</label>
 					))}
