@@ -58,6 +58,7 @@ import { DisplayCard } from './DisplayComponents/DisplayCard';
 import { DisplayDetails } from './DisplayComponents/DisplayDetails';
 import { DisplayTable } from './DisplayComponents/DisplayTable';
 import { DisplayPaymentDetail } from './DisplayComponents/DisplayPaymentDetail';
+import { DisplayGetCnpj } from './DisplayComponents/DisplayGetCnpj';
 
 export const App = () => (
   <Switch>
@@ -231,6 +232,9 @@ export const App = () => (
     </Route>
     <Route path="/table">
       <DisplayTable />
+    </Route>
+    <Route path="/get-cnpj">
+      <DisplayGetCnpj />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

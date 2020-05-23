@@ -311,7 +311,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.47": {
+    "vitorbarbosa19.ziro/card@0.0.48": {
         "files": [
             {
                 "name": "FirstRow.js",
@@ -928,6 +928,23 @@
         ],
         "mainFile": "src/components/Form/index.js",
         "trackDir": "src/components/Form",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/get-cnpj@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/GetCnpj/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/searchCnpj.js",
+                "test": false,
+                "name": "searchCnpj.js"
+            }
+        ],
+        "mainFile": "src/components/GetCnpj/index.js",
         "origin": "AUTHORED",
         "exported": true
     },
