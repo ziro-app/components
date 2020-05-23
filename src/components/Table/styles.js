@@ -35,7 +35,12 @@ cellHeader = {
 },
 
 cell = {
-	fontSize: '1.4rem'
+	width: '100%',
+	fontSize: '1.4rem',
+	textAlign: 'center',
+	textOverflow: 'ellipsis',
+	overflow: 'hidden',
+	whiteSpace: 'nowrap'
 },
 
 cellTotal = {
