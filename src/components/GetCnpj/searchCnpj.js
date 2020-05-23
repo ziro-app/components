@@ -57,7 +57,7 @@ const searchCnpj = state => () => {
             setReason('');
             setFantasia('');
             if (error.tryAgain) {
-                setAlertMessage('Aguarde um momento, processo pode ser demorado');
+                setAlertMessage('Aguarde um momento');
                 config['data']['ignore_db'] = true;
                 try {
                     // Continuar daqui, fazer a segunda request com o true (caso que dá erro)
@@ -97,7 +97,7 @@ const searchCnpj = state => () => {
                     else {
                         // Colocar um timeout e fazer a última request
                         config['data']['ignore_db'] = false;
-                        setAlertMessage('Aguarde mais um pouco, processos finais');
+                        setAlertMessage('A validação é demorada, aguarde');
                         setTimeout(() => {
                             return new Promise(async (resolve, reject) => {
                                 try {
@@ -132,10 +132,6 @@ const searchCnpj = state => () => {
                             });
                         }, 25000);
                     }
-                } finally {
-                    setCnpjValid(true)
-                    setAlertMessage('')
-                    resolve('CNPJ válido')
                 }
             }
             if (error.customError) reject(error);

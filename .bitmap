@@ -931,7 +931,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.1": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/GetCnpj/index.js",
