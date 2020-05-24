@@ -35,12 +35,16 @@ cellHeader = {
 },
 
 cell = {
+	display: 'grid',
+	justifyItems: 'center',
 	width: '100%',
+	height: '100%',
 	fontSize: '1.4rem',
 	textAlign: 'center',
 	textOverflow: 'ellipsis',
 	overflow: 'hidden',
-	whiteSpace: 'nowrap'
+	whiteSpace: 'nowrap',
+	cursor: 'pointer'
 },
 
 cellTotal = {

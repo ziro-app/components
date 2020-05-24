@@ -54,4 +54,5 @@ export const DisplayIcon = () =>
 		<Icon type='cart' size={24} />
 		<Icon type='forward' size={24} />
 		<Icon type='help' size={24} />
+		<Icon type='plusCircle' size={24} />
 	</div>
