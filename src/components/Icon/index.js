@@ -50,6 +50,7 @@ import { Cart } from './../../Icons/Cart/index';
 import { Forward } from './../../Icons/Forward/index';
 import { Help } from './../../Icons/Help/index';
 import { PlusCircle } from './../../Icons/PlusCircle/index';
+import { ChevronRight } from './../../Icons/ChevronRight/index';
 
 const Icon = ({
   type,
@@ -120,6 +121,7 @@ const Icon = ({
     forward: <Forward {...iconProps} />,
     help: <Help {...iconProps} />,
     plusCircle: <PlusCircle {...iconProps} />,
+    chevronRight: <ChevronRight {...iconProps} />,
   };
   return iconList[type];
 };

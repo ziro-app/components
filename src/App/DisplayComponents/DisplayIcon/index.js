@@ -55,4 +55,5 @@ export const DisplayIcon = () =>
 		<Icon type='forward' size={24} />
 		<Icon type='help' size={24} />
 		<Icon type='plusCircle' size={24} />
+		<Icon type='chevronRight' size={24} />
 	</div>
