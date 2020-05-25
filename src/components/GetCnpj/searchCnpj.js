@@ -62,7 +62,8 @@ const searchCnpj = state => () => {
                 try {
                     // Continuar daqui, fazer a segunda request com o true (caso que dá erro)
                     console.log('Antes de fazer a segunda requisição')
-                    const { data: { status, result } } = await axios(config)
+                    throw { error: true };
+                    /*const { data: { status, result } } = await axios(config)
                     if (status) {
                         // validations
                         console.log('Status ok na segunda')
@@ -87,7 +88,7 @@ const searchCnpj = state => () => {
                         setCnpjValid(true)
                         setAlertMessage('')
                         resolve('CNPJ válido')
-                    }
+                    }*/
                 } catch (error) {
                     console.log(error)
                     if (error.finally) {
@@ -98,39 +99,36 @@ const searchCnpj = state => () => {
                         // Colocar um timeout e fazer a última request
                         config['data']['ignore_db'] = false;
                         setAlertMessage('A validação é demorada, aguarde');
-                        setTimeout(() => {
-                            return new Promise(async (resolve, reject) => {
-                                try {
-                                    const { data: { status, result } } = await axios(config)
-                                    if (status) {
-                                        // validations
-                                        const cnaes = [...result.atividades_secundarias, result.atividade_principal].map(({ code }) => code)
-                                        const cnaeIsValid = !!cnaes.filter(code => code === '47.81-4-00' || validCnaes.includes(code)).pop()
-                                        if (!cnaeIsValid) throw { msg: 'CNPJ não tem CNAE válido', finally: true }
-                                        const isActive = result.situacao === 'ATIVA'
-                                        if (!isActive) throw { msg: 'CNPJ não está ativo', finally: true }
-                                        // fill form fields to save time for user
-                                        // Alinhar os campos que vou precisar aqui
-                                        setReason(result.nome)
-                                        setFantasia(result.fantasia)
-                                        setStreet(result.logradouro)
-                                        setNumber(result.numero)
-                                        setComplement(result.complemento)
-                                        setNeighborhood(result.bairro)
-                                        setCep(result.cep.replace('.', ''))
-                                        setCity(result.municipio)
-                                        setCityState(result.uf)
+                        setTimeout(() => null, 25000);
+                        try {
+                            const { data: { status, result } } = await axios(config)
+                            if (status) {
+                                // validations
+                                const cnaes = [...result.atividades_secundarias, result.atividade_principal].map(({ code }) => code)
+                                const cnaeIsValid = !!cnaes.filter(code => code === '47.81-4-00' || validCnaes.includes(code)).pop()
+                                if (!cnaeIsValid) throw { msg: 'CNPJ não tem CNAE válido', finally: true }
+                                const isActive = result.situacao === 'ATIVA'
+                                if (!isActive) throw { msg: 'CNPJ não está ativo', finally: true }
+                                // fill form fields to save time for user
+                                // Alinhar os campos que vou precisar aqui
+                                setReason(result.nome)
+                                setFantasia(result.fantasia)
+                                setStreet(result.logradouro)
+                                setNumber(result.numero)
+                                setComplement(result.complemento)
+                                setNeighborhood(result.bairro)
+                                setCep(result.cep.replace('.', ''))
+                                setCity(result.municipio)
+                                setCityState(result.uf)
 
-                                        // resolve
-                                        setCnpjValid(true)
-                                        setAlertMessage('')
-                                        resolve('CNPJ válido')
-                                    }
-                                } catch (error) {
-                                    reject('CNPJ ou CNAE inválido')
-                                }
-                            });
-                        }, 25000);
+                                // resolve
+                                setCnpjValid(true)
+                                setAlertMessage('')
+                                resolve('CNPJ válido')
+                            }
+                        } catch (error) {
+                            reject('CNPJ ou CNAE inválido')
+                        }
                     }
                 }
             }
