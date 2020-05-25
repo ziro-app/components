@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { exact, string, func, bool } from 'prop-types'
+import { shape, string, func, bool } from 'prop-types'
 import { motion } from 'framer-motion'
 import { matchCreditCardBrand } from '../Checkout/utils/matchCreditCardBrand'
 import { BrandIcon } from './brandIcon'
@@ -29,7 +29,7 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick }) => {
 }
 
 _CardRow.propTypes = {
-    card: exact({ number: string.isRequired, status: string.isRequired }).isRequired,
+    card: shape({ number: string.isRequired, status: string.isRequired }).isRequired,
     setSelected: func,
     isSelected: bool,
 }
