@@ -22,6 +22,8 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick }) => {
                     <label style={cardNumber}>{number}</label>
                     {status==='pendingApproval' &&
                         <label style={{ fontSize: 10, textAlign: 'center' }}>aprovação pendente</label>}
+                    {status==='pendingManualApproval' &&
+                        <label style={{ fontSize: 10, textAlign: 'center' }}>aguardando revisão</label>}
                 </div>
             </div>
         </motion.div>

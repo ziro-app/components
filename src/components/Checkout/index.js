@@ -13,12 +13,12 @@ import { SuccessModal } from './ModalSubmit/SuccessModal'
 import { ErrorModal } from './ModalSubmit/ErrorModal'
 import { container, dual, regulatory, ziro } from './styles'
 
-const Checkout = ({ charge, maxInstallments, seller, sendToBackend }) => {
-	const [number, setNumber] = useState('')
-	const [cardholder, setCardholder] = useState('')
-	const [expiry, setExpiry] = useState('')
-	const [cvv, setCvv] = useState('')
-	const [installments, setInstallments] = useState('')
+const Checkout = ({ charge, maxInstallments, seller, sendToBackend, testing = {} }) => {
+	const [number, setNumber] = useState(testing.number || '')
+	const [cardholder, setCardholder] = useState(testing.cardholder || '')
+	const [expiry, setExpiry] = useState(testing.expiry || '')
+	const [cvv, setCvv] = useState(testing.cvv || '')
+	const [installments, setInstallments] = useState(testing.installments || '')
 	const [brand, numberMaskedCard, numberMaskedInput, expiryMasked, cvvMasked] = useCard(number)
 	const state = { number, cardholder, expiry, cvv, installments, brand }
 	const validations = [
@@ -147,7 +147,8 @@ Checkout.propTypes = {
 	charge: PropTypes.string.isRequired,
 	maxInstallments: PropTypes.string.isRequired,
 	seller: PropTypes.string.isRequired,
-	sendToBackend: PropTypes.func.isRequired
+	sendToBackend: PropTypes.func.isRequired,
+	testing: PropTypes.object
 }
 
 export default Checkout
