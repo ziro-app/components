@@ -2,11 +2,11 @@ import { fontTitle, primaryColor, secondaryColor } from '@ziro/theme'
 
 export const
 
-	container = {
-		display: 'grid',
-		gridRowGap: '40px',
-		color: primaryColor
-	},
+	container = blockGap => ({
+			display: 'grid',
+			gridRowGap: blockGap ? blockGap : '40px',
+			color: primaryColor
+		}),
 
 	infoBlock = {
 		display: 'grid',

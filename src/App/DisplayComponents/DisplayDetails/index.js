@@ -53,7 +53,7 @@ const blocks = [
 export const DisplayDetails = () =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' title='Detalhes' navigateTo='home' />
-		<Details blocks={blocks} />
-		<div style={{marginBottom: '60px'}}></div>
+		<Details blocks={blocks} blockGap='20px' />
+		<div style={{marginBottom: '40px'}}></div>
 		<Button type='button' cta='Gerar comprovante' />
 	</div>

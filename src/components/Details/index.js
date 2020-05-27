@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { container, infoBlock, headerStyle, dot, bodyStyle, info, titleStyle, contentStyle } from './styles'
 
-const Details = ({ blocks }) =>
-	<div style={container}>
+const Details = ({ blocks, blockGap }) =>
+	<div style={container(blockGap)}>
 		{blocks.map(({ header, body }, indexHeader) =>
 			<div style={infoBlock} key={indexHeader}>
 				<label style={headerStyle}>{header}
@@ -22,7 +22,8 @@ const Details = ({ blocks }) =>
 	</div>
 
 Details.propTypes = {
-	blocks: PropTypes.array.isRequired
+	blocks: PropTypes.array.isRequired,
+	blockGap: PropTypes.string
 }
 
 export default Details

@@ -508,7 +508,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/details@0.0.5": {
+    "vitorbarbosa19.ziro/details@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/Details/index.js",
