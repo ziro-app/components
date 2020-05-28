@@ -65,7 +65,7 @@ const Checkout = ({ charge, maxInstallments, seller, sendToBackend, testing = {}
 			<Form
 				useModalLayoutOnSubmit={true}
 				successComponent={() => <SuccessModal />}
-				errorComponent={props => <ErrorModal closeModal={props} />}
+				errorComponent={(closeModal, errorMsg) => <ErrorModal closeModal={closeModal} errorMsg={errorMsg} />}
 				buttonName='Confirmar'
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
