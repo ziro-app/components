@@ -4,7 +4,7 @@ import Modal from '../../Modal/index'
 import Spinner from '../../Spinner/index'
 import { modalSubmitting, modalResult, svg } from './styles'
 
-export const ModalSubmit = ({ isOpen, submitting, error, successComponent, errorComponent }) => {
+export const ModalSubmit = ({ isOpen, submitting, error, successComponent, errorComponent, errorMsg }) => {
 	const [closeModal, setCloseModal] = useState(false)
 	useEffect(() => {
 		if (submitting) setCloseModal(false)
@@ -14,7 +14,7 @@ export const ModalSubmit = ({ isOpen, submitting, error, successComponent, error
 			{submitting ?
 				<Spinner style={svg} size={'5.5rem'} />
 				:
-				error ? errorComponent(() => setCloseModal(true)) : successComponent()
+				error ? errorComponent(() => setCloseModal(true), errorMsg) : successComponent()
 			}
 		</Modal>
 	)
@@ -25,5 +25,6 @@ ModalSubmit.propTypes = {
 	submitting: PropTypes.bool.isRequired,
 	error: PropTypes.bool.isRequired,
 	successComponent: PropTypes.func.isRequired,
-	errorComponent: PropTypes.func.isRequired
+	errorComponent: PropTypes.func.isRequired,
+	errorMsg: PropTypes.string
 }

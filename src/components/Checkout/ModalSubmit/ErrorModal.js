@@ -4,14 +4,15 @@ import Illustration from '../../Illustration/index'
 import Button from '../../Button/index'
 import { container, svg, title } from './styles'
 
-export const ErrorModal = ({ closeModal }) =>
+export const ErrorModal = ({ closeModal, errorMsg = 'Tente novamente ou contate seu assessor' }) =>
 	<div style={container}>
 		<div style={svg}><Illustration type='paymentError' /></div>
 		<label style={title}>Erro no envio!</label>
-		<label>Tente novamente ou contate seu assessor</label>
+		<label>{errorMsg}</label>
 		<Button type='link' cta='Tentar novamente' navigate={closeModal} />
 	</div>
 
 ErrorModal.propTypes = {
-	closeModal: PropTypes.func.isRequired
+	closeModal: PropTypes.func.isRequired,
+	errorMsg: PropTypes.string
 }

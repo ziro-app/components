@@ -50,7 +50,7 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 						{summary && summary}
 						{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
 						{useModalLayoutOnSubmit
-							? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} />
+							? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} errorMsg={submitMsg} />
 							: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 						}
 						<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />

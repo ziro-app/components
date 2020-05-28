@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor } from '@ziro/theme'
+import { fontTitle, primaryColor, alertColor } from '@ziro/theme'
 
 export const
 
@@ -14,5 +14,6 @@ svg = {
 
 title = {
 	fontFamily: fontTitle,
-	textTransform: 'uppercase'
+	textTransform: 'uppercase',
+	color: alertColor
 }
