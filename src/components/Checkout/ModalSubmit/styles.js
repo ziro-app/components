@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, alertColor } from '@ziro/theme'
+import { fontTitle, primaryColor, successColor, alertColor } from '@ziro/theme'
 
 export const
 
@@ -12,8 +12,13 @@ svg = {
 	justifySelf: 'center'
 },
 
-title = {
+titleSuccess = {
 	fontFamily: fontTitle,
 	textTransform: 'uppercase',
+	color: successColor
+},
+
+titleError = {
+	...titleSuccess,
 	color: alertColor
 }

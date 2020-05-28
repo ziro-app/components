@@ -354,7 +354,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.70": {
+    "vitorbarbosa19.ziro/checkout@0.1.71": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -417,7 +417,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.50": {
+    "vitorbarbosa19.ziro/choose-card@0.0.51": {
         "files": [
             {
                 "name": "addCard.js",
