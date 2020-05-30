@@ -1923,7 +1923,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.1.39": {
+    "vitorbarbosa19.ziro/timeline@0.1.40": {
         "files": [
             {
                 "name": "index.js",

@@ -17,7 +17,7 @@ import {
 	empty,
 } from './styles';
 
-const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false, isSearching = false }) =>
+const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false, isSearching = false, messageEmptyTransactions,messageWelcomeTransactions }) =>
 	<>
 		<style>{after}</style>
 		{transactions.map((transaction, key) =>
@@ -31,11 +31,11 @@ const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = 
 		<style>{afterWelcome}</style>
 		{transactions && transactions.length !== 0 && !hasMore &&
 			<div style={start} className='welcome'>
-				<label style={welcome}>Bem-vindo à sua timeline</label>
+				<label style={welcome}>{messageWelcomeTransactions ? messageWelcomeTransactions : 'Bem-vindo à sua timeline'}</label>
 			</div>}
 		{!hasMore && <div style={illustration}><Illustration type='timelineStart' /></div>}
 		{transactions && transactions.length === 0 &&
-			<label style={empty}>Você ainda não realizou pagamentos</label>}
+			<label style={empty}>{messageEmptyTransactions ? messageEmptyTransactions : 'Você ainda não realizou pagamentos'}</label>}
 		{hasMore && !isSearching &&
 			<Button
 				type="button"
