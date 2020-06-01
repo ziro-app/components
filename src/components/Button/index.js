@@ -10,6 +10,7 @@ const Button = ({ type, cta, submitting, navigate, click, style, template = 'reg
 		submit:
 			<motion.input
 				style={submitting ? disabled : style || btnStyle[template]}
+				disabled={submitting}
 				value={cta}
 				whileTap={tapAnimation}
 				type='submit'
@@ -17,6 +18,7 @@ const Button = ({ type, cta, submitting, navigate, click, style, template = 'reg
 		button:
 			<motion.input
 				style={submitting ? disabled : style || btnStyle[template]}
+				disabled={submitting}
 				value={cta}
 				whileTap={tapAnimation}
 				onClick={click}
