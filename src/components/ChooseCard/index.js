@@ -6,7 +6,7 @@ import { container } from './styles'
 
 export { CardRow }
 
-const ChooseCard = ({ cards, selected, onClick, newCard }) => 
+const ChooseCard = ({ cards, selected, onClick, newCard, onDelete }) => 
     <div style={container}>
         {cards.map((card,index) =>
             <CardRow
@@ -14,6 +14,7 @@ const ChooseCard = ({ cards, selected, onClick, newCard }) =>
                 card={card}
                 isSelected={selected===index}
                 onClick={onClick.bind(null,index)}
+                onDelete={onDelete.bind(null,index)}
             />
         )}
         <AddCard onClick={newCard}/>
@@ -23,6 +24,7 @@ ChooseCard.propsTypes = {
     cards: arrayOf(exact({ number: string.isRequired, status: string.isRequired })).isRequired,
     selected: number,
     onClick: func,
+    onDelete: func,
     newCard: func
 }
 

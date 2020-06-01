@@ -5,11 +5,12 @@ import { matchCreditCardBrand } from '../Checkout/utils/matchCreditCardBrand'
 import { BrandIcon } from './brandIcon'
 import { cardContainer, cardNumber } from './styles'
 import { useMemo } from 'react'
+import Icon from '../Icon'
 
 const visible = { scaleY: 1, height: 70, opacity: 1 }
 const invisible = { scaleY: 0, height: 0, opacity: 0 }
 
-const _CardRow = ({ card: { number, status }, isSelected, onClick }) => {
+const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) => {
 
     const brand = matchCreditCardBrand(number)
     const animate = useMemo(() => isSelected ? invisible : visible, [isSelected])
@@ -25,6 +26,9 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick }) => {
                     {status==='pendingManualApproval' &&
                         <label style={{ fontSize: 10, textAlign: 'center' }}>aguardando revisão</label>}
                 </div>
+                <div onClick={onDelete}>
+                <Icon type='trash' size={20} />
+                </div>
             </div>
         </motion.div>
     )
@@ -32,8 +36,9 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick }) => {
 
 _CardRow.propTypes = {
     card: shape({ number: string.isRequired, status: string.isRequired }).isRequired,
-    setSelected: func,
+    onClick: func,
     isSelected: bool,
+    onDelete: func
 }
 
 export const CardRow = memo(_CardRow)

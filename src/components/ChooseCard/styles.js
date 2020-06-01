@@ -10,11 +10,12 @@ container = {
 
 cardContainer = {
     display: 'grid',
-    gridTemplateColumns: '60px 1fr',
+    gridTemplateColumns: '60px 1fr 40px',
     boxShadow: '0px 0px 3px 0px rgba(34, 34, 34, 0.3)',
     height: '60px',
     alignItems: 'center',
-    margin: '5px 0px'
+    margin: '5px 0px',
+    justifyItems: 'center'
 },
 
 brandContainer = {
