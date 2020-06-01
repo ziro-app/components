@@ -26,12 +26,14 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
                     {status==='pendingManualApproval' &&
                         <label style={{ fontSize: 10, textAlign: 'center' }}>aguardando revisão</label>}
                 </div>
-                <div onClick={e => {
-                    onDelete()
-                    e.stopPropagation()
-                }}>
-                <Icon type='trash' size={20} />
-                </div>
+                { onDelete &&
+                    <div onClick={e => {
+                        onDelete()
+                        e.stopPropagation()
+                    }}>
+                    <Icon type='trash' size={20} />
+                    </div>
+                }
             </div>
         </motion.div>
     )

@@ -417,7 +417,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.55": {
+    "vitorbarbosa19.ziro/choose-card@0.0.56": {
         "files": [
             {
                 "name": "addCard.js",
