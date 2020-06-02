@@ -21,15 +21,12 @@ const Card = ({
   onFavoritePress,
   onCartPress,
   showBrandName = true,
-  showPrice = true,
-  favoriteIds,
-  cartIds,
+  isFavorited,
+  isAddedToCart,
   photo,
   uid,
   setWLocation,
   setLocation,
-  onClickSoldOut,
-  isFeatured = true,
   setModalHowToBuyOpen,
 }) => {
   const { brandName, url, productId, timeInDays, cartQuantity, favQuantity, price, status, description, minimumItemQty, freeShipping } = photo;
@@ -46,12 +43,9 @@ const Card = ({
           </div>
           <div style={cardBottom}>
             <FirstRow
-              cartIds={cartIds}
-              favoriteIds={favoriteIds}
-              productId={productId}
+              isAddedToCart={isAddedToCart}
+              isFavorited={isFavorited}
               cartQuantity={cartQuantity}
-              onClickSoldOut={onClickSoldOut}
-              brandName={brandName}
               onFavoritePress={onFavoritePress}
               onCartPress={onCartPress}
             />
