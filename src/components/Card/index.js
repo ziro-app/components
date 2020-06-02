@@ -63,18 +63,15 @@ const Card = ({
 };
 
 Card.propTypes = {
-  cartIds: PropTypes.arrayOf(PropTypes.string),
-  favoriteIds: PropTypes.arrayOf(PropTypes.string),
+  isAddedToCart: PropTypes.bool,
+  isFavorited: PropTypes.bool,
   onFavoritePress: PropTypes.func,
   onCartPress: PropTypes.func,
   showBrandName: PropTypes.bool,
-  showPrice : PropTypes.bool,
   photo: PropTypes.object,
   uid: PropTypes.string,
   setWLocation: PropTypes.func,
   setLocation: PropTypes.func,
-  onClickSoldOut: PropTypes.func,
-  isFeatured: PropTypes.bool,
   setModalHowToBuyOpen: PropTypes.func,
 };
 
