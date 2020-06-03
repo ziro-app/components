@@ -21,15 +21,12 @@ const Card = ({
   onFavoritePress,
   onCartPress,
   showBrandName = true,
-  showPrice = true,
-  favoriteIds,
-  cartIds,
+  isFavorited,
+  isAddedToCart,
   photo,
   uid,
   setWLocation,
   setLocation,
-  onClickSoldOut,
-  isFeatured = true,
   setModalHowToBuyOpen,
 }) => {
   const { brandName, url, productId, timeInDays, cartQuantity, favQuantity, price, status, description, minimumItemQty, freeShipping } = photo;
@@ -46,12 +43,9 @@ const Card = ({
           </div>
           <div style={cardBottom}>
             <FirstRow
-              cartIds={cartIds}
-              favoriteIds={favoriteIds}
-              productId={productId}
+              isAddedToCart={isAddedToCart}
+              isFavorited={isFavorited}
               cartQuantity={cartQuantity}
-              onClickSoldOut={onClickSoldOut}
-              brandName={brandName}
               onFavoritePress={onFavoritePress}
               onCartPress={onCartPress}
             />
@@ -69,18 +63,15 @@ const Card = ({
 };
 
 Card.propTypes = {
-  cartIds: PropTypes.arrayOf(PropTypes.string),
-  favoriteIds: PropTypes.arrayOf(PropTypes.string),
+  isAddedToCart: PropTypes.bool,
+  isFavorited: PropTypes.bool,
   onFavoritePress: PropTypes.func,
   onCartPress: PropTypes.func,
   showBrandName: PropTypes.bool,
-  showPrice : PropTypes.bool,
   photo: PropTypes.object,
   uid: PropTypes.string,
   setWLocation: PropTypes.func,
   setLocation: PropTypes.func,
-  onClickSoldOut: PropTypes.func,
-  isFeatured: PropTypes.bool,
   setModalHowToBuyOpen: PropTypes.func,
 };
 

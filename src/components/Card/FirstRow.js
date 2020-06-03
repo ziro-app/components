@@ -3,38 +3,35 @@ import PropTypes from 'prop-types';
 import { icons, cartQty } from './styles';
 import Icon from '../Icon';
 
-const FirstRow = ({ cartIds, favoriteIds, productId, cartQuantity, brandName, onClickSoldOut, onFavoritePress, onCartPress }) => {
+const FirstRow = ({ isAddedToCart, isFavorited, cartQuantity, onFavoritePress, onCartPress }) => {
   return (
     <div style={icons()}>
       <div
         style={{ display: 'grid' }}
-        onClick={() => {
-          onClickSoldOut && onFavoritePress ?(!favoriteIds.includes(productId) && status === 'soldOut' ? onClickSoldOut() : onFavoritePress(productId)): null
-        }}
+        onClick={onFavoritePress}
       >
-        <Icon type="heart" size={24} strokeWidth={1} fill={favoriteIds.includes(productId)} />
+        <Icon type="heart" size={24} strokeWidth={1} fill={isFavorited} />
       </div>
       <div
         style={{ display: 'grid' }}
-        onClick={() => {onClickSoldOut && onCartPress ?(!cartIds.includes(productId) && status === 'soldOut' ? onClickSoldOut() : onCartPress(brandName, productId)) : null
-        }}
+        onClick={onCartPress}
       >
-        <Icon type="cart" size={24} strokeWidth={1} fill={cartIds.includes(productId)} />
+        <Icon type="cart" size={24} strokeWidth={1} fill={isAddedToCart} />
       </div>
-      {cartIds.includes(productId) && cartQuantity > 0 && (
+      {isAddedToCart && cartQuantity > 0 && (
         <label style={cartQty}>
           Na sua sacola e de mais {cartQuantity} pessoa
           {cartQuantity > 1 && 's'}
         </label>
       )}
-      {cartIds.includes(productId) && (cartQuantity === 0 || !cartQuantity) && <label style={cartQty}>Na sua sacola</label>}
-      {!cartIds.includes(productId) && cartQuantity > 0 && (
+      {isAddedToCart && (cartQuantity === 0 || !cartQuantity) && <label style={cartQty}>Na sua sacola</label>}
+      {!isAddedToCart && cartQuantity > 0 && (
         <label style={cartQty}>
           Na sacola de {cartQuantity} pessoa
           {cartQuantity > 1 && 's'}
         </label>
       )}
-      {!cartIds.includes(productId) && (cartQuantity === 0 || !cartQuantity) && <div />}
+      {!isAddedToCart && (cartQuantity === 0 || !cartQuantity) && <div />}
     </div>
   );
 };
