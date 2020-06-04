@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react'
 import Header from '../../../components/Header/index'
 import ChooseCard from '../../../components/ChooseCard'
 import { containerWithPadding } from '@ziro/theme'
+import { useCallback } from 'react'
 
 export const DisplayChooseCard = () => {
 
@@ -20,10 +21,18 @@ export const DisplayChooseCard = () => {
 
 	console.log({ selected: cards[selected] })
 
+	const onDelete = useCallback((index) => {
+		console.log('deleting', { index })
+	},[])
+
+	const onClick = useCallback((index) => {
+		console.log('clicking', { index })
+	})
+
 	return (
 		<div style={containerWithPadding}>
 			<Header type='title-only' title='Escolha o Cartão'/>
-			<ChooseCard cards={cards} selected={selected} onClick={setSelected}/>
+			<ChooseCard cards={cards} selected={selected} onClick={onClick} onDelete={onDelete}/>
 		</div>
 	)
 
