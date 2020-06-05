@@ -27,7 +27,7 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
                         <label style={{ fontSize: 10, textAlign: 'center' }}>aguardando revisão</label>}
                 </div>
                 { onDelete &&
-                    <div onClick={e => {
+                    <div style={{ height: '60px', width: '40px', display: 'grid', alignItems: 'center', justifyItems: 'center' }} onClick={e => {
                         onDelete()
                         e.stopPropagation()
                     }}>
