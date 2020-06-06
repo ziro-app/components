@@ -52,23 +52,8 @@ import { Help } from './../../Icons/Help/index';
 import { PlusCircle } from './../../Icons/PlusCircle/index';
 import { ChevronRight } from './../../Icons/ChevronRight/index';
 
-const Icon = ({
-  type,
-  style,
-  onClick,
-  size,
-  color,
-  strokeWidth,
-  fill,
-}) => {
-  const iconProps = {
-    style,
-    onClick,
-    size,
-    color,
-    strokeWidth,
-    fill,
-  };
+const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
+  const iconProps = { style, onClick, size, color, strokeWidth, fill }
   const iconList = {
     ziro: <Ziro {...iconProps} />,
     amex: <Amex {...iconProps} />,

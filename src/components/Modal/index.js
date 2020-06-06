@@ -4,9 +4,9 @@ import { useSpring, animated } from 'react-spring'
 import { animateOverlay, animateBox } from './animation'
 import { container, box, overlay, disableScroll } from './styles'
 
-const Modal = ({ isOpen, setIsOpen, children, boxStyle, degrees }) => {
+const Modal = ({ isOpen, setIsOpen, children, boxStyle, degrees, scale }) => {
 	const propsOverlay = useSpring(animateOverlay(isOpen))
-	const propsBox = useSpring(animateBox(isOpen, degrees))
+	const propsBox = useSpring(animateBox(isOpen, degrees, scale))
 	if (isOpen) {
 		return (
 			<div style={container}>
@@ -28,7 +28,8 @@ Modal.propTypes = {
 		PropTypes.arrayOf(PropTypes.element)
 	]).isRequired,
 	boxStyle: PropTypes.object,
-	degrees: PropTypes.number
+	degrees: PropTypes.number,
+	scale: PropTypes.number
 }
 
 export default Modal
