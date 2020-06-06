@@ -51,6 +51,8 @@ import { Forward } from './../../Icons/Forward/index';
 import { Help } from './../../Icons/Help/index';
 import { PlusCircle } from './../../Icons/PlusCircle/index';
 import { ChevronRight } from './../../Icons/ChevronRight/index';
+import { Rotate } from './../../Icons/Rotate/index';
+import { Zoom } from './../../Icons/Zoom/index';
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
   const iconProps = { style, onClick, size, color, strokeWidth, fill }
@@ -107,6 +109,8 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     help: <Help {...iconProps} />,
     plusCircle: <PlusCircle {...iconProps} />,
     chevronRight: <ChevronRight {...iconProps} />,
+    rotate: <Rotate {...iconProps} />,
+    zoom: <Zoom {...iconProps} />,
   };
   return iconList[type];
 };

@@ -1,4 +1,8 @@
-export const boxStyle = {
+import { gradient, shadow } from '@ziro/theme'
+
+export const
+
+boxStyle = {
 	zIndex: '999',
 	maxWidth: '500px',
 	width: '95%',
@@ -27,4 +31,15 @@ controls = {
 	padding: '10px 0',
 	background: 'white',
 	boxShadow: `1px 0px 8px 0px rgba(34,34,34,0.15), 1px 0px 8px 0px rgba(34,34,34,0.10), 1px 0px 8px 0px rgba(34,34,34,0.05)`
+},
+
+circle = {
+	display: 'grid',
+	alignItems: 'center',
+	justifyItems: 'center',
+	width: '50px',
+	height: '50px',
+	borderRadius: '50%',
+	background: gradient,
+	boxShadow: shadow
 }
