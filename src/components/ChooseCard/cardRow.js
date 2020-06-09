@@ -35,7 +35,7 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
                         setDeleting(true)
                         onDelete().finally(() => setDeleting(false))
                     }}>
-                    { isDeleting ? <Spinner size={20}/> : <Icon type='trash' size={20} color='white' /> }
+                    { isDeleting ? <Spinner size='20px'/> : <Icon type='trash' size={20} color='white' /> }
                     </div>
                 }
             </div>
