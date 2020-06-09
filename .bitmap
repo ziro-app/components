@@ -194,7 +194,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.54": {
+    "vitorbarbosa19.ziro/camera-container@0.1.55": {
         "files": [
             {
                 "name": "index.js",
@@ -250,7 +250,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-overlay@0.1.41": {
+    "vitorbarbosa19.ziro/camera-overlay@0.1.42": {
         "files": [
             {
                 "name": "index.js",
@@ -802,7 +802,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.55": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.56": {
         "files": [
             {
                 "name": "errors.js",
