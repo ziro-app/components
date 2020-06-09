@@ -63,7 +63,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth }) => {
                     closeAfterSend: { opacity: 0 },
                     open: { y: '0%' }
                 }}
-                style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, maxWidth }}
+                style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, maxWidth, margin: 'auto' }}
             >
                 {
                     isCameraOpen &&
