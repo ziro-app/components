@@ -7,7 +7,7 @@ import { cardContainer, cardNumber, brandContainer } from './styles'
 const _AddCard = ({ onClick, color = 'grey' }) => 
     <motion.div
         onClick={onClick}
-        style={cardContainer}
+        style={{ ...cardContainer, gridTemplateColumns: '60px 1fr' }}
         whileTap={{ scale: 0.95 }}
     >
         <div style={{ ...brandContainer, background: '#F0F0F0' }}>
