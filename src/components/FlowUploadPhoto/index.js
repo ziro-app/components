@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useAnimatedLocation, useHeader, useFooter, useModal, useMessageModal } from '../FlowManager'
+import { useAnimatedLocation, useHeader, useFooter, useModal, useMessageModal, useScroll } from '../FlowManager'
 import UploadPhoto from '../UploadPhoto'
 import Header from '../HeaderFlow'
 import BottomFlowButtons from '../BottomFlowButtons'
@@ -20,6 +20,8 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
         if(log) console.log('opening camera', { openCamera })
         openCamera()
     }))
+
+    useScroll(!isCameraOpen)
 
     const setLocation = useAnimatedLocation()[1]
 

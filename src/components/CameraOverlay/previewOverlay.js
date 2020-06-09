@@ -10,7 +10,7 @@ const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
         <motion.div
             initial={{ scale: window.innerWidth/(window.innerWidth-40) }}
             animate={{ scale: 1 }}
-            style={{ background: 'white', display: 'grid', padding: '20px', gridGap: '20px', gridTemplateRows: 'auto 1fr', position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
+            style={{ background: 'white', display: 'grid', padding: '20px', gridTemplateRows: 'auto 1fr', position: 'absolute', top: 0, bottom: 0, right: 0, left: 0, margin: '0px auto 20px' }}
         >
             <Header type='title-only' title='Preview'/>
             <ImagePreview
