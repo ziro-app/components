@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo, useState, useMemo } from 'react'
 import { shape, string, func, bool } from 'prop-types'
 import { motion } from 'framer-motion'
 import { matchCreditCardBrand } from '../Checkout/utils/matchCreditCardBrand'
 import { BrandIcon } from './brandIcon'
 import { cardContainer, cardNumber } from './styles'
-import { useMemo } from 'react'
 import Icon from '../Icon'
+import Spinner from '../Spinner'
 
 const visible = { scaleY: 1, height: 70, opacity: 1 }
 const invisible = { scaleY: 0, height: 0, opacity: 0 }
@@ -14,6 +14,8 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
 
     const brand = matchCreditCardBrand(number)
     const animate = useMemo(() => isSelected ? invisible : visible, [isSelected])
+
+    const [isDeleting, setDeleting] = useState(false)
 
     return (
         <motion.div initial={visible} animate={animate} onClick={onClick} whileTap={{ scale: 0.95 }}>
@@ -27,11 +29,13 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
                         <label style={{ fontSize: 10, textAlign: 'center' }}>aguardando revisão</label>}
                 </div>
                 { onDelete &&
-                    <div style={{ height: '60px', width: '40px', display: 'grid', alignItems: 'center', justifyItems: 'center' }} onClick={e => {
-                        onDelete()
+                    <div style={{ height: '60px', width: '60px', display: 'grid', alignItems: 'center', justifyItems: 'center', background: '#FF7777' }} onClick={e => {
                         e.stopPropagation()
+                        if(isDeleting) return
+                        setDeleting(true)
+                        onDelete().finally(() => setDeleting(false))
                     }}>
-                    <Icon type='trash' size={20} />
+                    { isDeleting ? <Spinner size={20}/> : <Icon type='trash' size={20} color='white' /> }
                     </div>
                 }
             </div>
