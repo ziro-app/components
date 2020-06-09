@@ -14,6 +14,14 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
 
     const brand = matchCreditCardBrand(number)
     const animate = useMemo(() => isSelected ? invisible : visible, [isSelected])
+    const statusMessage = useMemo(() => {
+        switch(status) {
+            case 'pendingDocument': return 'Aguardando envio do documento'
+            case 'pendingSelfie': return 'Aguardando envio da selfie'
+            case 'pendingManualApproval': return 'Aguardando revisão'
+            default: return ''
+        }
+    },[status])
 
     const [isDeleting, setDeleting] = useState(false)
 
@@ -23,10 +31,8 @@ const _CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) =
                 <BrandIcon brand={brand}/>
                 <div style={{ display: 'grid', alignItems: 'center' }}>
                     <label style={cardNumber}>{number}</label>
-                    {status==='pendingApproval' &&
-                        <label style={{ fontSize: 10, textAlign: 'center' }}>aprovação pendente</label>}
-                    {status==='pendingManualApproval' &&
-                        <label style={{ fontSize: 10, textAlign: 'center' }}>aguardando revisão</label>}
+                    {status!=='approved' &&
+                        <label style={{ fontSize: 10, textAlign: 'center' }}>{statusMessage}</label>}
                 </div>
                 { onDelete &&
                     <div style={{ height: '60px', width: '60px', display: 'grid', alignItems: 'center', justifyItems: 'center', background: '#FF7777' }} onClick={e => {
