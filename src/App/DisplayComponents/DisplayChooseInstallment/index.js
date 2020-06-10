@@ -14,7 +14,7 @@ export const DisplayChooseInstallment = () => {
                 seller='Crisfael'
                 charge='60078'
                 maxInstallments='6'
-                card={{ number: '4839 **** 4382' }}
+                card={{ number: '4839 **** 4382', status: 'approved' }}
                 installments={installments}
                 setInstallments={setInstallments}
             />

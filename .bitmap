@@ -449,7 +449,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-installment@0.0.3": {
+    "vitorbarbosa19.ziro/choose-installment@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",

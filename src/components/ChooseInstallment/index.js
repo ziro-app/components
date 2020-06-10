@@ -43,7 +43,7 @@ ChooseInstallment.propTypes = {
     seller: PropTypes.string.isRequired,
     charge: PropTypes.string.isRequired,
     maxInstallments: PropTypes.string.isRequired,
-    card: PropTypes.shape({ number: PropTypes.string }),
+    card: PropTypes.shape({ number: PropTypes.string.isRequired, status: PropTypes.string.isRequired }).isRequired,
     installments: PropTypes.string,
     setInstallments: PropTypes.func.isRequired
 }
