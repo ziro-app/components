@@ -417,7 +417,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.64": {
+    "vitorbarbosa19.ziro/choose-card@0.0.67": {
         "files": [
             {
                 "name": "addCard.js",
@@ -446,6 +446,33 @@
             }
         ],
         "mainFile": "src/components/ChooseCard/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/choose-installment@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",
+                "test": false,
+                "name": "chooseInstallmentRow.js"
+            },
+            {
+                "relativePath": "src/components/ChooseInstallment/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ChooseInstallment/styles.js",
+                "test": false,
+                "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/ChooseInstallment/totalRow.js",
+                "test": false,
+                "name": "totalRow.js"
+            }
+        ],
+        "mainFile": "src/components/ChooseInstallment/index.js",
         "origin": "AUTHORED",
         "exported": true
     },

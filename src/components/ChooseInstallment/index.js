@@ -5,12 +5,13 @@ import { CardRow } from '../ChooseCard/cardRow'
 import { ChooseInstallmentRow } from './chooseInstallmentRow'
 import { TotalRow } from './totalRow'
 import { container, header } from './styles'
+import format from '@ziro/currency-format'
 
 const quotient = (dividend, divisor) => parseInt((dividend/100/divisor).toFixed(2) * 100, 10)
 
-const ChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, installments, setInstallments }) => {
+const ChooseInstallment = ({ charge, maxInstallments, seller, card, installments, setInstallments }) => {
 
-    useEffect(() => setInstallments('1'),[])
+    useEffect(() => { !installments && setInstallments('1') },[installments])
 
     const installmentsOptions = useMemo(() => {
         const _installmentsOptions = []
@@ -23,9 +24,9 @@ const ChooseInstallment = ({ charge, maxInstallments, seller, cardNumber, instal
 
     return (
         <div style={container}>
-            <SellerAndChargeRow seller={seller} charge={charge}/>
+            <SellerAndChargeRow title={seller} quantity={format(charge)}/>
             <h1 style={header}>Cartão</h1>
-            <CardRow number={cardNumber} isSelected={false}/>
+            <CardRow card={card} isSelected={false}/>
             <h1 style={header}>Parcelas</h1>
             <ChooseInstallmentRow
                 installmentsOptions={installmentsOptions}
@@ -42,7 +43,7 @@ ChooseInstallment.propTypes = {
     seller: PropTypes.string.isRequired,
     charge: PropTypes.string.isRequired,
     maxInstallments: PropTypes.string.isRequired,
-    cardNumber: PropTypes.string.isRequired,
+    card: PropTypes.shape({ number: PropTypes.string }),
     installments: PropTypes.string,
     setInstallments: PropTypes.func.isRequired
 }
