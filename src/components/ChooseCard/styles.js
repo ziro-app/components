@@ -1,4 +1,4 @@
-import { primaryColor, fontBody } from '@ziro/theme'
+import { primaryColor, grayColor4, fontBody } from '@ziro/theme'
 
 export const
 
@@ -15,20 +15,34 @@ cardContainer = {
     height: '60px',
     alignItems: 'center',
     margin: '5px 0px',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    borderRadius: '3px'
 },
 
 brandContainer = {
     display: 'grid',
     width: 60,
     height: 60,
-    background: '#303030',
+    background: primaryColor,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderTopLeftRadius: '3px',
+    borderBottomLeftRadius: '3px'
 },
 
 cardNumber = {
     fontFamily: fontBody,
     color: primaryColor,
     textAlign: 'center'
+},
+
+cardDelete = {
+    height: '60px',
+    width: '60px',
+    display: 'grid',
+    alignItems: 'center',
+    justifyItems: 'center',
+    borderLeft: `1px solid ${grayColor4}`,
+    borderTopRightRadius: '3px',
+    borderBottomRightRadius: '3px'
 }
