@@ -10,11 +10,11 @@ export const DisplayChooseCard = () => {
 
 	const cards = useMemo(() => [
 		{
-			number: '4839 **** **** **** 4382',
+			number: '4839 **** 4382',
 			status: 'pendingApproval'
 		},
 		{
-			number: '5049 **** **** **** 3928',
+			number: '5049 **** 3928',
 			status: 'approved'
 		}
 	],[])

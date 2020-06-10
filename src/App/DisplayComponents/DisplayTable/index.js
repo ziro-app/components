@@ -25,7 +25,16 @@ const data = [
 export const DisplayTable = () =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' title='Detalhes' navigateTo='home' />
-		<Table data={data} customGrid={{
-			gridTemplateColumns: 'auto 1fr 1fr 1fr 20px'
-		}} />
+		<Table data={data} customGrid={{ gridTemplateColumns: 'auto 1fr 1fr 1fr 20px' }}
+			cellStyle={{
+				width: '100%',
+				height: '100%',
+				fontSize: '1.4rem',
+				textAlign: 'center',
+				textOverflow: 'ellipsis',
+				overflow: 'hidden',
+				whiteSpace: 'nowrap',
+				cursor: 'pointer'
+			}}
+		/>
 	</div>
