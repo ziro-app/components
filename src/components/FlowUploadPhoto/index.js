@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useAnimatedLocation, useHeader, useFooter, useModal, useMessageModal } from '../FlowManager'
+import { useAnimatedLocation, useHeader, useFooter, useModal, useMessageModal, useScroll } from '../FlowManager'
 import UploadPhoto from '../UploadPhoto'
 import Header from '../HeaderFlow'
 import BottomFlowButtons from '../BottomFlowButtons'
@@ -10,7 +10,7 @@ import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
+const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth }) => {
 
     const [picture, setPicture] = useState()
 
@@ -20,6 +20,8 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
         if(log) console.log('opening camera', { openCamera })
         openCamera()
     }))
+
+    useScroll(!isCameraOpen)
 
     const setLocation = useAnimatedLocation()[1]
 
@@ -61,7 +63,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log }) => {
                     closeAfterSend: { opacity: 0 },
                     open: { y: '0%' }
                 }}
-                style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}
+                style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, maxWidth, margin: 'auto' }}
             >
                 {
                     isCameraOpen &&

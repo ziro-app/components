@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { container, titleStyle, dot, body, cellHeader, cell, cellTotal } from './styles'
 
-const Table = ({ data, customGrid }) =>
+const Table = ({ data, customGrid, cellStyle = cell }) =>
 	<>
 		{data.map(({ title, header, rows, rowsClicks, totals }, index) =>
 			<div style={container} key={index}>
@@ -17,7 +17,7 @@ const Table = ({ data, customGrid }) =>
 					)}
 					{rows.map((row, indexRow) =>
 						row.map((column, indexColumn) =>
-							<label style={cell} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks[indexRow]}>
+							<label style={cellStyle} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks[indexRow]}>
 								{column}
 							</label>
 					))}
@@ -33,7 +33,8 @@ const Table = ({ data, customGrid }) =>
 
 Table.propTypes = {
 	data: PropTypes.array.isRequired,
-	customGrid: PropTypes.object
+	customGrid: PropTypes.object,
+	cellStyle: PropTypes.object
 }
 
 export default Table
