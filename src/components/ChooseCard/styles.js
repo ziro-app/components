@@ -1,4 +1,4 @@
-import { primaryColor, grayColor4, fontBody } from '@ziro/theme'
+import { primaryColor, grayColor4, fontBody, grayColor1 } from '@ziro/theme'
 
 export const
 
@@ -45,4 +45,11 @@ cardDelete = {
     borderLeft: `1px solid ${grayColor4}`,
     borderTopRightRadius: '3px',
     borderBottomRightRadius: '3px'
+},
+
+cardStatus = {
+    fontSize: 12,
+    textAlign: 'center',
+    fontWeight: '300',
+    color: grayColor1
 }
