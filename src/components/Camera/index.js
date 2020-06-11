@@ -28,6 +28,7 @@ const Camera = ({
                     ref={videoRef}
                     hidden={!!picture}
                     autoPlay
+                    playsInline
                 />
             </div>
             <div key='fallback' style={overlay}>
