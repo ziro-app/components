@@ -63,7 +63,7 @@ ShooterOverlay.propTypes = {
     turnOn: Proptypes.func,
     turnOff: Proptypes.func,
     onClose: Proptypes.func,
-    allowSwap: Proptypes.string
+    allowSwap: Proptypes.bool
 }
 
 export default ShooterOverlay
