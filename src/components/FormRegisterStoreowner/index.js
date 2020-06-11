@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import maskInput from '@ziro/mask-input'
 import capitalize from '@ziro/capitalize'
 import Spinner from '../Spinner/index'
 import Error from '../Error/index'
-import GetCnpj from './GetCnpj/index'
+import GetCnpj from '../GetCnpj/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Dropdown from '../Dropdown/index'
 
-const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, searchCnpj, fetch, appAffiliateName = '', appAffiliateCpf = '' }) => {
+const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, fetch, appAffiliateName = '', appAffiliateCpf = '', validCnaes, cnpjUrl, cnpjToken }) => {
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
@@ -23,15 +24,15 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [insta, setInsta] = useState('')
 	const [cnpj, setCnpj] = useState('')
 	const [ie, setIe] = useState('')
-	const [razao, setRazao] = useState('')
+	const [reason, setReason] = useState('')
 	const [fantasia, setFantasia] = useState('')
-	const [rua, setRua] = useState('')
-	const [numero, setNumero] = useState('')
-	const [complemento, setComplemento] = useState('')
-	const [bairro, setBairro] = useState('')
+	const [street, setStreet] = useState('')
+	const [number, setNumber] = useState('')
+	const [complement, setComplement] = useState('')
+	const [neighborhood, setNeighborhood] = useState('')
 	const [cep, setCep] = useState('')
-	const [cidade, setCidade] = useState('')
-	const [estado, setEstado] = useState('')
+	const [city, setCity] = useState('')
+	const [cityState, setCityState] = useState('')
 	const [fone, setFone] = useState('')
 	const [whats, setWhats] = useState('')
 	const [email, setEmail] = useState('')
@@ -44,12 +45,12 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	const [sellers, setSellers] = useState([])
 
 	const setState = {
-		setSearchedName, setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setRazao, setFantasia,
-		setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setFone, setWhats, setEmail
+		setSearchedName, setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setReason, setFantasia,
+		setStreet, setNumber, setComplement, setNeighborhood, setCep, setCity, setCityState, setFone, setWhats, setEmail, cnpjUrl, cnpjToken
 	}
 	const state = {
-		appAffiliateName, appAffiliateCpf, affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, razao, fantasia,
-		rua, numero, complemento, bairro, cep, cidade, estado, fone, whats, email, ...setState, cnpjValid
+		appAffiliateName, appAffiliateCpf, affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, reason, fantasia,
+		street, number, complement, neighborhood, cep, city, cityState, fone, whats, email, ...setState, cnpjValid
 	}
 	useEffect(() => fetch(setIsLoading, setIsError, setStoreowners, setAdvisors, setAffiliates, setSellers), [])
 	useEffect(() => setCnpjValid(false), [cnpj])
@@ -82,9 +83,9 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			message: 'Data inválida'
 		},
 		{
-			name: 'razao',
+			name: 'reason',
 			validation: value => !!value,
-			value: razao,
+			value: reason,
 			message: 'Campo obrigatório'
 		}, {
 			name: 'fantasia',
@@ -92,19 +93,19 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			value: fantasia,
 			message: 'Campo obrigatório'
 		}, {
-			name: 'rua',
+			name: 'street',
 			validation: value => !!value,
-			value: rua,
+			value: street,
 			message: 'Campo obrigatório'
 		}, {
-			name: 'numero',
+			name: 'number',
 			validation: value => !!value,
-			value: numero,
+			value: number,
 			message: 'Campo obrigatório'
 		}, {
-			name: 'bairro',
+			name: 'neighborhood',
 			validation: value => !!value,
-			value: bairro,
+			value: neighborhood,
 			message: 'Campo obrigatório'
 		}, {
 			name: 'cep',
@@ -112,14 +113,14 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			value: cep,
 			message: 'Formato inválido'
 		}, {
-			name: 'cidade',
+			name: 'city',
 			validation: value => !!value,
-			value: cidade,
+			value: city,
 			message: 'Campo obrigatório'
 		}, {
-			name: 'estado',
+			name: 'cityState',
 			validation: value => value.length === 2,
-			value: estado,
+			value: cityState,
 			message: 'Formato inválido'
 		}, {
 			name: 'fone',
@@ -157,7 +158,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 	if (isError) return <Error />
 	return (
 		<>
-			<GetCnpj cnpj={cnpj} setState={setState} storeowners={storeowners} setCnpjValid={setCnpjValid} searchCnpj={searchCnpj} />
+			<GetCnpj cnpj={cnpj} setState={setState} baseCnpj={storeowners} setCnpjValid={setCnpjValid} validCnaes={validCnaes} />
 			<Form
 				validations={validations}
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
@@ -215,10 +216,10 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							inputMode='numeric'
 						/>
 					} />,
-					<FormInput name='razao' label='Razão Social' input={
+					<FormInput name='reason' label='Razão Social' input={
 						<InputText
-							value={razao}
-							onChange={({ target: { value } }) => setRazao(value.toUpperCase())}
+							value={reason}
+							onChange={({ target: { value } }) => setReason(value.toUpperCase())}
 							placeholder='ALMEIDA MODAS LTDA'
 						/>
 					} />,
@@ -229,32 +230,32 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							placeholder='ATELIE DE ROUPAS'
 						/>
 					} />,
-					<FormInput name='rua' label='Rua' input={
+					<FormInput name='street' label='Rua' input={
 						<InputText
-							value={rua}
-							onChange={({ target: { value } }) => setRua(value.toUpperCase())}
+							value={street}
+							onChange={({ target: { value } }) => setStreet(value.toUpperCase())}
 							placeholder='R MARECHAL SILVA'
 						/>
 					} />,
-					<FormInput name='numero' label='Número' input={
+					<FormInput name='number' label='Número' input={
 						<InputText
-							value={numero}
-							onChange={({ target: { value } }) => setNumero(maskInput(value.toUpperCase(), '######', true))}
+							value={number}
+							onChange={({ target: { value } }) => setNumber(maskInput(value.toUpperCase(), '######', true))}
 							placeholder='117'
 							inputMode='numeric'
 						/>
 					} />,
-					<FormInput name='complemento' label='Complemento' input={
+					<FormInput name='complement' label='Complemento' input={
 						<InputText
-							value={complemento}
-							onChange={({ target: { value } }) => setComplemento(value.toUpperCase())}
+							value={complement}
+							onChange={({ target: { value } }) => setComplement(value.toUpperCase())}
 							placeholder='BLOCO K'
 						/>
 					} />,
-					<FormInput name='bairro' label='Bairro' input={
+					<FormInput name='neighborhood' label='Bairro' input={
 						<InputText
-							value={bairro}
-							onChange={({ target: { value } }) => setBairro(value.toUpperCase())}
+							value={neighborhood}
+							onChange={({ target: { value } }) => setNeighborhood(value.toUpperCase())}
 							placeholder='LAPA'
 						/>
 					} />,
@@ -266,17 +267,17 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 							inputMode='numeric'
 						/>
 					} />,
-					<FormInput name='cidade' label='Cidade' input={
+					<FormInput name='city' label='Cidade' input={
 						<InputText
-							value={cidade}
-							onChange={({ target: { value } }) => setCidade(value.toUpperCase())}
+							value={city}
+							onChange={({ target: { value } }) => setCity(value.toUpperCase())}
 							placeholder='SÃO PAULO'
 						/>
 					} />,
-					<FormInput name='estado' label='Estado' input={
+					<FormInput name='cityState' label='Estado' input={
 						<InputText
-							value={estado}
-							onChange={({ target: { value } }) => setEstado(maskInput(value.toUpperCase(), '##', false))}
+							value={cityState}
+							onChange={({ target: { value } }) => setCityState(maskInput(value.toUpperCase(), '##', false))}
 							placeholder='SP'
 						/>
 					} />,
@@ -370,6 +371,21 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			/>
 		</>
 	)
+}
+
+FormRegisterStoreowner.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	setIsLoading: PropTypes.func.isRequired,
+	sendToBackend: PropTypes.func.isRequired,
+	hasAdvisor: PropTypes.bool,
+	hasAffiliated: PropTypes.bool,
+	haveSalesman: PropTypes.bool,
+	fetch: PropTypes.func.isRequired,
+	appAffiliateName: PropTypes.string,
+	appAffiliateCpf: PropTypes.string,
+	validCnaes: PropTypes.array.isRequired,
+	cnpjUrl: PropTypes.string.isRequired,
+	cnpjToken: PropTypes.string.isRequired
 }
 
 export default FormRegisterStoreowner

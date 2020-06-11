@@ -887,13 +887,8 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.89": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.90": {
         "files": [
-            {
-                "name": "index.js",
-                "relativePath": "src/components/FormRegisterStoreowner/GetCnpj/index.js",
-                "test": false
-            },
             {
                 "name": "index.js",
                 "relativePath": "src/components/FormRegisterStoreowner/index.js",
@@ -958,7 +953,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.25": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.26": {
         "files": [
             {
                 "relativePath": "src/components/GetCnpj/index.js",
@@ -969,6 +964,31 @@
                 "relativePath": "src/components/GetCnpj/searchCnpj.js",
                 "test": false,
                 "name": "searchCnpj.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/styles.js",
+                "test": false,
+                "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/utils/checkResult.js",
+                "test": false,
+                "name": "checkResult.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/utils/consultCnpj.js",
+                "test": false,
+                "name": "consultCnpj.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/utils/handleError.js",
+                "test": false,
+                "name": "handleError.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/utils/mountObject.js",
+                "test": false,
+                "name": "mountObject.js"
             }
         ],
         "mainFile": "src/components/GetCnpj/index.js",
