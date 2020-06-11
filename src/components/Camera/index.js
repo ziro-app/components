@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { motion, AnimatePresence } from 'framer-motion'
+import { shadow } from '@ziro/theme'
 import { useCamera, useDisablePinchZoomEffect } from './useCamera'
 import { container, overlay, animateContainer } from './styles'
-import './styles.css'
 
 const Camera = ({
     children,
@@ -20,7 +21,7 @@ const Camera = ({
 
     return (
         <div style={animateContainer}>
-            <div className='container' key='container' style={{ background: 'black' }}>
+            <div key='container' style={container('black')}>
                 <canvas hidden={true} ref={canvasRef}/>
                 <video
                     style={{ objectFit: 'cover' }}

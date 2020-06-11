@@ -1,3 +1,4 @@
+import is from 'is_js'
 export const
 
 animateContainer = {
@@ -7,8 +8,7 @@ animateContainer = {
 container = (background) => ({
     display: 'grid',
     width: '100%',
-    height: '100vh',
-    height: '-webkit-fill-available',
+    height: is.safari() ? '-webkit-fill-available' : '100vh',
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
