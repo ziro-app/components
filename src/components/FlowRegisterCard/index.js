@@ -47,7 +47,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 	],[number,cardholder,expiry,cvv])
 
 	useHeader(
-		<div style={{ height: 65+Math.min(window.innerWidth,300)/1.75 }}>
+		<div style={{ height: 45+Math.min(window.innerWidth,300)/1.75, background: 'white' }}>
 			{header}
 			<CreditCard
 				number={numberMaskedCard}
@@ -75,6 +75,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 
 	return (
 		<FlowForm
+			padding='30px 20px 10px 20px'
 			next={_onNext}
 			previous={_onPrevious}
 			validations={validations}
