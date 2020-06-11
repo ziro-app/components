@@ -10,7 +10,7 @@ container = (background) => ({
     width: '100%',
     height: is.safari() ? '-webkit-fill-available' : '100vh',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignContent: 'center',
     overflow: 'hidden',
     background
 }),
