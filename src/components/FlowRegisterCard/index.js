@@ -88,6 +88,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 							value={number}
 							onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
 							placeholder='1234 1234 1234 1234'
+							inputMode='numeric'
 						/>
 					}
 				/>,
