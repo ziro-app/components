@@ -17,7 +17,7 @@ const Camera = ({
 
     const [picture, videoRef, canvasRef, turnOn, turnOff, takePicture, deletePicture, cameraState] = useCamera(onTakePicture,onError,startOnMount,initialFacingMode)
 
-    useDisablePinchZoomEffect()
+    useDisablePinchZoomEffect(!picture)
 
     return (
         <div style={animateContainer}>
