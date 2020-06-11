@@ -75,7 +75,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 
 	return (
 		<FlowForm
-			padding='40px 20px 10px 20px'
+			padding='30px 20px 10px 20px'
 			next={_onNext}
 			previous={_onPrevious}
 			validations={validations}

@@ -14,7 +14,7 @@ const FlowForm = ({
 	nextName,
 	previous,
 	previousName,
-	padding = '10px 20px'
+	padding
 }) => {
 	
 	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
@@ -37,7 +37,7 @@ const FlowForm = ({
 	return (
 		<form>
 			<div style={container}>
-				<div style={{ ...content, padding }}>
+				<div style={{ ...content, padding: padding||'10px 20px' }}>
 					{inputs.map((reactElement, index) => {
 						if (reactElement.type === 'div') {
 							const children = reactElement.props.children.map((element, innerIndex) => {
