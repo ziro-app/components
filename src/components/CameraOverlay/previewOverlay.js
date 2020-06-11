@@ -13,6 +13,7 @@ const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
             style={{ boxSizing: 'border-box', height: '100vh', background: 'white', display: 'grid', padding: '20px', gridTemplateRows: 'auto 1fr', position: 'absolute', top: 0, bottom: 0, right: 0, left: 0, margin: '0px auto 20px', overflow: 'scroll' }}
         >
             <Header type='title-only' title='Preview'/>
+            <div style={{ marginBottom: '20px' }}>
             <ImagePreview
                 picture={picture}
                 primaryIcon='check'
@@ -20,6 +21,7 @@ const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
                 secondaryIcon='trash'
                 secondaryAction={deletePicture}
             />
+            </div>
         </motion.div>
     )
 }
