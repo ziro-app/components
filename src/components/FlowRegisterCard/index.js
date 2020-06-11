@@ -98,7 +98,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 					input={
 						<InputText
 							value={cardholder}
-							onChange={({ target: { value } }) => setCardholder(value)}
+							onChange={({ target: { value } }) => setCardholder(value.toLowerCase())}
 							placeholder='Fernando(a) da Silva'
 						/>
 					}

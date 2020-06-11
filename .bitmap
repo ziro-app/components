@@ -797,7 +797,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.57": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.58": {
         "files": [
             {
                 "name": "index.js",
