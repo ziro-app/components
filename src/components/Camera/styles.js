@@ -8,6 +8,7 @@ container = (background) => ({
     display: 'grid',
     width: '100%',
     height: '100vh',
+     height: '-webkit-fill-available',
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
