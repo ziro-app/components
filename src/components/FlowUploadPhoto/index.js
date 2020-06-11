@@ -10,7 +10,7 @@ import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth }) => {
+const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialFacingMode, allowSwap }) => {
 
     const [picture, setPicture] = useState()
 
@@ -69,7 +69,8 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth }) => {
                     isCameraOpen &&
                     <CameraContainer
                         startOnMount={true}
-                        initialFacingMode='rear'
+                        initialFacingMode={initialFacingMode}
+                        allowSwap={allowSwap}
                         onClose={closeCamera}
                         onSend={(pic) => {
                             setPicture(pic)
