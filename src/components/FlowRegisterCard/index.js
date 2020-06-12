@@ -113,6 +113,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 								value={expiry}
 								onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
 								placeholder='01/24'
+								inputMode='numeric'
 							/>
 						}
 					/>
@@ -124,6 +125,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 								value={cvv}
 								onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
 								placeholder='1111'
+								inputMode='numeric'
 							/>
 						}
 					/>

@@ -449,7 +449,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-installment@0.0.4": {
+    "vitorbarbosa19.ziro/choose-installment@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",
@@ -797,7 +797,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.62": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.63": {
         "files": [
             {
                 "name": "index.js",
