@@ -109,7 +109,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 			message: 'Campo obrigatório'
 		}, {
 			name: 'cep',
-			validation: value => value.length === 10,
+			validation: value => /(^\d{5}\-\d{3}$)|(^\d{2}\.\d{3}\-\d{3}$)/.test(value),
 			value: cep,
 			message: 'Formato inválido'
 		}, {
