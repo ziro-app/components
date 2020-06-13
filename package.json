@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
+    "@ziro/array-object": "^1.0.0",
     "@ziro/capitalize": "^1.0.0",
     "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",

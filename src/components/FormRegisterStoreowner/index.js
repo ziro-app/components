@@ -10,7 +10,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import Dropdown from '../Dropdown/index'
 
-const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, fetch, appAffiliateName = '', appAffiliateCpf = '', validCnaes, cnpjUrl, cnpjToken }) => {
+const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, fetch, appAffiliateName = '', appAffiliateCpf = '', validCnaes, cnpjUrl, cnpjToken, sheetUrl, sheetId, sheetToken }) => {
 	const [isError, setIsError] = useState(false)
 	const [cnpjValid, setCnpjValid] = useState(false)
 	const [storeowners, setStoreowners] = useState([])
@@ -46,7 +46,7 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 
 	const setState = {
 		setSearchedName, setAffiliateName, setAffiliateCpf, setAdvisor, setSalesman, setFname, setLname, setRg, setCpf, setBirth, setInsta, setCnpj, setIe, setReason, setFantasia,
-		setStreet, setNumber, setComplement, setNeighborhood, setCep, setCity, setCityState, setFone, setWhats, setEmail, cnpjUrl, cnpjToken
+		setStreet, setNumber, setComplement, setNeighborhood, setCep, setCity, setCityState, setFone, setWhats, setEmail, cnpjUrl, cnpjToken, sheetUrl, sheetId, sheetToken
 	}
 	const state = {
 		appAffiliateName, appAffiliateCpf, affiliateName, affiliateCpf, advisor, salesman, fname, lname, rg, cpf, birth, insta, cnpj, ie, reason, fantasia,
@@ -385,7 +385,10 @@ FormRegisterStoreowner.propTypes = {
 	appAffiliateCpf: PropTypes.string,
 	validCnaes: PropTypes.array.isRequired,
 	cnpjUrl: PropTypes.string.isRequired,
-	cnpjToken: PropTypes.string.isRequired
+	cnpjToken: PropTypes.string.isRequired,
+	sheetUrl: PropTypes.string.isRequired,
+	sheetId: PropTypes.string.isRequired,
+	sheetToken: PropTypes.string.isRequired
 }
 
 export default FormRegisterStoreowner

@@ -19,9 +19,12 @@ Componente padrão utilizado para adicionar um novo lojista.
         // Usar as env's
         const cnpjUrl = '';
         const cnpjToken = '';
+        const sheetUrl = '';
+        const sheetId = '';
+        const sheetToken = '';
         return(
             <div style={containerDocz}>
-                <FormRegisterStoreowner isLoading={isLoading} setIsLoading={setIsLoading} sendToBackend={() => () => console.log('sendToBackend')} fetch={() => console.log('Your fetch function')} hasAdvisor={true} hasAffiliated={true} haveSalesman={true} validCnaes={validCnaes} cnpjUrl={cnpjUrl} cnpjToken={cnpjToken} />
+                <FormRegisterStoreowner isLoading={isLoading} setIsLoading={setIsLoading} sendToBackend={() => () => console.log('sendToBackend')} fetch={() => console.log('Your fetch function')} hasAdvisor={true} hasAffiliated={true} haveSalesman={true} validCnaes={validCnaes} cnpjUrl={cnpjUrl} cnpjToken={cnpjToken} sheetUrl = {sheetUrl} sheetId = {sheetId}; sheetToken = {sheetToken}; />
             </div>
         )
     }}

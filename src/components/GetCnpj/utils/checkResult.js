@@ -1,4 +1,4 @@
-const checkResult = (status, result, validCnaes, ignoreDb) => {
+const checkResult = (status, result, validCnaes, ignoreDb, objectSheet) => {
     if (status) {
         let objResult = {};
         // validations
@@ -10,7 +10,7 @@ const checkResult = (status, result, validCnaes, ignoreDb) => {
             else throw { msg: !cnaeIsValid ? 'CNPJ não tem CNAE válido' : 'CNPJ não está ativo', tryAgain: true };
         }
         objResult['reason'] = result.nome;
-        objResult['fantasia'] = result.fantasia;
+        objResult['fantasia'] = objectSheet[0].fantasia ? objectSheet[0].fantasia : result.fantasia;
         objResult['street'] = result.logradouro;
         objResult['number'] = result.numero;
         objResult['complement'] = result.complemento;

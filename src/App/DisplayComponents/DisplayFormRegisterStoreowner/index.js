@@ -7,10 +7,13 @@ export const DisplayFormRegisterStoreowner = () => {
 	const validCnaes = ['47.81-4-00', '14.12-6-01', '14.12-6-03'];
 	const cnpjUrl = process.env.CNPJ_URL || '';
 	const cnpjToken = process.env.CNPJ_TOKEN || '';
+	const sheetUrl = process.env.SHEET_URL || '';
+	const sheetId = process.env.SHEET_ID || '';
+	const sheetToken = process.env.SHEET_TOKEN || '';
 
 	return (
 		<div style={containerWithPadding}>
-			<FormRegisterStoreowner isLoading={isLoading} setIsLoading={setIsLoading} sendToBackend={() => () => console.log('sendToBackend')} fetch={() => console.log('Your fetch function')} hasAdvisor={true} hasAffiliated={true} haveSalesman={true} validCnaes={validCnaes} cnpjUrl={cnpjUrl} cnpjToken={cnpjToken} />
+			<FormRegisterStoreowner isLoading={isLoading} setIsLoading={setIsLoading} sendToBackend={() => () => console.log('sendToBackend')} fetch={() => console.log('Your fetch function')} hasAdvisor={true} hasAffiliated={true} haveSalesman={true} validCnaes={validCnaes} cnpjUrl={cnpjUrl} cnpjToken={cnpjToken} sheetUrl= {sheetUrl} sheetId={sheetId} sheetToken={sheetToken} />
 		</div>
 	)
 }

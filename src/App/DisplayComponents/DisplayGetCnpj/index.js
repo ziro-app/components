@@ -19,9 +19,12 @@ export const DisplayGetCnpj = () => {
     // Usar as env's
     const cnpjUrl = process.env.CNPJ_URL || '';
     const cnpjToken = process.env.CNPJ_TOKEN || '';
+    const sheetUrl = process.env.SHEET_URL || '';
+	const sheetId = process.env.SHEET_ID || '';
+	const sheetToken = process.env.SHEET_TOKEN || '';
     const setState = {
         setCnpj, setCnpjValid, setReason, setFantasia, setStreet, setNumber,
-        setComplement, setNeighborhood, setCep, setCity, setCityState, cnpjToken, cnpjUrl
+        setComplement, setNeighborhood, setCep, setCity, setCityState, cnpjToken, cnpjUrl, sheetUrl, sheetId, sheetToken
     }
 
     return (
