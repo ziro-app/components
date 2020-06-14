@@ -9,11 +9,12 @@ const lastReq = async (config, validCnaes, state) => {
         const [status, result] = await consultCnpj(config);
         const objResult = checkResult(status, result, validCnaes, false);
         mountObject(state, objResult);
+        result['ok'] = true
         result['error'] = false;
+        return result
     } catch (error) {
         result['error'] = error;
-    } finally {
-        return result;
+        return result
     }
 }
 
@@ -41,22 +42,24 @@ const searchCnpj = state => () =>
         } catch (error) {
             const errorMsg = await handleError(state, error);
             setFirstLabel(true);
-            console.log('errorMsg',errorMsg)
             if (errorMsg.tryAgain) {
                 setFirstLabel(false);
                 await setTimeout(async () => {
                     config['data']['ignore_db'] = false;
-                    let result = await lastReq(config, validCnaes, state);
-                    console.log('result',result)
+                    let resultado = await lastReq(config, validCnaes, state);
                     setIsOpen(false);
                     setFirstLabel(true);
-                    if (result.error) {
+                    if (resultado.error) {
                         setCnpjValid(false);
-                        reject({ msg: result.error.msg, customError: true });
+                        reject({ msg: resultado.error.msg, customError: true });
                     }
-                    else {
+                    else if (resultado.ok) {
                         setCnpjValid(true);
                         resolve('CNPJ válido');
+                    }
+                    else {
+                        setCnpjValid(false);
+                        reject({ msg: 'Ocorreu um erro, tente novamente', customError: true });
                     }
                 }, 30000);
             }

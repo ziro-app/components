@@ -4,9 +4,7 @@ const checkResult = (status, result, validCnaes, ignoreDb) => {
         // validations
         const cnaes = [...result.atividades_secundarias, result.atividade_principal].map(({ code }) => code);
         const cnaeIsValid = !!cnaes.filter(code => validCnaes.includes(code)).pop();
-        console.log(cnaeIsValid)
         const isActive = result.situacao === 'ATIVA';
-        console.log(isActive)
         if (!cnaeIsValid || !isActive) {
             if (ignoreDb) throw { msg: !cnaeIsValid ? 'CNPJ não tem CNAE válido' : 'CNPJ não está ativo', finally: true };
             else throw { msg: !cnaeIsValid ? 'CNPJ não tem CNAE válido' : 'CNPJ não está ativo', tryAgain: true };
@@ -21,7 +19,6 @@ const checkResult = (status, result, validCnaes, ignoreDb) => {
         objResult['city'] = result.municipio;
         objResult['cityState'] = result.uf;
         objResult['fone'] = result.telefone;
-        console.log(objResult)
         return objResult;
     } else throw { msg: 'CNPJ inválido na Receita', customError: true };
 };
