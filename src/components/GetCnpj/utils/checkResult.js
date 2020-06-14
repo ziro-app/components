@@ -18,6 +18,7 @@ const checkResult = (status, result, validCnaes, ignoreDb) => {
         objResult['cep'] = result.cep.replace('.', '');
         objResult['city'] = result.municipio;
         objResult['cityState'] = result.uf;
+        objResult['fone'] = result.telefone;
         return objResult;
     } else throw { msg: 'CNPJ inválido na Receita', customError: true };
 };
