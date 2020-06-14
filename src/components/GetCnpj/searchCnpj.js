@@ -41,11 +41,13 @@ const searchCnpj = state => () =>
         } catch (error) {
             const errorMsg = await handleError(state, error);
             setFirstLabel(true);
+            console.log('errorMsg',errorMsg)
             if (errorMsg.tryAgain) {
                 setFirstLabel(false);
                 await setTimeout(async () => {
                     config['data']['ignore_db'] = false;
                     let result = await lastReq(config, validCnaes, state);
+                    console.log('result',result)
                     setIsOpen(false);
                     setFirstLabel(true);
                     if (result.error) {

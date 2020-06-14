@@ -449,7 +449,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-installment@0.0.5": {
+    "vitorbarbosa19.ziro/choose-installment@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",
@@ -887,7 +887,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.92": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.94": {
         "files": [
             {
                 "name": "index.js",
@@ -953,7 +953,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.27": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.29": {
         "files": [
             {
                 "relativePath": "src/components/GetCnpj/index.js",
