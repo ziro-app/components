@@ -34,6 +34,7 @@ const searchCnpj = state => () =>
             if (baseCnpj.includes(cnpj)) throw { msg: 'CNPJ já cadastrado', customError: true };
             const [status, result] = await consultCnpj(config);
             const objResult = checkResult(status, result, validCnaes, false);
+            console.log('HERE')
             mountObject(state, objResult);
             setIsOpen(false);
             setCnpjValid(true);
