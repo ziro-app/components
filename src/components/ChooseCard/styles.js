@@ -1,4 +1,4 @@
-import { primaryColor, grayColor4, fontBody } from '@ziro/theme'
+import { primaryColor, grayColor4, fontBody, grayColor1 } from '@ziro/theme'
 
 export const
 
@@ -8,16 +8,16 @@ container = {
     gridColumnGap: '10px'
 },
 
-cardContainer = {
+cardContainer = (showDelete) => ({
     display: 'grid',
-    gridTemplateColumns: '60px 1fr 60px',
+    gridTemplateColumns: showDelete ? '60px 1fr 60px' : '60px 1fr',
     boxShadow: '0px 0px 3px 0px rgba(34, 34, 34, 0.3)',
     height: '60px',
     alignItems: 'center',
     margin: '5px 0px',
     justifyItems: 'center',
     borderRadius: '3px'
-},
+}),
 
 brandContainer = {
     display: 'grid',
@@ -45,4 +45,11 @@ cardDelete = {
     borderLeft: `1px solid ${grayColor4}`,
     borderTopRightRadius: '3px',
     borderBottomRightRadius: '3px'
+},
+
+cardStatus = {
+    fontSize: 12,
+    textAlign: 'center',
+    fontWeight: '300',
+    color: grayColor1
 }

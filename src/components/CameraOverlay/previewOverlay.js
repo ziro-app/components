@@ -3,6 +3,7 @@ import Proptypes from 'prop-types'
 import { motion } from 'framer-motion'
 import ImagePreview from '../ImagePreview'
 import Header from '../Header'
+import is from 'is_js'
 
 const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
 
@@ -10,9 +11,10 @@ const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
         <motion.div
             initial={{ scale: window.innerWidth/(window.innerWidth-40) }}
             animate={{ scale: 1 }}
-            style={{ height: '100vh', background: 'white', display: 'grid', padding: '20px', gridTemplateRows: 'auto 1fr', position: 'absolute', top: 0, bottom: 0, right: 0, left: 0, margin: '0px auto 20px' }}
+            style={{ boxSizing: 'border-box', height: is.safari() ? '-webkit-fill-available':'100vh', background: 'white', display: 'grid', padding: '20px', gridTemplateRows: 'auto 1fr', position: 'absolute', top: 0, bottom: 0, right: 0, left: 0, margin: '0px auto 20px', overflow: 'scroll' }}
         >
             <Header type='title-only' title='Preview'/>
+            <div style={{ marginBottom: '20px' }}>
             <ImagePreview
                 picture={picture}
                 primaryIcon='check'
@@ -20,6 +22,7 @@ const PreviewOverlay = ({ picture, deletePicture, onAccept }) => {
                 secondaryIcon='trash'
                 secondaryAction={deletePicture}
             />
+            </div>
         </motion.div>
     )
 }

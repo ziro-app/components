@@ -8,7 +8,7 @@ import { primaryColor, grayColor4 } from '@ziro/theme'
 const _AddCard = ({ onClick, color = primaryColor }) => 
     <motion.div
         onClick={onClick}
-        style={{ ...cardContainer, gridTemplateColumns: '60px 1fr' }}
+        style={cardContainer(false)}
         whileTap={{ scale: 0.95 }}
     >
         <div style={{ ...brandContainer, background: grayColor4 }}>

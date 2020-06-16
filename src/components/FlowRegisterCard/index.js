@@ -47,7 +47,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 	],[number,cardholder,expiry,cvv])
 
 	useHeader(
-		<div style={{ height: 65+Math.min(window.innerWidth,300)/1.75 }}>
+		<div style={{ height: 45+Math.min(window.innerWidth,300)/1.75, background: 'white' }}>
 			{header}
 			<CreditCard
 				number={numberMaskedCard}
@@ -75,6 +75,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 
 	return (
 		<FlowForm
+			padding='30px 20px 10px 20px'
 			next={_onNext}
 			previous={_onPrevious}
 			validations={validations}
@@ -88,6 +89,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 							value={number}
 							onChange={({ target: { value } }) => setNumber(numberMaskedInput(value))}
 							placeholder='1234 1234 1234 1234'
+							inputMode='numeric'
 						/>
 					}
 				/>,
@@ -97,7 +99,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 					input={
 						<InputText
 							value={cardholder}
-							onChange={({ target: { value } }) => setCardholder(value)}
+							onChange={({ target: { value } }) => setCardholder(value.toLowerCase())}
 							placeholder='Fernando(a) da Silva'
 						/>
 					}
@@ -111,6 +113,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 								value={expiry}
 								onChange={({ target: { value } }) => setExpiry(expiryMasked(value))}
 								placeholder='01/24'
+								inputMode='numeric'
 							/>
 						}
 					/>
@@ -122,6 +125,7 @@ const FlowRegisterCard = ({ next, previous, header, initialNumber = '', initialC
 								value={cvv}
 								onChange={({ target: { value } }) => setCvv(cvvMasked(value))}
 								placeholder='1111'
+								inputMode='numeric'
 							/>
 						}
 					/>

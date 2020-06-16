@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import maskInput from '@ziro/mask-input'
-import { warningColor } from '@ziro/theme'
-import Form from '../Form/index'
-import FormInput from '../FormInput/index'
-import InputText from '../InputText/index'
+import Form from '../Form'
+import FormInput from '../FormInput'
+import InputText from '../InputText'
+import Modal from '../Modal'
+import Illustration from '../Illustration'
+import Spinner from '../Spinner'
 import searchCnpj from './searchCnpj'
+import { modalBox, container, title, svg } from './styles'
 
-const GetCnpj = ({ cnpj, setState, suppliers, setCnpjValid, validCnaes }) => {
-    const [alertMessage, setAlertMessage] = useState('')
+const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes }) => {
+    const [isOpen, setIsOpen] = useState(false)
+    const [firstLabel, setFirstLabel] = useState(true)
     const { setCnpj, ...rest } = setState
-    const state = { cnpj, suppliers, setCnpjValid, validCnaes, setAlertMessage, ...rest }
+    const state = { cnpj, baseCnpj, setCnpjValid, validCnaes, setFirstLabel, setIsOpen, ...rest }
     const validations = [
         {
             name: 'cnpj',
@@ -21,12 +25,17 @@ const GetCnpj = ({ cnpj, setState, suppliers, setCnpjValid, validCnaes }) => {
     ]
     return (
         <>
-            {alertMessage ?
-                <div style={{ padding: '0 0 5px', height: '24px', fontSize: '1.6rem', color: warningColor, textAlign: 'center' }} >
-                    <span>{alertMessage}</span>
+            <Modal boxStyle={modalBox} isOpen={isOpen} setIsOpen={() => { }}>
+                <div style={container}>
+                    <div style={svg} ><Illustration type="waiting" size={200} /></div>
+                    <label style={title}>{firstLabel ? 'Aguarde...' : 'Só mais um momento...'}</label>
+                    <label>{firstLabel
+                        ? 'Estamos validando seu CNPJ. Não saia da página'
+                        : 'Estamos concluindo a validação. Não saia da página'}
+                    </label>
+                    <Spinner size='3rem' />
                 </div>
-                : <div style={{ padding: '0 0 5px', height: '24px' }}>&nbsp;</div>
-            }
+            </Modal>
             <Form
                 buttonName='Validar CNPJ'
                 buttonOnTop={true}
@@ -50,9 +59,9 @@ const GetCnpj = ({ cnpj, setState, suppliers, setCnpjValid, validCnaes }) => {
 GetCnpj.propTypes = {
     cnpj: PropTypes.string.isRequired,
     setState: PropTypes.object.isRequired,
-    suppliers: PropTypes.array.isRequired,
+    baseCnpj: PropTypes.array.isRequired,
     setCnpjValid: PropTypes.func.isRequired,
-    validCnaes: PropTypes.array
+    validCnaes: PropTypes.array.isRequired
 }
 
 export default GetCnpj

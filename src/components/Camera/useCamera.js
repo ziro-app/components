@@ -70,10 +70,11 @@ export const useCamera = (onTakePicture, onError, startOnMount, initialFacingMod
     
 }
 
-export const useDisablePinchZoomEffect = () => {
+export const useDisablePinchZoomEffect = (shouldDisable) => {
     useEffect(() => {
+        if(!shouldDisable) return
       const disablePinchZoom = (e) => e.touches.length && e.preventDefault()
       document.addEventListener("touchmove", disablePinchZoom, { passive: false })
       return () => document.removeEventListener("touchmove", disablePinchZoom)
-    }, [])
+    }, [shouldDisable])
   }
