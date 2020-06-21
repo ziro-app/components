@@ -12,9 +12,15 @@ svg = {
 	justifySelf: 'center'
 },
 
-title = {
+titleSuccess = {
 	fontFamily: fontTitle,
-	textTransform: 'uppercase'
+	textTransform: 'uppercase',
+	color: successColor
+},
+
+titleError = {
+	...titleSuccess,
+	color: alertColor
 },
 
 modal = {

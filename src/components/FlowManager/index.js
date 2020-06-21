@@ -195,6 +195,7 @@ const FlowManager = ({ children, defaultHeader, defaultFooter, maxWidth = 500, b
                     { modal }
                     <MessageModalComponent
                         isOpen={!!messageModal}
+                        type={messageModal && messageModal.type||''}
                         title={messageModal && messageModal.title||''}
                         message={messageModal && messageModal.message||''}
                         firstButtonTitle={messageModal && messageModal.firstButtonTitle||''}
