@@ -5,7 +5,8 @@ export const
 container = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-    gridColumnGap: '10px'
+    gridColumnGap: '10px',
+    cursor: 'pointer'
 },
 
 cardContainer = (showDelete) => ({
