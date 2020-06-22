@@ -20,21 +20,17 @@ const ChooseInstallment = ({ charge, maxInstallments, seller, card, installments
     },[maxInstallments])
 
     const installmentValue = useMemo(() => `${quotient(charge,installments)}`,[charge, installments])
-    const totalValue = useMemo(() => installments*installmentValue, [installments, installmentValue])
 
     return (
         <div style={container}>
             <SellerAndChargeRow title={seller} quantity={format(charge)}/>
-            <h1 style={header}>Cartão</h1>
-            <CardRow card={card} isSelected={false}/>
-            <h1 style={header}>Parcelas</h1>
+            <label>Escolha as parcelas</label>
             <ChooseInstallmentRow
                 installmentsOptions={installmentsOptions}
                 installments={installments}
                 installmentValue={installmentValue}
                 setInstallments={setInstallments}
             />
-            <TotalRow totalValue={totalValue}/>
 		</div>
     )
 }

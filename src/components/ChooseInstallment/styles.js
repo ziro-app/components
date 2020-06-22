@@ -38,7 +38,7 @@ doubleRow = {
 
 tripleRow = {
 	...doubleRow,
-	gridTemplateColumns: '1fr 1fr 1fr',
+	gridTemplateColumns: '1fr 1fr',
 	padding: '20px 0px'
 },
 

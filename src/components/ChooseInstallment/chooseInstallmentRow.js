@@ -14,8 +14,7 @@ const _ChooseInstallmentRow = ({ installmentsOptions, installments, installmentV
             placeholder='X'
             onChangeKeyboard={element => element ? setInstallments(element.value) : null }
         />
-        <label style={middleItem}>{ installments === '' ? '' : installments === '1' ? 'vez de' : 'vezes de' }</label>
-        <label style={{ ...values, textAlign: 'end' }}>{currencyFormat(installmentValue)}</label>
+        <label style={{ ...values, textAlign: 'end' }}>{`${installments} de ${currencyFormat(installmentValue)}`}</label>
     </div>
 
 _ChooseInstallmentRow.propTypes = {
