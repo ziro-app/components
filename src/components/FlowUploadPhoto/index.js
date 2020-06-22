@@ -16,10 +16,14 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const setMessage = useMessageModal(errors(modal,() => {
-        if(log) console.log('opening camera', { openCamera })
-        openCamera()
-    }))
+    const setMessage = useMessageModal(errors(
+        modal,
+        () => {
+            if(log) console.log('opening camera', { openCamera })
+            openCamera()
+        },
+        setMessage,
+    ))
 
     useScroll(!isCameraOpen)
 
