@@ -8,7 +8,7 @@ export const errors = (modais,openCamera,setMessage) => ({
             ...acc,
             [`${index}`]: {
                 ...cur,
-                firstActionButton: index===modais.length-1 ? openCamera : () => setTimeout(() => setMessage(`${index+1}`),100)
+                firstButtonAction: index===modais.length-1 ? openCamera : () => setTimeout(() => setMessage(`${index+1}`),100)
             }
         }
     },{})
