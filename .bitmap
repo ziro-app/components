@@ -829,7 +829,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.75": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.76": {
         "files": [
             {
                 "name": "errors.js",
