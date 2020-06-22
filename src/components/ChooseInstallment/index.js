@@ -24,7 +24,7 @@ const ChooseInstallment = ({ charge, maxInstallments, seller, card, installments
     return (
         <div style={container}>
             <SellerAndChargeRow title={seller} quantity={format(charge)}/>
-            <label>Escolha as parcelas</label>
+            <label style={{ paddingTop: '20px' }}>Escolha as parcelas</label>
             <ChooseInstallmentRow
                 installmentsOptions={installmentsOptions}
                 installments={installments}
