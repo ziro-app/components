@@ -16,14 +16,18 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
+    const [_message, _setMessage] = useState()
+
     const setMessage = useMessageModal(errors(
         modal,
         () => {
             if(log) console.log('opening camera', { openCamera })
             openCamera()
         },
-        setMessage,
+        _setMessage,
     ))
+
+    useEffect(() => setMessage(_message),[_message])
 
     useScroll(!isCameraOpen)
 
@@ -31,7 +35,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
 
     useEffect(() => {
         setPicture()
-        setMessage('START')
+        _setMessage('START')
         cameraControls.set('close')
     },[title])
 
@@ -41,7 +45,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
             previous.location && setLocation('goRight', previous.location)
         }
         catch(error) {
-            setMessage(error)
+            _setMessage(error)
         }
     },[picture, previous])
 
@@ -51,7 +55,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
             next.location && setLocation('goLeft', next.location)
         }
         catch(error) {
-            setMessage(error)
+            _setMessage(error)
         }
     },[picture, next])
 
