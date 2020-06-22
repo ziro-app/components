@@ -1,4 +1,10 @@
-import { fontTitle, successColor, alertColor, primaryColor } from '@ziro/theme'
+import { fontTitle, successColor, alertColor, primaryColor, otherColor } from '@ziro/theme'
+
+const titleColor = {
+	default: otherColor,
+	success: successColor,
+	error: alertColor
+}
 
 export const
 
@@ -12,16 +18,11 @@ svg = {
 	justifySelf: 'center'
 },
 
-titleSuccess = {
+title = (type) => ({
 	fontFamily: fontTitle,
 	textTransform: 'uppercase',
-	color: successColor
-},
-
-titleError = {
-	...titleSuccess,
-	color: alertColor
-},
+	color: titleColor[type]||otherColor
+}),
 
 modal = {
 	zIndex: '999',

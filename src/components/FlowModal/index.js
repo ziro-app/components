@@ -2,12 +2,12 @@ import React from 'react'
 import Modal from '../Modal'
 import Button from '../Button'
 import Illustration from '../Illustration/index'
-import { container, svg, titleSuccess, titleError, modal } from './styles'
+import { container, svg, title as titleStyle, modal } from './styles'
 import { motion } from 'framer-motion'
 
 const _Modal = ({
     isOpen,
-    type = 'error',
+    type = 'default',
     title = 'Erro',
     message = 'Ocorreu um erro desconhecido',
     firstButtonTitle = 'ok',
@@ -24,7 +24,7 @@ const _Modal = ({
         >
             <div style={container}>
                 <div style={svg}><Illustration type={illustration} /></div>
-                <label style={type==='success'?titleSuccess:titleError}>{title}</label>
+                <label style={titleStyle(type)}>{title}</label>
                 <label>{message}</label>
                 <div style={{ display: 'grid', gridTemplateColumns: secondButtonTitle ? '1fr 1fr' : '1fr', gridGap: '10px' }}>
                     <Button
