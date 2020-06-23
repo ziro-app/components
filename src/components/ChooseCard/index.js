@@ -3,7 +3,7 @@ import { arrayOf, shape, number, func, string } from 'prop-types'
 import { CardRow } from './cardRow'
 import { AddCard } from './addCard'
 import { container } from './styles'
-import { otherColor } from '@ziro/theme'
+import { alertColor } from '@ziro/theme'
 
 export { CardRow }
 
@@ -17,7 +17,7 @@ const ChooseCard = ({ cards, selected, onClick, newCard, onDelete }) =>
                 onClick={onClick.bind(null,index)}
                 rightButton={{
                     icon: 'trash',
-                    color: otherColor,
+                    color: alertColor,
                     onClick: onDelete.bind(null,index)
                 }}
             />
