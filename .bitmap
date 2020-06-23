@@ -449,7 +449,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-installment@0.0.10": {
+    "vitorbarbosa19.ziro/choose-installment@0.0.11": {
         "files": [
             {
                 "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",
@@ -887,7 +887,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.102": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.103": {
         "files": [
             {
                 "name": "index.js",
