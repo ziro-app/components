@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
-import { arrayOf, exact, number, func, string } from 'prop-types'
+import { arrayOf, shape, number, func, string } from 'prop-types'
 import { CardRow } from './cardRow'
 import { AddCard } from './addCard'
 import { container } from './styles'
+import { otherColor } from '@ziro/theme'
 
 export { CardRow }
 
@@ -14,14 +15,18 @@ const ChooseCard = ({ cards, selected, onClick, newCard, onDelete }) =>
                 card={card}
                 isSelected={selected===index}
                 onClick={onClick.bind(null,index)}
-                onDelete={onDelete.bind(null,index)}
+                rightButton={{
+                    icon: 'trash',
+                    color: otherColor,
+                    onClick: onDelete.bind(null,index)
+                }}
             />
         )}
         <AddCard onClick={newCard}/>
     </div>
 
 ChooseCard.propsTypes = {
-    cards: arrayOf(exact({ number: string.isRequired, status: string.isRequired })).isRequired,
+    cards: arrayOf(shape({ number: string.isRequired, status: string.isRequired })).isRequired,
     selected: number,
     onClick: func,
     onDelete: func,

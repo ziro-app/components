@@ -1,15 +1,13 @@
 import React, { useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { SellerAndChargeRow } from '../SellerAndChargeRow'
-import { CardRow } from '../ChooseCard/cardRow'
 import { ChooseInstallmentRow } from './chooseInstallmentRow'
-import { TotalRow } from './totalRow'
-import { container, header } from './styles'
+import { container } from './styles'
 import format from '@ziro/currency-format'
 
 const quotient = (dividend, divisor) => parseInt((dividend/100/divisor).toFixed(2) * 100, 10)
 
-const ChooseInstallment = ({ charge, maxInstallments, seller, card, installments, setInstallments }) => {
+const ChooseInstallment = ({ charge, maxInstallments, seller, installments, setInstallments }) => {
 
     useEffect(() => { !installments && setInstallments('1') },[installments])
 
