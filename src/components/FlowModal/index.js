@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 
 const _Modal = ({
     isOpen,
+    type = 'default',
     title = 'Erro',
     message = 'Ocorreu um erro desconhecido',
     firstButtonTitle = 'ok',
@@ -23,7 +24,7 @@ const _Modal = ({
         >
             <div style={container}>
                 <div style={svg}><Illustration type={illustration} /></div>
-                <label style={titleStyle}>{title}</label>
+                <label style={titleStyle(type)}>{title}</label>
                 <label>{message}</label>
                 <div style={{ display: 'grid', gridTemplateColumns: secondButtonTitle ? '1fr 1fr' : '1fr', gridGap: '10px' }}>
                     <Button

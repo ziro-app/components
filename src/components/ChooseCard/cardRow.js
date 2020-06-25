@@ -1,5 +1,5 @@
 import React, { memo, useState, useMemo } from 'react'
-import { shape, string, func, bool } from 'prop-types'
+import { shape, string, func, bool, exact } from 'prop-types'
 import { motion } from 'framer-motion'
 import { matchCreditCardBrand } from '../Checkout/utils/matchCreditCardBrand'
 import { BrandIcon } from './brandIcon'
@@ -8,11 +8,12 @@ import Icon from '../Icon'
 import Spinner from '../Spinner'
 import { alertColor } from '@ziro/theme'
 import { useCallback } from 'react'
+import { load } from 'webfontloader'
 
 const visible = { scaleY: 1, height: 70, opacity: 1 }
 const invisible = { scaleY: 0, height: 0, opacity: 0 }
 
-export const CardRow = ({ card: { number, status }, isSelected, onClick, onDelete }) => {
+export const CardRow = ({ card: { number, status }, isSelected, onClick, rightButton }) => {
 
     const brand = matchCreditCardBrand(number)
     const animate = useMemo(() => isSelected ? invisible : visible, [isSelected])
@@ -25,28 +26,31 @@ export const CardRow = ({ card: { number, status }, isSelected, onClick, onDelet
         }
     },[status])
 
-    const [isDeleting, setDeleting] = useState(false)
+    const [loading, setLoading] = useState(false)
 
-    const whileTap = useMemo(() => ({ scale: isDeleting || !onClick ? 1 : 0.95 }),[isDeleting,onClick])
-    const _onClick = useCallback(() => !isDeleting && onClick && onClick(),[isDeleting,onClick])
-    const _onDelete = useCallback((e) => {
+    const whileTap = useMemo(() => ({ scale: loading || !onClick ? 1 : 0.95 }),[loading,onClick])
+    const _onClick = useCallback(() => !loading && onClick && onClick(),[loading,onClick])
+    const _onRightButtonClick = useCallback((e) => {
         e.stopPropagation()
-        if(isDeleting) return
-        setDeleting(true)
-        onDelete().finally(() => setDeleting(false))
-    },[isDeleting,setDeleting,onDelete])
+        if(loading||!rightButton.onClick) return
+        const maybePromise = rightButton.onClick()
+        if(maybePromise instanceof Promise) {
+            setLoading(true)
+            maybePromise.finally(() => setLoading(false))
+        }
+    },[loading,setLoading,rightButton])
 
     return (
         <motion.div initial={visible} animate={animate} onClick={_onClick} whileTap={whileTap}>
-            <div style={cardContainer(onDelete)}>
+            <div style={cardContainer(!!rightButton)}>
                 <BrandIcon brand={brand}/>
                 <div style={{ display: 'grid', alignItems: 'center' }}>
                     <label style={cardNumber}>{number}</label>
                     {status!=='approved' && <label style={cardStatus}>{statusMessage}</label>}
                 </div>
-                { onDelete &&
-                    <div style={cardDelete} onClick={_onDelete}>
-                    { isDeleting ? <Spinner size='20px'/> : <Icon type='trash' size={20} color={alertColor} /> }
+                { rightButton &&
+                    <div style={cardDelete} onClick={_onRightButtonClick}>
+                    { loading ? <Spinner size='20px'/> : <Icon type={rightButton.icon} size={20} color={rightButton.color} /> }
                     </div>
                 }
             </div>
@@ -58,5 +62,9 @@ CardRow.propTypes = {
     card: shape({ number: string.isRequired, status: string.isRequired }).isRequired,
     onClick: func,
     isSelected: bool,
-    onDelete: func
+    rightButton: exact({
+        icon: string.isRequired,
+        color: string.isRequired,
+        onClick: func.isRequired
+    })
 }

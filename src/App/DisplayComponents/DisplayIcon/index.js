@@ -58,4 +58,5 @@ export const DisplayIcon = () =>
 		<Icon type='chevronRight' size={24} />
 		<Icon type='rotate' size={24} />
 		<Icon type='zoom' size={24} />
+		<Icon type='headphone' size={24} />
 	</div>

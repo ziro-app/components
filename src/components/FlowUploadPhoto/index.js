@@ -10,16 +10,26 @@ import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialFacingMode, allowSwap }) => {
+const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initialFacingMode, allowSwap }) => {
 
     const [picture, setPicture] = useState()
 
     const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
 
-    const setMessage = useMessageModal(errors(modal,() => {
-        if(log) console.log('opening camera', { openCamera })
-        openCamera()
-    }))
+    const [_message, _setMessage] = useState()
+
+    const setMessage = useMessageModal(errors(
+        modais,
+        () => {
+            if(log) console.log('opening camera', { openCamera })
+            openCamera()
+        },
+        _setMessage,
+    ))
+
+    useEffect(() => setMessage(_message),[_message])
+
+    if(log) console.log(_message)
 
     useScroll(!isCameraOpen)
 
@@ -27,7 +37,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
 
     useEffect(() => {
         setPicture()
-        setMessage('START')
+        _setMessage('0')
         cameraControls.set('close')
     },[title])
 
@@ -37,7 +47,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
             previous.location && setLocation('goRight', previous.location)
         }
         catch(error) {
-            setMessage(error)
+            _setMessage(error)
         }
     },[picture, previous])
 
@@ -47,7 +57,7 @@ const FlowUploadPhoto = ({ next, previous, title, modal, log, maxWidth, initialF
             next.location && setLocation('goLeft', next.location)
         }
         catch(error) {
-            setMessage(error)
+            _setMessage(error)
         }
     },[picture, next])
 

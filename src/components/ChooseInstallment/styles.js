@@ -38,8 +38,8 @@ doubleRow = {
 
 tripleRow = {
 	...doubleRow,
-	gridTemplateColumns: '1fr 1fr 1fr',
-	padding: '20px 0px'
+	gridTemplateColumns: '1fr 1.5fr',
+	padding: '10px 0px'
 },
 
 middleItem = {

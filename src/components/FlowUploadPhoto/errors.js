@@ -1,12 +1,15 @@
-export const errors = ({ title, message, illustration },openCamera) => ({
+export const errors = (modais,openCamera,setMessage) => ({
     NO_PHOTO: {
         title: 'Nenhuma foto',
         message: 'Para continuar é necessário tirar uma foto'
     },
-    START: {
-        title,
-        message,
-        illustration,
-        firstButtonAction: openCamera
-    }
+    ...modais.reduce((acc,cur,index) => {
+        return {
+            ...acc,
+            [`${index}`]: {
+                ...cur,
+                firstButtonAction: index===modais.length-1 ? openCamera : () => setTimeout(() => setMessage(`${index+1}`),100)
+            }
+        }
+    },{})
 })
