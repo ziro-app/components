@@ -42,7 +42,7 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 				{buttonOnTop
 				?
 					<>
-						<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
+					{sendToBackend && <Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />}
 						<label style={submitTop(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 					</>
 				:
@@ -53,7 +53,7 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 							? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} errorMsg={submitMsg} />
 							: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 						}
-						<Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />
+						{sendToBackend && <Button type='submit' cta={buttonName || 'Enviar'} submitting={submitting} />}
 					</>
 				}
 			</div>
@@ -68,7 +68,7 @@ Form.propTypes = {
 	buttonName: PropTypes.string,
 	buttonOnTop: PropTypes.bool,
 	validations: PropTypes.arrayOf(PropTypes.object).isRequired,
-	sendToBackend: PropTypes.func.isRequired,
+	sendToBackend: PropTypes.func,
 	summary: PropTypes.element,
 	inputs: PropTypes.arrayOf(PropTypes.element).isRequired
 }
