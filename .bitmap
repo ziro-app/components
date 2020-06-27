@@ -311,6 +311,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/card-form@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/CardForm/cardInputs.js",
+                "test": false,
+                "name": "cardInputs.js"
+            },
+            {
+                "relativePath": "src/components/CardForm/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/CardForm/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/CardForm/index.js",
+        "trackDir": "src/components/CardForm",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/card@0.0.63": {
         "files": [
             {

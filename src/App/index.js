@@ -55,9 +55,9 @@ import { DisplayToastNotification } from './DisplayComponents/DisplayToastNotifi
 import { DisplayMenuHover } from './DisplayComponents/DisplayMenuHover';
 import { DisplayBottomTabBar } from './DisplayComponents/DisplayBottomTabBar';
 import { DisplayCard } from './DisplayComponents/DisplayCard';
+import { DisplayCardForm } from './DisplayComponents/DisplayCardForm';
 import { DisplayDetails } from './DisplayComponents/DisplayDetails';
 import { DisplayTable } from './DisplayComponents/DisplayTable';
-import { DisplayPaymentDetail } from './DisplayComponents/DisplayPaymentDetail';
 import { DisplayGetCnpj } from './DisplayComponents/DisplayGetCnpj';
 
 export const App = () => (
@@ -223,6 +223,9 @@ export const App = () => (
     </Route>
     <Route path="/bottom-tab-bar">
       <DisplayBottomTabBar />
+    </Route>
+    <Route path="/card-form">
+      <DisplayCardForm />
     </Route>
     <Route path="/card">
       <DisplayCard />
