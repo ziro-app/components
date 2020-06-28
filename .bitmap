@@ -1809,7 +1809,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.68": {
+    "vitorbarbosa19.ziro/resend-email@0.1.69": {
         "files": [
             {
                 "name": "index.js",
@@ -2077,7 +2077,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/update-email@0.1.65": {
+    "vitorbarbosa19.ziro/update-email@0.1.66": {
         "files": [
             {
                 "name": "index.js",
