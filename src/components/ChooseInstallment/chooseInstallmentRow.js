@@ -1,27 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { arrayOf, string, func } from 'prop-types'
 import currencyFormat from '@ziro/currency-format'
 import Dropdown from '../Dropdown'
-import { tripleRow, middleItem, values } from './styles'
+import { chooseInstallmentContainer, installmentsRow } from './styles'
 
 const _ChooseInstallmentRow = ({ installmentsOptions, installments, installmentValue, setInstallments }) => 
-    <div style={tripleRow}>
+    <div style={chooseInstallmentContainer}>
         <Dropdown
             readOnly={true}
             value={installments||''}
             onChange={({ target: { value } }) => setInstallments(value)}
             list={installmentsOptions}
-            placeholder='X'
+            placeholder='0'
             onChangeKeyboard={element => element ? setInstallments(element.value) : null }
         />
-        <label style={{ ...values, textAlign: 'end' }}>{`${installments}x de ${currencyFormat(installmentValue)}`}</label>
+        { installments && <label style={installmentsRow}>{`${installments}x de ${currencyFormat(installmentValue)}`}</label> }
     </div>
 
 _ChooseInstallmentRow.propTypes = {
-    installmentsOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
-    installments: PropTypes.string,
-    installmentValue: PropTypes.string,
-    setInstallments: PropTypes.func.isRequired
+    installmentsOptions: arrayOf(string).isRequired,
+    installments: string,
+    installmentValue: string,
+    setInstallments: func.isRequired
 }
 
 export const ChooseInstallmentRow = React.memo(_ChooseInstallmentRow)

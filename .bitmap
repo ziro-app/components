@@ -472,7 +472,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-installment@0.0.12": {
+    "vitorbarbosa19.ziro/choose-installment@0.0.13": {
         "files": [
             {
                 "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",
@@ -488,11 +488,6 @@
                 "relativePath": "src/components/ChooseInstallment/styles.js",
                 "test": false,
                 "name": "styles.js"
-            },
-            {
-                "relativePath": "src/components/ChooseInstallment/totalRow.js",
-                "test": false,
-                "name": "totalRow.js"
             }
         ],
         "mainFile": "src/components/ChooseInstallment/index.js",
@@ -540,7 +535,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/delete-account@0.1.61": {
+    "vitorbarbosa19.ziro/delete-account@0.1.62": {
         "files": [
             {
                 "name": "index.js",
@@ -1809,7 +1804,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.69": {
+    "vitorbarbosa19.ziro/resend-email@0.1.70": {
         "files": [
             {
                 "name": "index.js",
