@@ -7,18 +7,17 @@ import { containerWithPadding } from '@ziro/theme';
 const data = [
 	{
 		title: 'Lançamentos Futuros',
-		header: ['Parc.','Bruto','Líquido','Data', ''],
+		header: ['Parc.', 'Bruto', 'Líquido', 'Data', ''],
 		rows: [
-			['1','1.000,11','950,00','20/04/20', <Icon type='chevronRight' size={14} />],
-			['2','1.000,11','950,00','20/05/20', <Icon type='chevronRight' size={14} />],
-			['3','1.000,11','950,00','20/06/20', <Icon type='chevronRight' size={14} />]
+			['1', '1.000,11', '950,00', '20/04/20', <Icon type='chevronRight' size={14} />],
+			['2', '1.000,11', '950,00', '20/05/20', <Icon type='chevronRight' size={14} />],
+			['3', '1.000,11', '950,00', '20/06/20', <Icon type='chevronRight' size={14} onClick={() => console.log('teste')} />]
 		],
 		rowsClicks: [
 			() => window.location.assign('/table/1'),
-			() => window.location.assign('/table/2'),
-			() => window.location.assign('/table/3')
+			() => window.location.assign('/table/2')
 		],
-		totals: ['-','3.000,33','2.850,00','-','']
+		totals: ['-', '3.000,33', '2.850,00', '-', '']
 	}
 ]
 

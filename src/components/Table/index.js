@@ -17,10 +17,10 @@ const Table = ({ data, customGrid, cellStyle = cell }) =>
 					)}
 					{rows.map((row, indexRow) =>
 						row.map((column, indexColumn) =>
-							<label style={cellStyle} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks[indexRow]}>
+							<label style={cellStyle} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks && rowsClicks[indexRow] ? rowsClicks[indexRow] : null}>
 								{column}
 							</label>
-					))}
+						))}
 					{totals.map((column, indexTotals) =>
 						<label style={cellTotal} key={`${index}T${indexTotals}`}>
 							{column}
