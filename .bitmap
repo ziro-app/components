@@ -311,7 +311,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card-form@0.0.1": {
+    "vitorbarbosa19.ziro/card-form@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/CardForm/cardInputs.js",
@@ -324,9 +324,29 @@
                 "name": "index.js"
             },
             {
+                "relativePath": "src/components/CardForm/infoCard.js",
+                "test": false,
+                "name": "infoCard.js"
+            },
+            {
                 "relativePath": "src/components/CardForm/styles.js",
                 "test": false,
                 "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/CardForm/styles_catalog.js",
+                "test": false,
+                "name": "styles_catalog.js"
+            },
+            {
+                "relativePath": "src/components/CardForm/summaryCard.js",
+                "test": false,
+                "name": "summaryCard.js"
+            },
+            {
+                "relativePath": "src/components/CardForm/utils.js",
+                "test": false,
+                "name": "utils.js"
             }
         ],
         "mainFile": "src/components/CardForm/index.js",
@@ -440,7 +460,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.74": {
+    "vitorbarbosa19.ziro/choose-card@0.0.75": {
         "files": [
             {
                 "name": "addCard.js",
@@ -905,7 +925,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.106": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.107": {
         "files": [
             {
                 "name": "index.js",
@@ -1655,7 +1675,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/login-page@0.1.60": {
+    "vitorbarbosa19.ziro/login-page@0.1.61": {
         "files": [
             {
                 "name": "index.js",
@@ -1804,7 +1824,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/resend-email@0.1.71": {
+    "vitorbarbosa19.ziro/resend-email@0.1.72": {
         "files": [
             {
                 "name": "index.js",
