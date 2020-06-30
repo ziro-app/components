@@ -11,11 +11,7 @@ const data = [
 		rows: [
 			['1', '1.000,11', '950,00', '20/04/20', <Icon type='chevronRight' size={14} />],
 			['2', '1.000,11', '950,00', '20/05/20', <Icon type='chevronRight' size={14} />],
-			['3', '1.000,11', '950,00', '20/06/20', <Icon type='chevronRight' size={14} onClick={() => console.log('teste')} />]
-		],
-		rowsClicks: [
-			() => window.location.assign('/table/1'),
-			() => window.location.assign('/table/2')
+			['3', '1.000,11', '950,00', '20/06/20', <Icon type='trash' size={14} onClick={() => console.log('teste')} />]
 		],
 		totals: ['-', '3.000,33', '2.850,00', '-', '']
 	}
