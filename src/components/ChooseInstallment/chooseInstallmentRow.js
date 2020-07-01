@@ -7,7 +7,6 @@ import { chooseInstallmentContainer, installmentsRow } from './styles'
 const _ChooseInstallmentRow = ({ installmentsOptions, installments, installmentValue, setInstallments }) => 
     <div style={chooseInstallmentContainer}>
         <Dropdown
-            readOnly={true}
             value={installments||''}
             onChange={({ target: { value } }) => setInstallments(value)}
             list={installmentsOptions}
