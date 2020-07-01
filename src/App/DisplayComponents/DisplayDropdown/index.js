@@ -13,6 +13,7 @@ export const DisplayDropdown = () => {
 				list={['Apples', 'Bananas', 'Oranges', 'Melons', 'Berries']}
 				placeholder='Escolha uma opção'
 				onChangeKeyboard={element => element ? setSelection(element.value) : null }
+				inputMode='numeric'
 			/>
 		</div>
 	)

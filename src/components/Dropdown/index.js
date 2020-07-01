@@ -8,7 +8,7 @@ import { grayColor1 } from '@ziro/theme'
 import { container, close, modal, data } from './styles'
 import { initial, animate, transition } from './animation'
 
-const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard, readOnly }) => {
+const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyboard, readOnly, ...rest }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [arrowDown, setArrowDown] = useState(false)
 	const [arrowUp, setArrowUp] = useState(false)
@@ -98,6 +98,7 @@ const Dropdown = ({ value, onChange, list, submitting, placeholder, onChangeKeyb
 				onFocus={submitting ? null : () => setIsOpen(true)}
 				onBlur={submitting ? null : () => setIsOpen(false)}
 				placeholder={placeholder}
+				{...rest}
 			/>
 			{isOpen &&
 			<motion.div style={modal} initial={initial} animate={animate} transition={transition}>

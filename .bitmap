@@ -397,7 +397,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.80": {
+    "vitorbarbosa19.ziro/checkout@0.1.81": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -460,7 +460,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.76": {
+    "vitorbarbosa19.ziro/choose-card@0.0.77": {
         "files": [
             {
                 "name": "addCard.js",
@@ -492,7 +492,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-installment@0.0.16": {
+    "vitorbarbosa19.ziro/choose-installment@0.0.17": {
         "files": [
             {
                 "relativePath": "src/components/ChooseInstallment/chooseInstallmentRow.js",
@@ -637,7 +637,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/dropdown-edit@0.0.44": {
+    "vitorbarbosa19.ziro/dropdown-edit@0.0.45": {
         "files": [
             {
                 "name": "index.js",
@@ -649,7 +649,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/dropdown@0.1.41": {
+    "vitorbarbosa19.ziro/dropdown@0.1.42": {
         "files": [
             {
                 "name": "animation.js",
@@ -925,7 +925,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.108": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.109": {
         "files": [
             {
                 "name": "index.js",
