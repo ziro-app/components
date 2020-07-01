@@ -13,7 +13,7 @@ export const DisplayChooseInstallment = () => {
             <ChooseInstallment
                 seller='Crisfael'
                 charge='60078'
-                maxInstallments='6'
+                maxInstallments='12'
                 card={{ number: '4839 **** 4382', status: 'approved' }}
                 installments={installments}
                 setInstallments={setInstallments}

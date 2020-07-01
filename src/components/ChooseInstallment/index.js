@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { string, func } from 'prop-types'
 import { SellerAndChargeRow } from '../SellerAndChargeRow'
 import { ChooseInstallmentRow } from './chooseInstallmentRow'
@@ -12,7 +12,11 @@ const ChooseInstallment = ({ charge, maxInstallments, seller, installments, setI
 
     const installmentsOptions = useMemo(() => createArray(maxInstallments),[maxInstallments])
     const installmentValue = useMemo(() => `${quotient(charge,installments)}`,[charge, installments])
-
+    const isValid = useMemo(() => installmentsOptions.includes(installments), [installmentsOptions, installments])
+    useEffect(() => {
+        if (Number(installments) > Number(maxInstallments)) setInstallments(maxInstallments)
+        if (Number(installments) === 0) setInstallments('')
+    }, [installments, maxInstallments])
     return (
         <div style={container}>
             <SellerAndChargeRow title={seller} quantity={format(charge)}/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { arrayOf, string, func } from 'prop-types'
 import currencyFormat from '@ziro/currency-format'
+import maskInput from '@ziro/mask-input'
 import Dropdown from '../Dropdown'
 import { chooseInstallmentContainer, installmentsRow } from './styles'
 
@@ -8,10 +9,11 @@ const _ChooseInstallmentRow = ({ installmentsOptions, installments, installmentV
     <div style={chooseInstallmentContainer}>
         <Dropdown
             value={installments||''}
-            onChange={({ target: { value } }) => setInstallments(value)}
+            onChange={({ target: { value } }) => setInstallments(maskInput(value, '##', true))}
             list={installmentsOptions}
             placeholder='0'
             onChangeKeyboard={element => element ? setInstallments(element.value) : null }
+            inputMode='numeric'
         />
         { installments && <label style={installmentsRow}>{`${installments}x de ${currencyFormat(installmentValue)}`}</label> }
     </div>
