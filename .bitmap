@@ -573,7 +573,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/details@0.0.10": {
+    "vitorbarbosa19.ziro/details@0.0.11": {
         "files": [
             {
                 "name": "index.js",

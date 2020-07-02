@@ -31,7 +31,7 @@ export const container = blockGap => ({
     textAlign: 'end',
   },
   titleStyle = {
-    maxWidth: '350px',
+    maxWidth: '500px',
     fontFamily: fontTitle,
     fontSize: '1.5rem',
     textAlign: 'start',
@@ -40,7 +40,7 @@ export const container = blockGap => ({
     whiteSpace: 'nowrap',
   },
   contentStyle = color => ({
-    maxWidth: '350px',
+    maxWidth: '500px',
     fontSize: '1.5rem',
     fontWeight: color ? '500' : '400',
     color: color ? color : primaryColor,
