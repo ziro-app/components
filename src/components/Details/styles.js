@@ -40,6 +40,7 @@ export const container = blockGap => ({
     whiteSpace: 'nowrap',
   },
   contentStyle = color => ({
+    maxWidth: '350px',
     fontSize: '1.5rem',
     fontWeight: color ? '500' : '400',
     color: color ? color : primaryColor,
