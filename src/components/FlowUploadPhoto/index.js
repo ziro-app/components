@@ -47,7 +47,7 @@ const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwa
                     />
                 }
             </motion.div>
-    ,[isCameraOpen])
+    ,[_isCameraOpen])
 
     return (
         <UploadPhoto
