@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button'
 
-const BottomFlowButtons = ({ next, nextTitle = 'próximo', previous, previousTitle = 'voltar', submit = false }) => {
+const BottomFlowButtons = ({ next, nextTitle = 'próximo', previous, previousTitle = 'voltar', submit = false, submitting }) => {
 
     return (
         <div style={{ display: 'grid', gridTemplateColumns: next && previous ? '1fr 1fr' : '1fr', padding: '20px', gridGap: '20px', background: 'white' }}>
@@ -12,6 +12,7 @@ const BottomFlowButtons = ({ next, nextTitle = 'próximo', previous, previousTit
                     template='light'
                     cta={previousTitle}
                     click={previous}
+                    submitting={submitting}
                 />
             }
             {
@@ -20,6 +21,7 @@ const BottomFlowButtons = ({ next, nextTitle = 'próximo', previous, previousTit
                     type={ submit ? 'submit' : 'button'}
                     cta={nextTitle}
                     click={next}
+                    submitting={submitting}
                 />
             }
         </div>

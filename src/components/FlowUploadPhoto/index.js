@@ -9,7 +9,7 @@ import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initialFacingMode, allowSwap }) => {
+const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initialFacingMode, allowSwap, submitting }) => {
 
     const [picture, setPicture] = useState()
 
@@ -38,7 +38,7 @@ const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initial
         cameraControls.set('close')
     },[title])
 
-    useFooter(<BottomFlowButtons previous={previous} next={() => next({ picture })} />,[previous, next, picture])
+    useFooter(<BottomFlowButtons previous={previous} next={() => next({ picture })} submitting={submitting} />,[previous, next, picture,submitting])
 
     useModal(
             <motion.div
