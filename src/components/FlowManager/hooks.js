@@ -112,7 +112,7 @@ useMessageModal = (messageModalObject) => {
     useEffect(() => {
         if(!messageModal) setMessage()
     },[messageModal])
-    return setMessage
+    return [message, setMessage]
 },
 
 useSubmitModal = (isSubmitting) => {
