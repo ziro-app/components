@@ -14,7 +14,6 @@ const cacheCalls = new Map()
 
 const defaultMessageModal = {
     title: 'Erro',
-    type: 'error',
     message: 'Ocorreu um erro desconhecido',
     firstButtonTitle: 'ok',
     illustration: 'paymentError'
@@ -114,8 +113,8 @@ useMessageModal = (messageModalObject) => {
     useEffect(() => {
         if(!message) setMessageModal()
         else {
-            let modal = { ...defaultMessageModal, ...(modalObject[message]||{}) }
-            setMessageModal(modal)
+            if(modalObject[message]) setMessageModal({ ...defaultMessageModal, ...modalObject[message] })
+            else setMessageModal({ ...defaultMessageModal, type: 'error' })
         }
     },[message])
     useEffect(() => {
