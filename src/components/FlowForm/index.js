@@ -30,9 +30,7 @@ const FlowForm = ({
 		/>
 	,[_validations, next, previous, previousName, nextName])
 
-	const setSubmitModal = useSubmitModal()
-
-	useEffect(() => { setSubmitModal(submitting) },[submitting])
+	useSubmitModal(submitting)
 	
 	return (
 		<form>

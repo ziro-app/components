@@ -786,7 +786,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.54": {
+    "vitorbarbosa19.ziro/flow-form@0.0.55": {
         "files": [
             {
                 "name": "index.js",
@@ -835,7 +835,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.74": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.75": {
         "files": [
             {
                 "name": "index.js",
