@@ -13,6 +13,7 @@ const cacheCalls = new Map()
 
 const defaultMessageModal = {
     title: 'Erro',
+    type: 'error',
     message: 'Ocorreu um erro desconhecido',
     firstButtonTitle: 'ok',
     illustration: 'paymentError'
@@ -114,9 +115,9 @@ useMessageModal = (messageModalObject) => {
     return setMessage
 },
 
-useSubmitModal = () => {
+useSubmitModal = (isSubmitting) => {
     const { setIsSubmitting } = useContext(flowContext)
-    return setIsSubmitting
+    useEffect(() => setIsSubmitting(isSubmitting), [isSubmitting])
 },
 
 useToastModal = (toast, deps=[]) => {
