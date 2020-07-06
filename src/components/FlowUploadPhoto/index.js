@@ -6,39 +6,20 @@ import BottomFlowButtons from '../BottomFlowButtons'
 import CameraContainer from '../CameraContainer'
 import { useState } from 'react'
 import { useCameraAsOverlay } from './useCameraAsOverlay'
+import { useCallback } from 'react'
 import { useEffect } from 'react'
-import { errors } from './errors'
 
-const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initialFacingMode, allowSwap, submitting }) => {
+const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwap, submitting, isCameraOpen }) => {
 
     const [picture, setPicture] = useState()
-
-    const [isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
-
-    const [_message, _setMessage] = useState()
-
-    const setMessage = useMessageModal(errors(
-        modais,
-        () => {
-            if(log) console.log('opening camera', { openCamera })
-            openCamera()
-        },
-        _setMessage,
-    ))
-
-    useEffect(() => setMessage(_message),[_message])
-
-    if(log) console.log(_message)
+    const [_isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay()
+    const _next = useCallback(() => next({ picture }),[picture,next])
 
     useScroll(!isCameraOpen)
 
-    useEffect(() => {
-        setPicture()
-        setMessage('0')
-        cameraControls.set('close')
-    },[title])
+    useEffect(() => isCameraOpen ? openCamera() : closeCamera(),[isCameraOpen])
 
-    useFooter(<BottomFlowButtons previous={previous} next={() => next({ picture })} submitting={submitting} />,[previous, next, picture,submitting])
+    useFooter(<BottomFlowButtons previous={previous} next={_next} submitting={submitting} />,[previous, _next, submitting])
 
     useModal(
             <motion.div
@@ -53,7 +34,7 @@ const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initial
                 style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, maxWidth, margin: 'auto' }}
             >
                 {
-                    isCameraOpen &&
+                    _isCameraOpen &&
                     <CameraContainer
                         startOnMount={true}
                         initialFacingMode={initialFacingMode}
@@ -67,8 +48,6 @@ const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initial
                 }
             </motion.div>
     ,[isCameraOpen])
-
-    if(log) console.log({ isCameraOpen, useModal, cameraControls: cameraControls.valueOf() })
 
     return (
         <UploadPhoto

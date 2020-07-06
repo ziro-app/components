@@ -867,13 +867,8 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.85": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.86": {
         "files": [
-            {
-                "name": "errors.js",
-                "relativePath": "src/components/FlowUploadPhoto/errors.js",
-                "test": false
-            },
             {
                 "name": "index.js",
                 "relativePath": "src/components/FlowUploadPhoto/index.js",
