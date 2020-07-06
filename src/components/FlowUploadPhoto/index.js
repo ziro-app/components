@@ -17,7 +17,7 @@ const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwa
 
     useScroll(!isCameraOpen)
 
-    useEffect(() => isCameraOpen ? openCamera() : closeCamera(),[isCameraOpen])
+    useEffect(() => { isCameraOpen ? openCamera() : closeCamera() },[isCameraOpen])
 
     useFooter(<BottomFlowButtons previous={previous} next={_next} submitting={submitting} />,[previous, _next, submitting])
 
