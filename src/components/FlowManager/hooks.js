@@ -3,6 +3,7 @@ import { useLocation } from 'wouter'
 import { useCallback } from 'react'
 import * as defaultAnimations from './defaultAnimations'
 import { useRef } from 'react'
+import { useMemo } from 'react'
 
 const showError = () => console.error('NO_FLOW_CONTEXT')
 
@@ -105,9 +106,17 @@ useModal = (modal, deps = []) => {
 useMessageModal = (messageModalObject) => {
     const { messageModal, setMessageModal } = useContext(flowContext)
     const [message, setMessage] = useState()
+    const modalObject = useMemo(() => {
+        if(typeof messageModalObject === 'function') return messageModalObject(setMessage)
+        if(typeof messageModalObject === 'object') return messageModalObject
+        return {}
+    },[messageModalObject, setMessage])
     useEffect(() => {
         if(!message) setMessageModal()
-        else setMessageModal({ ...defaultMessageModal, ...(messageModalObject && messageModalObject[message]||{}) })
+        else {
+            let modal = { ...defaultMessageModal, ...(modalObject[message]||{}) }
+            setMessageModal(modal)
+        }
     },[message])
     useEffect(() => {
         if(!messageModal) setMessage()
