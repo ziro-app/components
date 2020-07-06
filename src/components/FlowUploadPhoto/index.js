@@ -1,11 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useAnimatedLocation, useHeader, useFooter, useModal, useMessageModal, useScroll } from '../FlowManager'
+import { useFooter, useModal, useMessageModal, useScroll } from '../FlowManager'
 import UploadPhoto from '../UploadPhoto'
-import Header from '../HeaderFlow'
 import BottomFlowButtons from '../BottomFlowButtons'
 import CameraContainer from '../CameraContainer'
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import { useCameraAsOverlay } from './useCameraAsOverlay'
 import { useEffect } from 'react'
 import { errors } from './errors'
@@ -33,35 +32,13 @@ const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initial
 
     useScroll(!isCameraOpen)
 
-    const setLocation = useAnimatedLocation()[1]
-
     useEffect(() => {
         setPicture()
-        _setMessage('0')
+        setMessage('0')
         cameraControls.set('close')
     },[title])
 
-    const _onPrevious = useCallback(async () => {
-        try {
-            previous.onClick && await previous.onClick({ picture })
-            previous.location && setLocation('goRight', previous.location)
-        }
-        catch(error) {
-            _setMessage(error)
-        }
-    },[picture, previous])
-
-    const _onNext = useCallback(async () => {
-        try {
-            next.onClick && await next.onClick({ picture })
-            next.location && setLocation('goLeft', next.location)
-        }
-        catch(error) {
-            _setMessage(error)
-        }
-    },[picture, next])
-
-    useFooter(<BottomFlowButtons previous={_onPrevious} next={_onNext} />,[_onPrevious, _onNext])
+    useFooter(<BottomFlowButtons previous={previous} next={next} />,[previous, next])
 
     useModal(
             <motion.div
