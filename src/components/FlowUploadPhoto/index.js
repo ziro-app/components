@@ -38,7 +38,7 @@ const FlowUploadPhoto = ({ next, previous, title, modais, log, maxWidth, initial
         cameraControls.set('close')
     },[title])
 
-    useFooter(<BottomFlowButtons previous={previous} next={next} />,[previous, next])
+    useFooter(<BottomFlowButtons previous={previous} next={() => next({ picture })} />,[previous, next])
 
     useModal(
             <motion.div
