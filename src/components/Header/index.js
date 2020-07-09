@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'wouter'
+import { useLocation } from 'wouter'
 import Sticky from './Sticky'
 import Icon from '../Icon/index'
 import { container, svg, text } from './styles'
 
 const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilter }) => {
+	const [, setLocation] = useLocation();
+
 	useEffect(() => {
 		if (type !== 'title-only') {
 			const headerText = document.getElementById(title).lastChild
@@ -15,14 +17,14 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilt
 		}
 	}, [])
 	const component = {
-		'icon': 
+		'icon':
 			<>
-				<Icon type={icon || 'ziro'} style={svg(setIsOpen)} onClick={setIsOpen} />
+				<Icon type={icon || 'ziro'} style={svg(setIsOpen)} />
 				<h1 style={text(false)}>{title}</h1>
 			</>,
 		'icon-link':
 			<>
-				<Link to={navigateTo}><Icon type={icon || 'ziro'} style={svg(navigateTo)} /></Link>
+				<Icon type={icon || 'ziro'} style={svg(navigateTo)} />
 				<h1 style={text(false)}>{title}</h1>
 			</>,
 		'title-only': <h1 style={text(true)}>{title}</h1>,
@@ -30,7 +32,11 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilt
 	}
 	if (type === 'sticky') return <Sticky title={title} hideButton={hideButton} hideFilter={hideFilter} />
 	return (
-		<div style={container(type === 'title-only')} id={title}> {/* header titles must be different if several header are on same page */}
+		<div
+			id={title}
+			style={container(type === 'title-only')}
+			onClick={(type === 'icon' || type === 'icon-link') ? (setIsOpen ? () => setIsOpen() : () => setLocation(navigateTo)) : () => null}
+		> {/* header titles must be different if several header are on same page */}
 			{component[type]}
 		</div>
 	)
