@@ -19,12 +19,12 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilt
 	const component = {
 		'icon':
 			<>
-				<Icon type={icon || 'ziro'} style={svg(setIsOpen)} />
+				<div onClick={() => setIsOpen()}><Icon type={icon || 'ziro'} style={svg(setIsOpen)} /></div>
 				<h1 style={text(false)}>{title}</h1>
 			</>,
 		'icon-link':
 			<>
-				<Icon type={icon || 'ziro'} style={svg(navigateTo)} />
+				<div onClick={() => setLocation(navigateTo)}><Icon type={icon || 'ziro'} style={svg(navigateTo)} /></div>
 				<h1 style={text(false)}>{title}</h1>
 			</>,
 		'title-only': <h1 style={text(true)}>{title}</h1>,
@@ -32,11 +32,7 @@ const Header = ({ type, title, icon, setIsOpen, navigateTo, hideButton, hideFilt
 	}
 	if (type === 'sticky') return <Sticky title={title} hideButton={hideButton} hideFilter={hideFilter} />
 	return (
-		<div
-			id={title}
-			style={container(type === 'title-only')}
-			onClick={(type === 'icon' || type === 'icon-link') ? (setIsOpen ? () => setIsOpen() : () => setLocation(navigateTo)) : () => null}
-		> {/* header titles must be different if several header are on same page */}
+		<div style={container(type === 'title-only')} id={title}> {/* header titles must be different if several header are on same page */}
 			{component[type]}
 		</div>
 	)
