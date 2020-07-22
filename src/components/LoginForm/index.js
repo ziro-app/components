@@ -30,7 +30,7 @@ const LoginForm = ({ sendToBackend, history }) => {
 				<FormInput name='email' label='Email' input={
 					<InputText
 						value={email}
-						onChange={({ target: { value } }) => setEmail(value ? value.toLowerCase() : '')}
+						onChange={({ target: { value } }) => setEmail(value ? value.toLowerCase().replace(/\s/g, '') : '')}
 						placeholder='Seu email'
 						inputMode='email'
 						autoComplete='email'
