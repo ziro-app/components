@@ -10,7 +10,8 @@ dropzone = {
 	border: `2px dashed ${grayColor3}`,
 	borderRadius: '6px',
 	color: primaryColor,
-	textAlign: 'center'
+	textAlign: 'center',
+
 },
 
 instructions = {

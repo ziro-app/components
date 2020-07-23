@@ -59,4 +59,5 @@ export const DisplayIcon = () =>
 		<Icon type='rotate' size={24} />
 		<Icon type='zoom' size={24} />
 		<Icon type='headphone' size={24} />
+		<Icon type='copy' size={24} />
 	</div>

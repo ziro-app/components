@@ -50,6 +50,7 @@ import { Cart } from './../../Icons/Cart/index';
 import { Forward } from './../../Icons/Forward/index';
 import { Help } from './../../Icons/Help/index';
 import { PlusCircle } from './../../Icons/PlusCircle/index';
+import { Copy } from './../../Icons/Copy/index';
 import { ChevronRight } from './../../Icons/ChevronRight/index';
 import { Rotate } from './../../Icons/Rotate/index';
 import { Zoom } from './../../Icons/Zoom/index';
@@ -109,6 +110,7 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     forward: <Forward {...iconProps} />,
     help: <Help {...iconProps} />,
     plusCircle: <PlusCircle {...iconProps} />,
+    copy:<Copy {...iconProps} />,
     chevronRight: <ChevronRight {...iconProps} />,
     rotate: <Rotate {...iconProps} />,
     zoom: <Zoom {...iconProps} />,

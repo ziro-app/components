@@ -1,7 +1,6 @@
 import React from 'react';
 import CardInputs from './cardInputs';
 import {
-  fileContainerDeleteImageClass,
   fileContainerUploadPictureContainerClass,
   fileContainerUploadPictureContainerimgUploadPictureClass,
   fileContainerUploadPicturesWrapperClass,
@@ -10,79 +9,88 @@ import RImg from 'react-image';
 import SpinnerWithDiv from '../SpinnerWithDiv';
 import InfoCard from './infoCard';
 import SummaryCard from './summaryCard';
+import RemoveImageButton from './removeImageButton';
+
+const PTstatus = {
+  available: 'Disponível',
+  unavailable: 'Indisponível',
+  closed: 'Disponível',
+  waitingInfo: '',
+  soldOut: 'Indisponível',
+};
+
+const INstatus = {
+  Disponível: 'available',
+  Indisponível: 'soldOut',
+};
 
 export default ({
-                  products,
-                  setProducts,
-                  filesList,
-                  setFiles,
-                  index,
-                  picture,
-                  removeImage = null,
-                  update,
-                  arrayOfInputs,
-                  product,
-                  setProduct,
-                  colors,
-                  sizes,
-                  setURL,
-                  cardInfo=false,initialStatus, setInitialStatus,productRef,setColors,setSizes,editing,cartProduct,setEditing
-                }) => {
+  products,
+  setProducts,
+  filesList,
+  setFiles,
+  index,
+  picture,
+  removeImage,
+  update,
+  cardInfo = false,
+  productRef,
+  editing,
+  cartProduct,
+  setEditing,
+  validations,
+  state,
+  arrayOfInputs,
+  pictures,
+  setPictures,
+  initialStatus,
+}) => {
   return (
     <div style={fileContainerUploadPicturesWrapperClass} className="uploadPicturesWrapper">
       <div key={index} style={fileContainerUploadPictureContainerClass} className="uploadPictureContainer">
-        {removeImage && <div style={fileContainerDeleteImageClass} className="deleteImage" onClick={() => removeImage(picture)}>
-          X
-        </div>}
-        {cardInfo ? (<RImg
-          src={product.url}
-          style={image}
-          container={children =>
-            !initialStatus || initialStatus === 'waitingInfo' || editing ? (
+        {removeImage && (
+          <RemoveImageButton
+            removeImage={removeImage}
+            filesList={filesList}
+            pictures={pictures}
+            picture={picture}
+            setPictures={setPictures}
+            setFiles={setFiles}
+          />
+        )}
+        {cardInfo ? (
+          <RImg
+            src={state.url}
+            style={image}
+            container={children =>
+              !initialStatus || initialStatus === 'waitingInfo' || editing ? (
+                <CardInputs image={children || null} update={update || null} index={index} arrayOfInputs={arrayOfInputs} validations={validations} />
+              ) : initialStatus === 'unavailable' && cartProduct.status !== 'closed' ? (
+                <InfoCard product={{ requestedQuantities: {}, ...state, ...cartProduct }} image={children} setEditing={setEditing} />
+              ) : (
+                <SummaryCard product={{ requestedQuantities: {}, ...state, ...cartProduct }} image={children} setEditing={setEditing} />
+              )
+            }
+            loaderContainer={() => <SpinnerWithDiv />}
+          />
+        ) : (
+          <RImg
+            src={picture}
+            style={fileContainerUploadPictureContainerimgUploadPictureClass}
+            className="uploadPicture"
+            alt="preview"
+            container={children => (
               <CardInputs
-                image={children}
-                product={product}
-                productRef={productRef}
-                setProduct={setProduct}
-                setColors={setColors}
-                setSizes={setSizes}
-                colors={colors}
-                sizes={sizes}
-                update={update}
+                image={children || null}
+                setFiles={setFiles}
+                update={update || null}
+                arrayOfInputs={arrayOfInputs}
+                validations={[]}
+                index={index}
               />
-            ) : initialStatus === 'unavailable' && cartProduct.status !== 'closed' ? (
-              <InfoCard product={{ requestedQuantities: {}, ...product, ...cartProduct }} image={children}
-                        setEditing={setEditing}/>
-            ) : (
-              <SummaryCard product={{ requestedQuantities: {}, ...product, ...cartProduct }} image={children}
-                           setEditing={setEditing}/>
-            )
-          }
-          loaderContainer={() => <SpinnerWithDiv/>}
-        />) : (<RImg
-          src={picture}
-          style={fileContainerUploadPictureContainerimgUploadPictureClass}
-          className="uploadPicture"
-          alt="preview"
-          container={children => (
-            <CardInputs
-              image={children || null}
-              index={index}
-              products={products}
-              setProducts={setProducts}
-              filesList={filesList}
-              setFiles={setFiles}
-              product={product}
-              setProduct={setProduct}
-              colors={colors}
-              sizes={sizes}
-              update={update || null}
-              arrayOfInputs={arrayOfInputs}
-              setURL={setURL}
-            />
-          )}
-        />)}
-
+            )}
+          />
+        )}
       </div>
     </div>
   );
