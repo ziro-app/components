@@ -11,7 +11,7 @@ dropzone = {
 	borderRadius: '6px',
 	color: primaryColor,
 	textAlign: 'center',
-
+	width: '100%'
 },
 
 instructions = {
