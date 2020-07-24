@@ -59,6 +59,9 @@ import { DisplayCardForm } from './DisplayComponents/DisplayCardForm';
 import { DisplayDetails } from './DisplayComponents/DisplayDetails';
 import { DisplayTable } from './DisplayComponents/DisplayTable';
 import { DisplayGetCnpj } from './DisplayComponents/DisplayGetCnpj';
+import { DisplayInputEmail } from './DisplayComponents/DisplayInputEmail';
+import { DisplayInputMoney } from './DisplayComponents/DisplayInputMoney';
+import { DisplayInputPhone } from './DisplayComponents/DisplayInputPhone';
 
 export const App = () => (
   <Switch>
@@ -238,6 +241,15 @@ export const App = () => (
     </Route>
     <Route path="/get-cnpj">
       <DisplayGetCnpj />
+    </Route>
+    <Route path="/input-email">
+      <DisplayInputEmail />
+    </Route>
+    <Route path="/input-money">
+      <DisplayInputMoney />
+    </Route>
+    <Route path="/input-phone">
+      <DisplayInputPhone />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

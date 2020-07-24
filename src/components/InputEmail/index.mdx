@@ -1,0 +1,33 @@
+---
+name: InputEmail
+menu: Componentes
+route: /input-phone
+---
+
+import { Playground, Props } from 'docz'
+import { useState, useRef } from 'react'
+import InputEmail from './index'
+import Button from '../Button'
+import { containerDocz } from '../../stylesDocz'
+
+# InputEmail
+Componente padrão utilizado para a entrada de texto com a formatação para email. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o **Form**.
+
+<Playground>
+    {() => {
+        const [inputValue, setInputValue] = useState('')
+        const [submitting, setSubmitting] = useState(false)
+        const inputRef = useRef(null)
+        const name = 'input'
+        const inputProps = { value: inputValue, submitting, name, ref: inputRef, setValue: setInputValue }
+        return (
+            <div style={{...containerDocz, height: '180px'}}>
+                <p>&nbsp;{inputValue}</p>
+                <InputEmail {...inputProps} />
+                <div style={{ display: 'grid', marginTop: '40px' }} onClick={() => setSubmitting(!submitting)}><Button type='submit' cta='Disable input' /></div>
+            </div>
+        )
+    }}
+</Playground>
+
+<Props of={InputEmail} />
