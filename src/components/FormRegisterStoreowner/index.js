@@ -8,6 +8,8 @@ import GetCnpj from '../GetCnpj/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
+import InputEmail from '../InputEmail/index'
+import InputPhone from '../InputPhone/index'
 import Dropdown from '../Dropdown/index'
 
 const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdvisor, hasAffiliated, haveSalesman, fetch, appAffiliateName = '', appAffiliateCpf = '', validCnaes, cnpjUrl, cnpjToken }) => {
@@ -282,28 +284,22 @@ const FormRegisterStoreowner = ({ isLoading, setIsLoading, sendToBackend, hasAdv
 						/>
 					} />,
 					<FormInput name='fone' label='Telefone da loja' input={
-						<InputText
+						<InputPhone
 							value={fone}
-							onChange={({ target: { value } }) => setFone(maskInput(value, '(##) #####-####', true))}
-							placeholder='(11) 91122-3344'
-							inputMode='tel'
+							setValue={setFone}
+							landline={true}
 						/>
 					} />,
 					<FormInput name='whats' label='Whatsapp' input={
-						<InputText
+						<InputPhone
 							value={whats}
-							onChange={({ target: { value } }) => setWhats(maskInput(value, '(##) #####-####', true))}
-							placeholder='(11) 91122-3344'
-							inputMode='tel'
+							setValue={setWhats}
 						/>
 					} />,
 					<FormInput name='email' label='Email' input={
-						<InputText
+						<InputEmail
 							value={email}
-							onChange={({ target: { value } }) => setEmail(value)}
-							placeholder='email@gmail.com'
-							inputMode='email'
-							autoComplete='email'
+							setValue={setEmail}
 						/>
 					} />,
 					hasAffiliated ? <FormInput name='affiliate' label='Afiliado(a)' input={

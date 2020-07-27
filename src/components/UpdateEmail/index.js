@@ -4,6 +4,7 @@ import Header from '../Header/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
+import InputEmail from '../InputEmail/index'
 import { containerWithPadding } from '@ziro/theme'
 
 const UpdateEmail = ({ isCollaborator, zoopId, row, sendToBackend, navigateTo = '/conta' }) => {
@@ -39,12 +40,10 @@ const UpdateEmail = ({ isCollaborator, zoopId, row, sendToBackend, navigateTo = 
 						/>
 					} />,
 					<FormInput name='newEmail' label='Novo email' input={
-						<InputText
+						<InputEmail
 							value={newEmail}
-							onChange={({ target: { value } }) => setNewEmail(value ? value.toLowerCase() : '')}
+							setValue={setNewEmail}
 							placeholder='Seu novo email'
-							inputMode='email'
-							autoComplete='email'
 						/>
 					} />
 				]}

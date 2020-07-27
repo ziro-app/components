@@ -8,7 +8,7 @@ import { Playground, Props } from 'docz'
 import { useState } from 'react'
 import Form from './index'
 import FormInput from '../FormInput'
-import InputText from '../InputText'
+import InputEmail from '../InputEmail'
 import { containerDocz } from '../../stylesDocz'
 
 # Form
@@ -33,9 +33,9 @@ Componente padrão de formulário formado pela composição de componentes **For
                     sendToBackend={() => new Promise((res,rej) => res('Ok'))}
                     inputs={[
                         <FormInput name='email' label='Email' input={
-                            <InputText
+                            <InputEmail
                                 value={email}
-                                onChange={({ target: { value } }) => setEmail(value)}
+                                setValue={setEmail}
                                 placeholder='Seu email'
                             />
                         }/>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Form from '../../../components/Form/index'
 import FormInput from '../../../components/FormInput/index'
-import InputText from '../../../components/InputText/index'
+import InputEmail from '../../../components/InputEmail/index'
 import Icon from '../../../components/Icon/index'
 import Modal from '../../../components/Modal/index'
 import { containerWithPadding } from '@ziro/theme'
@@ -55,9 +55,9 @@ export const DisplayForm = () => {
 				sendToBackend={() => new Promise((res, rej) => res('Ok'))}
 				inputs={[
 					<FormInput name='email' label='Email' LabelComponent={<CnpjText />} input={
-						<InputText
+						<InputEmail
 							value={email}
-							onChange={({ target: { value } }) => setEmail(value)}
+							setValue={setEmail}
 							placeholder='Seu email'
 						/>
 					} />

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Header from '../Header/index'
 import Form from '../Form/index'
 import FormInput from '../FormInput/index'
-import InputText from '../InputText/index'
+import InputEmail from '../InputEmail/index'
 import { containerWithPadding } from '@ziro/theme'
 
-const ResetPass = ({ sendToBackend, navigateTo = '/conta',history = null }) => {
+const ResetPass = ({ sendToBackend, navigateTo = '/conta', history = null }) => {
 	const [email, setEmail] = useState('')
 	const state = { email, setEmail, history }
 	const validations = [
@@ -26,12 +26,10 @@ const ResetPass = ({ sendToBackend, navigateTo = '/conta',history = null }) => {
 				sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 				inputs={[
 					<FormInput name='email' label='Email' input={
-						<InputText
+						<InputEmail
 							value={email}
-							onChange={({ target: { value } }) => setEmail(value ? value.toLowerCase() : '')}
+							setValue={setEmail}
 							placeholder='Seu email'
-							inputMode='email'
-							autoComplete='email'
 						/>
 					} />
 				]}
