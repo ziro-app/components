@@ -26,8 +26,6 @@ const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.
         setMessage(null)
     },[setMessage, reject])
 
-    console.log({ message })
-
     return (
         <MessagesContext.Provider value={{ setMessage, setReject }}>
             {children}
