@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "target": "es5",
+    "jsx": "react",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}

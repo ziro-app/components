@@ -62,6 +62,7 @@ import { DisplayGetCnpj } from './DisplayComponents/DisplayGetCnpj';
 import { DisplayInputEmail } from './DisplayComponents/DisplayInputEmail';
 import { DisplayInputMoney } from './DisplayComponents/DisplayInputMoney';
 import { DisplayInputPhone } from './DisplayComponents/DisplayInputPhone';
+import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/index.tsx"
 
 export const App = () => (
   <Switch>
@@ -250,6 +251,9 @@ export const App = () => (
     </Route>
     <Route path="/input-phone">
       <DisplayInputPhone />
+    </Route>
+    <Route path="/message-modal">
+      <DisplayMessageModal/>
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

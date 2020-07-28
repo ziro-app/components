@@ -1823,6 +1823,43 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/message-modal@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/MessageModal/Modals.tsx",
+                "test": false,
+                "name": "Modals.tsx"
+            },
+            {
+                "relativePath": "src/components/MessageModal/defaults.ts",
+                "test": false,
+                "name": "defaults.ts"
+            },
+            {
+                "relativePath": "src/components/MessageModal/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/MessageModal/modalStyle.ts",
+                "test": false,
+                "name": "modalStyle.ts"
+            },
+            {
+                "relativePath": "src/components/MessageModal/styles.ts",
+                "test": false,
+                "name": "styles.ts"
+            },
+            {
+                "relativePath": "src/components/MessageModal/types.ts",
+                "test": false,
+                "name": "types.ts"
+            }
+        ],
+        "mainFile": "src/components/MessageModal/index.tsx",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/modal@0.1.4": {
         "files": [
             {

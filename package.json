@@ -17,22 +17,23 @@
     "last 1 Chrome version"
   ],
   "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "ziro-messages": "git+https://github.com/ziro-app/Messages.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.9.2",
+    "@babel/runtime": "^7.10.5",
     "@ziro/capitalize": "^1.0.0",
-    "@ziro/currency-format": "^1.0.0",
+    "@ziro/currency-format": "^1.0.2",
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
-    "caniuse-lite": "^1.0.30001048",
+    "caniuse-lite": "^1.0.30001107",
     "docz": "^2.3.1",
-    "framer-motion": "^1.10.3",
+    "framer-motion": "^1.11.1",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "history": "^4.10.1",
     "is_js": "^0.9.0",
-    "mapbox-gl": "^1.9.1",
-    "moment": "^2.24.0",
+    "mapbox-gl": "^1.11.1",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dates": "^21.8.0",
     "react-day-picker": "^7.4.8",
@@ -43,7 +44,7 @@
     "react-toastify": "^5.5.0",
     "react-with-direction": "^1.3.1",
     "webfontloader": "^1.6.28",
-    "wouter": "^2.4.0"
+    "wouter": "^2.5.0"
   },
   "peerDependencies": {
     "react": "^16.9.0",
@@ -51,9 +52,14 @@
   },
   "bit": {
     "env": {
-      "compiler": "bit.envs/compilers/react@1.0.16"
+      "compiler": "bit.envs/compilers/react-typescript@3.1.56"
     },
     "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "overrides": {
+      "src/components/MessageModal/*": {
+        "compile": "bit.env/compilers/typescript"
+      }
+    }
   }
 }
