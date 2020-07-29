@@ -8,15 +8,10 @@ import { motion } from "framer-motion"
 import { defaultProp } from "./defaults"
 
 type CP = {
-    message: ZiroPromptMessage|ZiroWaitingMessage
+    message: ZiroPromptMessage<string>|ZiroWaitingMessage<string>
 }
 
 const Common: React.FC<CP> = ({ message }) => {
-
-    const type = React.useMemo(() => {
-        if(message instanceof ZiroPromptMessage) return message.type
-        return "neutral"
-    },[message])
 
     const text = React.useMemo(() => {
         if(message instanceof ZiroPromptMessage) return message.userDescription + " " + message.userResolution
@@ -28,7 +23,7 @@ const Common: React.FC<CP> = ({ message }) => {
             <motion.div key={message.illustration} {...defaultProp} style={svg}>
                 <Illustration type={message.illustration} />
             </motion.div>
-            <motion.label key={message.title} {...defaultProp} style={title(type)}>
+            <motion.label key={message.title} {...defaultProp} style={title(message.type)}>
                 {message.title}
             </motion.label>
             <motion.label key={text} {...defaultProp} style={{ textAlign: "center" }}>
@@ -39,7 +34,7 @@ const Common: React.FC<CP> = ({ message }) => {
 }
 
 type BP = {
-    message: ZiroPromptMessage
+    message: ZiroPromptMessage<string>
     onButtonClick: (button: "first"|"second") => void
 }
 
@@ -76,7 +71,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 }
 
 type SP = {
-    message: ZiroWaitingMessage
+    message: ZiroWaitingMessage<string>
     onButtonClick: (button: "first"|"second") => void
 }
 
@@ -98,7 +93,7 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
 }
 
 type P = {
-    message: ZiroPromptMessage|ZiroWaitingMessage
+    message: ZiroPromptMessage<string>|ZiroWaitingMessage<string>
     onButtonClick: (button: "first"|"second") => void
 }
 

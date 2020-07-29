@@ -1,10 +1,10 @@
 //@ts-ignore
 import { fontTitle, successColor, alertColor, primaryColor, otherColor } from '@ziro/theme'
-import { ZiroPromptMessageData } from 'ziro-messages'
+import { ZiroMessageData } from 'ziro-messages'
 
-type TitleColor = {
-	[K in ZiroPromptMessageData["type"]]: string
-}
+type MType = ZiroMessageData["type"]
+
+type TitleColor = { [K in MType]: string }
 
 const titleColor: TitleColor = {
 	neutral: otherColor,
@@ -25,7 +25,7 @@ svg: React.CSSProperties = {
 	justifySelf: 'center'
 },
 
-title: (type: ZiroPromptMessageData["type"]) => React.CSSProperties = (type) => ({
+title: (type: MType) => React.CSSProperties = (type) => ({
 	fontFamily: fontTitle,
 	textTransform: 'uppercase',
 	color: titleColor[type]||otherColor,
