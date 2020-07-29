@@ -1823,7 +1823,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.4": {
+    "vitorbarbosa19.ziro/message-modal@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/MessageModal/Modals.tsx",
