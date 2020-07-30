@@ -61,6 +61,7 @@ import { DisplayTable } from './DisplayComponents/DisplayTable';
 import { DisplayGetCnpj } from './DisplayComponents/DisplayGetCnpj';
 import { DisplayInputEmail } from './DisplayComponents/DisplayInputEmail';
 import { DisplayInputMoney } from './DisplayComponents/DisplayInputMoney';
+import { DisplayInputPercentage } from './DisplayComponents/DisplayInputPercentage';
 import { DisplayInputPhone } from './DisplayComponents/DisplayInputPhone';
 import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/index.tsx"
 
@@ -248,6 +249,9 @@ export const App = () => (
     </Route>
     <Route path="/input-money">
       <DisplayInputMoney />
+    </Route>
+    <Route path="/input-percentage">
+      <DisplayInputPercentage />
     </Route>
     <Route path="/input-phone">
       <DisplayInputPhone />

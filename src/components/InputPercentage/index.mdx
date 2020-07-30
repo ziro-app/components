@@ -1,0 +1,33 @@
+---
+name: InputMoney
+menu: Componentes
+route: /input-percentage
+---
+
+import { Playground, Props } from 'docz'
+import { useState, useRef } from 'react'
+import InputPercentage from './index'
+import Button from '../Button'
+import { containerDocz } from '../../stylesDocz'
+
+# InputPercentage
+Componente padrão utilizado para a entrada de porcentagem. Não depende de nenhum outro componente para seu funcionamento e pode ser utilizado na composição de outros componentes, à exemplo o **Form**.
+
+<Playground>
+    {() => {
+        const [inputValue, setInputValue] = useState('')
+        const [submitting, setSubmitting] = useState(false)
+        const inputRef = useRef(null)
+        const name = 'input'
+        const inputProps = { value: inputValue, submitting, name, ref: inputRef, setValue: setInputValue }
+        return (
+            <div style={{...containerDocz, height: '180px'}}>
+                <p>&nbsp;{inputValue}</p>
+                <InputPercentage {...inputProps} />
+                <div style={{ display: 'grid', marginTop: '40px' }} onClick={() => setSubmitting(!submitting)}><Button type='submit' cta='Disable input' /></div>
+            </div>
+        )
+    }}
+</Playground>
+
+<Props of={InputPercentage} />
