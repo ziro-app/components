@@ -1635,6 +1635,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/input-percentage@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/InputPercentage/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/InputPercentage/index.mdx",
+                "test": false,
+                "name": "index.mdx"
+            },
+            {
+                "relativePath": "src/components/InputPercentage/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/InputPercentage/index.js",
+        "trackDir": "src/components/InputPercentage",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/input-phone@0.0.2": {
         "files": [
             {
