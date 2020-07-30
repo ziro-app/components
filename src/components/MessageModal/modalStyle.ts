@@ -1,8 +1,8 @@
 //@ts-ignore
 import { fontTitle, successColor, alertColor, primaryColor, otherColor } from '@ziro/theme'
-import { ZiroMessageData } from 'ziro-messages'
+import { ZiroData } from 'ziro-messages'
 
-type MType = ZiroMessageData["type"]
+type MType = ZiroData<string>["type"]
 
 type TitleColor = { [K in MType]: string }
 

@@ -1,7 +1,9 @@
 import { ZiroPromptMessage, ZiroWaitingMessage } from "ziro-messages"
 import { MotionProps } from "framer-motion"
 
-export type Message = ZiroPromptMessage<string>|ZiroWaitingMessage<string>
+export type PMessage = ZiroPromptMessage<string,string>
+export type WMessage = ZiroWaitingMessage<string,string>
+export type Message = PMessage|WMessage
 export { ZiroPromptMessage, ZiroWaitingMessage }
 
 export type Rejecter = () => void

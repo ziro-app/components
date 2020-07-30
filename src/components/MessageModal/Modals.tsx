@@ -1,14 +1,15 @@
 import * as React from "react"
-import { ZiroPromptMessage, ZiroWaitingMessage } from "ziro-messages"
 import { container, title, svg, buttonsContainer } from "./modalStyle"
 import Illustration from "../Illustration"
 import Button from "../Button"
 import Spinner from "../Spinner"
 import { motion } from "framer-motion"
 import { defaultProp } from "./defaults"
+import { Message, PMessage, WMessage, ZiroPromptMessage, ZiroWaitingMessage } from "./types"
+
 
 type CP = {
-    message: ZiroPromptMessage<string>|ZiroWaitingMessage<string>
+    message: Message
 }
 
 const Common: React.FC<CP> = ({ message }) => {
@@ -34,7 +35,7 @@ const Common: React.FC<CP> = ({ message }) => {
 }
 
 type BP = {
-    message: ZiroPromptMessage<string>
+    message: PMessage
     onButtonClick: (button: "first"|"second") => void
 }
 
@@ -45,13 +46,13 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
         return "ok"
     },[message])
 
-    const buttonsContainerKey = React.useMemo(() => {
-        if(message.secondButton) return "doubleButton"
-        return "singleButton"
+    const [second, buttonsContainerKey] = React.useMemo(() => {
+        if(message.secondButton) return [true, "doubleButton"]
+        return [false, "singleButton"]
     },[message])
 
     return (
-        <motion.div key={buttonsContainerKey} { ...defaultProp } style={buttonsContainer(!!message.secondButton)}>
+        <motion.div key={buttonsContainerKey} { ...defaultProp } style={buttonsContainer(second)}>
             <Button
                 type='button'
                 click={onButtonClick.bind(null,"first")}
@@ -71,7 +72,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 }
 
 type SP = {
-    message: ZiroWaitingMessage<string>
+    message: WMessage
     onButtonClick: (button: "first"|"second") => void
 }
 
@@ -83,6 +84,7 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
                 .then(() => onButtonClick("first"))
                 .catch(() => onButtonClick("second"))
         }
+        else onButtonClick("second")
     },[])
 
     return (
@@ -93,7 +95,7 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
 }
 
 type P = {
-    message: ZiroPromptMessage<string>|ZiroWaitingMessage<string>
+    message: Message
     onButtonClick: (button: "first"|"second") => void
 }
 

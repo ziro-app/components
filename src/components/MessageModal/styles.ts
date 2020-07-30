@@ -1,5 +1,3 @@
-import { MotionStyle } from "framer-motion";
-
 export const
 
 container: React.CSSProperties = {

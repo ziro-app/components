@@ -1,7 +1,7 @@
 import * as React from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { container, disableScroll, overlay, box } from "./styles"
-import { Props, Message, ZiroPromptMessage, Rejecter } from "./types"
+import { Props, Message, ZiroPromptMessage, Rejecter, ZiroWaitingMessage } from "./types"
 import { MessagesContext, defaultProps } from "./defaults"
 
 import Modal from "./Modals"
@@ -13,14 +13,17 @@ const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.
 
     const onButtonClick = React.useCallback((button: "first"|"second") => {
         if(message instanceof ZiroPromptMessage) {
-            if(button === "first") message.firstButton && message.firstButton.action()
-            if(button === "second") message.secondButton && message.secondButton.action()
+            if(button === "first" && message.firstButton) setMessage(message.firstButton.action()||null)
+            if(button === "second" && message.secondButton) setMessage(message.secondButton.action()||null)
         }
-        setReject(null)
-        setMessage(null)
+        else {
+            setReject(null)
+            setMessage(null)
+        }
     },[setMessage,message])
 
     const onOverlayClick = React.useCallback(() => {
+        if(message instanceof ZiroWaitingMessage) return
         if(reject!==null) reject()
         setReject(null)
         setMessage(null)
@@ -52,7 +55,7 @@ export const useMessage = () => {
 
 export const useMessagePromise = () => {
     const { setMessage, setReject } = React.useContext(MessagesContext)
-    return React.useCallback((message: ZiroPromptMessage<string>, keys: [string,string] = ["sim","não"]) => {
+    return React.useCallback((message: ZiroPromptMessage<string,string>, keys: [string,string] = ["sim","não"]) => {
         return new Promise<void>((resolve,reject) => {
             setReject(() => () => reject())
             setMessage(message.withButtons([
