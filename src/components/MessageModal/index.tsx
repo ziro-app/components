@@ -6,7 +6,12 @@ import { MessagesContext, defaultProps } from "./defaults"
 
 import Modal from "./Modals"
 
-const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.overlayConfig, boxConfig = defaultProps.boxConfig }) => {
+const MessageModal: React.FC<Props> = ({
+    children,
+    performance,
+    overlayConfig = defaultProps.overlayConfig,
+    boxConfig = defaultProps.boxConfig
+}) => {
     
     const [message,setMessage] = React.useState<Message|null>(null)
     const [reject,setReject] = React.useState<Rejecter|null>(null)
@@ -54,7 +59,7 @@ const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.
                     <div style={container}>
                         <motion.div key="overlay" style={overlay} onClick={onOverlayClick} {...overlayConfig}/>
                         <motion.div key="box" style={box} {...boxConfig}>
-                            <Modal message={message} onButtonClick={onButtonClick}/>
+                            <Modal message={message} onButtonClick={onButtonClick} performance={performance}/>
                         </motion.div>
                         <style>{disableScroll}</style>
                     </div>

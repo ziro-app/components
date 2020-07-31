@@ -6,6 +6,7 @@ import Spinner from "../Spinner"
 import { motion } from "framer-motion"
 import { defaultProp } from "./defaults"
 import { Message, PMessage, WMessage, ZiroPromptMessage, ZiroWaitingMessage } from "./types"
+import { performance } from "firebase"
 
 
 type CP = {
@@ -73,16 +74,20 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 
 type SP = {
     message: WMessage
+    performance?: performance.Performance
     onButtonClick: (button: "first"|"second") => void
 }
 
-const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
+const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance }) => {
 
     React.useEffect(() => {
         if(message.promise) {
+            let trace: performance.Trace
+            if(performance) (trace = performance.trace(message.name)).start()
             message.promise
                 .then(() => onButtonClick("first"))
                 .catch(() => onButtonClick("second"))
+                .finally(() => trace && trace.stop())
         }
         else onButtonClick("second")
     },[])
@@ -96,10 +101,12 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
 
 type P = {
     message: Message
+    performance?: performance.Performance
     onButtonClick: (button: "first"|"second") => void
 }
 
-const Modal: React.FC<P> = ({ message, onButtonClick }) => {
+const Modal: React.FC<P> = ({ message, onButtonClick, performance }) => {
+    if(!(message instanceof ZiroPromptMessage)&&!(message instanceof ZiroWaitingMessage)) return null
     return (
         <div style={container}>
             <Common message={message}/>
@@ -109,7 +116,7 @@ const Modal: React.FC<P> = ({ message, onButtonClick }) => {
             }
             {
                 message instanceof ZiroWaitingMessage &&
-                <SpinnerContainer message={message} onButtonClick={onButtonClick}/>
+                <SpinnerContainer message={message} onButtonClick={onButtonClick} performance={performance}/>
             }
         </div>
     )

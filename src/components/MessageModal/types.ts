@@ -1,5 +1,6 @@
 import { ZiroPromptMessage, ZiroWaitingMessage } from "ziro-messages"
 import { MotionProps } from "framer-motion"
+import { performance } from "firebase"
 
 export type PMessage = ZiroPromptMessage<string,string>
 export type WMessage = ZiroWaitingMessage<string,string>
@@ -14,6 +15,7 @@ export type Context = {
 }
 
 export type Props = {
+    performance?: performance.Performance
     overlayConfig?: MotionProps
     boxConfig?: MotionProps
 }
