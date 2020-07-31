@@ -55,6 +55,7 @@ import { ChevronRight } from './../../Icons/ChevronRight/index';
 import { Rotate } from './../../Icons/Rotate/index';
 import { Zoom } from './../../Icons/Zoom/index';
 import { Headphone } from './../../Icons/Headphone/index';
+import { Link } from './../../Icons/Link/index';
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
   const iconProps = { style, onClick, size, color, strokeWidth, fill }
@@ -110,11 +111,12 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     forward: <Forward {...iconProps} />,
     help: <Help {...iconProps} />,
     plusCircle: <PlusCircle {...iconProps} />,
-    copy:<Copy {...iconProps} />,
+    copy: <Copy {...iconProps} />,
     chevronRight: <ChevronRight {...iconProps} />,
     rotate: <Rotate {...iconProps} />,
     zoom: <Zoom {...iconProps} />,
-    headphone: <Headphone {...iconProps} />
+    headphone: <Headphone {...iconProps} />,
+    link: <Link {...iconProps} />
   };
   return iconList[type];
 };
