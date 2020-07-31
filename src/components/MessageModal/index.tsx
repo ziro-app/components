@@ -13,13 +13,27 @@ const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.
 
     const onButtonClick = React.useCallback((button: "first"|"second") => {
         if(message instanceof ZiroPromptMessage) {
-            if(button === "first" && message.firstButton) setMessage(message.firstButton.action()||null)
-            if(button === "second" && message.secondButton) setMessage(message.secondButton.action()||null)
+            switch(button) {
+                case "first":
+                    if(message.firstButton?.action) {
+                        const result = message.firstButton.action()
+                        if((result instanceof ZiroPromptMessage)||(result instanceof ZiroWaitingMessage)) {
+                            setMessage(result)
+                            return
+                        }
+                    }
+                case "second":
+                    if(message.secondButton?.action) {
+                        const result = message.secondButton.action()
+                        if((result instanceof ZiroPromptMessage)||(result instanceof ZiroWaitingMessage)) {
+                            setMessage(result)
+                            return
+                        }
+                    }
+            }
         }
-        else {
-            setReject(null)
-            setMessage(null)
-        }
+        setReject(null)
+        setMessage(null)
     },[setMessage,message])
 
     const onOverlayClick = React.useCallback(() => {

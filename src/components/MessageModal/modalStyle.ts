@@ -29,6 +29,7 @@ title: (type: MType) => React.CSSProperties = (type) => ({
 	fontFamily: fontTitle,
 	textTransform: 'uppercase',
 	color: titleColor[type]||otherColor,
+	textAlign: "center"
 }),
 
 modal: React.CSSProperties = {
