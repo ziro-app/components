@@ -52,13 +52,15 @@
   },
   "bit": {
     "env": {
-      "compiler": "bit.envs/compilers/react-typescript@3.1.56"
+      "compiler": "bit.envs/compilers/react"
     },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm",
     "overrides": {
       "src/components/MessageModal/*": {
-        "compile": "bit.env/compilers/typescript"
+        "env": {
+          "compiler": "bit.env/compilers/typescript"
+        }
       }
     }
   }
