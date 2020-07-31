@@ -4,7 +4,7 @@ import currencyFormat from '@ziro/currency-format'
 import maskInput from '@ziro/mask-input'
 import { inline, styleTag } from './styles'
 
-const InputMoney = forwardRef(({ value, setValue, style = inline, css = styleTag, disabled, submitting, ...rest }, ref) => {
+const InputPercentage = forwardRef(({ value, setValue, style = inline, css = styleTag, disabled, submitting, ...rest }, ref) => {
     const inputProps = { style, disabled: disabled || submitting, ref, inputMode: 'numeric', placeholder: "% 20", ...rest }
     return (
         <>
@@ -22,7 +22,7 @@ const InputMoney = forwardRef(({ value, setValue, style = inline, css = styleTag
     )
 })
 
-InputMoney.propTypes = {
+InputPercentage.propTypes = {
     value: PropTypes.string.isRequired,
     setValue: PropTypes.func.isRequired,
     style: PropTypes.object,
@@ -31,4 +31,4 @@ InputMoney.propTypes = {
     submitting: PropTypes.bool
 }
 
-export default InputMoney
+export default InputPercentage
