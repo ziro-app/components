@@ -38,10 +38,12 @@ const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.
 
     const onOverlayClick = React.useCallback(() => {
         if(message instanceof ZiroWaitingMessage) return
-        if(reject!==null) reject()
-        setReject(null)
-        setMessage(null)
-    },[setMessage, reject])
+        if(message instanceof ZiroPromptMessage) {
+            if(reject!==null) reject()
+            setReject(null)
+            setMessage(null)
+        }
+    },[message, setMessage, reject, setReject])
 
     return (
         <MessagesContext.Provider value={{ setMessage, setReject }}>
