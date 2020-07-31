@@ -48,6 +48,9 @@ const ImageUpload = ({ sendToBackend, isDisabled = false }) => {
 				id='input-file'
 				type='file'
 				multiple={true}
+				onClick={(event)=> {
+					event.target.value = null
+				}}
 			/>
 		</div>
 	)

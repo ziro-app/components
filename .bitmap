@@ -1517,7 +1517,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/image-upload@0.0.15": {
+    "vitorbarbosa19.ziro/image-upload@0.0.16": {
         "files": [
             {
                 "name": "index.js",
