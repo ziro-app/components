@@ -15,6 +15,7 @@ const MessageModal: React.FC<Props> = ({ children, overlayConfig = defaultProps.
         if(message instanceof ZiroPromptMessage) {
             if(button === "first" && message.firstButton) setMessage(message.firstButton.action()||null)
             if(button === "second" && message.secondButton) setMessage(message.secondButton.action()||null)
+            if(!message.firstButton&&!message.secondButton) setMessage(null)
         }
         else {
             setReject(null)
