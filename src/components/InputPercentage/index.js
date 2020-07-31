@@ -7,18 +7,17 @@ import { inline, styleTag } from './styles'
 const InputPercentage = forwardRef(({ value, setValue, style = inline, css = styleTag, disabled, submitting, ...rest }, ref) => {
     const inputProps = { style, disabled: disabled || submitting, ref, inputMode: 'numeric', placeholder: "% 20", ...rest }
     return (
-        <div>
+        <>
             <style>{css}</style>
-            <input {...inputProps}
+            <input {...inputProps} className='input-text'
                    value={currencyFormat(value) ? `% ${currencyFormat(value).replace(/[R$]/g, '')}` :''
-
               }
               onChange={({ target: { value } }) => {
                   const toInteger = parseInt(value.replace(/[\.,\s%]/g, ''), 10)
                   setValue(toInteger <= 10000 ? maskInput(toInteger, '#######', true) : maskInput(10000, '#######', true))
               }}
             />
-        </div>
+        </>
     )
 })
 
