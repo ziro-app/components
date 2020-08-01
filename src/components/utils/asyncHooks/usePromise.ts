@@ -59,8 +59,8 @@ export function usePromise<A, R, E>(
   return [callback, state];
 }
 
-export function usePromiseShowingMessage<A, R, E, C = string, N = string, D = {}>(
-  message: ZiroWaitingMessage<C,N,D>,
+export function usePromiseShowingMessage<A, R, E>(
+  message: ZiroWaitingMessage<string,string,any>,
   promise: PromiseGen<A,R>,
   deps: React.DependencyList = []
 ): [(args?: A) => void, UsePromiseState<R,E>] {
