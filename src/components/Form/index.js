@@ -8,7 +8,7 @@ import { container, whiteSpace, submit, submitTop } from './styles'
 
 export { ModalSubmit }
 
-const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, buttonOnTop, validations, sendToBackend, summary, inputs }) => {
+const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, buttonName, buttonOnTop, validations, sendToBackend, summary, inputs,withoutBottomLabelOnSubmit }) => {
 	const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm()
 	useEffect(() => {
 		// if user start typing on any field, reset submit message
@@ -49,7 +49,7 @@ const Form = ({ useModalLayoutOnSubmit, successComponent, errorComponent, button
 					<>
 						{summary && summary}
 						{useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
-						{useModalLayoutOnSubmit
+						{withoutBottomLabelOnSubmit ? null : useModalLayoutOnSubmit
 							? <ModalSubmit isOpen={!!submitMsg} submitting={submitting} error={submitError} successComponent={successComponent} errorComponent={errorComponent} errorMsg={submitMsg} />
 							: <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size='3rem' /> : submitMsg}</label>
 						}
