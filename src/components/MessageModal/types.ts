@@ -2,9 +2,9 @@ import { ZiroPromptMessage, ZiroWaitingMessage } from "ziro-messages"
 import { MotionProps } from "framer-motion"
 import { performance } from "firebase"
 
-export type PMessage = ZiroPromptMessage<string,string>
-export type WMessage = ZiroWaitingMessage<string,string>
-export type Message = PMessage|WMessage
+export type PMessage<C = string,N = string,D = any> = ZiroPromptMessage<C,N,D>
+export type WMessage<C = string,N = string,D = any> = ZiroWaitingMessage<C,N,D>
+export type Message<C = string,N = string,D = any> = PMessage<C,N,D>|WMessage<C,N,D>
 export { ZiroPromptMessage, ZiroWaitingMessage }
 
 export type Rejecter = () => void

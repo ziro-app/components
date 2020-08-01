@@ -74,9 +74,9 @@ export const useMessage = () => {
     return setMessage
 }
 
-export const useMessagePromise = () => {
+export function useMessagePromise() {
     const { setMessage, setReject } = React.useContext(MessagesContext)
-    return React.useCallback((message: ZiroPromptMessage<string,string>, keys: [string,string] = ["sim","não"]) => {
+    return React.useCallback((message: ZiroPromptMessage<string,string,any>, keys: [string,string] = ["sim","não"]) => {
         return new Promise<void>((resolve,reject) => {
             setReject(() => () => reject())
             setMessage(message.withButtons([

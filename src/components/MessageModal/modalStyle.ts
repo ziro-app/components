@@ -2,7 +2,7 @@
 import { fontTitle, successColor, alertColor, primaryColor, otherColor } from '@ziro/theme'
 import { ZiroData } from 'ziro-messages'
 
-type MType = ZiroData<string>["type"]
+type MType = ZiroData<string,any>["type"]
 
 type TitleColor = { [K in MType]: string }
 

@@ -1838,7 +1838,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.18": {
+    "vitorbarbosa19.ziro/message-modal@0.0.19": {
         "files": [
             {
                 "relativePath": "src/components/MessageModal/Modals.tsx",
@@ -2243,6 +2243,33 @@
         ],
         "mainFile": "src/components/UploadPhoto/index.js",
         "trackDir": "src/components/UploadPhoto",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/asyncHooks/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/utils/asyncHooks/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/utils/asyncHooks/useAsyncEffect.ts",
+                "test": false,
+                "name": "useAsyncEffect.ts"
+            },
+            {
+                "relativePath": "src/components/utils/asyncHooks/usePromise.ts",
+                "test": false,
+                "name": "usePromise.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/asyncHooks/index.ts",
         "origin": "AUTHORED",
         "exported": true
     },
