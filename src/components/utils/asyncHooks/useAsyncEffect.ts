@@ -72,7 +72,7 @@ export function useRetriableAsyncEffect<R, E>(
 
   useEffect(() => {
     setAttempts(1)
-  },[deps])
+  },deps)
 
   const state = useMemo<UseRetriableEffectReturn<R,E>>(() => ({ ..._state, attempts }),[_state,attempts])
 
