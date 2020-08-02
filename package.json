@@ -52,8 +52,22 @@
     "react-dom": "^16.9.0"
   },
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/react"
+    },
     "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "overrides": {
+      "utils/*": {
+        "env": {
+          "compiler": "bit.envs/compilers/react-typescript"
+        }
+      },
+      "MessageModal/*": {
+        "env": {
+          "compiler": "bit.envs/compilers/react-typescript"
+        }
+      }
+    }
   }
 }

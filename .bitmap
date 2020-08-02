@@ -1838,37 +1838,37 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.20": {
+    "vitorbarbosa19.ziro/message-modal@0.0.21": {
         "files": [
             {
+                "name": "Modals.tsx",
                 "relativePath": "src/components/MessageModal/Modals.tsx",
-                "test": false,
-                "name": "Modals.tsx"
+                "test": false
             },
             {
+                "name": "defaults.ts",
                 "relativePath": "src/components/MessageModal/defaults.ts",
-                "test": false,
-                "name": "defaults.ts"
+                "test": false
             },
             {
+                "name": "index.tsx",
                 "relativePath": "src/components/MessageModal/index.tsx",
-                "test": false,
-                "name": "index.tsx"
+                "test": false
             },
             {
+                "name": "modalStyle.ts",
                 "relativePath": "src/components/MessageModal/modalStyle.ts",
-                "test": false,
-                "name": "modalStyle.ts"
+                "test": false
             },
             {
+                "name": "styles.ts",
                 "relativePath": "src/components/MessageModal/styles.ts",
-                "test": false,
-                "name": "styles.ts"
+                "test": false
             },
             {
+                "name": "types.ts",
                 "relativePath": "src/components/MessageModal/types.ts",
-                "test": false,
-                "name": "types.ts"
+                "test": false
             }
         ],
         "mainFile": "src/components/MessageModal/index.tsx",
@@ -2246,27 +2246,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.3": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.5": {
         "files": [
             {
+                "name": "index.ts",
                 "relativePath": "src/components/utils/asyncHooks/index.ts",
-                "test": false,
-                "name": "index.ts"
+                "test": false
             },
             {
+                "name": "types.ts",
                 "relativePath": "src/components/utils/asyncHooks/types.ts",
-                "test": false,
-                "name": "types.ts"
+                "test": false
             },
             {
+                "name": "useAsyncEffect.ts",
                 "relativePath": "src/components/utils/asyncHooks/useAsyncEffect.ts",
-                "test": false,
-                "name": "useAsyncEffect.ts"
+                "test": false
             },
             {
+                "name": "usePromise.ts",
                 "relativePath": "src/components/utils/asyncHooks/usePromise.ts",
-                "test": false,
-                "name": "usePromise.ts"
+                "test": false
             }
         ],
         "mainFile": "src/components/utils/asyncHooks/index.ts",
