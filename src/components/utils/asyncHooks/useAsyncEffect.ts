@@ -1,49 +1,58 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { PromiseGen, UseEffectState, StatusType } from "./types";
+import { PromiseGen, UseEffectState, UseEffectHistory, UseEffectReturn } from "./types";
 
 export function useAsyncEffect<R, E>(
   promise: PromiseGen<never, R>,
   deps: React.DependencyList = []
-): UseEffectState<R, E> {
+): UseEffectReturn<R,E> {
 
   //setup promise state
-  const [status, setStatus] = useState<StatusType>("firstRender");
-  const [result, setResult] = useState<R | null>(null);
-  const [error, setError] = useState<E | null>(null);
+  const [runs,setRuns] = useState<number>(0)
+  const [finished,setFinished] = useState<number>(0)
+  const [history,setState] = useState<UseEffectHistory<R,E>>([{ status: "firstRender", result: null, error: null }])
 
   //set promise callback
   useEffect(() => {
-    if (status === "running") return;
-    setStatus("running");
+    const run = runs
+    setRuns(r => r+1)
+    setState(old => {
+      old[run] = { status: "running", result: null, error: null }
+      return old
+    })
     promise()
       .then((result) => {
-        setResult(result);
-        setStatus("success");
+        setState(old => {
+          old[run] = { status: "success", result, error: null }
+          return old
+        })
       })
       .catch((error) => {
-        setError(error);
-        setStatus("failed");
-      });
-  }, [setStatus, setResult, setError, ...deps]);
+        setState(old => {
+          old[run] = { status: "failed", result: null, error }
+          return old
+        })
+      })
+      .finally(() => setFinished(f => f+1))
+  }, deps);
 
   //set reset state callback
   const reset = useCallback(() => {
-    setStatus("stale")
-    setResult(null)
-    setError(null)
-  },[setStatus,setResult,setError])
+    setRuns(0)
+    setState([{ status: "stale", result: null, error: null }])
+  },[setState])
 
   //set final state that will sincronize result and error variables with status
-  const state = useMemo<UseEffectState<R, E>>(() => {
+  const state = useMemo<UseEffectReturn<R,E>>(() => {
+    const { status, result, error } = history[history.length-1]
     switch (status) {
       case "success":
-        return { reset, status, result, error: null };
+        return { reset, status, result, error: null, history };
       case "failed":
-        return { reset, status, result: null, error };
+        return { reset, status, result: null, error, history };
       default:
-        return { reset, status, result: null, error: null };
+        return { reset, status, result: null, error: null, history };
     }
-  }, [reset, status, result, error]);
+  }, [reset, runs, finished]);
 
   return state;
 }

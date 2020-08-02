@@ -64,6 +64,7 @@ import { DisplayInputMoney } from './DisplayComponents/DisplayInputMoney';
 import { DisplayInputPercentage } from './DisplayComponents/DisplayInputPercentage';
 import { DisplayInputPhone } from './DisplayComponents/DisplayInputPhone';
 import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/index.tsx"
+import { DisplayAsyncHooks } from "./DisplayComponents/DisplayAsyncHooks/index.tsx"
 
 export const App = () => (
   <Switch>
@@ -258,6 +259,9 @@ export const App = () => (
     </Route>
     <Route path="/message-modal">
       <DisplayMessageModal/>
+    </Route>
+    <Route path="/async-hooks">
+      <DisplayAsyncHooks/>
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

@@ -20,7 +20,7 @@ const MessageModal: React.FC<Props> = ({
         if(message instanceof ZiroPromptMessage) {
             switch(button) {
                 case "first":
-                    if(message.firstButton?.action) {
+                    if(message.firstButton && message.firstButton.action) {
                         const result = message.firstButton.action()
                         if((result instanceof ZiroPromptMessage)||(result instanceof ZiroWaitingMessage)) {
                             setMessage(result)
@@ -28,7 +28,7 @@ const MessageModal: React.FC<Props> = ({
                         }
                     }
                 case "second":
-                    if(message.secondButton?.action) {
+                    if(message.secondButton && message.secondButton.action) {
                         const result = message.secondButton.action()
                         if((result instanceof ZiroPromptMessage)||(result instanceof ZiroWaitingMessage)) {
                             setMessage(result)
