@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { PromiseGen, UseEffectState, UseEffectHistory, UseEffectReturn } from "./types";
+import { PromiseGen, UseEffectHistory, UseEffectReturn, UseRetriableEffectReturn } from "./types";
 
 export function useAsyncEffect<R, E>(
   promise: PromiseGen<never, R>,
@@ -55,4 +55,27 @@ export function useAsyncEffect<R, E>(
   }, [reset, runs, finished]);
 
   return state;
+}
+
+export function useRetriableAsyncEffect<R, E>(
+  promise: PromiseGen<never, R>,
+  deps: React.DependencyList = []
+): UseRetriableEffectReturn<R,E> {
+
+  const [attempts, setAttempts] = useState<number>(1)
+
+  const _state = useAsyncEffect<R,E>(promise, [attempts,...deps])
+
+  useEffect(() => {
+    if(_state.status==="failed") setAttempts(a => a+1)
+  },[_state.status])
+
+  useEffect(() => {
+    setAttempts(1)
+  },[deps])
+
+  const state = useMemo<UseRetriableEffectReturn<R,E>>(() => ({ ..._state, attempts }),[_state,attempts])
+
+  return state
+
 }

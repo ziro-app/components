@@ -21,5 +21,6 @@ export type UseEffectState<R, E> =
   | FailedState<E>)&{ reset: () => void };
 export type UseEffectHistory<R,E> = Omit<UseEffectState<R,E>,"reset">[]
 export type UseEffectReturn<R,E> = UseEffectState<R,E>&{ history: UseEffectHistory<R,E> }
+export type UseRetriableEffectReturn<R,E> = UseEffectReturn<R,E> & { attempts: number }
 export type UsePromiseState<R, E> = UseEffectState<R, E> & { attempts: number };
 export type StatusType = UseEffectState<any, any>["status"];
