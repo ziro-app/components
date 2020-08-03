@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { PromiseGen, PromiseCbk, UsePromiseState, StatusType } from "./types";
 import { ZiroWaitingMessage, ZiroPromptMessage } from "ziro-messages";
-import { useMessage } from "../../MessageModal";
+import { useMessage } from "@bit/vitorbarbosa19.ziro.message-modal";
 
 export function usePromise<A, R, E>(
   promise: PromiseGen<A, R>,

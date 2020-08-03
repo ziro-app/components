@@ -2246,7 +2246,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.9": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.10": {
         "files": [
             {
                 "name": "index.ts",
