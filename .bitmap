@@ -1838,7 +1838,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.22": {
+    "vitorbarbosa19.ziro/message-modal@0.0.23": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2246,7 +2246,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.8": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.9": {
         "files": [
             {
                 "name": "index.ts",

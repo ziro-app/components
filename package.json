@@ -63,7 +63,7 @@
           "compiler": "bit.envs/compilers/react-typescript"
         }
       },
-      "MessageModal/*": {
+      "message-modal": {
         "env": {
           "compiler": "bit.envs/compilers/react-typescript"
         }
