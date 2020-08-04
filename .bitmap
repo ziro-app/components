@@ -2273,5 +2273,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/utils/axios@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/axios/axiosTypes.ts",
+                "test": false,
+                "name": "axiosTypes.ts"
+            },
+            {
+                "relativePath": "src/components/utils/axios/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/utils/axios/useCancelToken.ts",
+                "test": false,
+                "name": "useCancelToken.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/axios/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.8.8"
 }
