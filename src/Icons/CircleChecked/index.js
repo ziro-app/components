@@ -20,6 +20,9 @@ export const CircleChecked = ({ style, onClick, size, color, strokeWidth}) =>
 />
 
 CircleChecked.propTypes = {
+  style: PropTypes.object,
+  onClick: PropTypes.func,
   size: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
+  strokeWidth: PropTypes.number
 }

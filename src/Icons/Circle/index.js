@@ -18,7 +18,9 @@ export const Circle = ({ style, onClick, size, color, strokeWidth }) =>
   />
 
 Circle.propTypes = {
+  style: PropTypes.object,
+  onClick: PropTypes.func,
   size: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
+  strokeWidth: PropTypes.number
 }
-
