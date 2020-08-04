@@ -61,4 +61,6 @@ export const DisplayIcon = () =>
 		<Icon type='headphone' size={24} />
 		<Icon type='copy' size={24} />
 		<Icon type='link' size={24} />
+		<Icon type='circle' size={24} />
+		<Icon type='circleChecked' size={24} />
 	</div>

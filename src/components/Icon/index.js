@@ -56,6 +56,8 @@ import { Rotate } from './../../Icons/Rotate/index';
 import { Zoom } from './../../Icons/Zoom/index';
 import { Headphone } from './../../Icons/Headphone/index';
 import { Link } from './../../Icons/Link/index';
+import { Circle } from './../../Icons/Circle/index';
+import { CircleChecked } from './../../Icons/CircleChecked/index';
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
   const iconProps = { style, onClick, size, color, strokeWidth, fill }
@@ -116,7 +118,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     rotate: <Rotate {...iconProps} />,
     zoom: <Zoom {...iconProps} />,
     headphone: <Headphone {...iconProps} />,
-    link: <Link {...iconProps} />
+    link: <Link {...iconProps} />,
+    circleChecked: <CircleChecked {...iconProps} />,
+    circle: <Circle {...iconProps} />
   };
   return iconList[type];
 };
