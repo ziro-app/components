@@ -2,11 +2,13 @@ import * as React from "react"
 import { Context, Props } from "./types"
 import { MotionProps } from "framer-motion"
 
-const errorMsg = "THE APP IS NOT WRAPPED IN THE MESSAGE MODAL COMPONENT"
+function throwError() {
+    throw 'This component is not wrapped in the message provider'
+}
 
 export const MessagesContext = React.createContext<Context>({
-    setMessage: () => console.error(errorMsg),
-    setReject: () => console.error(errorMsg)
+    setMessage: throwError,
+    setReject: throwError
 })
 
 export const defaultProps: Props = {
