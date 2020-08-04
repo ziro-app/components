@@ -1,10 +1,13 @@
 import * as React from "react"
-import { container, title, svg, buttonsContainer } from "./modalStyle"
+//@ts-ignore
 import Illustration from "@bit/vitorbarbosa19.ziro.illustration"
+//@ts-ignore
 import Button from "@bit/vitorbarbosa19.ziro.button"
+//@ts-ignore
 import Spinner from "@bit/vitorbarbosa19.ziro.spinner"
 import { motion } from "framer-motion"
 import { defaultProp } from "./defaults"
+import { container, title, svg, buttonsContainer } from "./modalStyle"
 import { Message, PMessage, WMessage, ZiroPromptMessage, ZiroWaitingMessage } from "./types"
 import { performance } from "firebase"
 

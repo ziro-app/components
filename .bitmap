@@ -1838,7 +1838,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.24": {
+    "vitorbarbosa19.ziro/message-modal@0.0.25": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -1936,6 +1936,88 @@
         ],
         "mainFile": "src/components/NotFound/index.js",
         "trackDir": "src/components/NotFound",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/pay/next-code@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/pay/NextCode/constants.ts",
+                "test": false,
+                "name": "constants.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/interceptors.ts",
+                "test": false,
+                "name": "interceptors.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/backgroundCheck.ts",
+                "test": false,
+                "name": "backgroundCheck.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/extracted.ts",
+                "test": false,
+                "name": "extracted.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/face.ts",
+                "test": false,
+                "name": "face.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/fileInfo.ts",
+                "test": false,
+                "name": "fileInfo.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/response.ts",
+                "test": false,
+                "name": "response.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/scores.ts",
+                "test": false,
+                "name": "scores.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/Document/typeChecks.ts",
+                "test": false,
+                "name": "typeChecks.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/refresh.ts",
+                "test": false,
+                "name": "refresh.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/stats.ts",
+                "test": false,
+                "name": "stats.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/utils.ts",
+                "test": false,
+                "name": "utils.ts"
+            }
+        ],
+        "mainFile": "src/components/pay/NextCode/index.ts",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -2246,7 +2328,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.11": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.12": {
         "files": [
             {
                 "name": "index.ts",
