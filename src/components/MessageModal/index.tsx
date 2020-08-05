@@ -1,7 +1,8 @@
 import * as React from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { isPrompt, isWaiting, ZiroPromptMessage } from "ziro-messages"
 import { container, disableScroll, overlay, box } from "./styles"
-import { Props, Message, ZiroPromptMessage, Rejecter, ZiroWaitingMessage } from "./types"
+import { Props, Message, Rejecter } from "./types"
 import { MessagesContext, defaultProps } from "./defaults"
 
 import Modal from "./Modals"
@@ -16,13 +17,17 @@ const MessageModal: React.FC<Props> = ({
     const [message,setMessage] = React.useState<Message|null>(null)
     const [reject,setReject] = React.useState<Rejecter|null>(null)
 
-    const onButtonClick = React.useCallback((button: "first"|"second") => {
-        if(message instanceof ZiroPromptMessage) {
+    const onButtonClick = React.useCallback((button: "first"|"second"|Message) => {
+        if(isPrompt(button)||isWaiting(button)) {
+            setMessage(button)
+            return
+        }
+        if(isPrompt(message)) {
             switch(button) {
                 case "first":
                     if(message.firstButton && message.firstButton.action) {
                         const result = message.firstButton.action()
-                        if((result instanceof ZiroPromptMessage)||(result instanceof ZiroWaitingMessage)) {
+                        if(isPrompt(result)||isWaiting(result)) {
                             setMessage(result)
                             return
                         }
@@ -30,7 +35,7 @@ const MessageModal: React.FC<Props> = ({
                 case "second":
                     if(message.secondButton && message.secondButton.action) {
                         const result = message.secondButton.action()
-                        if((result instanceof ZiroPromptMessage)||(result instanceof ZiroWaitingMessage)) {
+                        if(isPrompt(result)||isWaiting(result)) {
                             setMessage(result)
                             return
                         }
@@ -42,8 +47,8 @@ const MessageModal: React.FC<Props> = ({
     },[setMessage,message])
 
     const onOverlayClick = React.useCallback(() => {
-        if(message instanceof ZiroWaitingMessage) return
-        if(message instanceof ZiroPromptMessage) {
+        if(isWaiting(message)) return
+        if(isPrompt(message)) {
             if(reject!==null) reject()
             setReject(null)
             setMessage(null)

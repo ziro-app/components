@@ -6,9 +6,10 @@ import Button from "@bit/vitorbarbosa19.ziro.button"
 //@ts-ignore
 import Spinner from "@bit/vitorbarbosa19.ziro.spinner"
 import { motion } from "framer-motion"
+import { isPrompt, isWaiting } from "ziro-messages"
 import { defaultProp } from "./defaults"
 import { container, title, svg, buttonsContainer } from "./modalStyle"
-import { Message, PMessage, WMessage, ZiroPromptMessage, ZiroWaitingMessage } from "./types"
+import { Message, PMessage, WMessage } from "./types"
 import { performance } from "firebase"
 
 
@@ -19,7 +20,7 @@ type CP = {
 const Common: React.FC<CP> = ({ message }) => {
 
     const text = React.useMemo(() => {
-        if(message instanceof ZiroPromptMessage) return message.userDescription + " " + message.userResolution
+        if(isPrompt(message)) return message.userDescription + " " + message.userResolution
         return message.userDescription
     },[message])
 
@@ -78,7 +79,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 type SP = {
     message: WMessage
     performance?: performance.Performance
-    onButtonClick: (button: "first"|"second") => void
+    onButtonClick: (button: "first"|"second"|Message) => void
 }
 
 const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance }) => {
@@ -88,8 +89,20 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance })
             let trace: performance.Trace
             if(performance) (trace = performance.trace(message.name)).start()
             message.promise
-                .then(() => onButtonClick("first"))
-                .catch(() => onButtonClick("second"))
+                .then((result) => {
+                    if(isPrompt(result)||isWaiting(result)) {
+                        onButtonClick(result)
+                        return
+                    }
+                    onButtonClick("first")
+                })
+                .catch((error) => {
+                    if(isPrompt(error)||isWaiting(error)) {
+                        onButtonClick(error)
+                        return
+                    }
+                    onButtonClick("second")
+                })
                 .finally(() => trace && trace.stop())
         }
         else onButtonClick("second")
@@ -105,20 +118,20 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance })
 type P = {
     message: Message
     performance?: performance.Performance
-    onButtonClick: (button: "first"|"second") => void
+    onButtonClick: (button: "first"|"second"|Message) => void
 }
 
 const Modal: React.FC<P> = ({ message, onButtonClick, performance }) => {
-    if(!(message instanceof ZiroPromptMessage)&&!(message instanceof ZiroWaitingMessage)) return null
+    if(!isPrompt(message)&&!isWaiting(message)) return null
     return (
         <div style={container}>
             <Common message={message}/>
             {
-                message instanceof ZiroPromptMessage &&
+                isPrompt(message) &&
                 <ButtonsContainer message={message} onButtonClick={onButtonClick}/>
             }
             {
-                message instanceof ZiroWaitingMessage &&
+                isWaiting(message) &&
                 <SpinnerContainer message={message} onButtonClick={onButtonClick} performance={performance}/>
             }
         </div>
