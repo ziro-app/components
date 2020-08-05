@@ -47,7 +47,7 @@
     "react-with-direction": "^1.3.1",
     "webfontloader": "^1.6.28",
     "wouter": "^2.5.0",
-    "ziro-messages": "0.0.21"
+    "ziro-messages": "0.0.22"
   },
   "peerDependencies": {
     "react": "^16.9.0",
@@ -83,7 +83,7 @@
           "compiler": "bit.envs/compilers/react-typescript"
         },
         "dependencies": {
-          "ziro-messages": "^0.0.21"
+          "ziro-messages": "^0.0.22"
         }
       }
     }
