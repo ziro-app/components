@@ -1,7 +1,7 @@
 export type WriteOptions = {
     range: string
     values: string[][]
-    valueInputOption: string
+    valueInputOption?: string
 }
 
 export type ReadOptions = {

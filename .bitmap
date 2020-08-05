@@ -2392,7 +2392,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/sheets@0.0.1": {
+    "vitorbarbosa19.ziro/utils/sheets@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/utils/sheets/constants.ts",
