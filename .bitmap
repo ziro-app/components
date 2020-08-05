@@ -2392,5 +2392,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/utils/sheets@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/sheets/constants.ts",
+                "test": false,
+                "name": "constants.ts"
+            },
+            {
+                "relativePath": "src/components/utils/sheets/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/utils/sheets/types.ts",
+                "test": false,
+                "name": "types.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/sheets/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.8.8"
 }
