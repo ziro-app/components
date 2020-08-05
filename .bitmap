@@ -1848,7 +1848,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.29": {
+    "vitorbarbosa19.ziro/message-modal@0.0.30": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2338,7 +2338,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.16": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.17": {
         "files": [
             {
                 "name": "index.ts",
@@ -2354,6 +2354,11 @@
                 "name": "useAsyncEffect.ts",
                 "relativePath": "src/components/utils/asyncHooks/useAsyncEffect.ts",
                 "test": false
+            },
+            {
+                "relativePath": "src/components/utils/asyncHooks/useMountState.ts",
+                "test": false,
+                "name": "useMountState.ts"
             },
             {
                 "name": "usePromise.ts",

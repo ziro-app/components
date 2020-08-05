@@ -1,12 +1,16 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
-import { PromiseGen, PromiseCbk, UsePromiseState, StatusType } from "./types";
-import { ZiroWaitingMessage, ZiroPromptMessage } from "ziro-messages";
+import { ZiroWaitingMessage, isPrompt, isWaiting } from "ziro-messages";
+//@ts-ignore
 import { useMessage } from "@bit/vitorbarbosa19.ziro.message-modal";
+import { PromiseGen, PromiseCbk, UsePromiseState, StatusType } from "./types";
+import { useMountState } from "./useMountState"
 
 export function usePromise<A, R, E>(
   promise: PromiseGen<A, R>,
   deps: React.DependencyList = []
 ): [PromiseCbk<A>, UsePromiseState<R, E>] {
+
+  const mountState = useMountState()
 
   //set promise state
   const [status, setStatus] = useState<StatusType>("firstRender");
@@ -21,13 +25,14 @@ export function usePromise<A, R, E>(
         if (status === "running") return;
         setStatus("running");
         const result = await promise(args);
+        if(mountState.current==="unmounted") return
         setResult(result);
         setStatus("success");
       } catch (error) {
+        if(mountState.current==="unmounted") return
         if(!error.skipAttempt) setAttempts((a) => a+1)
         setError(error.error||error)
         setStatus("failed");
-      } finally {
       }
     },
     [status, setStatus, setResult, setError, setAttempts, ...deps]
@@ -72,7 +77,8 @@ export function usePromiseShowingMessage<A, R, E>(
   const newCbk = useCallback((args?: A) => setMessage(message.withPromise(cbk(args))),[setMessage,message,cbk])
 
   useEffect(() => {
-    if(state.status==="failed" && state.error instanceof ZiroPromptMessage) setMessage(state.error)
+    if(state.status==="failed" && (isPrompt(state.error)||isWaiting(state.error))) setMessage(state.error)
+    if(state.status==="success" && (isPrompt(state.result)||isWaiting(state.result))) setMessage(state.result)
   },[state.status])
 
   return [newCbk, state]

@@ -17,11 +17,7 @@ const MessageModal: React.FC<Props> = ({
     const [message,setMessage] = React.useState<Message|null>(null)
     const [reject,setReject] = React.useState<Rejecter|null>(null)
 
-    const onButtonClick = React.useCallback((button: "first"|"second"|Message) => {
-        if(isPrompt(button)||isWaiting(button)) {
-            setMessage(button)
-            return
-        }
+    const onButtonClick = React.useCallback((button: "first"|"second") => {
         if(isPrompt(message)) {
             switch(button) {
                 case "first":

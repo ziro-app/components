@@ -6,7 +6,7 @@ import Button from "@bit/vitorbarbosa19.ziro.button"
 //@ts-ignore
 import Spinner from "@bit/vitorbarbosa19.ziro.spinner"
 import { motion } from "framer-motion"
-import { isPrompt, isWaiting } from "ziro-messages"
+import { isPrompt, isWaiting, ZiroPromptMessage, ZiroWaitingMessage } from "ziro-messages"
 import { defaultProp } from "./defaults"
 import { container, title, svg, buttonsContainer } from "./modalStyle"
 import { Message, PMessage, WMessage } from "./types"
@@ -79,7 +79,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 type SP = {
     message: WMessage
     performance?: performance.Performance
-    onButtonClick: (button: "first"|"second"|Message) => void
+    onButtonClick: (button: "first"|"second") => void
 }
 
 const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance }) => {
@@ -89,20 +89,8 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance })
             let trace: performance.Trace
             if(performance) (trace = performance.trace(message.name)).start()
             message.promise
-                .then((result) => {
-                    if(isPrompt(result)||isWaiting(result)) {
-                        onButtonClick(result)
-                        return
-                    }
-                    onButtonClick("first")
-                })
-                .catch((error) => {
-                    if(isPrompt(error)||isWaiting(error)) {
-                        onButtonClick(error)
-                        return
-                    }
-                    onButtonClick("second")
-                })
+                .then(() => onButtonClick("first"))
+                .catch(() => onButtonClick("second"))
                 .finally(() => trace && trace.stop())
         }
         else onButtonClick("second")
@@ -118,7 +106,7 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick, performance })
 type P = {
     message: Message
     performance?: performance.Performance
-    onButtonClick: (button: "first"|"second"|Message) => void
+    onButtonClick: (button: "first"|"second") => void
 }
 
 const Modal: React.FC<P> = ({ message, onButtonClick, performance }) => {
