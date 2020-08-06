@@ -1949,7 +1949,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.1": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -2338,7 +2338,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.19": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.20": {
         "files": [
             {
                 "name": "index.ts",
@@ -2389,6 +2389,18 @@
             }
         ],
         "mainFile": "src/components/utils/axios/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/utils/create-firestore-url@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/createFirestoreURL/index.ts",
+                "test": false,
+                "name": "index.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/createFirestoreURL/index.ts",
         "origin": "AUTHORED",
         "exported": true
     },

@@ -7,8 +7,7 @@ export const useMountState = () => {
         return () => state.current = "unmounted"
     },[])
     return {
-        get current() {
-            return state.current
-        }
+        get current() { return state.current },
+        set current(v) {}
     }
 }

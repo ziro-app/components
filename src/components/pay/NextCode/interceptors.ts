@@ -51,7 +51,6 @@ export const response: ResponseInterceptor = {
     return data;
   },
   onRejected: (error) => {
-    console.log({ error })
     if(axios.isCancel(error)) return
     if(error.code === "ECONNABORTED") return Promise.reject(prompt.TIMEOUT.withAdditionalData({ error }))
     return Promise.reject(getRightMessage(error))
