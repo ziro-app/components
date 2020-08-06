@@ -4,19 +4,21 @@ import { WriteOptions, ReadOptions } from "./types"
 
 const sheets = axios.create(instanceConfig)
 
-export default (spreadsheetId: string) => ({
-    write: ({ range, values, valueInputOption = 'user_entered'}: WriteOptions) => sheets.post("",{
+export const sheet = (spreadsheetId: string) => ({
+    write: ({ apiMethod = "append", range, values, valueInputOption = 'user_entered'}: WriteOptions) => sheets.post("",{
         apiResource: "values",
-        apiMethod: "append",
+        apiMethod,
         range,
         resource: { values },
         valueInputOption,
         spreadsheetId
     }).then(({ data }) => data),
-    read: ({ range }: ReadOptions) => sheets.post<string[][]>("",{
+    read: ({ range, apiMethod = "get" }: ReadOptions) => sheets.post<{ values: string[][] }>("",{
         apiResource: "values",
-        apiMethod: "get",
+        apiMethod,
         range,
         spreadsheetId
-    }).then(({ data }) => data)
+    }).then(({ data: { values } }) => values)
 })
+
+export default sheets
