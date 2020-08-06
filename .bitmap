@@ -2414,5 +2414,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/utils/whatsapp@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/whatsapp/constants.ts",
+                "test": false,
+                "name": "constants.ts"
+            },
+            {
+                "relativePath": "src/components/utils/whatsapp/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/utils/whatsapp/types.ts",
+                "test": false,
+                "name": "types.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/whatsapp/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.8.8"
 }
