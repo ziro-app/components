@@ -2414,7 +2414,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/whatsapp@0.0.1": {
+    "vitorbarbosa19.ziro/utils/whatsapp@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/utils/whatsapp/constants.ts",
