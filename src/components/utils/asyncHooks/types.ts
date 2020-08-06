@@ -1,16 +1,16 @@
 export type PromiseGen<A, R> = (args?: A) => Promise<R>;
 export type PromiseCbk<A> = (args?: A) => Promise<void>;
-type StaleState = {
+export type StaleState = {
   status: "firstRender" | "stale" | "running";
   result: null;
   error: null;
 };
-type SuccessState<R> = {
+export type SuccessState<R> = {
   status: "success";
   result: R;
   error: null;
 };
-type FailedState<E> = {
+export type FailedState<E> = {
   status: "failed";
   result: null;
   error: E;
