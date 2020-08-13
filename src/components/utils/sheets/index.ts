@@ -21,4 +21,6 @@ export const sheet = (spreadsheetId: string) => ({
     }).then(({ data: { values } }) => values)
 })
 
+export const hyperlink = (url: string, text: string = url) => `=HYPERLINK("${url}";"${text}")`
+
 export default sheets

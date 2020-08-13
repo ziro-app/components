@@ -2404,7 +2404,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/sheets@0.0.4": {
+    "vitorbarbosa19.ziro/utils/sheets@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/utils/sheets/constants.ts",
@@ -2423,6 +2423,18 @@
             }
         ],
         "mainFile": "src/components/utils/sheets/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/utils/tuple@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/tuple/index.ts",
+                "test": false,
+                "name": "index.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/tuple/index.ts",
         "origin": "AUTHORED",
         "exported": true
     },
