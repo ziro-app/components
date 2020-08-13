@@ -5,9 +5,9 @@ import InitialLoader from '@bit/vitorbarbosa19.ziro.initial-loader';
 
 type RouteProps = {
     path: string
-    redirect: string
-    auth: boolean
-    fallback: React.ReactNode
+    redirect?: string
+    auth?: boolean
+    fallback?: React.ReactNode
 }
 
 const _Route: React.FC<RouteProps> = ({ path, auth, fallback=<InitialLoader/>, redirect = "/login", children }) => 
