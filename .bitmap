@@ -2392,6 +2392,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/utils/check-against-template@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/checkAgainstTemplate/index.ts",
+                "test": false,
+                "name": "index.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/checkAgainstTemplate/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/utils/create-firestore-url@0.0.1": {
         "files": [
             {
