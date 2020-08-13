@@ -1,18 +1,18 @@
-const template = {
+export const ScoreTemplate = {
   score1: 0,
   score2: 0,
   matched: true,
 };
-export const scoreKeys = Object.keys(template);
+
+export const FieldsTemplate = {
+  name: ScoreTemplate,
+  birthdate: ScoreTemplate,
+  mothersName: ScoreTemplate
+}
 
 export namespace Scores {
-  export type Score = typeof template;
-
-  export type Fields = {
-    name: Score;
-    birthdate: Score;
-    mothersName: Score;
-  };
+  export type Score = typeof ScoreTemplate;
+  export type Fields = typeof FieldsTemplate;
 }
 
 export type TypeCheck = {

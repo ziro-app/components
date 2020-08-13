@@ -15,13 +15,9 @@ export const BackgroundCheckTemplates = {
 }
 
 export namespace BackgroundCheck {
-  export type Found = typeof BackgroundCheckTemplates["found"];
-  export type PassedOn = typeof BackgroundCheckTemplates["passedOn"];
-
-  export type Collection = {
-    found: Found;
-    passedOn: PassedOn;
-  };
+  export type Found = typeof BackgroundCheckTemplates.found;
+  export type PassedOn = typeof BackgroundCheckTemplates.passedOn;
+  export type Collection = typeof BackgroundCheckTemplates;
 }
 
 export type TypeCheck = {

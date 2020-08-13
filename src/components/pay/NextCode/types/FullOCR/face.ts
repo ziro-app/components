@@ -1,32 +1,27 @@
-const successTemplate = {
-  faceRectangle: {
-    top: 0,
-    left: 0,
-    width: 0,
-    height: 0,
+export const FaceTemplates = {
+  success: {
+    faceRectangle: {
+      top: 0,
+      left: 0,
+      width: 0,
+      height: 0,
+    },
+    age: 0,
+    gender: "male" as "male" | "female",
+    croppedFaceBase64: "",
   },
-  age: 0,
-  gender: "male" as "male" | "female",
-  croppedFaceBase64: "",
-};
-
-export const successTemplateKeys = Object.keys(successTemplate);
-
-const errorTemplate = {
   error: {
-    code: "",
-    message: "",
-    subject: "",
-  },
-};
-
-export const errorTemplateKeys = Object.keys(errorTemplate);
+    error: {
+      code: "",
+      message: "",
+      subject: "",
+    },
+  }
+}
 
 export namespace Face {
-  export type Success = typeof successTemplate;
-
-  export type Error = typeof errorTemplate;
-
+  export type Success = typeof FaceTemplates.success;
+  export type Error = typeof FaceTemplates.error;
   export type Generic = Success | Error;
 }
 

@@ -1,47 +1,39 @@
-const template = {
+//@ts-ignore
+import { Replace } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
+
+export const FileInfoTemplate = {
   originalname: "",
   size: "",
   md5: "",
   extension: "",
   height: "",
   width: "",
-  classifiedAs: "",
+  classifiedAs: {
+    probability: 0,
+    tagName: ""
+  },
 };
 
-type Template = typeof template;
-export const templateKeys = Object.keys(template);
-export const classifiedAsKeys = ["probability", "tagName"];
-
 export namespace File {
-  export type TAG =
-    | "CNH F"
-    | "CNH V"
-    | "CNH FV"
-    | "RG F"
-    | "RG V"
-    | "RG FV"
-    | "CPF"
-    | "COMPRES"
-    | "IMPRESSOS"
-    | "CARTAOCREDITO"
-    | "OUTROS"
-    | "SELFIE"
-
+  export type TAG = 
+  | "CNH F"
+  | "CNH V"
+  | "CNH FV"
+  | "RG F"
+  | "RG V"
+  | "RG FV"
+  | "CPF"
+  | "COMPRES"
+  | "IMPRESSOS"
+  | "CARTAOCREDITO"
+  | "OUTROS"
+  | "SELFIE"
   export type CNHTAG = "CNH F"|"CNH V"|"CNH FV"
   export type RGTAG = "RG F"|"RG V"|"RG FV"
   export type KnownTAG = CNHTAG|RGTAG
   export type UnknownTAG = Exclude<TAG,KnownTAG>
-
-  export type ClassifiedAs<T extends TAG> = {
-    probability: number;
-    tagName: T;
-  };
-
-  export type Info<T extends TAG> = {
-    [K in keyof Template]: K extends "classifiedAs"
-      ? ClassifiedAs<T>
-      : Template[K];
-  };
+  export type ClassifiedAs<T extends TAG> = Replace<typeof FileInfoTemplate.classifiedAs,"tagName",T>;
+  export type Info<T extends TAG> = Replace<typeof FileInfoTemplate,"classifiedAs",ClassifiedAs<T>>;
 }
 
 export type TypeCheck = {

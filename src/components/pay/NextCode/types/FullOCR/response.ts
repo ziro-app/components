@@ -1,5 +1,3 @@
-import Refresh from "../refresh";
-import Stats from "../stats";
 import { File } from "./fileInfo";
 import { Face } from "./face";
 import { Extracted } from "./extracted";
@@ -21,7 +19,7 @@ export namespace Response {
     fieldScores?: Scores.Fields;
   };
 
-  export type CheckedRGV = UncheckedRGV & BackgroundCheck.BackgroundCheck;
+  export type CheckedRGV = UncheckedRGV & BackgroundCheck.Collection;
 
   export type RGV = UncheckedRGV | CheckedRGV;
 
@@ -32,7 +30,7 @@ export namespace Response {
     fieldScores?: Scores.Fields;
   };
 
-  export type CheckedRGFV = UncheckedRGFV & BackgroundCheck.BackgroundCheck;
+  export type CheckedRGFV = UncheckedRGFV & BackgroundCheck.Collection;
 
   export type RGFV = UncheckedRGFV | CheckedRGFV;
 
@@ -53,10 +51,7 @@ export namespace Response {
     fieldScores?: Scores.Fields;
   };
 
-  export type CheckedCNHForFV<T extends "CNH F" | "CNH FV"> = UncheckedCNHForFV<
-    T
-  > &
-    BackgroundCheck.BackgroundCheck;
+  export type CheckedCNHForFV<T extends "CNH F" | "CNH FV"> = UncheckedCNHForFV<T> & BackgroundCheck.Collection;
 
   export type CNHForFV<T extends "CNH F" | "CNH FV"> =
     | UncheckedCNHForFV<T>

@@ -1949,7 +1949,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.2": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -1967,42 +1967,42 @@
                 "name": "interceptors.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/backgroundCheck.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/backgroundCheck.ts",
                 "test": false,
                 "name": "backgroundCheck.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/extracted.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/extracted.ts",
                 "test": false,
                 "name": "extracted.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/face.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/face.ts",
                 "test": false,
                 "name": "face.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/fileInfo.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/fileInfo.ts",
                 "test": false,
                 "name": "fileInfo.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/index.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/index.ts",
                 "test": false,
                 "name": "index.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/response.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/response.ts",
                 "test": false,
                 "name": "response.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/scores.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/scores.ts",
                 "test": false,
                 "name": "scores.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/Document/typeChecks.ts",
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/typeChecks.ts",
                 "test": false,
                 "name": "typeChecks.ts"
             },
@@ -2392,7 +2392,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/check-against-template@0.0.1": {
+    "vitorbarbosa19.ziro/utils/check-against-template@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/utils/checkAgainstTemplate/index.ts",

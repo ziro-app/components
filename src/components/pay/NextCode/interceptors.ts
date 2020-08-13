@@ -1,3 +1,4 @@
+//@ts-nocheck
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { prompt } from "ziro-messages/dist/src/nextcode"
 import * as Sentry from "@sentry/react"
@@ -31,18 +32,10 @@ export const request: RequestInterceptor = {
 type Message = ZiroPromptMessage<NextCodeCodes,string,{ response: AxiosResponse<any>, sentryEventId: string }>
 const getRightMessage = function(error: AxiosError<any>): Message  {
   const sentryEventId = Sentry.captureException(error)
-  switch(error.response.status) {
-    case 400: return prompt.BAD_REQUEST.withAdditionalData({ response: error.response, sentryEventId })
-    case 401: return prompt.UNAUTHORIZED.withAdditionalData({ response: error.response, sentryEventId })
-    case 403: return prompt.FORBIDDEN.withAdditionalData({ response: error.response, sentryEventId })
-    case 404: return prompt.NOT_FOUND.withAdditionalData({ response: error.response, sentryEventId })
-    case 405: return prompt.METHOD_NOT_ALLOWED.withAdditionalData({ response: error.response, sentryEventId })
-    case 410: return prompt.GONE.withAdditionalData({ response: error.response, sentryEventId })
-    case 422: return prompt.UNPROCESSABLE_ENTITY.withAdditionalData({ response: error.response, sentryEventId })
-    case 500: return prompt.INTERNAL_SERVER_ERROR.withAdditionalData({ response: error.response, sentryEventId })
-    case 503: return prompt.SERVICE_UNAVAILABLE.withAdditionalData({ response: error.response, sentryEventId })
-    default:  return prompt.UNKNOWN_ERROR.withAdditionalData({ response: error.response, sentryEventId })
-  }
+  return ((Object
+    .values(prompt)
+    .find((message) => message.additionalData.status===error.response.status)||
+    prompt.UNKNOWN_ERROR) as any).withAdditionalData({ response: error.response, sentryEventId })
 }
 
 export const response: ResponseInterceptor = {
