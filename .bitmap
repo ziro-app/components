@@ -2062,6 +2062,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/route@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/Route/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            }
+        ],
+        "mainFile": "src/components/Route/index.tsx",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/seller-and-charge-row@0.0.5": {
         "files": [
             {
