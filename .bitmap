@@ -791,6 +791,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
+                "test": false,
+                "name": "helperTypes.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/card/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/card/types.ts",
+                "test": false,
+                "name": "types.ts"
+            }
+        ],
+        "mainFile": "src/components/firebase/catalog-user-data/card/index.ts",
+        "trackDir": "src/components/firebase/catalog-user-data/card",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/flow-form@0.0.59": {
         "files": [
             {
