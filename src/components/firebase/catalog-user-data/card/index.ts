@@ -1,6 +1,8 @@
 import { useFirestore, useFirestoreCollection, useFirestoreDoc } from "reactfire"
 import { Card } from "./types"
 
+export { Card }
+
 interface UseFirebaseCardsProp {
     storeownerId: string
 }
