@@ -58,6 +58,7 @@ export namespace Card {
     }
 
     export interface CNHV extends CNHCommon<"pendingDoc"> {
+        docStatus: "pendingCNHF"
         "CNH V": File<"CNH V">
     }
 
