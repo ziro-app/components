@@ -2089,7 +2089,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.2": {
+    "vitorbarbosa19.ziro/route@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Route/index.tsx",
