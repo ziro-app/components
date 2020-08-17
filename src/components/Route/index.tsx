@@ -55,12 +55,12 @@ interface CommonProps {
 }
 
 interface PublicOnlyProps extends CommonProps {
-    publicOnly: true
+    publicOnly?: true
     privateOnly?: false
 }
 
 interface PrivateOnlyProps extends CommonProps {
-    privateOnly: true
+    privateOnly?: true
     publicOnly?: false
 }
 
