@@ -2,22 +2,24 @@ import React,{
     useMemo,
     cloneElement,
     ReactElement,
+    ReactNode,
     isValidElement
 } from "react";
 import { useRouter, useLocation, useRoute } from "wouter"
 import { useUser, SuspenseWithPerf } from "reactfire"
+//@ts-ignore
 import InitialLoader from '@bit/vitorbarbosa19.ziro.initial-loader';
 
 interface SwitchProps {
-    defaultPrivateFallback: React.ReactNode
-    defaultPublicFallback: React.ReactNode
+    defaultPrivateOnlyFallback: React.ReactNode
+    defaultPublicOnlyFallback: React.ReactNode
     defaultSuspenseFallback ?: React.ReactNode
 }
 
 export const Switch: React.FC<SwitchProps> = ({
     children,
-    defaultPrivateFallback,
-    defaultPublicFallback,
+    defaultPrivateOnlyFallback,
+    defaultPublicOnlyFallback,
     defaultSuspenseFallback = InitialLoader
 }) => {
     const { matcher } = useRouter();
@@ -33,10 +35,10 @@ export const Switch: React.FC<SwitchProps> = ({
 
     if(index===-1) return null
 
-    //if user is logged and this route is public only
-    if(user&&element.props.publicOnly) return <>{element.props.privateFallback||defaultPrivateFallback}</>
-    //if user is not logged and this route is private only
-    if(!user&&element.props.privateOnly) return <>{element.props.publicFallback||defaultPublicFallback}</>
+    //if route is public only and user is logged
+    if(element.props.publicOnly&&user) return <>{element.props.fallback||defaultPublicOnlyFallback}</>
+    //if route is provate only and user is unlogged
+    if(element.props.privateOnly&&!user) return <>{element.props.fallback||defaultPrivateOnlyFallback}</>
     //else render element
     return (
         <SuspenseWithPerf traceId={element.props.path} fallback={element.props.suspenseFallback||defaultSuspenseFallback} >
@@ -45,22 +47,28 @@ export const Switch: React.FC<SwitchProps> = ({
     )
   };
 
-  interface RouteProps {
+interface CommonProps {
     path: string
-    match ?: ReturnType<ReturnType<typeof useRouter>["matcher"]>
-    publicOnly ?: boolean
-    privateOnly ?: boolean
-    privateFallback ?: React.ReactNode
-    publicFallback ?: React.ReactNode
-    suspenseFallback ?: React.ReactNode
-  }
+    match?: ReturnType<ReturnType<typeof useRouter>["matcher"]>
+    suspenseFallback ?: ReactNode
+    fallback ?: ReactNode
+}
+
+interface PublicOnlyProps extends CommonProps {
+    publicOnly: true
+    privateOnly?: false
+}
+
+interface PrivateOnlyProps extends CommonProps {
+    privateOnly: true
+    publicOnly?: false
+}
+
+type RouteProps = PublicOnlyProps|PrivateOnlyProps
 
   export const Route: React.FC<RouteProps> = ({ path, match, children }) => {
-    const useRouteMatch = useRoute(path);
-
+    const useRouteMatch = useRoute(path)
     const [matches, params] = match || useRouteMatch;
-  
     if (!matches||!isValidElement(children)) return null;
-  
     return cloneElement(children,params);
   };
