@@ -2,13 +2,23 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "esModuleInterop": true,
-    "target": "ES2020",
+    "target": "ES6",
     "jsx": "react",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "moduleResolution": "node",
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@bit/vitorbarbosa19.ziro.utils.check-against-template": ["components/utils/checkAgainstTemplate"],
+      "@bit/vitorbarbosa19.ziro.initial-loader": ["components/InitialLoader"],
+    }
   },
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

@@ -5,5 +5,5 @@ export default function checkAgainstTemplate<T>(template: T,obj: any): obj is T 
         return typeof template === typeof obj
 }
 
-type Identity<T> = { [K in keyof T]: T[K] }
+export type Identity<T> = { [K in keyof T]: T[K] }
 export type Replace<T, K extends keyof T, R> = Identity<Pick<T, Exclude<keyof T, K>> & { [P in K]: R }>

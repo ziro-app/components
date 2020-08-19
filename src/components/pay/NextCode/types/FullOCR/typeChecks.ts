@@ -1,4 +1,3 @@
-//@ts-ignore
 import checkAgainstTemplate from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 import * as _BGCheck from "./backgroundCheck";
 import * as _Extracted from "./extracted";

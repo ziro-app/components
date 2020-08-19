@@ -7,13 +7,12 @@ import React,{
 } from "react";
 import { useRouter, useLocation, useRoute } from "wouter"
 import { useUser, SuspenseWithPerf } from "reactfire"
-//@ts-ignore
 import InitialLoader from '@bit/vitorbarbosa19.ziro.initial-loader';
 
 interface SwitchProps {
-    defaultPrivateOnlyFallback: React.ReactNode
-    defaultPublicOnlyFallback: React.ReactNode
-    defaultSuspenseFallback ?: React.ReactNode
+    defaultPrivateOnlyFallback: ReactNode
+    defaultPublicOnlyFallback: ReactNode
+    defaultSuspenseFallback ?: ReactNode
 }
 
 export const Switch: React.FC<SwitchProps> = ({
@@ -54,17 +53,22 @@ interface CommonProps {
     fallback ?: ReactNode
 }
 
+interface PublicAndPrivateProps extends CommonProps {
+    publicOnly?: false
+    privateOnly?: false
+}
+
 interface PublicOnlyProps extends CommonProps {
-    publicOnly?: true
+    publicOnly: true
     privateOnly?: false
 }
 
 interface PrivateOnlyProps extends CommonProps {
-    privateOnly?: true
+    privateOnly: true
     publicOnly?: false
 }
 
-type RouteProps = PublicOnlyProps|PrivateOnlyProps
+type RouteProps = PublicAndPrivateProps | PublicOnlyProps | PrivateOnlyProps
 
   export const Route: React.FC<RouteProps> = ({ path, match, children }) => {
     const useRouteMatch = useRoute(path)

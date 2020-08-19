@@ -1,4 +1,3 @@
-//@ts-ignore
 import { Replace } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 
 export const FileInfoTemplate = {

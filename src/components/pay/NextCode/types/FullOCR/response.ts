@@ -3,60 +3,53 @@ import { Face } from "./face";
 import { Extracted } from "./extracted";
 import { Scores } from "./scores";
 import { BackgroundCheck } from "./backgroundCheck";
+import { Identity } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 
 export namespace Response {
   /**
+   * Technically every response will have a fileInfo object
+   */
+  interface Generic<T extends File.TAG> {
+    fileInfo: File.Info<T>
+  }
+  /**
    * RG
    */
-  export type RGF = {
-    fileInfo: File.Info<"RG F">;
+  interface RGForFV<T extends "RG F"|"RG FV"> extends Generic<T> {
     face: Face.Generic;
-  };
+  }
 
-  export type UncheckedRGV = {
-    fileInfo: File.Info<"RG V">;
-    extracted: Extracted.RG;
-    fieldScores?: Scores.Fields;
-  };
+  interface UncheckedRG {
+    extracted: Extracted.RG
+    fieldScores?: Scores.Fields
+  }
 
-  export type CheckedRGV = UncheckedRGV & BackgroundCheck.Collection;
-
+  export type RGF = RGForFV<"RG F">
+  export type UncheckedRGV = Identity<UncheckedRG & Generic<"RG V">>
+  export type CheckedRGV = Identity<UncheckedRGV & BackgroundCheck.Collection>;
   export type RGV = UncheckedRGV | CheckedRGV;
-
-  export type UncheckedRGFV = {
-    fileInfo: File.Info<"RG FV">;
-    face: Face.Generic;
-    extracted: Extracted.RG;
-    fieldScores?: Scores.Fields;
-  };
-
-  export type CheckedRGFV = UncheckedRGFV & BackgroundCheck.Collection;
-
+  export type UncheckedRGFV = Identity<UncheckedRG & RGForFV<"RG FV">>
+  export type CheckedRGFV = Identity<UncheckedRGFV & BackgroundCheck.Collection>;
   export type RGFV = UncheckedRGFV | CheckedRGFV;
-
   export type RG = RGF | RGV | RGFV;
 
   /**
    * CNH
    */
 
-  export type CNHV = {
-    fileInfo: File.Info<"CNH V">;
-  };
-
-  export type UncheckedCNHForFV<T extends "CNH F" | "CNH FV"> = {
-    fileInfo: File.Info<T>;
+  export interface UncheckedCNHForFV<T extends "CNH F" | "CNH FV"> extends Generic<T> {
     face: Face.Generic;
     extracted: Extracted.CNH;
     fieldScores?: Scores.Fields;
   };
 
-  export type CheckedCNHForFV<T extends "CNH F" | "CNH FV"> = UncheckedCNHForFV<T> & BackgroundCheck.Collection;
+  export type CheckedCNHForFV<T extends "CNH F" | "CNH FV"> = Identity<UncheckedCNHForFV<T> & BackgroundCheck.Collection>;
 
   export type CNHForFV<T extends "CNH F" | "CNH FV"> =
     | UncheckedCNHForFV<T>
     | CheckedCNHForFV<T>;
 
+  export type CNHV = Generic<"CNH V">;
   export type CNHF = CNHForFV<"CNH F">;
   export type CNHFV = CNHForFV<"CNH FV">;
 
@@ -73,8 +66,8 @@ export namespace Response {
    * Unknown Type Response
    */
 
-   export type UnknownDocument = { fileInfo: File.Info<File.UnknownTAG> }
-   export type Selfie = { fileInfo: File.Info<"SELFIE"> }
+   export type UnknownDocument = Generic<File.UnknownTAG>
+   export type Selfie = Generic<"SELFIE">
 }
 
 /**
