@@ -2,6 +2,7 @@ import consultCnpj from './utils/consultCnpj';
 import checkResult from './utils/checkResult';
 import mountObject from './utils/mountObject';
 import handleError from './utils/handleError';
+import validateCnpj from './utils/validateCnpj'
 
 const lastReq = async (config, validCnaes, state) => {
     let result = {};
@@ -32,6 +33,7 @@ const searchCnpj = state => () =>
         try {
             if (cnpj.length !== 18) throw { msg: 'Deve ter 14 números', customError: true };
             if (baseCnpj.includes(cnpj)) throw { msg: 'CNPJ já cadastrado', customError: true };
+            if (!validateCnpj(cnpj)) throw { msg: 'CNPJ inválido', customError: true };
             const [status, result] = await consultCnpj(config);
             const objResult = checkResult(status, result, validCnaes, false);
             console.log('HERE')

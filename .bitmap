@@ -952,7 +952,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.118": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.119": {
         "files": [
             {
                 "name": "index.js",
@@ -1018,7 +1018,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.47": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.48": {
         "files": [
             {
                 "relativePath": "src/components/GetCnpj/index.js",
@@ -1054,6 +1054,11 @@
                 "relativePath": "src/components/GetCnpj/utils/mountObject.js",
                 "test": false,
                 "name": "mountObject.js"
+            },
+            {
+                "relativePath": "src/components/GetCnpj/utils/validateCnpj.js",
+                "test": false,
+                "name": "validateCnpj.js"
             }
         ],
         "mainFile": "src/components/GetCnpj/index.js",
