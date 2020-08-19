@@ -1,4 +1,4 @@
-import { Identity } from "@bit/vitorbarbosa19.ziro.utils.check-against-template"
+// import { Identity } from "@bit/vitorbarbosa19.ziro.utils.check-against-template"
 
 export const ExtractedTemplates = {
   common: {
@@ -32,8 +32,8 @@ export const ExtractedTemplates = {
 export namespace Extracted {
   export type DocumentType = typeof ExtractedTemplates.common.documentType
   type Common = typeof ExtractedTemplates.common
-  export type CNH = Identity<Common & typeof ExtractedTemplates.cnh>
-  export type RG = Identity<Common & typeof ExtractedTemplates.rg>
+  export type CNH = Common & typeof ExtractedTemplates.cnh
+  export type RG = Common & typeof ExtractedTemplates.rg
   export type Generic = CNH|RG
 }
 
