@@ -2,11 +2,11 @@ import { Replace } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 
 export const FileInfoTemplate = {
   originalname: "",
-  size: "",
+  size: 0,
   md5: "",
   extension: "",
-  height: "",
-  width: "",
+  height: 0,
+  width: 0,
   classifiedAs: {
     probability: 0,
     tagName: ""
