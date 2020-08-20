@@ -77,7 +77,7 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
         const taskCompleted = await uploadTask
         const newUrl = await taskCompleted.ref.getDownloadURL()
         if(mountState.current==="mounted") setUrl(newUrl)
-        return newUrl
+        return newUrl as string
     },[pic, setPic, task, setTask, ref, setRef, storage, cardId, url, setUrl])
 
     return [upload,task] as [typeof upload,typeof task]

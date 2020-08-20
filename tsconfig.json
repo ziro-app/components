@@ -25,6 +25,9 @@
       "@bit/vitorbarbosa19.ziro.pay.next-code": [
         "components/pay/NextCode"
       ],
+      "@bit/vitorbarbosa19.ziro.pay.zoop": [
+        "components/pay/Zoop"
+      ],
       "@bit/vitorbarbosa19.ziro.pay.antifraud": [
         "components/pay/antifraud"
       ],

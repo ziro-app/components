@@ -182,6 +182,29 @@
           }
         }
       },
+      "pay/zoop": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/Zoop",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "pay/antifraud": {
         "devDependencies": {
           "@types/node": "+"

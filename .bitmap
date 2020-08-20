@@ -2080,6 +2080,38 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/pay/zoop@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/pay/Zoop/constants.ts",
+                "test": false,
+                "name": "constants.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/interceptors.ts",
+                "test": false,
+                "name": "interceptors.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/CardType.ts",
+                "test": false,
+                "name": "CardType.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/index.ts",
+                "test": false,
+                "name": "index.ts"
+            }
+        ],
+        "mainFile": "src/components/pay/Zoop/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/resend-email@0.1.86": {
         "files": [
             {
