@@ -791,7 +791,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.6": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -1880,7 +1880,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.31": {
+    "vitorbarbosa19.ziro/message-modal@0.0.32": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -1981,7 +1981,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.4": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -2052,11 +2052,6 @@
                 "relativePath": "src/components/pay/NextCode/types/stats.ts",
                 "test": false,
                 "name": "stats.ts"
-            },
-            {
-                "relativePath": "src/components/pay/NextCode/types/utils.ts",
-                "test": false,
-                "name": "utils.ts"
             }
         ],
         "mainFile": "src/components/pay/NextCode/index.ts",
@@ -2094,7 +2089,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.6": {
+    "vitorbarbosa19.ziro/route@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/Route/index.tsx",
@@ -2382,7 +2377,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.22": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.23": {
         "files": [
             {
                 "name": "index.ts",
@@ -2414,7 +2409,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/axios@0.0.2": {
+    "vitorbarbosa19.ziro/utils/axios@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/utils/axios/axiosTypes.ts",
@@ -2436,7 +2431,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/check-against-template@0.0.3": {
+    "vitorbarbosa19.ziro/utils/check-against-template@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/utils/checkAgainstTemplate/index.ts",
@@ -2448,7 +2443,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/create-firestore-url@0.0.2": {
+    "vitorbarbosa19.ziro/utils/create-firestore-url@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/utils/createFirestoreURL/index.ts",
@@ -2460,7 +2455,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/sheets@0.0.6": {
+    "vitorbarbosa19.ziro/utils/sheets@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/utils/sheets/constants.ts",
@@ -2482,7 +2477,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/tuple@0.0.3": {
+    "vitorbarbosa19.ziro/utils/tuple@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/utils/tuple/index.ts",
@@ -2494,7 +2489,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/whatsapp@0.0.3": {
+    "vitorbarbosa19.ziro/utils/whatsapp@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/utils/whatsapp/constants.ts",

@@ -10,8 +10,42 @@
     "moduleResolution": "node",
     "allowJs": true,
     "paths": {
-      "@bit/vitorbarbosa19.ziro.utils.check-against-template": ["components/utils/checkAgainstTemplate"],
-      "@bit/vitorbarbosa19.ziro.initial-loader": ["components/InitialLoader"],
+      "@bit/vitorbarbosa19.ziro.message-modal": [
+        "components/MessageModal"
+      ],
+      "@bit/vitorbarbosa19.ziro.route": [
+        "components/Route"
+      ],
+      "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": [
+        "components/firebase/catalog-user-data"
+      ],
+      "@bit/vitorbarbosa19.ziro.pay.next-code": [
+        "components/pay/NextCode"
+      ],
+      "@bit/vitorbarbosa19.ziro.pay.antifraud": [
+        "components/pay/antifraud"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.async-hooks": [
+        "components/utils/asyncHooks"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.axios": [
+        "components/utils/axios"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.check-against-template": [
+        "components/utils/checkAgainstTemplate"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": [
+        "components/utils/createFirestoreURL"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.sheets": [
+        "components/utils/sheets"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.tuple": [
+        "components/utils/tuple"
+      ],
+      "@bit/vitorbarbosa19.ziro.utils.whatsapp": [
+        "components/utils/whatsapp"
+      ]
     }
   },
   "include": [

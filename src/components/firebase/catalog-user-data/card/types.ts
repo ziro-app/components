@@ -4,7 +4,7 @@ import { File, ImageValidation, DataValidation, ValidationResult, DataFields, Im
 export namespace Card {
     export type Status = "pendingDoc"|"pendingSelfie"|"pendingManualApproval"|"approved"
 
-    interface Common<S extends Status> {
+    export interface Common<S extends Status> {
         id: string
         status: S
         added: firebase.firestore.Timestamp

@@ -4,8 +4,8 @@
   "description": "Component library for Ziro",
   "main": "index.js",
   "scripts": {
-    "prestart": "bit link",
-    "prebuild": "bit link",
+    "prestart": "node ./prebuild.js && bit build",
+    "prebuild": "node ./prebuild.js && bit build",
     "postinstall": "npm dedupe",
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
@@ -71,44 +71,6 @@
       ]
     },
     "overrides": {
-      "utils/*": {
-        "env": {
-          "compiler": {
-            "bit.envs/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "target": "ES5",
-                    "module": "CommonJS"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "@types/node": "^14.0.27"
-        }
-      },
-      "pay/*": {
-        "dependencies": {
-          "@types/node": "^14.0.27"
-        },
-        "env": {
-          "compiler": {
-            "bit.envs/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "target": "ES5",
-                    "module": "CommonJS"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "message-modal": {
         "env": {
           "compiler": {
@@ -116,8 +78,11 @@
               "rawConfig": {
                 "tsconfig": {
                   "compilerOptions": {
+                    "outDir": "./dist/src/components/MessageModal",
                     "target": "ES5",
-                    "module": "CommonJS"
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
                   }
                 }
               }
@@ -135,13 +100,233 @@
               "rawConfig": {
                 "tsconfig": {
                   "compilerOptions": {
+                    "outDir": "./dist/src/components/Route",
                     "target": "ES5",
-                    "module": "CommonJS"
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
                   }
                 }
               }
             }
           }
+        }
+      },
+      "firebase/catalog-user-data": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/catalog-user-data",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "pay/next-code": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/NextCode",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "pay/antifraud": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/antifraud",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/async-hooks": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/asyncHooks",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/axios": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/axios",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/check-against-template": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/checkAgainstTemplate",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/create-firestore-url": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/createFirestoreURL",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/sheets": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/sheets",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/tuple": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/tuple",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
+        }
+      },
+      "utils/whatsapp": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/whatsapp",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "devDependencies": {
+          "@types/node": "+"
         }
       }
     }

@@ -1,6 +1,4 @@
-import { AxiosRequestConfig } from "axios";
-
-export const loginConfig: AxiosRequestConfig = {
+export const loginConfig: import("axios").AxiosRequestConfig = {
   url: "https://auth.nxcd.com.br/v1.0/login/",
   method: "POST",
   data: {
@@ -9,7 +7,7 @@ export const loginConfig: AxiosRequestConfig = {
   },
 };
 
-export const instanceConfig: AxiosRequestConfig = {
+export const instanceConfig: import("axios").AxiosRequestConfig = {
   baseURL: "https://id.nxcd.com.br/v1.0/",
   timeout: 40000,
 };

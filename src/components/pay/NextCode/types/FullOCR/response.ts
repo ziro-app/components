@@ -3,33 +3,33 @@ import { Face } from "./face";
 import { Extracted } from "./extracted";
 import { Scores } from "./scores";
 import { BackgroundCheck } from "./backgroundCheck";
-// import { Identity } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
+import { Identity } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 
 export namespace Response {
   /**
    * Technically every response will have a fileInfo object
    */
-  interface Generic<T extends File.TAG> {
+  export interface Generic<T extends File.TAG> {
     fileInfo: File.Info<T>
   }
   /**
    * RG
    */
-  interface RGForFV<T extends "RG F"|"RG FV"> extends Generic<T> {
+  export interface RGForFV<T extends "RG F"|"RG FV"> extends Generic<T> {
     face: Face.Generic;
   }
 
-  interface UncheckedRG {
+  export interface UncheckedRG {
     extracted: Extracted.RG
     fieldScores?: Scores.Fields
   }
 
   export type RGF = RGForFV<"RG F">
-  export type UncheckedRGV = UncheckedRG & Generic<"RG V">
-  export type CheckedRGV = UncheckedRGV & BackgroundCheck.Collection;
+  export type UncheckedRGV = Identity<UncheckedRG & Generic<"RG V">>
+  export type CheckedRGV = Identity<UncheckedRGV & BackgroundCheck.Collection>;
   export type RGV = UncheckedRGV | CheckedRGV;
-  export type UncheckedRGFV = UncheckedRG & RGForFV<"RG FV">
-  export type CheckedRGFV = UncheckedRGFV & BackgroundCheck.Collection;
+  export type UncheckedRGFV = Identity<UncheckedRG & RGForFV<"RG FV">>
+  export type CheckedRGFV = Identity<UncheckedRGFV & BackgroundCheck.Collection>;
   export type RGFV = UncheckedRGFV | CheckedRGFV;
   export type RG = RGF | RGV | RGFV;
 
@@ -43,7 +43,7 @@ export namespace Response {
     fieldScores?: Scores.Fields;
   };
 
-  export type CheckedCNHForFV<T extends "CNH F" | "CNH FV"> = UncheckedCNHForFV<T> & BackgroundCheck.Collection;
+  export type CheckedCNHForFV<T extends "CNH F" | "CNH FV"> = Identity<UncheckedCNHForFV<T> & BackgroundCheck.Collection>;
 
   export type CNHForFV<T extends "CNH F" | "CNH FV"> =
     | UncheckedCNHForFV<T>

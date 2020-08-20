@@ -1,0 +1,17 @@
+{
+  "utils/*":  {
+    "devDependencies": {
+      "@types/node": "+"
+    }
+  },
+  "pay/*": {
+    "devDependencies": {
+      "@types/node": "+"
+    }
+  },
+  "message-modal": {
+    "dependencies": {
+      "ziro-messages": "+"
+    }
+  }
+}
