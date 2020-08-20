@@ -791,12 +791,17 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.7": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
                 "test": false,
                 "name": "helperTypes.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/card/hookTypes.ts",
+                "test": false,
+                "name": "hookTypes.ts"
             },
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/index.ts",
@@ -818,7 +823,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.1": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/firebase/storeowners/index.ts",

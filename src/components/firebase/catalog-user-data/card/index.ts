@@ -1,60 +1,48 @@
-import { useFirestore, useFirestoreCollection, useFirestoreDoc, ReactFireOptions } from "reactfire"
-import { FirebaseCard } from "./types"
+import { useFirestore, useFirestoreCollection, useFirestoreDoc } from "reactfire"
+import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners"
+import {
+    FirebaseCardsCollectionRef,
+    FirebaseCardsCollection,
+    FirebaseCardDocument,
+    FirebaseCard
+} from "./hookTypes"
 
-export { FirebaseCard }
+export * from "./hookTypes"
 
-export type FirebaseCardsRef = import("firebase").firestore.CollectionReference<Card.Generic>
-
-export const useFirebaseCardsRef = (storeownerId: string) => {
-    if(!storeownerId) throw new Error("useFirebaseCardsRef was called with no storeownerId")
-    return useFirestore().collection("catalog-user-data").doc(storeownerId).collection("cards") as FirebaseCardsRef
+/**
+ * Esse hook retorna uma CollectionReference que aponta para a collection "cards" do usuário do catalogo que estiver logado
+ */
+export const useFirebaseCardsRef = () => {
+    const { storeownerId } = useStoreowner()
+    return useFirestore()
+        .collection("catalog-user-data")
+        .doc(storeownerId)
+        .collection("cards") as FirebaseCardsCollectionRef
 }
 
-export type FirebaseCards = import("firebase").firestore.QuerySnapshot<FirebaseCard.Generic>
-
-export const useFirebaseCards = (storeownerId: string, options: ReactFireOptions<FirebaseCard.Generic[]> = {}) => {
-    if(!storeownerId) throw new Error("useFirebaseCards was called with no storeownerId")
-    return useFirestoreCollection<FirebaseCard.Generic>(useFirebaseCardsRef(storeownerId),options) as unknown as FirebaseCards
+/**
+ * Esse hook retorn a collection "cards" do usuário do catalogo que estive logado
+ * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
+ */
+export const useFirebaseCards = (startWithValue?: FirebaseCard.Generic[]) => {
+    return useFirestoreCollection(useFirebaseCardsRef(),{ startWithValue }) as unknown as FirebaseCardsCollection
 }
 
-export const useFirebaseCardRef = (storeownerId: string, cardId: string) => {
-    if(!storeownerId) throw new Error("useFirebaseCardRef was called with no storeownerId")
+/**
+ * Esse hook retorna uma DocumentReference que aponta para o cartão com o id fornecido
+ * @param cardId O id do cartão
+ */
+export const useFirebaseCardRef = (cardId: string) => {
     if(!cardId) throw new Error("useFirebaseCardRef was called with no cardId")
-    return useFirebaseCardsRef(storeownerId).doc(cardId)
+    return useFirebaseCardsRef().doc(cardId)
 }
 
-export const useFirebaseCard = (storeownerId: string, cardId: string) => {
-    if(!storeownerId) throw new Error("useFirebaseCard was called with no storeownerId")
+/**
+ * Esse hook retorna o documento do cartão com o id fornecido
+ * @param cardId O id do cartão
+ * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
+ */
+export const useFirebaseCard = (cardId: string, startWithValue?: FirebaseCard.Generic) => {
     if(!cardId) throw new Error("useFirebaseCard was called with no cardId")
-    return useFirestoreDoc(useFirebaseCard(storeownerId, cardId))
+    return useFirestoreDoc(useFirebaseCardRef(cardId),{ startWithValue }) as unknown as FirebaseCardDocument
 }
-
-// interface UseFirebaseCardsProp {
-//     storeownerId: string
-// }
-
-// export const useFirebaseCards = ({ storeownerId }: UseFirebaseCardsProp) => {
-//     if(!storeownerId) return null
-//     const collectionRef = useFirestore()
-//         .collection("catalog-user-data")
-//         .doc(storeownerId)
-//         .collection("cards")
-
-//     return useFirestoreCollection(collectionRef,{ idField: "id" }) as unknown as firebase.firestore.QuerySnapshot<Card.Generic>
-// }
-
-// interface UseFirebaseCardProp {
-//     storeownerId: string
-//     card_id: string
-// }
-
-// export const useFirebaseCard = ({ storeownerId, card_id }: UseFirebaseCardProp) => {
-//     if(!storeownerId||!card_id) return null
-//     const documentRef = useFirestore()
-//         .collection("catalog-user-data")
-//         .doc(storeownerId)
-//         .collection("cards")
-//         .doc(card_id)
-
-//     return useFirestoreDoc<Card.Generic>(documentRef,{ idField: "id" })
-// }

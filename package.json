@@ -113,6 +113,10 @@
         }
       },
       "firebase/catalog-user-data": {
+        "dependencies": {
+          "ziro-messages": "+",
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {

@@ -1,4 +1,3 @@
-import { ZiroPromptFullData } from "ziro-messages"
 import { File, ImageValidation, DataValidation, ValidationResult, DataFields, ImageFields } from "./helperTypes"
 
 export namespace FirebaseCard {
@@ -8,7 +7,7 @@ export namespace FirebaseCard {
         status: S
         added: firebase.firestore.Timestamp
         updated: firebase.firestore.Timestamp
-        error?: ZiroPromptFullData<string,any>
+        error?: import("ziro-messages").ZiroPromptFullData<string,any>
     }
 
     /**

@@ -9,6 +9,12 @@
       "@types/node": "+"
     }
   },
+  "firebase/catalog-user-data": {
+    "dependencies": {
+      "ziro-messages": "+",
+      "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
+    }
+  },
   "message-modal": {
     "dependencies": {
       "ziro-messages": "+"

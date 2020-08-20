@@ -12,7 +12,7 @@ export interface Storeowner {
     whatsapp: string;
     registerComplete: string;
     bairro: string;
-    cadastro: firebase.firestore.Timestamp;
+    cadastro: import("firebase").firestore.Timestamp;
     fname: string;
     instagram: string;
     lname: string;

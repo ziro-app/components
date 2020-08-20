@@ -1,6 +1,10 @@
 import { useUser, useFirestore, useFirestoreCollectionData } from "reactfire"
 import { Storeowner } from "./types"
 
+/**
+ * Esse hook retorna o documento storeowner associado ao uid do usuário logado,
+ * USE SOMENTE EM ROTAS PRIVADAS
+ */
 export const useStoreowner = () => {
     const user = useUser<import("firebase").User>()
 
