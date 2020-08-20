@@ -34,6 +34,7 @@
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
     "caniuse-lite": "^1.0.30001107",
+    "cuid": "^2.1.8",
     "docz": "^2.3.1",
     "framer-motion": "^1.11.1",
     "gatsby-plugin-web-font-loader": "^1.0.4",
