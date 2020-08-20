@@ -72,7 +72,7 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
         setPic(picture)
         const newRef = storage.ref(`antifraude/${cardId}`).child(cuid())
         setRef(newRef)
-        const uploadTask = newRef.putString(picture, "base64")
+        const uploadTask = newRef.putString(picture, "data_url")
         setTask(uploadTask)
         const taskCompleted = await uploadTask
         const newUrl = await taskCompleted.ref.getDownloadURL()
