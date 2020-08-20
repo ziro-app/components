@@ -131,6 +131,25 @@
           }
         }
       },
+      "firebase/storeowners": {
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/storeowners",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "pay/next-code": {
         "devDependencies": {
           "@types/node": "+"

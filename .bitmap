@@ -818,6 +818,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/firebase/storeowners/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/storeowners/types.ts",
+                "test": false,
+                "name": "types.ts"
+            }
+        ],
+        "mainFile": "src/components/firebase/storeowners/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/flow-form@0.0.59": {
         "files": [
             {

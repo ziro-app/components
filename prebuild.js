@@ -5,6 +5,9 @@ const packageJson = require('./package.json');
 const dependenciesJson = require('./typescriptComponentsDependencies.json');
 const tsconfigJson = require('./tsconfig.json');
 
+//get Components
+const components = require('./typescriptComponents')
+
 //check dep
 const checkDep = (name,n,c) => (!c&&n===name)||(c==="*"&&name.includes(n))||(name===n+"/"+c)
 
@@ -26,9 +29,6 @@ const setEnv = (path) => ({
     }
   }
 })
-
-//get Components
-const components = require('./typescriptComponents')
 
 packageJson.bit.overrides = {}
 tsconfigJson.compilerOptions.paths = {}

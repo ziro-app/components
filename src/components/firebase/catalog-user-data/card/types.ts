@@ -1,11 +1,10 @@
 import { ZiroPromptFullData } from "ziro-messages"
 import { File, ImageValidation, DataValidation, ValidationResult, DataFields, ImageFields } from "./helperTypes"
 
-export namespace Card {
+export namespace FirebaseCard {
     export type Status = "pendingDoc"|"pendingSelfie"|"pendingManualApproval"|"approved"
 
     export interface Common<S extends Status> {
-        id: string
         status: S
         added: firebase.firestore.Timestamp
         updated: firebase.firestore.Timestamp

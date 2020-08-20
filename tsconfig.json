@@ -19,6 +19,9 @@
       "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": [
         "components/firebase/catalog-user-data"
       ],
+      "@bit/vitorbarbosa19.ziro.firebase.storeowners": [
+        "components/firebase/storeowners"
+      ],
       "@bit/vitorbarbosa19.ziro.pay.next-code": [
         "components/pay/NextCode"
       ],
