@@ -1,7 +1,7 @@
 import { File, ImageValidation, DataValidation, ValidationResult, DataFields, ImageFields } from "./helperTypes"
 
 export namespace FirebaseCard {
-    export type Status = "pendingDoc"|"pendingSelfie"|"pendingManualApproval"|"approved"
+    export type Status = "pendingDocument"|"pendingSelfie"|"pendingManualApproval"|"approved"
 
     export interface Common<S extends Status> {
         status: S
@@ -17,13 +17,13 @@ export namespace FirebaseCard {
         documentType: "rg"
     }
 
-    export interface RGF extends RGCommon<"pendingDoc">,ImageFields {
+    export interface RGF extends RGCommon<"pendingDocument">,ImageFields {
         docStatus: "pendingRGV"
         "RG F": File<"RG F">
         validations: Record<ImageValidation,ValidationResult>
     }
 
-    export interface RGV extends RGCommon<"pendingDoc">,DataFields<"RG"> {
+    export interface RGV extends RGCommon<"pendingDocument">,DataFields<"RG"> {
         docStatus: "pendingRGF"
         "RG V": File<"RG V">
         validations: Record<DataValidation,ValidationResult>
@@ -55,7 +55,7 @@ export namespace FirebaseCard {
         validations: Record<ImageValidation|DataValidation,ValidationResult>
     }
 
-    export interface CNHV extends CNHCommon<"pendingDoc"> {
+    export interface CNHV extends CNHCommon<"pendingDocument"> {
         docStatus: "pendingCNHF"
         "CNH V": File<"CNH V">
     }
@@ -73,5 +73,5 @@ export namespace FirebaseCard {
 
     export type CNH = CNHF|CNHV|CNHFV|CNHFeV
 
-    export type Generic = Common<"pendingDoc">|RG|CNH
+    export type Generic = Common<"pendingDocument">|RG|CNH
 }
