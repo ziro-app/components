@@ -221,7 +221,7 @@ Response.KnownDocument = function (obj: any): obj is _Response.Response.KnownDoc
 }
 
 Response.UnknownDocument = function (obj: any): obj is _Response.Response.UnknownDocument {
-  return (FileInfo(obj.fileInfo))
+  return (FileInfo(obj.fileInfo))&&!Response.KnownDocument(obj)
 }
 
 Response.Selfie = function (obj: any): obj is _Response.Response.Selfie {

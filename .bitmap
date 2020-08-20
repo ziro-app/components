@@ -791,7 +791,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.13": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.14": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -2003,7 +2003,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.7": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
