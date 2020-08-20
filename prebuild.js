@@ -22,7 +22,8 @@ const setEnv = (path) => ({
             "target": "ES5",
             "module": "CommonJS",
             "inlineSources": true,
-            "inlineSourceMap": true
+            "inlineSourceMap": true,
+            "removeComments": false
           }
         }
       }

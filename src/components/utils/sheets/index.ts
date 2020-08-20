@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useMemo } from "react"
 import { instanceConfig } from "./constants"
 import { WriteOptions, ReadOptions } from "./types"
 
@@ -21,6 +22,7 @@ export const sheet = (spreadsheetId: string) => ({
     }).then(({ data: { values } }) => values)
 })
 
+export const useSheet = (spreadsheetId: string) => useMemo(() => sheet(spreadsheetId),[spreadsheetId])
 export const hyperlink = (url: string, text: string = url) => `=HYPERLINK("${url}";"${text}")`
 
 export default sheets

@@ -85,7 +85,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -104,7 +105,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -127,7 +129,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -146,7 +149,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -168,7 +172,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -190,7 +195,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -212,7 +218,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -234,7 +241,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -256,7 +264,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -278,7 +287,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -300,7 +310,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -322,7 +333,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
@@ -344,7 +356,8 @@
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,
-                    "inlineSourceMap": true
+                    "inlineSourceMap": true,
+                    "removeComments": false
                   }
                 }
               }
