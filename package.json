@@ -72,6 +72,9 @@
     },
     "overrides": {
       "message-modal": {
+        "dependencies": {
+          "ziro-messages": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -88,9 +91,6 @@
               }
             }
           }
-        },
-        "dependencies": {
-          "ziro-messages": "+"
         }
       },
       "route": {
@@ -132,6 +132,9 @@
         }
       },
       "pay/next-code": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -148,12 +151,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "pay/antifraud": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -170,12 +173,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/async-hooks": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -192,12 +195,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/axios": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -214,12 +217,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/check-against-template": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -236,12 +239,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/create-firestore-url": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -258,12 +261,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/sheets": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -280,12 +283,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/tuple": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -302,12 +305,12 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       },
       "utils/whatsapp": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
         "env": {
           "compiler": {
             "bit.envs/compilers/react-typescript": {
@@ -324,9 +327,6 @@
               }
             }
           }
-        },
-        "devDependencies": {
-          "@types/node": "+"
         }
       }
     }

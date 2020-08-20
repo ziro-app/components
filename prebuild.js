@@ -5,6 +5,9 @@ const packageJson = require('./package.json');
 const dependenciesJson = require('./typescriptComponentsDependencies.json');
 const tsconfigJson = require('./tsconfig.json');
 
+//check dep
+const checkDep = (name,n,c) => (!c&&n===name)||(c==="*"&&name.includes(n))||(name===n+"/"+c)
+
 //env
 const setEnv = (path) => ({
   "compiler": {
@@ -30,24 +33,12 @@ const components = require('./typescriptComponents')
 packageJson.bit.overrides = {}
 tsconfigJson.compilerOptions.paths = {}
 components.forEach(([path,name]) => {
-    //write custom env with dist folder
-    packageJson.bit.overrides[name] = {}
-    packageJson.bit.overrides[name].env = setEnv(path)
     //get extra dependencies
-    Object.entries(dependenciesJson).forEach(([key,value]) => {
-        const [namespace,component] = key.split("/")
-        if(
-          (!component&&namespace===name)||
-          (component==="*"&&name.includes(namespace))||
-          (name===namespace+"/"+component)
-        ) {
-          if("devDependencies" in value) packageJson.bit.overrides[name].devDependencies = value.devDependencies
-          if("dependencies" in value) packageJson.bit.overrides[name].dependencies = value.dependencies
-        }
-    })
+    const [,deps] = Object.entries(dependenciesJson).find(([key]) => checkDep(name,...key.split("/")))||[null,{}]
+    //write override
+    packageJson.bit.overrides[name] = { ...deps, env: setEnv(path) }
     //set tsconfig paths
-    const tsconfigName = name.replace("/",".")
-    tsconfigJson.compilerOptions.paths[`@bit/vitorbarbosa19.ziro.${tsconfigName}`] = [`components/${path}`]
+    tsconfigJson.compilerOptions.paths[`@bit/vitorbarbosa19.ziro.${name.replace("/",".")}`] = [`components/${path}`]
 })
 
 fs.writeFileSync(__dirname+"/package.json",JSON.stringify(packageJson,null,2))
