@@ -5,6 +5,12 @@ import { useMessage } from "@bit/vitorbarbosa19.ziro.message-modal";
 import { PromiseGen, PromiseCbk, UsePromiseState, StatusType } from "./types";
 import { useMountState } from "./useMountState"
 
+/**
+ * Esse hook retorna uma tupla com um callback e um objeto contendo o stado da função assincrona declarada,
+ * o objeto de estado contem status, result, error, attempts e reset
+ * @param promise O callback assincrono
+ * @param deps As dependencias para que o callback seja refatorado
+ */
 export function usePromise<A, R, E>(
   promise: PromiseGen<A, R>,
   deps: React.DependencyList = []
@@ -64,6 +70,15 @@ export function usePromise<A, R, E>(
   return [callback, state];
 }
 
+/**
+ * Esse hook retorna uma tupla com um callback e um objeto contendo o stado da função assincrona declarada,
+ * o objeto de estado contem status, result, error, attempts e reset. Alem disso aceita uma ZiroWaitingMessage para ser mostrada
+ * enquanto estiver sendo executado, e mostrará qualquer ZiroMessage que seja retornada ou "jogada" (pelo throw) de dentro do
+ * callback.
+ * @param message A mensagem que será mostrada enquanto o callback estiver sendo executado
+ * @param promise O callback assincrono
+ * @param deps As dependencias para que o callback seja refatorado
+ */
 export function usePromiseShowingMessage<A, R, E>(
   message: ZiroWaitingMessage<string,string,any>,
   promise: PromiseGen<A,R>,

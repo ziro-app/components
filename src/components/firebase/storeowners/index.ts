@@ -1,5 +1,10 @@
-import { useUser, useFirestore, useFirestoreCollectionData } from "reactfire"
+import { useUser, useFirestore, useFirestoreCollectionData, useFirestoreCollection } from "reactfire"
 import { Storeowner } from "./types"
+
+const errorMsg = (hookName: string) =>
+    `${hookName} was used in a public route, use privateOnly on this route to ensure there is a valid user`
+
+type StoreownerQuerySnapshot = import("firebase").firestore.QuerySnapshot<Omit<Storeowner,"storeownerId">>
 
 /**
  * Esse hook retorna o documento storeowner associado ao uid do usuário logado,
@@ -8,8 +13,18 @@ import { Storeowner } from "./types"
 export const useStoreowner = () => {
     const user = useUser<import("firebase").User>()
 
-    if(!user) throw new Error("useStoreowner was used in a public route, use privateOnly on this route to ensure there is a valid user")
+    if(!user) throw new Error(errorMsg("useStoreowner"))
 
     const userQuery = useFirestore().collection('storeowners').where("uid","==",user.uid).limit(1)
     return useFirestoreCollectionData<Storeowner>(userQuery,{ idField: "storeownerId" })[0]
+}
+
+export const useStoreownerDocument = () => {
+    const user = useUser<import("firebase").User>()
+
+    if(!user) throw new Error(errorMsg("useStoreownerDocument"))
+
+    const userQuery = useFirestore().collection('storeowners').where("uid","==",user.uid).limit(1)
+    return (useFirestoreCollection(userQuery) as unknown as StoreownerQuerySnapshot).docs[0]
+
 }

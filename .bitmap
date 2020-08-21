@@ -791,7 +791,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.14": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.15": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -2431,7 +2431,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.24": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.25": {
         "files": [
             {
                 "name": "index.ts",

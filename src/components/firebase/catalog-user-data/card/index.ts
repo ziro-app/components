@@ -15,7 +15,7 @@ export * from "./hookTypes"
 /**
  * Esse hook retorna uma CollectionReference que aponta para a collection "cards" do usuário do catalogo que estiver logado
  */
-export const useFirebaseCardsRef = () => {
+export const useFirebaseCardsCollectionRef = () => {
     const { storeownerId } = useStoreowner()
     return useFirestore()
         .collection("catalog-user-data")
@@ -27,17 +27,17 @@ export const useFirebaseCardsRef = () => {
  * Esse hook retorna a collection "cards" do usuário do catalogo que estiver logado
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useFirebaseCards = (startWithValue?: FirebaseCard.Generic[]) => {
-    return useFirestoreCollection(useFirebaseCardsRef(),{ startWithValue }) as unknown as FirebaseCardsCollection
+export const useFirebaseCardsCollection = (startWithValue?: FirebaseCard.Generic[]) => {
+    return useFirestoreCollection(useFirebaseCardsCollectionRef(),{ startWithValue }) as unknown as FirebaseCardsCollection
 }
 
 /**
  * Esse hook retorna uma DocumentReference que aponta para o cartão com o id fornecido
  * @param cardId O id do cartão
  */
-export const useFirebaseCardRef = (cardId: string) => {
+export const useFirebaseCardDocumentRef = (cardId: string) => {
     if(!cardId) throw new Error("useFirebaseCardRef was called with no cardId")
-    return useFirebaseCardsRef().doc(cardId)
+    return useFirebaseCardsCollectionRef().doc(cardId)
 }
 
 /**
@@ -45,9 +45,9 @@ export const useFirebaseCardRef = (cardId: string) => {
  * @param cardId O id do cartão
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useFirebaseCard = (cardId: string, startWithValue?: FirebaseCard.Generic) => {
+export const useFirebaseCardDocument = (cardId: string, startWithValue?: FirebaseCard.Generic) => {
     if(!cardId) throw new Error("useFirebaseCard was called with no cardId")
-    return useFirestoreDoc(useFirebaseCardRef(cardId),{ startWithValue }) as unknown as FirebaseCardDocument
+    return useFirestoreDoc(useFirebaseCardDocumentRef(cardId),{ startWithValue }) as unknown as FirebaseCardDocument
 }
 
 /**
