@@ -2536,6 +2536,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/utils/string@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/string/index.ts",
+                "test": false,
+                "name": "index.ts"
+            }
+        ],
+        "mainFile": "src/components/utils/string/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/utils/tuple@0.0.5": {
         "files": [
             {

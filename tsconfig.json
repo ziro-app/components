@@ -46,6 +46,9 @@
       "@bit/vitorbarbosa19.ziro.utils.sheets": [
         "components/utils/sheets"
       ],
+      "@bit/vitorbarbosa19.ziro.utils.string": [
+        "components/utils/string"
+      ],
       "@bit/vitorbarbosa19.ziro.utils.tuple": [
         "components/utils/tuple"
       ],

@@ -1,0 +1,1 @@
+export const isFullName = (potentialName: string) => /^([a-zA-Z,.'-]{3,} [a-zA-Z,.'-\s]*[a-zA-Z,.'-]{3,})+$/g.test(potentialName)
