@@ -12,3 +12,20 @@ export const isFullName = (potentialName: string) => /^([a-zA-Z,.'-]{3,} [a-zA-Z
  * @param str A string que se deseja normalizar
  */
 export const normalize = (str: string) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim().toUpperCase()
+
+/**
+ * Separa uma string que contem várias substrings separados por espaço, retorna um array com todas as substrings
+ * @param str A string que se deseja separar
+ */
+export const split = (str: string) => str.split(" ")
+
+/**
+ * Separa uma string que contém várias substrings separadas por espaço, retorna a prmeira e a última substring
+ * @param str A string que se deseja separar
+ */
+export const getFirstAndLast = (str: string) => {
+    const names = split(str)
+    const first = names.shift()
+    const last = names.pop()
+    return [first,last] as [string,string]
+}
