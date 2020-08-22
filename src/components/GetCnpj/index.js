@@ -9,6 +9,7 @@ import Illustration from '../Illustration'
 import Spinner from '../Spinner'
 import searchCnpj from './searchCnpj'
 import { modalBox, container, title, svg } from './styles'
+import validateCnpj from './utils/validateCnpj'
 
 const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes }) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +19,7 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes }) => {
     const validations = [
         {
             name: 'cnpj',
-            validation: value => /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(value),
+            validation: value => /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(value) && validateCnpj(value),
             value: cnpj,
             message: 'CNPJ inválido'
         }
