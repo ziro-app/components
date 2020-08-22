@@ -9,6 +9,14 @@
       "@types/node": "+"
     }
   },
+  "pay/antifraud": {
+    "devDependencies": {
+      "@types/node": "+"
+    },
+    "dependencies": {
+      "@ziro/format-date-utc3": "+"
+    }
+  },
   "firebase/catalog-user-data": {
     "dependencies": {
       "ziro-messages": "+",

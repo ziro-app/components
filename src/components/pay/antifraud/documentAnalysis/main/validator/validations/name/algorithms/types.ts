@@ -1,0 +1,1 @@
+export type MatchAlgorithm = (cardName: string, docName: string) => [boolean, boolean]

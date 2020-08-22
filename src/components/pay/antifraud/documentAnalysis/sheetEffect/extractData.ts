@@ -1,7 +1,7 @@
 import { is } from "@bit/vitorbarbosa19.ziro.pay.next-code"
 import { hyperlink } from "@bit/vitorbarbosa19.ziro.utils.sheets"
-import { UseFullOCR } from "../FullOCRMain"
-import { UseFirestoreEffect } from "../FirestoreEffect"
+import { UseFullOCR } from "../main"
+import { UseFirestoreEffect } from "../firestoreEffect"
 
 // [birthday,rg,cpf,emissor,mothersName,name,docType,docProbability1,doc1]
 function extractFromFirebaseCard(
@@ -44,33 +44,32 @@ export function extractData(
     firebaseData: import("@bit/vitorbarbosa19.ziro.firebase.catalog-user-data").FirebaseCard.Generic,
     error: UseFullOCR.Errors.Generic|UseFirestoreEffect.Error
     ): [string,string,string,string,string,string,string,string,string,string,string] {
-    const fbExtractedData: [string,string,string,string,string,string,string] = extractFromFirebaseCard(firebaseData) as any
+    const fbExtractedData = extractFromFirebaseCard(firebaseData)
     const _doc1 = fbExtractedData.pop()
     const _probDoc1 = fbExtractedData.pop()
-    const docs: (doc: [string,string]) => [string,string,string,string] = (doc) => _doc1 ? [_probDoc1,_doc1,...doc]:[...doc,"",""] as any
+    const docs = (doc: [string,string]) => _doc1 ? [_probDoc1,_doc1,...doc]:[...doc,"",""] as any
     if(!UseFullOCR.Errors.hasKnownResponse(error)) {
-        if(!UseFullOCR.Errors.hasResponse(error)) return [...fbExtractedData,_probDoc1,_doc1,"",""]
-        return [...fbExtractedData,...docs(["",hyperlink(error.additionalData.url,"documento desconhecido")])]
+        if(!UseFullOCR.Errors.hasResponse(error)) return [...fbExtractedData,_probDoc1,_doc1,"",""] as any
+        return [...fbExtractedData,...docs(["",hyperlink(error.additionalData.url,"documento desconhecido")])] as any
     }
     const { response, url } = error.additionalData
     if(is.CNH.Verso(response)) {
         const { fileInfo: { classifiedAs: { probability } } } = response
-        return [...fbExtractedData,...docs([`${probability}`,hyperlink(error.additionalData.url,"CNH V")])]
+        return [...fbExtractedData,...docs([`${probability}`,hyperlink(error.additionalData.url,"CNH V")])] as any
     }
     if(is.RG.Frente(response)) {
         const { fileInfo: { classifiedAs: { probability } } } = response
-        return [...fbExtractedData,...docs([`${probability}`,hyperlink(error.additionalData.url,"RG F")])]
+        return [...fbExtractedData,...docs([`${probability}`,hyperlink(error.additionalData.url,"RG F")])] as any
     }
     const { extracted, fileInfo: { classifiedAs: { probability, tagName } } } = response
     const { rg } = extracted
     const [docType,emissor] = is.CNH(response) ? ["cnh",response.extracted.emissor] : ["rg",""]
     const doc = hyperlink(url,tagName)
-    const _docs: [string,string,string,string] = is.RG.Verso(response)||is.CNH.Frente(response) ?
-        docs([`${probability}`,doc]) : [`${probability}`,doc,"",""]
+    const _docs = is.RG.Verso(response)||is.CNH.Frente(response) ? docs([`${probability}`,doc]) : [`${probability}`,doc,"",""]
     if(is.BackgroundCheck(response)) {
         const { found: { name, mothersName, cpf, birthdate } } = response
-        return [birthdate, rg, cpf, emissor, mothersName, name, docType,..._docs]
+        return [birthdate, rg, cpf, emissor, mothersName, name, docType,..._docs] as any
     }
     const { nome, nomeMae, cpf, dataNascimento } = extracted
-    return [dataNascimento, rg, cpf, emissor, nomeMae, nome, docType,..._docs]
+    return [dataNascimento, rg, cpf, emissor, nomeMae, nome, docType,..._docs] as any
 }

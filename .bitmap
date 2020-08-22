@@ -2008,6 +2008,224 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/createData/CNH.ts",
+                "test": false,
+                "name": "CNH.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/createData/RG.ts",
+                "test": false,
+                "name": "RG.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/createData/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/CNH/Frente.ts",
+                "test": false,
+                "name": "Frente.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/CNH/FrenteVerso.ts",
+                "test": false,
+                "name": "FrenteVerso.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/CNH/Verso.ts",
+                "test": false,
+                "name": "Verso.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/CNH/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/RG/Frente.ts",
+                "test": false,
+                "name": "Frente.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/RG/FrenteVerso.ts",
+                "test": false,
+                "name": "FrenteVerso.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/RG/Verso.ts",
+                "test": false,
+                "name": "Verso.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/RG/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/backgroundCheck.ts",
+                "test": false,
+                "name": "backgroundCheck.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/face.ts",
+                "test": false,
+                "name": "face.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/fieldScores.ts",
+                "test": false,
+                "name": "fieldScores.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/devCheck/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/processResults.ts",
+                "test": false,
+                "name": "processResults.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/expectedDoc/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/expirationDate/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/expirationDate/utils.ts",
+                "test": false,
+                "name": "utils.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/face/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/algorithms/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/algorithms/levenshtein.ts",
+                "test": false,
+                "name": "levenshtein.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/algorithms/matchChars.ts",
+                "test": false,
+                "name": "matchChars.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/algorithms/matchSubstring.ts",
+                "test": false,
+                "name": "matchSubstring.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/algorithms/simpleMatch.ts",
+                "test": false,
+                "name": "simpleMatch.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/algorithms/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/name/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validator.ts",
+                "test": false,
+                "name": "validator.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/sheetEffect/createData.ts",
+                "test": false,
+                "name": "createData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/sheetEffect/extractData.ts",
+                "test": false,
+                "name": "extractData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/sheetEffect/formatExpiry.ts",
+                "test": false,
+                "name": "formatExpiry.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/sheetEffect/index.ts",
+                "test": false,
+                "name": "index.ts"
+            }
+        ],
+        "mainFile": "src/components/pay/antifraud/documentAnalysis/index.ts",
+        "trackDir": "src/components/pay/antifraud/documentAnalysis",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/pay/next-code@0.0.8": {
         "files": [
             {

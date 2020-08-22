@@ -6,8 +6,8 @@ import tuple from "@bit/vitorbarbosa19.ziro.utils.tuple";
 import { fullOCR } from "ziro-messages/dist/src/catalogo/antifraude"
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop"
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners"
-import { UseFullOCR } from "../FullOCRMain"
-import { UseFirestoreEffect } from "../FirestoreEffect"
+import { UseFullOCR } from "../main"
+import { UseFirestoreEffect } from "../firestoreEffect"
 import { createSheetData } from "./createData";
 
 const devErrors = tuple(

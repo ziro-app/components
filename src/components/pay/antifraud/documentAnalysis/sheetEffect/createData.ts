@@ -4,11 +4,11 @@ import createURL from "@bit/vitorbarbosa19.ziro.utils.create-firestore-url"
 import { hyperlink } from "@bit/vitorbarbosa19.ziro.utils.sheets"
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop"
 import { FirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data"
-import { UseFullOCR } from "../FullOCRMain"
+import { UseFullOCR } from "../main"
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners"
 import { extractData } from "./extractData"
 import { formatExpiry } from "./formatExpiry"
-import { UseFirestoreEffect } from "../FirestoreEffect"
+import { UseFirestoreEffect } from "../firestoreEffect"
 
 
 const isDev = process.env.NODE_ENV === "development";

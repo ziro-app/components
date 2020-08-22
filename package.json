@@ -31,6 +31,7 @@
     "@sentry/react": "^5.20.1",
     "@ziro/capitalize": "^1.0.0",
     "@ziro/currency-format": "^1.0.2",
+    "@ziro/format-date-utc3": "^2.0.1",
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
     "caniuse-lite": "^1.0.30001107",
