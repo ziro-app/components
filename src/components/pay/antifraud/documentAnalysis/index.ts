@@ -38,7 +38,7 @@ export const useDocumentAnalysis = (
             "document": prompt.INITIAL_DOCUMENT,
             "pendingRGF": prompt.INITIAL_RG_FRENTE,
             "pendingRGV": prompt.INITIAL_RG_VERSO,
-            "pendingCNHF": prompt.INITIAL_DOCUMENT
+            "pendingCNHF": prompt.INITIAL_CNH_FRENTE
         })[docStatus].withButtons(buttons)
     },[docStatus])
 

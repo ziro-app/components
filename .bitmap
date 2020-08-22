@@ -791,7 +791,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.18": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.19": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -1922,7 +1922,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.33": {
+    "vitorbarbosa19.ziro/message-modal@0.0.34": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2023,7 +2023,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.2": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2241,7 +2241,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.8": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -2669,7 +2669,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.26": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.27": {
         "files": [
             {
                 "name": "index.ts",

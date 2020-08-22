@@ -20,7 +20,7 @@ const match: MatchAlgorithm = (cardName, docName) => {
   const [normCardName,normDocName] = validateAndNormalize(cardName, docName)
   return [simpleMatch, matchChars, matchSubstring]
     .map(algo => algo(normCardName, normDocName))
-    .reduce(([p1, p2], [c1, c2]) => (p1&&p2)||(c1&&c2) ? [true,true]:[false,false], [false, false]);
+    .reduce(([p1, p2], [c1, c2]) => [p1 || c1, p2 || c2], [false, false]);
 };
 
 export default match;

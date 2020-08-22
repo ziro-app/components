@@ -25,6 +25,7 @@ export const useFullOCR = (
             if(state.attempts===3) throw { skipAttempt: true, error: common.prompt.TOO_MANY_ATTEMPTS.withAdditionalData({ where: "useFullOCR" }) }
 
             const url = await uploadPicture(picture)
+                .catch((error) => { throw common.prompt.CANNOT_UPLOAD_PICTURE_DO_STORAGE.withAdditionalData({ error }) })
             const response = await analiseDocument(url, source.token)
 
             if(isDev) devCheck(response)

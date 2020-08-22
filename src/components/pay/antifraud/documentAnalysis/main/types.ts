@@ -15,6 +15,7 @@ type SelfieError = FullOCRPromptMessage<"SELFIE_TYPE",{ response: FullOCR.Respon
 type UnrecognizedResponseError = FullOCRPromptMessage<"UNRECOGNIZED_RESPONSE",{ response: any, url: string }>
 type NoImageError = CommonPromptMessage<"NO_IMAGE",{ where: string }>
 type TooManyAttemptsError = CommonPromptMessage<"TOO_MANY_ATTEMPTS",{ where: string }>
+type CannotUploadPictureError = CommonPromptMessage<"CANNOT_UPLOAD_PICTURE_DO_STORAGE",{ where: string, error: any }>
 
 /**
  * Aliases
@@ -107,6 +108,7 @@ export namespace UseFullOCR {
             |WithResponse
             |NoImageError
             |TooManyAttemptsError
+            |CannotUploadPictureError
         /**
          * TypeChecks
          */
