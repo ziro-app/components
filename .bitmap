@@ -791,7 +791,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.17": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.18": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -814,6 +814,21 @@
                 "name": "types.ts"
             },
             {
+                "relativePath": "src/components/firebase/catalog-user-data/cart/hookTypes.ts",
+                "test": false,
+                "name": "hookTypes.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/cart/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/cart/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
                 "relativePath": "src/components/firebase/catalog-user-data/index.ts",
                 "test": false,
                 "name": "index.ts"
@@ -823,7 +838,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.5": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/firebase/storeowners/hookTypes.ts",
@@ -2008,7 +2023,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.1": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",

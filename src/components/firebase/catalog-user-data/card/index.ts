@@ -1,6 +1,5 @@
 import { useFirestore, useFirestoreCollection, useFirestoreDoc, useStorage } from "reactfire"
 import cuid from "cuid"
-import { useMountState } from "@bit/vitorbarbosa19.ziro.utils.async-hooks"
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners"
 import {
     FirebaseCardsCollectionRef,
@@ -8,7 +7,7 @@ import {
     FirebaseCardDocument,
     FirebaseCard
 } from "./hookTypes"
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 
 export * from "./hookTypes"
 
@@ -27,8 +26,8 @@ export const useFirebaseCardsCollectionRef = () => {
  * Esse hook retorna a collection "cards" do usuário do catalogo que estiver logado
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useFirebaseCardsCollection = (startWithValue?: FirebaseCard.Generic[]) => {
-    return useFirestoreCollection(useFirebaseCardsCollectionRef(),{ startWithValue }) as unknown as FirebaseCardsCollection
+export const useFirebaseCardsCollection = <T = FirebaseCardsCollection>(startWithValue?: T) => {
+    return useFirestoreCollection(useFirebaseCardsCollectionRef(),{ startWithValue: (startWithValue as any) }) as unknown as FirebaseCardsCollection|T
 }
 
 /**
@@ -45,9 +44,9 @@ export const useFirebaseCardDocumentRef = (cardId: string) => {
  * @param cardId O id do cartão
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useFirebaseCardDocument = (cardId: string, startWithValue?: FirebaseCard.Generic) => {
+export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId: string, startWithValue?: T) => {
     if(!cardId) throw new Error("useFirebaseCard was called with no cardId")
-    return useFirestoreDoc(useFirebaseCardDocumentRef(cardId),{ startWithValue }) as unknown as FirebaseCardDocument
+    return useFirestoreDoc(useFirebaseCardDocumentRef(cardId),{ startWithValue }) as unknown as FirebaseCardDocument|T
 }
 
 /**
@@ -57,28 +56,28 @@ export const useFirebaseCardDocument = (cardId: string, startWithValue?: Firebas
 export const useUploadFirebaseCardPicture = (cardId: string) => {
     if(!cardId) throw new Error("useUploadFirebaseCardPicture was called with no cardId")
 
-    const [pic, setPic] = useState<string>(null)
-    const [task, setTask] = useState<import("firebase").storage.UploadTask>(null)
-    const [ref,setRef] = useState<import("firebase").storage.Reference>(null)
-    const [url, setUrl] = useState<string>(null)
-    const storage = useStorage()
+    const pic = useRef<string>(null)
+    const ref = useRef<import("firebase").storage.Reference>(null)
+    const url = useRef<string>(null)
 
-    const mountState = useMountState()
+    const [task, setTask] = useState<import("firebase").storage.UploadTask>(null)
+
+    const storage = useStorage()
 
     useEffect(() => () => task && task.cancel(),[task])
 
     const upload = useCallback(async (picture: string) => {
-        if(picture===pic) return url
-        setPic(picture)
+        if(picture===pic.current) return url.current
+        pic.current = picture
         const newRef = storage.ref(`antifraude/${cardId}`).child(cuid())
-        setRef(newRef)
+        ref.current = newRef
         const uploadTask = newRef.putString(picture, "data_url")
         setTask(uploadTask)
         const taskCompleted = await uploadTask
         const newUrl = await taskCompleted.ref.getDownloadURL()
-        if(mountState.current==="mounted") setUrl(newUrl)
+        url.current = newUrl
         return newUrl as string
-    },[pic, setPic, task, setTask, ref, setRef, storage, cardId, url, setUrl])
+    },[pic, task, setTask, ref, storage, cardId, url])
 
     return [upload,task] as [typeof upload,typeof task]
 }
