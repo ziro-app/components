@@ -1,9 +1,9 @@
 import { CSSProperties } from "react";
 //@ts-ignore
 import { primaryColor, grayColor4, fontBody, grayColor1 } from "@ziro/theme";
+import { MotionProps } from "framer-motion";
 
-export let container: (hasRightButton: boolean) => CSSProperties;
-container = (hasRightButton) => ({
+export let container: (hasRightButton: boolean) => CSSProperties = (hasRightButton) => ({
     display: "grid",
     gridTemplateColumns: hasRightButton ? "60px 1fr 60px" : "60px 1fr",
     boxShadow: "0px 0px 3px 0px rgba(34, 34, 34, 0.3)",
@@ -14,23 +14,20 @@ container = (hasRightButton) => ({
     borderRadius: "3px",
 });
 
-export let cardNumber: CSSProperties;
-cardNumber = {
+export let cardNumber: CSSProperties = {
     fontFamily: fontBody,
     color: primaryColor,
     textAlign: "center",
 };
 
-export let status: CSSProperties;
-status = {
+export let status: CSSProperties = {
     fontSize: 12,
     textAlign: "center",
     fontWeight: 300,
     color: grayColor1,
 };
 
-export let button: CSSProperties;
-button = {
+export let button: CSSProperties = {
     height: "60px",
     width: "60px",
     display: "grid",
@@ -41,6 +38,7 @@ button = {
     borderBottomRightRadius: "3px",
 };
 
-export let visible = { scaleY: 1, height: 70, opacity: 1 };
-
-export let invisible = { scaleY: 0, height: 0, opacity: 0 };
+export let visible: MotionProps["animate"] = { scaleY: 1, height: 70, opacity: 1 };
+export let invisible: MotionProps["animate"] = { scaleY: 0, height: 0, opacity: 0 };
+export let initialVisible: MotionProps["initial"] = { scaleY: 1, height: 70, opacity: 0 };
+export let initialInvisible: MotionProps["initial"] = { scaleY: 0, height: 0, opacity: 0 };

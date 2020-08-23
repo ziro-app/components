@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 import Placeholder from "react-loading-skeleton";
 //@ts-ignore
 import Icon from "@bit/vitorbarbosa19.ziro.icon";
-import { container, cardNumber, status, button, visible, invisible } from "./style";
+import { container, cardNumber, status, button, visible, invisible, initialVisible, initialInvisible } from "./style";
 import { SkeletonProps, CardRowProps } from "./props";
 import { BrandIcon } from "./BrandIcon";
 import { motion } from "framer-motion";
@@ -48,6 +48,7 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
     const zoopCard = useRecoilValue(zoopAtom(firebaseCard.id));
     const firebaseCardData = useMemo(() => firebaseCard.data(), [firebaseCard]);
     const animate = useMemo(() => (selected === firebaseCard.id ? invisible : visible), [selected]);
+    const initial = useMemo(() => (selected === firebaseCard.id ? initialInvisible : initialVisible), [selected]);
     const _onClick = useCallback(() => onClick && onClick(firebaseCard.id), [onClick, firebaseCard]);
     const whileTap = useMemo(() => ({ scale: !onClick ? 1 : 0.95 }), [onClick]);
     const _rightButton = useMemo<SkeletonProps["rightButton"]>(
@@ -61,7 +62,7 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
         [rightButton, firebaseCard],
     );
     return (
-        <motion.div initial={visible} animate={animate} onClick={_onClick} whileTap={whileTap}>
+        <motion.div initial={initial} animate={animate} onClick={_onClick} whileTap={whileTap}>
             <Skeleton
                 zoopCard={zoopCard}
                 firebaseCardData={firebaseCardData}
@@ -73,7 +74,7 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
 };
 
 export const CardRow = React.memo<CardRowProps>((props) => (
-    <Suspense fallback={<Skeleton />}>
+    <Suspense fallback={<Skeleton rightButton={props.rightButton as any} />}>
         <StatefulCardRow {...props} />
     </Suspense>
 ));
