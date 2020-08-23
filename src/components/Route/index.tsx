@@ -7,7 +7,7 @@ import React,{
 } from "react";
 import { useRouter, useLocation, useRoute } from "wouter"
 import { useUser, SuspenseWithPerf } from "reactfire"
-import InitialLoader from '@bit/vitorbarbosa19.ziro.initial-loader';
+import suspenseFallback from '@bit/vitorbarbosa19.ziro.component-suspense-fallback';
 
 interface SwitchProps {
     defaultPrivateOnlyFallback: ReactNode
@@ -19,7 +19,7 @@ export const Switch: React.FC<SwitchProps> = ({
     children,
     defaultPrivateOnlyFallback,
     defaultPublicOnlyFallback,
-    defaultSuspenseFallback = InitialLoader
+    defaultSuspenseFallback = suspenseFallback
 }) => {
     const { matcher } = useRouter();
     const [location] = useLocation();

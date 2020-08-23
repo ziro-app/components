@@ -9,7 +9,15 @@
     "baseUrl": "./src",
     "moduleResolution": "node",
     "allowJs": true,
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ],
     "paths": {
+      "@bit/vitorbarbosa19.ziro.component-suspense-fallback": [
+        "components/ComponentSuspenseFallback"
+      ],
       "@bit/vitorbarbosa19.ziro.message-modal": [
         "components/MessageModal"
       ],

@@ -65,6 +65,7 @@ import { DisplayInputPercentage } from './DisplayComponents/DisplayInputPercenta
 import { DisplayInputPhone } from './DisplayComponents/DisplayInputPhone';
 import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/index.tsx"
 import { DisplayAsyncHooks } from "./DisplayComponents/DisplayAsyncHooks/index.tsx"
+import { DisplaySuspenseFallback } from "./DisplayComponents/DisplaySuspenseFallback/index.tsx"
 
 export const App = () => (
   <Switch>
@@ -262,6 +263,9 @@ export const App = () => (
     </Route>
     <Route path="/async-hooks">
       <DisplayAsyncHooks/>
+    </Route>
+    <Route path="/suspense-fallback">
+      <DisplaySuspenseFallback/>
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

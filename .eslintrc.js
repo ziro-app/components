@@ -1,26 +1,39 @@
 module.exports = {
+  parser: "@typescript-eslint/parser",
   env: {
     es6: true,
     jest: true,
     browser: true,
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
     __DEV__: true,
   },
+  settings: {
+    react: {
+      version: "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
   },
   plugins: ['react', 'jsx-a11y', 'import', 'react-hooks', 'prettier'],
   rules: {
     'prettier/prettier': 'off',
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': ['error', {
+      extensions: ['.js', '.jsx']
+    }],
 
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'off', //['error', { argsIgnorePattern: '^_' }],
