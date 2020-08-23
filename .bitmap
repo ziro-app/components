@@ -465,35 +465,70 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.88": {
+    "vitorbarbosa19.ziro/choose-card@0.0.89": {
         "files": [
             {
-                "name": "addCard.js",
-                "relativePath": "src/components/ChooseCard/addCard.js",
-                "test": false
+                "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
+                "test": false,
+                "name": "index.tsx"
             },
             {
-                "name": "brandIcon.js",
-                "relativePath": "src/components/ChooseCard/brandIcon.js",
-                "test": false
+                "relativePath": "src/components/ChooseCard/AddCard/props.ts",
+                "test": false,
+                "name": "props.ts"
             },
             {
-                "name": "cardRow.js",
-                "relativePath": "src/components/ChooseCard/cardRow.js",
-                "test": false
+                "relativePath": "src/components/ChooseCard/AddCard/style.ts",
+                "test": false,
+                "name": "style.ts"
             },
             {
-                "name": "index.js",
-                "relativePath": "src/components/ChooseCard/index.js",
-                "test": false
+                "relativePath": "src/components/ChooseCard/CardRow/BrandIcon/index.tsx",
+                "test": false,
+                "name": "index.tsx"
             },
             {
-                "name": "styles.js",
-                "relativePath": "src/components/ChooseCard/styles.js",
-                "test": false
+                "relativePath": "src/components/ChooseCard/CardRow/BrandIcon/props.ts",
+                "test": false,
+                "name": "props.ts"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/CardRow/BrandIcon/style.ts",
+                "test": false,
+                "name": "style.ts"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/CardRow/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/CardRow/props.ts",
+                "test": false,
+                "name": "props.ts"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/CardRow/style.ts",
+                "test": false,
+                "name": "style.ts"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/props.ts",
+                "test": false,
+                "name": "props.ts"
+            },
+            {
+                "relativePath": "src/components/ChooseCard/style.ts",
+                "test": false,
+                "name": "style.ts"
             }
         ],
-        "mainFile": "src/components/ChooseCard/index.js",
+        "mainFile": "src/components/ChooseCard/index.tsx",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -808,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.19": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.21": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -855,7 +890,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.6": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/firebase/storeowners/hookTypes.ts",
@@ -2040,7 +2075,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.3": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",

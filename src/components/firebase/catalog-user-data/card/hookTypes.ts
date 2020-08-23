@@ -1,7 +1,8 @@
-import { FirebaseCard } from "./types"
+import { firestore } from "firebase";
+import { FirebaseCard } from "./types";
 
-export { FirebaseCard }
-export type FirebaseCardsCollectionRef = import("firebase").firestore.CollectionReference<FirebaseCard.Generic>
-export type FirebaseCardsCollection = import("firebase").firestore.QuerySnapshot<FirebaseCard.Generic>
-export type FirebaseCardDocumentRef = import("firebase").firestore.DocumentReference<FirebaseCard.Generic>
-export type FirebaseCardDocument = import("firebase").firestore.DocumentSnapshot<FirebaseCard.Generic>
+export { FirebaseCard };
+export type FirebaseCardsCollectionRef = firestore.CollectionReference<FirebaseCard.Generic>;
+export type FirebaseCardsCollection = firestore.QuerySnapshot<FirebaseCard.Generic>;
+export type FirebaseCardDocumentRef = firestore.DocumentReference<FirebaseCard.Generic>;
+export type FirebaseCardDocument = firestore.DocumentSnapshot<FirebaseCard.Generic>;

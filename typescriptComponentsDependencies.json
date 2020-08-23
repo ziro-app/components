@@ -1,31 +1,36 @@
 {
-  "utils/*":  {
-    "devDependencies": {
-      "@types/node": "+"
-    }
-  },
-  "pay/*": {
-    "devDependencies": {
-      "@types/node": "+"
-    }
-  },
-  "pay/antifraud": {
-    "devDependencies": {
-      "@types/node": "+"
+    "utils/*": {
+        "devDependencies": {
+            "@types/node": "+"
+        }
     },
-    "dependencies": {
-      "@ziro/format-date-utc3": "+"
+    "choose-card": {
+        "dependencies": {
+            "recoil": "+"
+        }
+    },
+    "pay/*": {
+        "devDependencies": {
+            "@types/node": "+"
+        }
+    },
+    "pay/antifraud": {
+        "devDependencies": {
+            "@types/node": "+"
+        },
+        "dependencies": {
+            "@ziro/format-date-utc3": "+"
+        }
+    },
+    "firebase/catalog-user-data": {
+        "dependencies": {
+            "ziro-messages": "+",
+            "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
+        }
+    },
+    "message-modal": {
+        "dependencies": {
+            "ziro-messages": "+"
+        }
     }
-  },
-  "firebase/catalog-user-data": {
-    "dependencies": {
-      "ziro-messages": "+",
-      "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
-    }
-  },
-  "message-modal": {
-    "dependencies": {
-      "ziro-messages": "+"
-    }
-  }
 }

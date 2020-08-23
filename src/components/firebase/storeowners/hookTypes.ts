@@ -1,4 +1,5 @@
-import { Storeowner } from "./types"
+import { firestore } from "firebase";
+import { Storeowner } from "./types";
 
-export type StoreownerQuerySnapshot = import("firebase").firestore.QuerySnapshot<Omit<Storeowner,"storeownerId">>
-export type StoreownerQueryDocumentSnapshot = import("firebase").firestore.QueryDocumentSnapshot<Omit<Storeowner,"storeownerId">>
+export type StoreownerQuerySnapshot = firestore.QuerySnapshot<Omit<Storeowner, "storeownerId">>;
+export type StoreownerQueryDocumentSnapshot = firestore.QueryDocumentSnapshot<Omit<Storeowner, "storeownerId">>;
