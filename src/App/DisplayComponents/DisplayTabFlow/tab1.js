@@ -1,8 +1,21 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import { useHeader, useFooter, useCache, useAnimatedLocation, useGlobalCache, useMessageModal, useHistory } from '../../../components/FlowManager'
-import { BottomTabBar } from './bottomBar'
-import { BRANDS } from './cacheKeys'
+import {
+    useHeader,
+    useFooter,
+    useCache,
+    useAnimatedLocation,
+    useGlobalCache,
+    useMessageModal,
+    useHistory
+} from '../../../components/FlowManager'
+import {
+    BottomTabBar
+} from './bottomBar'
+import {
+    BRANDS
+} from './cacheKeys'
+import Fallback from "../../../components/ComponentSuspenseFallback"
 
 const messageModalObject = (action) => ({
     firstError: {
@@ -23,9 +36,11 @@ const messageModalObject = (action) => ({
 export default () => {
     const history = useHistory()
 
-    console.log({ history })
+    console.log({
+        history
+    })
 
-    useHeader(null,[])
+    useHeader(null, [])
 
     const [location, setLocation] = useAnimatedLocation()
     const [counter2, setCounter2] = useCache(0)
@@ -34,21 +49,21 @@ export default () => {
 
     const setMessageModal = useMessageModal(messageModalObject(() => setLocation('goLeft', '/tab-flow/2')))
 
-    return (
-        <div style={{ display: 'grid', background: 'blue', height: '100%', width: '100%' }}>
-            {Array.from(new Array(10)).map((_,index) => {
-                return <label>{index}</label>
-            })}
-            <div style={{ background: 'yellow', height: 50, margin: '10px' }}
-                onClick={() => setMessageModal('firstError')}
-            >
-                <label>{`click to test cache`}</label>
-            </div>
-            <div style={{ background: 'yellow', height: 50, margin: '10px' }}
-                onClick={() => setMessageModal('success')}
-            >
-                <label>{`click to test cache: ${counter2}`}</label>
-            </div>
-        </div>
+    return ( < Fallback / >
+        // <div style={{ display: 'grid', background: 'blue', height: '100%', width: '100%' }}>
+        //     {Array.from(new Array(10)).map((_,index) => {
+        //         return <label>{index}</label>
+        //     })}
+        //     <div style={{ background: 'yellow', height: 50, margin: '10px' }}
+        //         onClick={() => setMessageModal('firstError')}
+        //     >
+        //         <label>{`click to test cache`}</label>
+        //     </div>
+        //     <div style={{ background: 'yellow', height: 50, margin: '10px' }}
+        //         onClick={() => setMessageModal('success')}
+        //     >
+        //         <label>{`click to test cache: ${counter2}`}</label>
+        //     </div>
+        // </div>
     )
 }

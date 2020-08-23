@@ -519,7 +519,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/component-suspense-fallback@0.0.1": {
+    "vitorbarbosa19.ziro/component-suspense-fallback@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ComponentSuspenseFallback/index.tsx",
@@ -2398,7 +2398,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.9": {
+    "vitorbarbosa19.ziro/route@0.0.10": {
         "files": [
             {
                 "relativePath": "src/components/Route/index.tsx",

@@ -20,10 +20,8 @@ export const dotProps: (index: number) => MotionProps = index => ({
 });
 
 export const containerStyle: CSSProperties = {
+  paddingTop: '40vh',
   display: 'grid',
-  position: 'fixed',
-  width: '100vw',
-  height: '100vh',
   alignItems: 'center',
   justifyContent: 'center',
   gridTemplateColumns: 'auto auto auto auto',
