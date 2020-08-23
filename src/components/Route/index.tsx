@@ -7,7 +7,7 @@ import React,{
 } from "react";
 import { useRouter, useLocation, useRoute } from "wouter"
 import { useUser, SuspenseWithPerf } from "reactfire"
-import SuspenceFallback from '@bit/vitorbarbosa19.ziro.component-suspense-fallback';
+import SuspenseFallback from '@bit/vitorbarbosa19.ziro.component-suspense-fallback';
 
 interface SwitchProps {
     defaultPrivateOnlyFallback: ReactNode
@@ -19,7 +19,7 @@ export const Switch: React.FC<SwitchProps> = ({
     children,
     defaultPrivateOnlyFallback,
     defaultPublicOnlyFallback,
-    defaultSuspenseFallback = SuspenceFallback
+    defaultSuspenseFallback = SuspenseFallback({})
 }) => {
     const { matcher } = useRouter();
     const [location] = useLocation();
@@ -40,7 +40,7 @@ export const Switch: React.FC<SwitchProps> = ({
     if(element.props.privateOnly&&!user) return <>{element.props.fallback||defaultPrivateOnlyFallback}</>
     //else render element
     return (
-        <SuspenseWithPerf traceId={element.props.path} fallback={element.props.suspenseFallback||defaultSuspenseFallback} >
+        <SuspenseWithPerf traceId={element.props.path} fallback={element.props.fallback||defaultSuspenseFallback} >
             { React.cloneElement(element, { match }) }
         </SuspenseWithPerf>   
     )
