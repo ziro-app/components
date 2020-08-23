@@ -17,7 +17,7 @@ const portugueseStatus = {
 const Skeleton: React.FC<SkeletonProps> = ({ shouldShowStatus = false, rightButton, zoopCard, firebaseCardData }) => (
     <div style={container(!!rightButton)}>
         <BrandIcon brand={zoopCard?.card_brand.toLowerCase()} />
-        <div style={{ display: "grid", alignItems: "center" }}>
+        <div style={{ display: "grid", alignItems: "center", width: "80%" }}>
             {zoopCard ? (
                 <label style={cardNumber}>
                     {zoopCard.first4_digits} **** {zoopCard.last4_digits}
@@ -50,10 +50,16 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
     const animate = useMemo(() => (selected === firebaseCard.id ? invisible : visible), [selected]);
     const _onClick = useCallback(() => onClick && onClick(firebaseCard.id), [onClick, firebaseCard]);
     const whileTap = useMemo(() => ({ scale: !onClick ? 1 : 0.95 }), [onClick]);
-    const _rightButton = useMemo(() => ({ ...rightButton, onClick: () => rightButton.onClick(firebaseCard.id) }), [
-        rightButton,
-        firebaseCard,
-    ]);
+    const _rightButton = useMemo<SkeletonProps["rightButton"]>(
+        () => ({
+            ...rightButton,
+            onClick: (event) => {
+                event.stopPropagation();
+                rightButton.onClick(firebaseCard.id);
+            },
+        }),
+        [rightButton, firebaseCard],
+    );
     return (
         <motion.div initial={visible} animate={animate} onClick={_onClick} whileTap={whileTap}>
             <Skeleton

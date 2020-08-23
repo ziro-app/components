@@ -7,7 +7,7 @@ export interface SkeletonProps {
     rightButton?: {
         icon: string;
         color: string;
-        onClick: () => void;
+        onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     };
     zoopCard?: ZoopCard.Info;
     firebaseCardData?: FirebaseCard.Generic;
