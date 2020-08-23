@@ -16,10 +16,12 @@ const portugueseStatus = {
 
 const Skeleton: React.FC<SkeletonProps> = ({ shouldShowStatus = false, rightButton, zoopCard, firebaseCardData }) => (
     <div style={container(!!rightButton)}>
-        <BrandIcon brand={zoopCard?.card_brand} />
+        <BrandIcon brand={zoopCard?.card_brand.toLowerCase()} />
         <div style={{ display: "grid", alignItems: "center" }}>
             {zoopCard ? (
-                <label style={cardNumber}>{zoopCard.first4_digits}</label>
+                <label style={cardNumber}>
+                    {zoopCard.first4_digits} **** {zoopCard.last4_digits}
+                </label>
             ) : (
                 <Placeholder width="100%" height={20} />
             )}
