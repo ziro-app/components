@@ -20,6 +20,7 @@ const ChooseCard: React.FC<ChooseCardProps> = ({
         <div style={container}>
             {cardsCollection.docs.map((doc) => (
                 <CardRow
+                    key={doc.id}
                     zoopAtom={zoopAtom}
                     firebaseCard={doc}
                     onClick={onClick}

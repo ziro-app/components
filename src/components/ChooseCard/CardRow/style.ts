@@ -40,5 +40,5 @@ export let button: CSSProperties = {
 
 export let visible: MotionProps["animate"] = { scaleY: 1, height: 70, opacity: 1 };
 export let invisible: MotionProps["animate"] = { scaleY: 0, height: 0, opacity: 0 };
-export let initialVisible: MotionProps["initial"] = { scaleY: 1, height: 70, opacity: 0 };
+export let initialVisible: MotionProps["initial"] = { scaleY: 1, height: 70, opacity: 1 };
 export let initialInvisible: MotionProps["initial"] = { scaleY: 0, height: 0, opacity: 0 };
