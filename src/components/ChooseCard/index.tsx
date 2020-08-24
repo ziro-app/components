@@ -6,6 +6,8 @@ import { AddCard } from "./AddCard";
 import { alertColor } from "@ziro/theme";
 import { container } from "./style";
 
+export { CardRow };
+
 const ChooseCard: React.FC<ChooseCardProps> = ({
     cardsCollection,
     zoopAtom,
