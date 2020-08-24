@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.93": {
+    "vitorbarbosa19.ziro/choose-card@0.0.94": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
@@ -2097,7 +2097,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.7": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2392,12 +2392,22 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.2": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",
                 "test": false,
                 "name": "constants.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/createBuyerParser.ts",
+                "test": false,
+                "name": "createBuyerParser.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/createCardTokenParser.ts",
+                "test": false,
+                "name": "createCardTokenParser.ts"
             },
             {
                 "relativePath": "src/components/pay/Zoop/index.ts",
@@ -2410,9 +2420,34 @@
                 "name": "interceptors.ts"
             },
             {
-                "relativePath": "src/components/pay/Zoop/types/CardType.ts",
+                "relativePath": "src/components/pay/Zoop/types/AssociateCard.ts",
                 "test": false,
-                "name": "CardType.ts"
+                "name": "AssociateCard.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/CreateBuyer.ts",
+                "test": false,
+                "name": "CreateBuyer.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/CreateCardToken.ts",
+                "test": false,
+                "name": "CreateCardToken.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/DeleteCard.ts",
+                "test": false,
+                "name": "DeleteCard.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/GetCard.ts",
+                "test": false,
+                "name": "GetCard.ts"
+            },
+            {
+                "relativePath": "src/components/pay/Zoop/types/VerificationCheckList.ts",
+                "test": false,
+                "name": "VerificationCheckList.ts"
             },
             {
                 "relativePath": "src/components/pay/Zoop/types/index.ts",
