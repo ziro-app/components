@@ -36,6 +36,9 @@
       "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": [
         "components/firebase/catalog-user-data"
       ],
+      "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments": [
+        "components/firebase/credit-card-payments"
+      ],
       "@bit/vitorbarbosa19.ziro.firebase.storeowners": [
         "components/firebase/storeowners"
       ],

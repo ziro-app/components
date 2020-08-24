@@ -1,4 +1,11 @@
-import { useFirestore, useFirestoreCollection, useFirestoreDoc, useStorage } from "reactfire";
+import {
+    useFirestore,
+    useFirestoreCollection,
+    useFirestoreDoc,
+    useFirestoreCollectionData,
+    useFirestoreDocData,
+    useStorage,
+} from "reactfire";
 import cuid from "cuid";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { FirebaseCardsCollectionRef, FirebaseCardsCollection, FirebaseCardDocument, FirebaseCard } from "./hookTypes";
@@ -28,11 +35,21 @@ export const useFirebaseCardsCollection = <T = FirebaseCardsCollection>(startWit
 };
 
 /**
+ * Esse hook retorna os dados da collection "cards" do usuário do catalogo que estiver logado
+ * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
+ */
+export const useFirebaseCardsCollectionData = <T = FirebaseCard.Generic[]>(startWithValue?: T) => {
+    return useFirestoreCollectionData(useFirebaseCardsCollectionRef(), { startWithValue: startWithValue as any }) as
+        | FirebaseCard.Generic[]
+        | T;
+};
+
+/**
  * Esse hook retorna uma DocumentReference que aponta para o cartão com o id fornecido
  * @param cardId O id do cartão
  */
 export const useFirebaseCardDocumentRef = (cardId: string) => {
-    if (!cardId) throw new Error("useFirebaseCardRef was called with no cardId");
+    if (!cardId) throw new Error("useFirebaseCardDocumentRef was called with no cardId");
     return useFirebaseCardsCollectionRef().doc(cardId);
 };
 
@@ -42,10 +59,16 @@ export const useFirebaseCardDocumentRef = (cardId: string) => {
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId: string, startWithValue?: T) => {
-    if (!cardId) throw new Error("useFirebaseCard was called with no cardId");
-    return (useFirestoreDoc(useFirebaseCardDocumentRef(cardId), { startWithValue }) as unknown) as
-        | FirebaseCardDocument
-        | T;
+    return useFirestoreDoc(useFirebaseCardDocumentRef(cardId), { startWithValue }) as FirebaseCardDocument | T;
+};
+
+/**
+ * Esse hook retorna os dados do documento do cartão com o id fornecido
+ * @param cardId O id do cartão
+ * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
+ */
+export const useFirebaseCardDocumentData = <T = FirebaseCard.Generic>(cardId: string, startWithValue?: T) => {
+    return useFirestoreDocData(useFirebaseCardDocumentRef(cardId), { startWithValue }) as FirebaseCard.Generic | T;
 };
 
 /**

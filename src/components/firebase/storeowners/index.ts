@@ -10,7 +10,7 @@ const defaultStoreowner = {
 } as Storeowner;
 
 /**
- * Esse hook retorna o documento storeowner associado ao uid do usuário logado
+ * Esse hook retorna os dados do documento storeowner associado ao uid do usuário logado
  */
 export const useStoreowner = () => {
     const user = useUser<import("firebase").User>();
@@ -21,6 +21,9 @@ export const useStoreowner = () => {
     return useFirestoreCollectionData<Storeowner>(userQuery, { idField: "storeownerId" })[0] || defaultStoreowner;
 };
 
+/**
+ * Esse hook retorna o documento storeowner associado ao uid do usuario logado
+ */
 export const useStoreownerDocument = () => {
     const user = useUser<import("firebase").User>();
     const userQuery = useFirestore()

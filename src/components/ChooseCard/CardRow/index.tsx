@@ -52,13 +52,16 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
     const _onClick = useCallback(() => onClick && onClick(firebaseCard.id), [onClick, firebaseCard]);
     const whileTap = useMemo(() => ({ scale: !onClick ? 1 : 0.95 }), [onClick]);
     const _rightButton = useMemo<SkeletonProps["rightButton"]>(
-        () => ({
-            ...rightButton,
-            onClick: (event) => {
-                event.stopPropagation();
-                rightButton.onClick(firebaseCard.id);
-            },
-        }),
+        () =>
+            rightButton
+                ? {
+                      ...rightButton,
+                      onClick: (event) => {
+                          event.stopPropagation();
+                          rightButton.onClick(firebaseCard.id);
+                      },
+                  }
+                : undefined,
         [rightButton, firebaseCard],
     );
     return (
@@ -73,8 +76,20 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
     );
 };
 
-export const CardRow = React.memo<CardRowProps>((props) => (
-    <Suspense fallback={<Skeleton rightButton={props.rightButton as any} />}>
-        <StatefulCardRow {...props} />
-    </Suspense>
-));
+export const CardRow = React.memo<CardRowProps>((props) => {
+    const suspenseRightButton = useMemo<SkeletonProps["rightButton"]>(
+        () =>
+            props.rightButton
+                ? {
+                      ...props.rightButton,
+                      onClick: () => {},
+                  }
+                : undefined,
+        [props.rightButton],
+    );
+    return (
+        <Suspense fallback={<Skeleton rightButton={suspenseRightButton} />}>
+            <StatefulCardRow {...props} />
+        </Suspense>
+    );
+});
