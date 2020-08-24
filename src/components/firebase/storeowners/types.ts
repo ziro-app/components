@@ -4,6 +4,7 @@ export interface Storeowner {
     cidade: string;
     estado: string;
     cnpj: string;
+    cpf?: string;
     uid: string;
     email: string;
     cep: string;

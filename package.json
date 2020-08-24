@@ -355,6 +355,29 @@
           }
         }
       },
+      "pay/zoop-registration": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/zoopRegistration",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "utils/async-hooks": {
         "devDependencies": {
           "@types/node": "+"

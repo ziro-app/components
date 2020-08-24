@@ -38,14 +38,14 @@ export namespace CreateBuyer {
         export interface Parsed {
             first_name: string;
             last_name: string;
-            taxpayer_id: string;
+            taxpayer_id?: string;
             email: string;
             address: Address;
         }
         export interface Unparsed {
             fname: string;
             lname: string;
-            cpf: string;
+            cpf?: string;
             email: string;
             endereco: string;
             bairro: string;

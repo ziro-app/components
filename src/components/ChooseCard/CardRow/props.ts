@@ -9,11 +9,11 @@ export interface SkeletonProps {
         color: string;
         onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     };
-    zoopCard?: ZoopCard.Info;
+    zoopCard?: ZoopCard;
     firebaseCardData?: FirebaseCard.Generic;
 }
 
-type ZoopAtomFamily = (param: string) => RecoilState<ZoopCard.Info>;
+type ZoopAtomFamily = (param: string) => RecoilState<ZoopCard>;
 
 export interface CardRowProps {
     onClick?: (id: string) => void;

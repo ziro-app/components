@@ -9,7 +9,7 @@ import { useAsyncEffectShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.asy
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/fullOCR";
 import { Button } from "ziro-messages";
 
-export const useDocumentAnalysis = (zoopCardData: ZoopCard.Info, setCamera: (open: boolean) => void) => {
+export const useDocumentAnalysis = (zoopCardData: ZoopCard, setCamera: (open: boolean) => void) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
 
