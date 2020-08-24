@@ -20,10 +20,11 @@ const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwa
         isCameraOpen ? openCamera() : closeCamera();
     }, [isCameraOpen]);
 
-    useFooter(<BottomFlowButtons previous={previous} next={_next} submitting={!picture || submitting} />, [
+    useFooter(<BottomFlowButtons previous={previous} next={_next} submitting={submitting} blockNext={!picture} />, [
         previous,
         _next,
         submitting,
+        picture,
     ]);
 
     useModal(
