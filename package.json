@@ -75,7 +75,7 @@
     "recoil": "0.0.10",
     "webfontloader": "^1.6.28",
     "wouter": "^2.5.0",
-    "ziro-messages": "0.0.30"
+    "ziro-messages": "0.0.31"
   },
   "peerDependencies": {
     "react": "^16.9.0",
@@ -343,6 +343,29 @@
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/pay/antifraud",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "pay/card-lifecycle": {
+        "devDependencies": {
+          "@types/node": "+"
+        },
+        "env": {
+          "compiler": {
+            "bit.envs/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/cardLifecycle",
                     "target": "ES5",
                     "module": "CommonJS",
                     "inlineSources": true,

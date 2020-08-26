@@ -51,6 +51,9 @@
       "@bit/vitorbarbosa19.ziro.pay.antifraud": [
         "components/pay/antifraud"
       ],
+      "@bit/vitorbarbosa19.ziro.pay.card-lifecycle": [
+        "components/pay/cardLifecycle"
+      ],
       "@bit/vitorbarbosa19.ziro.pay.zoop-registration": [
         "components/pay/zoopRegistration"
       ],
