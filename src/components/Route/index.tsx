@@ -39,7 +39,7 @@ export const Switch: React.FC<SwitchProps> = ({
                 screen_name: element.props.path,
             });
         }
-    }, [element]);
+    }, [index]);
 
     useEffect(() => {
         if (user) analytics.setUserId(user.uid);
