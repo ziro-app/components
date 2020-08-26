@@ -58,7 +58,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 
     React.useEffect(() => {
         analytics.logEvent(message.code + ":" + message.name);
-    }, []);
+    }, [message.code]);
 
     return (
         <motion.div key={buttonsContainerKey} {...defaultProp} style={buttonsContainer(second)}>

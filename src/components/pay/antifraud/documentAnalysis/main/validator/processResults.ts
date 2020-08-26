@@ -1,7 +1,7 @@
-import { FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code"
-import tuple from "@bit/vitorbarbosa19.ziro.utils.tuple"
-import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/fullOCR"
-import { ClassResultsCollection } from "./validations"
+import { FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code";
+import tuple from "@bit/vitorbarbosa19.ziro.utils.tuple";
+import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/fullOCR";
+import { ClassResultsCollection } from "./validations";
 
 /**
  * Essas são as mensagens que devem causar um throw no processamento, as que não estiverem aqui passarão
@@ -13,8 +13,9 @@ export const messagesThatShouldThrow = tuple(
     prompt.FIRST_NAME_MISMATCH.name,
     prompt.SAME_DOC_CNHV.name,
     prompt.SAME_DOC_RGF.name,
-    prompt.SAME_DOC_RGV.name
-)
+    prompt.SAME_DOC_RGV.name,
+    prompt.PROBABILITY_UNDER_60.name,
+);
 
 /**
  * Essa função é responsável por pegar os resultados das validações e dar um throw caso a mensagem esteja
@@ -26,10 +27,10 @@ export const messagesThatShouldThrow = tuple(
 export const processResults = (
     response: FullOCR.Response.KnownDocument,
     url: string,
-    results: ClassResultsCollection
+    results: ClassResultsCollection,
 ) => {
-    Object.values(results).forEach(result => {
-        if(result.passed===false && messagesThatShouldThrow.includes(result.reason.name as any))
-            throw (result.reason as any).withAdditionalData({ response, url })
-    })
-}
+    Object.values(results).forEach((result) => {
+        if (result.passed === false && messagesThatShouldThrow.includes(result.reason.name as any))
+            throw (result.reason as any).withAdditionalData({ response, url });
+    });
+};

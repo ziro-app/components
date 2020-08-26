@@ -1,18 +1,26 @@
 import { useStoreownerDocument, StoreownerQueryDocumentSnapshot } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
+import { useAnalytics } from "reactfire";
 import { createBuyer } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 
 const suspendIfNeeded = (() => {
-    let error: any;
+    let _error: any;
     let suspender: Promise<any>;
-    return <T = string>(storeowner: StoreownerQueryDocumentSnapshot, startWithValue?: T) => {
+    return <T = string>(
+        analytics: ReturnType<typeof useAnalytics>,
+        storeowner: StoreownerQueryDocumentSnapshot,
+        startWithValue?: T,
+    ) => {
         const data = storeowner.data();
         if (data.zoopId) return data.zoopId;
         if (!suspender)
             suspender = createBuyer(data)
                 .then(({ id: zoopId }) => storeowner.ref.update({ zoopId }))
-                .catch((e) => (error = e))
+                .catch((error) => {
+                    analytics.logEvent("error registering zoop buyer", { error });
+                    _error = error;
+                })
                 .finally(() => (suspender = null));
-        if (error) throw error;
+        if (_error) throw _error;
         if (startWithValue) return startWithValue;
         throw suspender;
     };
@@ -23,5 +31,5 @@ const suspendIfNeeded = (() => {
  * @param startWithValue caso esse valor não seja fornecido o hook irá suspender enquanto estiver fazendo o cadastro
  */
 export const useZoopRegistration = <T = string>(startWithValue?: T) => {
-    return suspendIfNeeded(useStoreownerDocument(), startWithValue);
+    return suspendIfNeeded(useAnalytics(), useStoreownerDocument(), startWithValue);
 };

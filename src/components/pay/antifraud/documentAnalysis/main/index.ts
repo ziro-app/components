@@ -35,7 +35,7 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
                 };
 
             const url = await uploadPicture(picture).catch((error) => {
-                throw common.prompt.CANNOT_UPLOAD_PICTURE_DO_STORAGE.withAdditionalData({ error });
+                throw common.prompt.CANNOT_UPLOAD_PICTURE_TO_STORAGE.withAdditionalData({ error });
             });
             const response = await analiseDocument(url, source.token);
 
