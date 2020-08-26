@@ -1996,7 +1996,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.42": {
+    "vitorbarbosa19.ziro/message-modal@0.0.43": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2097,7 +2097,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.17": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.18": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2320,7 +2320,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.6": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
@@ -2817,7 +2817,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.35": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.36": {
         "files": [
             {
                 "name": "index.ts",
