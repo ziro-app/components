@@ -32,7 +32,13 @@ export const Switch: React.FC<SwitchProps> = ({
     const match = useMemo(() => matches[index], [matches, index]);
 
     useEffect(() => {
-        if (element) analytics.setCurrentScreen(window.location.host + element.props.path);
+        if (element) {
+            analytics.setCurrentScreen(window.location.host + element.props.path);
+            analytics.logEvent("page_view", {
+                app_name: window.location.host,
+                screen_name: element.props.path,
+            });
+        }
     }, [element]);
 
     useEffect(() => {

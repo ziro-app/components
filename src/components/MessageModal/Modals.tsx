@@ -57,9 +57,15 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
     }, [message]);
 
     React.useEffect(() => {
-        analytics.logEvent(message.code + " : " + message.name, {
-            messageData: JSON.stringify(message.additionalData, null, 4),
-        });
+        if (message.type === "destructive") {
+            const { internalDescription, additionalData, ...data } = message.getData();
+            analytics.logEvent("exception", {
+                description: internalDescription,
+                fatal: false,
+                additionalData: JSON.stringify(additionalData, null, 4),
+                ...data,
+            });
+        }
     }, [message.code]);
 
     return (
