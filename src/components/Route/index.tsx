@@ -1,6 +1,6 @@
-import React, { useMemo, cloneElement, ReactElement, ReactNode, isValidElement } from "react";
+import React, { useMemo, cloneElement, ReactElement, ReactNode, isValidElement, useEffect } from "react";
 import { useRouter, useLocation, useRoute } from "wouter";
-import { useUser, SuspenseWithPerf } from "reactfire";
+import { useUser, SuspenseWithPerf, useAnalytics } from "reactfire";
 import SuspenseFallback from "@bit/vitorbarbosa19.ziro.component-suspense-fallback";
 
 interface SwitchProps {
@@ -17,7 +17,8 @@ export const Switch: React.FC<SwitchProps> = ({
 }) => {
     const { matcher } = useRouter();
     const [location] = useLocation();
-    const user = useUser();
+    const user = useUser<any>();
+    const analytics = useAnalytics();
 
     const childrenArray = useMemo(() => (Array.isArray(children) ? children : [children]), [children]);
     const usableChildren = useMemo<ReactElement[]>(() => childrenArray.filter(isValidElement), [childrenArray]);
@@ -29,6 +30,15 @@ export const Switch: React.FC<SwitchProps> = ({
     const index = useMemo(() => matches.findIndex(([match]) => match), [matches]);
     const element = useMemo(() => usableChildren[index], [usableChildren, index]);
     const match = useMemo(() => matches[index], [matches, index]);
+
+    useEffect(() => {
+        if (element) analytics.setCurrentScreen(window.location.host + element.props.path);
+    }, [element]);
+
+    useEffect(() => {
+        if (user) analytics.setUserId(user.uid);
+        if (!user) analytics.setUserId("anonymous");
+    }, [user]);
 
     if (index === -1) return null;
 

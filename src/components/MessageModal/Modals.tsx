@@ -57,7 +57,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
     }, [message]);
 
     React.useEffect(() => {
-        analytics.logEvent(message.code + ":" + message.name);
+        analytics.logEvent(message.code + " : " + message.name);
     }, [message.code]);
 
     return (
@@ -85,7 +85,7 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
     const performance = usePerformance();
     React.useEffect(() => {
         if (message.promise) {
-            const trace = performance.trace(message.code + ":" + message.name);
+            const trace = performance.trace(message.code + " : " + message.name);
             trace.start();
             message.promise
                 .then(() => onButtonClick("first"))

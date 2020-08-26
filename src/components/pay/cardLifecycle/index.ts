@@ -35,3 +35,7 @@ export const useDeleteCard = () => {
         [setMessagePromise, cbk, prompt],
     );
 };
+
+export const useRegisterCard = () => {
+    const source = useCancelToken();
+};
