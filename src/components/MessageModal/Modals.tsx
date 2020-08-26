@@ -57,7 +57,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
     }, [message]);
 
     React.useEffect(() => {
-        analytics.logEvent(message.code + " : " + message.name);
+        analytics.logEvent(message.code + " : " + message.name, message.additionalData);
     }, [message.code]);
 
     return (
