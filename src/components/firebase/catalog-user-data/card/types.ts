@@ -1,5 +1,5 @@
 import { ZiroPromptFullData } from "ziro-messages";
-import { File, ImageValidation, DataValidation, ValidationResult, DataFields, ImageFields } from "./helperTypes";
+import { File, Validations, DataFields, ImageFields } from "./helperTypes";
 
 export namespace FirebaseCard {
     export type Status = "pendingDocument" | "pendingSelfie" | "pendingManualApproval" | "approved";
@@ -21,24 +21,24 @@ export namespace FirebaseCard {
     export interface RGF extends RGCommon<"pendingDocument">, ImageFields {
         docStatus: "pendingRGV";
         "RG F": File<"RG F">;
-        validations: Record<ImageValidation, ValidationResult>;
+        validations: Validations<"RGFProbability" | "face">;
     }
 
     export interface RGV extends RGCommon<"pendingDocument">, DataFields<"RG"> {
         docStatus: "pendingRGF";
         "RG V": File<"RG V">;
-        validations: Record<DataValidation, ValidationResult>;
+        validations: Validations<"RGVProbability" | "expirationDate" | "name">;
     }
 
     export interface RGFV extends RGCommon<"pendingSelfie">, DataFields<"RG">, ImageFields {
         "RG FV": File<"RG FV">;
-        validations: Record<ImageValidation | DataValidation, ValidationResult>;
+        validations: Validations<"RGFVProbability" | "expirationDate" | "name" | "face">;
     }
 
     export interface RGFeV extends RGCommon<"pendingSelfie">, DataFields<"RG">, ImageFields {
         "RG F": File<"RG F">;
         "RG V": File<"RG V">;
-        validations: Record<ImageValidation | DataValidation, ValidationResult>;
+        validations: Validations<"RGFProbability" | "RGVProbability" | "face" | "name" | "expirationDate">;
     }
 
     export type RG = RGF | RGV | RGFV | RGFeV;
@@ -53,26 +53,36 @@ export namespace FirebaseCard {
 
     export interface CNHF extends CNHCommon<"pendingSelfie">, DataFields<"CNH">, ImageFields {
         "CNH F": File<"CNH F">;
-        validations: Record<ImageValidation | DataValidation, ValidationResult>;
+        validations: Validations<"CNHFProbability" | "name" | "face" | "expirationDate">;
     }
 
     export interface CNHV extends CNHCommon<"pendingDocument"> {
         docStatus: "pendingCNHF";
         "CNH V": File<"CNH V">;
+        validations: Validations<"CNHVProbability">;
     }
 
     export interface CNHFV extends CNHCommon<"pendingSelfie">, DataFields<"CNH">, ImageFields {
         "CNH FV": File<"CNH FV">;
-        validations: Record<ImageValidation | DataValidation, ValidationResult>;
+        validations: Validations<"CNHFVProbability" | "name" | "face" | "expirationDate">;
     }
 
     export interface CNHFeV extends CNHCommon<"pendingSelfie">, DataFields<"CNH">, ImageFields {
         "CNH F": File<"CNH F">;
         "CNH V": File<"CNH V">;
-        validations: Record<ImageValidation | DataValidation, ValidationResult>;
+        validations: Validations<"CNHVProbability" | "CNHFProbability" | "name" | "face" | "expirationDate">;
     }
 
     export type CNH = CNHF | CNHV | CNHFV | CNHFeV;
+
+    export type BeforeDocPhase = Common<"pendingDocument"> | RGF | RGV | CNHV;
+
+    export type BeforeSelfiePhase = RGFV | RGFeV | CNHF | CNHFV | CNHFeV;
+
+    export type AfterAntifraud = BeforeSelfiePhase & {
+        selfie: File<"SELFIE">;
+        validations: Validations<"selfieProbability">;
+    };
 
     export type Generic = Common<"pendingDocument"> | RG | CNH;
 }

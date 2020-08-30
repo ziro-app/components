@@ -6,3 +6,5 @@ export type FirebaseCardsCollectionRef = firestore.CollectionReference<FirebaseC
 export type FirebaseCardsCollection = firestore.QuerySnapshot<FirebaseCard.Generic>;
 export type FirebaseCardDocumentRef = firestore.DocumentReference<FirebaseCard.Generic>;
 export type FirebaseCardDocument = firestore.DocumentSnapshot<FirebaseCard.Generic>;
+export type FirebaseCardDocumentBeforeDocPhase = firestore.DocumentSnapshot<FirebaseCard.BeforeDocPhase>;
+export type FirebaseCardDocumentBeforeSelfiePhase = firestore.DocumentSnapshot<FirebaseCard.BeforeSelfiePhase>;

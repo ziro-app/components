@@ -2395,11 +2395,6 @@
                 "name": "scores.ts"
             },
             {
-                "relativePath": "src/components/pay/NextCode/types/FullOCR/typeChecks.ts",
-                "test": false,
-                "name": "typeChecks.ts"
-            },
-            {
                 "relativePath": "src/components/pay/NextCode/types/index.ts",
                 "test": false,
                 "name": "index.ts"

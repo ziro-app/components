@@ -1,7 +1,7 @@
 import { FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 import { ZiroPromptFullData } from "ziro-messages";
 
-export interface File<T extends FullOCR.File.KnownTAG> {
+export interface File<T extends FullOCR.File.KnownTAG | "SELFIE"> {
     url: string;
     fileInfo: FullOCR.File.Info<T>;
 }
@@ -17,8 +17,19 @@ export interface ValidationResultFail {
 
 export type ValidationResult = ValidationResultSuccess | ValidationResultFail;
 
-export type ImageValidation = "face";
-export type DataValidation = "expirationDate" | "expectedDoc" | "name";
+export type ValidationsKeys =
+    | "expirationDate"
+    | "name"
+    | "face"
+    | "CNHFProbability"
+    | "CNHVProbability"
+    | "CNHFVProbability"
+    | "RGFProbability"
+    | "RGVProbability"
+    | "RGFVProbability"
+    | "selfieProbability";
+
+export type Validations<V extends ValidationsKeys> = Record<V, ValidationResult>;
 
 export interface DataFields<E extends "RG" | "CNH"> {
     extracted: E extends "RG" ? FullOCR.Extracted.RG : FullOCR.Extracted.CNH;
