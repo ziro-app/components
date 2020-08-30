@@ -17,10 +17,10 @@ container: React.CSSProperties = {
 
 box: React.CSSProperties = {
 	zIndex: 999,
-	maxWidth: '500px',
-	width: '80%',
+	maxWidth: '350px',
+	width: '90%',
 	margin: '0 auto',
-	padding: '5%',
+	padding: '20px 20px 40px',
 	boxSizing: 'border-box',
 	borderRadius: '3px',
 	background: 'white',

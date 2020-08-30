@@ -6,8 +6,8 @@ const PromptMessage = new ZiroPromptMessage({
     name: "promptTest",
     type: "neutral",
     code: "1234",
-    title: "Teste",
-    userDescription: "Isso é um teste.",
+    title: "Teste de modal",
+    userDescription: "Essa é uma mensagem de teste para o modal.",
     userResolution: "Deseja continuar?",
     internalDescription: "prompt de teste",
     illustration: "profileData"
@@ -16,8 +16,8 @@ const PromptMessage = new ZiroPromptMessage({
 const WaitingMessage = new ZiroWaitingMessage({
     name: "waitingTest",
     code: "1234",
-    title: "Teste",
-    userDescription: "Efetuando teste",
+    title: "Teste de modal",
+    userDescription: "Efetuando teste. Aguarde enquanto finalizamos o teste.",
     internalDescription: "teste de waiting message",
     illustration: "waiting"
 })
@@ -26,7 +26,7 @@ const SuccessMessage = new ZiroPromptMessage({
     name: "successTest",
     type: "success",
     code: "1234",
-    title: "Teste",
+    title: "Teste de modal",
     userDescription: "O teste foi realizado com sucesso.",
     userResolution: "Clique em ok para sair.",
     internalDescription: "prompt de sucesso",
@@ -37,7 +37,7 @@ const FailureMessage = new ZiroPromptMessage({
     name: "failureTest",
     type: "destructive",
     code: "1234",
-    title: "Teste",
+    title: "Teste de modal",
     userDescription: "O teste falhou.",
     userResolution: "Clique em ok para sair.",
     internalDescription: "prompt de falha",
@@ -65,9 +65,10 @@ const Child = () => {
 
     return (
         <div
+            style={{ display: 'grid', justifyItems: 'center', marginTop: '20px', fontSize: '21px', cursor: 'pointer' }}
             onClick={asyncClick}
         >
-            CLICA
+            ABRIR MODAL
         </div>
     )
 }

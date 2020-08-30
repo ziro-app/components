@@ -51,5 +51,6 @@ buttonsContainer: (second: boolean) => React.CSSProperties = (second) => ({
 	display: 'grid',
 	gridTemplateColumns: second ? '1fr 1fr' : '1fr',
 	gridGap: '10px',
-	width: "100%"
+	width: "100%",
+	marginTop: '5px'
 })

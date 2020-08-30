@@ -101,7 +101,7 @@ const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
 
     return (
         <motion.div key="spinner" {...defaultProp} style={buttonsContainer(false)}>
-            <Spinner />
+            <Spinner size='5rem' />
         </motion.div>
     );
 };
