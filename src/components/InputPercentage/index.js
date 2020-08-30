@@ -10,12 +10,14 @@ const InputPercentage = forwardRef(({ value, setValue, style = inline, css = sty
         <>
             <style>{css}</style>
             <input {...inputProps} className='input-text'
-                   value={currencyFormat(value) ? `% ${currencyFormat(value).replace(/[R$]/g, '')}` :''
-              }
-              onChange={({ target: { value } }) => {
-                  const toInteger = parseInt(value.replace(/[\.,\s%]/g, ''), 10)
-                  setValue(toInteger <= 10000 ? maskInput(toInteger, '#######', true) : maskInput(10000, '#######', true))
-              }}
+                value={currencyFormat(value) ? `% ${currencyFormat(value).replace(/[R$]/g, '')}` : ''}
+                onChange={({ target: { value } }) => {
+                    if (value === '% 0,0') setValue('');
+                    else {
+                        const toInteger = parseInt(value.replace(/[\.,\s%]/g, ''), 10);
+                        setValue(toInteger ? toInteger <= 10000 ? maskInput(toInteger, '#######', true) : maskInput(10000, '#######', true) : (toInteger === 0) ? '0' : '');
+                    }
+                }}
             />
         </>
     )
