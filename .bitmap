@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.105": {
+    "vitorbarbosa19.ziro/choose-card@0.0.106": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.29": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.30": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -2097,7 +2097,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.23": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.24": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2434,7 +2434,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.12": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.13": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",

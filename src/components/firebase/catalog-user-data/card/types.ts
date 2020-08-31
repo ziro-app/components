@@ -87,5 +87,5 @@ export namespace FirebaseCard {
         validations: Validations<"selfieProbability" | "comparison" | "faceCount" | "identical">;
     };
 
-    export type Generic = Common<"pendingDocument"> | RG | CNH;
+    export type Generic = BeforeDocPhase | BeforeSelfiePhase | AfterAntifraud;
 }
