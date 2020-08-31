@@ -55,11 +55,11 @@ export const DisplayIcon = () =>
 		<Icon type='forward' size={24} />
 		<Icon type='help' size={24} />
 		<Icon type='plusCircle' size={24} />
+		<Icon type='copy' size={24} />
 		<Icon type='chevronRight' size={24} />
 		<Icon type='rotate' size={24} />
 		<Icon type='zoom' size={24} />
 		<Icon type='headphone' size={24} />
-		<Icon type='copy' size={24} />
 		<Icon type='link' size={24} />
 		<Icon type='circle' size={24} />
 		<Icon type='circleChecked' size={24} />
