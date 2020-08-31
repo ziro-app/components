@@ -90,8 +90,12 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
 
     const upload = useCallback(
         async (picture: string) => {
-            if (picture === pic.current) return url.current;
+            if (picture === pic.current) {
+                if (url.current) return url.current;
+                if (task) return await (await task).ref.getDownloadURL();
+            }
             pic.current = picture;
+            url.current = null;
             const newRef = storage.ref(`antifraude/${cardId}`).child(cuid());
             ref.current = newRef;
             const uploadTask = newRef.putString(picture, "data_url");

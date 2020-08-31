@@ -6,11 +6,10 @@ import Button from "@bit/vitorbarbosa19.ziro.button";
 //@ts-ignore
 import Spinner from "@bit/vitorbarbosa19.ziro.spinner";
 import { motion } from "framer-motion";
-import { isPrompt, isWaiting, ZiroPromptMessage, ZiroWaitingMessage } from "ziro-messages";
+import { isPrompt, isWaiting } from "ziro-messages";
 import { defaultProp } from "./defaults";
 import { container, title, svg, buttonsContainer } from "./modalStyle";
 import { Message, PMessage, WMessage } from "./types";
-import { performance } from "firebase";
 import { usePerformance, useAnalytics } from "reactfire";
 
 type CP = {
@@ -40,11 +39,12 @@ const Common: React.FC<CP> = ({ message }) => {
 
 type BP = {
     message: PMessage;
+    reactfire: boolean;
     onButtonClick: (button: "first" | "second") => void;
 };
 
-const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
-    const analytics = useAnalytics();
+const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) => {
+    const analytics = reactfire && useAnalytics();
 
     const cta = React.useMemo(() => {
         if (message.firstButton) return message.firstButton.title;
@@ -56,25 +56,20 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
         return [false, "singleButton"];
     }, [message]);
 
+    const [clickFirst, clickSecond] = React.useMemo(
+        () => [() => onButtonClick("first"), () => onButtonClick("second")],
+        [onButtonClick],
+    );
+
     React.useEffect(() => {
-        if (message.type === "destructive") {
-            analytics.logEvent("exception", {
-                description: message.internalDescription,
-                fatal: false,
-            });
-        }
+        reactfire && analytics.logEvent(message.code + " : " + message.name, message.getData());
     }, [message.code]);
 
     return (
         <motion.div key={buttonsContainerKey} {...defaultProp} style={buttonsContainer(second)}>
-            <Button type="button" click={onButtonClick.bind(null, "first")} cta={cta} />
+            <Button type="button" click={clickFirst} cta={cta} />
             {message.secondButton && (
-                <Button
-                    type="button"
-                    click={onButtonClick.bind(null, "second")}
-                    cta={message.secondButton.title}
-                    template="light"
-                />
+                <Button type="button" click={clickSecond} cta={message.secondButton.title} template="light" />
             )}
         </motion.div>
     );
@@ -82,42 +77,53 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick }) => {
 
 type SP = {
     message: WMessage;
-    performance?: performance.Performance;
-    onButtonClick: (button: "first" | "second") => void;
+    reactfire: boolean;
+    setMessage: (arg: Message | ((message: Message) => Message)) => void;
 };
 
-const SpinnerContainer: React.FC<SP> = ({ message, onButtonClick }) => {
-    const performance = usePerformance();
+const SpinnerContainer: React.FC<SP> = ({ message, reactfire, setMessage }) => {
+    const performance = reactfire && usePerformance();
     React.useEffect(() => {
         if (message.promise) {
-            const trace = performance.trace(message.code + " : " + message.name);
-            trace.start();
-            message.promise
-                .then(() => onButtonClick("first"))
-                .catch(() => onButtonClick("second"))
-                .finally(() => trace.stop());
-        } else onButtonClick("second");
+            const trace = reactfire && performance.trace(message.code + " : " + message.name);
+            reactfire && trace.start();
+            message.promise.finally(() => {
+                setMessage((old) => {
+                    if (old.code === message.code) return null;
+                    else return old;
+                });
+                reactfire && trace.stop();
+            });
+        } else
+            setMessage((old) => {
+                if (old.code === message.code) return null;
+                else return old;
+            });
     }, []);
 
     return (
         <motion.div key="spinner" {...defaultProp} style={buttonsContainer(false)}>
-            <Spinner size='5rem' />
+            <Spinner size="5rem" />
         </motion.div>
     );
 };
 
 type P = {
     message: Message;
+    reactfire: boolean;
+    setMessage: (arg: Message | ((message: Message) => Message)) => void;
     onButtonClick: (button: "first" | "second") => void;
 };
 
-const Modal: React.FC<P> = ({ message, onButtonClick }) => {
+const Modal: React.FC<P> = ({ message, onButtonClick, reactfire, setMessage }) => {
     if (!isPrompt(message) && !isWaiting(message)) return null;
     return (
         <div style={container}>
             <Common message={message} />
-            {isPrompt(message) && <ButtonsContainer message={message} onButtonClick={onButtonClick} />}
-            {isWaiting(message) && <SpinnerContainer message={message} onButtonClick={onButtonClick} />}
+            {isPrompt(message) && (
+                <ButtonsContainer message={message} onButtonClick={onButtonClick} reactfire={reactfire} />
+            )}
+            {isWaiting(message) && <SpinnerContainer message={message} reactfire={reactfire} setMessage={setMessage} />}
         </div>
     );
 };

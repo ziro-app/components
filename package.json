@@ -4,8 +4,8 @@
   "description": "Component library for Ziro",
   "main": "index.js",
   "scripts": {
-    "prestart": "node ./prebuild.js && bit build",
-    "prebuild": "node ./prebuild.js && bit build",
+    "prestart": "node ./prebuild.js && bit link && bit build",
+    "prebuild": "node ./prebuild.js && bit link && bit build",
     "postinstall": "npm dedupe",
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",

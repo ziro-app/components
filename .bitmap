@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.101": {
+    "vitorbarbosa19.ziro/choose-card@0.0.102": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
@@ -554,7 +554,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/component-suspense-fallback@0.0.2": {
+    "vitorbarbosa19.ziro/component-suspense-fallback@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/ComponentSuspenseFallback/index.tsx",
@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.25": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.26": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -1996,7 +1996,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.44": {
+    "vitorbarbosa19.ziro/message-modal@0.0.45": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2097,7 +2097,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.19": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2320,7 +2320,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.8": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
@@ -2332,7 +2332,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.11": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.12": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -2414,7 +2414,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop-registration@0.0.3": {
+    "vitorbarbosa19.ziro/pay/zoop-registration@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/pay/zoopRegistration/index.ts",
@@ -2426,7 +2426,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.6": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",
@@ -2524,7 +2524,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.15": {
+    "vitorbarbosa19.ziro/route@0.0.16": {
         "files": [
             {
                 "relativePath": "src/components/Route/index.tsx",
@@ -2812,7 +2812,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.37": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.38": {
         "files": [
             {
                 "name": "index.ts",
@@ -2844,7 +2844,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/axios@0.0.4": {
+    "vitorbarbosa19.ziro/utils/axios@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/utils/axios/axiosTypes.ts",
@@ -2890,7 +2890,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/sheets@0.0.9": {
+    "vitorbarbosa19.ziro/utils/sheets@0.0.10": {
         "files": [
             {
                 "relativePath": "src/components/utils/sheets/constants.ts",

@@ -9,6 +9,7 @@ import Modal from "./Modals";
 
 const MessageModal: React.FC<Props> = ({
     children,
+    reactfire = false,
     overlayConfig = defaultProps.overlayConfig,
     boxConfig = defaultProps.boxConfig,
 }) => {
@@ -17,40 +18,30 @@ const MessageModal: React.FC<Props> = ({
 
     const onButtonClick = React.useCallback(
         (button: "first" | "second") => {
+            let result: Message = null;
             if (isPrompt(message)) {
-                switch (button) {
-                    case "first":
-                        if (message.firstButton && message.firstButton.action) {
-                            const result = message.firstButton.action();
-                            if (isPrompt(result) || isWaiting(result)) {
-                                setMessage(result);
-                                return;
-                            }
-                        }
-                    case "second":
-                        if (message.secondButton && message.secondButton.action) {
-                            const result = message.secondButton.action();
-                            if (isPrompt(result) || isWaiting(result)) {
-                                setMessage(result);
-                                return;
-                            }
-                        }
-                }
+                if (button === "first") result = message.firstButton?.action() ?? null;
+                if (button === "second") result = message.secondButton?.action() ?? null;
             }
-            setReject(null);
-            setMessage(null);
+            setMessage((old) => {
+                if (old.code !== message.code) return old;
+                setReject(null);
+                return result;
+            });
         },
-        [setMessage, message],
+        [setMessage, setReject, message, isPrompt, isWaiting],
     );
 
     const onOverlayClick = React.useCallback(() => {
-        if (isWaiting(message)) return;
-        if (isPrompt(message)) {
-            if (reject !== null) reject();
-            setReject(null);
-            setMessage(null);
-        }
-    }, [message, setMessage, reject, setReject]);
+        setMessage((currentMessage) => {
+            if (isWaiting(currentMessage)) return currentMessage;
+            if (isPrompt(currentMessage)) {
+                if (reject !== null) reject();
+                setReject(null);
+                return null;
+            }
+        });
+    }, [setMessage, reject, setReject, isPrompt, isWaiting]);
 
     return (
         <MessagesContext.Provider value={{ setMessage, setReject }}>
@@ -60,7 +51,12 @@ const MessageModal: React.FC<Props> = ({
                     <div style={container}>
                         <motion.div key="overlay" style={overlay} onClick={onOverlayClick} {...overlayConfig} />
                         <motion.div key="box" style={box} {...boxConfig}>
-                            <Modal message={message} onButtonClick={onButtonClick} />
+                            <Modal
+                                message={message}
+                                onButtonClick={onButtonClick}
+                                reactfire={reactfire}
+                                setMessage={setMessage}
+                            />
                         </motion.div>
                         <style>{disableScroll}</style>
                     </div>
