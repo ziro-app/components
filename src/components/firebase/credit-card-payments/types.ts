@@ -13,6 +13,7 @@ export declare namespace CreditCardPayments {
         sellerZoopId: string;
         zoopPlan: ZoopPlan;
         insurance: boolean;
+        cartId?: string;
         dateLinkCreated: firestore.Timestamp;
         seller: string;
         charge: string;

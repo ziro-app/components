@@ -25,7 +25,6 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
     >(
         fullOCR.waiting.ANALYZING_DOC,
         async ({ picture }) => {
-            await new Promise((resolve) => setTimeout(resolve, 10));
             if (!picture)
                 throw { skipAttempt: true, error: common.prompt.NO_IMAGE.withAdditionalData({ where: "useFullOCR" }) };
             if (state.attempts === 3)
@@ -35,7 +34,7 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
                 };
 
             const url = await uploadPicture(picture).catch((error) => {
-                throw common.prompt.CANNOT_UPLOAD_PICTURE_TO_STORAGE.withAdditionalData({ error });
+                throw common.prompt.CANNOT_UPLOAD_PICTURE_TO_STORAGE.withAdditionalData({ error, where: "useFullOCR" });
             });
             const response = await analiseDocument(url, source.token);
 

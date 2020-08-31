@@ -81,8 +81,10 @@ export namespace FirebaseCard {
     export type BeforeSelfiePhase = RGFV | RGFeV | CNHF | CNHFV | CNHFeV;
 
     export type AfterAntifraud = Replace<BeforeSelfiePhase, "status", "approved" | "pendingManualApproval"> & {
-        selfie: File<"SELFIE">;
-        validations: Validations<"selfieProbability">;
+        selfie: {
+            url: string;
+        };
+        validations: Validations<"selfieProbability" | "comparison" | "faceCount" | "identical">;
     };
 
     export type Generic = Common<"pendingDocument"> | RG | CNH;

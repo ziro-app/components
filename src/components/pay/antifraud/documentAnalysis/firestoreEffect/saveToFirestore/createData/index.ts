@@ -1,30 +1,31 @@
-import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data"
-import * as RG from "./RG"
-import * as CNH from "./CNH"
-import { UseFullOCR } from "../../../main"
+import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
+import * as RG from "./RG";
+import * as CNH from "./CNH";
+import { UseFullOCR } from "../../../main";
+
+const creator = {
+    RGF: RG.Frente,
+    RGV: RG.Verso,
+    RGFV: RG.FrenteVerso,
+    RGFeV: RG.FrenteMaisVerso,
+    CNHF: CNH.Frente,
+    CNHV: CNH.Verso,
+    CNHFV: CNH.FrenteVerso,
+    CNHFeV: CNH.FrenteMaisVerso,
+};
 
 export function createFirebaseData(
-    oldData: Omit<FirebaseCard.Generic,"added"|"updated">,
+    oldData: FirebaseCard.Generic,
     result: UseFullOCR.DataResult,
-    exclude: () => any
-): Omit<FirebaseCard.Generic,"added"|"updated"> {
-    if(oldData.status!=="pendingDocument") throw "UNEXPECTED_CARD_STATUS"
-    const discriminated = UseFullOCR.discriminateResult(result)
-    switch(discriminated.type) {
-        case "RGFV" : return RG.FrenteVerso(oldData,discriminated.result, exclude)
-        case "CNHV" : return CNH.Verso(oldData,discriminated.result, exclude)
-        case "CNHFV": return CNH.FrenteVerso(oldData,discriminated.result, exclude)
-        case "RGF": {
-            if(!("docStatus" in oldData)||(oldData as any).docStatus!=="pendingRGF") return RG.Frente(oldData, discriminated.result, exclude)
-            return RG.FrenteMaisVerso(oldData, discriminated.result, exclude)
-        }
-        case "RGV": {
-            if(!("docStatus" in oldData)||(oldData as any).docStatus!=="pendingRGV") return RG.Verso(oldData, discriminated.result, exclude)
-            return RG.FrenteMaisVerso(oldData, discriminated.result, exclude)
-        }
-        case "CNHF": {
-            if(!("docStatus" in oldData)||(oldData as any).docStatus!=="pendingCNHF") return CNH.Frente(oldData, discriminated.result, exclude)
-            return CNH.FrenteMaisVerso(oldData, discriminated.result, exclude)
-        }
+    exclude: () => any,
+): Omit<FirebaseCard.Generic, "added" | "updated"> {
+    if (oldData.status !== "pendingDocument") throw "UNEXPECTED_CARD_STATUS";
+    const discriminated = UseFullOCR.discriminateResult(result);
+    if ("docStatus" in oldData) {
+        if (oldData.documentType === "rg" && (discriminated.type === "RGF" || discriminated.type === "RGV"))
+            return creator.RGFeV(oldData, discriminated.result, exclude);
+        if (oldData.documentType === "cnh" && discriminated.type === "CNHF")
+            return creator.CNHFeV(oldData, discriminated.result, exclude);
     }
+    return creator[discriminated.type](oldData, discriminated.result as any, exclude);
 }

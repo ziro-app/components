@@ -27,6 +27,9 @@ export type ValidationsKeys =
     | "RGFProbability"
     | "RGVProbability"
     | "RGFVProbability"
+    | "comparison"
+    | "faceCount"
+    | "identical"
     | "selfieProbability";
 
 export type Validations<V extends ValidationsKeys> = Record<V, ValidationResult>;

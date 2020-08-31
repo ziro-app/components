@@ -8,13 +8,13 @@ import { ClassResultsCollection } from "./validations";
  * automática ou manual
  */
 export const messagesThatShouldThrow = tuple(
-    prompt.CONFIDENCE_UNDER_60.name,
-    prompt.DOC_NO_FACE.name,
-    prompt.DOC_TOO_MANY_FACES.name,
-    prompt.SELFIE_NO_FACE.name,
-    prompt.SELFIE_TOO_MANY_FACES.name,
-    prompt.FAILED_COMPARISON.name,
-    prompt.NOT_IDENTICAL.name,
+    prompt.CONFIDENCE_UNDER_60.code,
+    prompt.DOC_NO_FACE.code,
+    prompt.DOC_TOO_MANY_FACES.code,
+    prompt.SELFIE_NO_FACE.code,
+    prompt.SELFIE_TOO_MANY_FACES.code,
+    prompt.FAILED_COMPARISON.code,
+    prompt.NOT_IDENTICAL.code,
 );
 
 /**
@@ -26,7 +26,7 @@ export const messagesThatShouldThrow = tuple(
  */
 export const processResults = (response: Biometry.Response, url: string, results: ClassResultsCollection) => {
     Object.values(results).forEach((result) => {
-        if (result.passed === false && messagesThatShouldThrow.includes(result.reason.name as any))
+        if (result.passed === false && messagesThatShouldThrow.includes(result.reason.code as any))
             throw (result.reason as any).withAdditionalData({ response, url });
     });
 };

@@ -1,13 +1,13 @@
 import { FirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { UseFullOCR } from "../../main";
+import { UseBiometry } from "../../main";
 import { createFirebaseData } from "./createData";
 
 export async function saveSuccessToFirestore(
     firebaseCard: FirebaseCardDocument,
-    result: UseFullOCR.ClassResult,
+    result: UseBiometry.ClassResult,
     FV: typeof import("firebase").firestore.FieldValue,
 ) {
-    const resultData = UseFullOCR.transformResult(result);
+    const resultData = UseBiometry.transformResult(result);
     const oldData = firebaseCard.data();
     const newData = {
         ...createFirebaseData(oldData, resultData, FV.delete),
@@ -19,7 +19,7 @@ export async function saveSuccessToFirestore(
 
 export async function saveFailureToFirestore(
     firebaseCard: FirebaseCardDocument,
-    error: UseFullOCR.Errors.Generic,
+    error: UseBiometry.Errors.Generic,
     FV: typeof import("firebase").firestore.FieldValue,
 ) {
     const errorData = error.getData();

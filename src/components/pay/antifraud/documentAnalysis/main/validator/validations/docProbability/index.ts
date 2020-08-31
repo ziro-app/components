@@ -12,11 +12,15 @@ export type DocProbabilityReason =
 /**
  * Essa validação deve checar se a probabilidade do documento ser verdadeiro, retornada pela next-code
  * atende aos critérios estabelecidos pela Ziro
- * @param firebaseData os dados do cartão salvos no firebase
+ * @param _firebaseData os dados do cartão salvos no firebase
  * @param _zoopData os dados do cartão salvos no zoop
  * @param response a resposta da nextcode após analise da imagem
  */
-export const docProbability: Validation.Function<never, DocProbabilityReason> = (firebaseData, _zoopData, response) => {
+export const docProbability: Validation.Function<never, DocProbabilityReason> = (
+    _firebaseData,
+    _zoopData,
+    response,
+) => {
     const { probability } = response.fileInfo.classifiedAs;
     if (probability < 0.6)
         return { passed: false, reason: prompt.PROBABILITY_UNDER_60.withAdditionalData({ probability }) };

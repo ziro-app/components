@@ -1,4 +1,5 @@
-import { BiometryPromptMessage, BiometryPromptCollection } from "ziro-messages/dist/src/catalogo/antifraude/biometry";
+import { ZiroPromptMessage } from "ziro-messages";
+import { BiometryPromptCollection, BiometryPromptMessage } from "ziro-messages/dist/src/catalogo/antifraude/biometry";
 import { Biometry } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 import { messagesThatShouldThrow } from "./processResults";
 import { ValidationsErrorReasons } from "./validations";
@@ -11,9 +12,15 @@ type BiometryPromptMessageWithResponseAndURL<N extends keyof BiometryPromptColle
     N,
     WithResponseAndURL<D>
 >;
-type SelectMessagesWithResponseAndURL<Messages, Selected> = Messages extends BiometryPromptMessage<infer N, infer D>
-    ? N extends Selected
-        ? BiometryPromptMessageWithResponseAndURL<N, D>
+type SelectMessagesWithResponseAndURL<Messages, Selected> = Messages extends ZiroPromptMessage<
+    infer C,
+    infer N,
+    infer D
+>
+    ? C extends Selected
+        ? N extends keyof BiometryPromptCollection
+            ? BiometryPromptMessageWithResponseAndURL<N, D>
+            : never
         : never
     : never;
 

@@ -8,13 +8,13 @@ import { ClassResultsCollection } from "./validations";
  * para a parte de envio de selfie
  */
 export const messagesThatShouldThrow = tuple(
-    prompt.CANNOT_ANALYZE_FACE.name,
-    prompt.NO_FACE_OBJECT.name,
-    prompt.FIRST_NAME_MISMATCH.name,
-    prompt.SAME_DOC_CNHV.name,
-    prompt.SAME_DOC_RGF.name,
-    prompt.SAME_DOC_RGV.name,
-    prompt.PROBABILITY_UNDER_60.name,
+    prompt.CANNOT_ANALYZE_FACE.code,
+    prompt.NO_FACE_OBJECT.code,
+    prompt.FIRST_NAME_MISMATCH.code,
+    prompt.SAME_DOC_CNHV.code,
+    prompt.SAME_DOC_RGF.code,
+    prompt.SAME_DOC_RGV.code,
+    prompt.PROBABILITY_UNDER_60.code,
 );
 
 /**
@@ -30,7 +30,7 @@ export const processResults = (
     results: ClassResultsCollection,
 ) => {
     Object.values(results).forEach((result) => {
-        if (result.passed === false && messagesThatShouldThrow.includes(result.reason.name as any))
+        if (result.passed === false && messagesThatShouldThrow.includes(result.reason.code as any))
             throw (result.reason as any).withAdditionalData({ response, url });
     });
 };

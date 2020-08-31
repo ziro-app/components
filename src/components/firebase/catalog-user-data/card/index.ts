@@ -79,7 +79,6 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
     if (!cardId) throw new Error("useUploadFirebaseCardPicture was called with no cardId");
 
     const pic = useRef<string>(null);
-    const ref = useRef<import("firebase").storage.Reference>(null);
     const url = useRef<string>(null);
 
     const [task, setTask] = useState<import("firebase").storage.UploadTask>(null);
@@ -90,22 +89,22 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
 
     const upload = useCallback(
         async (picture: string) => {
-            if (picture === pic.current) {
-                if (url.current) return url.current;
-                if (task) return await (await task).ref.getDownloadURL();
+            let taskCompleted: import("firebase").storage.UploadTaskSnapshot;
+            if (picture === pic.current && url.current) return url.current;
+            if (picture === pic.current && task) taskCompleted = await task;
+            else {
+                task?.cancel();
+                pic.current = picture;
+                url.current = null;
+                const uploadTask = storage.ref(`antifraude/${cardId}`).child(cuid()).putString(picture, "data_url");
+                setTask(uploadTask);
+                taskCompleted = await uploadTask;
             }
-            pic.current = picture;
-            url.current = null;
-            const newRef = storage.ref(`antifraude/${cardId}`).child(cuid());
-            ref.current = newRef;
-            const uploadTask = newRef.putString(picture, "data_url");
-            setTask(uploadTask);
-            const taskCompleted = await uploadTask;
             const newUrl = await taskCompleted.ref.getDownloadURL();
             url.current = newUrl;
             return newUrl as string;
         },
-        [pic, task, setTask, ref, storage, cardId, url],
+        [pic, task, setTask, storage, cardId, url],
     );
 
     return [upload, task] as [typeof upload, typeof task];
