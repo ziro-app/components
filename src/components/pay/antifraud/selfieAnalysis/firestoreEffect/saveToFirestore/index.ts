@@ -9,6 +9,7 @@ export async function saveSuccessToFirestore(
 ) {
     const resultData = UseBiometry.transformResult(result);
     const oldData = firebaseCard.data();
+    if (oldData.status !== "pendingSelfie") throw "UNEXPECTED_CARD_STATUS";
     const newData = {
         ...createFirebaseData(oldData, resultData, FV.delete),
         added: oldData.added,

@@ -1,7 +1,7 @@
 import { ClassResultsCollection } from "./validator";
 import { biometry, fullOCR } from "ziro-messages/dist/src/catalogo/antifraude";
 import tuple from "@bit/vitorbarbosa19.ziro.utils.tuple";
-import { FirebaseCard } from "components/firebase/catalog-user-data/card";
+import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 
 const manualApproval = tuple(
     fullOCR.prompt.EXPIRED_DOC.code,

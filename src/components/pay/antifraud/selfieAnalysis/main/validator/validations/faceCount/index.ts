@@ -1,6 +1,6 @@
 import { Validation } from "../types";
 import { BiometryPromptMessage, prompt } from "ziro-messages/dist/src/catalogo/antifraude/biometry";
-import { Biometry } from "components/pay/NextCode/types";
+import { Biometry } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 
 export type FaceCountReason =
     | BiometryPromptMessage<"DOC_TOO_MANY_FACES", { faceCount: Biometry.Response["faceCount"] }>

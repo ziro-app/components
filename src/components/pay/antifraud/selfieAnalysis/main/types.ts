@@ -75,6 +75,10 @@ export namespace UseBiometry {
         export function hasResponse(error: ZiroPromptMessage<string, string, any>): error is WithResponse {
             return "response" in error.additionalData;
         }
+
+        export function hasKnownResponse(error: ZiroPromptMessage<string, string, any>): error is WithKnownResponse {
+            return "response" in error.additionalData && is.Biometry(error.additionalData.response);
+        }
     }
     /**
      * callback state
