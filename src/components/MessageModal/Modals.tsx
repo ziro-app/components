@@ -89,11 +89,12 @@ const SpinnerContainer: React.FC<SP> = ({ message, reactfire, setMessage }) => {
             reactfire && trace.start();
             message.promise.finally(() => {
                 setMessage((old) => {
-                    if (old.code === message.code) return null;
+                    if (old?.code === message.code) return null;
                     else return old;
                 });
                 reactfire && trace.stop();
             });
+            return () => reactfire && trace.stop();
         } else
             setMessage((old) => {
                 if (old.code === message.code) return null;

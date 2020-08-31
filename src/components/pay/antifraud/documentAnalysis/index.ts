@@ -1,7 +1,7 @@
-import { useMemo, useEffect } from "react";
-import { FirebaseCardDocument, useFirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
+import { useMemo } from "react";
+import { useFirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
-import { Storeowner, useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
+import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { useFullOCR } from "./main";
 import { useFirestoreEffect } from "./firestoreEffect";
 import { useSheetEffect } from "./sheetEffect";

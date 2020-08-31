@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.102": {
+    "vitorbarbosa19.ziro/choose-card@0.0.103": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.26": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.27": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -1996,7 +1996,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.45": {
+    "vitorbarbosa19.ziro/message-modal@0.0.46": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2097,7 +2097,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.20": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.21": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2320,7 +2320,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.9": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.10": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
@@ -2332,7 +2332,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.12": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.13": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -2395,6 +2395,11 @@
                 "name": "scores.ts"
             },
             {
+                "relativePath": "src/components/pay/NextCode/types/FullOCR/typeChecks.ts",
+                "test": false,
+                "name": "typeChecks.ts"
+            },
+            {
                 "relativePath": "src/components/pay/NextCode/types/index.ts",
                 "test": false,
                 "name": "index.ts"
@@ -2408,6 +2413,11 @@
                 "relativePath": "src/components/pay/NextCode/types/stats.ts",
                 "test": false,
                 "name": "stats.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCode/types/typeChecks.ts",
+                "test": false,
+                "name": "typeChecks.ts"
             }
         ],
         "mainFile": "src/components/pay/NextCode/index.ts",
@@ -2812,7 +2822,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.38": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.39": {
         "files": [
             {
                 "name": "index.ts",

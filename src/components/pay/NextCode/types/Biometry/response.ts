@@ -10,3 +10,4 @@ export const biometryResponseTemplate = {
 };
 
 export type Response = typeof biometryResponseTemplate;
+export type TypeCheck = (obj: any) => obj is Response;

@@ -1,5 +1,5 @@
 import axios, { CancelToken } from "axios";
-import { FullOCR, Biometry } from "./types";
+import { FullOCR, Biometry, is } from "./types";
 import { request, response } from "./interceptors";
 import { instanceConfig, URLs } from "./constants";
 
@@ -8,8 +8,7 @@ const nextCode = axios.create(instanceConfig);
 nextCode.interceptors.request.use(request.onFulfilled, request.onRejected);
 nextCode.interceptors.response.use(response.onFulfilled, response.onRejected);
 
-// const { is } = FullOCR;
-export { Biometry, FullOCR, URLs };
+export { Biometry, FullOCR, URLs, is };
 export default nextCode;
 
 export const analiseDocument = (url: string, cancelToken?: CancelToken) =>

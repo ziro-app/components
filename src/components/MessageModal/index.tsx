@@ -14,34 +14,34 @@ const MessageModal: React.FC<Props> = ({
     boxConfig = defaultProps.boxConfig,
 }) => {
     const [message, setMessage] = React.useState<Message | null>(null);
-    const [reject, setReject] = React.useState<Rejecter | null>(null);
+    const [, setReject] = React.useState<Rejecter | null>(null);
 
     const onButtonClick = React.useCallback(
         (button: "first" | "second") => {
-            let result: Message = null;
-            if (isPrompt(message)) {
-                if (button === "first") result = message.firstButton?.action() ?? null;
-                if (button === "second") result = message.secondButton?.action() ?? null;
-            }
-            setMessage((old) => {
-                if (old.code !== message.code) return old;
-                setReject(null);
-                return result;
+            setMessage((currentMessage) => {
+                if (isPrompt(currentMessage)) {
+                    setReject(null);
+                    if (button === "first") return currentMessage.firstButton?.action() ?? null;
+                    if (button === "second") return currentMessage.secondButton?.action() ?? null;
+                }
+                return null;
             });
         },
-        [setMessage, setReject, message, isPrompt, isWaiting],
+        [setMessage, setReject, isPrompt],
     );
 
     const onOverlayClick = React.useCallback(() => {
         setMessage((currentMessage) => {
-            if (isWaiting(currentMessage)) return currentMessage;
             if (isPrompt(currentMessage)) {
-                if (reject !== null) reject();
-                setReject(null);
+                setReject((currentReject) => {
+                    if (currentReject) currentReject();
+                    return null;
+                });
                 return null;
             }
+            return currentMessage;
         });
-    }, [setMessage, reject, setReject, isPrompt, isWaiting]);
+    }, [setMessage, setReject, isPrompt]);
 
     return (
         <MessagesContext.Provider value={{ setMessage, setReject }}>

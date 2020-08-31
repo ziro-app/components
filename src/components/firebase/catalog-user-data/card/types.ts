@@ -1,5 +1,6 @@
 import { ZiroPromptFullData } from "ziro-messages";
 import { File, Validations, DataFields, ImageFields } from "./helperTypes";
+import { Replace } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 
 export namespace FirebaseCard {
     export type Status = "pendingDocument" | "pendingSelfie" | "pendingManualApproval" | "approved";
@@ -79,7 +80,7 @@ export namespace FirebaseCard {
 
     export type BeforeSelfiePhase = RGFV | RGFeV | CNHF | CNHFV | CNHFeV;
 
-    export type AfterAntifraud = BeforeSelfiePhase & {
+    export type AfterAntifraud = Replace<BeforeSelfiePhase, "status", "approved" | "pendingManualApproval"> & {
         selfie: File<"SELFIE">;
         validations: Validations<"selfieProbability">;
     };
