@@ -5,7 +5,7 @@ import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-dat
 
 const manualApproval = tuple(
     fullOCR.prompt.EXPIRED_DOC.code,
-    fullOCR.prompt.FIRST_NAME_MISMATCH.code,
+    fullOCR.prompt.LAST_NAME_MISMATCH.code,
     fullOCR.prompt.PROBABILITY_UNDER_90.code,
     biometry.prompt.CONFIDENCE_UNDER_90.code,
 );

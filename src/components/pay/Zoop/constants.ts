@@ -9,4 +9,5 @@ export const instanceConfig: import("axios").AxiosRequestConfig = {
         createCardToken: "/token-card-create",
         associateCard: "/card-associate",
         createBuyer: "/buyer-create",
+        createPayment: "/payments-create",
     };
