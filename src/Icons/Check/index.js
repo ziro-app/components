@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Scaffold } from '../Scaffold'
 
-export const ChevronRight = ({ style, onClick, size, color, strokeWidth }) =>
+export const Check = ({ style, onClick, size, color, strokeWidth }) =>
 	<Scaffold
 		svgPath={
 			<>
@@ -16,7 +16,7 @@ export const ChevronRight = ({ style, onClick, size, color, strokeWidth }) =>
 		strokeWidth={strokeWidth}
 	/>
 
-ChevronRight.propTypes = {
+Check.propTypes = {
 	style: PropTypes.object,
 	onClick: PropTypes.func,
 	size: PropTypes.number,
