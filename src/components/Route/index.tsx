@@ -49,15 +49,33 @@ export const Switch: React.FC<SwitchProps> = ({
     if (index === -1) return null;
 
     //if route is public only and user is logged
-    if (element.props.publicOnly && user) return <>{element.props.fallback || defaultPublicOnlyFallback}</>;
+    if (element.props.publicOnly && user)
+        return (
+            <>
+                {element.props.helmet || null}
+                {element.props.fallback || defaultPublicOnlyFallback}
+            </>
+        );
     //if route is provate only and user is unlogged
-    if (element.props.privateOnly && !user) return <>{element.props.fallback || defaultPrivateOnlyFallback}</>;
+    if (element.props.privateOnly && !user)
+        return (
+            <>
+                {element.props.helmet || null}
+                {element.props.fallback || defaultPrivateOnlyFallback}
+            </>
+        );
     //else render element
     return (
         <SuspenseWithPerf
             traceId={window.location.host + element.props.path}
-            fallback={element.props.fallback || defaultSuspenseFallback}
+            fallback={
+                <>
+                    {element.props.helmet || null}
+                    {element.props.fallback || defaultSuspenseFallback}
+                </>
+            }
         >
+            {element.props.helmet || null}
             {React.cloneElement(element, { match })}
         </SuspenseWithPerf>
     );
@@ -68,6 +86,7 @@ interface CommonProps {
     match?: ReturnType<ReturnType<typeof useRouter>["matcher"]>;
     suspenseFallback?: ReactNode;
     fallback?: ReactNode;
+    helmet?: ReactNode;
 }
 
 interface PublicAndPrivateProps extends CommonProps {

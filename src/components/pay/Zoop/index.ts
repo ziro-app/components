@@ -24,6 +24,6 @@ export const getCard = (card_id: string, cancelToken?: CancelToken) =>
     associateCard = (token: string, customer: string, cancelToken?: CancelToken) =>
         zoop.post<never, AssociateCard.Response>(URLs.associateCard, { token, customer }, { cancelToken }),
     createBuyer = (buyer: CreateBuyer.Request.Unparsed, cancelToken?: CancelToken) =>
-        zoop.post<never, CreateBuyer.Response>(URLs.createBuyer, createBuyerParser(buyer), { cancelToken }),
-    createPayment = (payment: CreatePayment.CreditRequest, cancelToken?: CancelToken) =>
-        zoop.post<never, CreatePayment.Response>(URLs.createPayment, payment, { cancelToken });
+        zoop.post<never, CreateBuyer.Response>(URLs.createBuyer, createBuyerParser(buyer), { cancelToken });
+// createPayment = (payment: CreatePayment.CreditRequest, cancelToken?: CancelToken) =>
+//     zoop.post<never, CreatePayment.Response>(URLs.createPayment, payment, { cancelToken });

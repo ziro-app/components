@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.30": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.31": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -884,6 +884,16 @@
                 "relativePath": "src/components/firebase/catalog-user-data/index.ts",
                 "test": false,
                 "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/user-data/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/firebase/catalog-user-data/user-data/types.ts",
+                "test": false,
+                "name": "types.ts"
             }
         ],
         "mainFile": "src/components/firebase/catalog-user-data/index.ts",
