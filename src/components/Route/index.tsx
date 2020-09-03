@@ -7,6 +7,7 @@ interface SwitchProps {
     defaultPrivateOnlyFallback: ReactNode;
     defaultPublicOnlyFallback: ReactNode;
     defaultSuspenseFallback?: ReactNode;
+    reactfire?: boolean;
 }
 
 export const Switch: React.FC<SwitchProps> = ({
@@ -14,11 +15,12 @@ export const Switch: React.FC<SwitchProps> = ({
     defaultPrivateOnlyFallback,
     defaultPublicOnlyFallback,
     defaultSuspenseFallback = SuspenseFallback({}),
+    reactfire = false,
 }) => {
     const { matcher } = useRouter();
     const [location] = useLocation();
     const user = useUser<any>();
-    const analytics = useAnalytics();
+    const analytics = reactfire && useAnalytics();
 
     const childrenArray = useMemo(() => (Array.isArray(children) ? children : [children]), [children]);
     const usableChildren = useMemo<ReactElement[]>(() => childrenArray.filter(isValidElement), [childrenArray]);
@@ -32,7 +34,7 @@ export const Switch: React.FC<SwitchProps> = ({
     const match = useMemo(() => matches[index], [matches, index]);
 
     useEffect(() => {
-        if (element) {
+        if (reactfire && element) {
             analytics.setCurrentScreen(window.location.host + element.props.path);
             analytics.logEvent("page_view", {
                 app_name: window.location.host,
@@ -42,6 +44,7 @@ export const Switch: React.FC<SwitchProps> = ({
     }, [index]);
 
     useEffect(() => {
+        if (!reactfire) return;
         if (user) analytics.setUserId(user.uid);
         if (!user) analytics.setUserId("anonymous");
     }, [user]);
@@ -52,7 +55,7 @@ export const Switch: React.FC<SwitchProps> = ({
     if (element.props.publicOnly && user)
         return (
             <>
-                {element.props.helmet || null}
+                {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
                 {element.props.fallback || defaultPublicOnlyFallback}
             </>
         );
@@ -60,7 +63,7 @@ export const Switch: React.FC<SwitchProps> = ({
     if (element.props.privateOnly && !user)
         return (
             <>
-                {element.props.helmet || null}
+                {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
                 {element.props.fallback || defaultPrivateOnlyFallback}
             </>
         );
@@ -70,12 +73,12 @@ export const Switch: React.FC<SwitchProps> = ({
             traceId={window.location.host + element.props.path}
             fallback={
                 <>
-                    {element.props.helmet || null}
+                    {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
                     {element.props.fallback || defaultSuspenseFallback}
                 </>
             }
         >
-            {element.props.helmet || null}
+            {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
             {React.cloneElement(element, { match })}
         </SuspenseWithPerf>
     );
