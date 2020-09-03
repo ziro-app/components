@@ -71,12 +71,7 @@ export const Switch: React.FC<SwitchProps> = ({
     return (
         <SuspenseWithPerf
             traceId={window.location.host + element.props.path}
-            fallback={
-                <>
-                    {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
-                    {element.props.fallback || defaultSuspenseFallback}
-                </>
-            }
+            fallback={element.props.fallback || defaultSuspenseFallback}
         >
             {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
             {React.cloneElement(element, { match })}
