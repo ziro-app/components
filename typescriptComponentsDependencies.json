@@ -24,13 +24,13 @@
     },
     "firebase/catalog-user-data": {
         "dependencies": {
-            "ziro-messages": "+",
+            "ziro-messages": ">=0.0.37",
             "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
         }
     },
     "message-modal": {
-        "peerDependencies": {
-            "ziro-messages": "+"
+        "dependencies": {
+            "ziro-messages": ">=0.0.37"
         }
     }
 }
