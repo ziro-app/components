@@ -118,17 +118,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "choose-card/card-row": {
                 "env": {
@@ -148,17 +138,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "choose-card": {
                 "env": {
@@ -178,15 +158,6 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
                 },
                 "dependencies": {
                     "recoil": "+"
@@ -210,17 +181,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "message-modal": {
                 "env": {
@@ -240,15 +201,6 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
                 },
                 "dependencies": {
                     "ziro-messages": ">=0.0.37"
@@ -272,17 +224,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "firebase/catalog-user-data": {
                 "env": {
@@ -302,15 +244,6 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
                 },
                 "dependencies": {
                     "ziro-messages": ">=0.0.37",
@@ -335,17 +268,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "firebase/storeowners": {
                 "env": {
@@ -365,17 +288,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "pay/next-code": {
                 "env": {
@@ -395,17 +308,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "pay/zoop": {
                 "env": {
@@ -425,17 +328,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "pay/antifraud": {
                 "env": {
@@ -455,15 +348,6 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
                 },
                 "dependencies": {
                     "@ziro/format-date-utc3": "+"
@@ -487,17 +371,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "pay/zoop-registration": {
                 "env": {
@@ -517,17 +391,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/async-hooks": {
                 "env": {
@@ -547,17 +411,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/axios": {
                 "env": {
@@ -577,17 +431,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/check-against-template": {
                 "env": {
@@ -607,17 +451,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/create-firestore-url": {
                 "env": {
@@ -637,17 +471,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/sheets": {
                 "env": {
@@ -667,17 +491,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/string": {
                 "env": {
@@ -697,17 +511,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/tuple": {
                 "env": {
@@ -727,17 +531,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             },
             "utils/whatsapp": {
                 "env": {
@@ -757,17 +551,7 @@
                             }
                         }
                     }
-                },
-                "peerDependencies": {
-                    "react": ">=16.9.0",
-                    "react-dom": ">=16.9.0"
-                },
-                "devDependencies": {
-                    "@types/node": ">=14.6.0",
-                    "@types/react": ">=16.9.0",
-                    "@types/react-dom": ">=16.9.0"
-                },
-                "dependencies": {}
+                }
             }
         }
     }
