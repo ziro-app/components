@@ -183,7 +183,7 @@
         }
       },
       "message-modal": {
-        "dependencies": {
+        "peerDependencies": {
           "ziro-messages": "+"
         },
         "env": {

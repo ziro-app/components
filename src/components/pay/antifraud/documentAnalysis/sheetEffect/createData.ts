@@ -32,5 +32,19 @@ export const createSheetData = (
 
     const extractedData = extractData(firebaseCard.data(), error);
 
-    return [[date, errorName, cnpj, razao, name, holderName, cardNumber, expiry, ...extractedData]];
+    return [
+        [
+            date,
+            error.code,
+            errorName,
+            error.internalDescription,
+            cnpj,
+            razao,
+            name,
+            holderName,
+            cardNumber,
+            expiry,
+            ...extractedData,
+        ],
+    ];
 };

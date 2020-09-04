@@ -44,7 +44,7 @@ type BP = {
 };
 
 const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) => {
-    const analytics = reactfire && useAnalytics();
+    const analytics = reactfire ? useAnalytics() : undefined;
 
     const cta = React.useMemo(() => {
         if (message.firstButton) return message.firstButton.title;
@@ -62,7 +62,7 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) =
     );
 
     React.useEffect(() => {
-        reactfire && analytics.logEvent(message.code + " : " + message.name, message.getData());
+        analytics?.logEvent(message.code + " : " + message.name, message.getData());
     }, [message.code]);
 
     return (
@@ -82,19 +82,23 @@ type SP = {
 };
 
 const SpinnerContainer: React.FC<SP> = ({ message, reactfire, setMessage }) => {
-    const performance = reactfire && usePerformance();
+    const performance = reactfire ? usePerformance() : undefined;
     React.useEffect(() => {
         if (message.promise) {
-            const trace = reactfire && performance.trace(message.code + " : " + message.name);
-            reactfire && trace.start();
+            let trace = performance?.trace(message.code + " : " + message.name);
+            trace?.start();
             message.promise.finally(() => {
                 setMessage((old) => {
                     if (old?.code === message.code) return null;
                     else return old;
                 });
-                reactfire && trace.stop();
+                trace?.stop();
+                trace = null;
             });
-            return () => reactfire && trace.stop();
+            return () => {
+                trace?.stop();
+                trace = null;
+            };
         } else
             setMessage((old) => {
                 if (old.code === message.code) return null;
