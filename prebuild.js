@@ -14,7 +14,7 @@ const checkDep = (name, n, c) => (!c && n === name) || (c === "*" && name.includ
 //env
 const setEnv = (path) => ({
     compiler: {
-        "bit.envs/compilers/react-typescript": {
+        "vitorbarbosa19.ziro/compilers/react-typescript": {
             rawConfig: {
                 tsconfig: {
                     compilerOptions: {
