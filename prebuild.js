@@ -39,20 +39,7 @@ components.forEach(([path, name]) => {
     //write override
     packageJson.bit.overrides[name] = {
         env: setEnv(path),
-        peerDependencies: {
-            ...(deps.peerDependencies || {}),
-            react: ">=16.9.0",
-            "react-dom": ">=16.9.0",
-        },
-        devDependencies: {
-            ...(deps.devDependencies || {}),
-            "@types/node": ">=14.6.0",
-            "@types/react": ">=16.9.0",
-            "@types/react-dom": ">=16.9.0",
-        },
-        dependencies: {
-            ...(deps.dependencies || {}),
-        },
+        ...deps,
     };
     //set tsconfig paths
     tsconfigJson.compilerOptions.paths[`@bit/vitorbarbosa19.ziro.${name.replace("/", ".")}`] = [`components/${path}`];
