@@ -1,23 +1,34 @@
 {
     "choose-card": {
-        "dependencies": {
+        "peerDependencies": {
             "recoil": "+"
         }
     },
     "pay/antifraud": {
-        "dependencies": {
+        "peerDependencies": {
+            "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54",
             "@ziro/format-date-utc3": "+"
         }
     },
     "firebase/catalog-user-data": {
-        "dependencies": {
-            "ziro-messages": ">=0.0.37",
-            "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
+        "peerDependencies": {
+            "@bit/vitorbarbosa19.ziro.pay.next-code": ">=0.0.16",
+            "ziro-messages": ">=0.0.37"
         }
     },
     "message-modal": {
-        "dependencies": {
+        "peerDependencies": {
             "ziro-messages": ">=0.0.37"
+        }
+    },
+    "utils/async-hooks": {
+        "peerDependencies": {
+            "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54"
+        }
+    },
+    "pay/card-lifecycle": {
+        "peerDependencies": {
+            "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54"
         }
     }
 }

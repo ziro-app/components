@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.110": {
+    "vitorbarbosa19.ziro/choose-card@0.0.111": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
@@ -554,7 +554,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/component-suspense-fallback@0.0.4": {
+    "vitorbarbosa19.ziro/component-suspense-fallback@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ComponentSuspenseFallback/index.tsx",
@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.33": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.34": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -900,7 +900,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.3": {
+    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/firebase/credit-card-payments/hookTypes.ts",
@@ -922,7 +922,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.10": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.11": {
         "files": [
             {
                 "relativePath": "src/components/firebase/storeowners/hookTypes.ts",
@@ -2006,7 +2006,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.54": {
+    "vitorbarbosa19.ziro/message-modal@0.0.55": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2107,7 +2107,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.27": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.28": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2444,7 +2444,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.15": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.16": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
@@ -2456,7 +2456,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/next-code@0.0.16": {
+    "vitorbarbosa19.ziro/pay/next-code@0.0.17": {
         "files": [
             {
                 "relativePath": "src/components/pay/NextCode/constants.ts",
@@ -2548,7 +2548,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop-registration@0.0.7": {
+    "vitorbarbosa19.ziro/pay/zoop-registration@0.0.8": {
         "files": [
             {
                 "relativePath": "src/components/pay/zoopRegistration/index.ts",
@@ -2560,7 +2560,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.10": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.11": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",
@@ -2663,7 +2663,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.19": {
+    "vitorbarbosa19.ziro/route@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/Route/index.tsx",
@@ -2951,7 +2951,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.42": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.43": {
         "files": [
             {
                 "name": "index.ts",
@@ -2983,7 +2983,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/axios@0.0.6": {
+    "vitorbarbosa19.ziro/utils/axios@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/utils/axios/axiosTypes.ts",
@@ -3005,7 +3005,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/check-against-template@0.0.6": {
+    "vitorbarbosa19.ziro/utils/check-against-template@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/utils/checkAgainstTemplate/index.ts",
@@ -3017,7 +3017,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/create-firestore-url@0.0.6": {
+    "vitorbarbosa19.ziro/utils/create-firestore-url@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/utils/createFirestoreURL/index.ts",
@@ -3029,7 +3029,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/sheets@0.0.11": {
+    "vitorbarbosa19.ziro/utils/sheets@0.0.12": {
         "files": [
             {
                 "relativePath": "src/components/utils/sheets/constants.ts",
@@ -3051,7 +3051,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/string@0.0.3": {
+    "vitorbarbosa19.ziro/utils/string@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/utils/string/index.ts",
@@ -3063,7 +3063,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/tuple@0.0.6": {
+    "vitorbarbosa19.ziro/utils/tuple@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/utils/tuple/index.ts",
@@ -3075,7 +3075,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/whatsapp@0.0.6": {
+    "vitorbarbosa19.ziro/utils/whatsapp@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/utils/whatsapp/constants.ts",

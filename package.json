@@ -84,10 +84,6 @@
         "wouter": "^2.5.0",
         "ziro-messages": "0.0.37"
     },
-    "peerDependencies": {
-        "react": ">=16.9.0",
-        "react-dom": ">=16.9.0"
-    },
     "bit": {
         "env": {
             "compiler": "bit.envs/compilers/react"
@@ -159,7 +155,7 @@
                         }
                     }
                 },
-                "dependencies": {
+                "peerDependencies": {
                     "recoil": "+"
                 }
             },
@@ -202,7 +198,7 @@
                         }
                     }
                 },
-                "dependencies": {
+                "peerDependencies": {
                     "ziro-messages": ">=0.0.37"
                 }
             },
@@ -245,9 +241,9 @@
                         }
                     }
                 },
-                "dependencies": {
-                    "ziro-messages": ">=0.0.37",
-                    "@bit/vitorbarbosa19.ziro.pay.next-code": "+"
+                "peerDependencies": {
+                    "@bit/vitorbarbosa19.ziro.pay.next-code": "+",
+                    "ziro-messages": ">=0.0.37"
                 }
             },
             "firebase/credit-card-payments": {
@@ -349,7 +345,8 @@
                         }
                     }
                 },
-                "dependencies": {
+                "peerDependencies": {
+                    "@bit/vitorbarbosa19.ziro.message-modal": "+",
                     "@ziro/format-date-utc3": "+"
                 }
             },
@@ -371,6 +368,9 @@
                             }
                         }
                     }
+                },
+                "peerDependencies": {
+                    "@bit/vitorbarbosa19.ziro.message-modal": "+"
                 }
             },
             "pay/zoop-registration": {
@@ -411,6 +411,9 @@
                             }
                         }
                     }
+                },
+                "peerDependencies": {
+                    "@bit/vitorbarbosa19.ziro.message-modal": "+"
                 }
             },
             "utils/axios": {
