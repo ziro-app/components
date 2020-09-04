@@ -1,46 +1,62 @@
-const fs = require('fs');
+const fs = require("fs");
 
 //get jsons
-const packageJson = require('./package.json');
-const dependenciesJson = require('./typescriptComponentsDependencies.json');
-const tsconfigJson = require('./tsconfig.json');
+const packageJson = require("./package.json");
+const dependenciesJson = require("./typescriptComponentsDependencies.json");
+const tsconfigJson = require("./tsconfig.json");
 
 //get Components
-const components = require('./typescriptComponents')
+const components = require("./typescriptComponents");
 
 //check dep
-const checkDep = (name,n,c) => (!c&&n===name)||(c==="*"&&name.includes(n))||(name===n+"/"+c)
+const checkDep = (name, n, c) => (!c && n === name) || (c === "*" && name.includes(n)) || name === n + "/" + c;
 
 //env
 const setEnv = (path) => ({
-  "compiler": {
-    "bit.envs/compilers/react-typescript": {
-      "rawConfig": {
-        "tsconfig": {
-          "compilerOptions": {
-            "outDir": `./dist/src/components/${path}`,
-            "target": "ES5",
-            "module": "CommonJS",
-            "inlineSources": true,
-            "inlineSourceMap": true,
-            "removeComments": false
-          }
-        }
-      }
-    }
-  }
-})
+    compiler: {
+        "bit.envs/compilers/react-typescript": {
+            rawConfig: {
+                tsconfig: {
+                    compilerOptions: {
+                        outDir: `./dist/src/components/${path}`,
+                        target: "ES5",
+                        module: "CommonJS",
+                        inlineSources: true,
+                        inlineSourceMap: true,
+                        removeComments: false,
+                    },
+                },
+            },
+        },
+    },
+});
 
-packageJson.bit.overrides = {}
-tsconfigJson.compilerOptions.paths = {}
-components.forEach(([path,name]) => {
+packageJson.bit.overrides = {};
+tsconfigJson.compilerOptions.paths = {};
+components.forEach(([path, name]) => {
     //get extra dependencies
-    const [,deps] = Object.entries(dependenciesJson).find(([key]) => checkDep(name,...key.split("/")))||[null,{}]
+    const [, deps] = Object.entries(dependenciesJson).find(([key]) => checkDep(name, ...key.split("/"))) || [null, {}];
     //write override
-    packageJson.bit.overrides[name] = { ...deps, env: setEnv(path) }
+    packageJson.bit.overrides[name] = {
+        env: setEnv(path),
+        peerDependencies: {
+            ...(deps.peerDependencies || {}),
+            react: "<=16.9.0",
+            "react-dom": "<=16.9.0",
+        },
+        devDependencies: {
+            ...(deps.devDependencies || {}),
+            "@types/node": "<=14.6.0",
+            "@types/react": "<=16.9.0",
+            "@types/react-dom": "<=16.9.0",
+        },
+        dependencies: {
+            ...(deps.dependencies || {}),
+        },
+    };
     //set tsconfig paths
-    tsconfigJson.compilerOptions.paths[`@bit/vitorbarbosa19.ziro.${name.replace("/",".")}`] = [`components/${path}`]
-})
+    tsconfigJson.compilerOptions.paths[`@bit/vitorbarbosa19.ziro.${name.replace("/", ".")}`] = [`components/${path}`];
+});
 
-fs.writeFileSync(__dirname+"/package.json",JSON.stringify(packageJson,null,2))
-fs.writeFileSync(__dirname+"/tsconfig.json",JSON.stringify(tsconfigJson,null,2))
+fs.writeFileSync(__dirname + "/package.json", JSON.stringify(packageJson, null, 2));
+fs.writeFileSync(__dirname + "/tsconfig.json", JSON.stringify(tsconfigJson, null, 2));

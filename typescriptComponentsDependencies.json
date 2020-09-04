@@ -1,23 +1,10 @@
 {
-    "utils/*": {
-        "devDependencies": {
-            "@types/node": "+"
-        }
-    },
     "choose-card": {
         "dependencies": {
             "recoil": "+"
         }
     },
-    "pay/*": {
-        "devDependencies": {
-            "@types/node": "+"
-        }
-    },
     "pay/antifraud": {
-        "devDependencies": {
-            "@types/node": "+"
-        },
         "dependencies": {
             "@ziro/format-date-utc3": "+"
         }
