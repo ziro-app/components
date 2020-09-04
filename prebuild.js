@@ -41,14 +41,14 @@ components.forEach(([path, name]) => {
         env: setEnv(path),
         peerDependencies: {
             ...(deps.peerDependencies || {}),
-            react: "<=16.9.0",
-            "react-dom": "<=16.9.0",
+            react: ">=16.9.0",
+            "react-dom": ">=16.9.0",
         },
         devDependencies: {
             ...(deps.devDependencies || {}),
-            "@types/node": "<=14.6.0",
-            "@types/react": "<=16.9.0",
-            "@types/react-dom": "<=16.9.0",
+            "@types/node": ">=14.6.0",
+            "@types/react": ">=16.9.0",
+            "@types/react-dom": ">=16.9.0",
         },
         dependencies: {
             ...(deps.dependencies || {}),
