@@ -1,561 +1,581 @@
 {
-    "name": "components",
-    "version": "1.0.0",
-    "description": "Component library for Ziro",
-    "main": "index.js",
-    "scripts": {
-        "prestart": "node ./prebuild.js && bit link && bit build",
-        "prebuild": "node ./prebuild.js && bit link && bit build",
-        "postinstall": "npm dedupe",
-        "start": "parcel src/index.html",
-        "build": "parcel build src/index.html",
-        "docz:dev": "docz dev",
-        "docz:build": "docz build",
-        "docz:serve": "docz build && docz serve"
+  "name": "components",
+  "version": "1.0.0",
+  "description": "Component library for Ziro",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "node ./prebuild.js && bit link && bit build",
+    "prebuild": "node ./prebuild.js && bit link && bit build",
+    "postinstall": "npm dedupe",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
+  },
+  "keywords": [],
+  "author": "Vitor Barbosa",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@types/node": ">=14.6.0",
+    "@types/react": ">=16.9.11",
+    "@types/react-dom": ">=16.9.4",
+    "@types/webfontloader": "^1.6.32",
+    "@typescript-eslint/eslint-plugin": "3.9.1",
+    "@typescript-eslint/parser": "3.9.1",
+    "babel-eslint": "10.1.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-airbnb-typescript": "9.0.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-config-react-app": "5.2.1",
+    "eslint-import-resolver-typescript": "2.2.1",
+    "eslint-loader": "4.0.2",
+    "eslint-plugin-flowtype": "5.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react-hooks": "4.1.0",
+    "firebase": "^7.17.1",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "2.0.5",
+    "prettier-eslint": "11.0.0",
+    "prettier-eslint-cli": "5.0.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "@bit/vitorbarbosa19.ziro.illustration": "^0.1.13",
+    "@sentry/react": "^5.20.1",
+    "@types/react": "^16.9.11",
+    "@ziro/capitalize": "^1.0.0",
+    "@ziro/currency-format": "^1.0.2",
+    "@ziro/format-date-utc3": "^2.0.1",
+    "@ziro/mask-input": "^1.0.0",
+    "@ziro/theme": "^1.0.3",
+    "caniuse-lite": "^1.0.30001107",
+    "cuid": "^2.1.8",
+    "docz": "^2.3.1",
+    "framer-motion": "^1.11.1",
+    "gatsby-optional-chaining": "^1.0.1",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "history": "^4.10.1",
+    "is_js": "^0.9.0",
+    "mapbox-gl": "^1.11.1",
+    "moment": "^2.27.0",
+    "react": "^16.13.1",
+    "react-dates": "^21.8.0",
+    "react-day-picker": "^7.4.8",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1",
+    "react-image": "^2.4.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-spring": "^8.0.27",
+    "react-toastify": "^5.5.0",
+    "react-with-direction": "^1.3.1",
+    "reactfire": "^2.0.3",
+    "recoil": "0.0.10",
+    "webfontloader": "^1.6.28",
+    "wouter": "^2.5.0",
+    "ziro-messages": "0.0.37"
+  },
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react"
     },
-    "keywords": [],
-    "author": "Vitor Barbosa",
-    "license": "ISC",
-    "browserslist": [
-        "last 1 Chrome version"
-    ],
-    "devDependencies": {
-        "@babel/core": "^7.11.4",
-        "@babel/plugin-proposal-optional-chaining": "^7.11.0",
-        "@types/node": ">=14.6.0",
-        "@types/react": ">=16.9.11",
-        "@types/react-dom": ">=16.9.4",
-        "@types/webfontloader": "^1.6.32",
-        "@typescript-eslint/eslint-plugin": "3.9.1",
-        "@typescript-eslint/parser": "3.9.1",
-        "babel-eslint": "10.1.0",
-        "eslint-config-airbnb": "18.2.0",
-        "eslint-config-airbnb-typescript": "9.0.0",
-        "eslint-config-prettier": "6.11.0",
-        "eslint-config-react-app": "5.2.1",
-        "eslint-import-resolver-typescript": "2.2.1",
-        "eslint-loader": "4.0.2",
-        "eslint-plugin-flowtype": "5.2.0",
-        "eslint-plugin-import": "2.22.0",
-        "eslint-plugin-jsx-a11y": "6.3.1",
-        "eslint-plugin-prettier": "3.1.4",
-        "eslint-plugin-react": "7.20.6",
-        "eslint-plugin-react-hooks": "4.1.0",
-        "firebase": "^7.17.1",
-        "parcel-bundler": "^1.12.3",
-        "prettier": "2.0.5",
-        "prettier-eslint": "11.0.0",
-        "prettier-eslint-cli": "5.0.0",
-        "typescript": "^4.0.2"
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm",
+    "resolveModules": {
+      "modulesDirectories": [
+        "src/components"
+      ]
     },
-    "dependencies": {
-        "@babel/runtime": "^7.10.5",
-        "@bit/vitorbarbosa19.ziro.illustration": "^0.1.13",
-        "@sentry/react": "^5.20.1",
-        "@types/react": "^16.9.11",
-        "@ziro/capitalize": "^1.0.0",
-        "@ziro/currency-format": "^1.0.2",
-        "@ziro/format-date-utc3": "^2.0.1",
-        "@ziro/mask-input": "^1.0.0",
-        "@ziro/theme": "^1.0.3",
-        "caniuse-lite": "^1.0.30001107",
-        "cuid": "^2.1.8",
-        "docz": "^2.3.1",
-        "framer-motion": "^1.11.1",
-        "gatsby-optional-chaining": "^1.0.1",
-        "gatsby-plugin-web-font-loader": "^1.0.4",
-        "history": "^4.10.1",
-        "is_js": "^0.9.0",
-        "mapbox-gl": "^1.11.1",
-        "moment": "^2.27.0",
-        "react": "^16.13.1",
-        "react-dates": "^21.8.0",
-        "react-day-picker": "^7.4.8",
-        "react-dom": "^16.13.1",
-        "react-helmet": "^5.2.1",
-        "react-image": "^2.4.0",
-        "react-loading-skeleton": "^2.1.1",
-        "react-spring": "^8.0.27",
-        "react-toastify": "^5.5.0",
-        "react-with-direction": "^1.3.1",
-        "reactfire": "^2.0.3",
-        "recoil": "0.0.10",
-        "webfontloader": "^1.6.28",
-        "wouter": "^2.5.0",
-        "ziro-messages": "0.0.37"
-    },
-    "bit": {
+    "overrides": {
+      "choose-card/add-card": {
         "env": {
-            "compiler": "bit.envs/compilers/react"
-        },
-        "componentsDefaultDirectory": "components/{name}",
-        "packageManager": "npm",
-        "resolveModules": {
-            "modulesDirectories": [
-                "src/components"
-            ]
-        },
-        "overrides": {
-            "choose-card/add-card": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/ChooseCard/AddCard",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/ChooseCard/AddCard",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-            },
-            "choose-card/card-row": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/ChooseCard/CardRow",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "choose-card": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/ChooseCard",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "peerDependencies": {
-                    "recoil": "+"
-                }
-            },
-            "component-suspense-fallback": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/ComponentSuspenseFallback",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "message-modal": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/MessageModal",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "peerDependencies": {
-                    "ziro-messages": ">=0.0.37"
-                }
-            },
-            "route": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/Route",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "firebase/catalog-user-data": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/firebase/catalog-user-data",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "peerDependencies": {
-                    "@bit/vitorbarbosa19.ziro.pay.next-code": "+",
-                    "ziro-messages": ">=0.0.37"
-                }
-            },
-            "firebase/credit-card-payments": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/firebase/credit-card-payments",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "firebase/storeowners": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/firebase/storeowners",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "pay/next-code": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/NextCode",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "pay/zoop": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/Zoop",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "pay/antifraud": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/antifraud",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "peerDependencies": {
-                    "@bit/vitorbarbosa19.ziro.message-modal": "+",
-                    "@ziro/format-date-utc3": "+"
-                }
-            },
-            "pay/card-lifecycle": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/cardLifecycle",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "peerDependencies": {
-                    "@bit/vitorbarbosa19.ziro.message-modal": "+"
-                }
-            },
-            "pay/zoop-registration": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/zoopRegistration",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/async-hooks": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/asyncHooks",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "peerDependencies": {
-                    "@bit/vitorbarbosa19.ziro.message-modal": "+"
-                }
-            },
-            "utils/axios": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/axios",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/check-against-template": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/checkAgainstTemplate",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/create-firestore-url": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/createFirestoreURL",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/sheets": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/sheets",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/string": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/string",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/tuple": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/tuple",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "utils/whatsapp": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/whatsapp",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+              }
             }
+          }
         }
+      },
+      "choose-card/card-row": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/ChooseCard/CardRow",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "choose-card": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/ChooseCard",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peerDependencies": {
+          "recoil": "+"
+        },
+        "dependencies": {
+          "recoil": "-"
+        }
+      },
+      "component-suspense-fallback": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/ComponentSuspenseFallback",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "message-modal": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/MessageModal",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peerDependencies": {
+          "ziro-messages": ">=0.0.37"
+        },
+        "dependencies": {
+          "ziro-messages": "-"
+        }
+      },
+      "route": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/Route",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "firebase/catalog-user-data": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/catalog-user-data",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.pay.next-code": ">=0.0.16",
+          "ziro-messages": ">=0.0.37"
+        },
+        "dependencies": {
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "-",
+          "ziro-messages": "-"
+        }
+      },
+      "firebase/credit-card-payments": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/credit-card-payments",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "firebase/storeowners": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/storeowners",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "pay/next-code": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/NextCode",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "pay/zoop": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/Zoop",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "pay/antifraud": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/antifraud",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54",
+          "@ziro/format-date-utc3": "+"
+        },
+        "dependencies": {
+          "@bit/vitorbarbosa19.ziro.message-modal": "-",
+          "@ziro/format-date-utc3": "-"
+        }
+      },
+      "pay/card-lifecycle": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/cardLifecycle",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54"
+        },
+        "dependencies": {
+          "@bit/vitorbarbosa19.ziro.message-modal": "-"
+        }
+      },
+      "pay/zoop-registration": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/zoopRegistration",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/async-hooks": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/asyncHooks",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54"
+        },
+        "dependencies": {
+          "@bit/vitorbarbosa19.ziro.message-modal": "-"
+        }
+      },
+      "utils/axios": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/axios",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/check-against-template": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/checkAgainstTemplate",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/create-firestore-url": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/createFirestoreURL",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/sheets": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/sheets",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/string": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/string",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/tuple": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/tuple",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "utils/whatsapp": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/whatsapp",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

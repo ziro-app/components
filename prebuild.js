@@ -36,6 +36,12 @@ tsconfigJson.compilerOptions.paths = {};
 components.forEach(([path, name]) => {
     //get extra dependencies
     const [, deps] = Object.entries(dependenciesJson).find(([key]) => checkDep(name, ...key.split("/"))) || [null, {}];
+    if (deps.peerDependencies) {
+        deps.dependencies = {
+            ...(deps.dependencies || {}),
+            ...Object.entries(deps.peerDependencies).reduce((acc, [key]) => ({ ...acc, [key]: "-" }), {}),
+        };
+    }
     //write override
     packageJson.bit.overrides[name] = {
         env: setEnv(path),
