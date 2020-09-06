@@ -58,6 +58,7 @@
     "@ziro/format-date-utc3": "^2.0.1",
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
+    "axios": "^0.20.0",
     "caniuse-lite": "^1.0.30001107",
     "cuid": "^2.1.8",
     "docz": "^2.3.1",
@@ -96,46 +97,6 @@
       ]
     },
     "overrides": {
-      "choose-card/add-card": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/ChooseCard/AddCard",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "choose-card/card-row": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/ChooseCard/CardRow",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "choose-card": {
         "env": {
           "compiler": {
@@ -155,11 +116,32 @@
             }
           }
         },
-        "peerDependencies": {
-          "recoil": "+"
-        },
         "dependencies": {
-          "recoil": "-"
+          "react": "-",
+          "@types/react": "-",
+          "@ziro/theme": "-",
+          "framer-motion": "-",
+          "@bit/vitorbarbosa19.ziro.icon": "-",
+          "recoil": "-",
+          "react-loading-skeleton": "-",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "-"
+        },
+        "peerDependencies": {
+          "@ziro/theme": "1.0.x",
+          "framer-motion": "1.11.x",
+          "@bit/vitorbarbosa19.ziro.icon": "1.0.x",
+          "recoil": "0.0.x",
+          "react-loading-skeleton": "2.1.x",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
+          "ziro-messages": "0.0.x",
+          "firebase": "7.17.x",
+          "cuid": "2.1.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
+          "reactfire": "2.0.x"
         }
       },
       "component-suspense-fallback": {
@@ -180,7 +162,9 @@
               }
             }
           }
-        }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "message-modal": {
         "env": {
@@ -201,11 +185,25 @@
             }
           }
         },
-        "peerDependencies": {
-          "ziro-messages": ">=0.0.37"
-        },
         "dependencies": {
-          "ziro-messages": "-"
+          "react": "-",
+          "@types/react": "-",
+          "@bit/vitorbarbosa19.ziro.illustration": "-",
+          "@bit/vitorbarbosa19.ziro.button": "-",
+          "@bit/vitorbarbosa19.ziro.spinner": "-",
+          "framer-motion": "-",
+          "ziro-messages": "-",
+          "reactfire": "-",
+          "firebase": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
+          "@bit/vitorbarbosa19.ziro.button": "0.1.x",
+          "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
+          "framer-motion": "1.11.x",
+          "ziro-messages": "0.0.x",
+          "reactfire": "2.0.x",
+          "firebase": "7.17.x"
         }
       },
       "route": {
@@ -226,6 +224,20 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "react": "-",
+          "@types/react": "-",
+          "wouter": "-",
+          "reactfire": "-",
+          "firebase": "-",
+          "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "-"
+        },
+        "peerDependencies": {
+          "wouter": "2.5.x",
+          "reactfire": "2.0.x",
+          "firebase": "7.17.x",
+          "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "0.0.x"
         }
       },
       "firebase/catalog-user-data": {
@@ -247,13 +259,25 @@
             }
           }
         },
-        "peerDependencies": {
-          "@bit/vitorbarbosa19.ziro.pay.next-code": ">=0.0.16",
-          "ziro-messages": ">=0.0.37"
-        },
         "dependencies": {
           "@bit/vitorbarbosa19.ziro.pay.next-code": "-",
-          "ziro-messages": "-"
+          "ziro-messages": "-",
+          "firebase": "-",
+          "cuid": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
+          "react": "-",
+          "@types/react": "-",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
+          "ziro-messages": "0.0.x",
+          "firebase": "7.17.x",
+          "cuid": "2.1.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
+          "reactfire": "2.0.x"
         }
       },
       "firebase/credit-card-payments": {
@@ -274,6 +298,14 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "firebase": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "firebase": "7.17.x",
+          "reactfire": "2.0.x"
         }
       },
       "firebase/storeowners": {
@@ -294,6 +326,14 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "firebase": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "firebase": "7.17.x",
+          "reactfire": "2.0.x"
         }
       },
       "pay/next-code": {
@@ -314,6 +354,16 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "axios": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
         }
       },
       "pay/zoop": {
@@ -334,6 +384,18 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "axios": "-",
+          "@sentry/react": "-",
+          "ziro-messages": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x",
+          "@sentry/react": "5.20.x",
+          "ziro-messages": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
         }
       },
       "pay/antifraud": {
@@ -355,13 +417,42 @@
             }
           }
         },
-        "peerDependencies": {
-          "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54",
-          "@ziro/format-date-utc3": "+"
-        },
         "dependencies": {
-          "@bit/vitorbarbosa19.ziro.message-modal": "-",
-          "@ziro/format-date-utc3": "-"
+          "@bit/vitorbarbosa19.ziro.utils.async-hooks": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "-",
+          "reactfire": "-",
+          "firebase": "-",
+          "ziro-messages": "-",
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "-",
+          "react": "-",
+          "@types/react": "-",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-",
+          "@bit/vitorbarbosa19.ziro.utils.tuple": "-",
+          "@bit/vitorbarbosa19.ziro.utils.string": "-",
+          "@ziro/format-date-utc3": "-",
+          "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": "-",
+          "@bit/vitorbarbosa19.ziro.utils.sheets": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.utils.async-hooks": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "0.0.x",
+          "reactfire": "2.0.x",
+          "firebase": "7.17.x",
+          "ziro-messages": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.tuple": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.string": "0.0.x",
+          "@ziro/format-date-utc3": "2.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
+          "cuid": "2.1.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
+          "axios": "0.20.x"
         }
       },
       "pay/card-lifecycle": {
@@ -383,11 +474,29 @@
             }
           }
         },
-        "peerDependencies": {
-          "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54"
-        },
         "dependencies": {
-          "@bit/vitorbarbosa19.ziro.message-modal": "-"
+          "@bit/vitorbarbosa19.ziro.utils.async-hooks": "-",
+          "@bit/vitorbarbosa19.ziro.message-modal": "-",
+          "ziro-messages": "-",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "-",
+          "react": "-",
+          "@types/react": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.utils.async-hooks": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x",
+          "ziro-messages": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
+          "firebase": "7.17.x",
+          "cuid": "2.1.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
+          "reactfire": "2.0.x"
         }
       },
       "pay/zoop-registration": {
@@ -408,6 +517,18 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
+          "reactfire": "-",
+          "firebase": "-",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
+          "reactfire": "2.0.x",
+          "firebase": "7.17.x",
+          "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x"
         }
       },
       "utils/async-hooks": {
@@ -429,11 +550,15 @@
             }
           }
         },
-        "peerDependencies": {
-          "@bit/vitorbarbosa19.ziro.message-modal": ">=0.0.54"
-        },
         "dependencies": {
+          "react": "-",
+          "@types/react": "-",
+          "ziro-messages": "-",
           "@bit/vitorbarbosa19.ziro.message-modal": "-"
+        },
+        "peerDependencies": {
+          "ziro-messages": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x"
         }
       },
       "utils/axios": {
@@ -454,7 +579,9 @@
               }
             }
           }
-        }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/check-against-template": {
         "env": {
@@ -474,7 +601,9 @@
               }
             }
           }
-        }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/create-firestore-url": {
         "env": {
@@ -494,7 +623,9 @@
               }
             }
           }
-        }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/sheets": {
         "env": {
@@ -514,6 +645,12 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "axios": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x"
         }
       },
       "utils/string": {
@@ -534,7 +671,9 @@
               }
             }
           }
-        }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/tuple": {
         "env": {
@@ -554,7 +693,9 @@
               }
             }
           }
-        }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/whatsapp": {
         "env": {
@@ -574,6 +715,12 @@
               }
             }
           }
+        },
+        "dependencies": {
+          "axios": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x"
         }
       }
     }

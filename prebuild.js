@@ -2,14 +2,10 @@ const fs = require("fs");
 
 //get jsons
 const packageJson = require("./package.json");
-const dependenciesJson = require("./typescriptComponentsDependencies.json");
 const tsconfigJson = require("./tsconfig.json");
 
 //get Components
 const components = require("./typescriptComponents");
-
-//check dep
-const checkDep = (name, n, c) => (!c && n === name) || (c === "*" && name.includes(n)) || name === n + "/" + c;
 
 //env
 const setEnv = (path) => ({
@@ -33,15 +29,7 @@ const setEnv = (path) => ({
 
 packageJson.bit.overrides = {};
 tsconfigJson.compilerOptions.paths = {};
-components.forEach(([path, name]) => {
-    //get extra dependencies
-    const [, deps] = Object.entries(dependenciesJson).find(([key]) => checkDep(name, ...key.split("/"))) || [null, {}];
-    if (deps.peerDependencies) {
-        deps.dependencies = {
-            ...(deps.dependencies || {}),
-            ...Object.entries(deps.peerDependencies).reduce((acc, [key]) => ({ ...acc, [key]: "-" }), {}),
-        };
-    }
+components.forEach(({ path, name, deps }) => {
     //write override
     packageJson.bit.overrides[name] = {
         env: setEnv(path),

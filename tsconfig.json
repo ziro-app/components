@@ -15,12 +15,6 @@
       }
     ],
     "paths": {
-      "@bit/vitorbarbosa19.ziro.choose-card.add-card": [
-        "components/ChooseCard/AddCard"
-      ],
-      "@bit/vitorbarbosa19.ziro.choose-card.card-row": [
-        "components/ChooseCard/CardRow"
-      ],
       "@bit/vitorbarbosa19.ziro.choose-card": [
         "components/ChooseCard"
       ],
