@@ -3,6 +3,14 @@ import { hyperlink } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { UseFullOCR } from "../main";
 import { UseFirestoreEffect } from "../firestoreEffect";
 
+const formatCPF = (cpf: string) => {
+    const first = cpf.slice(0, 3);
+    const second = cpf.slice(3, 6);
+    const third = cpf.slice(6, 9);
+    const last = cpf.slice(9);
+    return `${first}.${second}.${third}-${last}`;
+};
+
 // [birthday,rg,cpf,emissor,mothersName,name,docType,docProbability1,doc1]
 function extractFromFirebaseCard(
     firebaseData: import("@bit/vitorbarbosa19.ziro.firebase.catalog-user-data").FirebaseCard.Generic,
@@ -26,7 +34,7 @@ function extractFromFirebaseCard(
                     return [
                         birthdate,
                         rg,
-                        cpf,
+                        formatCPF(cpf),
                         "",
                         mothersName,
                         name,
@@ -39,7 +47,7 @@ function extractFromFirebaseCard(
                 return [
                     dataNascimento,
                     rg,
-                    cpf,
+                    formatCPF(cpf),
                     "",
                     nomeMae,
                     nome,
@@ -132,8 +140,8 @@ export function extractData(
         const {
             found: { name, mothersName, cpf, birthdate },
         } = response;
-        return [birthdate, rg, cpf, emissor, mothersName, name, docType, ..._docs] as any;
+        return [birthdate, rg, formatCPF(cpf), emissor, mothersName, name, docType, ..._docs] as any;
     }
     const { nome, nomeMae, cpf, dataNascimento } = extracted;
-    return [dataNascimento, rg, cpf, emissor, nomeMae, nome, docType, ..._docs] as any;
+    return [dataNascimento, rg, formatCPF(cpf), emissor, nomeMae, nome, docType, ..._docs] as any;
 }

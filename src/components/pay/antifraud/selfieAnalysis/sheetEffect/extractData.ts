@@ -1,6 +1,14 @@
 import { hyperlink } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 
+const formatCPF = (cpf: string) => {
+    const first = cpf.slice(0, 3);
+    const second = cpf.slice(3, 6);
+    const third = cpf.slice(6, 9);
+    const last = cpf.slice(9);
+    return `${first}.${second}.${third}-${last}`;
+};
+
 function getDocs(firebaseData: FirebaseCard.BeforeSelfiePhase) {
     if ("RG FV" in firebaseData) {
         const {
@@ -71,7 +79,7 @@ export function extractData(
     const [prob1, doc1, prob2, doc2] = getDocs(firebaseData);
     if ("found" in firebaseData) {
         const { birthdate, cpf, mothersName, name } = firebaseData.found;
-        return [birthdate, rg, cpf, emissor, mothersName, name, documentType, prob1, doc1, prob2, doc2];
+        return [birthdate, rg, formatCPF(cpf), emissor, mothersName, name, documentType, prob1, doc1, prob2, doc2];
     }
-    return [dataNascimento, rg, cpf, emissor, nomeMae, nome, documentType, prob1, doc1, prob2, doc2];
+    return [dataNascimento, rg, formatCPF(cpf), emissor, nomeMae, nome, documentType, prob1, doc1, prob2, doc2];
 }
