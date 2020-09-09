@@ -59,8 +59,10 @@ export const useFirebaseCardDocumentRef = (cardId: string) => {
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId?: string, startWithValue?: T) => {
-    if (!cardId) return startWithValue;
-    return useFirestoreDoc(useFirebaseCardDocumentRef(cardId), { startWithValue }) as FirebaseCardDocument | T;
+    const hookResult = useFirestoreDoc(useFirebaseCardDocumentRef(cardId || "-"), { startWithValue }) as
+        | FirebaseCardDocument
+        | T;
+    return cardId ? hookResult : startWithValue;
 };
 
 /**
@@ -68,9 +70,11 @@ export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId?: strin
  * @param cardId O id do cartão
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useFirebaseCardDocumentData = <T = FirebaseCard.Generic>(cardId: string, startWithValue?: T) => {
-    if (!cardId) return startWithValue;
-    return useFirestoreDocData(useFirebaseCardDocumentRef(cardId), { startWithValue }) as FirebaseCard.Generic | T;
+export const useFirebaseCardDocumentData = <T = FirebaseCard.Generic>(cardId?: string, startWithValue?: T) => {
+    const hookResult = useFirestoreDocData(useFirebaseCardDocumentRef(cardId), { startWithValue }) as
+        | FirebaseCard.Generic
+        | T;
+    return cardId ? hookResult : startWithValue;
 };
 
 /**
@@ -83,7 +87,7 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
     const pic = useRef<string>(null);
     const url = useRef<string>(null);
 
-    const [task, setTask] = useState<import("firebase").storage.UploadTask>(null);
+    const [task, setTask] = useState<firebase.storage.UploadTask>(null);
 
     const storage = useStorage();
 
@@ -91,7 +95,7 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
 
     const upload = useCallback(
         async (picture: string) => {
-            let taskCompleted: import("firebase").storage.UploadTaskSnapshot;
+            let taskCompleted: firebase.storage.UploadTaskSnapshot;
             if (picture === pic.current && url.current) return url.current;
             if (picture === pic.current && task) taskCompleted = await task;
             else {

@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.37": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.38": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -900,7 +900,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.5": {
+    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/firebase/credit-card-payments/hookTypes.ts",

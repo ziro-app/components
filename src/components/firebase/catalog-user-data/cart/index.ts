@@ -52,8 +52,11 @@ export const useCartItemDocumentRef = (cartId: string) => {
  * @param cartId o cartId do documento desejado
  * @param startWithValue caso seja fornecido o hook não dará throw na promise (modo suspense)
  */
-export const useCartItemDocument = <T = CartItemDocument>(cartId: string, startWithValue?: T) => {
-    return useFirestoreDoc(useCartItemDocumentRef(cartId), { startWithValue }) as CartItemDocument | T;
+export const useCartItemDocument = <T = CartItemDocument>(cartId?: string, startWithValue?: T) => {
+    const hookResult = useFirestoreDoc(useCartItemDocumentRef(cartId || "-"), { startWithValue }) as
+        | CartItemDocument
+        | T;
+    return cartId ? hookResult : startWithValue;
 };
 
 /**
@@ -61,6 +64,7 @@ export const useCartItemDocument = <T = CartItemDocument>(cartId: string, startW
  * @param cartId o cartId do documento desejado
  * @param startWithValue caso seja fornecido o hook não dará throw na promise (modo suspense)
  */
-export const useCartItemDocumentData = <T = CartItem>(cartId: string, startWithValue?: T) => {
-    return useFirestoreDocData(useCartItemDocumentRef(cartId), { startWithValue }) as CartItem | T;
+export const useCartItemDocumentData = <T = CartItem>(cartId?: string, startWithValue?: T) => {
+    const hookResult = useFirestoreDocData(useCartItemDocumentRef(cartId || "-"), { startWithValue }) as CartItem | T;
+    return cartId ? hookResult : startWithValue;
 };
