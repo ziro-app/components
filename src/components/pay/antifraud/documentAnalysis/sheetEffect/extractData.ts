@@ -31,12 +31,22 @@ function extractFromFirebaseCard(
                         mothersName,
                         name,
                         docType,
-                        `${probability}`,
+                        `${probability}`.replace(".", ","),
                         hyperlink(url, "RG V"),
                     ];
                 }
                 const { nome, nomeMae, cpf, dataNascimento } = extracted;
-                return [dataNascimento, rg, cpf, "", nomeMae, nome, docType, `${probability}`, hyperlink(url, "RG V")];
+                return [
+                    dataNascimento,
+                    rg,
+                    cpf,
+                    "",
+                    nomeMae,
+                    nome,
+                    docType,
+                    `${probability}`.replace(".", ","),
+                    hyperlink(url, "RG V"),
+                ];
             }
             case "pendingRGV": {
                 const {
@@ -45,7 +55,7 @@ function extractFromFirebaseCard(
                     },
                     url,
                 } = firebaseData["RG F"];
-                return ["", "", "", "", "", "", "rg", `${probability}`, hyperlink(url, "RG F")];
+                return ["", "", "", "", "", "", "rg", `${probability}`.replace(".", ","), hyperlink(url, "RG F")];
             }
             case "pendingCNHF": {
                 const {
@@ -54,7 +64,7 @@ function extractFromFirebaseCard(
                     },
                     url,
                 } = firebaseData["CNH V"];
-                return ["", "", "", "", "", "", "cnh", `${probability}`, hyperlink(url, "CNH V")];
+                return ["", "", "", "", "", "", "cnh", `${probability}`.replace(".", ","), hyperlink(url, "CNH V")];
             }
         }
     }
@@ -89,7 +99,10 @@ export function extractData(
                 classifiedAs: { probability },
             },
         } = response;
-        return [...fbExtractedData, ...docs([`${probability}`, hyperlink(error.additionalData.url, "CNH V")])] as any;
+        return [
+            ...fbExtractedData,
+            ...docs([`${probability}`.replace(".", ","), hyperlink(error.additionalData.url, "CNH V")]),
+        ] as any;
     }
     if (is.RG.Frente(response)) {
         const {
@@ -97,7 +110,10 @@ export function extractData(
                 classifiedAs: { probability },
             },
         } = response;
-        return [...fbExtractedData, ...docs([`${probability}`, hyperlink(error.additionalData.url, "RG F")])] as any;
+        return [
+            ...fbExtractedData,
+            ...docs([`${probability}`.replace(".", ","), hyperlink(error.additionalData.url, "RG F")]),
+        ] as any;
     }
     const {
         extracted,
@@ -110,8 +126,8 @@ export function extractData(
     const doc = hyperlink(url, tagName);
     const _docs =
         is.RG.Verso(response) || is.CNH.Frente(response)
-            ? docs([`${probability}`, doc])
-            : [`${probability}`, doc, "", ""];
+            ? docs([`${probability}`.replace(".", ","), doc])
+            : [`${probability}`.replace(".", ","), doc, "", ""];
     if (is.BackgroundCheck(response)) {
         const {
             found: { name, mothersName, cpf, birthdate },

@@ -4,7 +4,7 @@ import createURL from "@bit/vitorbarbosa19.ziro.utils.create-firestore-url";
 import { hyperlink } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { FirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { UseBiometry } from "../main";
+import { UseBiometry, useBiometry } from "../main";
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { extractData } from "./extractData";
 import { formatExpiry } from "./formatExpiry";
@@ -39,7 +39,11 @@ export const createSheetErrorData = (
         error.title,
     );
     const [date, ...rest] = createSheetData(firebaseCard, zoopCardData, userData);
-    return [[date, errorName, ...rest]];
+    const probSelfie = UseBiometry.Errors.hasKnownResponse(error)
+        ? `${error.additionalData.response.confidence}`.replace(".", ",")
+        : "";
+    const selfie = UseBiometry.Errors.hasResponse(error) ? hyperlink(error.additionalData.url, "SELFIE") : "";
+    return [[date, error.code, errorName, error.internalDescription, ...rest, probSelfie, selfie]];
 };
 
 export const createSheetSuccessData = (
@@ -49,6 +53,8 @@ export const createSheetSuccessData = (
     userData: Storeowner,
 ) => {
     const data = createSheetData(firebaseCard, zoopCardData, userData);
+    const probSelfie = `${result.response.confidence}`.replace(".", ",");
+    const selfie = hyperlink(result.url, "SELFIE");
     const approved = result.status === "approved" ? "sim" : "não";
-    return [[...data, approved]];
+    return [[...data, probSelfie, selfie, approved]];
 };
