@@ -71,7 +71,7 @@ export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId?: strin
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardDocumentData = <T = FirebaseCard.Generic>(cardId?: string, startWithValue?: T) => {
-    const hookResult = useFirestoreDocData(useFirebaseCardDocumentRef(cardId), { startWithValue }) as
+    const hookResult = useFirestoreDocData(useFirebaseCardDocumentRef(cardId || "-"), { startWithValue }) as
         | FirebaseCard.Generic
         | T;
     return cardId ? hookResult : startWithValue;
