@@ -84,7 +84,7 @@ const constructComponentObject = (path) => {
         if (dep === "react") deps.dependencies["@types/react"] = "-";
         else deps.peerDependencies[dep] = version;
     });
-    components.set(path, { name, path, deps });
+    components.set(name, { name, path, deps });
 };
 
 fs.readdirSync(componentsPath, { withFileTypes: true }).forEach((innerDir1) => {
@@ -102,22 +102,30 @@ fs.readdirSync(componentsPath, { withFileTypes: true }).forEach((innerDir1) => {
 /**
  * Add peerDependencies of peerDependencies
  */
-const _components = Object.fromEntries(components.entries());
+function getPeerDependenciesOfPeerDependencies() {
+    const _components = Object.fromEntries(components.entries());
 
-Object.entries(_components).forEach(([name, values]) => {
-    const { deps } = values;
-    Object.keys(deps.peerDependencies).forEach((dep) => {
-        if (/^@bit.*$/.test(dep)) {
-            const depName = dep.replace("@bit/vitorbarbosa19.ziro.", "").replace(/\./g, "/");
-            if (_components[depName]) {
-                values.deps.peerDependencies = {
-                    ...values.deps.peerDependencies,
-                    ..._components[depName].deps.peerDependencies,
-                };
+    Object.entries(_components).forEach(([name, values]) => {
+        const { deps } = values;
+        Object.keys(deps.peerDependencies).forEach((dep) => {
+            if (/^@bit.*$/.test(dep)) {
+                const depName = dep.replace("@bit/vitorbarbosa19.ziro.", "").replace(/\./g, "/");
+                console.log(name, depName);
+                if (_components[depName]) {
+                    values.deps.peerDependencies = {
+                        ...values.deps.peerDependencies,
+                        ..._components[depName].deps.peerDependencies,
+                    };
+                }
             }
-        }
+        });
+        components.set(name, values);
     });
-    components.set(name, values);
-});
+}
+
+getPeerDependenciesOfPeerDependencies();
+getPeerDependenciesOfPeerDependencies();
+getPeerDependenciesOfPeerDependencies();
+getPeerDependenciesOfPeerDependencies();
 
 module.exports = components;

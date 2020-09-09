@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.113": {
+    "vitorbarbosa19.ziro/choose-card@0.0.114": {
         "files": [
             {
                 "relativePath": "src/components/ChooseCard/AddCard/index.tsx",
@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.36": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.37": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -2107,7 +2107,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.32": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.33": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2444,7 +2444,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.19": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.20": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
@@ -2548,7 +2548,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop-registration@0.0.11": {
+    "vitorbarbosa19.ziro/pay/zoop-registration@0.0.12": {
         "files": [
             {
                 "relativePath": "src/components/pay/zoopRegistration/index.ts",
@@ -2951,7 +2951,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.49": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.50": {
         "files": [
             {
                 "name": "index.ts",

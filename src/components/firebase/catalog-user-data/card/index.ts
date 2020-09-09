@@ -58,7 +58,8 @@ export const useFirebaseCardDocumentRef = (cardId: string) => {
  * @param cardId O id do cartão
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId: string, startWithValue?: T) => {
+export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId?: string, startWithValue?: T) => {
+    if (!cardId) return startWithValue;
     return useFirestoreDoc(useFirebaseCardDocumentRef(cardId), { startWithValue }) as FirebaseCardDocument | T;
 };
 
@@ -68,6 +69,7 @@ export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId: string
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardDocumentData = <T = FirebaseCard.Generic>(cardId: string, startWithValue?: T) => {
+    if (!cardId) return startWithValue;
     return useFirestoreDocData(useFirebaseCardDocumentRef(cardId), { startWithValue }) as FirebaseCard.Generic | T;
 };
 
