@@ -8,6 +8,7 @@ export function createFirebaseData(
 ): Omit<FirebaseCard.AfterAntifraud, "added" | "updated"> {
     return {
         ...oldData,
+        error: exclude(),
         status,
         selfie: { url },
         validations: {
