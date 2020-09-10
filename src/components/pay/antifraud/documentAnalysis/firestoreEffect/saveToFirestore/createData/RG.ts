@@ -5,7 +5,6 @@ import { UseFullOCR } from "../../../main";
 export function Frente(
     _: Omit<FirebaseCard.Generic, "added" | "updated">,
     { url, response: { fileInfo, face }, validations }: UseFullOCR.DataResult<FullOCR.Response.RGF>,
-    exclude: () => any,
 ): Omit<FirebaseCard.RGF, "added" | "updated"> {
     return {
         //common
@@ -29,7 +28,6 @@ export function Verso(
         response: { fileInfo, extracted, fieldScores, ...response },
         validations,
     }: UseFullOCR.DataResult<FullOCR.Response.RGV>,
-    exclude: () => any,
 ): Omit<FirebaseCard.RGV, "added" | "updated"> {
     return {
         //common
@@ -38,9 +36,8 @@ export function Verso(
         docStatus: "pendingRGF",
         documentType: "rg",
         extracted,
-        fieldScores: fieldScores || exclude(),
-        found: is.BackgroundCheck(response) ? response.found : exclude(),
-        passedOn: is.BackgroundCheck(response) ? response.passedOn : exclude(),
+        ...(fieldScores ? { fieldScores } : {}),
+        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
         "RG V": { url, fileInfo },
         validations: {
             name: validations.name,
@@ -57,7 +54,6 @@ export function FrenteVerso(
         response: { fileInfo, extracted, fieldScores, face, ...response },
         validations,
     }: UseFullOCR.DataResult<FullOCR.Response.RGFV>,
-    exclude: () => any,
 ): Omit<FirebaseCard.RGFV, "added" | "updated"> {
     return {
         //common
@@ -65,9 +61,8 @@ export function FrenteVerso(
         //RGFV
         documentType: "rg",
         extracted,
-        fieldScores: fieldScores || exclude(),
-        found: is.BackgroundCheck(response) ? response.found : exclude(),
-        passedOn: is.BackgroundCheck(response) ? response.passedOn : exclude(),
+        ...(fieldScores ? { fieldScores } : {}),
+        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
         face: face as FullOCR.Face.Success,
         "RG FV": { url, fileInfo },
         validations: {
@@ -86,35 +81,33 @@ export function FrenteMaisVerso(
         response: { fileInfo, ...response },
         validations,
     }: UseFullOCR.DataResult<FullOCR.Response.RGF | FullOCR.Response.RGV>,
-    exclude: () => any,
 ): Omit<FirebaseCard.RGFeV, "added" | "updated"> {
     return {
         //common
         status: "pendingSelfie",
         //RGFeV
         documentType: "rg",
-        extracted: "extracted" in response ? response.extracted : "extracted" in fbData ? fbData.extracted : exclude(),
+        extracted: "extracted" in response ? response.extracted : "extracted" in fbData ? fbData.extracted : null,
         fieldScores:
-            "fieldScores" in response ? response.fieldScores : "fieldScores" in fbData ? fbData.fieldScores : exclude(),
-        face: "face" in response ? response.face : "face" in fbData ? (fbData.face as any) : exclude(),
-        found: is.BackgroundCheck(response) ? response.found : is.BackgroundCheck(fbData) ? fbData.found : exclude(),
-        passedOn: is.BackgroundCheck(response)
-            ? response.passedOn
+            "fieldScores" in response ? response.fieldScores : "fieldScores" in fbData ? fbData.fieldScores : null,
+        face: "face" in response ? response.face : "face" in fbData ? (fbData.face as any) : null,
+        ...(is.BackgroundCheck(response)
+            ? { found: response.found, passedOn: response.passedOn }
             : is.BackgroundCheck(fbData)
-            ? fbData.passedOn
-            : exclude(),
+            ? { found: fbData.found, passedOn: fbData.passedOn }
+            : {}),
         "RG F":
             "RG F" in fbData
                 ? fbData["RG F"]
                 : fileInfo.classifiedAs.tagName === "RG F"
                 ? ({ url, fileInfo } as any)
-                : exclude(),
+                : null,
         "RG V":
             "RG V" in fbData
                 ? fbData["RG V"]
                 : fileInfo.classifiedAs.tagName === "RG V"
                 ? ({ url, fileInfo } as any)
-                : exclude(),
+                : null,
         validations: {
             face: "face" in fbData.validations ? fbData.validations.face : validations.face,
             name: "name" in fbData.validations ? fbData.validations.name : validations.name,

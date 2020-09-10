@@ -10,7 +10,7 @@ export async function saveSuccessToFirestore(
     const resultData = UseFullOCR.transformResult(result);
     const oldData = firebaseCard.data();
     const newData = {
-        ...createFirebaseData(oldData, resultData, FV.delete),
+        ...createFirebaseData(oldData, resultData),
         added: oldData.added,
         updated: FV.serverTimestamp(),
     };

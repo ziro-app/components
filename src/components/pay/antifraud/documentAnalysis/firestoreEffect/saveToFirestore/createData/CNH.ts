@@ -9,7 +9,6 @@ export function Frente(
         url,
         validations,
     }: UseFullOCR.DataResult<FullOCR.Response.CNHF>,
-    exclude: () => any,
 ): Omit<FirebaseCard.CNHF, "added" | "updated"> {
     return {
         //common
@@ -18,9 +17,8 @@ export function Frente(
         documentType: "cnh",
         extracted,
         face: face as FullOCR.Face.Success,
-        fieldScores: fieldScores || exclude(),
-        found: is.BackgroundCheck(response) ? response.found : exclude(),
-        passedOn: is.BackgroundCheck(response) ? response.passedOn : exclude(),
+        ...(fieldScores ? { fieldScores } : {}),
+        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
         "CNH F": { url, fileInfo },
         validations: {
             face: validations.face,
@@ -34,7 +32,6 @@ export function Frente(
 export function Verso(
     _: Omit<FirebaseCard.Generic, "added" | "updated">,
     { response: { fileInfo }, url, validations }: UseFullOCR.DataResult<FullOCR.Response.CNHV>,
-    exclude: () => any,
 ): Omit<FirebaseCard.CNHV, "added" | "updated"> {
     return {
         //common
@@ -56,7 +53,6 @@ export function FrenteVerso(
         url,
         validations,
     }: UseFullOCR.DataResult<FullOCR.Response.CNHFV>,
-    exclude: () => any,
 ): Omit<FirebaseCard.CNHFV, "added" | "updated"> {
     return {
         //common
@@ -65,9 +61,8 @@ export function FrenteVerso(
         documentType: "cnh",
         extracted,
         face: face as FullOCR.Face.Success,
-        fieldScores: fieldScores || exclude(),
-        found: is.BackgroundCheck(response) ? response.found : exclude(),
-        passedOn: is.BackgroundCheck(response) ? response.passedOn : exclude(),
+        ...(fieldScores ? { fieldScores } : {}),
+        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
         "CNH FV": { url, fileInfo },
         validations: {
             face: validations.face,
@@ -85,7 +80,6 @@ export function FrenteMaisVerso(
         url,
         validations,
     }: UseFullOCR.DataResult<FullOCR.Response.CNHF>,
-    exclude: () => any,
 ): Omit<FirebaseCard.CNHFeV, "added" | "updated"> {
     return {
         //common
@@ -94,9 +88,8 @@ export function FrenteMaisVerso(
         documentType: "cnh",
         extracted,
         face: face as FullOCR.Face.Success,
-        fieldScores: fieldScores || exclude(),
-        found: is.BackgroundCheck(response) ? response.found : exclude(),
-        passedOn: is.BackgroundCheck(response) ? response.passedOn : exclude(),
+        ...(fieldScores ? { fieldScores } : {}),
+        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
         "CNH V": cnhv,
         "CNH F": { url, fileInfo },
         validations: {

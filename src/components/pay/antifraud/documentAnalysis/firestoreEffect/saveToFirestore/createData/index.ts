@@ -17,15 +17,14 @@ const creator = {
 export function createFirebaseData(
     oldData: FirebaseCard.Generic,
     result: UseFullOCR.DataResult,
-    exclude: () => any,
 ): Omit<FirebaseCard.Generic, "added" | "updated"> {
     if (oldData.status !== "pendingDocument") throw "UNEXPECTED_CARD_STATUS";
     const discriminated = UseFullOCR.discriminateResult(result);
     if ("docStatus" in oldData) {
         if (oldData.documentType === "rg" && (discriminated.type === "RGF" || discriminated.type === "RGV"))
-            return creator.RGFeV(oldData, discriminated.result, exclude);
+            return creator.RGFeV(oldData, discriminated.result);
         if (oldData.documentType === "cnh" && discriminated.type === "CNHF")
-            return creator.CNHFeV(oldData, discriminated.result, exclude);
+            return creator.CNHFeV(oldData, discriminated.result);
     }
-    return creator[discriminated.type](oldData, discriminated.result as any, exclude);
+    return creator[discriminated.type](oldData, discriminated.result as any);
 }
