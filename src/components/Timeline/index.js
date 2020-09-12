@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { primaryColor } from '@ziro/theme'
 import Illustration from '../Illustration/index';
 import Button from '../Button/index';
 import SpinnerWithDiv from '../SpinnerWithDiv/index';
+import Badge from '../Badge/index';
 import {
 	after,
 	afterWelcome,
@@ -15,13 +17,15 @@ import {
 	welcome,
 	illustration,
 	empty,
+	secureCss,
 } from './styles';
 
-const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false, isSearching = false, messageEmptyTransactions,messageWelcomeTransactions }) =>
+const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false, isSearching = false, messageEmptyTransactions, messageWelcomeTransactions }) =>
 	<>
 		<style>{after}</style>
 		{transactions.map((transaction, key) =>
 			<div style={wrapper(key === (transactions.length - 1) && hasMore)} className='timeline' key={key} onClick={() => transactionClick({ transaction })}>
+				{transaction.insurance && <Badge type='lock' style={secureCss} size={12} message='Com seguro' color={primaryColor} />}
 				<label style={sellerCss}>{transaction.seller}</label>
 				<label style={chargeCss}>{transaction.charge}</label>
 				<label style={statusCss(transaction.statusColor)}>{transaction.status}</label>

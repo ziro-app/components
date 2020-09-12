@@ -10,10 +10,25 @@ export const
 		padding: '0 0 40px 20px',
 		cursor: 'pointer',
 		gridTemplate: `
+		'secure _'
 		'supplier value'
 		'status date'
 		/ 60% 40%`
 	}),
+
+	secureCss = {
+		gridArea: 'secure',
+		display: 'grid',
+		gridTemplateColumns: 'auto 1fr',
+		alignItems: 'center',
+		gridColumnGap: '2px',
+		fontSize: '1.2rem',
+		marginTop: '-25px',
+		cursor: 'pointer',
+		paddingBottom: '4px',
+		fontWeight: 'bold',
+
+	},
 
 	sellerCss = {
 		gridArea: 'supplier',

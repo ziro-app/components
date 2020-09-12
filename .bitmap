@@ -2843,7 +2843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.1.45": {
+    "vitorbarbosa19.ziro/timeline@0.1.46": {
         "files": [
             {
                 "name": "index.js",

@@ -34,25 +34,32 @@ export const DisplayTimeline = () =>
 			{
 				seller: 'Salgunamu',
 				charge: '2.323,60',
-				status: 'Pago',
-				date: '27/ago'
+				status: 'Aguardando pagamento',
+				date: '27/ago',
+				statusColor: '#F7BA00',
+				insurance: true,
 			},
 			{
 				seller: 'Jo Fashion',
 				charge: '4.450,55',
-				status: 'Pago',
-				date: '27/ago'
+				status: 'Pré Autorizado',
+				date: '27/ago',
+				statusColor: '#F7BA00',
+				insurance: true,
 			},
 			{
 				seller: 'Wermeson Rocha da Silva',
 				charge: '5.671,77',
 				status: 'Pago',
-				date: '27/ago'
+				date: '27/ago',
+				insurance: true,
+				statusColor: '#4BCA81'
 			},
 			{
 				seller: 'Crisfael',
 				charge: '1.299,02',
-				status: 'Pago',
+				status: 'Cancelado',
+				insurance: true,
 				date: '27/ago',
 				statusColor: '#bb2124'
 			},
