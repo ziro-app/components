@@ -5,7 +5,7 @@ import FormInput from '../FormInput/index'
 import InputText from '../InputText/index'
 import InputEmail from '../InputEmail/index'
 
-const LoginForm = ({ sendToBackend, history }) => {
+const LoginForm = ({ sendToBackend, history,error }) => {
 	const [email, setEmail] = useState('')
 	const [pass, setPass] = useState('')
 	const state = { email, pass, setEmail, setPass, history }
@@ -25,6 +25,7 @@ const LoginForm = ({ sendToBackend, history }) => {
 	]
 	return (
 		<Form
+			error={error}
 			validations={validations}
 			sendToBackend={sendToBackend ? sendToBackend(state) : () => null}
 			inputs={[
