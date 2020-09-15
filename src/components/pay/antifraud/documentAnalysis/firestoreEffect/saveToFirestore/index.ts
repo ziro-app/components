@@ -15,6 +15,7 @@ export async function saveSuccessToFirestore(
         added: oldData.added,
         updated: FV.serverTimestamp(),
     };
+    if (oldData.error) newData.error = oldData.error;
     await firebaseCard.ref.set(newData as any);
 }
 

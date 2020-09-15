@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.40": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.41": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
