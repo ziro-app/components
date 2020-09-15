@@ -10,7 +10,7 @@ export namespace FirebaseCard {
         added: firebase.firestore.Timestamp;
         updated: firebase.firestore.Timestamp;
         errors?: {
-            timestamp: firebase.firestore.Timestamp;
+            timestamp: number;
             error: ZiroPromptFullData<string, any>;
         }[];
     }

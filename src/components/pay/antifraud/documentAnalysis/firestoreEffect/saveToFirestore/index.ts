@@ -18,7 +18,7 @@ export const saveSuccessToFirestore: SaveSuccessToFirestore = async (card, resul
 
 export const saveFailureToFirestore: SaveFailureToFirestore = async (card, error, FV) => {
     const errorData = {
-        timestamp: FV.serverTimestamp(),
+        timestamp: Date.now(),
         error: error.getData(),
     };
     await card.ref.update({ errors: FV.arrayUnion(errorData) });

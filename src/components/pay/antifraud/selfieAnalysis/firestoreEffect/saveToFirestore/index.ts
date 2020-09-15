@@ -25,7 +25,7 @@ export async function saveFailureToFirestore(
     FV: typeof import("firebase").firestore.FieldValue,
 ) {
     const errorData = {
-        timestamp: FV.serverTimestamp(),
+        timestamp: Date.now(),
         error: error.getData(),
     };
     await firebaseCard.ref.update({ errors: FV.arrayUnion(errorData) });
