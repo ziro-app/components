@@ -4,6 +4,7 @@ import { ZiroPromptMessage } from "ziro-messages";
 import { FullOCR, is } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 import { ReasonsThatShouldThrow, ClassResultsCollection, DataResultsCollection } from "./validator";
 import { UsePromiseState } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
+import { Replace } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
 
 export * from "./validator";
 
@@ -24,6 +25,10 @@ type CannotUploadPictureError = CommonPromptMessage<"CANNOT_UPLOAD_PICTURE_TO_ST
  * Aliases
  */
 type KnownDocument = FullOCR.Response.KnownDocument;
+type RGF = FullOCR.Response.RGF;
+type RGFV = FullOCR.Response.RGFV;
+type CNHF = FullOCR.Response.CNHF;
+type CNHFV = FullOCR.Response.CNHFV;
 
 export namespace UseFullOCR {
     /**
@@ -37,7 +42,9 @@ export namespace UseFullOCR {
      */
     export interface ClassResult<Response extends KnownDocument = KnownDocument> {
         validations: ClassResultsCollection;
-        response: Response;
+        response: Response extends RGF | RGFV | CNHF | CNHFV
+            ? Replace<Response, "face", FullOCR.Face.Success>
+            : Response;
         url: string;
     }
     /**
@@ -45,7 +52,9 @@ export namespace UseFullOCR {
      */
     export interface DataResult<Response extends KnownDocument = KnownDocument> {
         validations: DataResultsCollection;
-        response: Response;
+        response: Response extends RGF | RGFV | CNHF | CNHFV
+            ? Replace<Response, "face", FullOCR.Face.Success>
+            : Response;
         url: string;
     }
     /**

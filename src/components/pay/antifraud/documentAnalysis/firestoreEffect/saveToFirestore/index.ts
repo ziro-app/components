@@ -9,6 +9,7 @@ export async function saveSuccessToFirestore(
 ) {
     const resultData = UseFullOCR.transformResult(result);
     const oldData = firebaseCard.data();
+    if (oldData.status !== "pendingDocument") throw "WRONG_STATUS";
     const newData = {
         ...createFirebaseData(oldData, resultData),
         added: oldData.added,

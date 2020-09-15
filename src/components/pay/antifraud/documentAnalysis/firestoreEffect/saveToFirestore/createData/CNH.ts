@@ -1,24 +1,15 @@
-import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { is, FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code";
-import { UseFullOCR } from "../../../main";
+import { is } from "@bit/vitorbarbosa19.ziro.pay.next-code";
+import { CNH } from "./types";
 
-export function Frente(
-    _: Omit<FirebaseCard.Generic, "added" | "updated">,
-    {
-        response: { fileInfo, extracted, fieldScores, face, ...response },
-        url,
-        validations,
-    }: UseFullOCR.DataResult<FullOCR.Response.CNHF>,
-): Omit<FirebaseCard.CNHF, "added" | "updated"> {
-    return {
-        //common
+export const Frente: CNH.Frente = (
+    _,
+    { response: { extracted, face, fileInfo, fieldScores, ...response }, validations, url },
+) => {
+    const data: ReturnType<CNH.Frente> = {
         status: "pendingSelfie",
-        //CNHF
         documentType: "cnh",
         extracted,
-        face: face as FullOCR.Face.Success,
-        ...(fieldScores ? { fieldScores } : {}),
-        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
+        face,
         "CNH F": { url, fileInfo },
         validations: {
             face: validations.face,
@@ -27,16 +18,17 @@ export function Frente(
             CNHFProbability: validations.docProbability,
         },
     };
-}
+    if (fieldScores) data.fieldScores = fieldScores;
+    if (is.BackgroundCheck(response)) {
+        data.found = response.found;
+        data.passedOn = response.passedOn;
+    }
+    return data;
+};
 
-export function Verso(
-    _: Omit<FirebaseCard.Generic, "added" | "updated">,
-    { response: { fileInfo }, url, validations }: UseFullOCR.DataResult<FullOCR.Response.CNHV>,
-): Omit<FirebaseCard.CNHV, "added" | "updated"> {
-    return {
-        //common
+export const Verso: CNH.Verso = (_, { response: { fileInfo }, validations, url }) => {
+    const data: ReturnType<CNH.Verso> = {
         status: "pendingDocument",
-        //CNHV
         documentType: "cnh",
         docStatus: "pendingCNHF",
         "CNH V": { url, fileInfo },
@@ -44,25 +36,18 @@ export function Verso(
             CNHVProbability: validations.docProbability,
         },
     };
-}
+    return data;
+};
 
-export function FrenteVerso(
-    _: Omit<FirebaseCard.Generic, "added" | "updated">,
-    {
-        response: { fileInfo, extracted, fieldScores, face, ...response },
-        url,
-        validations,
-    }: UseFullOCR.DataResult<FullOCR.Response.CNHFV>,
-): Omit<FirebaseCard.CNHFV, "added" | "updated"> {
-    return {
-        //common
+export const FrenteVerso: CNH.FrenteVerso = (
+    _,
+    { response: { extracted, face, fileInfo, fieldScores, ...response }, validations, url },
+) => {
+    const data: ReturnType<CNH.FrenteVerso> = {
         status: "pendingSelfie",
-        //CNHFV
         documentType: "cnh",
         extracted,
-        face: face as FullOCR.Face.Success,
-        ...(fieldScores ? { fieldScores } : {}),
-        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
+        face,
         "CNH FV": { url, fileInfo },
         validations: {
             face: validations.face,
@@ -71,25 +56,23 @@ export function FrenteVerso(
             CNHFVProbability: validations.docProbability,
         },
     };
-}
+    if (fieldScores) data.fieldScores = fieldScores;
+    if (is.BackgroundCheck(response)) {
+        data.found = response.found;
+        data.passedOn = response.passedOn;
+    }
+    return data;
+};
 
-export function FrenteMaisVerso(
-    { ["CNH V"]: cnhv, validations: { CNHVProbability } }: Omit<FirebaseCard.CNHV, "added" | "updated">,
-    {
-        response: { fileInfo, extracted, fieldScores, face, ...response },
-        url,
-        validations,
-    }: UseFullOCR.DataResult<FullOCR.Response.CNHF>,
-): Omit<FirebaseCard.CNHFeV, "added" | "updated"> {
-    return {
-        //common
+export const FrenteMaisVerso: CNH.FrenteMaisVerso = (
+    { ["CNH V"]: cnhv, validations: { CNHVProbability } },
+    { response: { fileInfo, extracted, fieldScores, face, ...response }, url, validations },
+) => {
+    const data: ReturnType<CNH.FrenteMaisVerso> = {
         status: "pendingSelfie",
-        //CNHFV
         documentType: "cnh",
         extracted,
-        face: face as FullOCR.Face.Success,
-        ...(fieldScores ? { fieldScores } : {}),
-        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
+        face,
         "CNH V": cnhv,
         "CNH F": { url, fileInfo },
         validations: {
@@ -100,4 +83,10 @@ export function FrenteMaisVerso(
             CNHFProbability: validations.docProbability,
         },
     };
-}
+    if (fieldScores) data.fieldScores = fieldScores;
+    if (is.BackgroundCheck(response)) {
+        data.found = response.found;
+        data.passedOn = response.passedOn;
+    }
+    return data;
+};

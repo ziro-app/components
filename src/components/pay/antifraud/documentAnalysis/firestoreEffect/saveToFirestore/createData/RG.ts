@@ -1,43 +1,30 @@
-import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { is, FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code";
-import { UseFullOCR } from "../../../main";
+import { is } from "@bit/vitorbarbosa19.ziro.pay.next-code";
+import { RG } from "./types";
 
-export function Frente(
-    _: Omit<FirebaseCard.Generic, "added" | "updated">,
-    { url, response: { fileInfo, face }, validations }: UseFullOCR.DataResult<FullOCR.Response.RGF>,
-): Omit<FirebaseCard.RGF, "added" | "updated"> {
-    return {
-        //common
+export const Frente: RG.Frente = (_, { response: { fileInfo, face }, url, validations }) => {
+    const data: ReturnType<RG.Frente> = {
         status: "pendingDocument",
-        //RGF
         docStatus: "pendingRGV",
         documentType: "rg",
-        face: face as FullOCR.Face.Success,
+        face,
         "RG F": { url, fileInfo },
         validations: {
             face: validations.face,
             RGFProbability: validations.docProbability,
         },
     };
-}
+    return data;
+};
 
-export function Verso(
-    _: Omit<FirebaseCard.Generic, "added" | "updated">,
-    {
-        url,
-        response: { fileInfo, extracted, fieldScores, ...response },
-        validations,
-    }: UseFullOCR.DataResult<FullOCR.Response.RGV>,
-): Omit<FirebaseCard.RGV, "added" | "updated"> {
-    return {
-        //common
+export const Verso: RG.Verso = (
+    _,
+    { response: { fileInfo, extracted, fieldScores, ...response }, url, validations },
+) => {
+    const data: ReturnType<RG.Verso> = {
         status: "pendingDocument",
-        //RGV
         docStatus: "pendingRGF",
         documentType: "rg",
         extracted,
-        ...(fieldScores ? { fieldScores } : {}),
-        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
         "RG V": { url, fileInfo },
         validations: {
             name: validations.name,
@@ -45,26 +32,24 @@ export function Verso(
             RGVProbability: validations.docProbability,
         },
     };
-}
+    if (fieldScores) data.fieldScores = fieldScores;
+    if (is.BackgroundCheck(response)) {
+        data.found = response.found;
+        data.passedOn = response.passedOn;
+    }
+    return data;
+};
 
-export function FrenteVerso(
-    _: Omit<FirebaseCard.Generic, "added" | "updated">,
-    {
-        url,
-        response: { fileInfo, extracted, fieldScores, face, ...response },
-        validations,
-    }: UseFullOCR.DataResult<FullOCR.Response.RGFV>,
-): Omit<FirebaseCard.RGFV, "added" | "updated"> {
-    return {
-        //common
+export const FrenteVerso: RG.FrenteVerso = (
+    _,
+    { response: { fileInfo, extracted, fieldScores, face, ...response }, url, validations },
+) => {
+    const data: ReturnType<RG.FrenteVerso> = {
         status: "pendingSelfie",
-        //RGFV
         documentType: "rg",
         extracted,
-        ...(fieldScores ? { fieldScores } : {}),
-        ...(is.BackgroundCheck(response) ? { found: response.found, passedOn: response.passedOn } : {}),
-        face: face as FullOCR.Face.Success,
-        "RG FV": { url, fileInfo },
+        face,
+        "RG FV": { fileInfo, url },
         validations: {
             face: validations.face,
             name: validations.name,
@@ -72,51 +57,41 @@ export function FrenteVerso(
             RGFVProbability: validations.docProbability,
         },
     };
-}
+    if (fieldScores) data.fieldScores = fieldScores;
+    if (is.BackgroundCheck(response)) {
+        data.found = response.found;
+        data.passedOn = response.passedOn;
+    }
+    return data;
+};
 
-export function FrenteMaisVerso(
-    fbData: Omit<FirebaseCard.RGF, "added" | "updated"> | Omit<FirebaseCard.RGV, "added" | "updated">,
-    {
-        url,
-        response: { fileInfo, ...response },
-        validations,
-    }: UseFullOCR.DataResult<FullOCR.Response.RGF | FullOCR.Response.RGV>,
-): Omit<FirebaseCard.RGFeV, "added" | "updated"> {
-    return {
-        //common
+export const FrenteMaisVerso: RG.FrenteMaisVerso = (old, { response: { fileInfo, ...response }, url, validations }) => {
+    const data: ReturnType<RG.FrenteMaisVerso> = {
         status: "pendingSelfie",
-        //RGFeV
         documentType: "rg",
-        extracted: "extracted" in response ? response.extracted : "extracted" in fbData ? fbData.extracted : null,
-        fieldScores:
-            "fieldScores" in response ? response.fieldScores : "fieldScores" in fbData ? fbData.fieldScores : null,
-        face: "face" in response ? response.face : "face" in fbData ? (fbData.face as any) : null,
-        ...(is.BackgroundCheck(response)
-            ? { found: response.found, passedOn: response.passedOn }
-            : is.BackgroundCheck(fbData)
-            ? { found: fbData.found, passedOn: fbData.passedOn }
-            : {}),
-        "RG F":
-            "RG F" in fbData
-                ? fbData["RG F"]
-                : fileInfo.classifiedAs.tagName === "RG F"
-                ? ({ url, fileInfo } as any)
-                : null,
-        "RG V":
-            "RG V" in fbData
-                ? fbData["RG V"]
-                : fileInfo.classifiedAs.tagName === "RG V"
-                ? ({ url, fileInfo } as any)
-                : null,
+        extracted: "extracted" in response ? response.extracted : "extracted" in old ? old.extracted : null,
+        face: "face" in response ? response.face : "face" in old ? old.face : null,
+        fieldScores: "fieldScores" in response ? response.fieldScores : "fieldScores" in old ? old.fieldScores : null,
+        "RG F": "RG F" in old ? old["RG F"] : ({ fileInfo, url } as any),
+        "RG V": "RG V" in old ? old["RG V"] : ({ fileInfo, url } as any),
         validations: {
-            face: "face" in fbData.validations ? fbData.validations.face : validations.face,
-            name: "name" in fbData.validations ? fbData.validations.name : validations.name,
+            face: "face" in old.validations ? old.validations.face : validations.face,
+            name: "name" in old.validations ? old.validations.name : validations.name,
             expirationDate:
-                "expirationDate" in fbData.validations ? fbData.validations.expirationDate : validations.expirationDate,
+                "expirationDate" in old.validations ? old.validations.expirationDate : validations.expirationDate,
             RGFProbability:
-                "RGFProbability" in fbData.validations ? fbData.validations.RGFProbability : validations.docProbability,
+                "RGFProbability" in old.validations ? old.validations.RGFProbability : validations.docProbability,
             RGVProbability:
-                "RGVProbability" in fbData.validations ? fbData.validations.RGVProbability : validations.docProbability,
+                "RGVProbability" in old.validations ? old.validations.RGVProbability : validations.docProbability,
         },
     };
-}
+    if (is.BackgroundCheck(old)) {
+        data.found = old.found;
+        data.passedOn = old.passedOn;
+    }
+    if (is.BackgroundCheck(response)) {
+        data.found = response.found;
+        data.passedOn = response.passedOn;
+    }
+    return data;
+};

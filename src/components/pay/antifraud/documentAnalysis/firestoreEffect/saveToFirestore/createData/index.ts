@@ -1,7 +1,7 @@
-import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import * as RG from "./RG";
 import * as CNH from "./CNH";
 import { UseFullOCR } from "../../../main";
+import { CreateFirebaseData } from "./types";
 
 const creator = {
     RGF: RG.Frente,
@@ -14,17 +14,15 @@ const creator = {
     CNHFeV: CNH.FrenteMaisVerso,
 };
 
-export function createFirebaseData(
-    oldData: FirebaseCard.Generic,
-    result: UseFullOCR.DataResult,
-): Omit<FirebaseCard.Generic, "added" | "updated"> {
-    if (oldData.status !== "pendingDocument") throw "UNEXPECTED_CARD_STATUS";
+export const createFirebaseData: CreateFirebaseData = (oldData, result) => {
     const discriminated = UseFullOCR.discriminateResult(result);
     if ("docStatus" in oldData) {
-        if (oldData.documentType === "rg" && (discriminated.type === "RGF" || discriminated.type === "RGV"))
+        if (oldData.docStatus === "pendingRGF" && discriminated.type === "RGF")
             return creator.RGFeV(oldData, discriminated.result);
-        if (oldData.documentType === "cnh" && discriminated.type === "CNHF")
+        if (oldData.docStatus === "pendingRGV" && discriminated.type === "RGV")
+            return creator.RGFeV(oldData, discriminated.result);
+        if (oldData.docStatus === "pendingCNHF" && discriminated.type === "CNHF")
             return creator.CNHFeV(oldData, discriminated.result);
     }
     return creator[discriminated.type](oldData, discriminated.result as any);
-}
+};
