@@ -48,7 +48,7 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
 
             const validations = validator(firebaseCard.data(), zoopCardData, response);
             processResults(response, url, validations);
-            return { response, url, validations };
+            return { response: response as any, url, validations };
         },
         [firebaseCard, zoopCardData, uploadPicture, source],
     );

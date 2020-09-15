@@ -14,7 +14,7 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bool
 
     const [cbk, biometryState] = useBiometry(firebaseCard);
     const firestoreState = useFirestoreEffect(firebaseCard, biometryState);
-    const sheetReset = useSheetEffect(firebaseCard, zoopCardData, biometryState, firestoreState, userData);
+    const sheetState = useSheetEffect(firebaseCard, zoopCardData, biometryState, firestoreState, userData);
 
     useAsyncEffectShowingMessage(
         null,
@@ -22,7 +22,7 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bool
             //reset everything
             biometryState.reset();
             firestoreState.reset();
-            sheetReset();
+            sheetState.reset();
             //choose button to start
             setCamera(false);
             return prompt.INITIAL_SELFIE.withButtons([{ title: "ok", action: () => setCamera(true) }]);

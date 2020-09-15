@@ -2107,7 +2107,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.38": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.39": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2130,9 +2130,19 @@
                 "name": "index.ts"
             },
             {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/createData/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/index.ts",
                 "test": false,
                 "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/saveToFirestore/types.ts",
+                "test": false,
+                "name": "types.ts"
             },
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/types.ts",

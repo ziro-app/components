@@ -21,29 +21,22 @@ export const useSheetEffect = (
 ) => {
     const sheet = useSheet(process.env.SHEET_ID_TRANSACTIONS);
 
-    const biometrySentinel = useAsyncEffect(async () => {
-        if (biometryState.status === "failed") {
-            if (biometryState.error.name === "NO_IMAGE") return;
-            const values = createSheetErrorData(firebaseCard, zoopCardData, biometryState.error, userData);
-            await sheet.write({ range: "Antifraude_Erros!A1", values });
-            if (devErrors.includes(biometryState.error.name as any))
-                await sheet.write({ range: "Antifraude_Erros_Dev!A1", values });
-        }
-        if (biometryState.status === "success") {
-            const values = createSheetSuccessData(firebaseCard, zoopCardData, biometryState.result, userData);
-            await sheet.write({ range: "Antifraude!A1", values });
-        }
-    }, [biometryState.status]);
-
-    const firestoreSentinel = useAsyncEffect(async () => {
-        if (firestoreState.status === "failed") {
+    return useAsyncEffect(async () => {
+        if (firestoreState.status === "success") {
+            if (biometryState.status === "failed") {
+                if (biometryState.error.name === "NO_IMAGE") return;
+                const values = createSheetErrorData(firebaseCard, zoopCardData, biometryState.error, userData);
+                await sheet.write({ range: "Antifraude_Erros!A1", values });
+                if (devErrors.includes(biometryState.error.name as any))
+                    await sheet.write({ range: "Antifraude_Erros_Dev!A1", values });
+            }
+            if (biometryState.status === "success") {
+                const values = createSheetSuccessData(firebaseCard, zoopCardData, biometryState.result, userData);
+                await sheet.write({ range: "Antifraude!A1", values });
+            }
+        } else if (firestoreState.status === "failed") {
             const values = createSheetErrorData(firebaseCard, zoopCardData, firestoreState.error, userData);
             await sheet.write({ range: "Antifraude_Erros!A1", values });
         }
     }, [firestoreState.status]);
-
-    return useCallback(() => {
-        biometrySentinel.reset();
-        firestoreSentinel.reset();
-    }, [biometrySentinel, firestoreSentinel]);
 };

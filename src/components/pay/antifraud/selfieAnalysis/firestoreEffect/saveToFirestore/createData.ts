@@ -2,7 +2,7 @@ import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-dat
 import { UseBiometry } from "../../main";
 
 export function createFirebaseData(
-    { error, ...oldData }: Omit<FirebaseCard.BeforeSelfiePhase, "added" | "updated">,
+    oldData: Omit<FirebaseCard.BeforeSelfiePhase, "added" | "updated">,
     { url, validations, status }: UseBiometry.DataResult,
 ): Omit<FirebaseCard.AfterAntifraud, "added" | "updated"> {
     return {

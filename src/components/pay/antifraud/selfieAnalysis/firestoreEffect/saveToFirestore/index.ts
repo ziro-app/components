@@ -15,6 +15,7 @@ export async function saveSuccessToFirestore(
         added: oldData.added,
         updated: FV.serverTimestamp(),
     };
+    if (oldData.errors) newData.errors = oldData.errors;
     await firebaseCard.ref.set(newData as any);
 }
 
@@ -23,11 +24,9 @@ export async function saveFailureToFirestore(
     error: UseBiometry.Errors.Generic,
     FV: typeof import("firebase").firestore.FieldValue,
 ) {
-    const errorData = error.getData();
-    const newData = {
-        ...firebaseCard.data(),
-        error: errorData,
-        updated: FV.serverTimestamp(),
+    const errorData = {
+        timestamp: FV.serverTimestamp(),
+        error: error.getData(),
     };
-    await firebaseCard.ref.set(newData as any);
+    await firebaseCard.ref.update({ errors: FV.arrayUnion(errorData) });
 }

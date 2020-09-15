@@ -25,25 +25,16 @@ export const useSheetEffect = (
 ) => {
     const sheet = useSheet(process.env.SHEET_ID_TRANSACTIONS);
 
-    const fullOCRSentinel = useAsyncEffect(async () => {
-        if (fullOCRState.status === "failed") {
+    return useAsyncEffect(async () => {
+        if (firestoreState.status === "success" && fullOCRState.status === "failed") {
             if (fullOCRState.error.name === "NO_IMAGE") return;
             const values = createSheetData(firebaseCard, zoopCardData, fullOCRState.error, userData);
             await sheet.write({ range: "Antifraude_Erros!A1", values });
             if (devErrors.includes(fullOCRState.error.name as any))
                 await sheet.write({ range: "Antifraude_Erros_Dev!A1", values });
-        }
-    }, [fullOCRState.status]);
-
-    const firestoreSentinel = useAsyncEffect(async () => {
-        if (firestoreState.status === "failed") {
+        } else if (firestoreState.status === "failed") {
             const values = createSheetData(firebaseCard, zoopCardData, firestoreState.error, userData);
             await sheet.write({ range: "Antifraude_Erros!A1", values });
         }
     }, [firestoreState.status]);
-
-    return useCallback(() => {
-        fullOCRSentinel.reset();
-        firestoreSentinel.reset();
-    }, [fullOCRSentinel, firestoreSentinel]);
 };

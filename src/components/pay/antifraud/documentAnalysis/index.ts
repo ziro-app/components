@@ -15,7 +15,7 @@ export const useDocumentAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bo
 
     const [cbk, fullOCRState] = useFullOCR(firebaseCard, zoopCardData);
     const firestoreState = useFirestoreEffect(firebaseCard, fullOCRState);
-    const sheetReset = useSheetEffect(firebaseCard, zoopCardData, fullOCRState, firestoreState, userData);
+    const sheetState = useSheetEffect(firebaseCard, zoopCardData, fullOCRState, firestoreState, userData);
 
     const docStatus = useMemo(() => {
         const data = firebaseCard.data();
@@ -28,7 +28,7 @@ export const useDocumentAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bo
             //reset everything
             fullOCRState.reset();
             firestoreState.reset();
-            sheetReset();
+            sheetState.reset();
             //choose button to start
             setCamera(false);
             const docReadabilityButtons: [Button] = [{ title: "ok", action: () => setCamera(true) }];
