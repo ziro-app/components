@@ -90,7 +90,7 @@ export namespace UseFullOCR {
      * @param obj dataResult object
      * @param checker function to check which type
      */
-    function discriminator<R extends KnownDocument>(
+    export function discriminator<R extends KnownDocument>(
         obj: DataResult,
         checker: (obj: any) => obj is R,
     ): obj is DataResult<R> {

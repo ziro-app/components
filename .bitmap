@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.43": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.44": {
         "files": [
             {
                 "relativePath": "src/components/firebase/catalog-user-data/card/helperTypes.ts",
@@ -2006,7 +2006,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.57": {
+    "vitorbarbosa19.ziro/message-modal@0.0.58": {
         "files": [
             {
                 "name": "Modals.tsx",
@@ -2107,7 +2107,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.40": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.41": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -2335,6 +2335,11 @@
                 "name": "index.ts"
             },
             {
+                "relativePath": "src/components/pay/antifraud/documentAnalysis/whatsAppEffect/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
                 "relativePath": "src/components/pay/antifraud/index.ts",
                 "test": false,
                 "name": "index.ts"
@@ -2446,6 +2451,11 @@
             },
             {
                 "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheetEffect/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/whatsAppEffect/index.ts",
                 "test": false,
                 "name": "index.ts"
             }

@@ -1,7 +1,7 @@
 import { FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 import { ZiroPromptFullData } from "ziro-messages";
 
-export interface File<T extends FullOCR.File.KnownTAG | "SELFIE"> {
+export interface File<T extends FullOCR.File.KnownTAG> {
     url: string;
     fileInfo: FullOCR.File.Info<T>;
 }
