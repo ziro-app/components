@@ -8,7 +8,7 @@ import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { UseFullOCR } from "../main";
 import { UseFirestoreEffect } from "../firestoreEffect";
-import { createSheetData } from "./createData";
+import { createDevSheetData, createSheetData } from "./createData";
 
 const devErrors = tuple(
     fullOCR.prompt.UNRECOGNIZED_RESPONSE.name,
@@ -30,11 +30,15 @@ export const useSheetEffect = (
             if (fullOCRState.error.name === "NO_IMAGE") return;
             const values = createSheetData(firebaseCard, zoopCardData, fullOCRState.error, userData);
             await sheet.write({ range: "Antifraude_Erros!A1", values });
-            if (devErrors.includes(fullOCRState.error.name as any))
-                await sheet.write({ range: "Antifraude_Erros_Dev!A1", values });
+            if (devErrors.includes(fullOCRState.error.name as any)) {
+                const devValues = createDevSheetData(firebaseCard, zoopCardData, fullOCRState.error, userData);
+                await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
+            }
         } else if (firestoreState.status === "failed") {
             const values = createSheetData(firebaseCard, zoopCardData, firestoreState.error, userData);
             await sheet.write({ range: "Antifraude_Erros!A1", values });
+            const devValues = createDevSheetData(firebaseCard, zoopCardData, firestoreState.error, userData);
+            await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
         }
     }, [firestoreState.status]);
 };

@@ -48,3 +48,40 @@ export const createSheetData = (
         ],
     ];
 };
+
+export const createDevSheetData = (
+    firebaseCard: FirebaseCardDocument,
+    zoopCardData: ZoopCard,
+    error: UseFullOCR.Errors.Generic | UseFirestoreEffect.Error,
+    userData: Storeowner,
+) => {
+    const date = formatDateUTC3(new Date());
+    const errorName = hyperlink(
+        createURL(firebaseCard.ref.path, isDev ? "ziro-homolog" : "ziro-app-data"),
+        error.title,
+    );
+    const cnpj = userData?.cnpj;
+    const razao = userData?.razao;
+    const name = `${userData?.fname || ""} ${userData?.lname || ""}`;
+    const holderName = zoopCardData.holder_name;
+    const cardNumber = `${zoopCardData.first4_digits}...${zoopCardData.last4_digits}`;
+    const expiry = formatExpiry(zoopCardData);
+
+    const extractedData = extractData(firebaseCard.data(), error);
+
+    return [
+        [
+            date,
+            error.code,
+            errorName,
+            JSON.stringify(error.getData(), null, 4),
+            cnpj,
+            razao,
+            name,
+            holderName,
+            cardNumber,
+            expiry,
+            ...extractedData,
+        ],
+    ];
+};

@@ -46,6 +46,24 @@ export const createSheetErrorData = (
     return [[date, error.code, errorName, error.internalDescription, ...rest, probSelfie, selfie]];
 };
 
+export const createDevSheetErrorData = (
+    firebaseCard: FirebaseCardDocument,
+    zoopCardData: ZoopCard,
+    error: UseBiometry.Errors.Generic | UseFirestoreEffect.Error,
+    userData: Storeowner,
+) => {
+    const errorName = hyperlink(
+        createURL(firebaseCard.ref.path, isDev ? "ziro-homolog" : "ziro-app-data"),
+        error.title,
+    );
+    const [date, ...rest] = createSheetData(firebaseCard, zoopCardData, userData);
+    const probSelfie = UseBiometry.Errors.hasKnownResponse(error)
+        ? `${error.additionalData.response.confidence}`.replace(".", ",")
+        : "";
+    const selfie = UseBiometry.Errors.hasResponse(error) ? hyperlink(error.additionalData.url, "SELFIE") : "";
+    return [[date, error.code, errorName, JSON.stringify(error.getData(), null, 4), ...rest, probSelfie, selfie]];
+};
+
 export const createSheetSuccessData = (
     firebaseCard: FirebaseCardDocument,
     zoopCardData: ZoopCard,

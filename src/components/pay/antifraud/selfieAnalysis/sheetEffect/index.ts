@@ -8,7 +8,7 @@ import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { UseBiometry } from "../main";
 import { UseFirestoreEffect } from "../firestoreEffect";
-import { createSheetErrorData, createSheetSuccessData } from "./createData";
+import { createDevSheetErrorData, createSheetErrorData, createSheetSuccessData } from "./createData";
 
 const devErrors = tuple(biometry.prompt.UNRECOGNIZED_RESPONSE.name);
 
@@ -27,8 +27,15 @@ export const useSheetEffect = (
                 if (biometryState.error.name === "NO_IMAGE") return;
                 const values = createSheetErrorData(firebaseCard, zoopCardData, biometryState.error, userData);
                 await sheet.write({ range: "Antifraude_Erros!A1", values });
-                if (devErrors.includes(biometryState.error.name as any))
-                    await sheet.write({ range: "Antifraude_Erros_Dev!A1", values });
+                if (devErrors.includes(biometryState.error.name as any)) {
+                    const devValues = createDevSheetErrorData(
+                        firebaseCard,
+                        zoopCardData,
+                        biometryState.error,
+                        userData,
+                    );
+                    await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
+                }
             }
             if (biometryState.status === "success") {
                 const values = createSheetSuccessData(firebaseCard, zoopCardData, biometryState.result, userData);
@@ -37,6 +44,8 @@ export const useSheetEffect = (
         } else if (firestoreState.status === "failed") {
             const values = createSheetErrorData(firebaseCard, zoopCardData, firestoreState.error, userData);
             await sheet.write({ range: "Antifraude_Erros!A1", values });
+            const devValues = createDevSheetErrorData(firebaseCard, zoopCardData, firestoreState.error, userData);
+            await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
         }
     }, [firestoreState.status]);
 };
