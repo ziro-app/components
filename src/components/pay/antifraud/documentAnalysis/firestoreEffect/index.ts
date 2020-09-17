@@ -29,7 +29,10 @@ export const useFirestoreEffect = (firebaseCard: FirebaseCardDocument, state: Us
                             if (userData.data().status !== "paid") return userData.ref.update({ status: "docAdded" });
                         })
                         .catch((error) => {
-                            throw common.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({ error, ...state.result });
+                            throw common.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({
+                                error,
+                                ...UseFullOCR.transformResult(state.result),
+                            });
                         });
                     return;
                 default:
