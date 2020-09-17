@@ -9,7 +9,7 @@ const formatCPF = (cpf: string) => {
     return `${first}.${second}.${third}-${last}`;
 };
 
-function getDocs(firebaseData: FirebaseCard.BeforeSelfiePhase) {
+function getDocs(firebaseData: FirebaseCard.BeforeSelfiePhase | FirebaseCard.AfterAntifraud) {
     if ("RG FV" in firebaseData) {
         const {
             url,
@@ -72,7 +72,7 @@ function getDocs(firebaseData: FirebaseCard.BeforeSelfiePhase) {
  * @param error
  */
 export function extractData(
-    firebaseData: FirebaseCard.BeforeSelfiePhase,
+    firebaseData: FirebaseCard.BeforeSelfiePhase | FirebaseCard.AfterAntifraud,
 ): [string, string, string, string, string, string, string, string, string, string, string] {
     const { dataNascimento, rg, cpf, nomeMae, nome, documentType } = firebaseData.extracted;
     const emissor = "emissor" in firebaseData.extracted ? firebaseData.extracted.emissor : "";

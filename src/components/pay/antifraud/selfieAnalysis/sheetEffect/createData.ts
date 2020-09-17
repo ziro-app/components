@@ -14,7 +14,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 const createSheetData = (firebaseCard: FirebaseCardDocument, zoopCardData: ZoopCard, userData: Storeowner) => {
     const firebaseData = firebaseCard.data();
-    if (firebaseData.status !== "pendingSelfie") throw "UNEXPECTED_CARD_STATUS";
+    if (firebaseData.status === "pendingDocument") throw "UNEXPECTED_CARD_STATUS";
     const date = formatDateUTC3(new Date());
     const cnpj = userData?.cnpj;
     const razao = userData?.razao;
