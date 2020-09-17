@@ -9,7 +9,7 @@ export const useWhatsAppEffect = (state: UseFullOCR.State, userData: Storeowner)
             await sendWhats({
                 recipients: ["15306017334", "971558399235", "5511962237883"],
                 template_name: "antifraud-trouble",
-                template_parameters: { razao: userData.razao },
+                template_parameters: { razao: userData.razao, errorName: state.error.title },
             });
         }
     }, [state.status]);

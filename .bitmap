@@ -2107,7 +2107,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.46": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.47": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/firestoreEffect/index.ts",
@@ -3095,7 +3095,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/whatsapp@0.0.8": {
+    "vitorbarbosa19.ziro/utils/whatsapp@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/utils/whatsapp/constants.ts",

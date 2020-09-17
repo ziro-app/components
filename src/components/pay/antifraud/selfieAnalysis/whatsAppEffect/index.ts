@@ -9,13 +9,13 @@ export const useWhatsAppEffect = (state: UseBiometry.State, userData: Storeowner
             await sendWhats({
                 recipients: ["15306017334", "971558399235", "5511962237883"],
                 template_name: "antifraud-trouble",
-                template_parameters: { razao: userData.razao },
+                template_parameters: { razao: userData.razao, errorName: state.error.title },
             });
         }
         if (state.status === "success" && state.result.status === "pendingManualApproval") {
             await sendWhats({
                 recipients: ["15306017334", "971558399235", "5511962237883"],
-                template_name: "antifraud-trouble",
+                template_name: "antifraud-manual-approval",
                 template_parameters: { razao: userData.razao },
             });
         }
