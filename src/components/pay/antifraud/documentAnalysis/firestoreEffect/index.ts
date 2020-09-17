@@ -16,10 +16,10 @@ export const useFirestoreEffect = (firebaseCard: FirebaseCardDocument, state: Us
         async () => {
             switch (state.status) {
                 case "failed":
-                    await saveFailureToFirestore(firebaseCard, state.error, FV).catch((error) => {
+                    await saveFailureToFirestore(firebaseCard, state.error, FV).catch((firestoreError) => {
                         throw common.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({
-                            error,
-                            ...state.error.additionalData,
+                            firestoreError,
+                            fullOCRError: state.error.getData(),
                         });
                     });
                     return;
@@ -28,10 +28,10 @@ export const useFirestoreEffect = (firebaseCard: FirebaseCardDocument, state: Us
                         .then(() => {
                             if (userData.data().status !== "paid") return userData.ref.update({ status: "docAdded" });
                         })
-                        .catch((error) => {
+                        .catch((firestoreError) => {
                             throw common.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({
-                                error,
-                                ...UseFullOCR.transformResult(state.result),
+                                firestoreError,
+                                fullOCRResult: UseFullOCR.transformResult(state.result),
                             });
                         });
                     return;
