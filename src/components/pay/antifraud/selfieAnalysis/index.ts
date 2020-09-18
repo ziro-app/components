@@ -16,7 +16,7 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bool
     const [cbk, biometryState] = useBiometry(firebaseCard);
     const firestoreState = useFirestoreEffect(firebaseCard, biometryState);
     const sheetState = useSheetEffect(firebaseCard, zoopCardData, biometryState, firestoreState, userData);
-    const whatsAppEffect = useWhatsAppEffect(biometryState, userData);
+    const whatsAppState = useWhatsAppEffect(biometryState, userData);
 
     useAsyncEffectShowingMessage(
         null,
@@ -25,7 +25,7 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bool
             biometryState.reset();
             firestoreState.reset();
             sheetState.reset();
-            whatsAppEffect.reset();
+            whatsAppState.reset();
             //choose button to start
             setCamera(false);
             return prompt.INITIAL_SELFIE.withButtons([{ title: "ok", action: () => setCamera(true) }]);
@@ -33,7 +33,10 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bool
         [],
     );
 
-    const analizing = useMemo(() => biometryState.status === "running", [biometryState.status]);
+    const analizing = useMemo(() => biometryState.status === "running" || firestoreState.status === "running", [
+        biometryState.status,
+        firestoreState.status,
+    ]);
 
     return [cbk, analizing] as [typeof cbk, typeof analizing];
 };

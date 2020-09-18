@@ -45,7 +45,8 @@ export const createSheetErrorData = (
         ? `${error.additionalData.response.confidence}`.replace(".", ",")
         : "";
     const selfie = UseBiometry.Errors.hasResponse(error) ? hyperlink(error.additionalData.url, "SELFIE") : "";
-    return [[date, error.code, errorName, error.internalDescription, ...rest, probSelfie, selfie]];
+    const allData = [[date, error.code, errorName, error.internalDescription, ...rest, probSelfie, selfie]];
+    return allData;
 };
 
 export const createDevSheetErrorData = (
@@ -76,5 +77,6 @@ export const createSheetSuccessData = (
     const probSelfie = `${result.response.confidence}`.replace(".", ",");
     const selfie = hyperlink(result.url, "SELFIE");
     const approved = result.status === "approved" ? "sim" : "não";
-    return [[...data, probSelfie, selfie, approved]];
+    const allData = [[...data, probSelfie, selfie, approved]];
+    return allData;
 };

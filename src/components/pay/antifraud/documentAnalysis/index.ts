@@ -49,7 +49,10 @@ export const useDocumentAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bo
         [docStatus],
     );
 
-    const analizing = useMemo(() => fullOCRState.status === "running", [fullOCRState.status]);
+    const analizing = useMemo(() => fullOCRState.status === "running" || firestoreState.status === "running", [
+        fullOCRState.status,
+        firestoreState.status,
+    ]);
 
     return [cbk, analizing] as [typeof cbk, typeof analizing];
 };
