@@ -14,7 +14,6 @@ const isDev = process.env.NODE_ENV === "development";
 
 const createSheetData = (firebaseCard: FirebaseCardDocument, zoopCardData: ZoopCard, userData: Storeowner) => {
     const firebaseData = firebaseCard.data();
-    if (firebaseData.status === "pendingDocument") throw "UNEXPECTED_CARD_STATUS";
     const date = formatDateUTC3(new Date());
     const cnpj = userData?.cnpj;
     const razao = userData?.razao;
@@ -23,7 +22,10 @@ const createSheetData = (firebaseCard: FirebaseCardDocument, zoopCardData: ZoopC
     const cardNumber = `${zoopCardData.first4_digits}...${zoopCardData.last4_digits}`;
     const expiry = formatExpiry(zoopCardData);
 
-    const extractedData = extractData(firebaseData);
+    const extractedData =
+        firebaseData.status !== "pendingDocument"
+            ? extractData(firebaseData)
+            : Array.from(Array(11).keys()).map(() => "");
 
     return [date, cnpj, razao, name, holderName, cardNumber, expiry, ...extractedData];
 };
