@@ -8,24 +8,28 @@ export const DisplayTimeline = () =>
 		<Header type='icon' title='Meus Pagamentos' icon='menu' />
 		<Timeline transactions={[
 			{
+				insurance: true,
 				seller: 'Karmani',
 				charge: '7.238,55',
 				status: 'Pago',
 				date: '30/ago'
 			},
 			{
+				insurance: true,
 				seller: 'Cor Doce',
 				charge: '1.223,45',
 				status: 'Pago',
 				date: '30/ago'
 			},
 			{
+				insurance: true,
 				seller: 'La Chocole',
 				charge: '6.778,99',
 				status: 'Pago',
 				date: '30/ago'
 			},
 			{
+				insurance: true,
 				seller: 'Confeccoes Mauricio',
 				charge: '989,12',
 				status: 'Pago',
@@ -59,7 +63,7 @@ export const DisplayTimeline = () =>
 				seller: 'Crisfael',
 				charge: '1.299,02',
 				status: 'Cancelado',
-				insurance: true,
+				// insurance: true,
 				date: '27/ago',
 				statusColor: '#bb2124'
 			},

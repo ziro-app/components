@@ -7,6 +7,7 @@ import SpinnerWithDiv from '../SpinnerWithDiv/index';
 import Badge from '../Badge/index';
 import {
 	after,
+	afterInsurance,
 	afterWelcome,
 	wrapper,
 	sellerCss,
@@ -23,9 +24,10 @@ import {
 const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = () => null, btnTemplate, ctaButton, hasMore = false, isSearching = false, messageEmptyTransactions, messageWelcomeTransactions }) =>
 	<>
 		<style>{after}</style>
+		<style>{afterInsurance}</style>
 		{transactions.map((transaction, key) =>
-			<div style={wrapper(key === (transactions.length - 1) && hasMore)} className='timeline' key={key} onClick={() => transactionClick({ transaction })}>
-				{transaction.insurance && <Badge type='lock' style={secureCss} size={12} message='Com seguro' color={primaryColor} />}
+			<div style={wrapper(key === (transactions.length - 1) && hasMore)} className={transaction.insurance ? 'timelineInsurance' : 'timeline'} key={key} onClick={() => transactionClick({ transaction })}>
+				{transaction.insurance && <Badge type='lock' style={secureCss} size={11} message='Com seguro' color={primaryColor} />}
 				<label style={sellerCss}>{transaction.seller}</label>
 				<label style={chargeCss}>{transaction.charge}</label>
 				<label style={statusCss(transaction.statusColor)}>{transaction.status}</label>
