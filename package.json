@@ -105,7 +105,8 @@
     },
     "bit": {
         "env": {
-            "compiler": "bit.envs/compilers/react"
+            "compiler": "bit.envs/compilers/react",
+            "tester": "bit.envs/testers/jest@22.4.3"
         },
         "componentsDefaultDirectory": "components/{name}",
         "packageManager": "npm",
