@@ -97,6 +97,15 @@ export const
 	box-shadow: 0px 5px 15px -2px rgba(34,34,34,0.55);
 }`,
 
+	beforeInsurance = `.timelineInsurance::before {
+	content: ' ';
+	position: absolute;
+	top: 0px;
+	left: -3px;
+	height: 20px;
+	border-left: 3px solid ${grayColor4};
+}`,
+
 	afterInsurance = `.timelineInsurance::after {
 	content: ' ';
 	position: absolute;

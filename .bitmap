@@ -2863,7 +2863,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.1.48": {
+    "vitorbarbosa19.ziro/timeline@0.1.49": {
         "files": [
             {
                 "name": "index.js",

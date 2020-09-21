@@ -63,7 +63,7 @@ export const DisplayTimeline = () =>
 				seller: 'Crisfael',
 				charge: '1.299,02',
 				status: 'Cancelado',
-				// insurance: true,
+				insurance: true,
 				date: '27/ago',
 				statusColor: '#bb2124'
 			},

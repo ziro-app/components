@@ -9,6 +9,7 @@ import {
 	after,
 	afterInsurance,
 	afterWelcome,
+	beforeInsurance,
 	wrapper,
 	sellerCss,
 	chargeCss,
@@ -25,6 +26,7 @@ const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = 
 	<>
 		<style>{after}</style>
 		<style>{afterInsurance}</style>
+		<style>{beforeInsurance}</style>
 		{transactions.map((transaction, key) =>
 			<div style={wrapper(key === (transactions.length - 1) && hasMore)} className={transaction.insurance ? 'timelineInsurance' : 'timeline'} key={key} onClick={() => transactionClick({ transaction })}>
 				{transaction.insurance && <Badge type='lock' style={secureCss} size={11} message='Com seguro' color={primaryColor} />}
