@@ -19,16 +19,12 @@ export const Switch: React.FC<SwitchProps> = ({
 }) => {
     const { matcher } = useRouter();
     const [location] = useLocation();
-    const user = useUser<any>();
+    const user = useUser<firebase.User>();
     const analytics = reactfire && useAnalytics();
 
     const childrenArray = useMemo(() => (Array.isArray(children) ? children : [children]), [children]);
     const usableChildren = useMemo<ReactElement[]>(() => childrenArray.filter(isValidElement), [childrenArray]);
-    const matches = useMemo(() => usableChildren.map(({ props }) => matcher(props.path, location)), [
-        usableChildren,
-        matcher,
-        location,
-    ]);
+    const matches = useMemo(() => usableChildren.map(({ props }) => matcher(props.path, location)), [usableChildren, matcher, location]);
     const index = useMemo(() => matches.findIndex(([match]) => match), [matches]);
     const element = useMemo(() => usableChildren[index], [usableChildren, index]);
     const match = useMemo(() => matches[index], [matches, index]);
@@ -52,15 +48,15 @@ export const Switch: React.FC<SwitchProps> = ({
     if (index === -1) return null;
 
     //if route is public only and user is logged
-    if (element.props.publicOnly && user)
+    if (element.props.publicOnly && user && user.emailVerified)
         return (
             <>
                 {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
                 {element.props.fallback || defaultPublicOnlyFallback}
             </>
         );
-    //if route is provate only and user is unlogged
-    if (element.props.privateOnly && !user)
+    //if route is private only and user is unlogged
+    if (element.props.privateOnly && (!user || !user.emailVerified))
         return (
             <>
                 {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
@@ -69,10 +65,7 @@ export const Switch: React.FC<SwitchProps> = ({
         );
     //else render element
     return (
-        <SuspenseWithPerf
-            traceId={window.location.host + element.props.path}
-            fallback={element.props.fallback || defaultSuspenseFallback}
-        >
+        <SuspenseWithPerf traceId={window.location.host + element.props.path} fallback={element.props.fallback || defaultSuspenseFallback}>
             {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
             {React.cloneElement(element, { match })}
         </SuspenseWithPerf>
