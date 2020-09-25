@@ -12,11 +12,7 @@ export { Biometry, FullOCR, URLs, is };
 export default nextCode;
 
 export const analiseDocument = (url: string, cancelToken?: CancelToken) =>
-    nextCode.post<any, FullOCR.Response.KnownDocument | FullOCR.Response.UnknownDocument>(
-        URLs.document,
-        { url },
-        { cancelToken },
-    );
+    nextCode.post<any, FullOCR.Response.KnownDocument | FullOCR.Response.UnknownDocument>(URLs.document, { url }, { cancelToken });
 
 export const biometry = (url1: string, url2: string, cancelToken?: CancelToken) =>
     nextCode.post<any, Biometry.Response>(URLs.biometry, { url1, url2 }, { cancelToken });

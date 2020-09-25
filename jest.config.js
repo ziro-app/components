@@ -5,6 +5,6 @@ module.export = {
     },
     testMatch: ["<rootDir>/src/**/>(*.)test.{js, ts, jsx, tsx}"],
     moduleFileExtensions: ["js", "jsx", "json", "node"],
-    testPathIgnorePatterns: ["/node_modules/", "/public/"],
+    testPathIgnorePatterns: ["/node_modules/", "/public/", "/.cache/", "/.docz/"],
     setupFilesAfterEnv: ["jest-dom/extend-expect", "react-testing-library/cleanup-after-each"],
 };

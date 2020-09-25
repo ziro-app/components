@@ -2,10 +2,10 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { prompt } from "ziro-messages/dist/src/nextcode";
 import * as Sentry from "@sentry/react";
-import { ZiroPromptMessage, NextCodeCodes } from "ziro-messages";
-import { Refresh } from "./types";
+import type { ZiroPromptMessage, NextCodeCodes } from "ziro-messages";
+import type { Refresh } from "./types";
 import { loginConfig } from "./constants";
-import { RequestInterceptor, ResponseInterceptor } from "@bit/vitorbarbosa19.ziro.utils.axios";
+import type { RequestInterceptor, ResponseInterceptor } from "@bit/vitorbarbosa19.ziro.utils.axios";
 
 let credentials: Refresh | undefined;
 
@@ -43,8 +43,7 @@ export const response: ResponseInterceptor = {
     },
     onRejected: (error) => {
         if (axios.isCancel(error)) return;
-        if (error.code === "ECONNABORTED")
-            return Promise.reject(prompt.TIMEOUT.withAdditionalData({ message: error.message, code: error.code }));
+        if (error.code === "ECONNABORTED") return Promise.reject(prompt.TIMEOUT.withAdditionalData({ message: error.message, code: error.code }));
         return Promise.reject(getRightMessage(error));
     },
 };

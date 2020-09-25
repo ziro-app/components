@@ -18,7 +18,8 @@ export const request: RequestInterceptor = {
 
 const redeMessageFinder = (error: any) => ({ additionalData }: RedeMessage) => error.response_code === additionalData.response_code;
 
-const zoopMessageFinder = (error: any) => ({ additionalData }: ZoopMessage) => additionalData.status === error.status;
+const zoopMessageFinder = (error: any) => ({ additionalData: { status, category, type } }: ZoopMessage) =>
+    status === error.status && category === error.category && type === error.type;
 
 function getRightMessage(error: AxiosError) {
     const sentryEventId = Sentry.captureException(error);
@@ -34,8 +35,11 @@ export const response: ResponseInterceptor = {
     onFulfilled: ({ data }) => data,
     onRejected: (error) => {
         if (axios.isCancel(error)) return;
-        if (error.code === "ECONNABORTED")
-            return Promise.reject(prompt.SERVICE_REQUEST_TIMEOUT.withAdditionalData({ message: error.message, code: error.code }));
+        if (error.code === "ECONNABORTED") {
+            const { code, message } = error;
+            const timeout = prompt.SERVICE_REQUEST_TIMEOUT.withAdditionalData({ message, code });
+            return Promise.reject(timeout);
+        }
         return Promise.reject(getRightMessage(error));
     },
 };
