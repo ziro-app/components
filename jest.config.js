@@ -1,10 +1,7 @@
-module.export = {
-    roots: ["<rootDir>/src/__tests__"],
+module.exports = {
     transform: {
         "\\.(js|jsx|ts|tsx)?$": "babel-jest",
     },
-    testMatch: ["<rootDir>/src/**/>(*.)test.{js, ts, jsx, tsx}"],
-    moduleFileExtensions: ["js", "jsx", "json", "node"],
-    testPathIgnorePatterns: ["/node_modules/", "/public/", "/.cache/", "/.docz/"],
-    setupFilesAfterEnv: ["jest-dom/extend-expect", "react-testing-library/cleanup-after-each"],
+    testPathIgnorePatterns: ["/node_modules/", "/public/", "/\\.cache/", "/\\.docz/"],
+    setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
 };
