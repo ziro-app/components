@@ -9,7 +9,12 @@ module.exports = {
             },
         ],
         "@babel/preset-react",
-        "@babel/preset-typescript",
+        [
+            "@babel/preset-typescript",
+            {
+                allowNamespaces: true,
+            },
+        ],
     ],
     plugins: ["@babel/plugin-transform-runtime"],
 };
