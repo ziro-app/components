@@ -1,0 +1,30 @@
+---
+name: ToggleButton
+menu: Componentes
+route: /toggle-button
+---
+
+import { Playground, Props } from "docz";
+import ToggleButton from "./index";
+import { containerDocz } from "../../stylesDocz";
+
+# ToggleButton
+
+Componente utilizado para fornecer que o usuário escolha entre duas opções (Verdadeiro/Falso).
+
+<Playground>
+    {() => {
+    const [value, setValue] = useState(false);
+	return (
+		<div style={{ ...containerDocz, display: 'grid', gridRowGap: '30px', alignContent: 'start', top: '50%' }}>
+			<ToggleButton active={value} setActive={setValue} />
+            <ToggleButton active={value} setActive={setValue} template="primary" />
+            <ToggleButton active={value} setActive={setValue} template="gray" />
+            <ToggleButton active={value} setActive={setValue} template="warning" />
+            <ToggleButton active={value} setActive={setValue} template="alert" />
+            <ToggleButton active={value} setActive={setValue} template="secundary" />
+            <ToggleButton active={value} setActive={setValue} template="success" />
+		</div>
+	)
+  }}
+</Playground>

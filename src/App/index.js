@@ -66,6 +66,7 @@ import { DisplayInputPhone } from './DisplayComponents/DisplayInputPhone';
 import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/index.tsx"
 import { DisplayAsyncHooks } from "./DisplayComponents/DisplayAsyncHooks/index.tsx"
 import { DisplaySuspenseFallback } from "./DisplayComponents/DisplaySuspenseFallback/index.tsx"
+import { DisplayToggleButton } from "./DisplayComponents/DisplayToggleButton/index"
 
 export const App = () => (
   <Switch>
@@ -259,13 +260,16 @@ export const App = () => (
       <DisplayInputPhone />
     </Route>
     <Route path="/message-modal">
-      <DisplayMessageModal/>
+      <DisplayMessageModal />
     </Route>
     <Route path="/async-hooks">
-      <DisplayAsyncHooks/>
+      <DisplayAsyncHooks />
     </Route>
     <Route path="/suspense-fallback">
-      <DisplaySuspenseFallback/>
+      <DisplaySuspenseFallback />
+    </Route>
+    <Route path="/toggle-button">
+      <DisplayToggleButton />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>

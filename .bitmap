@@ -2909,6 +2909,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/toggle-button@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/ToggleButton/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ToggleButton/styles.js",
+                "test": false,
+                "name": "styles.js"
+            }
+        ],
+        "mainFile": "src/components/ToggleButton/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/transition-route@0.1.6": {
         "files": [
             {
