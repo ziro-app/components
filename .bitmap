@@ -2909,7 +2909,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/toggle-button@0.0.2": {
+    "vitorbarbosa19.ziro/toggle-button@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/ToggleButton/index.js",

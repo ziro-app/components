@@ -13,10 +13,10 @@ const matchColor = {
     success: successColor
 };
 
-const ToggleButton = ({ active, setActive, size = 80, template = 'default', styleContainer }) =>
+const ToggleButton = ({ active, onClick, size = 80, template = 'default', styleContainer }) =>
     <>
         <div style={styleContainer ? styleContainer : {}} >
-            <div style={toggleButton(size, active, matchColor[template])} onClick={() => setActive(!active)} >
+            <div style={toggleButton(size, active, matchColor[template])} onClick={onClick}>
                 <div style={innerCircle(size, active)}></div>
             </div>
         </div>
@@ -24,7 +24,7 @@ const ToggleButton = ({ active, setActive, size = 80, template = 'default', styl
 
 ToggleButton.propTypes = {
     active: PropTypes.bool.isRequired,
-    setActive: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     size: PropTypes.number,
     template: PropTypes.string,
     styleContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
