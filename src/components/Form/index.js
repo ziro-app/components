@@ -9,7 +9,6 @@ import { container, whiteSpace, submit, submitTop } from "./styles";
 export { ModalSubmit };
 
 const Form = ({
-    error,
     useModalLayoutOnSubmit,
     successComponent,
     errorComponent,
@@ -54,9 +53,7 @@ const Form = ({
                 {buttonOnTop ? (
                     <>
                         {sendToBackend && <Button type="submit" cta={buttonName || "Enviar"} submitting={submitting} />}
-                        <label style={submitTop(submitError)}>
-                            &nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}
-                        </label>
+                        <label style={submitTop(submitError)}>&nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}</label>
                     </>
                 ) : (
                     <>
@@ -72,11 +69,8 @@ const Form = ({
                                 errorMsg={submitMsg}
                             />
                         ) : (
-                            <label style={submit(submitError)}>
-                                &nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}
-                            </label>
+                            <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}</label>
                         )}
-                        {error && <label style={submit(true)}>&nbsp;{error}</label>}
                         {sendToBackend && <Button type="submit" cta={buttonName || "Enviar"} submitting={submitting} />}
                     </>
                 )}

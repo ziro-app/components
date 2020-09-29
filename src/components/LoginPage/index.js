@@ -5,7 +5,7 @@ import HeaderHome from "../HeaderHome/index";
 import LoginForm from "../LoginForm/index";
 import { welcome, subtitle, marker, help } from "./styles";
 
-const LoginPage = ({ audience, sendToBackend, history = null, error }) => {
+const LoginPage = ({ audience, sendToBackend }) => {
     return (
         <>
             <HeaderHome linkPath="/cadastrar" linkText="Sem conta? CADASTRAR" />
@@ -15,7 +15,7 @@ const LoginPage = ({ audience, sendToBackend, history = null, error }) => {
                 <br />
                 Acesse sua conta,
             </h1>
-            <LoginForm sendToBackend={sendToBackend} history={history} error={error} />
+            <LoginForm sendToBackend={sendToBackend} />
             <Link href="/problemas-acesso">
                 <a style={help}>Problemas no acesso?</a>
             </Link>
