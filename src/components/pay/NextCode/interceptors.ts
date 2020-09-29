@@ -34,7 +34,7 @@ export const request: RequestInterceptor = {
 const nextCodeMessageFinder = (error: any) => ({ additionalData: { status } }: NextCodeMessage) => status === error.status;
 const getRightMessage = function (error: AxiosError<any>) {
     const sentryEventId = Sentry.captureException(error);
-    let data = error.response.data;
+    let data = error?.response?.data ?? {};
     let innerError = data.error || {};
     let nextCodeMessage: GenericMessage = Object.values(prompt).find(nextCodeMessageFinder(innerError));
     let unknown: GenericMessage = prompt.UNKNOWN_ERROR;

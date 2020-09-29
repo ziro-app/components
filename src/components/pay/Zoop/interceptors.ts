@@ -23,7 +23,7 @@ const zoopMessageFinder = (error: any) => ({ additionalData: { status, category,
 
 function getRightMessage(error: AxiosError) {
     const sentryEventId = Sentry.captureException(error);
-    let data = error.response.data;
+    let data = error?.response?.data ?? {};
     let innerError = data.error || {};
     let redeMessage: GenericMessage = Object.values(rede).find(redeMessageFinder(innerError));
     let zoopMessage: GenericMessage = Object.values(prompt).find(zoopMessageFinder(innerError));
