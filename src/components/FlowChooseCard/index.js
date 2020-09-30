@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import ChooseCard from '../ChooseCard'
-import { CardRow } from '../ChooseCard/cardRow'
+import { CardRow } from "../ChooseCard/CardRow";
 import { useCache, useHeader, useFooter, useModal, useAnimatedLocation } from '../FlowManager'
 import Modal from '../FlowModal'
 import Header from '../HeaderFlow'
