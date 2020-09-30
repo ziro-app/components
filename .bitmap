@@ -1702,6 +1702,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/index@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/Illustrations/CreditCard/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/Illustrations/CreditCard/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/initial-loader@0.1.51": {
         "files": [
             {

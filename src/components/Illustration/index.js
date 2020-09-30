@@ -12,22 +12,24 @@ import { WithoutFavorites } from '../../Illustrations/WithoutFavorites';
 import { WithoutCartItem } from '../../Illustrations/WithoutCartItem';
 import { Waiting } from '../../Illustrations/Waiting';
 import { NoData } from '../../Illustrations/NoData';
+import { CreditCard } from "../../Illustrations/CreditCard";
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
   const illustrationList = {
-    paymentSuccess: <PaymentSuccess {...illustrationProps} />,
-    paymentError: <PaymentError {...illustrationProps} />,
-    errorLoading: <ErrorLoading {...illustrationProps} />,
-    notFound: <NotFound {...illustrationProps} />,
-    timelineStart: <TimelineStart {...illustrationProps} />,
-    profileData: <ProfileData {...illustrationProps} />,
-    buy: <Buy {...illustrationProps} />,
-    registerSuccess: <RegisterSuccess {...illustrationProps} />,
-    withoutFavorites: <WithoutFavorites {...illustrationProps} />,
-    withoutCartItem: <WithoutCartItem {...illustrationProps} />,
-    waiting: <Waiting {...illustrationProps} />,
-    noData: <NoData {...illustrationProps} />,
+      paymentSuccess: <PaymentSuccess {...illustrationProps} />,
+      paymentError: <PaymentError {...illustrationProps} />,
+      errorLoading: <ErrorLoading {...illustrationProps} />,
+      notFound: <NotFound {...illustrationProps} />,
+      timelineStart: <TimelineStart {...illustrationProps} />,
+      profileData: <ProfileData {...illustrationProps} />,
+      buy: <Buy {...illustrationProps} />,
+      registerSuccess: <RegisterSuccess {...illustrationProps} />,
+      withoutFavorites: <WithoutFavorites {...illustrationProps} />,
+      withoutCartItem: <WithoutCartItem {...illustrationProps} />,
+      waiting: <Waiting {...illustrationProps} />,
+      noData: <NoData {...illustrationProps} />,
+      creditCard: <CreditCard {...illustrationProps} />,
   };
   return illustrationList[type];
 };
