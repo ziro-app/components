@@ -9,16 +9,15 @@ import { useWhatsAppEffect } from "./whatsAppEffect";
 import { useAsyncEffectShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/fullOCR";
 import { Button } from "ziro-messages";
-import whatsapp from "@bit/vitorbarbosa19.ziro.utils.whatsapp";
 
-export const useDocumentAnalysis = (zoopCardData: ZoopCard, setCamera: (open: boolean) => void) => {
+export const useDocumentAnalysis = (zoopCardData: ZoopCard, recipients: string[], setCamera: (open: boolean) => void) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
 
     const [cbk, fullOCRState] = useFullOCR(firebaseCard, zoopCardData);
     const firestoreState = useFirestoreEffect(firebaseCard, fullOCRState);
     const sheetState = useSheetEffect(firebaseCard, zoopCardData, fullOCRState, firestoreState, userData);
-    const whatsAppEffect = useWhatsAppEffect(fullOCRState, userData);
+    const whatsAppEffect = useWhatsAppEffect(recipients, fullOCRState, userData);
 
     const docStatus = useMemo(() => {
         const data = firebaseCard.data();
@@ -36,9 +35,7 @@ export const useDocumentAnalysis = (zoopCardData: ZoopCard, setCamera: (open: bo
             //choose button to start
             setCamera(false);
             const docReadabilityButtons: [Button] = [{ title: "ok", action: () => setCamera(true) }];
-            const buttons: [Button] = [
-                { title: "ok", action: () => prompt.DOC_READABILITY.withButtons(docReadabilityButtons) },
-            ];
+            const buttons: [Button] = [{ title: "ok", action: () => prompt.DOC_READABILITY.withButtons(docReadabilityButtons) }];
             return {
                 document: prompt.INITIAL_DOCUMENT,
                 pendingRGF: prompt.INITIAL_RG_FRENTE,

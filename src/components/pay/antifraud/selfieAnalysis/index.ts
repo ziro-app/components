@@ -9,14 +9,14 @@ import { useWhatsAppEffect } from "./whatsAppEffect";
 import { useAsyncEffectShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/biometry";
 
-export const useSelfieAnalysis = (zoopCardData: ZoopCard, setCamera: (open: boolean) => void) => {
+export const useSelfieAnalysis = (zoopCardData: ZoopCard, recipients: string[], setCamera: (open: boolean) => void) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
 
     const [cbk, biometryState] = useBiometry(firebaseCard);
     const firestoreState = useFirestoreEffect(firebaseCard, biometryState);
     const sheetState = useSheetEffect(firebaseCard, zoopCardData, biometryState, firestoreState, userData);
-    const whatsAppState = useWhatsAppEffect(biometryState, userData);
+    const whatsAppState = useWhatsAppEffect(recipients, biometryState, userData);
 
     useAsyncEffectShowingMessage(
         null,
