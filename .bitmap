@@ -1598,8 +1598,18 @@
                 "test": false
             },
             {
+                "relativePath": "src/Illustrations/CreditCard/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
                 "name": "index.js",
                 "relativePath": "src/Illustrations/ErrorLoading/index.js",
+                "test": false
+            },
+            {
+                "name": "index.js",
+                "relativePath": "src/Illustrations/NoData/index.js",
                 "test": false
             },
             {
@@ -1624,22 +1634,12 @@
             },
             {
                 "name": "index.js",
-                "relativePath": "src/Illustrations/TimelineStart/index.js",
-                "test": false
-            },
-            {
-                "name": "index.js",
                 "relativePath": "src/Illustrations/RegisterSuccess/index.js",
                 "test": false
             },
             {
                 "name": "index.js",
-                "relativePath": "src/Illustrations/WithoutFavorites/index.js",
-                "test": false
-            },
-            {
-                "name": "index.js",
-                "relativePath": "src/Illustrations/WithoutCartItem/index.js",
+                "relativePath": "src/Illustrations/TimelineStart/index.js",
                 "test": false
             },
             {
@@ -1649,7 +1649,12 @@
             },
             {
                 "name": "index.js",
-                "relativePath": "src/Illustrations/NoData/index.js",
+                "relativePath": "src/Illustrations/WithoutCartItem/index.js",
+                "test": false
+            },
+            {
+                "name": "index.js",
+                "relativePath": "src/Illustrations/WithoutFavorites/index.js",
                 "test": false
             },
             {
@@ -1699,18 +1704,6 @@
             }
         ],
         "mainFile": "src/components/ImageUpload/index.js",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "vitorbarbosa19.ziro/index@0.0.2": {
-        "files": [
-            {
-                "relativePath": "src/Illustrations/CreditCard/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/Illustrations/CreditCard/index.js",
         "origin": "AUTHORED",
         "exported": true
     },
