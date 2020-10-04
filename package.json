@@ -430,24 +430,6 @@
         }
       },
       "pay/antifraud": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/antifraud",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
         "dependencies": {
           "@bit/vitorbarbosa19.ziro.utils.async-hooks": "-",
           "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "-",
@@ -493,6 +475,69 @@
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
           "framer-motion": "1.11.x"
+        },
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+              "rawConfig": {
+                "compilerPath": "typescript/bin/tsc",
+                "compilerArguments": [
+                  "--declaration"
+                ],
+                "compiledFileTypes": [
+                  ".ts",
+                  ".tsx"
+                ],
+                "configFileName": "tsconfig.json",
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/antifraud",
+                    "target": "ES5",
+                    "sourceMap": false,
+                    "moduleResolution": "Node",
+                    "esModuleInterop": true,
+                    "module": "CommonJS",
+                    "allowSyntheticDefaultImports": true,
+                    "resolveJsonModule": true,
+                    "declaration": true,
+                    "experimentalDecorators": true,
+                    "inlineSourceMap": true,
+                    "inlineSources": true,
+                    "lib": [
+                      "dom",
+                      "es2015"
+                    ],
+                    "jsx": "react",
+                    "rootDir": "./",
+                    "removeComments": false,
+                    "typeRoots": [
+                      "./node_modules/@types"
+                    ],
+                    "importHelpers": false
+                  },
+                  "include": [
+                    "./**/*"
+                  ],
+                  "exclude": [
+                    "node_modules",
+                    ".dependencies",
+                    "dist"
+                  ]
+                },
+                "development": false,
+                "copyPolicy": {
+                  "ignorePatterns": [
+                    "package.json",
+                    "package-lock.json",
+                    "tsconfig.json"
+                  ],
+                  "disable": false
+                }
+              },
+              "options": {}
+            }
+          },
+          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "pay/card-lifecycle": {
@@ -777,6 +822,510 @@
         },
         "peerDependencies": {
           "axios": "0.20.x"
+        }
+      },
+      "vitorbarbosa19.ziro/about": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/badge": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/bottom-flow-buttons": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/bottom-tab-bar-by-index": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/bottom-tab-bar": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/button": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/calendar": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/call-to-action": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/camera-button": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/camera-container": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/camera-fallback": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/camera-overlay": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/camera": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/card-form": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/card": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/checkout": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/choose-installment": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/confirm-email": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/credit-card": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/delete-account": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/details": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/drawer-panel": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/drawer": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/dropdown-edit": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/dropdown": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/error-boundary": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/error-expired": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/error-loading": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/error": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/filter": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/flow-form": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/flow-manager": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/flow-register-card": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/flow-upload-photo": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/footer": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/form-input": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/form-register-storeowner": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/form": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/get-cnpj": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/header-flow": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/header-home": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/header": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/hero-image": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/icon": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/illustration": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/image-preview": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/image-upload": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/initial-loader": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-edit": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-email": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-label": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-money": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-notice": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-percentage": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-phone": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/input-text": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/landing": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/login-form": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/login-page": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/login-trouble": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/logo": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/map-box": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/menu-hover": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/modal": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/my-account": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/not-found": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/resend-email": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/reset-pass": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/seller-and-charge-row": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/social-media": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/spinner-with-div": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/spinner": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/submenu": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/summary": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/tab-dual-header": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/tab-dual-transition": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/table": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/timeline": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/toast-notification": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/toggle-button": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/transition-route": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/update-email": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/update-pass": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
+        }
+      },
+      "vitorbarbosa19.ziro/upload-photo": {
+        "env": {
+          "compiler": "bit.envs/compilers/react@1.0.20",
+          "tester": "bit.envs/testers/jest@22.4.3"
         }
       }
     }
