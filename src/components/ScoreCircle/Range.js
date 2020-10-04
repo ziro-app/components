@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import drawCanvas from './drawCanvas'
-import { rangeSvg } from './styles'
 
 const Range = props => {
   const canvasRef = useRef(null)
@@ -9,7 +8,6 @@ const Range = props => {
   }, [])
   return (
     <canvas
-      style={rangeSvg}
       ref={canvasRef}
       width={props.width}
       height={props.width}
