@@ -2700,22 +2700,12 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/score-circle@0.0.1": {
+    "vitorbarbosa19.ziro/score-circle@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ScoreCircle/Range.js",
                 "test": false,
                 "name": "Range.js"
-            },
-            {
-                "relativePath": "src/components/ScoreCircle/drawCanvas.js",
-                "test": false,
-                "name": "drawCanvas.js"
-            },
-            {
-                "relativePath": "src/components/ScoreCircle/hex2rgba.js",
-                "test": false,
-                "name": "hex2rgba.js"
             },
             {
                 "relativePath": "src/components/ScoreCircle/index.js",
@@ -2728,9 +2718,19 @@
                 "name": "styles.js"
             },
             {
+                "relativePath": "src/components/ScoreCircle/utils/drawCanvas.js",
+                "test": false,
+                "name": "drawCanvas.js"
+            },
+            {
                 "relativePath": "src/components/ScoreCircle/utils/getCurrentColor.js",
                 "test": false,
                 "name": "getCurrentColor.js"
+            },
+            {
+                "relativePath": "src/components/ScoreCircle/utils/hexToRgba.js",
+                "test": false,
+                "name": "hexToRgba.js"
             }
         ],
         "mainFile": "src/components/ScoreCircle/index.js",

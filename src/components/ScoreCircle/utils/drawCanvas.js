@@ -1,4 +1,4 @@
-import hex2rgba from './hex2rgba'
+import hexToRgba from './hexToRgba'
 
 const drawCanvas = (canvasRef, props) => {
   const canvas = canvasRef.current
@@ -26,7 +26,7 @@ const drawCanvas = (canvasRef, props) => {
       Math.PI * 2 * ((lastval + pieSize) / 360),
     )
     lastval += pieSize
-    if (scoreNumber < i + 1) context.strokeStyle = hex2rgba(stepsColors[i], fadedOpacity)
+    if (scoreNumber < i + 1) context.strokeStyle = hexToRgba(stepsColors[i], fadedOpacity)
     else context.strokeStyle = stepsColors[i]
     context.lineWidth = lineWidth * pixelRatio
     context.stroke()

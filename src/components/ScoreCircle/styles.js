@@ -1,4 +1,4 @@
-import { fontTitle } from '@ziro/theme'
+import { fontTitle, primaryColor } from '@ziro/theme'
 
 export const
 
@@ -17,4 +17,13 @@ scoreValue = (scoreValuePosition, scoreValueColor) => ({
 	whiteSpace: 'nowrap',
 	overflow: 'hidden',
 	textOverflow: 'ellipsis'
-})
+}),
+
+scoreText = {
+	display: 'grid',
+	fontSize: '1.5rem',
+	fontWeight: '700',
+	color: primaryColor,
+	textAlign: 'center',
+	textTransform: 'uppercase'
+}

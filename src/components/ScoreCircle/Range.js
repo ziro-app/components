@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import drawCanvas from './drawCanvas'
+import drawCanvas from './utils/drawCanvas'
 
 const Range = props => {
   const canvasRef = useRef(null)
