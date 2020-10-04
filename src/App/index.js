@@ -67,6 +67,7 @@ import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/ind
 import { DisplayAsyncHooks } from "./DisplayComponents/DisplayAsyncHooks/index.tsx"
 import { DisplaySuspenseFallback } from "./DisplayComponents/DisplaySuspenseFallback/index.tsx"
 import { DisplayToggleButton } from "./DisplayComponents/DisplayToggleButton/index"
+import { DisplayScoreCircle } from "./DisplayComponents/DisplayScoreCircle/index"
 
 export const App = () => (
   <Switch>
@@ -270,6 +271,9 @@ export const App = () => (
     </Route>
     <Route path="/toggle-button">
       <DisplayToggleButton />
+    </Route>
+    <Route path="/score-circle">
+      <DisplayScoreCircle />
     </Route>
     <Route path="/:any*">Página não encontrada</Route>
   </Switch>
