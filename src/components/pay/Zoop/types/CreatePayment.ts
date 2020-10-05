@@ -141,17 +141,17 @@ export namespace UnregisteredCard {
     }
 
     export interface Request {
-        sendCompleteError: true;
+        sendCompleteError: boolean;
         payment_type: "credit";
         capture: boolean;
         on_behalf_of: string;
-        customer: string;
+        customer?: string;
         statement_descriptor: string;
         installment_plan?: InstallmentPlan;
         split_rules?: SplitRule[];
         source: {
             usage: "single_use";
-            amount: number;
+            amount: number | string;
             currency: "BRL";
             type: "card";
             card: {
