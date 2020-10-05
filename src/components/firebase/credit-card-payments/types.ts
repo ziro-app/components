@@ -8,15 +8,17 @@ export declare namespace CreditCardPayments {
 
     export interface FirebaseDocument {
         dateLastUpdate: firestore.Timestamp;
-        maxInstallments: string;
+        installmentsMax: string;
         status: string;
         sellerZoopId: string;
-        zoopPlan: ZoopPlan;
+        sellerZoopPlan: ZoopPlan;
         insurance: boolean;
         cartId?: string;
         dateLinkCreated: firestore.Timestamp;
         seller: string;
         charge: string;
         observations: string;
+        onBehalfOfBrand?: string;
+        checkoutWithoutRegister: boolean;
     }
 }
