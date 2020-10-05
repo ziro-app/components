@@ -127,6 +127,19 @@ export namespace UnregisteredCard {
         history: History[];
     }
 
+    export interface InstallmentPlan {
+        mode: "interest_free";
+        number_installments: string;
+    }
+
+    export interface SplitRule {
+        recipient: string;
+        percentage: number;
+        amount: number;
+        liable: boolean;
+        charge_processing_fee: boolean;
+    }
+
     export interface Request {
         sendCompleteError: true;
         payment_type: "credit";
@@ -134,6 +147,8 @@ export namespace UnregisteredCard {
         on_behalf_of: string;
         customer: string;
         statement_descriptor: string;
+        installment_plan?: InstallmentPlan;
+        split_rules?: SplitRule[];
         source: {
             usage: "single_use";
             amount: number;
