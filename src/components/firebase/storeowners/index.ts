@@ -12,20 +12,21 @@ const defaultStoreowner = {
 /**
  * Esse hook retorna os dados do documento storeowner associado ao uid do usuário logado
  */
-export const useStoreowner = () => {
+export const useStoreowner = <T = Storeowner>(startWithValue?: T) => {
     const user = useUser<import("firebase").User>();
     const userQuery = useFirestore()
         .collection("storeowners")
         .where("uid", "==", user?.uid || "-")
         .limit(1);
-    return useFirestoreCollectionData<Storeowner>(userQuery, { idField: "storeownerId" })[0] || defaultStoreowner;
+    return (useFirestoreCollectionData<Storeowner>(userQuery, { idField: "storeownerId", startWithValue: [startWithValue] as any })[0] ||
+        defaultStoreowner) as Storeowner | T;
 };
 
 /**
  * Esse hook retorna o documento storeowner associado ao uid do usuario logado
  */
 export const useStoreownerDocument = () => {
-    const user = useUser<import("firebase").User>();
+    const user = useUser<firebase.User>();
     const userQuery = useFirestore()
         .collection("storeowners")
         .where("uid", "==", user?.uid || "-")
