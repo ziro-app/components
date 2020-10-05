@@ -106,6 +106,11 @@ export const
 	border-left: 3px solid ${grayColor4};
 }`,
 
+	initialInsurance = `#initialInsurance::before {
+		border-left: 3px solid #FFF
+	}
+`,
+
 	afterInsurance = `.timelineInsurance::after {
 	content: ' ';
 	position: absolute;
