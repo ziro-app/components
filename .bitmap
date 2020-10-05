@@ -2585,7 +2585,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.16": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.17": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",
@@ -3155,7 +3155,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/whatsapp@0.0.11": {
+    "vitorbarbosa19.ziro/utils/whatsapp@0.0.12": {
         "files": [
             {
                 "relativePath": "src/components/utils/whatsapp/constants.ts",

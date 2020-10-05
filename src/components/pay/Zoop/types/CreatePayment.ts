@@ -1,59 +1,6 @@
-export namespace CreatePayment {
-    export interface UnregisteredCard {
-        holder_name: string;
-        expiration_month: number;
-        expiration_year: number;
-        card_number: number;
-        security_code: number;
-    }
+import type { VerificationChecklist } from "./VerificationCheckList";
 
-    export interface RegisteredCard {
-        id: string;
-    }
-
-    export interface CreditSource {
-        usage: string;
-        amount: number;
-        currency: string;
-        type: "card";
-        card: UnregisteredCard | RegisteredCard;
-    }
-
-    export interface InstallmentPlan {
-        mode: "interest_free";
-        number_installments: number;
-    }
-
-    export interface SplitRule {
-        recipient: string;
-        percentage: number;
-        amount: number;
-        liable: boolean;
-        charge_processing_fee: boolean;
-    }
-
-    export interface CreditRequest {
-        sendCompleteError?: boolean;
-        payment_type: "credit";
-        capture: boolean;
-        on_behalf_of: string;
-        customer?: string;
-        statement_descriptor?: string;
-        source: CreditSource;
-        installment_plan: InstallmentPlan;
-        split_rules?: SplitRule[];
-    }
-}
-
-declare module namespace {
-    export interface VerificationChecklist {
-        postal_code_check: string;
-        security_code_check: string;
-        address_line1_check: string;
-    }
-
-    export interface Metadata {}
-
+export namespace UnregisteredCard {
     export interface PaymentMethod {
         id: string;
         resource: string;
@@ -71,19 +18,11 @@ declare module namespace {
         fingerprint: string;
         address?: any;
         verification_checklist: VerificationChecklist;
-        metadata: Metadata;
+        metadata: object;
         uri: string;
         created_at: Date;
         updated_at: Date;
     }
-
-    export interface VerificationChecklist2 {
-        postal_code_check: string;
-        security_code_check: string;
-        address_line1_check: string;
-    }
-
-    export interface Metadata2 {}
 
     export interface Card {
         id: string;
@@ -101,8 +40,8 @@ declare module namespace {
         customer?: any;
         fingerprint: string;
         address?: any;
-        verification_checklist: VerificationChecklist2;
-        metadata: Metadata2;
+        verification_checklist: VerificationChecklist;
+        metadata: object;
         uri: string;
         created_at: Date;
         updated_at: Date;
@@ -126,8 +65,6 @@ declare module namespace {
         identification_number?: any;
     }
 
-    export interface Metadata3 {}
-
     export interface PaymentAuthorization {
         authorizer_id: string;
         authorization_code: string;
@@ -150,7 +87,7 @@ declare module namespace {
         created_at: string;
     }
 
-    export interface RootObject {
+    export interface Response {
         id: string;
         resource: string;
         status: string;
@@ -182,11 +119,84 @@ declare module namespace {
         location_latitude?: any;
         location_longitude?: any;
         uri: string;
-        metadata: Metadata3;
+        metadata: object;
         expected_on: Date;
         created_at: Date;
         updated_at: Date;
         payment_authorization: PaymentAuthorization;
         history: History[];
+    }
+
+    export interface Request {
+        sendCompleteError: true;
+        payment_type: "credit";
+        capture: boolean;
+        on_behalf_of: string;
+        customer: string;
+        statement_descriptor: string;
+        source: {
+            usage: "single_use";
+            amount: number;
+            currency: "BRL";
+            type: "card";
+            card: {
+                holder_name: string;
+                security_code: string;
+                expiration_month: string;
+                expiration_year: string;
+                card_number: string;
+            };
+        };
+    }
+}
+
+export namespace RegisteredCard {
+    export interface Card {
+        id: string;
+    }
+
+    export interface Source {
+        usage: "reusable";
+        amount: string;
+        currency: "BRL";
+        type: "card";
+        card: Card;
+    }
+
+    export interface InstallmentPlan {
+        mode: "interest_free";
+        number_installments: string;
+    }
+
+    export interface SplitRule {
+        recipient: string;
+        percentage: number;
+        amount: number;
+        liable: boolean;
+        charge_processing_fee: boolean;
+    }
+
+    export interface Request {
+        sendCompleteError: true;
+        payment_type: "credit";
+        capture: boolean;
+        on_behalf_of: string;
+        customer: string;
+        source: Source;
+        installment_plan: InstallmentPlan;
+        split_rules?: SplitRule[];
+        statement_descriptor: string;
+    }
+
+    export interface Response {
+        sendCompleteError: true;
+        payment_type: "credit";
+        capture: boolean;
+        on_behalf_of: string;
+        customer: string;
+        source: Source;
+        installment_plan: InstallmentPlan;
+        split_rules?: SplitRule[];
+        statement_descriptor: string;
     }
 }
