@@ -1,9 +1,14 @@
 import { firestore } from "firebase";
 
 export declare namespace CreditCardPayments {
-    export interface ZoopPlan {
+    export interface Plan {
         percentage: number;
         amount: number;
+    }
+
+    export interface SellerZoopPlan {
+        antiFraud?: Plan;
+        markup?: Plan;
     }
 
     export interface FirebaseDocument {
@@ -11,7 +16,7 @@ export declare namespace CreditCardPayments {
         installmentsMax: string;
         status: string;
         sellerZoopId: string;
-        sellerZoopPlan: ZoopPlan;
+        sellerZoopPlan?: SellerZoopPlan;
         insurance: boolean;
         cartId?: string;
         dateLinkCreated: firestore.Timestamp;
