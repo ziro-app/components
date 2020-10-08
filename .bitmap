@@ -2808,6 +2808,19 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/split-rule@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/splitRule/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/utils/splitRule/index.js",
+        "trackDir": "src/components/utils/splitRule",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/submenu@0.0.11": {
         "files": [
             {
