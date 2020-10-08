@@ -16,5 +16,6 @@ export const DisplayIllustration = () => (
                <Illustration type="waiting" size={200} />
                <Illustration type="noData" size={200} />
                <Illustration type="creditCard" size={200} />
+               <Illustration type="chatting" size={200} />
            </div>
        );

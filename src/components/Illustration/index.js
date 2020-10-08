@@ -13,6 +13,7 @@ import { WithoutCartItem } from '../../Illustrations/WithoutCartItem';
 import { Waiting } from '../../Illustrations/Waiting';
 import { NoData } from '../../Illustrations/NoData';
 import { CreditCard } from "../../Illustrations/CreditCard";
+import { Chatting } from "../../Illustrations/Chatting";
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -30,6 +31,7 @@ const Illustration = ({ type, size }) => {
       waiting: <Waiting {...illustrationProps} />,
       noData: <NoData {...illustrationProps} />,
       creditCard: <CreditCard {...illustrationProps} />,
+      chatting: <Chatting {...illustrationProps} />,
   };
   return illustrationList[type];
 };
