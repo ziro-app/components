@@ -11,6 +11,16 @@ import pretty from "./utils/pretty";
 import { dual } from "./styles";
 import type { Props, State } from "./types";
 
+// const cardIcons = ["amex", "visa", "mastercard", "elo", "hipercard", "hiper"];
+const cardIcons = {
+    [creditCardType.types.AMERICAN_EXPRESS]: "amex",
+    [creditCardType.types.VISA]: "visa",
+    [creditCardType.types.MASTERCARD]: "mastercard",
+    [creditCardType.types.ELO]: "elo",
+    [creditCardType.types.HIPERCARD]: "hipercard",
+    [creditCardType.types.HIPER]: "hiper",
+};
+
 const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
     const [number, setNumber] = useState("");
     const [cardholder, setCardholder] = useState("");
@@ -54,7 +64,7 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
             {header}
             <CreditCard
                 number={pretty(number, type)}
-                brand={niceType}
+                brand={cardIcons[type]}
                 cardholder={cardholder}
                 expiry={expiry}
                 cvv={cvv}
@@ -62,7 +72,7 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
                 cvvName={code.name}
             />
         </div>,
-        [header, pretty, niceType, cardholder, expiry, cvv, code.size, code.name],
+        [header, pretty, type, cardholder, expiry, cvv, code.size, code.name],
     );
 
     const cvvMask = useMemo(
@@ -78,14 +88,13 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
             padding="30px 20px 10px 20px"
             next={{
                 onClick: () => next.onClick(state),
-                name: next.name,
+                name: next.name || "próximo",
             }}
             previous={{
-                onClick: () => previous.onClick(state),
-                name: previous.name,
+                onClick: () => previous?.onClick(state),
+                name: previous?.name,
             }}
             validations={validations}
-            setError={(error) => console.log({ error })}
             inputs={[
                 <FormInput
                     name="number"

@@ -9,7 +9,7 @@ export interface State {
 export interface Props {
     next: {
         onClick: (state: State) => Promise<void>;
-        name: string;
+        name?: string;
     };
     previous?: {
         onClick: (state: State) => Promise<void>;
