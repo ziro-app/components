@@ -2673,6 +2673,11 @@
                 "name": "VerificationCheckList.ts"
             },
             {
+                "relativePath": "src/components/pay/Zoop/types/GetReceivables.ts",
+                "test": false,
+                "name": "GetReceivables.ts"
+            },
+            {
                 "relativePath": "src/components/pay/Zoop/types/index.ts",
                 "test": false,
                 "name": "index.ts"
