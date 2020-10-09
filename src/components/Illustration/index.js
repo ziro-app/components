@@ -14,6 +14,9 @@ import { Waiting } from '../../Illustrations/Waiting';
 import { NoData } from '../../Illustrations/NoData';
 import { CreditCard } from "../../Illustrations/CreditCard";
 import { Chatting } from "../../Illustrations/Chatting";
+import { OnlinePosts } from "../../Illustrations/OnlinePosts";
+import { SelfieOne } from "../../Illustrations/SelfieOne";
+import { SelfieTwo } from "../../Illustrations/SelfieTwo";
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -32,6 +35,9 @@ const Illustration = ({ type, size }) => {
       noData: <NoData {...illustrationProps} />,
       creditCard: <CreditCard {...illustrationProps} />,
       chatting: <Chatting {...illustrationProps} />,
+      onlinePosts: <OnlinePosts {...illustrationProps} />,
+      selfieOne: <SelfieOne {...illustrationProps} />,
+      selfieTwo: <SelfieTwo {...illustrationProps} />,
   };
   return illustrationList[type];
 };

@@ -40,13 +40,13 @@ export const RegisterSuccess = ({ size = 150 }) => (
         <title>Mail sent</title>
         <polygon
             points="125 410 0 268 374 0 748 268 621 410 125 410"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="125 410 0 268 374 0 748 268 621 410 125 410"
-            fill="#514abf"
+            fill="#2d77d8"
         />
-        <rect y="286" width="730" height="319" fill="#6c63ff" />
+        <rect y="286" width="730" height="319" fill="#2d9cdb" />
         <rect
             y="286"
             width="730"
@@ -55,7 +55,7 @@ export const RegisterSuccess = ({ size = 150 }) => (
         />
         <polygon
             points="748 719 0 719 0 268 374 494 748 268 748 719"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="652.582 116.818 573.252 55.99 363.113 330.042 246.402 240.55 185.573 319.879 341.938 439.598 341.938 439.598 382.036 469.649 652.582 116.818"
@@ -67,7 +67,7 @@ export const RegisterSuccess = ({ size = 150 }) => (
         />
         <polygon
             points="59.087 115.617 75.131 130.493 2.411 166.646 41.11 117.046 59.087 115.617"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="59.087 115.617 75.131 130.493 2.411 166.646 41.11 117.046 59.087 115.617"
@@ -75,15 +75,15 @@ export const RegisterSuccess = ({ size = 150 }) => (
         />
         <polygon
             points="40.373 99.66 2.411 166.646 59.087 115.617 40.373 99.66"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="75.599 142.01 2.489 166.16 63.604 120.539 75.599 142.01"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="686.959 38.73 670.942 66.499 788.382 85.622 712.742 32.949 686.959 38.73"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="686.959 38.73 670.942 66.499 788.382 85.622 712.742 32.949 686.959 38.73"
@@ -91,11 +91,11 @@ export const RegisterSuccess = ({ size = 150 }) => (
         />
         <polygon
             points="706.247 8.293 788.382 85.622 686.959 38.73 706.247 8.293"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
         <polygon
             points="675.274 82.821 788.062 84.976 682.769 47.576 675.274 82.821"
-            fill="#6c63ff"
+            fill="#2d9cdb"
         />
     </svg>
 );
