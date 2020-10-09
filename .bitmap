@@ -1018,7 +1018,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.101": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.102": {
         "files": [
             {
                 "relativePath": "src/components/FlowRegisterCard/index.tsx",

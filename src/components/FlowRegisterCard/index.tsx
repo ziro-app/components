@@ -26,7 +26,7 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
     const [cardholder, setCardholder] = useState("");
     const [expiry, setExpiry] = useState("");
     const [cvv, setCvv] = useState("");
-    const { niceType, type, lengths, code } = creditCardType(number)[0];
+    const { niceType, type, lengths, code } = creditCardType(number)[0] || {};
     const state = useMemo<State>(() => ({ number, cardholder, expiry, cvv, brand: niceType }), [number, cardholder, expiry, cvv, niceType]);
 
     const validations = useMemo(
