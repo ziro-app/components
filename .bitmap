@@ -402,7 +402,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.106": {
+    "vitorbarbosa19.ziro/checkout@0.1.107": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -589,7 +589,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/credit-card@0.1.55": {
+    "vitorbarbosa19.ziro/credit-card@0.1.56": {
         "files": [
             {
                 "name": "CardNumbers.js",
@@ -944,15 +944,40 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.72": {
+    "vitorbarbosa19.ziro/flow-form@0.0.73": {
         "files": [
             {
-                "name": "index.js",
-                "relativePath": "src/components/FlowForm/index.js",
-                "test": false
+                "relativePath": "src/components/FlowForm/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/FlowForm/styles.ts",
+                "test": false,
+                "name": "styles.ts"
+            },
+            {
+                "relativePath": "src/components/FlowForm/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/FlowForm/utils/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/FlowForm/utils/useForm.ts",
+                "test": false,
+                "name": "useForm.ts"
+            },
+            {
+                "relativePath": "src/components/FlowForm/utils/validateForm.ts",
+                "test": false,
+                "name": "validateForm.ts"
             }
         ],
-        "mainFile": "src/components/FlowForm/index.js",
+        "mainFile": "src/components/FlowForm/index.tsx",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -993,35 +1018,30 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.99": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.100": {
         "files": [
             {
-                "name": "index.js",
-                "relativePath": "src/components/FlowRegisterCard/index.js",
-                "test": false
+                "relativePath": "src/components/FlowRegisterCard/index.tsx",
+                "test": false,
+                "name": "index.tsx"
             },
             {
-                "name": "styles.js",
-                "relativePath": "src/components/FlowRegisterCard/styles.js",
-                "test": false
+                "relativePath": "src/components/FlowRegisterCard/styles.ts",
+                "test": false,
+                "name": "styles.ts"
             },
             {
-                "name": "brands.js",
-                "relativePath": "src/components/FlowRegisterCard/utils/brands.js",
-                "test": false
+                "relativePath": "src/components/FlowRegisterCard/types.ts",
+                "test": false,
+                "name": "types.ts"
             },
             {
-                "name": "matchCreditCardBrand.js",
-                "relativePath": "src/components/FlowRegisterCard/utils/matchCreditCardBrand.js",
-                "test": false
-            },
-            {
-                "name": "useCard.js",
-                "relativePath": "src/components/FlowRegisterCard/utils/useCard.js",
-                "test": false
+                "relativePath": "src/components/FlowRegisterCard/utils/pretty.ts",
+                "test": false,
+                "name": "pretty.ts"
             }
         ],
-        "mainFile": "src/components/FlowRegisterCard/index.js",
+        "mainFile": "src/components/FlowRegisterCard/index.tsx",
         "origin": "AUTHORED",
         "exported": true
     },
@@ -3049,7 +3069,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.51": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.52": {
         "files": [
             {
                 "name": "index.ts",

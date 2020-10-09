@@ -80,6 +80,7 @@
     "@ziro/theme": "^1.0.3",
     "axios": "^0.20.0",
     "caniuse-lite": "^1.0.30001107",
+    "credit-card-type": "^9.0.1",
     "cuid": "^2.1.8",
     "docz": "^2.3.1",
     "framer-motion": "^1.11.1",
@@ -189,6 +190,81 @@
         },
         "dependencies": {},
         "peerDependencies": {}
+      },
+      "flow-form": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/FlowForm",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "react": "-",
+          "@types/react": "-",
+          "@bit/vitorbarbosa19.ziro.flow-manager": "-",
+          "@bit/vitorbarbosa19.ziro.bottom-flow-buttons": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.flow-manager": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.bottom-flow-buttons": "0.0.x"
+        }
+      },
+      "flow-register-card": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/FlowRegisterCard",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "react": "-",
+          "@types/react": "-",
+          "@bit/vitorbarbosa19.ziro.flow-form": "-",
+          "@bit/vitorbarbosa19.ziro.form-input": "-",
+          "@bit/vitorbarbosa19.ziro.input-text": "-",
+          "@bit/vitorbarbosa19.ziro.flow-manager": "-",
+          "@bit/vitorbarbosa19.ziro.credit-card": "-",
+          "@ziro/mask-input": "-",
+          "@bit/vitorbarbosa19.ziro.utils.string": "-",
+          "credit-card-type": "-",
+          "@ziro/theme": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.flow-form": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.form-input": "0.1.x",
+          "@bit/vitorbarbosa19.ziro.input-text": "0.1.x",
+          "@bit/vitorbarbosa19.ziro.flow-manager": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.credit-card": "0.1.x",
+          "@ziro/mask-input": "1.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.string": "0.0.x",
+          "credit-card-type": "9.0.x",
+          "@ziro/theme": "1.0.x",
+          "@bit/vitorbarbosa19.ziro.bottom-flow-buttons": "0.0.x"
+        }
       },
       "message-modal": {
         "env": {
@@ -708,6 +784,28 @@
         "peerDependencies": {
           "axios": "0.20.x"
         }
+      },
+      "utils/split-rule": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/splitRule",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/string": {
         "env": {
