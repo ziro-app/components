@@ -2,14 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const CreditCard = ({ size = 150 }) => (
-           <svg
-               id="abd5c76d-7219-42bc-94fd-ab97f702b65a"
-               data-name="Layer 1"
-               xmlns="http://www.w3.org/2000/svg"
-               width={size}
-               height={size}
-               viewBox="0 0 567.1704 517.30967"
-           >
+           <svg width={size} height={size} viewBox="0 0 567.1704 517.30967">
                <rect
                    x="326.03543"
                    y="307.38928"

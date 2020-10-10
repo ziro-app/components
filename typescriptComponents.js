@@ -88,7 +88,7 @@ const constructComponentObject = (path) => {
 };
 
 fs.readdirSync(componentsPath, { withFileTypes: true }).forEach((innerDir1) => {
-    if (innerDir1.name === '.DS_Store') return
+    if (innerDir1.name === ".DS_Store") return;
     let dir = componentsPath + innerDir1.name;
     if (fs.readdirSync(dir, { withFileTypes: true }).some((innerDir2) => innerDir2.name.includes(".ts"))) {
         constructComponentObject(innerDir1.name);

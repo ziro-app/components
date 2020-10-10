@@ -17,5 +17,10 @@ export const DisplayIllustration = () => (
                <Illustration type="noData" size={200} />
                <Illustration type="creditCard" size={200} />
                <Illustration type="chatting" size={200} />
+               <Illustration type="withoutFavorites" size={200} />
+               <Illustration type="registerSuccess" size={200} />
+               <Illustration type="onlinePosts" size={200} />
+               <Illustration type="selfieOne" size={200} />
+               <Illustration type="selfieTwo" size={200} />
            </div>
        );
