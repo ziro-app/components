@@ -2808,7 +2808,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/split-rule@0.0.1": {
+    "vitorbarbosa19.ziro/split-rule@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/utils/splitRule/index.js",
