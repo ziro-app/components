@@ -1,7 +1,7 @@
 import type { Validation } from "./utils/types";
 
 export interface Button {
-    name?: string;
+    title?: string;
     onClick: () => Promise<void>;
 }
 

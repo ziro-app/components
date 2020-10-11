@@ -944,7 +944,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.73": {
+    "vitorbarbosa19.ziro/flow-form@0.0.74": {
         "files": [
             {
                 "relativePath": "src/components/FlowForm/index.tsx",
@@ -1034,11 +1034,6 @@
                 "relativePath": "src/components/FlowRegisterCard/types.ts",
                 "test": false,
                 "name": "types.ts"
-            },
-            {
-                "relativePath": "src/components/FlowRegisterCard/utils/pretty.ts",
-                "test": false,
-                "name": "pretty.ts"
             }
         ],
         "mainFile": "src/components/FlowRegisterCard/index.tsx",

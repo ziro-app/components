@@ -7,13 +7,13 @@ export interface State {
 }
 
 export interface Props {
+    header: React.ReactNode;
     next: {
-        onClick: (state: State) => Promise<void>;
-        name?: string;
+        onClick: (s: State) => Promise<void>;
+        title?: string;
     };
-    previous?: {
-        onClick: (state: State) => Promise<void>;
-        name: string;
+    previous: {
+        onClick: (s: State) => Promise<void>;
+        title?: string;
     };
-    header?: React.ReactElement;
 }

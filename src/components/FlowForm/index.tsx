@@ -8,15 +8,15 @@ import type { FormComponent } from "./types";
 const FlowForm: FormComponent = ({ validations, next, previous, padding, inputs }) => {
     const [errors, submitting, submitForm] = useForm(validations, next.onClick);
 
-    const previousRef = useRef(previous.onClick);
+    const previousRef = useRef(previous?.onClick);
 
-    previousRef.current = previous.onClick;
+    previousRef.current = previous?.onClick;
 
-    useFooter(<BottomFlowButtons next={submitForm} nextTitle={next.name} previous={previousRef.current} previousTitle={previous.name} />, [
+    useFooter(<BottomFlowButtons next={submitForm} nextTitle={next.title} previous={previousRef.current} previousTitle={previous?.title} />, [
         submitForm,
-        next.name,
+        next.title,
         previousRef,
-        previous.name,
+        previous?.title,
     ]);
 
     return (

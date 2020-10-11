@@ -3,76 +3,46 @@ import FlowForm from "@bit/vitorbarbosa19.ziro.flow-form";
 import FormInput from "@bit/vitorbarbosa19.ziro.form-input";
 import InputText from "@bit/vitorbarbosa19.ziro.input-text";
 import { useHeader } from "@bit/vitorbarbosa19.ziro.flow-manager";
-import CreditCard from "@bit/vitorbarbosa19.ziro.credit-card";
+import CreditCard from "./CreditCard";
 import maskInput from "@ziro/mask-input";
 import { isFullName } from "@bit/vitorbarbosa19.ziro.utils.string";
-import creditCardType from "credit-card-type";
-import pretty from "./utils/pretty";
+import { useCreditCard } from "./useCreditCard";
 import { dual } from "./styles";
-import type { Props, State } from "./types";
-
-// const cardIcons = ["amex", "visa", "mastercard", "elo", "hipercard", "hiper"];
-const cardIcons = {
-    [creditCardType.types.AMERICAN_EXPRESS]: "amex",
-    [creditCardType.types.VISA]: "visa",
-    [creditCardType.types.MASTERCARD]: "mastercard",
-    [creditCardType.types.ELO]: "elo",
-    [creditCardType.types.HIPERCARD]: "hipercard",
-    [creditCardType.types.HIPER]: "hiper",
-};
+import type { Props } from "./types";
 
 const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
-    const [number, setNumber] = useState("");
-    const [cardholder, setCardholder] = useState("");
-    const [expiry, setExpiry] = useState("");
-    const [cvv, setCvv] = useState("");
-    const { niceType, type, lengths, code } = creditCardType(number)[0] || {};
-    const state = useMemo<State>(() => ({ number, cardholder, expiry, cvv, brand: niceType }), [number, cardholder, expiry, cvv, niceType]);
-
-    const validations = useMemo(
-        () => [
-            {
-                name: "number",
-                validation: (value) => !!value && lengths.includes(value.replace(/\s/g, "").length),
-                value: number,
-                message: "Revise número digitado",
-            },
-            {
-                name: "cardholder",
-                validation: (value) => !!value && isFullName(value),
-                value: cardholder,
-                message: "Campo obrigatório",
-            },
-            {
-                name: "expiry",
-                validation: (value) => !!value && value.length === 5,
-                value: expiry,
-                message: "Revise campo",
-            },
-            {
-                name: "cvv",
-                validation: (value) => !!value && value.replace(/\s/g, "").length === code.size,
-                value: cvv,
-                message: "Revise campo",
-            },
-        ],
-        [number, lengths, cardholder, expiry, cvv, code.size],
-    );
+    const {
+        state,
+        cardholder,
+        expiry,
+        cvv,
+        validations,
+        prettyNumber,
+        prettyNumberWithAsterisks,
+        cvvPlaceholder,
+        type,
+        code,
+        lengths,
+        setNumber,
+        setCardholder,
+        setExpiry,
+        setCvv,
+    } = useCreditCard();
 
     useHeader(
         <div style={{ height: 45 + Math.min(window.innerWidth, 300) / 1.75, background: "white" }}>
             {header}
             <CreditCard
-                number={pretty(number, type)}
-                brand={cardIcons[type]}
+                number={prettyNumberWithAsterisks}
+                brand={type}
+                cvvName={code.name}
+                cvv={cvvPlaceholder}
                 cardholder={cardholder}
                 expiry={expiry}
-                cvv={cvv}
-                cvvSize={code.size}
-                cvvName={code.name}
+                setCardHeight={console.log}
             />
         </div>,
-        [header, pretty, type, cardholder, expiry, cvv, code.size, code.name],
+        [header, prettyNumberWithAsterisks, type, code, cvvPlaceholder, cardholder, expiry],
     );
 
     const cvvMask = useMemo(
@@ -83,30 +53,36 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
         [code.size],
     );
 
+    const _next = useMemo(
+        () => ({
+            onClick: () => next.onClick(state),
+            name: next.title || "próximo",
+        }),
+        [next.onClick.toString(), next.title, state],
+    );
+
+    const _previous = useMemo(
+        () =>
+            previous
+                ? {
+                      onClick: () => previous.onClick(state),
+                      name: previous?.title,
+                  }
+                : undefined,
+        [previous?.onClick.toString(), previous?.title, state],
+    );
+
     return (
         <FlowForm
             padding="30px 20px 10px 20px"
-            next={{
-                onClick: () => next.onClick(state),
-                name: next.name || "próximo",
-            }}
-            previous={{
-                onClick: () => previous?.onClick(state),
-                name: previous?.name,
-            }}
+            next={_next}
+            previous={_previous}
             validations={validations}
             inputs={[
                 <FormInput
                     name="number"
                     label="Número do cartão"
-                    input={
-                        <InputText
-                            value={number}
-                            onChange={({ target: { value } }) => setNumber(pretty(value, type))}
-                            placeholder="1234 1234 1234 1234"
-                            inputMode="numeric"
-                        />
-                    }
+                    input={<InputText value={prettyNumber} onChange={setNumber} placeholder="1234 1234 1234 1234" inputMode="numeric" />}
                 />,
                 <FormInput
                     name="cardholder"
