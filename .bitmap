@@ -1018,7 +1018,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.103": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.104": {
         "files": [
             {
                 "relativePath": "src/components/FlowRegisterCard/CreditCard/index.tsx",
@@ -2524,7 +2524,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.21": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.22": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",

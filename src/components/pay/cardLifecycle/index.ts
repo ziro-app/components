@@ -42,4 +42,6 @@ export const useDeleteCard = () => {
 
 export const useRegisterCard = () => {
     const source = useCancelToken();
+    const collectionRef = useFirebaseCardsCollectionRef();
+    // const [cbk, state] = usePromiseShowingMessage();
 };

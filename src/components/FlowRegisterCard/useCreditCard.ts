@@ -37,7 +37,7 @@ export const useCreditCard = () => {
         ),
         cardholder: useCallback(({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => setCardholder(value.toLowerCase()), []),
         expiry: useCallback(({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => setExpiry(maskInput(value, "##/##", true)), []),
-        cvv: useCallback(({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => setCvv(maskInput(value, cvvMask, true)), []),
+        cvv: useCallback(({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => setCvv(maskInput(value, cvvMask, true)), [cvvMask]),
     };
     const [prettyNumber, prettyNumberWithAsterisks] = useMemo(() => {
         const _lengths = lengths || [16];

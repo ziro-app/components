@@ -40,7 +40,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
                 expiry={expiry}
             />
         </div>,
-        [header, prettyNumberWithAsterisks, type, code, cvvPlaceholder, cardholder, expiry],
+        [header, prettyNumberWithAsterisks, type, code, cvvPlaceholderWithAsterisk, cardholder, expiry],
     );
 
     const _next = useMemo(
