@@ -1,16 +1,16 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import FlowForm from "@bit/vitorbarbosa19.ziro.flow-form";
 import FormInput from "@bit/vitorbarbosa19.ziro.form-input";
 import InputText from "@bit/vitorbarbosa19.ziro.input-text";
+import Dropdown from "@bit/vitorbarbosa19.ziro.dropdown";
 import { useHeader } from "@bit/vitorbarbosa19.ziro.flow-manager";
+import currencyFormat from "@ziro/currency-format";
+import { installmentOptions, installmentCharge } from "./installmentUtils";
 import CreditCard from "./CreditCard";
-import maskInput from "@ziro/mask-input";
-import { isFullName } from "@bit/vitorbarbosa19.ziro.utils.string";
 import { useCreditCard } from "./useCreditCard";
-import { dual } from "./styles";
+import { dual, summaryContainer, summary, service, title, total, amount } from "./styles";
 import type { Props } from "./types";
-
-const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
+function FlowRegisterCard({ header, next, previous, showInstallments, installmentsMax, charge, seller }: Props) {
     const {
         state,
         cardholder,
@@ -19,15 +19,14 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
         validations,
         prettyNumber,
         prettyNumberWithAsterisks,
-        cvvPlaceholder,
         type,
         code,
-        lengths,
-        setNumber,
-        setCardholder,
-        setExpiry,
-        setCvv,
+        cvvPlaceholder,
+        cvvPlaceholderWithAsterisk,
+        onChange,
     } = useCreditCard();
+
+    const [installments, setInstallments] = useState("");
 
     useHeader(
         <div style={{ height: 45 + Math.min(window.innerWidth, 300) / 1.75, background: "white" }}>
@@ -35,27 +34,18 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
             <CreditCard
                 number={prettyNumberWithAsterisks}
                 brand={type}
-                cvvName={code.name}
-                cvv={cvvPlaceholder}
+                cvvName={code?.name}
+                cvv={cvvPlaceholderWithAsterisk}
                 cardholder={cardholder}
                 expiry={expiry}
-                setCardHeight={console.log}
             />
         </div>,
         [header, prettyNumberWithAsterisks, type, code, cvvPlaceholder, cardholder, expiry],
     );
 
-    const cvvMask = useMemo(
-        () =>
-            Array.from(Array(code.size).keys())
-                .map(() => "#")
-                .join(""),
-        [code.size],
-    );
-
     const _next = useMemo(
         () => ({
-            onClick: () => next.onClick(state),
+            onClick: () => (showInstallments === true ? next.onClick({ ...state, installments }) : next.onClick(state as any)),
             name: next.title || "próximo",
         }),
         [next.onClick.toString(), next.title, state],
@@ -65,65 +55,93 @@ const FlowRegisterCard: React.FC<Props> = ({ header, next, previous }) => {
         () =>
             previous
                 ? {
-                      onClick: () => previous.onClick(state),
+                      onClick: () => (showInstallments === true ? previous.onClick({ ...state, installments }) : previous.onClick(state as any)),
                       name: previous?.title,
                   }
                 : undefined,
         [previous?.onClick.toString(), previous?.title, state],
     );
 
+    const _validations = useMemo(() => {
+        if (showInstallments === false) return validations;
+        else
+            return [
+                ...validations,
+                {
+                    name: "installments",
+                    validation: (value) => !!value,
+                    value: installments,
+                    message: "Campo obrigatório",
+                },
+            ];
+    }, [validations, showInstallments, installments]);
+
     return (
-        <FlowForm
-            padding="30px 20px 10px 20px"
-            next={_next}
-            previous={_previous}
-            validations={validations}
-            inputs={[
-                <FormInput
-                    name="number"
-                    label="Número do cartão"
-                    input={<InputText value={prettyNumber} onChange={setNumber} placeholder="1234 1234 1234 1234" inputMode="numeric" />}
-                />,
-                <FormInput
-                    name="cardholder"
-                    label="Titular do cartão"
-                    input={
-                        <InputText
-                            value={cardholder}
-                            onChange={({ target: { value } }) => setCardholder(value.toLowerCase())}
-                            placeholder="Fernando(a) da Silva"
+        <>
+            <FlowForm
+                padding="30px 20px 10px 20px"
+                summary={
+                    showInstallments ? (
+                        <div style={summaryContainer}>
+                            <div style={summary}>
+                                <div style={title}>Resumo do pagamento</div>
+                                <div style={service}>
+                                    <label>{seller}</label>
+                                    <label style={total}>{currencyFormat(charge)}</label>
+                                </div>
+                                <label style={amount}>&nbsp;{installments && `${installments}x de ${installmentCharge(charge, installments)}`}</label>
+                            </div>
+                        </div>
+                    ) : undefined
+                }
+                next={_next}
+                previous={_previous}
+                validations={_validations}
+                inputs={[
+                    <FormInput
+                        name="number"
+                        label="Número do cartão"
+                        input={<InputText value={prettyNumber} onChange={onChange.number} placeholder="1234 1234 1234 1234" inputMode="numeric" />}
+                    />,
+                    <FormInput
+                        name="cardholder"
+                        label="Titular do cartão"
+                        input={<InputText value={cardholder} onChange={onChange.cardholder} placeholder="Fernando(a) da Silva" />}
+                    />,
+                    <div style={dual}>
+                        <FormInput
+                            name="expiry"
+                            label="Validade"
+                            input={<InputText value={expiry} onChange={onChange.expiry} placeholder="01/24" inputMode="numeric" />}
                         />
-                    }
-                />,
-                <div style={dual}>
-                    <FormInput
-                        name="expiry"
-                        label="Validade"
-                        input={
-                            <InputText
-                                value={expiry}
-                                onChange={({ target: { value } }) => setExpiry(maskInput(value, "##/##", true))}
-                                placeholder="01/24"
-                                inputMode="numeric"
-                            />
-                        }
-                    />
-                    <FormInput
-                        name="cvv"
-                        label="CVV"
-                        input={
-                            <InputText
-                                value={cvv}
-                                onChange={({ target: { value } }) => setCvv(maskInput(value, cvvMask, true))}
-                                placeholder="1111"
-                                inputMode="numeric"
-                            />
-                        }
-                    />
-                </div>,
-            ]}
-        />
+                        <FormInput
+                            name="cvv"
+                            label={code?.name || "CVV"}
+                            input={<InputText value={cvv} onChange={onChange.cvv} placeholder={cvvPlaceholder} inputMode="numeric" />}
+                        />
+                    </div>,
+                    ...(showInstallments
+                        ? [
+                              <FormInput
+                                  name="installments"
+                                  label="Parcelamento"
+                                  input={
+                                      <Dropdown
+                                          readOnly={true}
+                                          value={installments}
+                                          onChange={({ target: { value } }) => setInstallments(value.substring(0, 1))}
+                                          list={installmentOptions(charge, installmentsMax)}
+                                          placeholder="Escolha quantas parcelas"
+                                          onChangeKeyboard={(element) => (element ? setInstallments(element.value.substring(0, 1)) : null)}
+                                      />
+                                  }
+                              />,
+                          ]
+                        : []),
+                ]}
+            />
+        </>
     );
-};
+}
 
 export default FlowRegisterCard;

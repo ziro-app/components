@@ -16,7 +16,8 @@ export type ZoopCard = GetCard.Response;
 export default zoop;
 
 export const getCard = (card_id: string, cancelToken?: CancelToken) => zoop.get<never, ZoopCard>(URLs.getCard, { params: { card_id }, cancelToken }),
-    getReceivables = (transaction_id: string, cancelToken?: CancelToken) => zoop.get<never, GetReceivables.Response>(URLs.getReceivables, { params: { transaction_id }, cancelToken }),
+    getReceivables = (transaction_id: string, cancelToken?: CancelToken) =>
+        zoop.get<never, GetReceivables.Response>(URLs.getReceivables, { params: { transaction_id }, cancelToken }),
     deleteCard = (card_id: string, cancelToken?: CancelToken) =>
         zoop.delete<never, DeleteCard.Response>(URLs.deleteCard, { params: { card_id }, cancelToken }),
     createCardToken = (card: CreateCardToken.Request.Unparsed, cancelToken?: CancelToken) =>

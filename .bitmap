@@ -944,7 +944,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-form@0.0.74": {
+    "vitorbarbosa19.ziro/flow-form@0.0.75": {
         "files": [
             {
                 "relativePath": "src/components/FlowForm/index.tsx",
@@ -1018,12 +1018,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.102": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.103": {
         "files": [
+            {
+                "relativePath": "src/components/FlowRegisterCard/CreditCard/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/CreditCard/styles.ts",
+                "test": false,
+                "name": "styles.ts"
+            },
             {
                 "relativePath": "src/components/FlowRegisterCard/index.tsx",
                 "test": false,
                 "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/installmentUtils.js",
+                "test": false,
+                "name": "installmentUtils.js"
             },
             {
                 "relativePath": "src/components/FlowRegisterCard/styles.ts",
@@ -1034,6 +1049,11 @@
                 "relativePath": "src/components/FlowRegisterCard/types.ts",
                 "test": false,
                 "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/FlowRegisterCard/useCreditCard.ts",
+                "test": false,
+                "name": "useCreditCard.ts"
             }
         ],
         "mainFile": "src/components/FlowRegisterCard/index.tsx",
@@ -2620,7 +2640,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.20": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.21": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",

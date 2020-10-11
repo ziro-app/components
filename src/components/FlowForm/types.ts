@@ -11,6 +11,7 @@ export interface FormProps<T> {
     next: Button;
     previous?: Button;
     padding?: string;
+    summary?: JSX.Element;
 }
 
 export type FormComponent = <T>(props: FormProps<T>) => React.ReactElement;

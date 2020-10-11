@@ -5,7 +5,7 @@ import BottomFlowButtons from "@bit/vitorbarbosa19.ziro.bottom-flow-buttons";
 import { container } from "./styles";
 import type { FormComponent } from "./types";
 
-const FlowForm: FormComponent = ({ validations, next, previous, padding, inputs }) => {
+const FlowForm: FormComponent = ({ validations, next, previous, padding, inputs, summary }) => {
     const [errors, submitting, submitForm] = useForm(validations, next.onClick);
 
     const previousRef = useRef(previous?.onClick);
@@ -45,6 +45,7 @@ const FlowForm: FormComponent = ({ validations, next, previous, padding, inputs 
                             });
                         }
                     })}
+                    {summary && summary}
                 </div>
             </div>
         </form>
