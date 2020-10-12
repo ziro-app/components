@@ -1,7 +1,16 @@
 import axios, { CancelToken } from "axios";
 import { instanceConfig, URLs } from "./constants";
 import { request, response } from "./interceptors";
-import { GetCard, GetReceivables, DeleteCard, CreateCardToken, AssociateCard, CreateBuyer, UnregisteredCard as UC, RegisteredCard } from "./types";
+import {
+    GetCard,
+    GetReceivables,
+    DeleteCard,
+    CreateCardToken,
+    AssociateCard,
+    CreateBuyer,
+    UnregisteredTransaction,
+    RegisteredTransaction,
+} from "./types";
 import { createBuyerParser } from "./createBuyerParser";
 import { VoidPayment } from "./types/VoidPayment";
 
@@ -13,8 +22,7 @@ zoop.interceptors.request.use(request.onFulfilled, request.onRejected);
 zoop.interceptors.response.use(response.onFulfilled, response.onRejected);
 
 export type ZoopCard = GetCard.Response;
-export type UnregisteredCard = UC.Request["source"]["card"];
-export type UnregisteredTransaction = UC.Response;
+export type UnregisteredCard = UnregisteredTransaction.Request["source"]["card"];
 export default zoop;
 
 export const getCard = (card_id: string, cancelToken?: CancelToken) => zoop.get<never, ZoopCard>(URLs.getCard, { params: { card_id }, cancelToken }),
@@ -30,8 +38,8 @@ export const getCard = (card_id: string, cancelToken?: CancelToken) => zoop.get<
         zoop.post<never, CreateBuyer.Response>(URLs.createBuyer, createBuyerParser(buyer), { cancelToken }),
     voidPayment = (payment: VoidPayment.Request, cancelToken?: CancelToken) => zoop.post<never, any>(URLs.voidPayment, payment, { cancelToken });
 
-export function createPayment(payment: UC.Request, cancelToken?: CancelToken): Promise<UC.Response>;
-export function createPayment(payment: RegisteredCard.Request, cancelToken?: CancelToken): Promise<RegisteredCard.Response>;
+export function createPayment(payment: UnregisteredTransaction.Request, cancelToken?: CancelToken): Promise<UnregisteredTransaction.Response>;
+export function createPayment(payment: RegisteredTransaction.Request, cancelToken?: CancelToken): Promise<RegisteredTransaction.Response>;
 export function createPayment(payment: any, cancelToken?: CancelToken) {
     return zoop.post<never, any>(URLs.createPayment, payment, { cancelToken });
 }

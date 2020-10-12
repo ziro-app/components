@@ -2640,7 +2640,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.24": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.25": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",

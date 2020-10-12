@@ -1,6 +1,6 @@
 import type { VerificationChecklist } from "./VerificationCheckList";
 
-export namespace UnregisteredCard {
+export namespace UnregisteredTransaction {
     export interface PaymentMethod {
         id: string;
         resource: string;
@@ -165,7 +165,7 @@ export namespace UnregisteredCard {
     }
 }
 
-export namespace RegisteredCard {
+export namespace RegisteredTransaction {
     export interface Card {
         id: string;
     }
