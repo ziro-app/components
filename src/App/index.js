@@ -68,6 +68,7 @@ import { DisplayAsyncHooks } from "./DisplayComponents/DisplayAsyncHooks/index.t
 import { DisplaySuspenseFallback } from "./DisplayComponents/DisplaySuspenseFallback/index.tsx";
 import { DisplayToggleButton } from "./DisplayComponents/DisplayToggleButton/index";
 import { DisplayScoreCircle } from "./DisplayComponents/DisplayScoreCircle/index";
+import { DisplayTooltipHelp } from "./DisplayComponents/DisplayTooltipHelp";
 
 export const App = () => (
     <Switch>
@@ -274,6 +275,9 @@ export const App = () => (
         </Route>
         <Route path="/score-circle">
             <DisplayScoreCircle />
+        </Route>
+        <Route path="/tooltip-help">
+            <DisplayTooltipHelp />
         </Route>
         <Route path="/:any*">Página não encontrada</Route>
     </Switch>
