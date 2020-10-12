@@ -19,7 +19,7 @@ export const request: RequestInterceptor = {
 const redeMessageFinder = (error: any) => ({ additionalData }: RedeMessage) => error.response_code === additionalData.response_code;
 
 const zoopMessageFinder = (error: any) => ({ additionalData: { status, category, type } }: ZoopMessage) =>
-    status === error.status && category === error.category && type === error.type;
+    status === error.status_code && category === error.category && type === error.type;
 
 function getRightMessage(error: AxiosError) {
     const sentryEventId = Sentry.captureException(error);
