@@ -2640,7 +2640,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.21": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.22": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",
@@ -2651,11 +2651,6 @@
                 "relativePath": "src/components/pay/Zoop/createBuyerParser.ts",
                 "test": false,
                 "name": "createBuyerParser.ts"
-            },
-            {
-                "relativePath": "src/components/pay/Zoop/createCardTokenParser.ts",
-                "test": false,
-                "name": "createCardTokenParser.ts"
             },
             {
                 "relativePath": "src/components/pay/Zoop/index.ts",
@@ -2698,14 +2693,19 @@
                 "name": "GetCard.ts"
             },
             {
+                "relativePath": "src/components/pay/Zoop/types/GetReceivables.ts",
+                "test": false,
+                "name": "GetReceivables.ts"
+            },
+            {
                 "relativePath": "src/components/pay/Zoop/types/VerificationCheckList.ts",
                 "test": false,
                 "name": "VerificationCheckList.ts"
             },
             {
-                "relativePath": "src/components/pay/Zoop/types/GetReceivables.ts",
+                "relativePath": "src/components/pay/Zoop/types/VoidPayment.ts",
                 "test": false,
-                "name": "GetReceivables.ts"
+                "name": "VoidPayment.ts"
             },
             {
                 "relativePath": "src/components/pay/Zoop/types/index.ts",
