@@ -53,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.54": {
+    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.55": {
         "files": [
             {
                 "name": "index.js",
@@ -71,7 +71,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.106": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.107": {
         "files": [
             {
                 "name": "index.js",
@@ -359,7 +359,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.94": {
+    "vitorbarbosa19.ziro/card@0.0.95": {
         "files": [
             {
                 "name": "FirstRow.js",
@@ -981,7 +981,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.87": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.88": {
         "files": [
             {
                 "name": "defaultAnimations.js",
@@ -1060,7 +1060,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.123": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.124": {
         "files": [
             {
                 "name": "index.js",
