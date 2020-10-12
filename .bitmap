@@ -2524,7 +2524,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.23": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.24": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",

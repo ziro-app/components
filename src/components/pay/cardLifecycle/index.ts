@@ -50,7 +50,7 @@ export const useRegisterCard = (onSuccess: () => void) => {
     onSuccessRef.current = onSuccess;
     const collectionRef = useFirebaseCardsCollectionRef();
     const query = useFirestore().collection("suppliers").where("fantasia", "==", "ZIRO");
-    const Fs = useFirestore;
+    const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query);
     const zoopId = useZoopRegistration();
     return usePromiseShowingMessage<UnregisteredCard, void, any>(
@@ -90,14 +90,14 @@ export const useRegisterCard = (onSuccess: () => void) => {
                 .set({
                     status: "pendingDocument",
                     antifraudTransaction: transaction.amount.replace(".", ""),
-                    added: Fs.FieldValue.serverTimestamp() as any,
-                    updated: Fs.FieldValue.serverTimestamp() as any,
+                    added: timestamp() as any,
+                    updated: timestamp() as any,
                 })
                 .catch((error) => {
                     throw commonMessages.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({ error, where: "register-card" });
                 });
             onSuccessRef.current();
         },
-        [source, onSuccessRef, collectionRef, Fs, supplier, zoopId],
+        [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId],
     );
 };
