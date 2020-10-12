@@ -49,26 +49,23 @@ export const useRegisterCard = () => {
     const query = useFirestore().collection("suppliers").where("fantasia", "==", "ZIRO");
     const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query);
     const storeowner = useStoreowner();
-    const [cbk, state] = usePromiseShowingMessage<UnregisteredCard.Request["source"]["card"], any, any>(
-        regMessages.waiting.REGISTERING_CARD,
-        async (card) => {
-            const amount = Math.round(10 + Math.random() * 140);
-            const transaction = await createPayment({
-                sendCompleteError: true,
-                payment_type: "credit",
-                capture: false,
-                on_behalf_of: supplier.zoopId,
-                customer: storeowner.zoopId,
-                statement_descriptor: `Ziro`,
-                source: {
-                    usage: "single_use",
-                    amount,
-                    currency: "BRL",
-                    type: "card",
-                    card,
-                },
-            });
-            collectionRef.doc();
-        },
-    );
+    const [cbk, state] = usePromiseShowingMessage<UnregisteredCard, any, any>(regMessages.waiting.REGISTERING_CARD, async (card) => {
+        const amount = Math.round(10 + Math.random() * 140);
+        const transaction = await createPayment({
+            sendCompleteError: true,
+            payment_type: "credit",
+            capture: false,
+            on_behalf_of: supplier.zoopId,
+            customer: storeowner.zoopId,
+            statement_descriptor: `Ziro`,
+            source: {
+                usage: "single_use",
+                amount,
+                currency: "BRL",
+                type: "card",
+                card,
+            },
+        });
+        collectionRef.doc();
+    });
 };
