@@ -2,12 +2,12 @@ import { usePromiseShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.async-h
 import { useMessagePromise } from "@bit/vitorbarbosa19.ziro.message-modal";
 import * as delMessages from "ziro-messages/dist/src/catalogo/pay/chooseCard";
 import * as regMessages from "ziro-messages/dist/src/catalogo/antifraude/registerCard";
+import * as commonMessages from "ziro-messages/dist/src/catalogo/antifraude/common";
 import { deleteCard, createPayment, associateCard, createCardToken, UnregisteredCard, voidPayment } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { useFirebaseCardsCollectionRef } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { useCallback, useMemo, useRef } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
-import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { useZoopRegistration } from "@bit/vitorbarbosa19.ziro.pay.zoop-registration";
 
 /**
@@ -53,7 +53,7 @@ export const useRegisterCard = (onSuccess: () => void) => {
     const Fs = useFirestore;
     const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query);
     const zoopId = useZoopRegistration();
-    return usePromiseShowingMessage<UnregisteredCard, any, any>(
+    return usePromiseShowingMessage<UnregisteredCard, void, any>(
         regMessages.waiting.REGISTERING_CARD,
         async (card) => {
             const amount = Math.round(10 + Math.random() * 140);
@@ -83,14 +83,19 @@ export const useRegisterCard = (onSuccess: () => void) => {
                 },
                 source.token,
             );
-            const tokenResponse = await createCardToken(card, source.token);
-            await associateCard(tokenResponse.id, zoopId, source.token);
-            await collectionRef.doc(tokenResponse.id).set({
-                status: "pendingDocument",
-                antifraudTransaction: transaction.amount.replace(".", ""),
-                added: Fs.FieldValue.serverTimestamp() as any,
-                updated: Fs.FieldValue.serverTimestamp() as any,
-            });
+            const { id: token } = await createCardToken(card, source.token);
+            const { id: card_id } = await associateCard(token, zoopId, source.token);
+            await collectionRef
+                .doc(card_id)
+                .set({
+                    status: "pendingDocument",
+                    antifraudTransaction: transaction.amount.replace(".", ""),
+                    added: Fs.FieldValue.serverTimestamp() as any,
+                    updated: Fs.FieldValue.serverTimestamp() as any,
+                })
+                .catch((error) => {
+                    throw commonMessages.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({ error, where: "register-card" });
+                });
             onSuccessRef.current();
         },
         [source, onSuccessRef, collectionRef, Fs, supplier, zoopId],
