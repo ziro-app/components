@@ -13,15 +13,16 @@ import {
   bodyText,
 } from "./styles";
 
-const TooltipHelp = ({title, body, iconColor = '#2D9CDB', iconSize = 16}) => {
+const TooltipHelp = ({illustration, title, body, iconColor = '#2D9CDB', iconSize = 16}) => {
   const [modalHelp, setModalHelp] = useState(false);
 
   const HelpModal = () => {
     return (
         <Modal boxStyle={modalBox} isOpen={modalHelp} setIsOpen={() => setModalHelp(false)}>
-            <motion.div style={illustrationContainer}>
-                <Illustration type="chatting" size={150} />
-            </motion.div>
+            {illustration ? (<motion.div style={illustrationContainer}>
+                <Illustration type={illustration} size={150} />
+            </motion.div>) : null }
+            
 
             <motion.div style={proposeContainer}>
                 {title ? <motion.label style={titleText}>{title}</motion.label> : null }

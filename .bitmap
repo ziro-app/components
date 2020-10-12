@@ -3042,7 +3042,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tooltip-help@0.0.1": {
+    "vitorbarbosa19.ziro/tooltip-help@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/TooltipHelp/index.js",
