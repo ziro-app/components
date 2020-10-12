@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
-import { useLocation } from "wouter/use-location";
+import useLocation from "wouter/use-location";
 import { useCallback } from "react";
 import * as defaultAnimations from "./defaultAnimations";
 import { useRef } from "react";
