@@ -44,7 +44,7 @@ export const useDeleteCard = () => {
     return [newCbk, running] as [typeof newCbk, typeof running];
 };
 
-export const useRegisterCard = (onSuccess: () => void) => {
+export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
     const source = useCancelToken();
     const onSuccessRef = useRef(onSuccess);
     onSuccessRef.current = onSuccess;
@@ -96,7 +96,7 @@ export const useRegisterCard = (onSuccess: () => void) => {
                 .catch((error) => {
                     throw commonMessages.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({ error, where: "register-card" });
                 });
-            onSuccessRef.current();
+            onSuccessRef.current(card_id);
         },
         [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId],
     );
