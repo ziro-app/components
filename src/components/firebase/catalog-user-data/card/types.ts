@@ -7,6 +7,7 @@ export namespace FirebaseCard {
 
     export interface Common<S extends Status> {
         status: S;
+        antifraudTransaction: string;
         added: firebase.firestore.Timestamp;
         updated: firebase.firestore.Timestamp;
         errors?: {
@@ -90,5 +91,9 @@ export namespace FirebaseCard {
         validations: Validations<"selfieProbability" | "comparison" | "faceCount" | "identical">;
     };
 
-    export type Generic = BeforeDocPhase | BeforeSelfiePhase | AfterAntifraud;
+    export interface AfterAntifraudTransaction extends Common<"approved"> {
+        userInputAmount: string;
+    }
+
+    export type Generic = BeforeDocPhase | BeforeSelfiePhase | AfterAntifraud | AfterAntifraudTransaction;
 }

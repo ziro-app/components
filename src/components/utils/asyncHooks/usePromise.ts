@@ -63,7 +63,7 @@ export function usePromise<A, R, E>(promise: PromiseGen<A, R>, deps: React.Depen
     //use effect to set promise to stale after first rend
     useEffect(() => setStatus("stale"), []);
 
-    return [callback, state];
+    return [callback as PromiseCbk<A>, state];
 }
 
 /**
