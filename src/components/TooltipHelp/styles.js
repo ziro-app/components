@@ -1,4 +1,4 @@
-import { fontTitle, gradient, otherColor, primaryColor, fontSizeSmall, grayColor4 } from "@ziro/theme";
+import { fontTitle, fontBody, gradient, otherColor, primaryColor, fontSizeSmall, grayColor4 } from "@ziro/theme";
 
 export const 
     modalBox = {
@@ -29,5 +29,7 @@ export const
     },
     bodyText = {
         textAlign: "center",
+        fontFamily: fontBody,
+        textTransform: 'none',
     };
     

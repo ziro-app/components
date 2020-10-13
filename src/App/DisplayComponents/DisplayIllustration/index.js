@@ -22,5 +22,6 @@ export const DisplayIllustration = () => (
                <Illustration type="onlinePosts" size={200} />
                <Illustration type="selfieOne" size={200} />
                <Illustration type="selfieTwo" size={200} />
+               <Illustration type="onlyVestuary" size={200} />
            </div>
        );

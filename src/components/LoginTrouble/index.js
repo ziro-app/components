@@ -16,8 +16,11 @@ const LoginTrouble = ({ navigateTo = '/' }) => {
 				<Button type='link' cta='Reenviar confirmação'
 					navigate={() => setLocation('/reenviar-email')}
 				/>
-				<Button type='link' cta='Resetar senha' style={btnWhite}
+				<Button type='link' cta='Resetar senha'
 					navigate={() => setLocation('/resetar-senha')}
+				/>
+				<Button type='link' cta='Falar com suporte' style={btnWhite}
+					navigate={() => setLocation('/pagina-suporte')}
 				/>
 			</div>
 		</div>

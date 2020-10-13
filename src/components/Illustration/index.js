@@ -17,6 +17,7 @@ import { Chatting } from "../../Illustrations/Chatting";
 import { OnlinePosts } from "../../Illustrations/OnlinePosts";
 import { SelfieOne } from "../../Illustrations/SelfieOne";
 import { SelfieTwo } from "../../Illustrations/SelfieTwo";
+import { OnlyVestuary } from "../../Illustrations/OnlyVestuary";
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -38,6 +39,7 @@ const Illustration = ({ type, size }) => {
       onlinePosts: <OnlinePosts {...illustrationProps} />,
       selfieOne: <SelfieOne {...illustrationProps} />,
       selfieTwo: <SelfieTwo {...illustrationProps} />,
+      onlyVestuary: <OnlyVestuary {...illustrationProps} />,
   };
   return illustrationList[type];
 };

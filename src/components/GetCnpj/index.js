@@ -10,8 +10,9 @@ import Spinner from '../Spinner'
 import searchCnpj from './searchCnpj'
 import { modalBox, container, title, svg } from './styles'
 import validateCnpj from './utils/validateCnpj'
+import TooltipHelp from '../TooltipHelp'
 
-const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes }) => {
+const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [firstLabel, setFirstLabel] = useState(true)
     const { setCnpj, ...rest } = setState
@@ -24,6 +25,19 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes }) => {
             message: 'CNPJ inválido'
         }
     ]
+
+    const tooltipIcon = () => (
+        <>
+            CNPJ
+            {' '}
+            <TooltipHelp
+                illustration='buy'
+                body='Apenas CNAEs de vestuário podem se cadastrar no app'
+            />
+        </>
+
+    )
+
     return (
         <>
             <Modal boxStyle={modalBox} isOpen={isOpen} setIsOpen={() => { }}>
@@ -43,14 +57,15 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes }) => {
                 validations={validations}
                 sendToBackend={searchCnpj ? searchCnpj(state) : () => null}
                 inputs={[
-                    <FormInput name='cnpj' label='CNPJ' input={
+                    <FormInput name='cnpj' label={tooltip ? tooltipIcon() : "CNPJ"} input={                            
                         <InputText
                             value={cnpj}
                             onChange={({ target: { value } }) => setCnpj(maskInput(value, '##.###.###/####-##', true))}
                             placeholder='00.111.222/0001-33'
                             inputMode='numeric'
                         />
-                    } />
+                    }    
+                    />
                 ]}
             />
         </>
