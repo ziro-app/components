@@ -1113,7 +1113,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.140": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.143": {
         "files": [
             {
                 "name": "index.js",
@@ -1179,7 +1179,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.69": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.72": {
         "files": [
             {
                 "name": "index.js",
@@ -3047,7 +3047,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tooltip-help@0.0.3": {
+    "vitorbarbosa19.ziro/tooltip-help@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/TooltipHelp/index.js",

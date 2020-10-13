@@ -12,7 +12,7 @@ import { modalBox, container, title, svg } from './styles'
 import validateCnpj from './utils/validateCnpj'
 import TooltipHelp from '../TooltipHelp'
 
-const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false }) => {
+const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = true }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [firstLabel, setFirstLabel] = useState(true)
     const { setCnpj, ...rest } = setState
@@ -31,7 +31,7 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip =
             CNPJ
             {' '}
             <TooltipHelp
-                illustration='buy'
+                illustration='onlyVestuary'
                 body='Apenas CNAEs de vestuário podem se cadastrar no app'
             />
         </>
