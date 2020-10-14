@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useCallback, useState } from 'react';
 
 import Modal from "@bit/vitorbarbosa19.ziro.modal";
 import Illustration from "@bit/vitorbarbosa19.ziro.illustration";
@@ -16,24 +15,24 @@ import {
 const TooltipHelp = ({illustration, title, body, iconColor = '#2D9CDB', iconSize = 16}) => {
   const [modalHelp, setModalHelp] = useState(false);
 
-  const HelpModal = () => {
+  const HelpModal = useCallback(() => {
     return (
         <Modal boxStyle={modalBox} isOpen={modalHelp} setIsOpen={() => setModalHelp(false)}>
-            {illustration ? (<motion.div style={illustrationContainer}>
+            {illustration ? (<div style={illustrationContainer}>
                 <Illustration type={illustration} size={150} />
-            </motion.div>) : null }
+            </div>) : null }
             
 
-            <motion.div style={proposeContainer}>
-                {title ? <motion.label style={titleText}>{title}</motion.label> : null }
+            <div style={proposeContainer}>
+                {title ? <label style={titleText}>{title}</label> : null }
                 
-                <motion.label style={bodyText}>
+                <label style={bodyText}>
                     {body}
-                </motion.label>
-            </motion.div>
+                </label>
+            </div>
         </Modal>
     );
-};
+})
 
   return (
     <>
