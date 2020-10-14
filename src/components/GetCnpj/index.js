@@ -12,7 +12,7 @@ import { modalBox, container, title, svg } from './styles'
 import validateCnpj from './utils/validateCnpj'
 import TooltipHelp from '../TooltipHelp'
 
-const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = true }) => {
+const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [firstLabel, setFirstLabel] = useState(true)
     const { setCnpj, ...rest } = setState

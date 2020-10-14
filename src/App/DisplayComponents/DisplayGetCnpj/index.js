@@ -27,7 +27,7 @@ export const DisplayGetCnpj = () => {
 
     return (
         <div style={containerWithPadding}>
-            <GetCnpj cnpj={cnpj} setState={setState} baseCnpj={suppliers} setCnpjValid={setCnpjValid} validCnaes={validCnaes} />
+            <GetCnpj cnpj={cnpj} setState={setState} baseCnpj={suppliers} setCnpjValid={setCnpjValid} validCnaes={validCnaes} tooltip />
             <p>{cnpjValid ? 'true' : 'false'}</p>
             <p>{cnpj}</p>
             <p>{reason}</p>
