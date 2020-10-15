@@ -1,6 +1,6 @@
 import creditCardType from "credit-card-type";
 import { useMemo, useState, useCallback } from "react";
-import { isFullName } from "@bit/vitorbarbosa19.ziro.utils.string";
+import { isFullName, normalize } from "@bit/vitorbarbosa19.ziro.utils.string";
 import maskInput from "@ziro/mask-input";
 import type { StateWithoutInstallments } from "./types";
 
@@ -80,7 +80,7 @@ export const useCreditCard = () => {
             },
             {
                 name: "cardholder",
-                validation: (value) => !!value && isFullName(value),
+                validation: (value) => !!value && isFullName(normalize(value)),
                 value: cardholder,
                 message: "Campo obrigatório",
             },
