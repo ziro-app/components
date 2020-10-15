@@ -147,6 +147,8 @@ export namespace UnregisteredTransaction {
             paid_at?: string;
             canceled_at?: string;
             expected_on?: string;
+            percentage: number;
+            charge_processing_fee: boolean;
         }[];
     }
 
