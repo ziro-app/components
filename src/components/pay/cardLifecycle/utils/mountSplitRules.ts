@@ -1,5 +1,5 @@
-import { CreditCardPayments } from "components/firebase/credit-card-payments/types";
-import { UnregisteredTransaction } from "components/pay/Zoop/types";
+import { CreditCardPayments } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
+import { UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 
 interface generic {
     amount: string | number;

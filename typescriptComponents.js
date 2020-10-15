@@ -47,6 +47,7 @@ const namespaces = ["pay", "utils", "antifraud", "firebase"];
 function getDependenciesFromComponent(componentDir) {
     const componentDeps = new Set();
     fs.readdirSync(componentDir, { withFileTypes: true }).forEach((innerDir) => {
+        if (innerDir.name === ".DS_Store") return;
         if (innerDir.isFile()) {
             content = fs.readFileSync(componentDir + "/" + innerDir.name).toString();
             getDependenciesFromFile(content).forEach(componentDeps.add, componentDeps);
@@ -95,6 +96,7 @@ fs.readdirSync(componentsPath, { withFileTypes: true }).forEach((innerDir1) => {
     }
     if (namespaces.includes(innerDir1.name)) {
         fs.readdirSync(dir, { withFileTypes: true }).forEach((innerDir2) => {
+            if (innerDir2.name === ".DS_Store") return;
             constructComponentObject(innerDir1.name + "/" + innerDir2.name);
         });
     }
@@ -111,7 +113,6 @@ function getPeerDependenciesOfPeerDependencies() {
         Object.keys(deps.peerDependencies).forEach((dep) => {
             if (/^@bit.*$/.test(dep)) {
                 const depName = dep.replace("@bit/vitorbarbosa19.ziro.", "").replace(/\./g, "/");
-                console.log(name, depName);
                 if (_components[depName]) {
                     values.deps.peerDependencies = {
                         ...values.deps.peerDependencies,

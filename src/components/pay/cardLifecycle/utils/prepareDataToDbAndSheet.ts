@@ -5,7 +5,7 @@ import translateStatus from "./translateStatus";
 import prepareFees from "./prepareFees";
 import prepareReceivables from "./prepareReceivables";
 import mountSplitRules from "./mountSplitRules";
-import { UnregisteredTransaction } from "components/pay/Zoop/types";
+import { UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { ReceivablesData } from "../dataCreators/receivables";
 
 const prepareDataToDbAndSheet = (
