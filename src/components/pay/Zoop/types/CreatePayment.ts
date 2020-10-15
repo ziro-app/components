@@ -134,21 +134,20 @@ export namespace UnregisteredTransaction {
         payment_authorization: PaymentAuthorization;
         history: History[];
         split_rules?: {
-            id: string;
             resource: string;
-            status: string;
+            liable: boolean;
+            id: string;
+            updated_at: string;
             recipient: string;
             transaction: string;
-            split_rule: string;
-            installment?: any;
-            liable: boolean;
-            amount: string;
-            gross_amount: string;
-            paid_at?: string;
-            canceled_at?: string;
-            expected_on?: string;
-            percentage: number;
+            created_at: string;
             charge_processing_fee: boolean;
+            amount: string;
+            charge_recipient_processing_fee: boolean;
+            is_gross_amount: boolean;
+            receivable_gross_amount: string;
+            percentage: string;
+            receivable_amount: string;
         }[];
     }
 
