@@ -24,6 +24,14 @@ export namespace UnregisteredTransaction {
         updated_at: Date;
     }
 
+    export interface SplitRule {
+        recipient: string;
+        percentage: number;
+        amount: number;
+        liable: boolean;
+        charge_processing_fee: boolean;
+    }
+
     export interface Card {
         id: string;
         resource: string;
@@ -125,19 +133,12 @@ export namespace UnregisteredTransaction {
         updated_at: Date;
         payment_authorization: PaymentAuthorization;
         history: History[];
+        split_rules?: SplitRule[];
     }
 
     export interface InstallmentPlan {
         mode: "interest_free";
         number_installments: string;
-    }
-
-    export interface SplitRule {
-        recipient: string;
-        percentage: number;
-        amount: number;
-        liable: boolean;
-        charge_processing_fee: boolean;
     }
 
     export interface Request {
