@@ -2645,7 +2645,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.26": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.27": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",

@@ -133,7 +133,21 @@ export namespace UnregisteredTransaction {
         updated_at: Date;
         payment_authorization: PaymentAuthorization;
         history: History[];
-        split_rules?: SplitRule[];
+        split_rules?: {
+            id: string;
+            resource: string;
+            status: string;
+            recipient: string;
+            transaction: string;
+            split_rule: string;
+            installment?: any;
+            liable: boolean;
+            amount: string;
+            gross_amount: string;
+            paid_at?: string;
+            canceled_at?: string;
+            expected_on?: string;
+        }[];
     }
 
     export interface InstallmentPlan {
