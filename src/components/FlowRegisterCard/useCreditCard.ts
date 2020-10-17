@@ -60,7 +60,7 @@ export const useCreditCard = () => {
         }
         return [_number.join("").trim(), _numberWithAsterisks.join("").trim()];
     }, [lengths, number]);
-    const state = useMemo<StateWithoutInstallments>(() => {
+    const state = useMemo<Omit<StateWithoutInstallments, "shouldTransact">>(() => {
         const [expiration_month, expiration_year] = expiry.replace("/", "/20").split("/");
         return {
             holder_name: cardholder,

@@ -1,10 +1,10 @@
 import axios, { AxiosError } from "axios";
 import * as Sentry from "@sentry/react";
-import { prompt, rede } from "ziro-messages/dist/src/zoop";
+import { prompt, redePrompt } from "ziro-messages/dist/src/zoop";
 import { RequestInterceptor, ResponseInterceptor } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { ZiroPromptMessage } from "ziro-messages";
 
-type RedeMessage = typeof rede[keyof typeof rede];
+type RedeMessage = typeof redePrompt[keyof typeof redePrompt];
 type ZoopMessage = typeof prompt[keyof typeof prompt];
 type GenericMessage = ZiroPromptMessage<string, string, any>;
 
@@ -25,7 +25,7 @@ function getRightMessage(error: AxiosError) {
     const sentryEventId = Sentry.captureException(error);
     let data = error?.response?.data ?? {};
     let innerError = data.error || {};
-    let redeMessage: GenericMessage = Object.values(rede).find(redeMessageFinder(innerError));
+    let redeMessage: GenericMessage = Object.values(redePrompt).find(redeMessageFinder(innerError));
     let zoopMessage: GenericMessage = Object.values(prompt).find(zoopMessageFinder(innerError));
     let unknown: GenericMessage = prompt.UNKNOWN_ERROR;
     return (redeMessage || zoopMessage || unknown).withAdditionalData({ data, sentryEventId });

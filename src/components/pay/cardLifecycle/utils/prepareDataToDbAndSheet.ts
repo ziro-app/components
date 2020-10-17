@@ -6,8 +6,7 @@ import prepareFees from "./prepareFees";
 import prepareReceivables from "./prepareReceivables";
 import mountSplitRules from "./mountSplitRules";
 import { UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
-import { ReceivablesData } from "../dataCreators/receivables";
-
+import { Receivable } from "../dataCreators/receivables";
 const prepareDataToDbAndSheet = (
     {
         id: transactionId,
@@ -22,7 +21,7 @@ const prepareDataToDbAndSheet = (
         fees,
         split_rules,
     }: UnregisteredTransaction.Response,
-    receivables: ReceivablesData[],
+    receivables: Receivable[],
     { seller, sellerZoopPlan }: CreditCardPayments.FirebaseDocument,
 ) => {
     const today = new Date();

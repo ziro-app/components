@@ -1018,7 +1018,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.108": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.109": {
         "files": [
             {
                 "relativePath": "src/components/FlowRegisterCard/CreditCard/index.tsx",
@@ -2529,12 +2529,97 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.28": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.29": {
         "files": [
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/detachedTransactionData.ts",
+                "test": false,
+                "name": "detachedTransactionData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/errorData.ts",
+                "test": false,
+                "name": "errorData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/firebaseCardData.ts",
+                "test": false,
+                "name": "firebaseCardData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/receivables.ts",
+                "test": false,
+                "name": "receivables.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/registrationTransactionData.ts",
+                "test": false,
+                "name": "registrationTransactionData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/registrationVoidData.ts",
+                "test": false,
+                "name": "registrationVoidData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/errorThrowers.ts",
+                "test": false,
+                "name": "errorThrowers.ts"
+            },
             {
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
                 "test": false,
                 "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/formatDate.ts",
+                "test": false,
+                "name": "formatDate.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/mountSplitRules.ts",
+                "test": false,
+                "name": "mountSplitRules.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/prepareDataToDbAndSheet.ts",
+                "test": false,
+                "name": "prepareDataToDbAndSheet.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/prepareFees.ts",
+                "test": false,
+                "name": "prepareFees.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/prepareReceivables.ts",
+                "test": false,
+                "name": "prepareReceivables.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/translateStatus.ts",
+                "test": false,
+                "name": "translateStatus.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/writeReceivablesToSheet.ts",
+                "test": false,
+                "name": "writeReceivablesToSheet.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/writeTransactionToSheet.ts",
+                "test": false,
+                "name": "writeTransactionToSheet.ts"
             }
         ],
         "mainFile": "src/components/pay/cardLifecycle/index.ts",

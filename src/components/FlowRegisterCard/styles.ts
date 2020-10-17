@@ -1,4 +1,4 @@
-import { fontTitle, fontSizeSmall, primaryColor, fontWeightMuted } from "@ziro/theme";
+import { fontBody, fontSizeInput, fontTitle, fontSizeSmall, primaryColor, fontWeightMuted } from "@ziro/theme";
 
 export const container: React.CSSProperties = {
         display: "grid",
@@ -44,4 +44,16 @@ export const container: React.CSSProperties = {
         justifySelf: "end",
         fontSize: fontSizeSmall,
         fontWeight: fontWeightMuted,
-    };
+    },
+    inline: React.CSSProperties = {
+        WebkitAppearance: "none",
+        MozAppearance: "none",
+        outline: "none",
+        boxSizing: "border-box",
+        width: "100%",
+        padding: "0px 10px",
+        fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
+        fontSize: fontSizeInput,
+        color: primaryColor,
+    },
+    center: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: "20%" };

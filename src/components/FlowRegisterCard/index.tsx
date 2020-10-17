@@ -4,11 +4,12 @@ import FormInput from "@bit/vitorbarbosa19.ziro.form-input";
 import InputText from "@bit/vitorbarbosa19.ziro.input-text";
 import Dropdown from "@bit/vitorbarbosa19.ziro.dropdown";
 import { useHeader } from "@bit/vitorbarbosa19.ziro.flow-manager";
+import ToggleButton from "@bit/vitorbarbosa19.ziro.toggle-button";
 import currencyFormat from "@ziro/currency-format";
 import { installmentOptions, installmentCharge } from "./installmentUtils";
 import CreditCard from "./CreditCard";
 import { useCreditCard } from "./useCreditCard";
-import { dual, summaryContainer, summary, service, title, total, amount } from "./styles";
+import { dual, summaryContainer, summary, service, title, total, amount, center, inline } from "./styles";
 import type { Props } from "./types";
 function FlowRegisterCard({ header, next, previous, showInstallments, installmentsMax, charge, seller }: Props) {
     const {
@@ -27,6 +28,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
     } = useCreditCard();
 
     const [installments, setInstallments] = useState("");
+    const [shouldTransact, setShouldTransact] = useState(true);
 
     useHeader(
         <div style={{ height: 45 + Math.min(window.innerWidth, 300) / 1.75, background: "white" }}>
@@ -45,21 +47,25 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
 
     const _next = useMemo(
         () => ({
-            onClick: () => (showInstallments === true ? next.onClick({ ...state, installments }) : next.onClick(state as any)),
+            onClick: () =>
+                showInstallments === true ? next.onClick({ ...state, installments } as any) : next.onClick({ ...state, shouldTransact } as any),
             name: next.title || "próximo",
         }),
-        [next.onClick.toString(), next.title, state],
+        [next.onClick.toString(), next.title, state, shouldTransact, installments],
     );
 
     const _previous = useMemo(
         () =>
             previous
                 ? {
-                      onClick: () => (showInstallments === true ? previous.onClick({ ...state, installments }) : previous.onClick(state as any)),
+                      onClick: () =>
+                          showInstallments === true
+                              ? previous.onClick({ ...state, installments } as any)
+                              : previous.onClick({ ...state, shouldTransact } as any),
                       name: previous?.title,
                   }
                 : undefined,
-        [previous?.onClick.toString(), previous?.title, state],
+        [previous?.onClick.toString(), previous?.title, state, shouldTransact, installments],
     );
 
     const _validations = useMemo(() => {
@@ -137,7 +143,24 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
                                   }
                               />,
                           ]
-                        : []),
+                        : [
+                              <FormInput
+                                  name="shouldTransact"
+                                  label="Deseja verificar seu cartão com uma transação de pequeno valor?"
+                                  input={
+                                      <div style={center}>
+                                          <div style={inline}>Não</div>
+                                          <ToggleButton
+                                              size={30}
+                                              template="primary"
+                                              active={shouldTransact}
+                                              onClick={() => setShouldTransact((s) => !s)}
+                                          />
+                                          <div style={inline}>Sim</div>
+                                      </div>
+                                  }
+                              />,
+                          ]),
                 ]}
             />
         </>

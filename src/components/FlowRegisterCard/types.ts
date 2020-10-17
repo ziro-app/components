@@ -4,9 +4,10 @@ export interface StateWithoutInstallments {
     expiration_month: string;
     expiration_year: string;
     card_number: string;
+    shouldTransact: boolean;
 }
 
-export interface StateWithInstallments extends StateWithoutInstallments {
+export interface StateWithInstallments extends Omit<StateWithoutInstallments, "shouldTransact"> {
     installments: string;
 }
 
