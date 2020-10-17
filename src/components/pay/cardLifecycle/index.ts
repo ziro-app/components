@@ -2,7 +2,7 @@ import { usePromiseShowingMessage, useAsyncEffect } from "@bit/vitorbarbosa19.zi
 import { useMessagePromise } from "@bit/vitorbarbosa19.ziro.message-modal";
 import * as delMessages from "ziro-messages/dist/src/catalogo/pay/chooseCard";
 import * as regMessages from "ziro-messages/dist/src/catalogo/antifraude/registerCard";
-import * as commonMessages from "ziro-messages/dist/src/catalogo/antifraude/common";
+import * as payMessages from "ziro-messages/dist/src/catalogo/pay/checkout";
 import {
     deleteCard,
     createPayment,
@@ -13,6 +13,7 @@ import {
     getReceivables,
     UnregisteredTransaction,
 } from "@bit/vitorbarbosa19.ziro.pay.zoop";
+import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { useFirebaseCardsCollectionRef } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { useCallback, useMemo, useRef } from "react";
@@ -89,12 +90,15 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
     );
 };
 
-export const useDetachedPayment = (id: string) => {
+export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<typeof prepareDataToDbAndSheet>[1]) => void) => {
     const source = useCancelToken();
     const payment = useCreditCardPaymentDocument(id);
     const errorsCollection = useFirestore().collection("credit-card-errors");
+    const [, setLocation] = useAnimatedLocation();
+    const onSuccessRef = useRef(onSuccess);
+    onSuccessRef.current = onSuccess;
     const [cbk, state] = usePromiseShowingMessage<UnregisteredCard & { installments: string }, any, DetachedCheckoutError>(
-        regMessages.waiting.REGISTERING_CARD,
+        payMessages.waiting.SENDING_PAYMENT,
         async ({ installments, ...card }) => {
             const transaction = await createPayment(creator.detachedData(card, installments, payment.data()), source.token);
             const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));
@@ -102,8 +106,15 @@ export const useDetachedPayment = (id: string) => {
             await writeTransactionToSheet(sheetData);
             await writeReceivablesToSheet(preparedReceivables);
             await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
+            onSuccessRef.current(dbData);
+            return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
+                {
+                    title: "ver recibo",
+                    action: () => setLocation("goLeft", `/comprovante/${dbData.receiptId}`),
+                },
+            ]);
         },
-        [source, payment],
+        [source, payment, onSuccessRef],
     );
     useAsyncEffect(async () => {
         if (state.status === "failed") {
