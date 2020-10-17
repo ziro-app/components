@@ -49,7 +49,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
         () => ({
             onClick: () =>
                 showInstallments === true ? next.onClick({ ...state, installments } as any) : next.onClick({ ...state, shouldTransact } as any),
-            name: next.title || "próximo",
+            title: next.title || "próximo",
         }),
         [next.onClick.toString(), next.title, state, shouldTransact, installments],
     );
@@ -62,7 +62,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
                           showInstallments === true
                               ? previous.onClick({ ...state, installments } as any)
                               : previous.onClick({ ...state, shouldTransact } as any),
-                      name: previous?.title,
+                      title: previous?.title,
                   }
                 : undefined,
         [previous?.onClick.toString(), previous?.title, state, shouldTransact, installments],
