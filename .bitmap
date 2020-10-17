@@ -2529,7 +2529,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.30": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.31": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/detachedTransactionData.ts",

@@ -110,7 +110,9 @@ export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<ty
             return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
                 {
                     title: "ver recibo",
-                    action: () => setLocation("goLeft", `/comprovante/${dbData.receiptId}`),
+                    action: () => {
+                        setLocation("goLeft", `/comprovante/${dbData.receiptId}`);
+                    },
                 },
             ]);
         },
