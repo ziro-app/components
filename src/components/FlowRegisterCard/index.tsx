@@ -69,7 +69,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
     );
 
     const _validations = useMemo(() => {
-        if (showInstallments === false) return validations;
+        if (!showInstallments) return validations;
         else
             return [
                 ...validations,

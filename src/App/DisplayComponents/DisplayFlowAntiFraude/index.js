@@ -75,10 +75,10 @@ export const DisplayFlowAntiFraude = () => {
                     <Route path="/anti-fraude/register-card">
                         <RegisterCard
                             header={header}
-                            showInstallments
-                            installmentsMax="3"
-                            seller="Ziro"
-                            charge="10000"
+                            // showInstallments
+                            // installmentsMax="3"
+                            // seller="Ziro"
+                            // charge="10000"
                             next={{
                                 onClick: (state) => {
                                     console.log({ state });
