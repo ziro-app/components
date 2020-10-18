@@ -85,7 +85,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
     return (
         <>
             <FlowForm
-                padding="30px 20px 10px 20px"
+                padding="25px 20px 10px 20px"
                 summary={
                     showInstallments ? (
                         <div style={summaryContainer}>

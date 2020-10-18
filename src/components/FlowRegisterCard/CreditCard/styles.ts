@@ -12,11 +12,7 @@ export const card: (w: number) => React.CSSProperties = (width) => ({
         boxSizing: "border-box",
         borderRadius: "12px",
         color: primaryColor,
-        boxShadow: `
-		rgba(34, 34, 34, 0.4) 0px 0px 10px -4px,
-		rgba(34, 34, 34, 0.35) 0px 5px 15px -1px
-	`,
-        background: `radial-gradient(ellipse at top right, #FEFEFE 25%, #FBFBFB 50%, #FAFAFA 75%, #F9F9F9`,
+        boxShadow: `rgba(34, 34, 34, 0.65) 0px 5px 20px -8px`
     }),
     brandLogo: React.CSSProperties = {
         justifySelf: "end",
