@@ -7,7 +7,7 @@ const ErrorLoading = ({ message }) =>
 	<div style={container}>
 		<div style={svg}><Illustration type='errorLoading' /></div>
 		<label style={title}>Ocorreu um erro!</label>
-		<label>{message || 'Recarregue a página ou contate seu assessor'}</label>
+		<label>{message || 'Recarregue a página ou contate suporte'}</label>
 	</div>
 
 ErrorLoading.propTypes = {

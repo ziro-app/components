@@ -4,7 +4,7 @@ import Illustration from '../../Illustration/index'
 import Button from '../../Button/index'
 import { container, svg, titleError } from './styles'
 
-export const ErrorModal = ({ closeModal, errorMsg = 'Tente novamente ou contate seu assessor' }) =>
+export const ErrorModal = ({ closeModal, errorMsg = 'Tente novamente ou contate suporte' }) =>
 	<div style={container}>
 		<div style={svg}><Illustration type='paymentError' /></div>
 		<label style={titleError}>Erro no envio!</label>

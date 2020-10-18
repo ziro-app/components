@@ -82,7 +82,7 @@ export const useCreditCard = () => {
                 name: "cardholder",
                 validation: (value) => !!value && isFullName(normalize(value)),
                 value: cardholder,
-                message: "Campo obrigatório",
+                message: "Revise nome digitado",
             },
             {
                 name: "expiry",

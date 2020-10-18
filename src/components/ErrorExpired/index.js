@@ -11,7 +11,7 @@ const ErrorExpired = () => {
 		<div style={{...containerWithPadding, ...container}}>
 			<div style={svg}><Illustration type='paymentError' /></div>
 			<label style={title}>Cobrança expirada!</label>
-			<label>Solicite um novo link ao seu assessor</label>
+			<label>Solicite um novo link ao vendedor</label>
 			<Button type='link' cta='Retornar' navigate={() => setLocation('/pagamentos')} />
 		</div>
 	)

@@ -19,9 +19,9 @@ export const container: React.CSSProperties = {
         fontSize: fontSizeSmall,
     },
     summaryContainer: React.CSSProperties = {
-        margin: "20px 0 0",
+        margin: "10px 0 0",
         padding: "15px 0 0",
-        borderTop: `2px solid ${primaryColor}`,
+        borderTop: `1px solid #dedede`,
         color: primaryColor,
     },
     summary: React.CSSProperties = {
