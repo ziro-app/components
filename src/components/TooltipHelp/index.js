@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import Modal from "@bit/vitorbarbosa19.ziro.modal";
 import Illustration from "@bit/vitorbarbosa19.ziro.illustration";
 import Icon from "@bit/vitorbarbosa19.ziro.icon";
+import Button from '../Button/index'
 
 import { modalBox, closeIcon, proposeContainer, titleText, bodyText } from "./styles";
+import { supportPhoneNumber } from '../utils/supportNumber'
 
-const TooltipHelp = ({ illustration, title, body, iconColor = "#2D9CDB", iconSize = 16 }) => {
+const TooltipHelp = ({ illustration, title, body, iconColor = "#2D9CDB", iconSize = 16, supportButton = false }) => {
     const [modalHelp, setModalHelp] = useState(false);
 
     return (
@@ -25,6 +27,15 @@ const TooltipHelp = ({ illustration, title, body, iconColor = "#2D9CDB", iconSiz
 
                     <label style={bodyText}>{body}</label>
                 </div>
+
+                {supportButton ? (
+                        <Button
+                            type="button"
+                            cta="Falar com Suporte"
+                            click={() =>
+                                window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")}
+                        />
+                ) : null}
             </Modal>
         </>
     );

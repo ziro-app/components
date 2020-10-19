@@ -19,7 +19,7 @@ export const DisplayTooltipHelp = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={container}>
       <motion.label key='text'>Clique na ajuda para abrir</motion.label>
       {'  '}
-      <TooltipHelp illustration='chatting' title={title} body={body} iconColor='#2D9CDB' iconSize={30} />
+      <TooltipHelp illustration='chatting' title={title} body={body} iconColor='#2D9CDB' iconSize={30} supportButton />
     </motion.div>
   )
     

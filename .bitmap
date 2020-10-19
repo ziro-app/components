@@ -1113,7 +1113,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.150": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.151": {
         "files": [
             {
                 "name": "index.js",
@@ -1179,7 +1179,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.79": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.80": {
         "files": [
             {
                 "name": "index.js",
@@ -1686,6 +1686,11 @@
                 "name": "index.js",
                 "relativePath": "src/Illustrations/RegisterSuccess/index.js",
                 "test": false
+            },
+            {
+                "relativePath": "src/Illustrations/Security/index.js",
+                "test": false,
+                "name": "index.js"
             },
             {
                 "relativePath": "src/Illustrations/SelfieOne/index.js",
@@ -3122,7 +3127,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tooltip-help@0.0.9": {
+    "vitorbarbosa19.ziro/tooltip-help@0.0.10": {
         "files": [
             {
                 "relativePath": "src/components/TooltipHelp/index.js",
@@ -3133,10 +3138,14 @@
                 "relativePath": "src/components/TooltipHelp/styles.js",
                 "test": false,
                 "name": "styles.js"
+            },
+            {
+                "relativePath": "src/components/utils/supportNumber/index.js",
+                "test": false,
+                "name": "index.js"
             }
         ],
         "mainFile": "src/components/TooltipHelp/index.js",
-        "trackDir": "src/components/TooltipHelp",
         "origin": "AUTHORED",
         "exported": true
     },
