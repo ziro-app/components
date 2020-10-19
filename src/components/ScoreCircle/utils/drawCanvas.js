@@ -5,7 +5,7 @@ const drawCanvas = (canvasRef, props) => {
   const context = canvas.getContext('2d')
   const { width, maxAngle, rotation, stepsColors, lineGap, lineWidth, scoreNumber, fadedOpacity } = props
   // change size canvas when HDPI screen
-  const pixelRatio = window.devicePixelRatio
+  const pixelRatio = 1; // window.devicePixelRatio
   const wRatio = width * pixelRatio
   canvas.width = wRatio
   canvas.height = wRatio

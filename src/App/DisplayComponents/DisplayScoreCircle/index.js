@@ -4,20 +4,22 @@ import { containerWithPadding } from '@ziro/theme'
 
 export const DisplayScoreCircle = () => {
 	const DEFAULT_STEP_COLORS = [
+		'#ff0000',
 		'#BC4646',
 		'#EB5757',
-		'#FF9B07',
-		'#FFAF39',
-		'#FFCF25',
 		'#FFE401',
+		'#FFCF25',
+		'#FFAF39',
+		'#FF9B07',
 		'#4BCA81',
-		'#3CA267'
+		'#3CA267',
+		'#23fa1b',
 	]
 	return (
 		<div style={containerWithPadding}>
 			<ScoreCircle
 				value={900}
-				maxValue={900}
+				maxValue={1000}
 				width={230}
 				lineWidth={20}
 				lineSpacing={1}

@@ -2840,7 +2840,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/score-circle@0.0.8": {
+    "vitorbarbosa19.ziro/score-circle@0.0.9": {
         "files": [
             {
                 "relativePath": "src/components/ScoreCircle/Range.js",
