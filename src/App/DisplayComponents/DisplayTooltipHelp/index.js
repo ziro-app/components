@@ -17,9 +17,12 @@ export const DisplayTooltipHelp = () => {
   const body = 'Aqui é colocado todo o texto desejado, seja de informação ou de suporte'
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={container}>
-      <motion.label key='text'>Clique na ajuda para abrir</motion.label>
+      <label key='text'>Clique na ajuda para abrir</label>
       {'  '}
       <TooltipHelp illustration='chatting' title={title} body={body} iconColor='#2D9CDB' iconSize={30} supportButton />
+      <label>
+      Obs: Caso for utilizar supportButton a Tooltip não deve ser declarada dentro de uma tag label.
+      </label>
     </motion.div>
   )
     
