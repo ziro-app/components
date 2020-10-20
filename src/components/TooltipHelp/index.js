@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Modal from "@bit/vitorbarbosa19.ziro.modal";
-import Illustration from "@bit/vitorbarbosa19.ziro.illustration";
+import Illustration from "../Illustration";
 import Icon from "@bit/vitorbarbosa19.ziro.icon";
 import Button from '../Button/index'
 
