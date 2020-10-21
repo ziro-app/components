@@ -26,7 +26,7 @@ const ChooseCard: React.FC<ChooseCardProps> = ({ cardsCollection, zoopAtom, sele
             ))}
             <AddCard onClick={newCard} />
 
-            {!cardsCollection && (
+            {cardsCollection.empty && (
                 <p style={{ textAlign: "center", cursor: "default", fontSize: "1.4rem" }}>
                     Por que salvar meu cartão{" "}
                     <TooltipHelp
