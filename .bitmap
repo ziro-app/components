@@ -2539,7 +2539,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.31": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.32": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/detachedTransactionData.ts",
@@ -2547,9 +2547,9 @@
                 "name": "detachedTransactionData.ts"
             },
             {
-                "relativePath": "src/components/pay/cardLifecycle/dataCreators/errorData/index.js",
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/errorData.ts",
                 "test": false,
-                "name": "index.js"
+                "name": "errorData.ts"
             },
             {
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/firebaseCardData.ts",
@@ -2587,9 +2587,9 @@
                 "name": "index.ts"
             },
             {
-                "relativePath": "src/components/pay/cardLifecycle/types/index.js",
+                "relativePath": "src/components/pay/cardLifecycle/types.ts",
                 "test": false,
-                "name": "index.js"
+                "name": "types.ts"
             },
             {
                 "relativePath": "src/components/pay/cardLifecycle/utils/formatDate.ts",

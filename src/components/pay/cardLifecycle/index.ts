@@ -69,8 +69,9 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
     const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query);
     const zoopId = useZoopRegistration();
-    return usePromiseShowingMessage<UnregisteredCard & { shouldTransact: boolean }, void, any>(
-        regMessages.waiting.REGISTERING_CARD,
+    const waitingMessage = useRef(regMessages.waiting.REGISTERING_CARD);
+    const [cbk, state] = usePromiseShowingMessage<UnregisteredCard & { shouldTransact: boolean }, void, any>(
+        waitingMessage.current,
         async ({ shouldTransact, ...card }) => {
             let transaction: UnregisteredTransaction.Response;
             if (shouldTransact) {
@@ -88,6 +89,12 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
         },
         [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId],
     );
+    const newCbk = useCallback((data: UnregisteredCard & { shouldTransact: boolean }) => {
+        if (!data.shouldTransact)
+            waitingMessage.current = waitingMessage.current.set("userDescription", "Estamos vinculando seu cartão de forma segura.");
+        return cbk(data);
+    }, []);
+    return [newCbk, state] as [typeof newCbk, typeof state];
 };
 
 export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<typeof prepareDataToDbAndSheet>[1]) => void) => {
