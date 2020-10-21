@@ -32,7 +32,7 @@ const Timeline = ({ transactions, transactionClick = () => null, btnMoreClick = 
 		{transactions.map((transaction, key) =>
 			<div id={(key === 0 && transaction.insurance) ? 'initialInsurance' : 'normal'} style={wrapper(key === (transactions.length - 1) && hasMore)} className={transaction.insurance ? 'timelineInsurance' : 'timeline'} key={key} onClick={() => transactionClick({ transaction })}>
 				{transaction.insurance && <Badge type='lock' style={secureCss} size={11} message='Com seguro' color={primaryColor} />}
-				<label style={sellerCss}>{transaction.seller}</label>
+				<label style={sellerCss}>{transaction.status === 'Aguardando Pagamento' && transaction.observations ? transaction.observations : transaction.seller}</label>
 				<label style={chargeCss}>{transaction.charge}</label>
 				<label style={statusCss(transaction.statusColor)}>{transaction.status}</label>
 				<label style={dateCss}>{transaction.date}</label>
