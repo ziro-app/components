@@ -97,7 +97,9 @@ fs.readdirSync(componentsPath, { withFileTypes: true }).forEach((innerDir1) => {
     if (namespaces.includes(innerDir1.name)) {
         fs.readdirSync(dir, { withFileTypes: true }).forEach((innerDir2) => {
             if (innerDir2.name === ".DS_Store") return;
-            constructComponentObject(innerDir1.name + "/" + innerDir2.name);
+            if (fs.readdirSync(dir + "/" + innerDir2.name, { withFileTypes: true }).some((innerDir3) => innerDir3.name.includes(".ts"))) {
+                constructComponentObject(innerDir1.name + "/" + innerDir2.name);
+            }
         });
     }
 });
