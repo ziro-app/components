@@ -16,7 +16,7 @@ import {
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { useFirebaseCardsCollectionRef } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { useZoopRegistration } from "@bit/vitorbarbosa19.ziro.pay.zoop-registration";
 import { useCreditCardPaymentDocument } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
@@ -89,11 +89,16 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
         },
         [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId],
     );
-    const newCbk = useCallback((data: UnregisteredCard & { shouldTransact: boolean }) => {
+    const cbkRef = useRef(cbk);
+    const newCbk = useCallback(async (data: UnregisteredCard & { shouldTransact: boolean }) => {
         if (!data.shouldTransact)
             waitingMessage.current = waitingMessage.current.set("userDescription", "Estamos vinculando seu cartão de forma segura.");
-        return cbk(data);
+        await new Promise((res) => setTimeout(res, 10));
+        return cbkRef.current(data);
     }, []);
+    useEffect(() => {
+        cbkRef.current = cbk;
+    }, [cbk]);
     return [newCbk, state] as [typeof newCbk, typeof state];
 };
 
