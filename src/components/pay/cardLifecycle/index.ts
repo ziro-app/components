@@ -87,7 +87,7 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
                 .catch(errorThrowers.saveFirestore("register-card"));
             onSuccessRef.current(card_id);
         },
-        [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId],
+        [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId, waitingMessage.current],
     );
     const cbkRef = useRef(cbk);
     const newCbk = useCallback(async (data: UnregisteredCard & { shouldTransact: boolean }) => {
