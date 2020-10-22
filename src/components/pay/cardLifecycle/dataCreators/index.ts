@@ -4,6 +4,7 @@ import registrationPaymentData from "./registrationTransactionData";
 import registrationVoidData from "./registrationVoidData";
 import receivablesData from "./receivables";
 import errorData from "./errorData";
+import registeredData from "./registeredTransactionData";
 
 export default {
     detachedData,
@@ -12,4 +13,5 @@ export default {
     registrationVoidData,
     receivablesData,
     errorData,
+    registeredData,
 };

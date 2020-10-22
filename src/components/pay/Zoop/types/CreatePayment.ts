@@ -182,6 +182,37 @@ export namespace UnregisteredTransaction {
 }
 
 export namespace RegisteredTransaction {
+    export interface PaymentMethod {
+        id: string;
+        resource: string;
+        description?: any;
+        card_brand: string;
+        first4_digits: string;
+        last4_digits: string;
+        expiration_month: string;
+        expiration_year: string;
+        holder_name: string;
+        is_active: boolean;
+        is_valid: boolean;
+        is_verified: boolean;
+        customer?: any;
+        fingerprint: string;
+        address?: any;
+        verification_checklist: VerificationChecklist;
+        metadata: object;
+        uri: string;
+        created_at: Date;
+        updated_at: Date;
+    }
+    export interface PointOfSale {
+        entry_mode: string;
+        identification_number?: any;
+    }
+    export interface PaymentAuthorization {
+        authorizer_id: string;
+        authorization_code: string;
+        authorization_nsu: string;
+    }
     export interface Card {
         id: string;
     }
@@ -220,14 +251,58 @@ export namespace RegisteredTransaction {
     }
 
     export interface Response {
-        sendCompleteError: true;
-        payment_type: "credit";
-        capture: boolean;
+        id: string;
+        resource: string;
+        status: string;
+        amount: string;
+        original_amount: string;
+        currency: string;
+        description?: any;
+        payment_type: string;
+        transaction_number: string;
+        gateway_authorizer: string;
+        app_transaction_uid?: any;
+        refunds?: any;
+        rewards?: any;
+        discounts?: any;
+        pre_authorization?: any;
+        sales_receipt: string;
         on_behalf_of: string;
-        customer: string;
-        source: Source;
-        installment_plan: InstallmentPlan;
-        split_rules?: SplitRule[];
+        customer?: any;
         statement_descriptor: string;
+        payment_method: PaymentMethod;
+        source: Source;
+        point_of_sale: PointOfSale;
+        installment_plan?: any;
+        refunded: boolean;
+        voided: boolean;
+        captured: boolean;
+        fees: string;
+        fee_details?: any;
+        location_latitude?: any;
+        location_longitude?: any;
+        uri: string;
+        metadata: object;
+        expected_on: Date;
+        created_at: Date;
+        updated_at: Date;
+        payment_authorization: PaymentAuthorization;
+        history: History[];
+        split_rules?: {
+            resource: string;
+            liable: boolean;
+            id: string;
+            updated_at: string;
+            recipient: string;
+            transaction: string;
+            created_at: string;
+            charge_processing_fee: boolean;
+            amount: string;
+            charge_recipient_processing_fee: boolean;
+            is_gross_amount: boolean;
+            receivable_gross_amount: string;
+            percentage: string;
+            receivable_amount: string;
+        }[];
     }
 }

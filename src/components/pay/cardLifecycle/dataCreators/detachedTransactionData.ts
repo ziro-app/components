@@ -3,7 +3,7 @@ import { CreditCardPayments } from "@bit/vitorbarbosa19.ziro.firebase.credit-car
 
 export default (card: UnregisteredCard, installments: string, payment: CreditCardPayments.FirebaseDocument) => {
     const data: UnregisteredTransaction.Request = {
-        sendCompleteError: false,
+        sendCompleteError: true,
         payment_type: "credit",
         capture: true,
         on_behalf_of: payment.sellerZoopId,

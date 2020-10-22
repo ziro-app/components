@@ -137,3 +137,39 @@ export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<ty
     }, [state]);
     return [cbk, state] as [typeof cbk, typeof state];
 };
+
+export const useRegisteredPayment = (
+    id: string,
+    cardId: string,
+    installments: string,
+    onSuccess: (dbdata: ReturnType<typeof prepareDataToDbAndSheet>[1]) => void,
+) => {
+    const source = useCancelToken();
+    const payment = useCreditCardPaymentDocument(id);
+    const zoopId = useZoopRegistration();
+    const errorsCollection = useFirestore().collection("credit-card-errors");
+    const [, setLocation] = useAnimatedLocation();
+    const onSuccessRef = useRef(onSuccess);
+    onSuccessRef.current = onSuccess;
+    const [cbk, state] = usePromiseShowingMessage<void, any, DetachedCheckoutError>(
+        payMessages.waiting.SENDING_PAYMENT,
+        async () => {
+            const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, payment.data()), source.token);
+            const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));
+            const [sheetData, dbData, preparedReceivables] = prepareDataToDbAndSheet(transaction, receivablesData, payment.data());
+            await writeTransactionToSheet(sheetData);
+            await writeReceivablesToSheet(preparedReceivables);
+            await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
+            onSuccessRef.current(dbData);
+            return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
+                {
+                    title: "ver recibo",
+                    action: () => {
+                        setLocation("goLeft", `/comprovante/${dbData.receiptId}`);
+                    },
+                },
+            ]);
+        },
+        [source, payment, onSuccessRef],
+    );
+};
