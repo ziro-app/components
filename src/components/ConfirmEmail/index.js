@@ -24,14 +24,16 @@ const ConfirmEmail = () => {
 				<div style={custom(18, successColor)}>Cadastro feito com sucesso!</div>
 				<div style={blockOne}>
 					<label>Email de confirmação enviado</label>
-					<p>
-						Clique no link recebido para liberar seu login
+
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<label style={{display: "block"}}>Clique no link recebido para liberar seu login</label>
 						<TooltipHelp
-                illustration='security'
+								illustration='security'
+								title='Confirme seu email'
 								body={message}
 								supportButton
-            />
-					</p>
+						/>
+					</div>
 				</div>
 				<div style={blockTwo}>
 					<Button type='link' cta='Link acessado, fazer login'

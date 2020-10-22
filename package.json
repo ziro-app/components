@@ -614,6 +614,7 @@
           "firebase": "-",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "-",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
           "@ziro/currency-format": "-"
         },
         "peerDependencies": {
@@ -630,12 +631,12 @@
           "firebase": "7.17.x",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@ziro/currency-format": "1.0.x",
           "axios": "0.20.x",
           "@sentry/react": "5.20.x",
           "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
           "cuid": "2.1.x",
-          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",

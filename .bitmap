@@ -571,7 +571,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.65": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.66": {
         "files": [
             {
                 "name": "index.js",
