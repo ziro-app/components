@@ -146,14 +146,14 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
                         : [
                               <FormInput
                                   name="shouldTransact"
-                                  label="Deseja verificar seu cartão com uma transação de pequeno valor?"
+                                  label="Seu cartão expira após uma compra?"
                                   input={
                                       <div style={center}>
                                           <div style={inline}>Não</div>
                                           <ToggleButton
                                               size={30}
                                               template="primary"
-                                              active={shouldTransact}
+                                              active={!shouldTransact}
                                               onClick={() => setShouldTransact((s) => !s)}
                                           />
                                           <div style={inline}>Sim</div>
