@@ -93,10 +93,11 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
     const newCbk = useCallback(async (data: UnregisteredCard & { shouldTransact: boolean }) => {
         if (!data.shouldTransact)
             waitingMessage.current = waitingMessage.current.set("userDescription", "Estamos vinculando seu cartão de forma segura.");
-        await new Promise((res) => setTimeout(res, 10));
+        await new Promise((res) => setTimeout(res, 100));
         return cbkRef.current(data);
     }, []);
     useEffect(() => {
+        console.log("updating callback");
         cbkRef.current = cbk;
     }, [cbk]);
     return [newCbk, state] as [typeof newCbk, typeof state];
