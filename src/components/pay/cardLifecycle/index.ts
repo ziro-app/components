@@ -23,10 +23,12 @@ import { useCreditCardPaymentDocument } from "@bit/vitorbarbosa19.ziro.firebase.
 import creator from "./dataCreators";
 import * as errorThrowers from "./errorThrowers";
 import prepareDataToDbAndSheet from "./utils/prepareDataToDbAndSheet";
+import prepareRegisteredDataToDbAndSheet from "./utils/prepareRegisteredDataToDbAndSheet";
 import writeTransactionToSheet from "./utils/writeTransactionToSheet";
 import writeReceivablesToSheet from "./utils/writeReceivablesToSheet";
 import { DetachedCheckoutError } from "./types";
 import { sheet } from "@bit/vitorbarbosa19.ziro.utils.sheets";
+import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 
 /**
  * Esse hook retorna um callback para excluir um cartão
@@ -142,30 +144,30 @@ export const useRegisteredPayment = (
     id: string,
     cardId: string,
     installments: string,
-    onSuccess: (dbdata: ReturnType<typeof prepareDataToDbAndSheet>[1]) => void,
+    onSuccess: (dbdata: ReturnType<typeof prepareRegisteredDataToDbAndSheet>[0]) => void,
 ) => {
     const source = useCancelToken();
     const payment = useCreditCardPaymentDocument(id);
     const zoopId = useZoopRegistration();
+    const storeowner = useStoreowner();
     const errorsCollection = useFirestore().collection("credit-card-errors");
+    const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [, setLocation] = useAnimatedLocation();
     const onSuccessRef = useRef(onSuccess);
     onSuccessRef.current = onSuccess;
-    const [cbk, state] = usePromiseShowingMessage<void, any, DetachedCheckoutError>(
+    return usePromiseShowingMessage<void, any, DetachedCheckoutError>(
         payMessages.waiting.SENDING_PAYMENT,
         async () => {
             const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, payment.data()), source.token);
-            const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));
-            const [sheetData, dbData, preparedReceivables] = prepareDataToDbAndSheet(transaction, receivablesData, payment.data());
+            const [dbData, sheetData] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp);
             await writeTransactionToSheet(sheetData);
-            await writeReceivablesToSheet(preparedReceivables);
             await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
             onSuccessRef.current(dbData);
             return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
                 {
-                    title: "ver recibo",
+                    title: "ver pagamentos",
                     action: () => {
-                        setLocation("goLeft", `/comprovante/${dbData.receiptId}`);
+                        setLocation("goLeft", `/pagamentos`);
                     },
                 },
             ]);
