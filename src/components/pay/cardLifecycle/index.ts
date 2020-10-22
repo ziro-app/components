@@ -1,5 +1,5 @@
-import { usePromiseShowingMessage, useAsyncEffect } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
-import { useMessagePromise } from "@bit/vitorbarbosa19.ziro.message-modal";
+import { usePromiseShowingMessage, useAsyncEffect, usePromise } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
+import { useMessage, useMessagePromise } from "@bit/vitorbarbosa19.ziro.message-modal";
 import * as delMessages from "ziro-messages/dist/src/catalogo/pay/chooseCard";
 import * as regMessages from "ziro-messages/dist/src/catalogo/antifraude/registerCard";
 import * as payMessages from "ziro-messages/dist/src/catalogo/pay/checkout";
@@ -69,38 +69,35 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
     const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query);
     const zoopId = useZoopRegistration();
-    const waitingMessage = useRef(regMessages.waiting.REGISTERING_CARD);
-    const [cbk, state] = usePromiseShowingMessage<UnregisteredCard & { shouldTransact: boolean }, void, any>(
-        waitingMessage.current,
+    const setMessage = useMessage();
+    return usePromise<UnregisteredCard & { shouldTransact: boolean }, void, never>(
         async ({ shouldTransact, ...card }) => {
-            let transaction: UnregisteredTransaction.Response;
-            if (shouldTransact) {
-                const amount = Math.round(10 + Math.random() * 140);
-                transaction = await createPayment(creator.registrationPaymentData(card, supplier.zoopId, zoopId, amount), source.token);
-                await voidPayment(creator.registrationVoidData(transaction), source.token);
-            }
-            const { id: token } = await createCardToken(card, source.token);
-            const { id: card_id } = await associateCard(token, zoopId, source.token);
-            await collectionRef
-                .doc(card_id)
-                .set(creator.firebaseCardData(timestamp, transaction))
-                .catch(errorThrowers.saveFirestore("register-card"));
-            onSuccessRef.current(card_id);
+            const promise = (async () => {
+                let transaction: UnregisteredTransaction.Response;
+                if (shouldTransact) {
+                    const amount = Math.round(10 + Math.random() * 140);
+                    transaction = await createPayment(creator.registrationPaymentData(card, supplier.zoopId, zoopId, amount), source.token);
+                    await voidPayment(creator.registrationVoidData(transaction), source.token);
+                }
+                const { id: token } = await createCardToken(card, source.token);
+                const { id: card_id } = await associateCard(token, zoopId, source.token);
+                await collectionRef
+                    .doc(card_id)
+                    .set(creator.firebaseCardData(timestamp, transaction))
+                    .catch(errorThrowers.saveFirestore("register-card"));
+                onSuccessRef.current(card_id);
+            })().catch((error) => error);
+            setMessage(
+                (shouldTransact
+                    ? regMessages.waiting.REGISTERING_CARD
+                    : regMessages.waiting.REGISTERING_CARD.set("userDescription", "Estamos vinculando seu cartão de forma segura.")
+                ).withPromise(promise),
+            );
+            const result = await promise;
+            if (result) setMessage(result);
         },
-        [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId, waitingMessage.current],
+        [source, onSuccessRef, collectionRef, timestamp, supplier, zoopId],
     );
-    const cbkRef = useRef(cbk);
-    const newCbk = useCallback(async (data: UnregisteredCard & { shouldTransact: boolean }) => {
-        if (!data.shouldTransact)
-            waitingMessage.current = waitingMessage.current.set("userDescription", "Estamos vinculando seu cartão de forma segura.");
-        await new Promise((res) => setTimeout(res, 100));
-        return cbkRef.current(data);
-    }, []);
-    useEffect(() => {
-        console.log("updating callback");
-        cbkRef.current = cbk;
-    }, [cbk]);
-    return [newCbk, state] as [typeof newCbk, typeof state];
 };
 
 export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<typeof prepareDataToDbAndSheet>[1]) => void) => {
