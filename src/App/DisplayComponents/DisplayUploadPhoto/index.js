@@ -15,7 +15,7 @@ export const DisplayUploadPhoto = () => {
 				<UploadPhoto
 					title="Documento do portador"
 					modal={{
-					illustration: 'profileData',
+					illustration: 'cnhPhoto',
 					title: 'Documento do portador',
 					message: (
 						<label>
