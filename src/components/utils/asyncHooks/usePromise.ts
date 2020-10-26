@@ -86,7 +86,7 @@ export function usePromiseShowingMessage<A, R, E>(
 
     const newCbk = useCallback<PromiseCbk<A>>(
         ((args) => new Promise<void>((res) => setMessage(message.withPromise(cbk(args).finally(res))))) as any,
-        [setMessage, message, cbk, ...deps],
+        [setMessage, message, cbk],
     );
 
     useEffect(() => {

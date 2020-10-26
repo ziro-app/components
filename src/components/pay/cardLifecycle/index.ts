@@ -179,21 +179,7 @@ export const useRegisteredPayment = (
                 },
             ]);
         },
-        [
-            source,
-            payment,
-            onSuccessRef,
-            id,
-            cardId,
-            installments,
-            zoopId,
-            storeowner,
-            cartCollectionRef,
-            catalogUserDataDoc,
-            errorsCollection,
-            timestamp,
-            setLocation,
-        ],
+        [source, payment, onSuccessRef, id, cardId, installments, zoopId, storeowner],
     );
     useAsyncEffect(async () => {
         if (state.status === "failed") {
