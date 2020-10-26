@@ -79,14 +79,14 @@ export function usePromiseShowingMessage<A, R, E>(
     message: ZiroWaitingMessage<string, string, any>,
     promise: PromiseGen<A, R>,
     deps: React.DependencyList = [],
-): [(args?: A) => Promise<void>, UsePromiseState<R, E>] {
+): [PromiseCbk<A>, UsePromiseState<R, E>] {
     const [cbk, state] = usePromise<A, R, E>(promise, deps);
 
     const setMessage = useMessage();
 
-    const newCbk = useCallback(
-        (args?: A) => new Promise<void>((res) => setMessage(message.withPromise(cbk(args).finally(res)))),
-        [setMessage, message, cbk],
+    const newCbk = useCallback<PromiseCbk<A>>(
+        ((args) => new Promise<void>((res) => setMessage(message.withPromise(cbk(args).finally(res))))) as any,
+        [setMessage, message, cbk, ...deps],
     );
 
     useEffect(() => {
