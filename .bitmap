@@ -571,7 +571,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.66": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.67": {
         "files": [
             {
                 "name": "index.js",
@@ -2539,7 +2539,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.38": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.39": {
         "files": [
             {
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/detachedTransactionData.ts",
@@ -2550,6 +2550,11 @@
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/errorData.ts",
                 "test": false,
                 "name": "errorData.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/errorRegisteredData.ts",
+                "test": false,
+                "name": "errorRegisteredData.ts"
             },
             {
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/firebaseCardData.ts",
@@ -2565,6 +2570,11 @@
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/receivables.ts",
                 "test": false,
                 "name": "receivables.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/registeredTransactionData.ts",
+                "test": false,
+                "name": "registeredTransactionData.ts"
             },
             {
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/registrationTransactionData.ts",
@@ -2615,6 +2625,11 @@
                 "relativePath": "src/components/pay/cardLifecycle/utils/prepareReceivables.ts",
                 "test": false,
                 "name": "prepareReceivables.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/utils/prepareRegisteredDataToDbAndSheet.ts",
+                "test": false,
+                "name": "prepareRegisteredDataToDbAndSheet.ts"
             },
             {
                 "relativePath": "src/components/pay/cardLifecycle/utils/translateStatus.ts",
@@ -2740,7 +2755,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/zoop@0.0.31": {
+    "vitorbarbosa19.ziro/pay/zoop@0.0.32": {
         "files": [
             {
                 "relativePath": "src/components/pay/Zoop/constants.ts",

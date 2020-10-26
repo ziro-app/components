@@ -15,7 +15,7 @@ import {
 } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
-import { useFirebaseCardsCollectionRef } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
+import { useFirebaseCardsCollectionRef, useCartCollectionRef, useCatalogUserDataDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { useZoopRegistration } from "@bit/vitorbarbosa19.ziro.pay.zoop-registration";
@@ -26,7 +26,7 @@ import prepareDataToDbAndSheet from "./utils/prepareDataToDbAndSheet";
 import prepareRegisteredDataToDbAndSheet from "./utils/prepareRegisteredDataToDbAndSheet";
 import writeTransactionToSheet from "./utils/writeTransactionToSheet";
 import writeReceivablesToSheet from "./utils/writeReceivablesToSheet";
-import { DetachedCheckoutError } from "./types";
+import { DetachedCheckoutError, RegisteredCheckoutError } from "./types";
 import { sheet } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 
@@ -150,18 +150,25 @@ export const useRegisteredPayment = (
     const payment = useCreditCardPaymentDocument(id);
     const zoopId = useZoopRegistration();
     const storeowner = useStoreowner();
+    const cartCollectionRef = useCartCollectionRef();
+    const catalogUserDataDoc = useCatalogUserDataDocument();
     const errorsCollection = useFirestore().collection("credit-card-errors");
     const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [, setLocation] = useAnimatedLocation();
     const onSuccessRef = useRef(onSuccess);
     onSuccessRef.current = onSuccess;
-    return usePromiseShowingMessage<void, any, DetachedCheckoutError>(
+    const [cbk, state] = usePromiseShowingMessage<void, any, RegisteredCheckoutError>(
         payMessages.waiting.SENDING_PAYMENT,
         async () => {
-            const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, payment.data()), source.token);
+            if (!installments) throw payMessages.prompt.NO_INSTALLMENTS;
+            const paymentData = payment.data();
+            const userData = catalogUserDataDoc.data();
+            const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
+            if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
             const [dbData, sheetData] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp);
             await writeTransactionToSheet(sheetData);
-            await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
+            await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
+            if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
             onSuccessRef.current(dbData);
             return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
                 {
@@ -174,4 +181,12 @@ export const useRegisteredPayment = (
         },
         [source, payment, onSuccessRef],
     );
+    useAsyncEffect(async () => {
+        if (state.status === "failed") {
+            const [values, dbData] = creator.errorRegisteredData(state.error, storeowner);
+            await sheet(process.env.SHEET_ID_TRANSACTIONS).write({ values, range: "Transacoes_Erros!A1" });
+            await errorsCollection.add(dbData);
+        }
+    }, [state]);
+    return [cbk, state] as [typeof cbk, typeof state];
 };

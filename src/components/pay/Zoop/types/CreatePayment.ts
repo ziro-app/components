@@ -182,6 +182,21 @@ export namespace UnregisteredTransaction {
 }
 
 export namespace RegisteredTransaction {
+    export interface History {
+        id: string;
+        transaction: string;
+        amount: string;
+        operation_type: string;
+        status: string;
+        response_code: string;
+        response_message: string;
+        authorization_code: string;
+        authorizer_id: string;
+        authorization_nsu: string;
+        gatewayResponseTime: string;
+        authorizer: string;
+        created_at: string;
+    }
     export interface PaymentMethod {
         id: string;
         resource: string;
