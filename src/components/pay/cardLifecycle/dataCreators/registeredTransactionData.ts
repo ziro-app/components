@@ -5,7 +5,7 @@ export default (buyerZoopId: string, cardId: string, installments: string, payme
     const data: RegisteredTransaction.Request = {
         sendCompleteError: true,
         payment_type: "credit",
-        capture: true,
+        capture: !payment.insurance,
         on_behalf_of: payment.sellerZoopId,
         statement_descriptor: `Ziro* ${payment.seller === "Ziro" && payment.onBehalfOfBrand ? payment.onBehalfOfBrand : payment.seller}`,
         customer: buyerZoopId,
