@@ -20,6 +20,7 @@ import { SelfieTwo } from "../../Illustrations/SelfieTwo";
 import { OnlyVestuary } from "../../Illustrations/OnlyVestuary";
 import { Security } from '../../Illustrations/Security';
 import { CnhPhoto } from '../../Illustrations/CnhPhoto';
+import { CardAnalysis } from '../../Illustrations/CardAnalysis';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -43,7 +44,8 @@ const Illustration = ({ type, size }) => {
       selfieTwo: <SelfieTwo {...illustrationProps} />,
       onlyVestuary: <OnlyVestuary {...illustrationProps} />,
       security: <Security {...illustrationProps} />,
-      cnhPhoto: <CnhPhoto {...illustrationProps} />
+      cnhPhoto: <CnhPhoto {...illustrationProps} />,
+      cardAnalysis: <CardAnalysis {...illustrationProps} />
   };
   return illustrationList[type];
 };

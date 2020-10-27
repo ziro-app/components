@@ -24,6 +24,7 @@ export const DisplayIllustration = () => (
                <Illustration type="selfieTwo" size={200} />
                <Illustration type="onlyVestuary" size={200} />
                <Illustration type="security" size={200} />
+               <Illustration type="cardAnalysis" size={200} />
                <Illustration type="cnhPhoto" size={200} />
            </div>
        );
