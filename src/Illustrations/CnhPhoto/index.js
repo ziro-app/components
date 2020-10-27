@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const CnhPhoto = ({ size = 150 }) => (
-    <svg width={size} height={size} viewBox="0 0 786 478" fill="none">
+    <svg width={size + (size*0.7)} height={size} viewBox="0 0 786 478" fill="none">
         <path
             fill-rule="evenodd"
             clip-rule="evenodd"
