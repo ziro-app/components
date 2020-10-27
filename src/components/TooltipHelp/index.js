@@ -8,7 +8,7 @@ import Button from '../Button/index'
 import { modalBox, closeIcon, proposeContainer, titleText, bodyText } from "./styles";
 import { supportPhoneNumber } from '../utils/supportNumber'
 
-const TooltipHelp = ({ illustration, title, body, iconColor = "#2D9CDB", iconSize = 16, supportButton = false }) => {
+const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconColor = "#2D9CDB", iconSize = 16, supportButton = false }) => {
     const [modalHelp, setModalHelp] = useState(false);
 
     return (
@@ -18,7 +18,7 @@ const TooltipHelp = ({ illustration, title, body, iconColor = "#2D9CDB", iconSiz
             <Icon type="close" size={30} color="black" onClick={() => setModalHelp(false)} strokeWidth={1} style={closeIcon} />
                 {illustration ? (
                     <div>
-                        <Illustration type={illustration} size={150} />
+                        <Illustration type={illustration} size={illustrationSize} />
                     </div>
                 ) : null}
 
