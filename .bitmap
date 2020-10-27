@@ -1060,7 +1060,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.132": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.134": {
         "files": [
             {
                 "name": "index.js",
@@ -3228,7 +3228,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/upload-photo@0.0.48": {
+    "vitorbarbosa19.ziro/upload-photo@0.0.49": {
         "files": [
             {
                 "name": "index.js",

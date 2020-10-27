@@ -1,10 +1,7 @@
 import React from 'react'
 import ImagePreview, { useDropzone } from '../ImagePreview'
 
-
-
-const UploadPhoto = ({ picture, setPicture, onRequestCamera, isDisabled = false }) => {
-
+const UploadPhoto = ({ picture, setPicture, onRequestCamera, isDisabled = false, instructions }) => {
     const dropzoneProps = useDropzone(isDisabled, setPicture)
 
     return (
@@ -15,7 +12,7 @@ const UploadPhoto = ({ picture, setPicture, onRequestCamera, isDisabled = false 
             primaryIcon='camera'
             secondaryIcon='upload'
             secondaryAction='input'
-            instructions='Tire uma foto ou escolha do dispositivo.'
+            instructions={instructions ? instructions : 'Tire uma foto ou escolha do dispositivo.'}
         />
     )
 }

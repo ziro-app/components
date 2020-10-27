@@ -9,7 +9,7 @@ import { useCameraAsOverlay } from "./useCameraAsOverlay";
 import { useCallback } from "react";
 import { useEffect } from "react";
 
-const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwap, submitting, isCameraOpen }) => {
+const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwap, submitting, isCameraOpen, instructions }) => {
     const [picture, setPicture] = useState();
     const [_isCameraOpen, cameraControls, closeCamera, openCamera, closeAfterSend] = useCameraAsOverlay();
     const _next = useCallback(() => next({ picture }), [picture, next]);
@@ -55,7 +55,7 @@ const FlowUploadPhoto = ({ next, previous, maxWidth, initialFacingMode, allowSwa
         [_isCameraOpen],
     );
 
-    return <UploadPhoto picture={picture} setPicture={setPicture} onRequestCamera={openCamera} />;
+    return <UploadPhoto picture={picture} setPicture={setPicture} onRequestCamera={openCamera} instructions={instructions}/>;
 };
 
 export default FlowUploadPhoto;
