@@ -64,7 +64,7 @@ const prepareDataToDbAndSheet = (
         holder_name.toLowerCase(),
         card_brand,
         `${first4_digits}...${last4_digits}`,
-        currencyFormat((amount as any) * 100).replace("R$", ""),
+        currencyFormat((parseFloat(amount)).toFixed(2).replace('.', '')).replace("R$", ""),
         ...preparedFees,
     ];
     const dbData = {
