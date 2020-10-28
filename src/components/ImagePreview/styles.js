@@ -4,6 +4,17 @@ export const
 
 circularButtonContainer = (template) => ({
     display: 'grid',
+    width: '50px',
+    height: '50px',
+    borderRadius: '50%',
+    background: template === 'light' ? 'linear-gradient(rgb(240, 240, 240) 10%, rgb(245, 245, 245) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))' : gradient,
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: shadow
+}),
+
+rectangularButtonContainer = (template) => ({
+    display: 'grid',
     gridTemplateColumns: '40px auto',
     width: '250px',
     height: '45px',

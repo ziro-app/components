@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { circularButtonContainer, dropzone } from './styles'
+import { circularButtonContainer, rectangularButtonContainer, dropzone } from './styles'
 import Icon from '../Icon'
 import { shadow } from '@ziro/theme'
 
@@ -11,10 +11,13 @@ const _CircularButton = ({ template, onClick, isDisabled, icon }) =>
         <motion.a
             whileTap={isDisabled ? null : { scale: 0.95 }}
             onClick={isDisabled ? null : onClick}
-            style={circularButtonContainer(template)}
+            style={ icon === 'camera'
+                ? rectangularButtonContainer(template)
+                : circularButtonContainer(template)
+            }
         >
             { icon && <Icon type={icon} size={24} color={ template === 'light' ? 'black' : 'white'}/> }
-            <label>Abrir câmera</label>
+            {icon === 'camera' && <label>Abrir câmera</label>}
         </motion.a>
         
     </div>
@@ -26,7 +29,7 @@ const _CircularInput = ({ template, isDisabled }) =>
         <motion.label
             htmlFor='input-file'
             whileTap={isDisabled ? null : { scale: 0.95 }}
-            style={circularButtonContainer(template)}
+            style={rectangularButtonContainer(template)}
             >
                 <Icon type='upload' size={24} color={ template === 'light' ? 'black' : 'white'}/>
                 Abrir galeria
@@ -55,7 +58,13 @@ const ImagePreview = ({ picture, primaryIcon, primaryAction, secondaryIcon, seco
                     :
                         <label style={{ marginTop: '20px' }}>{ instructions }</label>
                 }
-                <div style={{ display: 'grid', gridRowGap: '15px' }}>
+                <div 
+                    style={
+                        primaryIcon === 'camera'
+                        ? { display: 'grid', gridRowGap: '15px' }
+                        : { display: 'grid', gridTemplateColumns: 'auto auto', gridColumnGap: '20px' }
+                    }
+                >
                     {
                         secondaryAction === 'input' ?
                             <CircularInput template='light' isDisabled={isDisabled}/>
