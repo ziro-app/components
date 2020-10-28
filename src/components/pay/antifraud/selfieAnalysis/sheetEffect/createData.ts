@@ -23,7 +23,7 @@ const createSheetData = (firebaseCard: FirebaseCardDocument, zoopCardData: ZoopC
     const expiry = formatExpiry(zoopCardData);
 
     const extractedData =
-        firebaseData.status !== "pendingDocument"
+        firebaseData.status !== "pendingDocument" && !("userInputAmount" in firebaseData)
             ? extractData(firebaseData)
             : Array.from(Array(11).keys()).map(() => "");
 
@@ -36,14 +36,9 @@ export const createSheetErrorData = (
     error: UseBiometry.Errors.Generic | UseFirestoreEffect.Error,
     userData: Storeowner,
 ) => {
-    const errorName = hyperlink(
-        createURL(firebaseCard.ref.path, isDev ? "ziro-homolog" : "ziro-app-data"),
-        error.title,
-    );
+    const errorName = hyperlink(createURL(firebaseCard.ref.path, isDev ? "ziro-homolog" : "ziro-app-data"), error.title);
     const [date, ...rest] = createSheetData(firebaseCard, zoopCardData, userData);
-    const probSelfie = UseBiometry.Errors.hasKnownResponse(error)
-        ? `${error.additionalData.response.confidence}`.replace(".", ",")
-        : "";
+    const probSelfie = UseBiometry.Errors.hasKnownResponse(error) ? `${error.additionalData.response.confidence}`.replace(".", ",") : "";
     const selfie = UseBiometry.Errors.hasResponse(error) ? hyperlink(error.additionalData.url, "SELFIE") : "";
     const allData = [[date, error.code, errorName, error.internalDescription, ...rest, probSelfie, selfie]];
     return allData;
@@ -55,14 +50,9 @@ export const createDevSheetErrorData = (
     error: UseBiometry.Errors.Generic | UseFirestoreEffect.Error,
     userData: Storeowner,
 ) => {
-    const errorName = hyperlink(
-        createURL(firebaseCard.ref.path, isDev ? "ziro-homolog" : "ziro-app-data"),
-        error.title,
-    );
+    const errorName = hyperlink(createURL(firebaseCard.ref.path, isDev ? "ziro-homolog" : "ziro-app-data"), error.title);
     const [date, ...rest] = createSheetData(firebaseCard, zoopCardData, userData);
-    const probSelfie = UseBiometry.Errors.hasKnownResponse(error)
-        ? `${error.additionalData.response.confidence}`.replace(".", ",")
-        : "";
+    const probSelfie = UseBiometry.Errors.hasKnownResponse(error) ? `${error.additionalData.response.confidence}`.replace(".", ",") : "";
     const selfie = UseBiometry.Errors.hasResponse(error) ? hyperlink(error.additionalData.url, "SELFIE") : "";
     return [[date, error.code, errorName, JSON.stringify(error.getData(), null, 4), ...rest, probSelfie, selfie]];
 };

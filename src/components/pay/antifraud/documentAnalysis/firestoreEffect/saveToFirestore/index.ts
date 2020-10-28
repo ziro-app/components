@@ -13,6 +13,7 @@ export const saveSuccessToFirestore: SaveSuccessToFirestore = async (card, resul
         updated: FV.serverTimestamp(),
     };
     if (oldData.errors) newData.errors = oldData.errors;
+    if (oldData.antifraudTransaction) newData.antifraudTransaction = oldData.antifraudTransaction;
     await card.ref.set(newData as any);
 };
 

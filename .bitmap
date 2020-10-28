@@ -843,7 +843,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.46": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.47": {
         "files": [
             {
                 "name": "helperTypes.ts",
@@ -2187,7 +2187,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.56": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.57": {
         "files": [
             {
                 "name": "index.ts",

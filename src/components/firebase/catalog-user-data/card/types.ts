@@ -7,7 +7,7 @@ export namespace FirebaseCard {
 
     export interface Common<S extends Status> {
         status: S;
-        antifraudTransaction: string;
+        antifraudTransaction?: string;
         added: firebase.firestore.Timestamp;
         updated: firebase.firestore.Timestamp;
         errors?: {
