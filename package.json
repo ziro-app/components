@@ -104,7 +104,7 @@
     "recoil": "0.0.10",
     "webfontloader": "^1.6.28",
     "wouter": "^2.5.0",
-    "ziro-messages": "0.0.58"
+    "ziro-messages": "0.0.62"
   },
   "bit": {
     "env": {
@@ -120,6 +120,24 @@
     },
     "overrides": {
       "choose-card": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/ChooseCard",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "react": "-",
           "@types/react": "-",
@@ -151,139 +169,49 @@
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
           "reactfire": "2.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/ChooseCard",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "component-suspense-fallback": {
-        "dependencies": {},
-        "peerDependencies": {},
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/ComponentSuspenseFallback",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "flow-form": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/FlowForm",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "react": "-",
           "@types/react": "-",
@@ -293,72 +221,27 @@
         "peerDependencies": {
           "@bit/vitorbarbosa19.ziro.flow-manager": "0.0.x",
           "@bit/vitorbarbosa19.ziro.bottom-flow-buttons": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/FlowForm",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "flow-register-card": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/FlowRegisterCard",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "react": "-",
           "@types/react": "-",
@@ -389,72 +272,27 @@
           "@bit/vitorbarbosa19.ziro.utils.string": "0.0.x",
           "@ziro/mask-input": "1.0.x",
           "@bit/vitorbarbosa19.ziro.bottom-flow-buttons": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/FlowRegisterCard",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "message-modal": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/MessageModal",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "react": "-",
           "@types/react": "-",
@@ -474,72 +312,27 @@
           "ziro-messages": "0.0.x",
           "reactfire": "2.0.x",
           "firebase": "7.17.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/MessageModal",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "route": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/Route",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "react": "-",
           "@types/react": "-",
@@ -553,72 +346,27 @@
           "reactfire": "2.0.x",
           "firebase": "7.17.x",
           "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/Route",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "firebase/catalog-user-data": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/catalog-user-data",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "@bit/vitorbarbosa19.ziro.pay.next-code": "-",
           "ziro-messages": "-",
@@ -641,145 +389,27 @@
           "axios": "0.20.x",
           "@sentry/react": "5.20.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/firebase/catalog-user-data",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "firebase/credit-card-payments": {
-        "dependencies": {
-          "firebase": "-",
-          "reactfire": "-"
-        },
-        "peerDependencies": {
-          "firebase": "7.17.x",
-          "reactfire": "2.0.x"
-        },
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/firebase/credit-card-payments",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "firebase/storeowners": {
+          }
+        },
         "dependencies": {
           "firebase": "-",
           "reactfire": "-"
@@ -787,72 +417,55 @@
         "peerDependencies": {
           "firebase": "7.17.x",
           "reactfire": "2.0.x"
-        },
+        }
+      },
+      "firebase/storeowners": {
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/firebase/storeowners",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
+          }
+        },
+        "dependencies": {
+          "firebase": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "firebase": "7.17.x",
+          "reactfire": "2.0.x"
         }
       },
       "pay/next-code": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/NextCode",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "axios": "-",
           "ziro-messages": "-",
@@ -866,72 +479,27 @@
           "@sentry/react": "5.20.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/NextCode",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "pay/zoop": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/Zoop",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "axios": "-",
           "@sentry/react": "-",
@@ -943,72 +511,27 @@
           "@sentry/react": "5.20.x",
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/Zoop",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "pay/antifraud": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/antifraud",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "@bit/vitorbarbosa19.ziro.utils.async-hooks": "-",
           "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "-",
@@ -1020,14 +543,14 @@
           "@types/react": "-",
           "@bit/vitorbarbosa19.ziro.pay.zoop": "-",
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
-          "@bit/vitorbarbosa19.ziro.utils.whatsapp": "-",
           "@bit/vitorbarbosa19.ziro.utils.axios": "-",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-",
           "@bit/vitorbarbosa19.ziro.utils.tuple": "-",
           "@bit/vitorbarbosa19.ziro.utils.string": "-",
           "@ziro/format-date-utc3": "-",
           "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": "-",
-          "@bit/vitorbarbosa19.ziro.utils.sheets": "-"
+          "@bit/vitorbarbosa19.ziro.utils.sheets": "-",
+          "@bit/vitorbarbosa19.ziro.utils.whatsapp": "-"
         },
         "peerDependencies": {
           "@bit/vitorbarbosa19.ziro.utils.async-hooks": "0.0.x",
@@ -1038,7 +561,6 @@
           "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
           "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x",
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
-          "@bit/vitorbarbosa19.ziro.utils.whatsapp": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.tuple": "0.0.x",
@@ -1046,84 +568,41 @@
           "@ziro/format-date-utc3": "2.0.x",
           "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.whatsapp": "0.0.x",
           "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x",
+          "@sentry/react": "5.20.x",
           "cuid": "2.1.x",
           "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
           "framer-motion": "1.11.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/antifraud",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "pay/card-lifecycle": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/cardLifecycle",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "@bit/vitorbarbosa19.ziro.pay.zoop": "-",
           "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments": "-",
           "@ziro/format-date-utc3": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
           "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "-",
           "ziro-messages": "-",
           "@bit/vitorbarbosa19.ziro.utils.async-hooks": "-",
@@ -1136,13 +615,13 @@
           "firebase": "-",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "-",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "-",
-          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
           "@ziro/currency-format": "-"
         },
         "peerDependencies": {
           "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x",
           "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments": "0.0.x",
           "@ziro/format-date-utc3": "2.0.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "0.0.x",
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.async-hooks": "0.0.x",
@@ -1153,7 +632,6 @@
           "firebase": "7.17.x",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
-          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@ziro/currency-format": "1.0.x",
           "axios": "0.20.x",
           "@sentry/react": "5.20.x",
@@ -1164,72 +642,27 @@
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
           "framer-motion": "1.11.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/cardLifecycle",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "pay/zoop-registration": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/zoopRegistration",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
           "reactfire": "-",
@@ -1245,1137 +678,206 @@
           "@sentry/react": "5.20.x",
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/zoopRegistration",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "utils/async-hooks": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/asyncHooks",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
         "dependencies": {
           "react": "-",
           "@types/react": "-",
           "ziro-messages": "-",
-          "@bit/vitorbarbosa19.ziro.message-modal": "-"
+          "@bit/vitorbarbosa19.ziro.message-modal": "-",
+          "@sentry/react": "-"
         },
         "peerDependencies": {
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x",
+          "@sentry/react": "5.20.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
           "framer-motion": "1.11.x",
           "reactfire": "2.0.x",
           "firebase": "7.17.x"
-        },
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/utils/asyncHooks",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
         }
       },
       "utils/axios": {
-        "dependencies": {},
-        "peerDependencies": {},
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/utils/axios",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/check-against-template": {
-        "dependencies": {},
-        "peerDependencies": {},
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/utils/checkAgainstTemplate",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/create-firestore-url": {
-        "dependencies": {},
-        "peerDependencies": {},
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/utils/createFirestoreURL",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "utils/sheets": {
-        "dependencies": {
-          "axios": "-"
-        },
-        "peerDependencies": {
-          "axios": "0.20.x"
-        },
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/utils/sheets",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "utils/string": {
-        "dependencies": {},
-        "peerDependencies": {},
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/utils/string",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
                     "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "utils/tuple": {
-        "dependencies": {},
-        "peerDependencies": {},
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
-              "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/utils/tuple",
-                    "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
-                    "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
-                    "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
-                }
-              },
-              "options": {}
-            }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "utils/whatsapp": {
+          }
+        },
         "dependencies": {
           "axios": "-"
         },
         "peerDependencies": {
           "axios": "0.20.x"
-        },
+        }
+      },
+      "utils/string": {
         "env": {
           "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
               "rawConfig": {
-                "compilerPath": "typescript/bin/tsc",
-                "compilerArguments": [
-                  "--declaration"
-                ],
-                "compiledFileTypes": [
-                  ".ts",
-                  ".tsx"
-                ],
-                "configFileName": "tsconfig.json",
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/string",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "utils/tuple": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/utils/tuple",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "utils/whatsapp": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
                 "tsconfig": {
                   "compilerOptions": {
                     "outDir": "./dist/src/components/utils/whatsapp",
                     "target": "ES5",
-                    "sourceMap": false,
-                    "moduleResolution": "Node",
-                    "esModuleInterop": true,
                     "module": "CommonJS",
-                    "allowSyntheticDefaultImports": true,
-                    "resolveJsonModule": true,
-                    "declaration": true,
-                    "experimentalDecorators": true,
-                    "inlineSourceMap": true,
                     "inlineSources": true,
-                    "lib": [
-                      "dom",
-                      "es2015"
-                    ],
-                    "jsx": "react",
-                    "rootDir": "./",
-                    "removeComments": false,
-                    "typeRoots": [
-                      "./node_modules/@types"
-                    ],
-                    "importHelpers": false
-                  },
-                  "include": [
-                    "./**/*"
-                  ],
-                  "exclude": [
-                    "node_modules",
-                    ".dependencies",
-                    "dist"
-                  ]
-                },
-                "development": false,
-                "copyPolicy": {
-                  "ignorePatterns": [
-                    "package.json",
-                    "package-lock.json",
-                    "tsconfig.json"
-                  ],
-                  "disable": false
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
                 }
-              },
-              "options": {}
+              }
             }
-          },
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/call-to-action": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/about": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/badge": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/bottom-flow-buttons": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/bottom-tab-bar-by-index": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/bottom-tab-bar": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/button": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/calendar": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/camera-button": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/camera-container": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/camera-fallback": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/camera-overlay": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/camera": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/card-form": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/card": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/checkout": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/choose-installment": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/confirm-email": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/credit-card": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/delete-account": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/details": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/drawer-panel": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/drawer": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/dropdown-edit": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/dropdown": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/error-boundary": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/error-expired": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/error-loading": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/error": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/filter": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/flow-manager": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/flow-upload-photo": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/footer": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/form-input": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/form-register-storeowner": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/form": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/get-cnpj": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/header-flow": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/header-home": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/header": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/hero-image": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/icon": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/illustration": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.20",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/image-preview": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/image-upload": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/initial-loader": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-edit": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-email": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-label": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-money": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-notice": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-percentage": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-phone": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/input-text": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/landing": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/login-form": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/login-page": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/login-trouble": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/logo": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/map-box": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/menu-hover": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/modal": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/my-account": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/not-found": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/resend-email": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/reset-pass": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/score-circle": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/seller-and-charge-row": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/social-media": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/spinner-with-div": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/spinner": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/split-rule": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/submenu": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/summary": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/tab-dual-header": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/tab-dual-transition": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/table": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/timeline": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/toast-notification": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/toggle-button": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/tooltip-help": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/transition-route": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/update-email": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/update-pass": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
-        }
-      },
-      "vitorbarbosa19.ziro/upload-photo": {
-        "env": {
-          "compiler": "bit.envs/compilers/react@1.0.16",
-          "tester": "bit.envs/testers/jest@22.4.3"
+          }
+        },
+        "dependencies": {
+          "axios": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x"
         }
       }
     }

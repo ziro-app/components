@@ -2868,7 +2868,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.23": {
+    "vitorbarbosa19.ziro/route@0.0.24": {
         "files": [
             {
                 "name": "index.tsx",
@@ -3246,7 +3246,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.55": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.57": {
         "files": [
             {
                 "name": "index.ts",

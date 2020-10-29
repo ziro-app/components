@@ -1,9 +1,10 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { ZiroWaitingMessage, isPrompt, isWaiting } from "ziro-messages";
-//@ts-ignore
+import { prompt } from "ziro-messages/dist/src/catalogo";
 import { useMessage } from "@bit/vitorbarbosa19.ziro.message-modal";
 import { PromiseGen, PromiseCbk, UsePromiseState, StatusType } from "./types";
 import { useMountState } from "./useMountState";
+import * as Sentry from "@sentry/react";
 
 /**
  * Esse hook retorna uma tupla com um callback e um objeto contendo o stado da função assincrona declarada,
@@ -80,7 +81,18 @@ export function usePromiseShowingMessage<A, R, E>(
     promise: PromiseGen<A, R>,
     deps: React.DependencyList = [],
 ): [PromiseCbk<A>, UsePromiseState<R, E>] {
-    const [cbk, state] = usePromise<A, R, E>(promise, deps);
+    const [cbk, state] = usePromise<A, R, E>(
+        ((arg) =>
+            promise(arg).catch((error) => {
+                if (isPrompt(error) || isWaiting(error)) throw error;
+                else {
+                    const unknownError = prompt.UNKNOWN_ERROR.withAdditionalData({ error });
+                    Sentry.captureException(unknownError);
+                    throw unknownError;
+                }
+            })) as any,
+        deps,
+    );
 
     const setMessage = useMessage();
 
