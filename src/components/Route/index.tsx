@@ -34,7 +34,7 @@ export const Switch: React.FC<SwitchProps> = ({
             const req = window.indexedDB.open("firebaseLocalStorageDb");
             req.onsuccess = resolve;
             req.onupgradeneeded = reject;
-        }).catch(window.location.reload);
+        }).catch(() => window.location.reload());
         if (reactfire && element) {
             analytics.setCurrentScreen(window.location.host + element.props.path);
             analytics.logEvent("page_view", {

@@ -2868,7 +2868,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/route@0.0.24": {
+    "vitorbarbosa19.ziro/route@0.0.25": {
         "files": [
             {
                 "name": "index.tsx",
