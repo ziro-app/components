@@ -27,7 +27,7 @@ export default (
     const installments = installment_plan.number_installments;
     const type = payment_type === "credit" ? "crédito" : "";
     const { holder_name, first4_digits, last4_digits, created_at, card_brand } = payment_method;
-    const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan);
+    const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan || {});
     const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
     const sheetData = [
         transactionId,

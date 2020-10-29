@@ -29,7 +29,7 @@ const prepareDataToDbAndSheet = (
     const type = payment_type === "credit" ? "crédito" : "";
     const { holder_name, first4_digits, last4_digits, created_at, card_brand } = payment_method;
 
-    const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan);
+    const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan || {});
     const antifraudId = "id" in antiFraud ? antiFraud.id : "-";
     const antifraudObj = {
         amount: "receivable_amount" in antiFraud ? antiFraud.receivable_amount : "0.00",
@@ -64,7 +64,7 @@ const prepareDataToDbAndSheet = (
         holder_name.toLowerCase(),
         card_brand,
         `${first4_digits}...${last4_digits}`,
-        currencyFormat((parseFloat(amount)).toFixed(2).replace('.', '')).replace("R$", ""),
+        currencyFormat(parseFloat(amount).toFixed(2).replace(".", "")).replace("R$", ""),
         ...preparedFees,
     ];
     const dbData = {
