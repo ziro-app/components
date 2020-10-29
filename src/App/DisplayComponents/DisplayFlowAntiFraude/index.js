@@ -4,7 +4,7 @@ import Summary from "../../../components/FlowSummary";
 import ChooseCard from "../../../components/FlowChooseCard";
 import ChooseInstallments from "../../../components/FlowChooseInstallments";
 import RegisterCard from "../../../components/FlowRegisterCard";
-import UploadPhoto from "../../../components/FlowUploadPhoto";
+import UploadPhoto from "@bit/vitorbarbosa19.ziro.flow-upload-photo";
 import Header from "../../../components/Header";
 import { Route, Switch, useLocation } from "wouter";
 
