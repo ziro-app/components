@@ -53,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.65": {
+    "vitorbarbosa19.ziro/bottom-tab-bar-by-index@0.0.66": {
         "files": [
             {
                 "name": "index.js",
@@ -71,7 +71,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.117": {
+    "vitorbarbosa19.ziro/bottom-tab-bar@0.0.118": {
         "files": [
             {
                 "name": "index.js",
@@ -194,7 +194,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.105": {
+    "vitorbarbosa19.ziro/camera-container@0.1.106": {
         "files": [
             {
                 "name": "index.js",
@@ -359,7 +359,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/card@0.0.106": {
+    "vitorbarbosa19.ziro/card@0.0.107": {
         "files": [
             {
                 "name": "FirstRow.js",
@@ -402,7 +402,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/checkout@0.1.122": {
+    "vitorbarbosa19.ziro/checkout@0.1.123": {
         "files": [
             {
                 "name": "ErrorModal.js",
@@ -571,7 +571,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.73": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.74": {
         "files": [
             {
                 "name": "index.js",
@@ -762,7 +762,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-expired@0.1.60": {
+    "vitorbarbosa19.ziro/error-expired@0.1.61": {
         "files": [
             {
                 "name": "index.js",
@@ -780,7 +780,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error-loading@0.1.55": {
+    "vitorbarbosa19.ziro/error-loading@0.1.56": {
         "files": [
             {
                 "name": "index.js",
@@ -798,7 +798,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/error@0.1.64": {
+    "vitorbarbosa19.ziro/error@0.1.65": {
         "files": [
             {
                 "name": "index.js",
@@ -981,7 +981,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-manager@0.0.98": {
+    "vitorbarbosa19.ziro/flow-manager@0.0.99": {
         "files": [
             {
                 "name": "defaultAnimations.js",
@@ -1060,7 +1060,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.139": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.140": {
         "files": [
             {
                 "name": "index.js",
@@ -1113,7 +1113,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.161": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.162": {
         "files": [
             {
                 "name": "index.js",
@@ -1179,7 +1179,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.90": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.91": {
         "files": [
             {
                 "name": "index.js",
@@ -1625,7 +1625,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/illustration@0.1.34": {
+    "vitorbarbosa19.ziro/illustration@0.1.35": {
         "files": [
             {
                 "name": "index.js",
@@ -1716,6 +1716,11 @@
                 "name": "index.js",
                 "relativePath": "src/Illustrations/TimelineStart/index.js",
                 "test": false
+            },
+            {
+                "relativePath": "src/Illustrations/UpgradePlan/index.js",
+                "test": false,
+                "name": "index.js"
             },
             {
                 "name": "index.js",
@@ -2174,7 +2179,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/not-found@0.1.67": {
+    "vitorbarbosa19.ziro/not-found@0.1.68": {
         "files": [
             {
                 "name": "index.js",
@@ -3099,7 +3104,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/timeline@0.1.71": {
+    "vitorbarbosa19.ziro/timeline@0.1.72": {
         "files": [
             {
                 "name": "index.js",
@@ -3162,7 +3167,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tooltip-help@0.0.20": {
+    "vitorbarbosa19.ziro/tooltip-help@0.0.21": {
         "files": [
             {
                 "name": "index.js",

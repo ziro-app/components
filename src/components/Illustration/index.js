@@ -21,6 +21,7 @@ import { OnlyVestuary } from "../../Illustrations/OnlyVestuary";
 import { Security } from '../../Illustrations/Security';
 import { CnhPhoto } from '../../Illustrations/CnhPhoto';
 import { CardAnalysis } from '../../Illustrations/CardAnalysis';
+import { UpgradePlan } from '../../Illustrations/UpgradePlan';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -45,7 +46,8 @@ const Illustration = ({ type, size }) => {
       onlyVestuary: <OnlyVestuary {...illustrationProps} />,
       security: <Security {...illustrationProps} />,
       cnhPhoto: <CnhPhoto {...illustrationProps} />,
-      cardAnalysis: <CardAnalysis {...illustrationProps} />
+      cardAnalysis: <CardAnalysis {...illustrationProps} />,
+      upgradePlan: <UpgradePlan {...illustrationProps} />
   };
   return illustrationList[type];
 };
