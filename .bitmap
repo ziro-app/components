@@ -2192,7 +2192,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.58": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.59": {
         "files": [
             {
                 "name": "index.ts",
@@ -3251,7 +3251,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.57": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.58": {
         "files": [
             {
                 "name": "index.ts",

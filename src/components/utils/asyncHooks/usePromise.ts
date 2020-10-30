@@ -86,9 +86,26 @@ export function usePromiseShowingMessage<A, R, E>(
             promise(arg).catch((error) => {
                 if (isPrompt(error) || isWaiting(error)) throw error;
                 else {
-                    const unknownError = prompt.UNKNOWN_ERROR.withAdditionalData({ error });
-                    Sentry.captureException(unknownError);
-                    throw unknownError;
+                    let additionalData;
+                    if (error instanceof Error) {
+                        additionalData = { message: error.message };
+                        if (error.stack) additionalData.stack = error.stack;
+                    }
+                    if (typeof error === "string") {
+                        additionalData = { message: error };
+                    }
+                    if ("toJSON" in error) {
+                        additionalData = { message: error.toJSON() };
+                    }
+                    if (additionalData) {
+                        const unknownError = prompt.UNKNOWN_ERROR.withAdditionalData(additionalData);
+                        Sentry.captureException(unknownError);
+                        throw unknownError;
+                    } else {
+                        const unknownError = prompt.UNKNOWN_ERROR;
+                        Sentry.captureException(unknownError);
+                        throw unknownError;
+                    }
                 }
             })) as any,
         deps,
