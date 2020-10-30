@@ -900,7 +900,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.9": {
+    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.11": {
         "files": [
             {
                 "name": "hookTypes.ts",
