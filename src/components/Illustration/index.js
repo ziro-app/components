@@ -22,6 +22,7 @@ import { Security } from '../../Illustrations/Security';
 import { CnhPhoto } from '../../Illustrations/CnhPhoto';
 import { CardAnalysis } from '../../Illustrations/CardAnalysis';
 import { UpgradePlan } from '../../Illustrations/UpgradePlan';
+import { Account } from '../../Illustrations/Account';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -47,7 +48,8 @@ const Illustration = ({ type, size }) => {
       security: <Security {...illustrationProps} />,
       cnhPhoto: <CnhPhoto {...illustrationProps} />,
       cardAnalysis: <CardAnalysis {...illustrationProps} />,
-      upgradePlan: <UpgradePlan {...illustrationProps} />
+      upgradePlan: <UpgradePlan {...illustrationProps} />,
+      account: <Account {...illustrationProps} />
   };
   return illustrationList[type];
 };
