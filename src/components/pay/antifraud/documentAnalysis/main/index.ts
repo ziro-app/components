@@ -41,7 +41,6 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
                 processResults(response, url, validations);
                 return { response: response as any, url, validations };
             } catch (err) {
-                console.log({ err });
                 if ("skipAttempt" in err && err.skipAttempt) {
                     throw { skipAttempt: true, error: err.error.withButtons([{ title: "Enviar novamente", action: () => null }]) };
                 }
