@@ -31,7 +31,7 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
     const [shouldTransact, setShouldTransact] = useState(true);
 
     useHeader(
-        <div style={{ height: 45 + Math.min(window.innerWidth, 300) / 1.75, background: "white" }}>
+        <div style={{ height: 55 + Math.min(window.innerWidth, 300) / 1.75, background: "white" }}>
             {header}
             <CreditCard
                 number={prettyNumberWithAsterisks}

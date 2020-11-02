@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { circularButtonContainer, rectangularButtonContainer, dropzone } from './styles'
 import Icon from '../Icon'
 import { shadow } from '@ziro/theme'
+import Button from '@bit/vitorbarbosa19.ziro.button'
+import { supportPhoneNumber } from '../utils/supportNumber'
 
 export { useDropzone } from './useDropzone'
 
@@ -88,6 +90,24 @@ const ImagePreview = ({ picture, primaryIcon, primaryAction, secondaryIcon, seco
                             />
                     }
                 </div>
+
+                {primaryIcon === 'camera' && (
+                    <Button
+                        type="link"
+                        cta="Problemas? Fale com o suporte!"
+                        style={{
+                        marginTop: '20px',
+                        fontFamily: 'Rubik',
+                        fontSize: '1.5rem',
+                        color: '#222222',
+                        textAlign: 'center',
+                        textDecoration: 'underline',
+                        cursor: 'pointer'
+                        }}
+                        navigate={() =>
+                        window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")}
+                    />
+                )}
             </div>
         </div>
     )
