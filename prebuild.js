@@ -17,6 +17,7 @@ const setEnv = (path) => ({
                         outDir: `./dist/src/components/${path}`,
                         target: "ES5",
                         module: "CommonJS",
+                        lib: ["ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ESNext"],
                         inlineSources: true,
                         inlineSourceMap: true,
                         removeComments: false,
