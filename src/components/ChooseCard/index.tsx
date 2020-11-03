@@ -31,12 +31,13 @@ const ChooseCard: React.FC<ChooseCardProps> = ({ cardsCollection, zoopAtom, sele
                     Por que salvar meu cartão{" "}
                     <TooltipHelp
                         illustration="onlinePosts"
-                        title="Vantagens em ter seu cartão salvo"
-                        body="Seu cartão não fica salvo em nossa base de dados e 
-                        jamais temos acesso a ele. Apenas vinculamos você a um código
-                        que representa seu cartão, que fica criptografado com segurança
-                        na Cielo e Rede. Assim você pode comprar na próxima vez com
-                        apenas um clique! Continua com dúvidas? Fale com nosso suporte!"
+                        title="Vantagens de salvar seu cartão"
+                        body="Seu cartão não fica salvo em nossa base de dados e
+                        jamais temos acesso a ele, pois ele fica criptografado na
+                        Cielo e Rede em total segurança. Nós apenas vinculamos você
+                        a um código que representa seu cartão, permitindo que sua
+                        próxima compra seja com apenas um clique! Ainda tem dúvidas?
+                        Só falar conosco!"
                         supportButton
                     />
                 </p>

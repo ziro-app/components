@@ -465,7 +465,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/choose-card@0.0.120": {
+    "vitorbarbosa19.ziro/choose-card@0.0.121": {
         "files": [
             {
                 "name": "index.tsx",
