@@ -58,12 +58,12 @@ const ImagePreview = ({ picture, primaryIcon, primaryAction, secondaryIcon, seco
                     picture ?
                         <img style={{ maxWidth: '100%', boxShadow: shadow }} src={picture}/>
                     :
-                        <label style={{ marginTop: '20px' }}>{ instructions }</label>
+                        <label>{ instructions }</label>
                 }
                 <div 
                     style={
                         primaryIcon === 'camera'
-                        ? { display: 'grid', gridRowGap: '15px' }
+                        ? { display: 'grid', gridRowGap: '15px', width: '100%', maxWidth: '250px' }
                         : { display: 'grid', gridTemplateColumns: 'auto auto', gridColumnGap: '20px' }
                     }
                 >
@@ -96,9 +96,9 @@ const ImagePreview = ({ picture, primaryIcon, primaryAction, secondaryIcon, seco
                         type="link"
                         cta="Problemas? Fale com o suporte!"
                         style={{
-                        marginTop: '20px',
+                        marginTop: '5px',
                         fontFamily: 'Rubik',
-                        fontSize: '1.5rem',
+                        fontSize: '1.4rem',
                         color: '#222222',
                         textAlign: 'center',
                         textDecoration: 'underline',

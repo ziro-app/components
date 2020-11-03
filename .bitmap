@@ -194,7 +194,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.108": {
+    "vitorbarbosa19.ziro/camera-container@0.1.109": {
         "files": [
             {
                 "name": "index.js",
@@ -250,7 +250,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-overlay@0.1.80": {
+    "vitorbarbosa19.ziro/camera-overlay@0.1.81": {
         "files": [
             {
                 "name": "index.js",
@@ -1060,7 +1060,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.143": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.144": {
         "files": [
             {
                 "name": "index.js",
@@ -1752,7 +1752,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/image-preview@0.0.63": {
+    "vitorbarbosa19.ziro/image-preview@0.0.64": {
         "files": [
             {
                 "name": "index.js",
@@ -3243,7 +3243,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/upload-photo@0.0.53": {
+    "vitorbarbosa19.ziro/upload-photo@0.0.54": {
         "files": [
             {
                 "name": "index.js",

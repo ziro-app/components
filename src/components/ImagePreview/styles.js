@@ -16,9 +16,9 @@ circularButtonContainer = (template) => ({
 rectangularButtonContainer = (template) => ({
     display: 'grid',
     gridTemplateColumns: '40px auto',
-    width: '250px',
+    width: '100%',
     height: '45px',
-    borderRadius: '20px',
+    borderRadius: '25px',
     background: template === 'light' ? 'linear-gradient(rgb(240, 240, 240) 10%, rgb(245, 245, 245) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))' : gradient,
     color: template === 'light' ? '#333' : '#fff',
     fontWeight: 'bold',
@@ -37,5 +37,5 @@ dropzone = {
     color: 'black',
     textAlign: 'center',
     padding: '20px',
-    minHeight: 'calc(100vh - 230px)'
+    minHeight: 'calc(100vh - 210px)'
 }
