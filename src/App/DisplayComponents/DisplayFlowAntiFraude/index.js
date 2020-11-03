@@ -124,7 +124,7 @@ export const DisplayFlowAntiFraude = () => {
                             previous={{ location: "anti-fraude/document-photo" }}
                             title="Selfie"
                             modal={{
-                                illustration: "cnhPhoto",
+                                illustration: "selfieOne",
                                 title: "Selfie",
                                 message: "Para registrar um novo cartão é necessário enviar uma selfie do portador",
                             }}
