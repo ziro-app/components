@@ -21,11 +21,19 @@ export default (card: UnregisteredCard, installments: string, payment: CreditCar
         },
     };
     if (payment.sellerZoopPlan?.markup?.percentage || payment.sellerZoopPlan?.markup?.amount) {
+        const formattedPercentage =
+            typeof payment.sellerZoopPlan.markup.percentage === "string"
+                ? parseFloat(payment.sellerZoopPlan.markup.percentage)
+                : payment.sellerZoopPlan.markup.percentage;
+        const formattedAmount =
+            typeof payment.sellerZoopPlan.markup.amount === "string"
+                ? parseFloat(payment.sellerZoopPlan.markup.amount)
+                : payment.sellerZoopPlan.markup.amount;
         data.split_rules = [
             {
                 recipient: process.env.SELLER_ID_ZIRO,
-                percentage: payment.sellerZoopPlan.markup.percentage,
-                amount: payment.sellerZoopPlan.markup.amount,
+                percentage: formattedPercentage || 0,
+                amount: formattedAmount || 0,
                 liable: true,
                 charge_processing_fee: false,
             },

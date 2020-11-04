@@ -24,22 +24,38 @@ export default (buyerZoopId: string, cardId: string, installments: string, payme
         },
     };
     if (payment.sellerZoopPlan?.markup?.percentage || payment.sellerZoopPlan?.markup?.amount) {
+        const markupPercentage =
+            typeof payment.sellerZoopPlan.markup.percentage === "string"
+                ? parseFloat(payment.sellerZoopPlan.markup.percentage)
+                : payment.sellerZoopPlan.markup.percentage;
+        const markupAmount =
+            typeof payment.sellerZoopPlan.markup.amount === "string"
+                ? parseFloat(payment.sellerZoopPlan.markup.amount)
+                : payment.sellerZoopPlan.markup.amount;
         data.split_rules = [
             {
                 recipient: process.env.SELLER_ID_ZIRO,
-                percentage: payment.sellerZoopPlan.markup.percentage || 0,
-                amount: payment.sellerZoopPlan.markup.amount || 0,
+                percentage: markupPercentage || 0,
+                amount: markupAmount || 0,
                 liable: true,
                 charge_processing_fee: false,
             },
         ];
     }
     if (payment.sellerZoopPlan?.antiFraud?.percentage || payment.sellerZoopPlan?.antiFraud?.amount) {
+        const antifraudPercentage =
+            typeof payment.sellerZoopPlan.antiFraud.percentage === "string"
+                ? parseFloat(payment.sellerZoopPlan.antiFraud.percentage)
+                : payment.sellerZoopPlan.antiFraud.percentage;
+        const antifraudAmount =
+            typeof payment.sellerZoopPlan.antiFraud.amount === "string"
+                ? parseFloat(payment.sellerZoopPlan.antiFraud.amount)
+                : payment.sellerZoopPlan.antiFraud.amount;
         if (!data.split_rules) data.split_rules = [];
         data.split_rules.push({
             recipient: process.env.SELLER_ID_ZIRO,
-            percentage: payment.sellerZoopPlan.antiFraud.percentage || 0,
-            amount: payment.sellerZoopPlan.antiFraud.amount || 0,
+            percentage: antifraudPercentage || 0,
+            amount: antifraudAmount || 0,
             liable: true,
             charge_processing_fee: false,
         });

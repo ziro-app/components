@@ -19,6 +19,7 @@ export default (
         fee_details,
         fees,
         split_rules,
+        created_at,
     }: RegisteredTransaction.Response,
     { seller, sellerZoopPlan, onBehalfOfBrand }: CreditCardPayments.FirebaseDocument,
     { razao, storeownerId }: Storeowner,
@@ -26,7 +27,7 @@ export default (
 ) => {
     const installments = installment_plan.number_installments;
     const type = payment_type === "credit" ? "crédito" : "";
-    const { holder_name, first4_digits, last4_digits, created_at, card_brand } = payment_method;
+    const { holder_name, first4_digits, last4_digits, card_brand } = payment_method;
     const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan || {});
     const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
     const sheetData = [
@@ -40,7 +41,7 @@ export default (
         holder_name.trim().toLowerCase(),
         card_brand,
         `${first4_digits}...${last4_digits}`,
-        currencyFormat(Math.round(Number(amount) * 100)).replace("R$", ""),
+        currencyFormat(parseFloat(amount).toFixed(2).replace(".", "")).replace("R$", ""),
     ];
     const dbData = {
         buyerStoreownerId: storeownerId,

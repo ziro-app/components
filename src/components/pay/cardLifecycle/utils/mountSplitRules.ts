@@ -6,8 +6,9 @@ interface generic {
     percentage: string | number;
 }
 
-const filter = (a: generic) => (b: generic) => a?.amount === b?.amount && a?.percentage === b?.percentage;
+const filter = (a: generic) => (b: generic) => a?.amount == b?.amount && a?.percentage == b?.percentage;
 
+// @ts-ignore
 const mountSplitRules = (split_rules: UnregisteredTransaction.Response["split_rules"], { antiFraud, markup }: CreditCardPayments.SellerZoopPlan) => {
     const filteredSplitAntifrad = split_rules?.filter(filter(antiFraud))[0] || { percentage: 0, amount: 0 };
     const filteredSplitMarkup = split_rules?.filter(filter(markup))[0] || { percentage: 0, amount: 0 };

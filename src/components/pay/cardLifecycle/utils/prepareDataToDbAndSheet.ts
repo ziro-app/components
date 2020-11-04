@@ -20,6 +20,7 @@ const prepareDataToDbAndSheet = (
         fee_details,
         fees,
         split_rules,
+        created_at,
     }: UnregisteredTransaction.Response,
     receivables: Receivable[],
     { seller, sellerZoopPlan }: CreditCardPayments.FirebaseDocument,
@@ -27,7 +28,7 @@ const prepareDataToDbAndSheet = (
     const today = new Date();
     const installments = installment_plan.number_installments;
     const type = payment_type === "credit" ? "crédito" : "";
-    const { holder_name, first4_digits, last4_digits, created_at, card_brand } = payment_method;
+    const { holder_name, first4_digits, last4_digits, card_brand } = payment_method;
 
     const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan || {});
     const antifraudId = "id" in antiFraud ? antiFraud.id : "-";
@@ -47,7 +48,9 @@ const prepareDataToDbAndSheet = (
     simplifiedFeeDetails.push(antifraudObj);
     simplifiedFeeDetails.push(markupObj);
 
-    const totalFees = fee_details.map((fee) => fee.amount).reduce((accumulator, currentValue) => parseFloat(accumulator) + parseFloat(currentValue));
+    const totalFees = simplifiedFeeDetails
+        .map((fee) => fee.amount)
+        .reduce((accumulator, currentValue) => parseFloat(accumulator) + parseFloat(currentValue));
     const rounded = (Math.round((totalFees + Number.EPSILON) * 100) / 100).toString();
 
     const preparedFees = prepareFees(fees, simplifiedFeeDetails, receivables);
