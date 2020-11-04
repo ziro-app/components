@@ -63,4 +63,5 @@ export const DisplayIcon = () =>
 		<Icon type='link' size={24} />
 		<Icon type='circle' size={24} />
 		<Icon type='circleChecked' size={24} />
+		<Icon type='rocket' size={24} />
 	</div>

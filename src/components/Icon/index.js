@@ -58,6 +58,7 @@ import { Headphone } from "./../../Icons/Headphone/index";
 import { Link } from "./../../Icons/Link/index";
 import { Circle } from "./../../Icons/Circle/index";
 import { CircleChecked } from "./../../Icons/CircleChecked/index";
+import { Rocket } from "./../../Icons/Rocket/index";
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     const iconProps = { style, onClick, size, color, strokeWidth, fill };
@@ -122,6 +123,7 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
         link: <Link {...iconProps} />,
         circleChecked: <CircleChecked {...iconProps} />,
         circle: <Circle {...iconProps} />,
+        rocket: <Rocket {...iconProps} />
     };
     return iconList[type];
 };
