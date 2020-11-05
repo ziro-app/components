@@ -28,7 +28,7 @@ const ChooseCard: React.FC<ChooseCardProps> = ({ cardsCollection, zoopAtom, sele
 
             {cardsCollection.empty && (
                 <p style={{ paddingTop: "20px", textAlign: "center", cursor: "default", fontSize: "1.4rem" }}>
-                    Adicione um cartão para pagar sua compra. Porquê{" "}
+                    Adicione um cartão para pagar sua compra{" "}
                     <TooltipHelp
                         illustration="onlinePosts"
                         title="Vantagens de salvar seu cartão"
