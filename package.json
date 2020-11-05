@@ -129,6 +129,12 @@
                     "outDir": "./dist/src/components/ChooseCard",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -181,6 +187,12 @@
                     "outDir": "./dist/src/components/ComponentSuspenseFallback",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -193,105 +205,6 @@
         "dependencies": {},
         "peerDependencies": {}
       },
-      "firebase/catalog-user-data": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/firebase/catalog-user-data",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "@bit/vitorbarbosa19.ziro.pay.next-code": "-",
-          "ziro-messages": "-",
-          "firebase": "-",
-          "cuid": "-",
-          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
-          "react": "-",
-          "@types/react": "-",
-          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-",
-          "reactfire": "-"
-        },
-        "peerDependencies": {
-          "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
-          "ziro-messages": "0.0.x",
-          "firebase": "7.17.x",
-          "cuid": "2.1.x",
-          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
-          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
-          "reactfire": "2.0.x",
-          "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
-          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
-        }
-      },
-      "firebase/credit-card-payments": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/firebase/credit-card-payments",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "firebase": "-",
-          "reactfire": "-"
-        },
-        "peerDependencies": {
-          "firebase": "7.17.x",
-          "reactfire": "2.0.x"
-        }
-      },
-      "firebase/storeowners": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/firebase/storeowners",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "firebase": "-",
-          "reactfire": "-"
-        },
-        "peerDependencies": {
-          "firebase": "7.17.x",
-          "reactfire": "2.0.x"
-        }
-      },
       "flow-form": {
         "env": {
           "compiler": {
@@ -302,6 +215,12 @@
                     "outDir": "./dist/src/components/FlowForm",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -332,6 +251,12 @@
                     "outDir": "./dist/src/components/FlowRegisterCard",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -383,6 +308,12 @@
                     "outDir": "./dist/src/components/MessageModal",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -395,22 +326,257 @@
         "dependencies": {
           "react": "-",
           "@types/react": "-",
-          "framer-motion": "-",
-          "ziro-messages": "-",
           "@bit/vitorbarbosa19.ziro.illustration": "-",
           "@bit/vitorbarbosa19.ziro.button": "-",
           "@bit/vitorbarbosa19.ziro.spinner": "-",
+          "framer-motion": "-",
+          "ziro-messages": "-",
           "reactfire": "-",
           "firebase": "-"
         },
         "peerDependencies": {
-          "framer-motion": "1.11.x",
-          "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
+          "framer-motion": "1.11.x",
+          "ziro-messages": "0.0.x",
           "reactfire": "2.0.x",
           "firebase": "7.17.x"
+        }
+      },
+      "route": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/Route",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "react": "-",
+          "@types/react": "-",
+          "wouter": "-",
+          "reactfire": "-",
+          "firebase": "-",
+          "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "-"
+        },
+        "peerDependencies": {
+          "wouter": "2.5.x",
+          "reactfire": "2.0.x",
+          "firebase": "7.17.x",
+          "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "0.0.x"
+        }
+      },
+      "firebase/catalog-user-data": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/catalog-user-data",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "-",
+          "ziro-messages": "-",
+          "firebase": "-",
+          "cuid": "-",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "-",
+          "react": "-",
+          "@types/react": "-",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
+          "ziro-messages": "0.0.x",
+          "firebase": "7.17.x",
+          "cuid": "2.1.x",
+          "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
+          "reactfire": "2.0.x",
+          "axios": "0.20.x",
+          "@sentry/react": "5.20.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
+        }
+      },
+      "firebase/credit-card-payments": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/credit-card-payments",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "firebase": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "firebase": "7.17.x",
+          "reactfire": "2.0.x"
+        }
+      },
+      "firebase/storeowners": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/firebase/storeowners",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "firebase": "-",
+          "reactfire": "-"
+        },
+        "peerDependencies": {
+          "firebase": "7.17.x",
+          "reactfire": "2.0.x"
+        }
+      },
+      "pay/next-code": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/NextCode",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "axios": "-",
+          "ziro-messages": "-",
+          "@sentry/react": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x",
+          "ziro-messages": "0.0.x",
+          "@sentry/react": "5.20.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
+        }
+      },
+      "pay/zoop": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/Zoop",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "axios": "-",
+          "@sentry/react": "-",
+          "ziro-messages": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x",
+          "@sentry/react": "5.20.x",
+          "ziro-messages": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
         }
       },
       "pay/antifraud": {
@@ -423,6 +589,12 @@
                     "outDir": "./dist/src/components/pay/antifraud",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -473,10 +645,10 @@
           "@sentry/react": "5.20.x",
           "cuid": "2.1.x",
           "axios": "0.20.x",
-          "framer-motion": "1.11.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
-          "@bit/vitorbarbosa19.ziro.spinner": "0.1.x"
+          "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
+          "framer-motion": "1.11.x"
         }
       },
       "pay/card-lifecycle": {
@@ -489,6 +661,12 @@
                     "outDir": "./dist/src/components/pay/cardLifecycle",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -515,6 +693,7 @@
           "firebase": "-",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "-",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "-",
+          "@sentry/react": "-",
           "@ziro/currency-format": "-"
         },
         "peerDependencies": {
@@ -532,82 +711,16 @@
           "firebase": "7.17.x",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
+          "@sentry/react": "5.20.x",
           "@ziro/currency-format": "1.0.x",
           "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
           "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
           "cuid": "2.1.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
-          "framer-motion": "1.11.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
-          "@bit/vitorbarbosa19.ziro.spinner": "0.1.x"
-        }
-      },
-      "pay/next-code": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/NextCode",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "axios": "-",
-          "ziro-messages": "-",
-          "@sentry/react": "-",
-          "@bit/vitorbarbosa19.ziro.utils.axios": "-",
-          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-"
-        },
-        "peerDependencies": {
-          "axios": "0.20.x",
-          "ziro-messages": "0.0.x",
-          "@sentry/react": "5.20.x",
-          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
-          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
-        }
-      },
-      "pay/zoop": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/pay/Zoop",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "axios": "-",
-          "@sentry/react": "-",
-          "ziro-messages": "-",
-          "@bit/vitorbarbosa19.ziro.utils.axios": "-"
-        },
-        "peerDependencies": {
-          "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
-          "ziro-messages": "0.0.x",
-          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
+          "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
+          "framer-motion": "1.11.x"
         }
       },
       "pay/zoop-registration": {
@@ -620,6 +733,12 @@
                     "outDir": "./dist/src/components/pay/zoopRegistration",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -646,40 +765,6 @@
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
         }
       },
-      "route": {
-        "env": {
-          "compiler": {
-            "vitorbarbosa19.ziro/compilers/react-typescript": {
-              "rawConfig": {
-                "tsconfig": {
-                  "compilerOptions": {
-                    "outDir": "./dist/src/components/Route",
-                    "target": "ES5",
-                    "module": "CommonJS",
-                    "inlineSources": true,
-                    "inlineSourceMap": true,
-                    "removeComments": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "dependencies": {
-          "react": "-",
-          "@types/react": "-",
-          "wouter": "-",
-          "reactfire": "-",
-          "firebase": "-",
-          "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "-"
-        },
-        "peerDependencies": {
-          "wouter": "2.5.x",
-          "reactfire": "2.0.x",
-          "firebase": "7.17.x",
-          "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "0.0.x"
-        }
-      },
       "utils/async-hooks": {
         "env": {
           "compiler": {
@@ -690,6 +775,12 @@
                     "outDir": "./dist/src/components/utils/asyncHooks",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -710,10 +801,10 @@
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x",
           "@sentry/react": "5.20.x",
-          "framer-motion": "1.11.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
+          "framer-motion": "1.11.x",
           "reactfire": "2.0.x",
           "firebase": "7.17.x"
         }
@@ -728,6 +819,12 @@
                     "outDir": "./dist/src/components/utils/axios",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -750,6 +847,12 @@
                     "outDir": "./dist/src/components/utils/checkAgainstTemplate",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -772,6 +875,12 @@
                     "outDir": "./dist/src/components/utils/createFirestoreURL",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -794,6 +903,12 @@
                     "outDir": "./dist/src/components/utils/sheets",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -820,6 +935,12 @@
                     "outDir": "./dist/src/components/utils/string",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -842,6 +963,12 @@
                     "outDir": "./dist/src/components/utils/tuple",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false
@@ -864,6 +991,12 @@
                     "outDir": "./dist/src/components/utils/whatsapp",
                     "target": "ES5",
                     "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
                     "inlineSources": true,
                     "inlineSourceMap": true,
                     "removeComments": false

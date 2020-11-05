@@ -29,6 +29,7 @@ import writeReceivablesToSheet from "./utils/writeReceivablesToSheet";
 import { DetachedCheckoutError, RegisteredCheckoutError } from "./types";
 import { sheet } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
+import * as Sentry from "@sentry/react";
 
 /**
  * Esse hook retorna um callback para excluir um cartão
@@ -113,17 +114,23 @@ export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<ty
         payMessages.waiting.SENDING_PAYMENT,
         async ({ installments, ...card }) => {
             const transaction = await createPayment(creator.detachedData(card, installments, payment.data()), source.token);
-            const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));
-            const [sheetData, dbData, preparedReceivables] = prepareDataToDbAndSheet(transaction, receivablesData, payment.data());
-            await writeTransactionToSheet(sheetData);
-            await writeReceivablesToSheet(preparedReceivables);
-            await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
-            onSuccessRef.current(dbData);
+            let receiptId: string | undefined;
+            try {
+                const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));
+                const [sheetData, dbData, preparedReceivables] = prepareDataToDbAndSheet(transaction, receivablesData, payment.data());
+                await writeTransactionToSheet(sheetData);
+                await writeReceivablesToSheet(preparedReceivables);
+                await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
+                onSuccessRef.current(dbData);
+                receiptId = dbData.receiptId;
+            } catch (e) {
+                Sentry.captureException(e);
+            }
             return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
                 {
-                    title: "ver recibo",
+                    title: receiptId ? "ver recibo" : "voltar a tela inicial",
                     action: () => {
-                        setLocation("goLeft", `/comprovante/${dbData.receiptId}`);
+                        setLocation("goLeft", receiptId ? `/comprovante/${receiptId}` : "/galeria");
                     },
                 },
             ]);
@@ -164,12 +171,16 @@ export const useRegisteredPayment = (
             const paymentData = payment.data();
             const userData = catalogUserDataDoc.data();
             const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
-            if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
-            const [dbData, sheetData] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp);
-            await writeTransactionToSheet(sheetData);
-            await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
-            if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
-            onSuccessRef.current(dbData);
+            try {
+                if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
+                const [dbData, sheetData] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp);
+                await writeTransactionToSheet(sheetData);
+                await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
+                if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
+                onSuccessRef.current(dbData);
+            } catch (e) {
+                Sentry.captureException(e);
+            }
             return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
                 {
                     title: "ver pagamentos",
