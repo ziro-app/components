@@ -26,7 +26,7 @@ const ChooseCard: React.FC<ChooseCardProps> = ({ cardsCollection, zoopAtom, sele
             ))}
             <AddCard onClick={newCard} />
 
-            {!cardsCollection.empty && (
+            {cardsCollection.empty && (
                 <p style={{ paddingTop: "20px", textAlign: "center", cursor: "default", fontSize: "1.4rem" }}>
                     Adicione um cartão para pagar sua compra. Porquê{" "}
                     <TooltipHelp
