@@ -163,6 +163,7 @@ export const useRegisteredPayment = (
     const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [, setLocation] = useAnimatedLocation();
     const onSuccessRef = useRef(onSuccess);
+    let receivables = [];
     onSuccessRef.current = onSuccess;
     const [cbk, state] = usePromiseShowingMessage<void, any, RegisteredCheckoutError>(
         payMessages.waiting.SENDING_PAYMENT,
@@ -173,8 +174,10 @@ export const useRegisteredPayment = (
             const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
             try {
                 if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
-                const [dbData, sheetData] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp);
+                if (!paymentData.insurance) receivables = creator.receivablesData(await getReceivables(transaction.id, source.token));
+                const [dbData, sheetData, preparedReceivables] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp, receivables);
                 await writeTransactionToSheet(sheetData);
+                if (!paymentData.insurance && preparedReceivables?.length > 0) await writeReceivablesToSheet(preparedReceivables);
                 await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
                 if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
                 onSuccessRef.current(dbData);

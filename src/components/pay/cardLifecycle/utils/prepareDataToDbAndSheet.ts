@@ -5,6 +5,7 @@ import translateStatus from "./translateStatus";
 import prepareFees from "./prepareFees";
 import prepareReceivables from "./prepareReceivables";
 import mountSplitRules from "./mountSplitRules";
+import simplifyFeeDetails from "./simplifyFeeDetails";
 import { UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { Receivable } from "../dataCreators/receivables";
 const prepareDataToDbAndSheet = (
@@ -31,29 +32,16 @@ const prepareDataToDbAndSheet = (
     const { holder_name, first4_digits, last4_digits, card_brand } = payment_method;
 
     const [antiFraud, markup] = mountSplitRules(split_rules, sellerZoopPlan || {});
-    const antifraudId = "id" in antiFraud ? antiFraud.id : "-";
-    const antifraudObj = {
-        amount: "receivable_amount" in antiFraud ? antiFraud.receivable_amount : "0.00",
-        type: "antifraud_ziro_fee_brazil",
-        description: "Ziro antifraud card-present transaction fee",
-    };
-    const markupId = "id" in markup ? markup.id : "-";
-    const markupObj = {
-        amount: "receivable_amount" in markup ? markup.receivable_amount : "0.00",
-        type: "markup_ziro_fee_brazil",
-        description: "Ziro markup card-present transaction fee",
-    };
 
-    const simplifiedFeeDetails = fee_details.map(({ amount, type, description }) => ({ amount, type, description }));
-    simplifiedFeeDetails.push(antifraudObj);
-    simplifiedFeeDetails.push(markupObj);
-
+    const simplifiedFeeDetails = simplifyFeeDetails(fee_details, { antiFraud, markup } as CreditCardPayments.SellerZoopPlan.AfterPayment);
     const totalFees = simplifiedFeeDetails
-        .map((fee) => fee.amount)
-        .reduce((accumulator, currentValue) => parseFloat(accumulator) + parseFloat(currentValue));
+        .map(fee => parseFloat(fee.amount))
+        .reduce((accumulator, currentValue) => accumulator + currentValue);
     const rounded = (Math.round((totalFees + Number.EPSILON) * 100) / 100).toString();
 
     const preparedFees = prepareFees(fees, simplifiedFeeDetails, receivables);
+    const antifraudId = "id" in antiFraud ? antiFraud.id : "-";
+    const markupId = "id" in markup ? markup.id : "-";
     const preparedReceivables = prepareReceivables(transactionId, receivables, markupId, antifraudId, markupId !== "-" && markupId === antifraudId);
 
     const sheetData = [
