@@ -1,107 +1,54 @@
 {
-  "compilerOptions": {
-    "sourceMap": true,
-    "module": "esnext",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "baseUrl": "./src",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "outDir": "./dist/",
-    "preserveConstEnums": true,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "target": "es5",
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin"
-      }
-    ],
-    "paths": {
-      "@bit/vitorbarbosa19.ziro.choose-card": [
-        "components/ChooseCard"
-      ],
-      "@bit/vitorbarbosa19.ziro.component-suspense-fallback": [
-        "components/ComponentSuspenseFallback"
-      ],
-      "@bit/vitorbarbosa19.ziro.flow-form": [
-        "components/FlowForm"
-      ],
-      "@bit/vitorbarbosa19.ziro.flow-register-card": [
-        "components/FlowRegisterCard"
-      ],
-      "@bit/vitorbarbosa19.ziro.message-modal": [
-        "components/MessageModal"
-      ],
-      "@bit/vitorbarbosa19.ziro.route": [
-        "components/Route"
-      ],
-      "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": [
-        "components/firebase/catalog-user-data"
-      ],
-      "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments": [
-        "components/firebase/credit-card-payments"
-      ],
-      "@bit/vitorbarbosa19.ziro.firebase.storeowners": [
-        "components/firebase/storeowners"
-      ],
-      "@bit/vitorbarbosa19.ziro.pay.next-code": [
-        "components/pay/NextCode"
-      ],
-      "@bit/vitorbarbosa19.ziro.pay.zoop": [
-        "components/pay/Zoop"
-      ],
-      "@bit/vitorbarbosa19.ziro.pay.antifraud": [
-        "components/pay/antifraud"
-      ],
-      "@bit/vitorbarbosa19.ziro.pay.card-lifecycle": [
-        "components/pay/cardLifecycle"
-      ],
-      "@bit/vitorbarbosa19.ziro.pay.zoop-registration": [
-        "components/pay/zoopRegistration"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.async-hooks": [
-        "components/utils/asyncHooks"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.axios": [
-        "components/utils/axios"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.check-against-template": [
-        "components/utils/checkAgainstTemplate"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": [
-        "components/utils/createFirestoreURL"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.sheets": [
-        "components/utils/sheets"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.string": [
-        "components/utils/string"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.tuple": [
-        "components/utils/tuple"
-      ],
-      "@bit/vitorbarbosa19.ziro.utils.whatsapp": [
-        "components/utils/whatsapp"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "compilerOptions": {
+        "sourceMap": true,
+        "module": "esnext",
+        "esModuleInterop": true,
+        "jsx": "react",
+        "baseUrl": "./src",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "outDir": "./dist/",
+        "preserveConstEnums": true,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "target": "es5",
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "plugins": [
+            {
+                "name": "typescript-tslint-plugin"
+            }
+        ],
+        "paths": {
+            "@bit/vitorbarbosa19.ziro.choose-card": ["components/ChooseCard"],
+            "@bit/vitorbarbosa19.ziro.component-suspense-fallback": ["components/ComponentSuspenseFallback"],
+            "@bit/vitorbarbosa19.ziro.flow-form": ["components/FlowForm"],
+            "@bit/vitorbarbosa19.ziro.flow-register-card": ["components/FlowRegisterCard"],
+            "@bit/vitorbarbosa19.ziro.message-modal": ["components/MessageModal"],
+            "@bit/vitorbarbosa19.ziro.route": ["components/Route"],
+            "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": ["components/firebase/catalog-user-data"],
+            "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments": ["components/firebase/credit-card-payments"],
+            "@bit/vitorbarbosa19.ziro.firebase.storeowners": ["components/firebase/storeowners"],
+            "@bit/vitorbarbosa19.ziro.pay.next-code": ["components/pay/NextCode"],
+            "@bit/vitorbarbosa19.ziro.pay.zoop": ["components/pay/Zoop"],
+            "@bit/vitorbarbosa19.ziro.pay.antifraud": ["components/pay/antifraud"],
+            "@bit/vitorbarbosa19.ziro.pay.card-lifecycle": ["components/pay/cardLifecycle"],
+            "@bit/vitorbarbosa19.ziro.pay.zoop-registration": ["components/pay/zoopRegistration"],
+            "@bit/vitorbarbosa19.ziro.utils.async-hooks": ["components/utils/asyncHooks"],
+            "@bit/vitorbarbosa19.ziro.utils.axios": ["components/utils/axios"],
+            "@bit/vitorbarbosa19.ziro.utils.check-against-template": ["components/utils/checkAgainstTemplate"],
+            "@bit/vitorbarbosa19.ziro.utils.create-firestore-url": ["components/utils/createFirestoreURL"],
+            "@bit/vitorbarbosa19.ziro.utils.sheets": ["components/utils/sheets"],
+            "@bit/vitorbarbosa19.ziro.utils.string": ["components/utils/string"],
+            "@bit/vitorbarbosa19.ziro.utils.tuple": ["components/utils/tuple"],
+            "@bit/vitorbarbosa19.ziro.utils.whatsapp": ["components/utils/whatsapp"],
+            "@bit/vitorbarbosa19.ziro.split-rule": ["components/utils/splitRule"]
+        }
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["node_modules", "dist"]
 }

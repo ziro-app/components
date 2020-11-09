@@ -151,6 +151,7 @@ export const useRegisteredPayment = (
     id: string,
     cardId: string,
     installments: string,
+    cardBrand,
     onSuccess: (dbdata: ReturnType<typeof prepareRegisteredDataToDbAndSheet>[0]) => void,
 ) => {
     const source = useCancelToken();
@@ -171,11 +172,21 @@ export const useRegisteredPayment = (
             if (!installments) throw payMessages.prompt.NO_INSTALLMENTS;
             const paymentData = payment.data();
             const userData = catalogUserDataDoc.data();
-            const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
+            const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, paymentData, cardBrand), source.token);
             try {
                 if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
                 if (!paymentData.insurance) receivables = creator.receivablesData(await getReceivables(transaction.id, source.token));
-                const [dbData, sheetData, preparedReceivables] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp, receivables);
+
+                const [dbData, sheetData, preparedReceivables] = prepareRegisteredDataToDbAndSheet(
+                    transaction,
+                    payment.data(),
+                    storeowner,
+                    timestamp,
+                    receivables,
+                    cardBrand,
+                    transaction,
+                );
+                //console.log("transaction inside index", dbData, sheetData, preparedReceivables);
                 await writeTransactionToSheet(sheetData);
                 if (!paymentData.insurance && preparedReceivables?.length > 0) await writeReceivablesToSheet(preparedReceivables);
                 await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
