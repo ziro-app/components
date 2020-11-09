@@ -82,7 +82,7 @@ export default (buyerZoopId: string, cardId: string, installments: string, payme
                     },
                 ];
             }
-            if (payment.sellerZoopPlan?.antiFraud?.percentage || payment.sellerZoopPlan?.antiFraud?.amount) {
+            if (payment.insurance && (payment.sellerZoopPlan?.antiFraud?.percentage || payment.sellerZoopPlan?.antiFraud?.amount)) {
                 const antifraudPercentage =
                     typeof payment.sellerZoopPlan.antiFraud.percentage === "string"
                         ? parseFloat(payment.sellerZoopPlan.antiFraud.percentage)
