@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from 'react-dom'
 
 import Modal from "@bit/vitorbarbosa19.ziro.modal";
 import Illustration from "@bit/vitorbarbosa19.ziro.illustration";
@@ -14,6 +15,7 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
     return (
         <>
             <Icon type="help" size={iconSize} color={iconColor} onClick={() => setModalHelp(true)} />
+            {ReactDOM.createPortal(
             <Modal boxStyle={modalBox} isOpen={modalHelp} setIsOpen={() => setModalHelp(false)}>
             <Icon type="close" size={30} color="black" onClick={() => setModalHelp(false)} strokeWidth={1} style={closeIcon} />
                 {illustration ? (
@@ -36,7 +38,8 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
                                 window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")}
                         />
                 ) : null}
-            </Modal>
+            </Modal>, document.getElementById('app'))
+            } 
         </>
     );
 };
