@@ -10,6 +10,7 @@ import { isPrompt } from "ziro-messages";
 import { validator, processResults } from "./validator";
 import { approvalType } from "./approvalType";
 import { UseBiometry } from "./types";
+import {supportPhoneNumber} from '../../../../utils/supportNumber'
 
 export * from "./types";
 
@@ -29,7 +30,12 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                 if (state.attempts === 3)
                     throw {
                         skipAttempt: true,
-                        error: common.prompt.TOO_MANY_ATTEMPTS.withAdditionalData({ where: "useBiometry" }),
+                        error: common.prompt.TOO_MANY_ATTEMPTS
+                        .withAdditionalData({ where: "useBiometry" })
+                        .withButtons([{title: 'Falar com suporte', 
+                        action: () => 
+                        window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
+                        }]),
                     };
                 const firebaseData = firebaseCard.data();
                 if (firebaseData.status !== "pendingSelfie") {
