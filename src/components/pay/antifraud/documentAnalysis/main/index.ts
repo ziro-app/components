@@ -8,7 +8,6 @@ import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import devCheck from "./devCheck";
 import { validator, processResults } from "./validator";
 import { UseFullOCR } from "./types";
-import {supportPhoneNumber} from '../../../../utils/supportNumber'
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -26,11 +25,7 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
                     throw {
                         skipAttempt: true,
                         error: common.prompt.TOO_MANY_ATTEMPTS
-                        .withAdditionalData({ where: "useFullOCR" })
-                        .withButtons([{title: 'Falar com suporte', 
-                        action: () => 
-                        window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
-                        }]),
+                        .withAdditionalData({ where: "useFullOCR" }),
                     };
 
                 const url = await uploadPicture(picture).catch((error) => {
