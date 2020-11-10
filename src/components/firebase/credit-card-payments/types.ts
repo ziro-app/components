@@ -128,12 +128,10 @@ export declare namespace CreditCardPayments {
         export interface BeforePayment {
             antiFraud: SplitRule.BeforePayment;
             markup: SplitRule.BeforePayment;
-            activePlan: string;
         }
         export interface AfterPayment {
             antiFraud: SplitRule.AfterPayment;
             markup: SplitRule.AfterPayment;
-            activePlan: string;
         }
     }
 
@@ -144,7 +142,6 @@ export declare namespace CreditCardPayments {
             checkoutWithoutRegister: boolean;
             dateLinkCreated: firebase.firestore.Timestamp;
             insurance: boolean;
-            isNewPlan: boolean;
             status: S | "Cancelado";
             charge: string;
             dateLastUpdate: firebase.firestore.Timestamp;

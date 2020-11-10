@@ -38,16 +38,8 @@ export const getCard = (card_id: string, cancelToken?: CancelToken) => zoop.get<
         zoop.post<never, CreateBuyer.Response>(URLs.createBuyer, createBuyerParser(buyer), { cancelToken }),
     voidPayment = (payment: VoidPayment.Request, cancelToken?: CancelToken) => zoop.post<never, any>(URLs.voidPayment, payment, { cancelToken });
 
-export function createPayment(
-    payment: UnregisteredTransaction.Request,
-    sellerZoopPlan: object,
-    cancelToken?: CancelToken,
-): Promise<UnregisteredTransaction.Response>;
-export function createPayment(
-    payment: RegisteredTransaction.Request,
-    sellerZoopPlan: object,
-    cancelToken?: CancelToken,
-): Promise<RegisteredTransaction.Response>;
+export function createPayment(payment: UnregisteredTransaction.Request, cancelToken?: CancelToken): Promise<UnregisteredTransaction.Response>;
+export function createPayment(payment: RegisteredTransaction.Request, cancelToken?: CancelToken): Promise<RegisteredTransaction.Response>;
 export function createPayment(payment: any, cancelToken?: CancelToken) {
     return zoop.post<never, any>(URLs.createPayment, payment, { cancelToken });
 }
