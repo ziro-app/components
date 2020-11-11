@@ -1,39 +1,27 @@
-import React, { useState } from 'react'
-import Proptypes from 'prop-types'
-import Camera from '../Camera'
-import CameraFallback from '../CameraFallback'
-import CameraModal from './CameraModal'
-import { PreviewOverlay, ShooterOverlay } from '../CameraOverlay'
-import * as errors from './errors'
+import React, { useState } from "react";
+import Proptypes from "prop-types";
+import Camera from "@bit/vitorbarbosa19.ziro.camera";
+import CameraFallback from "@bit/vitorbarbosa19.ziro.camera-fallback";
+import { PreviewOverlay, ShooterOverlay } from "@bit/vitorbarbosa19.ziro.camera-overlay";
+import { useMessages } from "@bit/vitorbarbosa19.ziro.message-modal";
 
 const CameraContainer = ({ startOnMount, initialFacingMode, onClose, onSend, allowSwap, fallbackComponent }) => {
-
-    const [error, setError] = useState(null)
-    const [picture, setPicture] = useState()
+    const setMessage = useMessages();
+    const [picture, setPicture] = useState();
 
     return (
         <Camera
             startOnMount={startOnMount}
             initialFacingMode={initialFacingMode}
             onTakePicture={setPicture}
-            onError={({ name }) => setError(errors[name])}
-            fallbackComponent={fallbackComponent || <CameraFallback/>}
-            previewComponent={
-                <PreviewOverlay
-                    onAccept={() => onSend(picture)}
-                />
-            }
+            onError={setMessage}
+            fallbackComponent={fallbackComponent || <CameraFallback />}
+            previewComponent={<PreviewOverlay onAccept={() => onSend(picture)} />}
         >
-            <ShooterOverlay onClose={onClose} allowSwap={allowSwap}/>
-            <CameraModal
-                isOpen={!!error}
-                errorTitle={error && error.title}
-                errorMessage={error && error.message}
-                onRequestClose={() => setError(null)}
-            />
+            <ShooterOverlay onClose={onClose} allowSwap={allowSwap} />
         </Camera>
-    )
-}
+    );
+};
 
 CameraContainer.propTypes = {
     startOnMount: Proptypes.bool,
@@ -41,7 +29,7 @@ CameraContainer.propTypes = {
     onSend: Proptypes.func.isRequired,
     onClose: Proptypes.func.isRequired,
     onTakePicture: Proptypes.func,
-    allowSwap: Proptypes.bool
-}
+    allowSwap: Proptypes.bool,
+};
 
-export default CameraContainer
+export default CameraContainer;

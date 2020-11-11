@@ -29,7 +29,6 @@ const setEnv = (path) => ({
     },
 });
 
-packageJson.bit.overrides = {};
 tsconfigJson.compilerOptions.paths = {};
 components.forEach(({ path, name, deps }) => {
     //write override

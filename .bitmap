@@ -194,23 +194,8 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.116": {
+    "vitorbarbosa19.ziro/camera-container@0.1.117": {
         "files": [
-            {
-                "name": "index.js",
-                "relativePath": "src/components/CameraContainer/CameraModal/index.js",
-                "test": false
-            },
-            {
-                "name": "styles.js",
-                "relativePath": "src/components/CameraContainer/CameraModal/styles.js",
-                "test": false
-            },
-            {
-                "name": "errors.js",
-                "relativePath": "src/components/CameraContainer/errors.js",
-                "test": false
-            },
             {
                 "name": "index.js",
                 "relativePath": "src/components/CameraContainer/index.js",
@@ -283,7 +268,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera@0.1.27": {
+    "vitorbarbosa19.ziro/camera@0.1.28": {
         "files": [
             {
                 "name": "index.js",
@@ -1060,7 +1045,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.151": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.152": {
         "files": [
             {
                 "name": "index.js",
