@@ -171,17 +171,26 @@ export const useRegisteredPayment = (
             if (!installments) throw payMessages.prompt.NO_INSTALLMENTS;
             const paymentData = payment.data();
             const userData = catalogUserDataDoc.data();
-            const transaction = await createPayment(creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
+            const transaction = await createPayment(await creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
             try {
                 if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
                 if (!paymentData.insurance) receivables = creator.receivablesData(await getReceivables(transaction.id, source.token));
-                const [dbData, sheetData, preparedReceivables] = prepareRegisteredDataToDbAndSheet(transaction, payment.data(), storeowner, timestamp, receivables);
+
+                const [dbData, sheetData, preparedReceivables] = prepareRegisteredDataToDbAndSheet(
+                    transaction,
+                    payment.data(),
+                    storeowner,
+                    timestamp,
+                    receivables,
+                );
+                //console.log("transaction inside index", dbData, sheetData, preparedReceivables);
                 await writeTransactionToSheet(sheetData);
                 if (!paymentData.insurance && preparedReceivables?.length > 0) await writeReceivablesToSheet(preparedReceivables);
                 await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
                 if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
                 onSuccessRef.current(dbData);
             } catch (e) {
+                console.log("error inside index catch", e);
                 Sentry.captureException(e);
             }
             return payMessages.prompt.PAYMENT_SUCCESS.withButtons([

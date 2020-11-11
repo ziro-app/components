@@ -446,30 +446,6 @@
                 }
             },
             "firebase/credit-card-payments": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/firebase/credit-card-payments",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "skipLibCheck": true,
-                                        "lib": [
-                                            "dom",
-                                            "dom.iterable",
-                                            "esnext"
-                                        ],
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "dependencies": {
                     "firebase": "-",
                     "reactfire": "-"
@@ -477,6 +453,71 @@
                 "peerDependencies": {
                     "firebase": "7.17.x",
                     "reactfire": "2.0.x"
+                },
+                "env": {
+                    "compiler": {
+                        "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+                            "rawConfig": {
+                                "compilerPath": "typescript/bin/tsc",
+                                "compilerArguments": [
+                                    "--declaration"
+                                ],
+                                "compiledFileTypes": [
+                                    ".ts",
+                                    ".tsx"
+                                ],
+                                "configFileName": "tsconfig.json",
+                                "tsconfig": {
+                                    "compilerOptions": {
+                                        "outDir": "./dist/src/components/firebase/credit-card-payments",
+                                        "target": "ES5",
+                                        "sourceMap": false,
+                                        "moduleResolution": "Node",
+                                        "esModuleInterop": true,
+                                        "module": "CommonJS",
+                                        "allowSyntheticDefaultImports": true,
+                                        "resolveJsonModule": true,
+                                        "declaration": true,
+                                        "experimentalDecorators": true,
+                                        "inlineSourceMap": true,
+                                        "inlineSources": true,
+                                        "lib": [
+                                            "dom",
+                                            "dom.iterable",
+                                            "esnext"
+                                        ],
+                                        "jsx": "react",
+                                        "rootDir": "./",
+                                        "removeComments": false,
+                                        "typeRoots": [
+                                            "./node_modules/@types"
+                                        ],
+                                        "importHelpers": false,
+                                        "skipLibCheck": true
+                                    },
+                                    "include": [
+                                        "./**/*"
+                                    ],
+                                    "exclude": [
+                                        "node_modules",
+                                        ".dependencies",
+                                        "dist"
+                                    ]
+                                },
+                                "development": false,
+                                "copyPolicy": {
+                                    "ignorePatterns": [
+                                        "package.json",
+                                        "package-lock.json",
+                                        "tsconfig.json"
+                                    ],
+                                    "disable": false
+                                }
+                            },
+                            "options": {}
+                        }
+                    },
+                    "tester": "bit.envs/testers/jest@22.4.3"
                 }
             },
             "firebase/storeowners": {
@@ -514,30 +555,6 @@
                 }
             },
             "pay/next-code": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/NextCode",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "skipLibCheck": true,
-                                        "lib": [
-                                            "dom",
-                                            "dom.iterable",
-                                            "esnext"
-                                        ],
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "dependencies": {
                     "axios": "-",
                     "ziro-messages": "-",
@@ -551,33 +568,74 @@
                     "@sentry/react": "5.20.x",
                     "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
                     "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
-                }
-            },
-            "pay/zoop": {
+                },
                 "env": {
                     "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
+                        "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
                             "rawConfig": {
+                                "compilerPath": "typescript/bin/tsc",
+                                "compilerArguments": [
+                                    "--declaration"
+                                ],
+                                "compiledFileTypes": [
+                                    ".ts",
+                                    ".tsx"
+                                ],
+                                "configFileName": "tsconfig.json",
                                 "tsconfig": {
                                     "compilerOptions": {
-                                        "outDir": "./dist/src/components/pay/Zoop",
+                                        "outDir": "./dist/src/components/pay/NextCode",
                                         "target": "ES5",
+                                        "sourceMap": false,
+                                        "moduleResolution": "Node",
+                                        "esModuleInterop": true,
                                         "module": "CommonJS",
-                                        "skipLibCheck": true,
+                                        "allowSyntheticDefaultImports": true,
+                                        "resolveJsonModule": true,
+                                        "declaration": true,
+                                        "experimentalDecorators": true,
+                                        "inlineSourceMap": true,
+                                        "inlineSources": true,
                                         "lib": [
                                             "dom",
                                             "dom.iterable",
                                             "esnext"
                                         ],
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
+                                        "jsx": "react",
+                                        "rootDir": "./",
+                                        "removeComments": false,
+                                        "typeRoots": [
+                                            "./node_modules/@types"
+                                        ],
+                                        "importHelpers": false,
+                                        "skipLibCheck": true
+                                    },
+                                    "include": [
+                                        "./**/*"
+                                    ],
+                                    "exclude": [
+                                        "node_modules",
+                                        ".dependencies",
+                                        "dist"
+                                    ]
+                                },
+                                "development": false,
+                                "copyPolicy": {
+                                    "ignorePatterns": [
+                                        "package.json",
+                                        "package-lock.json",
+                                        "tsconfig.json"
+                                    ],
+                                    "disable": false
                                 }
-                            }
+                            },
+                            "options": {}
                         }
-                    }
-                },
+                    },
+                    "tester": "bit.envs/testers/jest@22.4.3"
+                }
+            },
+            "pay/zoop": {
                 "dependencies": {
                     "axios": "-",
                     "@sentry/react": "-",
@@ -589,6 +647,71 @@
                     "@sentry/react": "5.20.x",
                     "ziro-messages": "0.0.x",
                     "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
+                },
+                "env": {
+                    "compiler": {
+                        "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+                            "rawConfig": {
+                                "compilerPath": "typescript/bin/tsc",
+                                "compilerArguments": [
+                                    "--declaration"
+                                ],
+                                "compiledFileTypes": [
+                                    ".ts",
+                                    ".tsx"
+                                ],
+                                "configFileName": "tsconfig.json",
+                                "tsconfig": {
+                                    "compilerOptions": {
+                                        "outDir": "./dist/src/components/pay/Zoop",
+                                        "target": "ES5",
+                                        "sourceMap": false,
+                                        "moduleResolution": "Node",
+                                        "esModuleInterop": true,
+                                        "module": "CommonJS",
+                                        "allowSyntheticDefaultImports": true,
+                                        "resolveJsonModule": true,
+                                        "declaration": true,
+                                        "experimentalDecorators": true,
+                                        "inlineSourceMap": true,
+                                        "inlineSources": true,
+                                        "lib": [
+                                            "dom",
+                                            "dom.iterable",
+                                            "esnext"
+                                        ],
+                                        "jsx": "react",
+                                        "rootDir": "./",
+                                        "removeComments": false,
+                                        "typeRoots": [
+                                            "./node_modules/@types"
+                                        ],
+                                        "importHelpers": false,
+                                        "skipLibCheck": true
+                                    },
+                                    "include": [
+                                        "./**/*"
+                                    ],
+                                    "exclude": [
+                                        "node_modules",
+                                        ".dependencies",
+                                        "dist"
+                                    ]
+                                },
+                                "development": false,
+                                "copyPolicy": {
+                                    "ignorePatterns": [
+                                        "package.json",
+                                        "package-lock.json",
+                                        "tsconfig.json"
+                                    ],
+                                    "disable": false
+                                }
+                            },
+                            "options": {}
+                        }
+                    },
+                    "tester": "bit.envs/testers/jest@22.4.3"
                 }
             },
             "pay/antifraud": {
@@ -778,30 +901,6 @@
                 }
             },
             "utils/async-hooks": {
-                "env": {
-                    "compiler": {
-                        "vitorbarbosa19.ziro/compilers/react-typescript": {
-                            "rawConfig": {
-                                "tsconfig": {
-                                    "compilerOptions": {
-                                        "outDir": "./dist/src/components/utils/asyncHooks",
-                                        "target": "ES5",
-                                        "module": "CommonJS",
-                                        "skipLibCheck": true,
-                                        "lib": [
-                                            "dom",
-                                            "dom.iterable",
-                                            "esnext"
-                                        ],
-                                        "inlineSources": true,
-                                        "inlineSourceMap": true,
-                                        "removeComments": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "dependencies": {
                     "react": "-",
                     "@types/react": "-",
@@ -819,6 +918,71 @@
                     "framer-motion": "1.11.x",
                     "reactfire": "2.0.x",
                     "firebase": "7.17.x"
+                },
+                "env": {
+                    "compiler": {
+                        "vitorbarbosa19.ziro/compilers/react-typescript@3.1.60": {
+                            "rawConfig": {
+                                "compilerPath": "typescript/bin/tsc",
+                                "compilerArguments": [
+                                    "--declaration"
+                                ],
+                                "compiledFileTypes": [
+                                    ".ts",
+                                    ".tsx"
+                                ],
+                                "configFileName": "tsconfig.json",
+                                "tsconfig": {
+                                    "compilerOptions": {
+                                        "outDir": "./dist/src/components/utils/asyncHooks",
+                                        "target": "ES5",
+                                        "sourceMap": false,
+                                        "moduleResolution": "Node",
+                                        "esModuleInterop": true,
+                                        "module": "CommonJS",
+                                        "allowSyntheticDefaultImports": true,
+                                        "resolveJsonModule": true,
+                                        "declaration": true,
+                                        "experimentalDecorators": true,
+                                        "inlineSourceMap": true,
+                                        "inlineSources": true,
+                                        "lib": [
+                                            "dom",
+                                            "dom.iterable",
+                                            "esnext"
+                                        ],
+                                        "jsx": "react",
+                                        "rootDir": "./",
+                                        "removeComments": false,
+                                        "typeRoots": [
+                                            "./node_modules/@types"
+                                        ],
+                                        "importHelpers": false,
+                                        "skipLibCheck": true
+                                    },
+                                    "include": [
+                                        "./**/*"
+                                    ],
+                                    "exclude": [
+                                        "node_modules",
+                                        ".dependencies",
+                                        "dist"
+                                    ]
+                                },
+                                "development": false,
+                                "copyPolicy": {
+                                    "ignorePatterns": [
+                                        "package.json",
+                                        "package-lock.json",
+                                        "tsconfig.json"
+                                    ],
+                                    "disable": false
+                                }
+                            },
+                            "options": {}
+                        }
+                    },
+                    "tester": "bit.envs/testers/jest@22.4.3"
                 }
             },
             "utils/axios": {
