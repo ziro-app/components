@@ -3,10 +3,10 @@ import Proptypes from "prop-types";
 import Camera from "@bit/vitorbarbosa19.ziro.camera";
 import CameraFallback from "@bit/vitorbarbosa19.ziro.camera-fallback";
 import { PreviewOverlay, ShooterOverlay } from "@bit/vitorbarbosa19.ziro.camera-overlay";
-import { useMessages } from "@bit/vitorbarbosa19.ziro.message-modal";
+import { useMessage } from "@bit/vitorbarbosa19.ziro.message-modal";
 
 const CameraContainer = ({ startOnMount, initialFacingMode, onClose, onSend, allowSwap, fallbackComponent }) => {
-    const setMessage = useMessages();
+    const setMessage = useMessage();
     const [picture, setPicture] = useState();
 
     return (
