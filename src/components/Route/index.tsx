@@ -30,11 +30,12 @@ export const Switch: React.FC<SwitchProps> = ({
     const match = useMemo(() => matches[index], [matches, index]);
 
     useEffect(() => {
-        new Promise((resolve, reject) => {
-            const req = window.indexedDB.open("firebaseLocalStorageDb");
-            req.onsuccess = resolve;
-            req.onupgradeneeded = reject;
-        }).catch(window.location.reload.bind(window.location));
+        const req = window.indexedDB.open("firebaseLocalStorageDb");
+        req.onupgradeneeded = window.location.reload.bind(window.location);
+        req.onerror = window.location.reload.bind(window.location);
+        req.onsuccess = function (event) {
+            ["abort", "error", "close"].forEach((e) => req.result.addEventListener(e, window.location.reload.bind(window.location)));
+        };
         if (reactfire && element) {
             analytics.setCurrentScreen(window.location.host + element.props.path);
             analytics.logEvent("page_view", {
