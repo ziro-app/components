@@ -1,6 +1,7 @@
 import { FullOCR } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 import tuple from "@bit/vitorbarbosa19.ziro.utils.tuple";
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/fullOCR";
+import * as c from "ziro-messages/dist/src/catalogo/antifraude/common";
 import { ClassResultsCollection } from "./validations";
 
 /**
@@ -15,6 +16,7 @@ export const messagesThatShouldThrow = tuple(
     prompt.SAME_DOC_RGF.code,
     prompt.SAME_DOC_RGV.code,
     prompt.PROBABILITY_UNDER_60.code,
+    c.prompt.MISSING_EXTRACTED_DATA.code,
 );
 
 /**
@@ -24,11 +26,7 @@ export const messagesThatShouldThrow = tuple(
  * @param url a url da imagem que foi enviada
  * @param results os resultados das validações
  */
-export const processResults = (
-    response: FullOCR.Response.KnownDocument,
-    url: string,
-    results: ClassResultsCollection,
-) => {
+export const processResults = (response: FullOCR.Response.KnownDocument, url: string, results: ClassResultsCollection) => {
     Object.values(results).forEach((result) => {
         if (result.passed === false && messagesThatShouldThrow.includes(result.reason.code as any))
             throw (result.reason as any).withAdditionalData({ response, url });
