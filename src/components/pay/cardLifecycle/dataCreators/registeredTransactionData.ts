@@ -27,7 +27,7 @@ export default async (buyerZoopId: string, cardId: string, installments: string,
         const { card_brand: cardBrand } = await getCard(cardId);
         // @ts-ignore
         if (Object.prototype.hasOwnProperty.call(payment, "isNewPlan") && payment.isNewPlan == true) {
-            const { sellerZoopPlan } = payment;
+            const { sellerZoopPlan, insurance } = payment;
             // @ts-ignore
             const whichPlan = sellerZoopPlan.activePlan;
             const installmentNumber = `installment${installments}`;
@@ -54,15 +54,17 @@ export default async (buyerZoopId: string, cardId: string, installments: string,
                 },
             ];
 
-            const antifraudPercentage = typeof percentageAntiFraud === "string" ? parseFloat(percentageAntiFraud) : percentageAntiFraud;
-            if (!data.split_rules) data.split_rules = [];
-            data.split_rules.push({
-                recipient: process.env.SELLER_ID_ZIRO,
-                percentage: antifraudPercentage || 0,
-                amount: 0,
-                liable: true,
-                charge_processing_fee: false,
-            });
+            if (insurance === true) {
+                const antifraudPercentage = typeof percentageAntiFraud === "string" ? parseFloat(percentageAntiFraud) : percentageAntiFraud;
+                if (!data.split_rules) data.split_rules = [];
+                data.split_rules.push({
+                    recipient: process.env.SELLER_ID_ZIRO,
+                    percentage: antifraudPercentage || 0,
+                    amount: 0,
+                    liable: true,
+                    charge_processing_fee: false,
+                });
+            }
         } else {
             if (payment.sellerZoopPlan?.markup?.percentage || payment.sellerZoopPlan?.markup?.amount) {
                 const markupPercentage =

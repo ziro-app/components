@@ -29,7 +29,7 @@ export default async (card: UnregisteredCard, installments: string, payment: Cre
         const whichPlan = sellerZoopPlan.activePlan;
         const installmentNumber = `installment${installments}`;
         const percentageMarkup = sellerZoopPlan[whichPlan]["ziroMarkupFee"][cardBrand.toLowerCase()][installmentNumber];
-        const percentageAntiFraud = sellerZoopPlan[whichPlan]["ziroAntifraudFee"][cardBrand.toLowerCase()][installmentNumber];
+
         /*let filterSplitAntiFraud =
             Object.prototype.hasOwnProperty.call(payment, "split_rules") && insurance === true
                 ? split_rules_transaction.filter((item) => parseFloat(item.percentage) === parseFloat(percentageAntiFraud))
@@ -50,16 +50,6 @@ export default async (card: UnregisteredCard, installments: string, payment: Cre
                 charge_processing_fee: false,
             },
         ];
-
-        const antifraudPercentage = typeof percentageAntiFraud === "string" ? parseFloat(percentageAntiFraud) : percentageAntiFraud;
-        if (!data.split_rules) data.split_rules = [];
-        data.split_rules.push({
-            recipient: process.env.SELLER_ID_ZIRO,
-            percentage: antifraudPercentage || 0,
-            amount: 0,
-            liable: true,
-            charge_processing_fee: false,
-        });
     } else {
         if (payment.sellerZoopPlan?.markup?.percentage || payment.sellerZoopPlan?.markup?.amount) {
             const formattedPercentage =

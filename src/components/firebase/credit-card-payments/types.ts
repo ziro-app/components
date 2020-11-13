@@ -354,8 +354,12 @@ export declare namespace CreditCardPayments {
 
     export namespace SellerZoopPlan {
         export interface BeforePayment {
-            antiFraud: SplitRule.BeforePayment;
-            markup: SplitRule.BeforePayment;
+            activePlan: SplitRule.BeforePayment;
+            plan: {
+                ziroAntifraudFee: SplitRule.BeforePayment;
+                ziroMarkupFee: SplitRule.BeforePayment;
+                zoopFee: SplitRule.BeforePayment;
+            };
         }
         export interface AfterPayment {
             antiFraud: SplitRule.AfterPayment;
@@ -380,6 +384,7 @@ export declare namespace CreditCardPayments {
             onBehalfOfBrand?: string;
             cartId?: string;
         }
+        // @ts-ignore
         interface CommonPreAuthorized<S extends Status> extends Common<S> {
             cardholder: string;
             cardFirstFour: string;
