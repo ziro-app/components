@@ -885,7 +885,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.14": {
+    "vitorbarbosa19.ziro/firebase/credit-card-payments@0.0.15": {
         "files": [
             {
                 "name": "hookTypes.ts",
@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.80": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.81": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",

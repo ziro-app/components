@@ -113,7 +113,7 @@ export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<ty
     const [cbk, state] = usePromiseShowingMessage<UnregisteredCard & { installments: string }, any, DetachedCheckoutError>(
         payMessages.waiting.SENDING_PAYMENT,
         async ({ installments, ...card }) => {
-            const transaction = await createPayment(creator.detachedData(card, installments, payment.data()), source.token);
+            const transaction = await createPayment(await creator.detachedData(card, installments, payment.data()), source.token);
             let receiptId: string | undefined;
             try {
                 const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));

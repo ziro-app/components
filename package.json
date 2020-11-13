@@ -83,6 +83,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.10.5",
+        "@bit/vitorbarbosa19.ziro.split-rule": "0.0.10",
         "@sentry/react": "^5.20.1",
         "@types/react": "^16.9.11",
         "@ziro/capitalize": "^1.0.0",

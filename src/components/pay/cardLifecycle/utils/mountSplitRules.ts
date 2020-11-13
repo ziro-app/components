@@ -1,5 +1,6 @@
 import { CreditCardPayments } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
 import { UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
+//@ts-ignore
 import { findPlanPercentages } from "@bit/vitorbarbosa19.ziro.split-rule";
 
 interface generic {
