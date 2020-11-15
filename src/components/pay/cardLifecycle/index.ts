@@ -12,6 +12,7 @@ import {
     voidPayment,
     getReceivables,
     UnregisteredTransaction,
+    GetCard,
 } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
@@ -149,7 +150,7 @@ export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<ty
 
 export const useRegisteredPayment = (
     id: string,
-    cardId: string,
+    cardAtom: GetCard.Response,
     installments: string,
     onSuccess: (dbdata: ReturnType<typeof prepareRegisteredDataToDbAndSheet>[0]) => void,
 ) => {
@@ -163,7 +164,6 @@ export const useRegisteredPayment = (
     const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [, setLocation] = useAnimatedLocation();
     const onSuccessRef = useRef(onSuccess);
-    let receivables = [];
     onSuccessRef.current = onSuccess;
     const [cbk, state] = usePromiseShowingMessage<void, any, RegisteredCheckoutError>(
         payMessages.waiting.SENDING_PAYMENT,
@@ -171,24 +171,25 @@ export const useRegisteredPayment = (
             if (!installments) throw payMessages.prompt.NO_INSTALLMENTS;
             const paymentData = payment.data();
             const userData = catalogUserDataDoc.data();
-            const transaction = await createPayment(await creator.registeredData(zoopId, cardId, installments, paymentData), source.token);
+            const transaction = await createPayment(
+                await creator.registeredPayment.transaction(zoopId, cardAtom, installments, paymentData),
+                source.token,
+            );
             try {
                 if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
-                if (!paymentData.insurance) receivables = creator.receivablesData(await getReceivables(transaction.id, source.token));
-
-                const [dbData, sheetData, preparedReceivables] = prepareRegisteredDataToDbAndSheet(
+                const receivables = paymentData.insurance ? undefined : await getReceivables(transaction.id, source.token);
+                const [dbData, sheetData, receivablesData] = creator.registeredPayment.dbAndSheet(
                     transaction,
-                    payment.data(),
+                    paymentData,
                     storeowner,
-                    timestamp,
                     receivables,
+                    timestamp,
                 );
-                //console.log("transaction inside index", dbData, sheetData, preparedReceivables);
                 await writeTransactionToSheet(sheetData);
-                if (!paymentData.insurance && preparedReceivables?.length > 0) await writeReceivablesToSheet(preparedReceivables);
+                if (!paymentData.insurance && receivablesData.length > 0) await writeReceivablesToSheet(receivablesData);
                 await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
                 if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
-                onSuccessRef.current(dbData);
+                onSuccessRef.current(dbData as any);
             } catch (e) {
                 console.log("error inside index catch", e);
                 Sentry.captureException(e);
@@ -202,7 +203,7 @@ export const useRegisteredPayment = (
                 },
             ]);
         },
-        [source, payment, onSuccessRef, id, cardId, installments, zoopId, storeowner],
+        [source, payment, onSuccessRef, id, cardAtom, installments, zoopId, storeowner],
     );
     useAsyncEffect(async () => {
         if (state.status === "failed") {

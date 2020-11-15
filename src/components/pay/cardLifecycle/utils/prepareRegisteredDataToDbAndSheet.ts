@@ -31,7 +31,7 @@ const prepareDataWithInsurance = (
     try {
         const installments = installment_plan.number_installments;
         const type = payment_type === "credit" ? "crédito" : "";
-        const { holder_name, first4_digits, last4_digits, card_brand } = payment_method; // @ts-ignore
+        const { holder_name, first4_digits, last4_digits, card_brand } = payment_method;
         const [antiFraud, markup] = isNewPlan
             ? mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
             : mountSplitRulesOld(split_rules, sellerZoopPlan || {});

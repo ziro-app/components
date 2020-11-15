@@ -1,7 +1,7 @@
 import { getCard, UnregisteredCard, UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { CreditCardPayments } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
 
-export default async (card: UnregisteredCard, installments: string, payment: CreditCardPayments.FirebaseDocument) => {
+export default async (card: UnregisteredCard, installments: string, payment: any) => {
     const data: UnregisteredTransaction.Request = {
         sendCompleteError: true,
         payment_type: "credit",

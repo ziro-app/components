@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.82": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.90": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",
@@ -2567,14 +2567,44 @@
                 "test": false
             },
             {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/formatDate.ts",
+                "test": false,
+                "name": "formatDate.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/getPercentages.ts",
+                "test": false,
+                "name": "getPercentages.ts"
+            },
+            {
                 "name": "index.ts",
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/index.ts",
                 "test": false
             },
             {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/prepareReceivables.ts",
+                "test": false,
+                "name": "prepareReceivables.ts"
+            },
+            {
                 "name": "receivables.ts",
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/receivables.ts",
                 "test": false
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/registeredPayment/dbSheet.ts",
+                "test": false,
+                "name": "dbSheet.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/registeredPayment/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/registeredPayment/transaction.ts",
+                "test": false,
+                "name": "transaction.ts"
             },
             {
                 "name": "registeredTransactionData.ts",
@@ -2590,6 +2620,16 @@
                 "name": "registrationVoidData.ts",
                 "relativePath": "src/components/pay/cardLifecycle/dataCreators/registrationVoidData.ts",
                 "test": false
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/splitRules.ts",
+                "test": false,
+                "name": "splitRules.ts"
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/dataCreators/translateStatus.ts",
+                "test": false,
+                "name": "translateStatus.ts"
             },
             {
                 "name": "errorThrowers.ts",
@@ -2642,6 +2682,11 @@
                 "test": false
             },
             {
+                "name": "simplifyFeeDetails.ts",
+                "relativePath": "src/components/pay/cardLifecycle/utils/simplifyFeeDetails.ts",
+                "test": false
+            },
+            {
                 "name": "translateStatus.ts",
                 "relativePath": "src/components/pay/cardLifecycle/utils/translateStatus.ts",
                 "test": false
@@ -2654,11 +2699,6 @@
             {
                 "name": "writeTransactionToSheet.ts",
                 "relativePath": "src/components/pay/cardLifecycle/utils/writeTransactionToSheet.ts",
-                "test": false
-            },
-            {
-                "name": "simplifyFeeDetails.ts",
-                "relativePath": "src/components/pay/cardLifecycle/utils/simplifyFeeDetails.ts",
                 "test": false
             }
         ],

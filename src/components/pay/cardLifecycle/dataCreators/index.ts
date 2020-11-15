@@ -5,15 +5,15 @@ import registrationVoidData from "./registrationVoidData";
 import receivablesData from "./receivables";
 import errorData from "./errorData";
 import errorRegisteredData from "./errorRegisteredData";
-import registeredData from "./registeredTransactionData";
+import * as registeredPayment from "./registeredPayment";
 
 export default {
+    registeredPayment,
     detachedData,
     firebaseCardData,
     registrationPaymentData,
     registrationVoidData,
     receivablesData,
     errorData,
-    registeredData,
     errorRegisteredData,
 };
