@@ -68,8 +68,9 @@ export const useCreditCard = () => {
             expiration_month,
             expiration_year,
             card_number: number,
+            card_brand: type,
         };
-    }, [number, cardholder, expiry, cvv]);
+    }, [number, cardholder, expiry, cvv, type]);
     const validations = useMemo(
         () => [
             {
@@ -80,7 +81,16 @@ export const useCreditCard = () => {
             },
             {
                 name: "cardholder",
-                validation: (value) => !!value && isFullName(normalize(value)),
+                validation: (value) =>
+                    !!value &&
+                    isFullName(
+                        normalize(
+                            value
+                                .split(" ")
+                                .filter((arr) => arr.length > 2)
+                                .join(" "),
+                        ),
+                    ),
                 value: cardholder,
                 message: "Revise nome digitado",
             },

@@ -4,6 +4,7 @@ export interface StateWithoutInstallments {
     expiration_month: string;
     expiration_year: string;
     card_number: string;
+    card_brand: string;
     shouldTransact: boolean;
 }
 

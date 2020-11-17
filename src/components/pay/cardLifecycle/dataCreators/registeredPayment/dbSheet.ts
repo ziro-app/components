@@ -40,7 +40,7 @@ export const dbAndSheet = (
         type,
         installments,
         sellerName,
-        razao,
+        razao || "",
         holder_name.trim().toLowerCase(),
         card_brand,
         `${first4_digits}...${last4_digits}`,
@@ -48,7 +48,6 @@ export const dbAndSheet = (
         ...receivablesData.feeDetailsSheet,
     ];
     let dbData: any = {
-        buyerStoreownerId: storeownerId,
         buyerRazao: razao,
         status: translateStatus(status),
         installments,
@@ -67,6 +66,7 @@ export const dbAndSheet = (
         authorizer,
         onBehalfOfBrand: onBehalfOfBrand ?? "",
     };
+    if (storeownerId !== "-") dbData.buyerStoreownerId = storeownerId;
     if (!insurance) {
         dbData = {
             ...dbData,

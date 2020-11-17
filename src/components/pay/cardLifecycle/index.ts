@@ -1,4 +1,4 @@
-import { usePromiseShowingMessage, useAsyncEffect, usePromise } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
+import { usePromiseShowingMessage, useAsyncEffect, usePromise, PromiseCbk, UsePromiseState } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
 import { useMessage, useMessagePromise } from "@bit/vitorbarbosa19.ziro.message-modal";
 import * as delMessages from "ziro-messages/dist/src/catalogo/pay/chooseCard";
 import * as regMessages from "ziro-messages/dist/src/catalogo/antifraude/registerCard";
@@ -17,17 +17,14 @@ import {
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { useFirebaseCardsCollectionRef, useCartCollectionRef, useCatalogUserDataDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { useZoopRegistration } from "@bit/vitorbarbosa19.ziro.pay.zoop-registration";
 import { useCreditCardPaymentDocument } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
 import creator from "./dataCreators";
 import * as errorThrowers from "./errorThrowers";
-import prepareDataToDbAndSheet from "./utils/prepareDataToDbAndSheet";
-import prepareRegisteredDataToDbAndSheet from "./utils/prepareRegisteredDataToDbAndSheet";
 import writeTransactionToSheet from "./utils/writeTransactionToSheet";
 import writeReceivablesToSheet from "./utils/writeReceivablesToSheet";
-import { DetachedCheckoutError, RegisteredCheckoutError } from "./types";
 import { sheet } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import * as Sentry from "@sentry/react";
@@ -104,60 +101,21 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
     );
 };
 
-export const useDetachedPayment = (id: string, onSuccess: (dbdata: ReturnType<typeof prepareDataToDbAndSheet>[1]) => void) => {
-    const source = useCancelToken();
-    const payment = useCreditCardPaymentDocument(id);
-    const errorsCollection = useFirestore().collection("credit-card-errors");
-    const [, setLocation] = useAnimatedLocation();
-    const onSuccessRef = useRef(onSuccess);
-    onSuccessRef.current = onSuccess;
-    const [cbk, state] = usePromiseShowingMessage<UnregisteredCard & { installments: string }, any, DetachedCheckoutError>(
-        payMessages.waiting.SENDING_PAYMENT,
-        async ({ installments, ...card }) => {
-            const transaction = await createPayment(await creator.detachedData(card, installments, payment.data()), source.token);
-            let receiptId: string | undefined;
-            try {
-                const receivablesData = creator.receivablesData(await getReceivables(transaction.id, source.token));
-                const [sheetData, dbData, preparedReceivables] = prepareDataToDbAndSheet(transaction, receivablesData, payment.data());
-                await writeTransactionToSheet(sheetData);
-                await writeReceivablesToSheet(preparedReceivables);
-                await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("detached-payment"));
-                onSuccessRef.current(dbData);
-                receiptId = dbData.receiptId;
-            } catch (e) {
-                Sentry.captureException(e);
-            }
-            return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
-                {
-                    title: receiptId ? "ver recibo" : "voltar a tela inicial",
-                    action: () => {
-                        setLocation("goLeft", receiptId ? `/comprovante/${receiptId}` : "/galeria");
-                    },
-                },
-            ]);
-        },
-        [source, payment, onSuccessRef],
-    );
-    useAsyncEffect(async () => {
-        if (state.status === "failed") {
-            const [values, dbData] = creator.errorData(state.error);
-            await sheet(process.env.SHEET_ID_TRANSACTIONS).write({ values, range: "Transacoes_Erros!A1" });
-            await errorsCollection.add(dbData);
-        }
-    }, [state]);
-    return [cbk, state] as [typeof cbk, typeof state];
-};
-
-export const useRegisteredPayment = (
+export function usePayment(
+    onSuccess: (dbData: ReturnType<typeof creator.registeredPayment.dbAndSheet>[0]) => void,
     id: string,
-    cardAtom: GetCard.Response,
+): [PromiseCbk<UnregisteredCard & { installments: string; card_brand: string }>, UsePromiseState<any, any>];
+export function usePayment(
+    onSuccess: (dbData: ReturnType<typeof creator.registeredPayment.dbAndSheet>[0]) => void,
+    id: string,
     installments: string,
-    onSuccess: (dbdata: ReturnType<typeof prepareRegisteredDataToDbAndSheet>[0]) => void,
-) => {
+    cardAtom: GetCard.Response,
+): [PromiseCbk<void>, UsePromiseState<any, any>];
+export function usePayment(onSuccess: (dbData: any) => void, id: string, installments?: string, cardAtom?: GetCard.Response) {
     const source = useCancelToken();
     const payment = useCreditCardPaymentDocument(id);
-    const zoopId = useZoopRegistration();
     const storeowner = useStoreowner();
+    const zoopId = storeowner.storeownerId !== "-" ? useZoopRegistration() : undefined;
     const cartCollectionRef = useCartCollectionRef();
     const catalogUserDataDoc = useCatalogUserDataDocument();
     const errorsCollection = useFirestore().collection("credit-card-errors");
@@ -165,18 +123,19 @@ export const useRegisteredPayment = (
     const [, setLocation] = useAnimatedLocation();
     const onSuccessRef = useRef(onSuccess);
     onSuccessRef.current = onSuccess;
-    const [cbk, state] = usePromiseShowingMessage<void, any, RegisteredCheckoutError>(
+    const [cbk, state] = usePromiseShowingMessage(
         payMessages.waiting.SENDING_PAYMENT,
-        async () => {
-            if (!installments) throw payMessages.prompt.NO_INSTALLMENTS;
+        async ({ installments: _i, ...card }: any = {}) => {
+            if (!installments && !_i) throw payMessages.prompt.NO_INSTALLMENTS;
+            const i: string = installments || _i;
             const paymentData = payment.data();
-            const userData = catalogUserDataDoc.data();
-            const transaction = await createPayment(
-                await creator.registeredPayment.transaction(zoopId, cardAtom, installments, paymentData),
+            const userData = catalogUserDataDoc.exists ? catalogUserDataDoc.data() : undefined;
+            const transaction: any = await createPayment(
+                await creator.registeredPayment.transaction(i, paymentData, cardAtom || card, zoopId),
                 source.token,
             );
             try {
-                if (paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
+                if (paymentData.cartId && zoopId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
                 const receivables = paymentData.insurance ? undefined : await getReceivables(transaction.id, source.token);
                 const [dbData, sheetData, receivablesData] = creator.registeredPayment.dbAndSheet(
                     transaction,
@@ -188,29 +147,54 @@ export const useRegisteredPayment = (
                 await writeTransactionToSheet(sheetData);
                 if (!paymentData.insurance && receivablesData.length > 0) await writeReceivablesToSheet(receivablesData);
                 await payment.ref.update(dbData).catch(errorThrowers.saveFirestore("registered-payment"));
-                if (userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
+                if (userData && userData.status !== "paid") catalogUserDataDoc.ref.update({ status: "paid" });
                 onSuccessRef.current(dbData as any);
-            } catch (e) {
-                console.log("error inside index catch", e);
-                Sentry.captureException(e);
+            } catch (error) {
+                Sentry.captureException(error);
             }
-            return payMessages.prompt.PAYMENT_SUCCESS.withButtons([
-                {
-                    title: "ver pagamentos",
-                    action: () => {
-                        setLocation("goLeft", `/pagamentos`);
-                    },
-                },
-            ]);
+            let message = payMessages.prompt.PAYMENT_SUCCESS;
+            if (paymentData.insurance) {
+                message = message
+                    .set("title", "Pagamento pré-autorizado")
+                    .set("userDescription", "O pagamento foi pré autorizado pelo operador do cartão, logo será liberado.")
+                    .withButtons([
+                        {
+                            title: "ver pagamentos",
+                            action: () => {
+                                setLocation("goLeft", "/pagamentos");
+                            },
+                        },
+                    ]);
+            } else {
+                if (zoopId) {
+                    message = message.withButtons([
+                        {
+                            title: "ver pagamentos",
+                            action: () => {
+                                setLocation("goLeft", "/pagamentos");
+                            },
+                        },
+                    ]);
+                } else {
+                    message = message.withButtons([
+                        {
+                            title: "ver recibo",
+                            action: () => {
+                                setLocation("goLeft", `/comprovante/${transaction.sales_receipt}`);
+                            },
+                        },
+                    ]);
+                }
+            }
         },
-        [source, payment, onSuccessRef, id, cardAtom, installments, zoopId, storeowner],
+        [],
     );
     useAsyncEffect(async () => {
         if (state.status === "failed") {
-            const [values, dbData] = creator.errorRegisteredData(state.error, storeowner);
+            const [values, dbData] = creator.errorRegisteredData(state.error as any, storeowner);
             await sheet(process.env.SHEET_ID_TRANSACTIONS).write({ values, range: "Transacoes_Erros!A1" });
             await errorsCollection.add(dbData);
         }
     }, [state]);
-    return [cbk, state] as [typeof cbk, typeof state];
-};
+    return [cbk, state];
+}

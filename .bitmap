@@ -1003,7 +1003,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.116": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.117": {
         "files": [
             {
                 "name": "index.tsx",
@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.90": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.91": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",
