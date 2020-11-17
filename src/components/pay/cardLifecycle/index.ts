@@ -186,6 +186,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
                     ]);
                 }
             }
+            return message;
         },
         [],
     );
