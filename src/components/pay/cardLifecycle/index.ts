@@ -116,8 +116,8 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
     const payment = useCreditCardPaymentDocument(id);
     const storeowner = useStoreowner();
     const zoopId = storeowner.storeownerId !== "-" ? useZoopRegistration() : undefined;
-    const cartCollectionRef = useCartCollectionRef();
-    const catalogUserDataDoc = useCatalogUserDataDocument();
+    const cartCollectionRef = storeowner.storeownerId !== "-" ? useCartCollectionRef() : undefined;
+    const catalogUserDataDoc = storeowner.storeownerId !== "-" ? useCatalogUserDataDocument() : undefined;
     const errorsCollection = useFirestore().collection("credit-card-errors");
     const timestamp = useFirestore.FieldValue.serverTimestamp;
     const [, setLocation] = useAnimatedLocation();
@@ -129,13 +129,13 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             if (!installments && !_i) throw payMessages.prompt.NO_INSTALLMENTS;
             const i: string = installments || _i;
             const paymentData = payment.data();
-            const userData = catalogUserDataDoc.exists ? catalogUserDataDoc.data() : undefined;
+            const userData = catalogUserDataDoc && catalogUserDataDoc.exists ? catalogUserDataDoc.data() : undefined;
             const transaction: any = await createPayment(
                 await creator.registeredPayment.transaction(i, paymentData, cardAtom || card, zoopId),
                 source.token,
             );
             try {
-                if (paymentData.cartId && zoopId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
+                if (cartCollectionRef && paymentData.cartId) await cartCollectionRef.doc(paymentData.cartId).update({ status: "paid" });
                 const receivables = paymentData.insurance ? undefined : await getReceivables(transaction.id, source.token);
                 const [dbData, sheetData, receivablesData] = creator.registeredPayment.dbAndSheet(
                     transaction,
