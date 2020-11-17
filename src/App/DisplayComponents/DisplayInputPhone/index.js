@@ -8,7 +8,7 @@ export const DisplayInputPhone = () => {
     const [submitting, setSubmitting] = useState(false)
     const inputRef = useRef(null)
     const name = 'input'
-    const inputProps = { value: inputValue, submitting, name, ref: inputRef, setValue: setInputValue, landline: true }
+    const inputProps = { value: inputValue, submitting, name, ref: inputRef, setValue: setInputValue }
     return (
         <div style={containerWithPadding}>
             <p>&nbsp;{inputValue}</p>

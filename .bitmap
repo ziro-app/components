@@ -1098,7 +1098,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.171": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.172": {
         "files": [
             {
                 "name": "index.js",
@@ -1905,7 +1905,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/input-phone@0.0.18": {
+    "vitorbarbosa19.ziro/input-phone@0.0.19": {
         "files": [
             {
                 "name": "index.js",
