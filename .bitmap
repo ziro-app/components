@@ -194,7 +194,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.119": {
+    "vitorbarbosa19.ziro/camera-container@0.1.120": {
         "files": [
             {
                 "name": "index.js",
@@ -235,7 +235,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-overlay@0.1.89": {
+    "vitorbarbosa19.ziro/camera-overlay@0.1.90": {
         "files": [
             {
                 "name": "index.js",
@@ -556,7 +556,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.83": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.84": {
         "files": [
             {
                 "name": "index.js",
@@ -1045,7 +1045,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.154": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.155": {
         "files": [
             {
                 "name": "index.js",
@@ -1164,7 +1164,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.100": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.101": {
         "files": [
             {
                 "name": "index.js",
@@ -1742,7 +1742,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/image-preview@0.0.72": {
+    "vitorbarbosa19.ziro/image-preview@0.0.73": {
         "files": [
             {
                 "name": "index.js",
@@ -3212,12 +3212,17 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tooltip-help@0.0.30": {
+    "vitorbarbosa19.ziro/tooltip-help@0.0.31": {
         "files": [
             {
                 "name": "index.js",
                 "relativePath": "src/components/TooltipHelp/index.js",
                 "test": false
+            },
+            {
+                "relativePath": "src/components/TooltipHelp/styles.css",
+                "test": false,
+                "name": "styles.css"
             },
             {
                 "name": "styles.js",
@@ -3283,7 +3288,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/upload-photo@0.0.62": {
+    "vitorbarbosa19.ziro/upload-photo@0.0.63": {
         "files": [
             {
                 "name": "index.js",

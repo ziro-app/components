@@ -4,9 +4,10 @@ import ReactDOM from "react-dom";
 import Modal from "@bit/vitorbarbosa19.ziro.modal";
 import Illustration from "@bit/vitorbarbosa19.ziro.illustration";
 import Icon from "@bit/vitorbarbosa19.ziro.icon";
-import Button from "../Button/index";
+import Button from "@bit/vitorbarbosa19.ziro.button";
 
-import { modalBox, closeIcon, proposeContainer, titleText, bodyText } from "./styles";
+import { modalBox, closeIcon, proposeContainer, titleText, bodyText, regular } from "./styles";
+import './styles.css'
 import { supportPhoneNumber } from "../utils/supportNumber";
 
 const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconColor = "#2D9CDB", iconSize = 16, supportButton = false }) => {
@@ -24,7 +25,7 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
                         </div>
                     ) : null}
 
-                    <div style={proposeContainer}>
+                    <div style={supportButton ? proposeContainer : {...proposeContainer, marginBottom: '35px'}}>
                         {title ? <label style={titleText}>{title}</label> : null}
 
                         <label style={bodyText}>{body}</label>
@@ -32,6 +33,7 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
 
                     {supportButton ? (
                         <Button
+                            style={regular}
                             type="button"
                             cta="Falar com Suporte"
                             click={() =>
