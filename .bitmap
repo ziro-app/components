@@ -907,7 +907,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.15": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.16": {
         "files": [
             {
                 "name": "hookTypes.ts",
@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.93": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.94": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",

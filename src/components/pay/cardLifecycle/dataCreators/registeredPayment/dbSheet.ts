@@ -48,7 +48,6 @@ export const dbAndSheet = (
         ...receivablesData.feeDetailsSheet,
     ];
     let dbData: any = {
-        buyerRazao: razao,
         status: translateStatus(status),
         installments,
         datePaid: timestamp(),
@@ -66,7 +65,10 @@ export const dbAndSheet = (
         authorizer,
         onBehalfOfBrand: onBehalfOfBrand ?? "",
     };
-    if (storeownerId !== "-") dbData.buyerStoreownerId = storeownerId;
+    if (storeownerId !== "-") {
+        dbData.buyerStoreownerId = storeownerId;
+        dbData.buyerRazao = razao;
+    }
     if (!insurance) {
         dbData = {
             ...dbData,

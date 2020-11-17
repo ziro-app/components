@@ -18,8 +18,10 @@ export const useStoreowner = <T = Storeowner>(startWithValue?: T) => {
         .collection("storeowners")
         .where("uid", "==", user?.uid || "-")
         .limit(1);
-    return (useFirestoreCollectionData<Storeowner>(userQuery, { idField: "storeownerId", startWithValue: [startWithValue] as any })[0] ||
-        defaultStoreowner) as Storeowner | T;
+    return (useFirestoreCollectionData<Storeowner>(userQuery, {
+        idField: "storeownerId",
+        startWithValue: startWithValue ? ([startWithValue] as any) : undefined,
+    })[0] || defaultStoreowner) as Storeowner | T;
 };
 
 /**
