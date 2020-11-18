@@ -46,10 +46,10 @@ const formatReceivablesSheet = (transactionZoopId: string, receivables: Receivab
     });
 
 const simplifyFeeDetails = (fee_details: RegisteredTransaction.Response["fee_details"], { antiFraud, markup }: any) => {
-    const [antifraudObj, markupObj] = [antiFraud, markup].map(({ receivable_amount }) => ({
+    const [antifraudObj, markupObj] = [antiFraud, markup].map(({ receivable_amount }, index) => ({
         amount: receivable_amount || "0.00",
-        type: "antifraud_ziro_fee_brazil",
-        description: "Ziro antifraud card-present transaction fee",
+        type: index === 0 ? "antifraud_ziro_fee_brazil" : "markup_ziro_fee_brazil",
+        description: index === 0 ? "Ziro antifraud card-present transaction fee" : "Ziro markup card-present transaction fee",
     }));
     return [...fee_details, antifraudObj, markupObj].map(({ amount, type, description }) => ({ amount, type, description }));
 };

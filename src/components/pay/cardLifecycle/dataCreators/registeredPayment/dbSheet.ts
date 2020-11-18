@@ -22,7 +22,7 @@ export const dbAndSheet = (
         split_rules,
         created_at,
     }: RegisteredTransaction.Response,
-    { seller, sellerZoopPlan, onBehalfOfBrand, insurance, isNewPlan }: any,
+    { seller, sellerZoopPlan, onBehalfOfBrand, insurance, isNewPlan, checkoutWithoutRegister }: any,
     { razao, storeownerId }: Storeowner,
     receivables: GetReceivables.Response | undefined,
     timestamp: () => firebase.firestore.FieldValue,
@@ -33,6 +33,7 @@ export const dbAndSheet = (
     const [antiFraud, markup] = splitRules({ split_rules, sellerZoopPlan, card_brand, installments, insurance, isNewPlan });
     const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
     const receivablesData = prepareReceivables(receivables, transactionId, fee_details, fees, { antiFraud, markup }, insurance);
+    const reason = checkoutWithoutRegister ? "Pagamento sem cadastro" : razao || "";
     const sheetData = [
         transactionId,
         formatDateUTC3(new Date(created_at)),
@@ -40,7 +41,7 @@ export const dbAndSheet = (
         type,
         installments,
         sellerName,
-        razao || "",
+        reason,
         holder_name.trim().toLowerCase(),
         card_brand,
         `${first4_digits}...${last4_digits}`,
@@ -75,7 +76,7 @@ export const dbAndSheet = (
             fees,
             fee_details: receivablesData.feeDetailsDB,
             totalFees: receivablesData.total,
-            receivables,
+            receivables: receivablesData.receivablesDB,
         };
     }
     return [dbData, sheetData, receivablesData.receivablesSheet] as const;
