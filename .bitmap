@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.96": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.97": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",

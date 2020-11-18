@@ -66,6 +66,9 @@ export const dbAndSheet = (
         authorizer,
         onBehalfOfBrand: onBehalfOfBrand ?? "",
     };
+    if (checkoutWithoutRegister) {
+        dbData.buyerRazao = reason;
+    }
     if (storeownerId !== "-") {
         dbData.buyerStoreownerId = storeownerId;
         dbData.buyerRazao = razao;
