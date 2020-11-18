@@ -66,6 +66,7 @@ import { DisplayInputPhone } from "./DisplayComponents/DisplayInputPhone";
 import { DisplayMessageModal } from "./DisplayComponents/DisplayMessageModal/index.tsx";
 import { DisplayAsyncHooks } from "./DisplayComponents/DisplayAsyncHooks/index.tsx";
 import { DisplaySuspenseFallback } from "./DisplayComponents/DisplaySuspenseFallback/index.tsx";
+import { DisplaySupportPage } from './DisplayComponents/DisplaySupportPage';
 import { DisplayToggleButton } from "./DisplayComponents/DisplayToggleButton/index";
 import { DisplayScoreCircle } from "./DisplayComponents/DisplayScoreCircle/index";
 import { DisplayTooltipHelp } from "./DisplayComponents/DisplayTooltipHelp";
@@ -269,6 +270,9 @@ export const App = () => (
         </Route>
         <Route path="/suspense-fallback">
             <DisplaySuspenseFallback />
+        </Route>
+        <Route path="/support-page">
+            <DisplaySupportPage />
         </Route>
         <Route path="/toggle-button">
             <DisplayToggleButton />

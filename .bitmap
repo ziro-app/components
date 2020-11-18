@@ -3090,6 +3090,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "vitorbarbosa19.ziro/support-page@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/SupportPage/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/SupportPage/styles.ts",
+                "test": false,
+                "name": "styles.ts"
+            },
+            {
+                "relativePath": "src/components/SupportPage/types.ts",
+                "test": false,
+                "name": "types.ts"
+            }
+        ],
+        "mainFile": "src/components/SupportPage/index.tsx",
+        "trackDir": "src/components/SupportPage",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "vitorbarbosa19.ziro/tab-dual-header@0.1.18": {
         "files": [
             {
