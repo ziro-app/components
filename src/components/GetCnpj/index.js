@@ -35,6 +35,7 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip =
                     <p><strong>1412-6/01 -</strong> Confecção de peças de vestuário, exceto roupas íntimas e as confeccionadas sob medida.</p>
                     <p><strong>1412-6/03 -</strong> Facção de peças do vestuário, exceto roupas íntimas.</p>
                     <p><strong>4781-4/00 -</strong> Comércio varejista de artigos do vestuário e acessórios.</p>
+                    <p><strong>7723-3/00 -</strong> Aluguel De Objetos Do Vestuário, Jóias E Acessórios</p>
                 </div>
             </>
         )
