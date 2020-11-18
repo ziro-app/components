@@ -16,30 +16,37 @@ const mountSplitRules = ({ sellerZoopPlan, card_brand, installments, insurance, 
     console.log("CREATING SPLIT RULES", { sellerZoopPlan, split_rules });
     let markupObj = { amount: 0, percentage: 0 };
     let antifraudObj = { amount: 0, percentage: 0 };
-    const _split = [...(split_rules || [])];
-    let markupIndex = -1;
-    let antifraudIndex = -1;
-    if (isNewPlan) {
-        console.log("IS NEW PLAN");
-        const markupPercentage = getPercentages({ sellerZoopPlan, installments, card_brand, receivable: "ziroMarkupFee" });
-        markupIndex = _split.findIndex(newFinder(markupPercentage));
-        if (insurance) {
-            console.log("HAS INSURANCE");
-            const antifraudPercentage = getPercentages({
+    if (sellerZoopPlan !== null) {
+        const _split = [...(split_rules || [])];
+        let markupIndex = -1;
+        let antifraudIndex = -1;
+        if (isNewPlan) {
+            console.log("IS NEW PLAN");
+            const markupPercentage = getPercentages({
                 sellerZoopPlan,
                 installments,
                 card_brand,
-                receivable: "ziroAntifraudFee",
+                receivable: "ziroMarkupFee",
             });
-            antifraudIndex = _split.findIndex(newFinder(antifraudPercentage, markupIndex));
+            markupIndex = _split.findIndex(newFinder(markupPercentage));
+            if (insurance) {
+                console.log("HAS INSURANCE");
+                const antifraudPercentage = getPercentages({
+                    sellerZoopPlan,
+                    installments,
+                    card_brand,
+                    receivable: "ziroAntifraudFee",
+                });
+                antifraudIndex = _split.findIndex(newFinder(antifraudPercentage, markupIndex));
+            }
+        } else {
+            console.log("IS OLD PLAN");
+            markupIndex = _split.findIndex(oldFinder(sellerZoopPlan.markup));
+            antifraudIndex = _split.findIndex(oldFinder(sellerZoopPlan.antiFraud, markupIndex));
         }
-    } else {
-        console.log("IS OLD PLAN");
-        markupIndex = _split.findIndex(oldFinder(sellerZoopPlan.markup));
-        antifraudIndex = _split.findIndex(oldFinder(sellerZoopPlan.antiFraud, markupIndex));
+        if (markupIndex > -1) markupObj = _split[markupIndex];
+        if (antifraudIndex > -1) antifraudObj = _split[antifraudIndex];
     }
-    if (markupIndex > -1) markupObj = _split[markupIndex];
-    if (antifraudIndex > -1) antifraudObj = _split[antifraudIndex];
     console.log("RETURNING", { antifraudObj, markupObj });
     return [antifraudObj, markupObj];
 };

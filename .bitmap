@@ -1098,7 +1098,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.172": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.173": {
         "files": [
             {
                 "name": "index.js",
@@ -1905,7 +1905,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/input-phone@0.0.19": {
+    "vitorbarbosa19.ziro/input-phone@0.0.20": {
         "files": [
             {
                 "name": "index.js",
@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.94": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.95": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",
