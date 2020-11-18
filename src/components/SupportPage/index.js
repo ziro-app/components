@@ -17,9 +17,8 @@ import {
     bodyText
 } from "./styles";
 import { supportPhoneNumber } from "../utils/supportNumber";
-import { SupportPageComponent } from "./types";
 
-const SupportPage: SupportPageComponent =  ({previous, title, body}) => {
+const SupportPage = ({previous, title, body}) => {
     useFooter(null);
     return (
       <div style={containerWithPadding}>

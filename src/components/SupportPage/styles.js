@@ -1,39 +1,38 @@
-import { CSSProperties } from "react";
 import { fontTitle, gradient, primaryColor } from "@ziro/theme";
 
 export const  
   header = {
       margin: '0 auto -20px'
   },
-  container: CSSProperties = {
+  container = {
       display: "grid",
       alignContent: "start",
       justifyItems: "center",
       gridGap: "25px 0"
   },
-  illustrationContainer: CSSProperties = {},
-  proposeContainer: CSSProperties = {
+  illustrationContainer = {},
+  proposeContainer = {
       display: "grid",
       gridRowGap: "4px",
       marginTop: "-15px"
   },
-  buttonsContainer: CSSProperties = {
+  buttonsContainer = {
       display: "grid",
       width: "100%",
       justifyItems: "center",
       gridGap: "10px 0",
   },
-  titleText: CSSProperties = {
+  titleText = {
       fontFamily: fontTitle,
       textTransform: "uppercase",
       color: primaryColor,
       textAlign: "center",
   },
-  bodyText: CSSProperties = {
+  bodyText = {
       textAlign: "center",
       fontSize: '1.5rem'
   },
-  highlightedButton: CSSProperties = {
+  highlightedButton = {
       WebkitAppearance: "none",
       WebkitTapHighlightColor: "rgba(0,0,0,0)",
       MozAppearance: "none",
