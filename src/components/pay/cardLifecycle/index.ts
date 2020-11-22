@@ -188,7 +188,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             }
             return message;
         },
-        [],
+        [installments, cardAtom, source, payment, storeowner, zoopId, catalogUserDataDoc],
     );
     useAsyncEffect(async () => {
         if (state.status === "failed") {
