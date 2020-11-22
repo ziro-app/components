@@ -33,7 +33,7 @@ export const dbAndSheet = (
     const [antiFraud, markup] = splitRules({ split_rules, sellerZoopPlan, card_brand, installments, insurance, isNewPlan });
     const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
     const receivablesData = prepareReceivables(receivables, transactionId, fee_details, fees, { antiFraud, markup }, insurance);
-    const reason = checkoutWithoutRegister ? "Pagamento sem cadastro" : razao || "";
+    const reason = razao ? razao : (checkoutWithoutRegister ? "Pagamento sem cadastro" : "");
     const sheetData = [
         transactionId,
         formatDateUTC3(new Date(created_at)),
