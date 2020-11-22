@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, MutableRefObject, useRef, useEffect } from "react";
 import { useFirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
@@ -10,7 +10,12 @@ import { useAsyncEffectShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.asy
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/fullOCR";
 import { Button } from "ziro-messages";
 
-export const useDocumentAnalysis = (zoopCardData: ZoopCard, recipients: string[], setCamera: (open: boolean) => void) => {
+export const useDocumentAnalysis = (
+    zoopCardData: ZoopCard,
+    recipients: string[],
+    cameraRef: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>,
+    onSuccess: () => void,
+) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
 
@@ -33,8 +38,8 @@ export const useDocumentAnalysis = (zoopCardData: ZoopCard, recipients: string[]
             sheetState.reset();
             whatsAppEffect.reset();
             //choose button to start
-            setCamera(false);
-            const docReadabilityButtons: [Button] = [{ title: "ok", action: () => setCamera(true) }];
+            cameraRef.current.closeCamera();
+            const docReadabilityButtons: [Button] = [{ title: "ok", action: () => cameraRef.current.openCamera() }];
             const buttons: [Button] = [{ title: "ok", action: () => prompt.DOC_READABILITY.withButtons(docReadabilityButtons) }];
             return {
                 document: prompt.INITIAL_DOCUMENT,
@@ -50,6 +55,10 @@ export const useDocumentAnalysis = (zoopCardData: ZoopCard, recipients: string[]
         fullOCRState.status,
         firestoreState.status,
     ]);
+
+    useEffect(() => {
+        if (fullOCRState.status === "success" && firestoreState.status === "success") onSuccess();
+    }, [fullOCRState.status, firestoreState.status]);
 
     return [cbk, analizing] as [typeof cbk, typeof analizing];
 };

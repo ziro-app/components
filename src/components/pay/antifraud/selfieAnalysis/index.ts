@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, MutableRefObject, useEffect } from "react";
 import { useFirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
@@ -9,7 +9,12 @@ import { useWhatsAppEffect } from "./whatsAppEffect";
 import { useAsyncEffectShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/biometry";
 
-export const useSelfieAnalysis = (zoopCardData: ZoopCard, recipients: string[], setCamera: (open: boolean) => void) => {
+export const useSelfieAnalysis = (
+    zoopCardData: ZoopCard,
+    recipients: string[],
+    cameraRef: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>,
+    onSuccess: () => void,
+) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
 
@@ -27,8 +32,8 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, recipients: string[], 
             sheetState.reset();
             whatsAppState.reset();
             //choose button to start
-            setCamera(false);
-            return prompt.INITIAL_SELFIE.withButtons([{ title: "ok", action: () => setCamera(true) }]);
+            cameraRef.current.closeCamera();
+            return prompt.INITIAL_SELFIE.withButtons([{ title: "ok", action: () => cameraRef.current.openCamera() }]);
         },
         [],
     );
@@ -37,6 +42,10 @@ export const useSelfieAnalysis = (zoopCardData: ZoopCard, recipients: string[], 
         biometryState.status,
         firestoreState.status,
     ]);
+
+    useEffect(() => {
+        if (biometryState.status === "success" && firestoreState.status === "success") onSuccess();
+    }, [biometryState.status, firestoreState.status]);
 
     return [cbk, analizing] as [typeof cbk, typeof analizing];
 };
