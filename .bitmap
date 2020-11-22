@@ -3319,7 +3319,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.61": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.62": {
         "files": [
             {
                 "name": "index.ts",

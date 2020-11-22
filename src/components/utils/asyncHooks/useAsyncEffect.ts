@@ -120,6 +120,7 @@ const showingMessage = <H extends UAE | URAE>(hook: H) =>
                             promise(mountState)
                                 .catch((error) => {
                                     if (isPrompt(error) || isWaiting(error)) throw error;
+                                    if ("skipAttempt" in error && (isPrompt(error.error) || isWaiting(error.error))) throw error;
                                     else {
                                         let additionalData;
                                         if (error instanceof Error) {

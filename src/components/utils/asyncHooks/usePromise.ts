@@ -85,6 +85,7 @@ export function usePromiseShowingMessage<A, R, E>(
         ((arg) =>
             promise(arg).catch((error) => {
                 if (isPrompt(error) || isWaiting(error)) throw error;
+                if ("skipAttempt" in error && (isPrompt(error.error) || isWaiting(error.error))) throw error;
                 else {
                     let additionalData;
                     if (error instanceof Error) {
