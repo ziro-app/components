@@ -7,8 +7,14 @@ import { MatchAlgorithm } from "./types";
 export const validateAndNormalize = (cardName: string, docName: string) => {
     if (!cardName || typeof cardName !== "string") throw new Error(`card name must be a non empty string, but ${cardName}`);
     if (!docName || typeof docName !== "string") throw new Error(`doc name must be a non empty string, but ${docName}`);
-    const normalizedCardName = normalize(cardName);
-    const normalizedDocName = normalize(docName);
+    const normalizedCardName = normalize(cardName)
+        .split(" ")
+        .filter((arr) => arr.length > 2)
+        .join(" ");
+    const normalizedDocName = normalize(docName)
+        .split(" ")
+        .filter((arr) => arr.length > 2)
+        .join(" ");
     if (!isFullName(normalizedCardName)) throw new Error(`card name must be a compound name, but ${cardName}`);
     if (!isFullName(normalizedDocName)) throw new Error(`doc name must be a compound name, but ${docName}`);
     return [normalizedCardName, normalizedDocName] as [string, string];

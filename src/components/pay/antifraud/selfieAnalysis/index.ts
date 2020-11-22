@@ -13,7 +13,7 @@ export const useSelfieAnalysis = (
     zoopCardData: ZoopCard,
     recipients: string[],
     cameraRef: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>,
-    onSuccess: () => void,
+    onSuccess: (result: ReturnType<typeof useBiometry>[1]["result"]) => void,
 ) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
@@ -44,7 +44,7 @@ export const useSelfieAnalysis = (
     ]);
 
     useEffect(() => {
-        if (biometryState.status === "success" && firestoreState.status === "success") onSuccess();
+        if (biometryState.status === "success" && firestoreState.status === "success") onSuccess(biometryState.result);
     }, [biometryState.status, firestoreState.status]);
 
     return [cbk, analizing] as [typeof cbk, typeof analizing];
