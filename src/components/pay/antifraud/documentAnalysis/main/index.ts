@@ -46,9 +46,12 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
                 if ("skipAttempt" in err && err.skipAttempt) {
                     throw { skipAttempt: true, error: err.error
                         .withButtons([{
-                            title: "Enviar novamente", 
-                            action: () => window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
-                        }]) };
+                            title: "Falar com Suporte", 
+                            action: () => {
+                                window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
+                            }
+                        }]) 
+                    }
                 }
 
                 if (isPrompt(err)) {
