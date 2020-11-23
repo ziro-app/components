@@ -10,6 +10,7 @@ import { isPrompt } from "ziro-messages";
 import { validator, processResults } from "./validator";
 import { approvalType } from "./approvalType";
 import { UseBiometry } from "./types";
+import { supportPhoneNumber } from '../../../../utils/supportNumber'
 
 export * from "./types";
 
@@ -62,7 +63,11 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                 return { response, url, validations, status };
             } catch (err) {
                 if (err.skipAttempt) {
-                    throw { skipAttempt: true, error: err.error.withButtons([{title: "Enviar novamente",action: () => null}])}
+                    throw { skipAttempt: true, error: err.error
+                        .withButtons([{
+                            title: "Enviar novamente",
+                            action: () => window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
+                        }])}
                 }
 
                 if (isPrompt(err)) {

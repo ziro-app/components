@@ -8,6 +8,7 @@ import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import devCheck from "./devCheck";
 import { validator, processResults } from "./validator";
 import { UseFullOCR } from "./types";
+import { supportPhoneNumber } from '../../../../utils/supportNumber'
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -43,7 +44,11 @@ export const useFullOCR = (firebaseCard: FirebaseCardDocument, zoopCardData: Zoo
                 return { response: response as any, url, validations };
             } catch (err) {
                 if ("skipAttempt" in err && err.skipAttempt) {
-                    throw { skipAttempt: true, error: err.error.withButtons([{ title: "Enviar novamente", action: () => null }]) };
+                    throw { skipAttempt: true, error: err.error
+                        .withButtons([{
+                            title: "Enviar novamente", 
+                            action: () => window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
+                        }]) };
                 }
 
                 if (isPrompt(err)) {
