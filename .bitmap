@@ -1045,7 +1045,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.156": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.157": {
         "files": [
             {
                 "name": "index.js",
@@ -1098,7 +1098,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.175": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.176": {
         "files": [
             {
                 "name": "index.js",
@@ -1164,7 +1164,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.103": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.104": {
         "files": [
             {
                 "name": "index.js",
@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.99": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.101": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",
@@ -3033,7 +3033,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/split-rule@0.0.10": {
+    "vitorbarbosa19.ziro/split-rule@0.0.11": {
         "files": [
             {
                 "name": "index.js",

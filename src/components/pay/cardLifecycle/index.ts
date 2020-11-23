@@ -131,7 +131,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             const paymentData = payment.data();
             const userData = catalogUserDataDoc && catalogUserDataDoc.exists ? catalogUserDataDoc.data() : undefined;
             const transaction: any = await createPayment(
-                await creator.registeredPayment.transaction(i, paymentData, cardAtom || card, zoopId),
+                await creator.registeredPayment.transaction(i, paymentData, cardAtom || card, state, zoopId),
                 source.token,
             );
             try {
