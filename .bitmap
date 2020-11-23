@@ -556,7 +556,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.84": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.85": {
         "files": [
             {
                 "name": "index.js",
@@ -1098,7 +1098,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.176": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.177": {
         "files": [
             {
                 "name": "index.js",
@@ -1164,7 +1164,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.104": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.105": {
         "files": [
             {
                 "name": "index.js",
