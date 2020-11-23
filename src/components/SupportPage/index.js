@@ -16,7 +16,7 @@ import {
     titleText,
     bodyText
 } from "./styles";
-import { supportPhoneNumber } from "../utils/supportNumber";
+import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 const SupportPage = ({previous, title, body}) => {
     useFooter(null);

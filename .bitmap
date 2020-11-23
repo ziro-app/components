@@ -194,7 +194,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-container@0.1.120": {
+    "vitorbarbosa19.ziro/camera-container@0.1.121": {
         "files": [
             {
                 "name": "index.js",
@@ -235,7 +235,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/camera-overlay@0.1.90": {
+    "vitorbarbosa19.ziro/camera-overlay@0.1.91": {
         "files": [
             {
                 "name": "index.js",
@@ -556,7 +556,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/confirm-email@0.1.85": {
+    "vitorbarbosa19.ziro/confirm-email@0.1.86": {
         "files": [
             {
                 "name": "index.js",
@@ -1045,7 +1045,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-upload-photo@0.0.157": {
+    "vitorbarbosa19.ziro/flow-upload-photo@0.0.158": {
         "files": [
             {
                 "name": "index.js",
@@ -1098,7 +1098,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.177": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.178": {
         "files": [
             {
                 "name": "index.js",
@@ -1164,7 +1164,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.105": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.106": {
         "files": [
             {
                 "name": "index.js",
@@ -1742,7 +1742,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/image-preview@0.0.73": {
+    "vitorbarbosa19.ziro/image-preview@0.0.74": {
         "files": [
             {
                 "name": "index.js",
@@ -2187,7 +2187,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.70": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.71": {
         "files": [
             {
                 "name": "index.ts",
@@ -3090,7 +3090,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/support-page@0.0.1": {
+    "vitorbarbosa19.ziro/support-page@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SupportPage/index.js",
@@ -3230,7 +3230,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/tooltip-help@0.0.31": {
+    "vitorbarbosa19.ziro/tooltip-help@0.0.32": {
         "files": [
             {
                 "name": "index.js",
@@ -3245,11 +3245,6 @@
             {
                 "name": "styles.js",
                 "relativePath": "src/components/TooltipHelp/styles.js",
-                "test": false
-            },
-            {
-                "name": "index.js",
-                "relativePath": "src/components/utils/supportNumber/index.js",
                 "test": false
             }
         ],
@@ -3306,7 +3301,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/upload-photo@0.0.63": {
+    "vitorbarbosa19.ziro/upload-photo@0.0.64": {
         "files": [
             {
                 "name": "index.js",
@@ -3428,6 +3423,19 @@
             }
         ],
         "mainFile": "src/components/utils/string/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/utils/support-phone-number@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/utils/supportPhoneNumber/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/utils/supportPhoneNumber/index.js",
+        "trackDir": "src/components/utils/supportPhoneNumber",
         "origin": "AUTHORED",
         "exported": true
     },

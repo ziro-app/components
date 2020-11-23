@@ -8,7 +8,7 @@ import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import devCheck from "./devCheck";
 import { validator, processResults } from "./validator";
 import { UseFullOCR } from "./types";
-import { supportPhoneNumber } from '../../../../utils/supportNumber'
+import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 const isDev = process.env.NODE_ENV === "development";
 

@@ -4,7 +4,7 @@ import { circularButtonContainer, rectangularButtonContainer, dropzone } from '.
 import Icon from '../Icon'
 import { shadow } from '@ziro/theme'
 import Button from '@bit/vitorbarbosa19.ziro.button'
-import { supportPhoneNumber } from '../utils/supportNumber'
+import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 export { useDropzone } from './useDropzone'
 

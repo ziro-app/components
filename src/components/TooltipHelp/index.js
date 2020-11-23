@@ -8,7 +8,7 @@ import Button from "@bit/vitorbarbosa19.ziro.button";
 
 import { modalBox, closeIcon, proposeContainer, titleText, bodyText, regular } from "./styles";
 import './styles.css'
-import { supportPhoneNumber } from "../utils/supportNumber";
+import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconColor = "#2D9CDB", iconSize = 16, supportButton = false }) => {
     const [modalHelp, setModalHelp] = useState(false);

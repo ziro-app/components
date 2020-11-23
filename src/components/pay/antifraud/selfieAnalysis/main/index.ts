@@ -10,7 +10,7 @@ import { isPrompt } from "ziro-messages";
 import { validator, processResults } from "./validator";
 import { approvalType } from "./approvalType";
 import { UseBiometry } from "./types";
-import { supportPhoneNumber } from '../../../../utils/supportNumber'
+import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 export * from "./types";
 
