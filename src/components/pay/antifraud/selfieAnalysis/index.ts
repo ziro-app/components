@@ -32,8 +32,8 @@ export const useSelfieAnalysis = (
             sheetState.reset();
             whatsAppState.reset();
             //choose button to start
-            cameraRef.current.closeCamera();
-            return prompt.INITIAL_SELFIE.withButtons([{ title: "ok", action: () => cameraRef.current.openCamera() }]);
+            cameraRef.current?.closeCamera();
+            return prompt.INITIAL_SELFIE.withButtons([{ title: "ok", action: () => cameraRef.current?.openCamera() }]);
         },
         [],
     );

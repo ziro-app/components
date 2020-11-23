@@ -38,8 +38,8 @@ export const useDocumentAnalysis = (
             sheetState.reset();
             whatsAppEffect.reset();
             //choose button to start
-            cameraRef.current.closeCamera();
-            const docReadabilityButtons: [Button] = [{ title: "ok", action: () => cameraRef.current.openCamera() }];
+            cameraRef.current?.closeCamera();
+            const docReadabilityButtons: [Button] = [{ title: "ok", action: () => cameraRef.current?.openCamera() }];
             const buttons: [Button] = [{ title: "ok", action: () => prompt.DOC_READABILITY.withButtons(docReadabilityButtons) }];
             return {
                 document: prompt.INITIAL_DOCUMENT,
