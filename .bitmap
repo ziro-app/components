@@ -2187,7 +2187,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.68": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.69": {
         "files": [
             {
                 "name": "index.ts",
@@ -2544,7 +2544,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.101": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.102": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",

@@ -6,7 +6,7 @@ import { SaveSuccessToFirestore, SaveFailureToFirestore } from "./types";
 export const saveSuccessToFirestore: SaveSuccessToFirestore = async (card, result, FV) => {
     const resultData = UseFullOCR.transformResult(result);
     const oldData = card.data();
-    if (oldData.status !== "pendingDocument") throw "UNEXPECTED_CARD_STATUS";
+    if (oldData.status !== "pendingDocument" && oldData.status !== "pendingSelfie") throw "UNEXPECTED_CARD_STATUS";
     const newData = {
         ...createFirebaseData(oldData, resultData),
         added: oldData.added,

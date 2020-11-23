@@ -16,10 +16,11 @@ type CreatedData<R extends FullOCR.Response.KnownDocument> = R extends FullOCR.R
     : R extends FullOCR.Response.RGFV
     ? FirebaseCard.RGFV
     : never;
-type DataCreator<R extends FullOCR.Response.KnownDocument, O = Omit<FirebaseCard.BeforeDocPhase, OmittedAttributes>, D = CreatedData<R>> = (
-    old: O,
-    response: UseFullOCR.DataResult<R>,
-) => Omit<D, OmittedAttributes>;
+type DataCreator<
+    R extends FullOCR.Response.KnownDocument,
+    O = Omit<FirebaseCard.BeforeDocPhase | FirebaseCard.BeforeSelfiePhase, OmittedAttributes>,
+    D = CreatedData<R>
+> = (old: O, response: UseFullOCR.DataResult<R>) => Omit<D, OmittedAttributes>;
 
 export namespace CNH {
     export type Frente = DataCreator<FullOCR.Response.CNHF>;
@@ -39,4 +40,7 @@ export namespace RG {
     >;
 }
 
-export type CreateFirebaseData = (old: FirebaseCard.BeforeDocPhase, result: UseFullOCR.DataResult) => Omit<FirebaseCard.Generic, "added" | "updated">;
+export type CreateFirebaseData = (
+    old: FirebaseCard.BeforeDocPhase | FirebaseCard.BeforeSelfiePhase,
+    result: UseFullOCR.DataResult,
+) => Omit<FirebaseCard.Generic, "added" | "updated">;

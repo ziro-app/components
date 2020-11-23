@@ -7,7 +7,6 @@ export const transaction = async (
     installments: string,
     payment: any,
     card: (UnregisteredCard & { card_brand: string }) | GetCard.Response,
-    state: any,
     buyerZoopId?: string,
 ) => {
     try {
@@ -89,7 +88,6 @@ export const transaction = async (
         }
         return data;
     } catch (e) {
-        state.status = "failed";
         throw "ERROR_CREATING_SPLIT_OBJECT";
     }
 };

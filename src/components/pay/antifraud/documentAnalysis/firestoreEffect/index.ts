@@ -6,7 +6,7 @@ import { useFirestore } from "reactfire";
 import { common } from "ziro-messages/dist/src/catalogo/antifraude";
 import { UseFirestoreEffect } from "./types";
 
-export { UseFirestoreEffect };
+export type { UseFirestoreEffect };
 
 export const useFirestoreEffect = (firebaseCard: FirebaseCardDocument, state: UseFullOCR.State) => {
     const FV = useFirestore.FieldValue;
