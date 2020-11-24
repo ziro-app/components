@@ -64,4 +64,14 @@ export const DisplayIcon = () =>
 		<Icon type='circle' size={24} />
 		<Icon type='circleChecked' size={24} />
 		<Icon type='rocket' size={24} />
+		<Icon type='noFlash' size={24} />
+		<Icon type='sun' size={24} />
+		<Icon type='happyEmoji' size={24} />
+		<Icon type='document' size={24} />
+		<Icon type='documentTwo' size={24} />
+		<Icon type='personalDocument' size={24} />
+		<Icon type='magnifier' size={24} />
+		<Icon type='shadowFace' size={24} />
+		<Icon type='noAccessories' size={24} />
+		<Icon type='noBackground' size={24} />
 	</div>
