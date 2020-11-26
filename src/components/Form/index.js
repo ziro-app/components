@@ -22,8 +22,9 @@ const Form = ({
 }) => {
     const [errors, submitting, submitError, submitMsg, setSubmitMsg, submitForm] = useForm();
     useEffect(() => {
-        // if user start typing on any field, reset submit message
-        if (submitMsg) setSubmitMsg("");
+        // if user start typing on any field, reset submit message after 10 seconds
+        const clearMsg = setTimeout(() => submitMsg ? setSubmitMsg("") : null, 10000);
+        return () => clearTimeout(clearMsg);
     }, [inputs]);
     return (
         <form onSubmit={submitForm(validations, sendToBackend)}>
@@ -56,24 +57,24 @@ const Form = ({
                         <label style={submitTop(submitError)}>&nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}</label>
                     </>
                 ) : (
-                    <>
-                        {summary && summary}
-                        {useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
-                        {withoutBottomLabelOnSubmit ? null : useModalLayoutOnSubmit ? (
-                            <ModalSubmit
-                                isOpen={!!submitMsg}
-                                submitting={submitting}
-                                error={submitError}
-                                successComponent={successComponent}
-                                errorComponent={errorComponent}
-                                errorMsg={submitMsg}
-                            />
-                        ) : (
-                            <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}</label>
-                        )}
-                        {sendToBackend && <Button type="submit" cta={buttonName || "Enviar"} submitting={submitting} />}
-                    </>
-                )}
+                        <>
+                            {summary && summary}
+                            {useModalLayoutOnSubmit ? <div style={whiteSpace}></div> : null}
+                            {withoutBottomLabelOnSubmit ? null : useModalLayoutOnSubmit ? (
+                                <ModalSubmit
+                                    isOpen={!!submitMsg}
+                                    submitting={submitting}
+                                    error={submitError}
+                                    successComponent={successComponent}
+                                    errorComponent={errorComponent}
+                                    errorMsg={submitMsg}
+                                />
+                            ) : (
+                                    <label style={submit(submitError)}>&nbsp;{submitting ? <Spinner size="3rem" /> : submitMsg}</label>
+                                )}
+                            {sendToBackend && <Button type="submit" cta={buttonName || "Enviar"} submitting={submitting} />}
+                        </>
+                    )}
             </div>
         </form>
     );
