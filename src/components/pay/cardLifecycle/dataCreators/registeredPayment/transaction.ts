@@ -2,6 +2,7 @@ import { GetCard, UnregisteredCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { CreditCardPayments } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
 import { getPercentages } from "../getPercentages";
 import { findPlanPercentages } from "@bit/vitorbarbosa19.ziro.split-rule";
+import { createThrowerOutsideZoop } from "../../utils/creatingThrowerOutsideZoop";
 
 export const transaction = async (
     installments: string,
@@ -56,6 +57,9 @@ export const transaction = async (
                 receivable: "ziroAntifraudFee",
             });*/
             }
+            if (percentageZiroMarkup === undefined || percentageZiroAntifraud === undefined) {
+                throw "ERROR_CREATING_SPLIT_OBJECT";
+            }
         } else {
             const _markupPercentage = parseFloat(`${sellerZoopPlan?.markup?.percentage}`);
             if (!Number.isNaN(_markupPercentage)) markupPercentage = _markupPercentage;
@@ -88,6 +92,14 @@ export const transaction = async (
         }
         return data;
     } catch (e) {
-        throw "ERROR_CREATING_SPLIT_OBJECT";
+        const FailureMessage = {
+            title: "Ocorreu um erro no pagamento",
+            userDescription: "Fique tranquilo, você não foi cobrado!",
+            userResolution: "Aconteceu um erro de split, contate o suporte!",
+            internalDescription: "ERROR_CREATING_SPLIT_OBJECT",
+            error: e,
+        };
+
+        throw createThrowerOutsideZoop(FailureMessage);
     }
 };
