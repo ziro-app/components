@@ -156,7 +156,8 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             if (paymentData.insurance) {
                 message = message
                     .set("title", "Pagamento pré-autorizado")
-                    .set("userDescription", "O pagamento foi pré autorizado pelo operador do cartão, logo será liberado.")
+                    .set("userDescription", "O pagamento foi pré autorizado. Em poucos instantes será aprovado. Acompanhe pelo menu de pagamentos.")
+                    .set("userResolution", `Na sua fatura aparecerá Zp *Ziro ${paymentData.seller}, pelo Rio de Janeiro`)
                     .withButtons([
                         {
                             title: "ver pagamentos",
@@ -167,23 +168,29 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
                     ]);
             } else {
                 if (zoopId) {
-                    message = message.withButtons([
-                        {
-                            title: "ver pagamentos",
-                            action: () => {
-                                setLocation("goLeft", "/pagamentos");
+                    message = message
+                        .set("userDescription", "O pagamento foi concluído")
+                        .set("userResolution", `Na sua fatura aparecerá Zp *Ziro ${paymentData.seller}, pelo Rio de Janeiro`)
+                        .withButtons([
+                            {
+                                title: "ver pagamentos",
+                                action: () => {
+                                    setLocation("goLeft", "/pagamentos");
+                                },
                             },
-                        },
-                    ]);
+                        ]);
                 } else {
-                    message = message.withButtons([
-                        {
-                            title: "ver recibo",
-                            action: () => {
-                                setLocation("goLeft", `/comprovante/${transaction.sales_receipt}`);
+                    message = message
+                        .set("userDescription", "O pagamento foi concluído")
+                        .set("userResolution", `Na sua fatura aparecerá Zp *Ziro ${paymentData.seller}, pelo Rio de Janeiro`)
+                        .withButtons([
+                            {
+                                title: "ver recibo",
+                                action: () => {
+                                    setLocation("goLeft", `/comprovante/${transaction.sales_receipt}`);
+                                },
                             },
-                        },
-                    ]);
+                        ]);
                 }
             }
             return message;
