@@ -3,6 +3,8 @@ import { CreditCardPayments } from "@bit/vitorbarbosa19.ziro.firebase.credit-car
 import { getPercentages } from "../getPercentages";
 import { findPlanPercentages } from "@bit/vitorbarbosa19.ziro.split-rule";
 import { createThrowerOutsideZoop } from "../../utils/creatingThrowerOutsideZoop";
+import { prompt } from "ziro-messages/dist/src/catalogo/pay/checkout";
+import * as Sentry from "@sentry/react";
 
 export const transaction = async (
     installments: string,
@@ -92,14 +94,19 @@ export const transaction = async (
         }
         return data;
     } catch (e) {
-        const FailureMessage = {
-            title: "Ocorreu um erro no pagamento",
-            userDescription: "Fique tranquilo, você não foi cobrado!",
-            userResolution: "Aconteceu um erro de split, contate o suporte!",
-            internalDescription: "ERROR_CREATING_SPLIT_OBJECT",
-            error: e,
-        };
+        const { title, userDescription, userResolution, internalDescription, illustration, name } = prompt.ERROR_CREATING_SPLIT_OBJECT;
 
+        const FailureMessage = {
+            title,
+            userDescription,
+            userResolution,
+            internalDescription,
+            error: e,
+            illustration,
+            name,
+        };
+        const error = prompt.ERROR_CREATING_SPLIT_OBJECT; //.withAdditionalData(data);
+        Sentry.captureException(error);
         throw createThrowerOutsideZoop(FailureMessage);
     }
 };
