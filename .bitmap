@@ -2604,7 +2604,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.105": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.106": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",
@@ -2709,11 +2709,6 @@
             {
                 "name": "formatDate.ts",
                 "relativePath": "src/components/pay/cardLifecycle/utils/formatDate.ts",
-                "test": false
-            },
-            {
-                "name": "creatingThrowerOutsideZoop.ts",
-                "relativePath": "src/components/pay/cardLifecycle/utils/creatingThrowerOutsideZoop.ts",
                 "test": false
             },
             {
