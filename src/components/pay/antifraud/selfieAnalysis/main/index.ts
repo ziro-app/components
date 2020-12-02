@@ -3,10 +3,11 @@ import {
     useUploadFirebaseCardPicture,
 } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
-import { biometry as nextcode, is } from "@bit/vitorbarbosa19.ziro.pay.next-code";
+import { biometry as nextCodeBiometry, is } from "@bit/vitorbarbosa19.ziro.pay.next-code";
+import { docClassify as nextCodeDocClassify, is as isV2 } from '../../../NextCodeV2'
 import { usePromiseShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
 import { biometry, common } from "ziro-messages/dist/src/catalogo/antifraude";
-import { isPrompt } from "ziro-messages";
+import { isPrompt, ZiroPromptMessage } from "ziro-messages";
 import { validator, processResults } from "./validator";
 import { approvalType } from "./approvalType";
 import { UseBiometry } from "./types";
@@ -53,7 +54,14 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                     if ("RG F" in firebaseData) docUrl = firebaseData["RG F"].url;
                     if ("RG FV" in firebaseData) docUrl = firebaseData["RG FV"].url;
                 }
-                const response = await nextcode(docUrl, url, source.token);
+
+                const docType = await nextCodeDocClassify(url);
+                if (isV2.DocType(docType)) {
+                    if (docType.data[0].classification.type !== "SELFIE" && docType.data.length === 1)
+                        throw biometry.prompt.DOC_INSTEAD_SELFIE
+                }
+                
+                const response = await nextCodeBiometry(docUrl, url, source.token);
                 if (!is.Biometry(response))
                     throw biometry.prompt.UNRECOGNIZED_RESPONSE.withAdditionalData({ response, url });
 
