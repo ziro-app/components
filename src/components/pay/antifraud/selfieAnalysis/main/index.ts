@@ -56,19 +56,9 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                 }
 
                 const docType = await nextCodeDocClassify(url);
-                if (isV2.DocType(docType.data[0].classification)) {
+                if (isV2.DocType(docType)) {
                     if (docType.data[0].classification.type !== "SELFIE" && docType.data.length === 1)
-                        throw new ZiroPromptMessage({
-                            title: "A foto enviada não é uma selfie",
-                            code: "10000",
-                            userDescription: "Nesta etapa deve-se enviar uma selfie do titular do cartão.",
-                            userResolution: "A foto do documento não é permitida.",
-                            illustration: "paymentError",
-                            type: "destructive",
-                            internalDescription: "usuário nao enviou selfie",
-                            additionalData: undefined,
-                            name: "NO_SELFIE_SENT",
-                        })
+                        throw biometry.prompt.DOC_INSTEAD_SELFIE
                 }
                 
                 const response = await nextCodeBiometry(docUrl, url, source.token);
