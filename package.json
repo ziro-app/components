@@ -117,7 +117,7 @@
     "recoil": "0.0.10",
     "webfontloader": "^1.6.28",
     "wouter": "^2.5.0",
-    "ziro-messages": "0.0.69"
+    "ziro-messages": "0.0.81"
   },
   "bit": {
     "env": {
