@@ -570,6 +570,46 @@
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
         }
       },
+      "pay/next-code-v2": {
+        "env": {
+          "compiler": {
+            "vitorbarbosa19.ziro/compilers/react-typescript": {
+              "rawConfig": {
+                "tsconfig": {
+                  "compilerOptions": {
+                    "outDir": "./dist/src/components/pay/NextCodeV2",
+                    "target": "ES5",
+                    "module": "CommonJS",
+                    "skipLibCheck": true,
+                    "lib": [
+                      "dom",
+                      "dom.iterable",
+                      "esnext"
+                    ],
+                    "inlineSources": true,
+                    "inlineSourceMap": true,
+                    "removeComments": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "axios": "-",
+          "ziro-messages": "-",
+          "@sentry/react": "-",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "-",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "-"
+        },
+        "peerDependencies": {
+          "axios": "0.20.x",
+          "ziro-messages": "0.0.x",
+          "@sentry/react": "5.20.x",
+          "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
+          "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
+        }
+      },
       "pay/zoop": {
         "env": {
           "compiler": {
