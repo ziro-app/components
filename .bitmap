@@ -2247,7 +2247,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.74": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.75": {
         "files": [
             {
                 "name": "index.ts",
@@ -2763,6 +2763,48 @@
             }
         ],
         "mainFile": "src/components/pay/cardLifecycle/index.ts",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "vitorbarbosa19.ziro/pay/next-code-v2@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/pay/NextCodeV2/constansts.ts",
+                "test": false,
+                "name": "constansts.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCodeV2/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCodeV2/interceptors.ts",
+                "test": false,
+                "name": "interceptors.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCodeV2/types/DocType/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCodeV2/types/DocType/response.ts",
+                "test": false,
+                "name": "response.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCodeV2/types/index.ts",
+                "test": false,
+                "name": "index.ts"
+            },
+            {
+                "relativePath": "src/components/pay/NextCodeV2/types/typeChecks.ts",
+                "test": false,
+                "name": "typeChecks.ts"
+            }
+        ],
+        "mainFile": "src/components/pay/NextCodeV2/index.ts",
         "origin": "AUTHORED",
         "exported": true
     },
