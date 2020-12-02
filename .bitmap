@@ -2247,7 +2247,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.75": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.76": {
         "files": [
             {
                 "name": "index.ts",

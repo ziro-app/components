@@ -4,10 +4,10 @@ import {
 } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { biometry as nextCodeBiometry, is } from "@bit/vitorbarbosa19.ziro.pay.next-code";
-import { docClassify as nextCodeDocClassify, is as isV2 } from '../../../NextCodeV2'
+import { docClassify as nextCodeDocClassify, is as isV2 } from '@bit/vitorbarbosa19.ziro.pay.next-code-v2'
 import { usePromiseShowingMessage } from "@bit/vitorbarbosa19.ziro.utils.async-hooks";
 import { biometry, common } from "ziro-messages/dist/src/catalogo/antifraude";
-import { isPrompt, ZiroPromptMessage } from "ziro-messages";
+import { isPrompt } from "ziro-messages";
 import { validator, processResults } from "./validator";
 import { approvalType } from "./approvalType";
 import { UseBiometry } from "./types";
