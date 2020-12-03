@@ -3032,7 +3032,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/score-circle@0.0.13": {
+    "vitorbarbosa19.ziro/score-circle@0.0.14": {
         "files": [
             {
                 "name": "Range.js",

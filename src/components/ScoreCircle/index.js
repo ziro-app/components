@@ -6,18 +6,19 @@ import { container, scoreValue, scoreText } from './styles'
 
 const ScoreCircle = props => {
   const { value, maxValue, width, stepsColors } = props
+  const fixedValue = value > maxValue ? maxValue : value;
   const stepRange = maxValue / stepsColors.length
-  const currentStep = Math.ceil((value + 1) / stepRange)
+  const currentStep = Math.ceil((fixedValue + 1) / stepRange)
   const scoreValuePosition = (165 * width) / 230
   const scoreValueColor = getCurrentColor(currentStep, stepsColors)
   const valueSize = (36 * width) / 230
   const maxValueSize = (18 * width) / 230
-  const classification = value <= 299 ? 'Baixo Score' : (value >= 300 && value <= 699) ? 'Médio Score' : 'Bom Score'
+  const classification = fixedValue <= 299 ? 'Baixo Score' : (fixedValue >= 300 && fixedValue <= 699) ? 'Médio Score' : 'Bom Score'
   return (
     <div style={container}>
       <Range scoreNumber={Number(currentStep)} {...props} />
       <div style={scoreValue(scoreValuePosition, scoreValueColor)}>
-        <span style={{ fontSize: valueSize }}>{value}</span>
+        <span style={{ fontSize: valueSize }}>{fixedValue}</span>
         <span style={{ fontSize: maxValueSize }}>/</span>
         <span style={{ fontSize: maxValueSize }}>{maxValue}</span>
         <label style={scoreText(scoreValueColor)}>{classification}</label>

@@ -5,7 +5,7 @@ const Range = props => {
   const canvasRef = useRef(null)
   useEffect(() => {
     drawCanvas(canvasRef, props)
-  }, [])
+  }, [props])
   return (
     <canvas
       ref={canvasRef}
