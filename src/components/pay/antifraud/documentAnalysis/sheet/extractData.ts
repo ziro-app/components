@@ -14,7 +14,7 @@ function extractFromFirebaseCard(firebaseData: FirebaseCard.Generic): ReturnFire
             case "pendingRGF": {
                 arr[0] = firebaseData.extracted.dataNascimento;
                 arr[1] = firebaseData.extracted.rg;
-                arr[2] = firebaseData.extracted.cpf;
+                arr[2] = formatCPF(firebaseData.extracted.cpf);
                 arr[4] = firebaseData.extracted.nomeMae;
                 arr[5] = firebaseData.extracted.nome;
                 arr[6] = "RG";
