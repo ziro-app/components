@@ -3,8 +3,8 @@
  * @param str a string contendo uma data
  */
 export function dateFromString(str: string): number {
-    const [day,month,year] = str.split("/").map(parseInt)
-    return new Date(year, month-1, day).getTime()
+    const [day, month, year] = str.split("/").map((i) => parseInt(i));
+    return new Date(year, month - 1, day).getTime();
 }
 
 /**
@@ -12,6 +12,6 @@ export function dateFromString(str: string): number {
  * @param years o thrsehold em anos
  */
 export function dateFromThreshold(years: number): number {
-    const today = new Date()
-    return today.setFullYear(today.getFullYear()-years)
+    const today = new Date();
+    return today.setFullYear(today.getFullYear() - years);
 }

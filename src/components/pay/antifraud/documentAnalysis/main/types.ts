@@ -11,10 +11,7 @@ export * from "./validator";
 /**
  * Errors that will throw inside useFullOCR
  */
-type UnknownDocumentError = FullOCRPromptMessage<
-    "UNKNOWN_DOCUMENT_TYPE",
-    { response: FullOCR.Response.UnknownDocument; url: string }
->;
+type UnknownDocumentError = FullOCRPromptMessage<"UNKNOWN_DOCUMENT_TYPE", { response: FullOCR.Response.UnknownDocument; url: string }>;
 type SelfieError = FullOCRPromptMessage<"SELFIE_TYPE", { response: FullOCR.Response.Selfie; url: string }>;
 type UnrecognizedResponseError = FullOCRPromptMessage<"UNRECOGNIZED_RESPONSE", { response: any; url: string }>;
 type NoImageError = CommonPromptMessage<"NO_IMAGE", { where: string }>;
@@ -42,19 +39,15 @@ export namespace UseFullOCR {
      */
     export interface ClassResult<Response extends KnownDocument = KnownDocument> {
         validations: ClassResultsCollection;
-        response: Response extends RGF | RGFV | CNHF | CNHFV
-            ? Replace<Response, "face", FullOCR.Face.Success>
-            : Response;
+        response: Response extends RGF | RGFV | CNHF | CNHFV ? Replace<Response, "face", FullOCR.Face.Success> : Response;
         url: string;
     }
     /**
      * callback data result
      */
     export interface DataResult<Response extends KnownDocument = KnownDocument> {
-        validations: DataResultsCollection;
-        response: Response extends RGF | RGFV | CNHF | CNHFV
-            ? Replace<Response, "face", FullOCR.Face.Success>
-            : Response;
+        validations: Partial<DataResultsCollection>;
+        response: Response extends RGF | RGFV | CNHF | CNHFV ? Replace<Response, "face", FullOCR.Face.Success> : Response;
         url: string;
     }
     /**
@@ -69,8 +62,7 @@ export namespace UseFullOCR {
     export function transformResult<R extends ClassResult>(result: R): ClassToData<R> {
         const { validations: v, ...rest } = result;
         const validations = Object.entries(v).reduce((acc, [vName, vResult]) => {
-            const result =
-                vResult.passed === true ? { passed: true } : { passed: false, reason: vResult.reason.getData() };
+            const result = vResult.passed === true ? { passed: true } : { passed: false, reason: vResult.reason.getData() };
             return { ...acc, [vName]: result };
         }, {});
         return { ...rest, validations } as any;
@@ -90,10 +82,7 @@ export namespace UseFullOCR {
      * @param obj dataResult object
      * @param checker function to check which type
      */
-    export function discriminator<R extends KnownDocument>(
-        obj: DataResult,
-        checker: (obj: any) => obj is R,
-    ): obj is DataResult<R> {
+    export function discriminator<R extends KnownDocument>(obj: DataResult, checker: (obj: any) => obj is R): obj is DataResult<R> {
         return checker(obj.response);
     }
     /**
@@ -113,11 +102,7 @@ export namespace UseFullOCR {
      */
     export namespace Errors {
         export type WithKnownResponse = ReasonsThatShouldThrow;
-        export type WithResponse =
-            | ReasonsThatShouldThrow
-            | UnknownDocumentError
-            | SelfieError
-            | UnrecognizedResponseError;
+        export type WithResponse = ReasonsThatShouldThrow | UnknownDocumentError | SelfieError | UnrecognizedResponseError;
         export type Generic = WithResponse | NoImageError | TooManyAttemptsError | CannotUploadPictureError;
         /**
          * TypeChecks

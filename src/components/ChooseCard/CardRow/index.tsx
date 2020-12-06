@@ -25,9 +25,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ shouldShowStatus = false, rightButt
             ) : (
                 <Placeholder width="100%" height={20} />
             )}
-            {zoopCard && shouldShowStatus && (
-                <label style={status}>{portugueseStatus[firebaseCardData?.status] || ""}</label>
-            )}
+            {zoopCard && shouldShowStatus && <label style={status}>{portugueseStatus[firebaseCardData?.status] || ""}</label>}
         </div>
         {rightButton && (
             <div style={button} onClick={rightButton.onClick}>
@@ -37,14 +35,9 @@ const Skeleton: React.FC<SkeletonProps> = ({ shouldShowStatus = false, rightButt
     </div>
 );
 
-const StatefulCardRow: React.FC<CardRowProps> = ({
-    zoopAtom,
-    firebaseCard,
-    onClick,
-    selected = false,
-    rightButton,
-    shouldShowStatus,
-}) => {
+Skeleton.displayName = "CardRowSkeleton";
+
+const StatefulCardRow: React.FC<CardRowProps> = ({ zoopAtom, firebaseCard, onClick, selected = false, rightButton, shouldShowStatus }) => {
     const zoopCard = useRecoilValue(zoopAtom(firebaseCard.id));
     const firebaseCardData = useMemo(() => firebaseCard.data(), [firebaseCard]);
     const animate = useMemo(() => (selected === firebaseCard.id ? invisible : visible), [selected]);
@@ -66,15 +59,12 @@ const StatefulCardRow: React.FC<CardRowProps> = ({
     );
     return (
         <motion.div initial={initial} animate={animate} onClick={_onClick} whileTap={whileTap}>
-            <Skeleton
-                zoopCard={zoopCard}
-                firebaseCardData={firebaseCardData}
-                rightButton={_rightButton}
-                shouldShowStatus={shouldShowStatus}
-            />
+            <Skeleton zoopCard={zoopCard} firebaseCardData={firebaseCardData} rightButton={_rightButton} shouldShowStatus={shouldShowStatus} />
         </motion.div>
     );
 };
+
+StatefulCardRow.displayName = "StatefulCardRow";
 
 export const CardRow = React.memo<CardRowProps>((props) => {
     const suspenseRightButton = useMemo<SkeletonProps["rightButton"]>(
@@ -93,3 +83,5 @@ export const CardRow = React.memo<CardRowProps>((props) => {
         </Suspense>
     );
 });
+
+CardRow.displayName = "CardRow";

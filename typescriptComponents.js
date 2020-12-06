@@ -68,6 +68,9 @@ const constructComponentObject = (path) => {
     const deps = {
         dependencies: {},
         peerDependencies: {},
+        devDependencies: {
+            "@types/jest": "+",
+        },
     };
     fileDependencies.forEach((dep) => {
         let version = "+";

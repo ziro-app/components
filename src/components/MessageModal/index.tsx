@@ -51,12 +51,7 @@ const MessageModal: React.FC<Props> = ({
                     <div style={container}>
                         <motion.div key="overlay" style={overlay} onClick={onOverlayClick} {...overlayConfig} />
                         <motion.div key="box" style={box} {...boxConfig}>
-                            <Modal
-                                message={message}
-                                onButtonClick={onButtonClick}
-                                reactfire={reactfire}
-                                setMessage={setMessage}
-                            />
+                            <Modal message={message} onButtonClick={onButtonClick} reactfire={reactfire} setMessage={setMessage} />
                         </motion.div>
                         <style>{disableScroll}</style>
                     </div>
@@ -88,5 +83,7 @@ export function useMessagePromise() {
         [setMessage],
     );
 }
+
+MessageModal.displayName = "MessageModal";
 
 export default MessageModal;

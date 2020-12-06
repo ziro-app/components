@@ -12,3 +12,5 @@ export const AddCard = React.memo<AddCardProps>(({ onClick, color = primaryColor
         <h2 style={{ ...cardNumber, color }}>Adicionar novo cartão</h2>
     </motion.div>
 ));
+
+AddCard.displayName = "AddCard";

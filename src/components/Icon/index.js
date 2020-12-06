@@ -59,16 +59,16 @@ import { Link } from "./../../Icons/Link/index";
 import { Circle } from "./../../Icons/Circle/index";
 import { CircleChecked } from "./../../Icons/CircleChecked/index";
 import { Rocket } from "./../../Icons/Rocket/index";
-import { NoFlash } from "./../../Icons/NoFlash/index"
-import { Sun } from "./../../Icons/Sun/index"
-import { HappyEmoji } from "./../../Icons/HappyEmoji/index"
-import { Document } from "./../../Icons/Document/index"
-import { DocumentTwo } from "./../../Icons/DocumentTwo/index"
-import { PersonalDocument } from "./../../Icons/PersonalDocument/index"
-import { Magnifier } from "./../../Icons/Magnifier/index"
-import { ShadowFace } from "./../../Icons/ShadowFace/index"
-import { NoAccessories } from "./../../Icons/NoAccessories/index"
-import { NoBackground } from "./../../Icons/NoBackground/index"
+import { NoFlash } from "./../../Icons/NoFlash/index";
+import { Sun } from "./../../Icons/Sun/index";
+import { HappyEmoji } from "./../../Icons/HappyEmoji/index";
+import { Document } from "./../../Icons/Document/index";
+import { DocumentTwo } from "./../../Icons/DocumentTwo/index";
+import { PersonalDocument } from "./../../Icons/PersonalDocument/index";
+import { Magnifier } from "./../../Icons/Magnifier/index";
+import { ShadowFace } from "./../../Icons/ShadowFace/index";
+import { NoAccessories } from "./../../Icons/NoAccessories/index";
+import { NoBackground } from "./../../Icons/NoBackground/index";
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     const iconProps = { style, onClick, size, color, strokeWidth, fill };
@@ -155,6 +155,7 @@ Icon.propTypes = {
     size: PropTypes.number,
     color: PropTypes.string,
     strokeWidth: PropTypes.number,
+    fill: PropTypes.bool,
 };
 
 export default Icon;

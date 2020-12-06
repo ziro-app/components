@@ -21,10 +21,16 @@ export type NameReason =
  */
 export const name: Validation.Function<never, NameReason> = (_firebaseData, { holder_name }, response) => {
     if (is.RG.Frente(response) || is.CNH.Verso(response)) return { passed: "dontApply" };
+    if (!("extracted" in response)) return { passed: false, reason: cprompt.MISSING_EXTRACTED_DATA };
+    if (!holder_name) return { passed: false, reason: cprompt.MISSING_EXTRACTED_DATA };
     const docName = is.BackgroundCheck(response) ? response.found.name : response.extracted.nome;
     if (docName === "") return { passed: false, reason: cprompt.MISSING_EXTRACTED_DATA };
-    const [matchFirstName, matchLastName] = match(holder_name, docName);
-    if (!matchFirstName) return { passed: false, reason: prompt.FIRST_NAME_MISMATCH.withAdditionalData({ holder_name, docName }) };
-    if (!matchLastName) return { passed: false, reason: prompt.LAST_NAME_MISMATCH.withAdditionalData({ holder_name, docName }) };
-    return { passed: true };
+    try {
+        const [matchFirstName, matchLastName] = match(holder_name, docName);
+        if (!matchFirstName) return { passed: false, reason: prompt.FIRST_NAME_MISMATCH.withAdditionalData({ holder_name, docName }) };
+        if (!matchLastName) return { passed: false, reason: prompt.LAST_NAME_MISMATCH.withAdditionalData({ holder_name, docName }) };
+        return { passed: true };
+    } catch {
+        return { passed: false, reason: cprompt.MISSING_EXTRACTED_DATA };
+    }
 };

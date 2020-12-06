@@ -27,6 +27,7 @@ const setEnv = (path) => ({
             },
         },
     },
+    tester: "bit.envs/testers/jest",
 });
 
 tsconfigJson.compilerOptions.paths = {};
