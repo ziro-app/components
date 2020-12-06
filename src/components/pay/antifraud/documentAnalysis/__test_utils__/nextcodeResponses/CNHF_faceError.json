@@ -1,0 +1,54 @@
+{
+    "passedOn": { "cpf": true, "name": true, "birthdate": true, "mothersName": true },
+    "found": { "cpf": "11111111111", "name": "NOME", "birthdate": "12/02/1975", "mothersName": "NOME_MAE" },
+    "fieldScores": {
+        "name": { "score1": 1, "score2": 0, "matched": true },
+        "birthdate": { "score1": 0.15789473684210525, "score2": 0, "matched": true },
+        "mothersName": { "score1": 1, "score2": 0, "matched": true }
+    },
+    "extracted": {
+        "cpf": "11111111111",
+        "nome": "NOME",
+        "nomeMae": "NOME_MAE",
+        "dataNascimento": "12/02/1975",
+        "nomePai": "NOME_PAI",
+        "rg": "2222222-2",
+        "emissor": "",
+        "local": "",
+        "dataEmissao": "",
+        "dataPrimeiraHabilitacao": "18/05/1993",
+        "dataValidade": "26/04/2023",
+        "renach": "",
+        "controle": "02819448577",
+        "registro": "02819448577",
+        "categoria": "AB",
+        "observacoes": "",
+        "documentType": "cnh"
+    },
+    "face": { "error": { "code": "consumer_error", "subject": "PRODUCAO|FACE_ANALYZER", "message": "extract_area: bad extract area\n" } },
+    "fileInfo": {
+        "originalname": "antifraude%2F703166934e5c45738ee7da41f461e12b%2Fcki7h0jf000033v6bk0372lr8",
+        "size": 4872816,
+        "width": 1125,
+        "height": 2436,
+        "md5": "0e1d7ac423126727b2828a158c51a143",
+        "extension": "png",
+        "classifiedAs": { "probability": 0.9999286, "tagName": "CNH F" }
+    },
+    "stats": {
+        "beginAt": 1606917210065,
+        "beginUploadAt": 1606917210072,
+        "endUploadAt": 1606917210396,
+        "beginProcessingAt": 1606917210396,
+        "endAt": 1606917223175,
+        "totalInSeconds": 13.11,
+        "uploadInSeconds": 0.331,
+        "analysisInSeconds": 12.779
+    },
+    "requestId": "a4f70863-be1e-43e5-a1eb-a08c1d72845c",
+    "attempt": 1,
+    "refresh": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWUyN2NiODU5YmM5NjBlOTk2ZTNmMzIiLCJuZXh0SUQiOnsiaWRFbmFibGVkIjp0cnVlLCJhZGRyZXNzRW5hYmxlZCI6ZmFsc2V9LCJmYWNlQ29tcGFyZSI6eyJlbmFibGVkIjp0cnVlfSwibmV4dERhdGEiOnsiZW5hYmxlZCI6ZmFsc2V9LCJwcm9maWxlSW1hZ2UiOiJwcm9maWxlLmpwZyIsImVtYWlsVmVyaWZpZWQiOnRydWUsInJvbGUiOiJmIiwibWludXRlc1RvRXhwaXJlU2Vzc2lvbiI6NjAsIm5hbWUiOiJQcm9kdcOnw6NvIC0gWmlybyBOZWfDs2Npb3MgRGlnaXRhaXMiLCJlbWFpbCI6InZpdG9yYmFyYm9zYTE5QGdtYWlsLmNvbSIsImlhdCI6MTYwNjkxNzIxMCwiZXhwIjoxNjA2OTIwODEwfQ.LbJclvf6Qc7mBawCSQ7PFXWMzITBHv_oR0M65AwMRso",
+        "exp": 1606920810
+    }
+}

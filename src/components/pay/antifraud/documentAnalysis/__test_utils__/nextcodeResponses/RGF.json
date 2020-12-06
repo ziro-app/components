@@ -1,0 +1,33 @@
+{
+    "face": {
+        "faceRectangle": { "top": 478, "left": 760, "width": 396, "height": 613 },
+        "age": 28,
+        "gender": "male",
+        "croppedFaceBase64": ""
+    },
+    "fileInfo": {
+        "originalname": "antifraude%2F703166934e5c45738ee7da41f461e12b%2Fcki7gsx3b00003v6bhvd5k70k",
+        "size": 1623843,
+        "width": 2448,
+        "height": 3264,
+        "md5": "f30c8d747e4bb696b72b7df8f3cefcc7",
+        "extension": "jpg",
+        "classifiedAs": { "probability": 0.9978928, "tagName": "RG F" }
+    },
+    "stats": {
+        "beginAt": 1606916852764,
+        "beginUploadAt": 1606916852770,
+        "endUploadAt": 1606916853079,
+        "beginProcessingAt": 1606916853079,
+        "endAt": 1606916861197,
+        "totalInSeconds": 8.433,
+        "uploadInSeconds": 0.315,
+        "analysisInSeconds": 8.118
+    },
+    "requestId": "63161575-5e3e-4af8-a93c-1f5ca0c1f557",
+    "attempt": 1,
+    "refresh": {
+        "token": "",
+        "exp": 1606920453
+    }
+}

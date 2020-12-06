@@ -1,0 +1,33 @@
+{
+    "face": {
+        "faceRectangle": { "top": 307, "left": 192, "width": 96, "height": 130 },
+        "age": 38,
+        "gender": "female",
+        "croppedFaceBase64": ""
+    },
+    "fileInfo": {
+        "originalname": "antifraude%2F703166934e5c45738ee7da41f461e12b%2Fcki7h4tqv00053v6b3h6u5a4n",
+        "size": 119677,
+        "width": 720,
+        "height": 1280,
+        "md5": "2e3a88a97b0af2d2a3aa501bc2b1d7b1",
+        "extension": "jpg",
+        "classifiedAs": { "probability": 0.91462624, "tagName": "COMPRES" }
+    },
+    "stats": {
+        "beginAt": 1606917414086,
+        "beginUploadAt": 1606917414093,
+        "endUploadAt": 1606917414258,
+        "beginProcessingAt": 1606917414258,
+        "endAt": 1606917418883,
+        "totalInSeconds": 4.797,
+        "uploadInSeconds": 0.172,
+        "analysisInSeconds": 4.625
+    },
+    "requestId": "54640c4c-5c1b-4978-8dd3-7004017ac31b",
+    "attempt": 1,
+    "refresh": {
+        "token": "",
+        "exp": 1606921014
+    }
+}

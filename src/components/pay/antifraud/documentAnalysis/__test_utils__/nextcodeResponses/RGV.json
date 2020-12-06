@@ -1,0 +1,46 @@
+{
+    "passedOn": { "cpf": true, "name": true, "birthdate": true, "mothersName": true },
+    "found": { "cpf": "11111111111", "name": "NOME", "birthdate": "06/07/1995", "mothersName": "NOME_MAE" },
+    "fieldScores": {
+        "name": { "score1": 0.8, "score2": 0, "matched": true },
+        "birthdate": { "score1": 0.1, "score2": 0, "matched": true },
+        "mothersName": { "score1": 1, "score2": 0, "matched": true }
+    },
+    "extracted": {
+        "cpf": "11111111111",
+        "nome": "NOME",
+        "nomeMae": "NOME_MAE",
+        "dataNascimento": "06/07/1995",
+        "rg": "11.111.111-1",
+        "nomePai": "NOME_PAI",
+        "origem": "CAETANO PAULO FILHO",
+        "dataExpedicao": "19/12/2016",
+        "naturalidade": "CAMPO MOURAO-PR",
+        "documentType": "rg"
+    },
+    "fileInfo": {
+        "originalname": "antifraude%2F703166934e5c45738ee7da41f461e12b%2Fcki7gurvs00013v6bkpulkhus",
+        "size": 1375393,
+        "width": 3264,
+        "height": 2448,
+        "md5": "9779af77d118a053b9b883c2c6190780",
+        "extension": "jpg",
+        "classifiedAs": { "probability": 0.99787486, "tagName": "RG V" }
+    },
+    "stats": {
+        "beginAt": 1606917013802,
+        "beginUploadAt": 1606917013809,
+        "endUploadAt": 1606917014026,
+        "beginProcessingAt": 1606917014026,
+        "endAt": 1606917024623,
+        "totalInSeconds": 10.821,
+        "uploadInSeconds": 0.224,
+        "analysisInSeconds": 10.597
+    },
+    "requestId": "d8997271-1791-4568-818b-98d1fea9f039",
+    "attempt": 1,
+    "refresh": {
+        "token": "",
+        "exp": 1606920614
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "passedOn": { "cpf": true, "name": true, "birthdate": true, "mothersName": true },
+    "found": {
+        "cpf": "11111111111",
+        "name": "NOME",
+        "birthdate": "13/03/1976",
+        "mothersName": "NOME_MAE"
+    },
+    "fieldScores": {
+        "name": { "score1": 0.8421052631578947, "score2": 0, "matched": true },
+        "birthdate": { "score1": 0.15789473684210525, "score2": 0, "matched": true },
+        "mothersName": { "score1": 0.8148148148148148, "score2": 1, "matched": true }
+    },
+    "extracted": {
+        "cpf": "11111111111",
+        "nome": "NOME",
+        "nomeMae": "NOME_MAE",
+        "dataNascimento": "01/01/1991",
+        "nomePai": "NOME_PAI",
+        "rg": "222222222",
+        "emissor": "SSP/SP",
+        "local": "PIRACICABA SP",
+        "dataEmissao": "12/09/2016",
+        "dataPrimeiraHabilitacao": "05/01/1995",
+        "dataValidade": "12/09/2021",
+        "renach": "SP0000000",
+        "controle": "000000",
+        "registro": "000000000",
+        "categoria": "B",
+        "observacoes": "",
+        "documentType": "cnh"
+    },
+    "face": {
+        "faceRectangle": { "top": 352, "left": 387, "width": 99, "height": 113 },
+        "age": 28,
+        "gender": "female",
+        "croppedFaceBase64": ""
+    },
+    "fileInfo": {
+        "originalname": "antifraude%2F703166934e5c45738ee7da41f461e12b%2Fcki7gyif600023v6bck1sbwt9",
+        "size": 203812,
+        "width": 960,
+        "height": 1280,
+        "md5": "6e4ce747af38910bae40d2469f84af78",
+        "extension": "jpg",
+        "classifiedAs": { "probability": 0.999995, "tagName": "CNH FV" }
+    },
+    "stats": {
+        "beginAt": 1606917111719,
+        "beginUploadAt": 1606917111727,
+        "endUploadAt": 1606917111929,
+        "beginProcessingAt": 1606917111929,
+        "endAt": 1606917124091,
+        "totalInSeconds": 12.372,
+        "uploadInSeconds": 0.21,
+        "analysisInSeconds": 12.162
+    },
+    "requestId": "ee8de1ed-38fc-4235-9d1c-22b79f0d976e",
+    "attempt": 1,
+    "refresh": {
+        "token": "",
+        "exp": 1606920711
+    }
+}
