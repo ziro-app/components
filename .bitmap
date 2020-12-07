@@ -2242,7 +2242,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.79": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.80": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/createRandom.ts",

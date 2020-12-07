@@ -77,7 +77,7 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                 //update user status
                 if (user.data().status !== "paid") await user.ref.update({ status: "docAdded" });
                 //on success
-                onSuccessRef?.current(newData);
+                onSuccessRef.current?.(newData);
             } catch (error) {
                 try {
                     //save error to sheet
@@ -87,13 +87,14 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                         const devValues = createDevSheetData(fbCard, zoopCard, error, storeowner);
                         await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
                     }
+                    if (!isPrompt(error)) Sentry.captureException(error);
                     //send whats
                     await sendWhats(createWhatsData(recipients, storeowner, error));
+                    onErrorRef.current?.(error);
                 } catch (e) {
                     //send error to sentry
                     Sentry.captureException(e);
                 }
-                onErrorRef?.current(error);
                 if (!isPrompt(error)) throw error;
                 switch (error.code) {
                     case common.prompt.TOO_MANY_ATTEMPTS.code: {
