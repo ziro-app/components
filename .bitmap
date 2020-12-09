@@ -2141,7 +2141,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/message-modal@0.0.61": {
+    "vitorbarbosa19.ziro/message-modal@0.0.62": {
         "files": [
             {
                 "name": "Modals.tsx",

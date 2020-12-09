@@ -11,7 +11,6 @@ import { defaultProp } from "./defaults";
 import { container, title, svg, buttonsContainer, supportButton } from "./modalStyle";
 import { Message, PMessage, WMessage } from "./types";
 import { usePerformance, useAnalytics } from "reactfire";
-import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 type CP = {
     message: Message;
@@ -41,7 +40,7 @@ const Common: React.FC<CP> = ({ message }) => {
 type BP = {
     message: PMessage;
     reactfire: boolean;
-    onButtonClick: (button: "first" | "second") => void;
+    onButtonClick: (button: "first" | "second" | "support") => void;
 };
 
 const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) => {
@@ -57,8 +56,8 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) =
         return [false, "singleButton"];
     }, [message]);
 
-    const [clickFirst, clickSecond] = React.useMemo(
-        () => [() => onButtonClick("first"), () => onButtonClick("second")],
+    const [clickFirst, clickSecond, clickSupport] = React.useMemo(
+        () => [() => onButtonClick("first"), () => onButtonClick("second"), () => onButtonClick("support")],
         [onButtonClick],
     );
 
@@ -70,18 +69,14 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) =
     return (
         <motion.div key={buttonsContainerKey} {...defaultProp} style={buttonsContainer(second)}>
             <Button type="button" click={clickFirst} cta={cta} />
-            {message.secondButton && (
-                <Button type="button" click={clickSecond} cta={message.secondButton.title} template="light" />
-            )}
+            {message.secondButton && <Button type="button" click={clickSecond} cta={message.secondButton.title} template="light" />}
             {message.supportButton && (
                 <Button
-                style={supportButton}
-                type="link"
-                cta="Falar com Suporte"
-                navigate={() =>
-                    window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
-                }
-            />
+                    style={supportButton}
+                    type="link"
+                    cta={message.supportButton === true ? "Falar com Suporte" : message.supportButton.title}
+                    navigate={clickSupport}
+                />
             )}
         </motion.div>
     );
@@ -137,9 +132,7 @@ const Modal: React.FC<P> = ({ message, onButtonClick, reactfire, setMessage }) =
     return (
         <div style={container}>
             <Common message={message} />
-            {isPrompt(message) && (
-                <ButtonsContainer message={message} onButtonClick={onButtonClick} reactfire={reactfire} />
-            )}
+            {isPrompt(message) && <ButtonsContainer message={message} onButtonClick={onButtonClick} reactfire={reactfire} />}
             {isWaiting(message) && <SpinnerContainer message={message} reactfire={reactfire} setMessage={setMessage} />}
         </div>
     );

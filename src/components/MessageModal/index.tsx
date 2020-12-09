@@ -4,8 +4,12 @@ import { isPrompt, isWaiting, ZiroPromptMessage } from "ziro-messages";
 import { container, disableScroll, overlay, box } from "./styles";
 import { Props, Message, Rejecter } from "./types";
 import { MessagesContext, defaultProps } from "./defaults";
+//@ts-ignore
+import { supportPhoneNumber } from "@bit/vitorbarbosa19.ziro.utils.support-phone-number";
 
 import Modal from "./Modals";
+
+const supportAction = () => window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank");
 
 const MessageModal: React.FC<Props> = ({
     children,
@@ -17,12 +21,18 @@ const MessageModal: React.FC<Props> = ({
     const [, setReject] = React.useState<Rejecter | null>(null);
 
     const onButtonClick = React.useCallback(
-        (button: "first" | "second") => {
+        (button: "first" | "second" | "support") => {
             setMessage((currentMessage) => {
                 if (isPrompt(currentMessage)) {
                     setReject(null);
-                    if (button === "first") return currentMessage.firstButton?.action() ?? null;
-                    if (button === "second") return currentMessage.secondButton?.action() ?? null;
+                    let ret: any = null;
+                    if (button === "first") ret = currentMessage.firstButton?.action();
+                    if (button === "second") ret = currentMessage.secondButton?.action();
+                    if (button === "support" && currentMessage.supportButton) {
+                        if (currentMessage.supportButton === true) ret = supportAction();
+                        else ret = currentMessage.supportButton.action();
+                    }
+                    if (isPrompt(ret) || isWaiting(ret)) return ret;
                 }
                 return null;
             });
