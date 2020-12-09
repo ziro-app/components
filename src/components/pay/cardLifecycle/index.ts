@@ -61,7 +61,7 @@ export const useDeleteCard = () => {
 /**
  * Esse hook retorna um callback para registrar um cartão
  */
-export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
+export const useRegisterCard = (onSuccess: (data: { card_id: string; transaction: boolean }) => void) => {
     const source = useCancelToken();
     const onSuccessRef = useRef(onSuccess);
     onSuccessRef.current = onSuccess;
@@ -86,7 +86,7 @@ export const useRegisterCard = (onSuccess: (card_id: string) => void) => {
                     .doc(card_id)
                     .set(creator.firebaseCardData(timestamp, transaction))
                     .catch(errorThrowers.saveFirestore("register-card"));
-                onSuccessRef.current(card_id);
+                onSuccessRef.current({ card_id, transaction: !!transaction });
             })().catch((error) => error);
             setMessage(
                 (shouldTransact

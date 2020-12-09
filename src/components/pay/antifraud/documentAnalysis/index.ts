@@ -96,18 +96,19 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                     Sentry.captureException(e);
                 }
                 if (!isPrompt(error)) throw error;
+                const supportButton = { title: "Validar cartão de outra forma", action: () => null };
                 switch (error.code) {
                     case common.prompt.TOO_MANY_ATTEMPTS.code: {
                         const button = { title: "Falar com suporte", action: supportAction };
-                        throw { skipAttempt: true, error: error.withButtons([button]) };
+                        throw { skipAttempt: true, error: error.withButtons([button]).withSupportButton(supportButton) };
                     }
                     case common.prompt.NO_IMAGE.code: {
                         const button = { title: "Enviar novamente", action: () => null };
-                        throw { skipAttempt: true, error: error.withButtons([button]) };
+                        throw { skipAttempt: true, error: error.withButtons([button]).withSupportButton(supportButton) };
                     }
                     default:
                         const button = { title: "Enviar novamente", action: () => null };
-                        throw error.withButtons([button]);
+                        throw error.withButtons([button]).withSupportButton(supportButton);
                 }
             }
         },
