@@ -53,4 +53,14 @@ buttonsContainer: (second: boolean) => React.CSSProperties = (second) => ({
 	gridGap: '10px',
 	width: "100%",
 	marginTop: '5px'
-})
+}),
+
+supportButton: React.CSSProperties = {
+	fontSize: "1.5rem",
+	fontFamily: fontTitle,
+	textDecoration: "underline",
+	color: primaryColor,
+	cursor: "pointer",
+	textAlign: "center",
+	marginTop: "15px"
+}

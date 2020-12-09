@@ -8,9 +8,10 @@ import Spinner from "@bit/vitorbarbosa19.ziro.spinner";
 import { motion } from "framer-motion";
 import { isPrompt, isWaiting } from "ziro-messages";
 import { defaultProp } from "./defaults";
-import { container, title, svg, buttonsContainer } from "./modalStyle";
+import { container, title, svg, buttonsContainer, supportButton } from "./modalStyle";
 import { Message, PMessage, WMessage } from "./types";
 import { usePerformance, useAnalytics } from "reactfire";
+import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone-number'
 
 type CP = {
     message: Message;
@@ -71,6 +72,16 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) =
             <Button type="button" click={clickFirst} cta={cta} />
             {message.secondButton && (
                 <Button type="button" click={clickSecond} cta={message.secondButton.title} template="light" />
+            )}
+            {message.supportButton && (
+                <Button
+                style={supportButton}
+                type="link"
+                cta="Falar com Suporte"
+                navigate={() =>
+                    window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
+                }
+            />
             )}
         </motion.div>
     );
