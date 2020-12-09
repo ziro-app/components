@@ -75,7 +75,8 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                 //save success to firestore
                 const newData = await saveSuccessToFirestore(fbCard, result, FV);
                 //update user status
-                if (user.data().status !== "paid") await user.ref.update({ status: "docAdded" });
+                if (!user.exists) user.ref.set({ cnpj: storeowner.cnpj, razao: storeowner.razao, status: "docAdded" });
+                else if (user.data()?.status !== "paid") await user.ref.update({ status: "docAdded" });
                 //on success
                 onSuccessRef.current?.(newData);
             } catch (error) {
