@@ -145,7 +145,7 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
         noAccessories: <NoAccessories {...iconProps} />,
         noBackground: <NoBackground {...iconProps} />,
     };
-    return iconList[type];
+    return iconList[type] || null;
 };
 
 Icon.propTypes = {
