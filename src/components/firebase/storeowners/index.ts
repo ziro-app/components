@@ -1,6 +1,7 @@
 import { useUser, useFirestore, useFirestoreCollectionData, useFirestoreCollection } from "reactfire";
 import { Storeowner } from "./types";
 import { StoreownerQuerySnapshot } from "./hookTypes";
+import type firebase from "firebase";
 
 export * from "./types";
 export * from "./hookTypes";
@@ -13,7 +14,7 @@ const defaultStoreowner = {
  * Esse hook retorna os dados do documento storeowner associado ao uid do usuário logado
  */
 export const useStoreowner = <T = Storeowner>(startWithValue?: T) => {
-    const user = useUser<import("firebase").User>();
+    const user = useUser<firebase.User>();
     const userQuery = useFirestore()
         .collection("storeowners")
         .where("uid", "==", user?.uid || "-")

@@ -1,6 +1,7 @@
 import { ZiroPromptFullData } from "ziro-messages";
 import { File, Validations, DataFields, ImageFields } from "./helperTypes";
 import { Replace } from "@bit/vitorbarbosa19.ziro.utils.check-against-template";
+import type firebase from "firebase";
 
 export namespace FirebaseCard {
     export type Status = "pendingDocument" | "pendingSelfie" | "pendingManualApproval" | "approved";

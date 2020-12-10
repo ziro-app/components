@@ -6,7 +6,7 @@ import { useFirestore } from "reactfire";
 import { common } from "ziro-messages/dist/src/catalogo/antifraude";
 import { UseFirestoreEffect } from "./types";
 
-export { UseFirestoreEffect };
+export type { UseFirestoreEffect };
 
 export const useFirestoreEffect = (firebaseCard: FirebaseCardDocument, state: UseBiometry.State) => {
     const FV = useFirestore.FieldValue;
@@ -26,8 +26,7 @@ export const useFirestoreEffect = (firebaseCard: FirebaseCardDocument, state: Us
                 case "success":
                     await saveSuccessToFirestore(firebaseCard, state.result, FV)
                         .then(() => {
-                            if (userData.data().status !== "paid")
-                                return userData.ref.update({ status: "selfieAdded" });
+                            if (userData.data().status !== "paid") return userData.ref.update({ status: "selfieAdded" });
                         })
                         .catch((error) => {
                             throw common.prompt.CANNOT_SAVE_TO_FIRESTORE.withAdditionalData({ error, ...state.result });

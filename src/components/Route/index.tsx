@@ -2,6 +2,7 @@ import React, { useMemo, cloneElement, ReactElement, ReactNode, isValidElement, 
 import { useRouter, useLocation, useRoute } from "wouter";
 import { useUser, SuspenseWithPerf, useAnalytics } from "reactfire";
 import SuspenseFallback from "@bit/vitorbarbosa19.ziro.component-suspense-fallback";
+import type firebase from "firebase";
 
 interface SwitchProps {
     defaultPrivateOnlyFallback: ReactNode;

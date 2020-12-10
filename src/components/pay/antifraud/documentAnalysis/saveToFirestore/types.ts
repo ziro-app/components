@@ -1,5 +1,5 @@
 import { FirebaseCardDocument, FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import firebase from "firebase";
+import type firebase from "firebase";
 import { UseFullOCR } from "../main";
 
 type FV = typeof firebase.firestore.FieldValue;

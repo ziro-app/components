@@ -1,11 +1,12 @@
 import { FirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { UseBiometry } from "../../main";
 import { createFirebaseData } from "./createData";
+import type firebase from "firebase";
 
 export async function saveSuccessToFirestore(
     firebaseCard: FirebaseCardDocument,
     result: UseBiometry.ClassResult,
-    FV: typeof import("firebase").firestore.FieldValue,
+    FV: typeof firebase.firestore.FieldValue,
 ) {
     const resultData = UseBiometry.transformResult(result);
     const oldData = firebaseCard.data();
@@ -22,7 +23,7 @@ export async function saveSuccessToFirestore(
 export async function saveFailureToFirestore(
     firebaseCard: FirebaseCardDocument,
     error: UseBiometry.Errors.Generic,
-    FV: typeof import("firebase").firestore.FieldValue,
+    FV: typeof firebase.firestore.FieldValue,
 ) {
     const errorData = {
         timestamp: Date.now(),

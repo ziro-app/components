@@ -1,9 +1,9 @@
-import { firestore } from "firebase";
+import type firebase from "firebase";
 
 export interface CartItem {
-    added: firestore.Timestamp;
+    added: firebase.firestore.Timestamp;
     brandName: string;
-    lastUpdate: firestore.Timestamp;
+    lastUpdate: firebase.firestore.Timestamp;
     status: string;
     updatedBy: string;
     producIds: string[];

@@ -1,15 +1,9 @@
-import {
-    useFirestore,
-    useFirestoreCollection,
-    useFirestoreDoc,
-    useFirestoreCollectionData,
-    useFirestoreDocData,
-    useStorage,
-} from "reactfire";
+import { useFirestore, useFirestoreCollection, useFirestoreDoc, useFirestoreCollectionData, useFirestoreDocData, useStorage } from "reactfire";
 import cuid from "cuid";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { FirebaseCardsCollectionRef, FirebaseCardsCollection, FirebaseCardDocument, FirebaseCard } from "./hookTypes";
 import { useState, useCallback, useEffect, useRef } from "react";
+import type firebase from "firebase";
 
 export * from "./hookTypes";
 
@@ -18,10 +12,7 @@ export * from "./hookTypes";
  */
 export const useFirebaseCardsCollectionRef = () => {
     const { storeownerId } = useStoreowner();
-    return useFirestore()
-        .collection("catalog-user-data")
-        .doc(storeownerId)
-        .collection("cards") as FirebaseCardsCollectionRef;
+    return useFirestore().collection("catalog-user-data").doc(storeownerId).collection("cards") as FirebaseCardsCollectionRef;
 };
 
 /**
@@ -39,9 +30,7 @@ export const useFirebaseCardsCollection = <T = FirebaseCardsCollection>(startWit
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardsCollectionData = <T = FirebaseCard.Generic[]>(startWithValue?: T) => {
-    return useFirestoreCollectionData(useFirebaseCardsCollectionRef(), { startWithValue: startWithValue as any }) as
-        | FirebaseCard.Generic[]
-        | T;
+    return useFirestoreCollectionData(useFirebaseCardsCollectionRef(), { startWithValue: startWithValue as any }) as FirebaseCard.Generic[] | T;
 };
 
 /**
@@ -59,9 +48,7 @@ export const useFirebaseCardDocumentRef = (cardId: string) => {
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId?: string, startWithValue?: T) => {
-    const hookResult = useFirestoreDoc(useFirebaseCardDocumentRef(cardId || "-"), { startWithValue }) as
-        | FirebaseCardDocument
-        | T;
+    const hookResult = useFirestoreDoc(useFirebaseCardDocumentRef(cardId || "-"), { startWithValue }) as FirebaseCardDocument | T;
     return cardId ? hookResult : startWithValue;
 };
 
@@ -71,9 +58,7 @@ export const useFirebaseCardDocument = <T = FirebaseCardDocument>(cardId?: strin
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
 export const useFirebaseCardDocumentData = <T = FirebaseCard.Generic>(cardId?: string, startWithValue?: T) => {
-    const hookResult = useFirestoreDocData(useFirebaseCardDocumentRef(cardId || "-"), { startWithValue }) as
-        | FirebaseCard.Generic
-        | T;
+    const hookResult = useFirestoreDocData(useFirebaseCardDocumentRef(cardId || "-"), { startWithValue }) as FirebaseCard.Generic | T;
     return cardId ? hookResult : startWithValue;
 };
 

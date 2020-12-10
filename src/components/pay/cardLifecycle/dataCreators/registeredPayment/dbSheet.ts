@@ -6,6 +6,7 @@ import currencyFormat from "@ziro/currency-format";
 import splitRules from "../splitRules";
 import translateStatus from "../translateStatus";
 import prepareReceivables from "../prepareReceivables";
+import type firebase from "firebase";
 
 export const dbAndSheet = (
     {
@@ -33,7 +34,7 @@ export const dbAndSheet = (
     const [antiFraud, markup] = splitRules({ split_rules, sellerZoopPlan, card_brand, installments, insurance, isNewPlan });
     const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
     const receivablesData = prepareReceivables(receivables, transactionId, fee_details, fees, { antiFraud, markup }, insurance);
-    const reason = razao ? razao : (checkoutWithoutRegister ? "Pagamento sem cadastro" : "");
+    const reason = razao ? razao : checkoutWithoutRegister ? "Pagamento sem cadastro" : "";
     const sheetData = [
         transactionId,
         formatDateUTC3(new Date(created_at)),

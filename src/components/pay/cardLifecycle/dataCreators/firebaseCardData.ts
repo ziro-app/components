@@ -1,5 +1,6 @@
 import { UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
+import type firebase from "firebase";
 export default (timestamp: () => firebase.firestore.FieldValue, transaction?: UnregisteredTransaction.Response) =>
     transaction
         ? ({

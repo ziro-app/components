@@ -1,10 +1,10 @@
-import { firestore } from "firebase";
 import { FirebaseCard } from "./types";
+import type firebase from "firebase";
 
-export { FirebaseCard };
-export type FirebaseCardsCollectionRef = firestore.CollectionReference<FirebaseCard.Generic>;
-export type FirebaseCardsCollection = firestore.QuerySnapshot<FirebaseCard.Generic>;
-export type FirebaseCardDocumentRef = firestore.DocumentReference<FirebaseCard.Generic>;
-export type FirebaseCardDocument = firestore.DocumentSnapshot<FirebaseCard.Generic>;
-export type FirebaseCardDocumentBeforeDocPhase = firestore.DocumentSnapshot<FirebaseCard.BeforeDocPhase>;
-export type FirebaseCardDocumentBeforeSelfiePhase = firestore.DocumentSnapshot<FirebaseCard.BeforeSelfiePhase>;
+export type { FirebaseCard };
+export type FirebaseCardsCollectionRef = firebase.firestore.CollectionReference<FirebaseCard.Generic>;
+export type FirebaseCardsCollection = firebase.firestore.QuerySnapshot<FirebaseCard.Generic>;
+export type FirebaseCardDocumentRef = firebase.firestore.DocumentReference<FirebaseCard.Generic>;
+export type FirebaseCardDocument = firebase.firestore.DocumentSnapshot<FirebaseCard.Generic>;
+export type FirebaseCardDocumentBeforeDocPhase = firebase.firestore.DocumentSnapshot<FirebaseCard.BeforeDocPhase>;
+export type FirebaseCardDocumentBeforeSelfiePhase = firebase.firestore.DocumentSnapshot<FirebaseCard.BeforeSelfiePhase>;

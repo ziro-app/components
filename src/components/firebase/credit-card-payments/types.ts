@@ -1,3 +1,4 @@
+import type firebase from "firebase";
 /**
  * ON TRANSACTION CREATION EXAMPLE
  * {

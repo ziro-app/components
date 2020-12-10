@@ -1,3 +1,4 @@
+import type firebase from "firebase";
 export interface CatalogUserData {
     cnpj: string;
     razao: string;

@@ -1,5 +1,4 @@
-import { firestore } from "firebase";
-
+import type firebase from "firebase";
 export interface Storeowner {
     cidade: string;
     estado: string;
@@ -15,7 +14,7 @@ export interface Storeowner {
     whatsapp: string;
     registerComplete: string;
     bairro: string;
-    cadastro: firestore.Timestamp;
+    cadastro: firebase.firestore.Timestamp;
     fname: string;
     instagram: string;
     lname: string;

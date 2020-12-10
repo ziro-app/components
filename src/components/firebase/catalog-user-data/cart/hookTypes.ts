@@ -1,8 +1,8 @@
-import { firestore } from "firebase";
 import { CartItem } from "./types";
+import type firebase from "firebase";
 
-export { CartItem };
-export type CartCollectionRef = firestore.CollectionReference<CartItem>;
-export type CartCollection = firestore.QuerySnapshot<CartItem>;
-export type CartItemDocumentRef = firestore.DocumentReference<CartItem>;
-export type CartItemDocument = firestore.DocumentSnapshot<CartItem>;
+export type { CartItem };
+export type CartCollectionRef = firebase.firestore.CollectionReference<CartItem>;
+export type CartCollection = firebase.firestore.QuerySnapshot<CartItem>;
+export type CartItemDocumentRef = firebase.firestore.DocumentReference<CartItem>;
+export type CartItemDocument = firebase.firestore.DocumentSnapshot<CartItem>;

@@ -1,8 +1,8 @@
-import { firestore } from "firebase";
 import { CreditCardPayments } from "./types";
+import type firebase from "firebase";
 
-export { CreditCardPayments };
-export type CreditCardPaymentsCollectionRef = firestore.CollectionReference<CreditCardPayments.FirebaseDocument>;
-export type CreditCardPaymentsCollection = firestore.QuerySnapshot<CreditCardPayments.FirebaseDocument>;
-export type CreditCardPaymentDocumentRef = firestore.DocumentReference<CreditCardPayments.FirebaseDocument>;
-export type CreditCardPaymentDocument = firestore.DocumentSnapshot<CreditCardPayments.FirebaseDocument>;
+export type { CreditCardPayments };
+export type CreditCardPaymentsCollectionRef = firebase.firestore.CollectionReference<CreditCardPayments.FirebaseDocument>;
+export type CreditCardPaymentsCollection = firebase.firestore.QuerySnapshot<CreditCardPayments.FirebaseDocument>;
+export type CreditCardPaymentDocumentRef = firebase.firestore.DocumentReference<CreditCardPayments.FirebaseDocument>;
+export type CreditCardPaymentDocument = firebase.firestore.DocumentSnapshot<CreditCardPayments.FirebaseDocument>;

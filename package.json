@@ -70,7 +70,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.6",
     "eslint-plugin-react-hooks": "4.1.0",
-    "firebase": "^7.17.1",
+    "firebase": "^8.1.2",
     "husky": "^4.3.0",
     "jest": "^26.2.2",
     "lint-staged": "^10.4.0",
@@ -84,7 +84,7 @@
   "dependencies": {
     "@babel/runtime": "^7.10.5",
     "@bit/vitorbarbosa19.ziro.split-rule": "0.0.10",
-    "@sentry/react": "^5.20.1",
+    "@sentry/react": "^5.29.0",
     "@types/jest": "^26.0.16",
     "@types/react": "^16.9.11",
     "@ziro/capitalize": "^1.0.0",
@@ -197,11 +197,11 @@
           "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "0.0.x",
           "@bit/vitorbarbosa19.ziro.tooltip-help": "0.0.x",
           "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "cuid": "2.1.x",
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
@@ -379,7 +379,8 @@
           "framer-motion": "-",
           "ziro-messages": "-",
           "reactfire": "-",
-          "firebase": "-"
+          "firebase": "-",
+          "@bit/vitorbarbosa19.ziro.utils.support-phone-number": "-"
         },
         "peerDependencies": {
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
@@ -388,7 +389,8 @@
           "framer-motion": "1.11.x",
           "ziro-messages": "0.0.x",
           "reactfire": "2.0.x",
-          "firebase": "7.17.x"
+          "firebase": "8.1.x",
+          "@bit/vitorbarbosa19.ziro.utils.support-phone-number": "0.0.x"
         },
         "devDependencies": {
           "@types/jest": "+"
@@ -431,7 +433,7 @@
         "peerDependencies": {
           "wouter": "2.5.x",
           "reactfire": "2.0.x",
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "@bit/vitorbarbosa19.ziro.component-suspense-fallback": "0.0.x"
         },
         "devDependencies": {
@@ -478,13 +480,13 @@
         "peerDependencies": {
           "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
           "ziro-messages": "0.0.x",
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "cuid": "2.1.x",
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x",
           "reactfire": "2.0.x",
           "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
         },
         "devDependencies": {
@@ -522,7 +524,7 @@
           "reactfire": "-"
         },
         "peerDependencies": {
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "reactfire": "2.0.x"
         },
         "devDependencies": {
@@ -560,7 +562,7 @@
           "reactfire": "-"
         },
         "peerDependencies": {
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "reactfire": "2.0.x"
         },
         "devDependencies": {
@@ -603,7 +605,7 @@
         "peerDependencies": {
           "axios": "0.20.x",
           "ziro-messages": "0.0.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
         },
@@ -647,7 +649,7 @@
         "peerDependencies": {
           "axios": "0.20.x",
           "ziro-messages": "0.0.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.check-against-template": "0.0.x"
         },
@@ -689,7 +691,7 @@
         },
         "peerDependencies": {
           "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
         },
@@ -753,12 +755,12 @@
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "reactfire": "2.0.x",
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.tuple": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.whatsapp": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.support-phone-number": "0.0.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "@bit/vitorbarbosa19.ziro.pay.next-code": "0.0.x",
           "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data": "0.0.x",
           "axios": "0.20.x",
@@ -833,13 +835,13 @@
           "@ziro/currency-format": "1.0.x",
           "@bit/vitorbarbosa19.ziro.split-rule": "0.0.x",
           "ziro-messages": "0.0.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "@bit/vitorbarbosa19.ziro.utils.async-hooks": "0.0.x",
           "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x",
           "@bit/vitorbarbosa19.ziro.flow-manager": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x",
           "reactfire": "2.0.x",
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "@bit/vitorbarbosa19.ziro.pay.zoop-registration": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.sheets": "0.0.x",
           "axios": "0.20.x",
@@ -849,7 +851,8 @@
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
-          "framer-motion": "1.11.x"
+          "framer-motion": "1.11.x",
+          "@bit/vitorbarbosa19.ziro.utils.support-phone-number": "0.0.x"
         },
         "devDependencies": {
           "@types/jest": "+"
@@ -890,10 +893,10 @@
         "peerDependencies": {
           "@bit/vitorbarbosa19.ziro.firebase.storeowners": "0.0.x",
           "reactfire": "2.0.x",
-          "firebase": "7.17.x",
+          "firebase": "8.1.x",
           "@bit/vitorbarbosa19.ziro.pay.zoop": "0.0.x",
           "axios": "0.20.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.utils.axios": "0.0.x"
         },
@@ -937,13 +940,14 @@
         "peerDependencies": {
           "ziro-messages": "0.0.x",
           "@bit/vitorbarbosa19.ziro.message-modal": "0.0.x",
-          "@sentry/react": "5.20.x",
+          "@sentry/react": "5.29.x",
           "@bit/vitorbarbosa19.ziro.illustration": "0.1.x",
           "@bit/vitorbarbosa19.ziro.button": "0.1.x",
           "@bit/vitorbarbosa19.ziro.spinner": "0.1.x",
           "framer-motion": "1.11.x",
           "reactfire": "2.0.x",
-          "firebase": "7.17.x"
+          "firebase": "8.1.x",
+          "@bit/vitorbarbosa19.ziro.utils.support-phone-number": "0.0.x"
         },
         "devDependencies": {
           "@types/jest": "+"

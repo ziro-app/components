@@ -10,6 +10,7 @@ import translateStatus from "./translateStatus";
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import currencyFormat from "@ziro/currency-format";
 import mountSplitRulesOld from "./mountSplitRulesOld";
+import type firebase from "firebase";
 
 const prepareDataWithInsurance = (
     {
