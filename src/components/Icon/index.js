@@ -69,6 +69,7 @@ import { Magnifier } from "./../../Icons/Magnifier/index";
 import { ShadowFace } from "./../../Icons/ShadowFace/index";
 import { NoAccessories } from "./../../Icons/NoAccessories/index";
 import { NoBackground } from "./../../Icons/NoBackground/index";
+import { Library } from "./../../Icons/Library/index";
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     const iconProps = { style, onClick, size, color, strokeWidth, fill };
@@ -144,6 +145,7 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
         shadowFace: <ShadowFace {...iconProps} />,
         noAccessories: <NoAccessories {...iconProps} />,
         noBackground: <NoBackground {...iconProps} />,
+        library: <Library {...iconProps} />,
     };
     return iconList[type] || null;
 };
