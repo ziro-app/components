@@ -2659,7 +2659,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.110": {
+    "vitorbarbosa19.ziro/pay/card-lifecycle@0.0.111": {
         "files": [
             {
                 "name": "detachedTransactionData.ts",
@@ -2755,6 +2755,11 @@
                 "name": "index.ts",
                 "relativePath": "src/components/pay/cardLifecycle/index.ts",
                 "test": false
+            },
+            {
+                "relativePath": "src/components/pay/cardLifecycle/paymentSuccessUserResolution.tsx",
+                "test": false,
+                "name": "paymentSuccessUserResolution.tsx"
             },
             {
                 "name": "types.ts",

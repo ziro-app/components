@@ -29,6 +29,7 @@ import writeReceivablesToSheet from "./utils/writeReceivablesToSheet";
 import { sheet } from "@bit/vitorbarbosa19.ziro.utils.sheets";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import * as Sentry from "@sentry/react";
+import { paymentSuccessUserResolution } from './paymentSuccessUserResolution';
 
 /**
  * Esse hook retorna um callback para excluir um cartão
@@ -158,7 +159,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
                 message = message
                     .set("title", "Pagamento pré-autorizado")
                     .set("userDescription", "O pagamento foi pré autorizado. Em poucos instantes será aprovado. Acompanhe pelo menu de pagamentos.")
-                    .set("userResolution", `Na sua fatura aparecerá Zp *Ziro ${paymentData.seller}, pelo Rio de Janeiro`)
+                    .set("userResolution", paymentSuccessUserResolution(paymentData.seller))
                     .withButtons([
                         {
                             title: "ver pagamentos",
@@ -171,7 +172,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
                 if (zoopId) {
                     message = message
                         .set("userDescription", "O pagamento foi concluído")
-                        .set("userResolution", `Na sua fatura aparecerá Zp *Ziro ${paymentData.seller}, pelo Rio de Janeiro`)
+                        .set("userResolution", paymentSuccessUserResolution(paymentData.seller))
                         .withButtons([
                             {
                                 title: "ver pagamentos",
@@ -183,7 +184,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
                 } else {
                     message = message
                         .set("userDescription", "O pagamento foi concluído")
-                        .set("userResolution", `Na sua fatura aparecerá Zp *Ziro ${paymentData.seller}, pelo Rio de Janeiro`)
+                        .set("userResolution", paymentSuccessUserResolution(paymentData.seller))
                         .withButtons([
                             {
                                 title: "ver recibo",
