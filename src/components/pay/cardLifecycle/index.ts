@@ -69,7 +69,7 @@ export const useRegisterCard = (onSuccess: (data: { card_id: string; transaction
     const collectionRef = useFirebaseCardsCollectionRef();
     const query = useFirestore().collection("suppliers").where("fantasia", "==", "ZIRO");
     const timestamp = useFirestore.FieldValue.serverTimestamp;
-    const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query);
+    const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query).data;
     const zoopId = useZoopRegistration();
     const setMessage = useMessage();
     return usePromise<UnregisteredCard & { shouldTransact: boolean }, void, never>(

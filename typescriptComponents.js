@@ -81,8 +81,9 @@ const constructComponentObject = (path) => {
             version = `${major}.${minor}.x`;
         } else {
             const packageDeps = { ...package.dependencies, ...package.devDependencies };
-            const [major, minor] = packageDeps[dep].replace("^", "").replace(">=", "").split(".");
-            version = `${major}.${minor}.x`;
+            const [major, minor, ...patch] = packageDeps[dep].replace("^", "").replace(">=", "").split(".");
+
+            version = `${major}.${minor}.${Number.isNaN(Number(patch.join("."))) ? patch.join(".") : "x"}`;
         }
         deps.dependencies[dep] = "-";
         if (dep === "react") deps.dependencies["@types/react"] = "-";
