@@ -18,7 +18,13 @@ type CP = {
 
 const Common: React.FC<CP> = ({ message }) => {
     const text = React.useMemo(() => {
-        if (isPrompt(message)) return message.userDescription + " " + message.userResolution;
+        if (isPrompt(message) && typeof(message.userResolution) === "string") return message.userDescription + " " + message.userResolution;
+        if (isPrompt(message) && typeof(message.userResolution) === "object") {
+            return (<>
+                {message.userDescription}
+                {message.userResolution}
+            </>)
+        }
         return message.userDescription;
     }, [message]);
 
@@ -30,7 +36,7 @@ const Common: React.FC<CP> = ({ message }) => {
             <motion.label key={message.title} {...defaultProp} style={title(message.type)}>
                 {message.title}
             </motion.label>
-            <motion.label key={text} {...defaultProp} style={{ textAlign: "center" }}>
+            <motion.label key={message.userDescription} {...defaultProp} style={{ textAlign: "center" }}>
                 {text}
             </motion.label>
         </>
