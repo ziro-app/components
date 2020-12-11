@@ -14,6 +14,7 @@ import {
     UnregisteredTransaction,
     GetCard,
 } from "@bit/vitorbarbosa19.ziro.pay.zoop";
+//@ts-ignore
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { useFirebaseCardsCollectionRef, useCartCollectionRef, useCatalogUserDataDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";

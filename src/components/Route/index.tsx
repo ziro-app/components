@@ -20,7 +20,7 @@ export const Switch: React.FC<SwitchProps> = ({
 }) => {
     const { matcher } = useRouter();
     const [location] = useLocation();
-    const user = useUser<firebase.User>();
+    const user = useUser<firebase.User>().data;
     const analytics = reactfire && useAnalytics();
 
     const childrenArray = useMemo(() => (Array.isArray(children) ? children : [children]), [children]);

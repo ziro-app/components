@@ -17,10 +17,10 @@ export const useCreditCardPaymentDocumentRef = (id: string) => {
  * @param id o id do credit-card-payment
  * @param startWithValue valor inicial, se for fornecido o hook não irá dar throw na promise (modo suspense)
  */
-export const useCreditCardPaymentDocument = <T = CreditCardPaymentDocument>(id?: string, startWithValue?: T) => {
-    const hookResult = useFirestoreDoc(useCreditCardPaymentDocumentRef(id || "-"), { startWithValue }) as
-        | CreditCardPaymentDocument
-        | T;
+export const useCreditCardPaymentDocument = <T = CreditCardPaymentDocument>(id?: string, startWithValue?: T): CreditCardPaymentDocument | T => {
+    const ref = useCreditCardPaymentDocumentRef(id || "-");
+    const options: any = { startWithValue };
+    const hookResult: any = useFirestoreDoc(ref, options).data;
     return id ? hookResult : startWithValue;
 };
 
@@ -32,9 +32,9 @@ export const useCreditCardPaymentDocument = <T = CreditCardPaymentDocument>(id?:
 export const useCreditCardPaymentDocumentData = <T = CreditCardPayments.FirebaseDocument>(
     id?: string,
     startWithValue?: T,
-) => {
-    const hookResult = useFirestoreDocData(useCreditCardPaymentDocumentRef(id || "-"), { startWithValue }) as
-        | CreditCardPayments.FirebaseDocument
-        | T;
+): CreditCardPayments.FirebaseDocument | T => {
+    const ref = useCreditCardPaymentDocumentRef(id || "-");
+    const options: any = { startWithValue };
+    const hookResult: any = useFirestoreDocData(ref, options).data;
     return id ? hookResult : startWithValue;
 };

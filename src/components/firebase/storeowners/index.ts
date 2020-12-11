@@ -13,26 +13,26 @@ const defaultStoreowner = {
 /**
  * Esse hook retorna os dados do documento storeowner associado ao uid do usuário logado
  */
-export const useStoreowner = <T = Storeowner>(startWithValue?: T) => {
-    const user = useUser<firebase.User>();
+export const useStoreowner = <T = Storeowner>(startWithValue?: T): Storeowner | T => {
+    const user = useUser<firebase.User>().data;
     const userQuery = useFirestore()
         .collection("storeowners")
         .where("uid", "==", user?.uid || "-")
         .limit(1);
-    return (useFirestoreCollectionData<Storeowner>(userQuery, {
-        idField: "storeownerId",
-        startWithValue: startWithValue ? ([startWithValue] as any) : undefined,
-    })[0] || defaultStoreowner) as Storeowner | T;
+    const options: any = { idField: "storeownerId", startWithValue };
+    const hookResult: any[] = useFirestoreCollectionData(userQuery, options).data;
+    return user?.uid ? hookResult[0] : defaultStoreowner;
 };
 
 /**
  * Esse hook retorna o documento storeowner associado ao uid do usuario logado
  */
 export const useStoreownerDocument = () => {
-    const user = useUser<firebase.User>();
+    const user = useUser<firebase.User>().data;
     const userQuery = useFirestore()
         .collection("storeowners")
         .where("uid", "==", user?.uid || "-")
         .limit(1);
-    return ((useFirestoreCollection(userQuery) as unknown) as StoreownerQuerySnapshot).docs[0];
+    const hookResult: StoreownerQuerySnapshot = useFirestoreCollection(userQuery).data as any;
+    return hookResult.docs[0];
 };

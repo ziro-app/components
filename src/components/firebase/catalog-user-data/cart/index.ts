@@ -1,11 +1,5 @@
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
-import {
-    useFirestore,
-    useFirestoreCollection,
-    useFirestoreDoc,
-    useFirestoreCollectionData,
-    useFirestoreDocData,
-} from "reactfire";
+import { useFirestore, useFirestoreCollection, useFirestoreDoc, useFirestoreCollectionData, useFirestoreDocData } from "reactfire";
 import { CartCollectionRef, CartCollection, CartItemDocument, CartItem } from "./hookTypes";
 
 export * from "./hookTypes";
@@ -22,20 +16,20 @@ export const useCartCollectionRef = () => {
  * Esse hook retorna a collection cart do usuário logado
  * @param startWithValue caso seja fornecido o hook não dará throw na promise (modo suspense)
  */
-export const useCartCollection = <T = CartCollection>(startWithValue?: T) => {
-    return (useFirestoreCollection(useCartCollectionRef(), { startWithValue: startWithValue as any }) as unknown) as
-        | CartCollection
-        | T;
+export const useCartCollection = <T = CartCollection>(startWithValue?: T): CartCollection | T => {
+    const ref = useCartCollectionRef();
+    const options: any = { startWithValue };
+    return useFirestoreCollection(ref, options).data as any;
 };
 
 /**
  * Esse hook retorna os dados da collection cart do usuário logado
  * @param startWithValue caso seja fornecido o hook não dará throw na promise (modo suspense)
  */
-export const useCardCollectionData = <T = CartItem[]>(startWithValue?: T) => {
-    return useFirestoreCollectionData(useCartCollectionRef(), { startWithValue: startWithValue as any }) as
-        | CartItem[]
-        | T;
+export const useCardCollectionData = <T = CartItem[]>(startWithValue?: T): CartItem[] | T => {
+    const ref = useCartCollectionRef();
+    const options: any = { startWithValue };
+    return useFirestoreCollectionData(ref, options).data as any;
 };
 
 /**
@@ -52,10 +46,10 @@ export const useCartItemDocumentRef = (cartId: string) => {
  * @param cartId o cartId do documento desejado
  * @param startWithValue caso seja fornecido o hook não dará throw na promise (modo suspense)
  */
-export const useCartItemDocument = <T = CartItemDocument>(cartId?: string, startWithValue?: T) => {
-    const hookResult = useFirestoreDoc(useCartItemDocumentRef(cartId || "-"), { startWithValue }) as
-        | CartItemDocument
-        | T;
+export const useCartItemDocument = <T = CartItemDocument>(cartId?: string, startWithValue?: T): CartItemDocument | T => {
+    const ref = useCartItemDocumentRef(cartId || "-");
+    const options: any = { startWithValue };
+    const hookResult: any = useFirestoreDoc(ref, options).data;
     return cartId ? hookResult : startWithValue;
 };
 
@@ -64,7 +58,9 @@ export const useCartItemDocument = <T = CartItemDocument>(cartId?: string, start
  * @param cartId o cartId do documento desejado
  * @param startWithValue caso seja fornecido o hook não dará throw na promise (modo suspense)
  */
-export const useCartItemDocumentData = <T = CartItem>(cartId?: string, startWithValue?: T) => {
-    const hookResult = useFirestoreDocData(useCartItemDocumentRef(cartId || "-"), { startWithValue }) as CartItem | T;
+export const useCartItemDocumentData = <T = CartItem>(cartId?: string, startWithValue?: T): CartItem | T => {
+    const ref = useCartItemDocumentRef(cartId || "-");
+    const options: any = { startWithValue };
+    const hookResult: any = useFirestoreDocData(ref, options).data;
     return cartId ? hookResult : startWithValue;
 };

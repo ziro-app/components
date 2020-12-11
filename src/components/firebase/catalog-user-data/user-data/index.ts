@@ -9,10 +9,14 @@ export const useCatalogUserDataRef = () => {
     return useFirestore().collection("catalog-user-data").doc(storeownerId) as CatalogUserDataDocumentRef;
 };
 
-export const useCatalogUserDataDocument = <T = CatalogUserDataDocument>(startWithValue?: T) => {
-    return useFirestoreDoc(useCatalogUserDataRef(), { startWithValue }) as CatalogUserDataDocument | T;
+export const useCatalogUserDataDocument = <T = CatalogUserDataDocument>(startWithValue?: T): CatalogUserDataDocument | T => {
+    const ref = useCatalogUserDataRef();
+    const options: any = { startWithValue };
+    return useFirestoreDoc(ref, options).data as any;
 };
 
-export const useCatalogUserDataDocumentData = <T = CatalogUserData>(startWithValue?: T) => {
-    return useFirestoreDocData(useCatalogUserDataRef(), { startWithValue }) as CatalogUserData | T;
+export const useCatalogUserDataDocumentData = <T = CatalogUserData>(startWithValue?: T): CatalogUserData | T => {
+    const ref = useCatalogUserDataRef();
+    const options: any = { startWithValue };
+    return useFirestoreDocData(ref, options).data as any;
 };
