@@ -75,4 +75,5 @@ export const DisplayIcon = () =>
 		<Icon type='noAccessories' size={24} />
 		<Icon type='noBackground' size={24} />
 		<Icon type='library' size={24} />
+		<Icon type='percent' size={24} />
 	</div>

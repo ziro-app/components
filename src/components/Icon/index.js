@@ -70,6 +70,7 @@ import { ShadowFace } from "./../../Icons/ShadowFace/index";
 import { NoAccessories } from "./../../Icons/NoAccessories/index";
 import { NoBackground } from "./../../Icons/NoBackground/index";
 import { Library } from "./../../Icons/Library/index";
+import { Percent } from "./../../Icons/Percent/index";
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     const iconProps = { style, onClick, size, color, strokeWidth, fill };
@@ -146,6 +147,7 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
         noAccessories: <NoAccessories {...iconProps} />,
         noBackground: <NoBackground {...iconProps} />,
         library: <Library {...iconProps} />,
+        percent: <Percent {...iconProps} />,
     };
     return iconList[type] || null;
 };
