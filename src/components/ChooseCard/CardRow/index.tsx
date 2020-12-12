@@ -9,8 +9,8 @@ import { BrandIcon } from "./BrandIcon";
 import { motion } from "framer-motion";
 
 const portugueseStatus = {
-    pendingDocument: "Aguardando documento",
-    pendingSelfie: "Aguardando selfie",
+    pendingDocument: "Aguardando antifraude",
+    pendingSelfie: "Aguardando antifraude",
     pendingManualApproval: "Aguardando revisão",
 };
 

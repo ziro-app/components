@@ -1,6 +1,6 @@
-import { UnregisteredCard, UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
+import { UnregisteredCard, RegisteredTransaction, UnregisteredTransaction } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 
-export default (card: UnregisteredCard, supplierZoopId: string, customerZoopId: string, amount: number) =>
+export default (card: UnregisteredCard | RegisteredTransaction.Card, supplierZoopId: string, customerZoopId: string, amount: number) =>
     ({
         sendCompleteError: true,
         payment_type: "credit",
@@ -9,10 +9,10 @@ export default (card: UnregisteredCard, supplierZoopId: string, customerZoopId: 
         customer: customerZoopId,
         statement_descriptor: `Ziro`,
         source: {
-            usage: "single_use",
+            usage: "id" in card ? "reusable" : "single_use",
             amount,
             currency: "BRL",
             type: "card",
-            card,
+            card: "id" in card ? { id: card.id } : card,
         },
     } as UnregisteredTransaction.Request);

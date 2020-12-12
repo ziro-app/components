@@ -33,6 +33,7 @@ interface Configuration {
     camera: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>;
     onSuccess?: (newData: FirebaseCard.Generic) => void;
     onError?: (error: any) => void;
+    onChangeValidationType: () => void;
 }
 
 interface Arg {
@@ -46,7 +47,7 @@ const devErrors = tuple(
     common.prompt.CANNOT_SAVE_TO_FIRESTORE.code,
 );
 
-export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, camera }: Configuration) => {
+export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, onChangeValidationType, camera }: Configuration) => {
     const storeowner = useStoreowner();
     const user = useCatalogUserDataDocument();
     const fbCard = useFirebaseCardDocument(zoopCard.id);
@@ -58,8 +59,10 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
 
     const onSuccessRef = useRef(onSuccess);
     const onErrorRef = useRef(onError);
+    const onChangeValidationTypeRef = useRef(onChangeValidationType);
     onSuccessRef.current = onSuccess;
     onErrorRef.current = onError;
+    onChangeValidationTypeRef.current = onChangeValidationType;
 
     const [cbk, state] = usePromiseShowingMessage<Arg, void, any>(
         fullOCR.waiting.ANALYZING_DOC,
@@ -97,7 +100,7 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                     Sentry.captureException(e);
                 }
                 if (!isPrompt(error)) throw error;
-                const supportButton = { title: "Validar cartão de outra forma", action: () => null };
+                const supportButton = { title: "Validar cartão de outra forma", action: onChangeValidationTypeRef.current };
                 switch (error.code) {
                     case common.prompt.TOO_MANY_ATTEMPTS.code: {
                         const button = { title: "Falar com suporte", action: supportAction };

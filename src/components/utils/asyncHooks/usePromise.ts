@@ -12,7 +12,10 @@ import * as Sentry from "@sentry/react";
  * @param promise O callback assincrono
  * @param deps As dependencias para que o callback seja refatorado
  */
-export function usePromise<A, R, E>(promise: PromiseGen<A, R>, deps: React.DependencyList = []): [PromiseCbk<A>, UsePromiseState<R, E>] {
+export function usePromise<A = void, R = any, E = unknown>(
+    promise: PromiseGen<R, A>,
+    deps: React.DependencyList = [],
+): [PromiseCbk<A>, UsePromiseState<R, E>] {
     const mountState = useMountState();
 
     //set promise state
@@ -76,9 +79,9 @@ export function usePromise<A, R, E>(promise: PromiseGen<A, R>, deps: React.Depen
  * @param promise O callback assincrono
  * @param deps As dependencias para que o callback seja refatorado
  */
-export function usePromiseShowingMessage<A, R, E>(
+export function usePromiseShowingMessage<A = void, R = any, E = unknown>(
     message: ZiroWaitingMessage<string, string, any>,
-    promise: PromiseGen<A, R>,
+    promise: PromiseGen<R, A>,
     deps: React.DependencyList = [],
 ): [PromiseCbk<A>, UsePromiseState<R, E>] {
     const [cbk, state] = usePromise<A, R, E>(

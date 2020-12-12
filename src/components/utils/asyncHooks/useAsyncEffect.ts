@@ -12,7 +12,7 @@ import * as Sentry from "@sentry/react";
  * @param promise o efeito assincrono
  * @param deps as dependencias
  */
-export function useAsyncEffect<R, E>(promise: PromiseGen<ReturnType<typeof useMountState>, R>, deps?: React.DependencyList): UseEffectReturn<R, E> {
+export function useAsyncEffect<R, E>(promise: PromiseGen<R, ReturnType<typeof useMountState>>, deps?: React.DependencyList): UseEffectReturn<R, E> {
     //setup promise state
     const [started, setStarted] = useState<number>(0);
     const [finished, setFinished] = useState<number>(0);
@@ -79,7 +79,7 @@ export function useAsyncEffect<R, E>(promise: PromiseGen<ReturnType<typeof useMo
  * @param deps as dependencias
  */
 export function useRetriableAsyncEffect<R, E>(
-    promise: PromiseGen<ReturnType<typeof useMountState>, R>,
+    promise: PromiseGen<R, ReturnType<typeof useMountState>>,
     deps?: React.DependencyList,
 ): UseRetriableEffectReturn<R, E> {
     const [attempts, setAttempts] = useState<number>(1);

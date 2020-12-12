@@ -1,5 +1,5 @@
-export type PromiseGen<A, R> = A extends never ? () => Promise<R> : (args: A) => Promise<R>;
-export type PromiseCbk<A> = A extends never ? () => Promise<void> : (args: A) => Promise<void>;
+export type PromiseGen<R, A = void> = (args: A) => Promise<R>;
+export type PromiseCbk<A = void> = (args: A) => Promise<void>;
 export type StaleState = {
     status: "firstRender" | "stale" | "running";
     result: null;

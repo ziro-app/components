@@ -13,6 +13,7 @@ import {
     getReceivables,
     UnregisteredTransaction,
     GetCard,
+    RegisteredTransaction,
 } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 //@ts-ignore
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
@@ -60,6 +61,22 @@ export const useDeleteCard = () => {
     return [newCbk, running] as [typeof newCbk, typeof running];
 };
 
+export const useRegistrationTransaction = () => {
+    const source = useCancelToken();
+    const query = useFirestore().collection("suppliers").where("fantasia", "==", "ZIRO");
+    const zoopId = useZoopRegistration();
+    const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query).data;
+    return useCallback(
+        async (card: UnregisteredCard | RegisteredTransaction.Card) => {
+            const amount = Math.round(10 + Math.random() * 140);
+            const transaction = await createPayment(creator.registrationPaymentData(card, supplier.zoopId, zoopId, amount), source.token);
+            await voidPayment(creator.registrationVoidData(transaction), source.token);
+            return transaction;
+        },
+        [source, supplier, zoopId],
+    );
+};
+
 /**
  * Esse hook retorna um callback para registrar um cartão
  */
@@ -73,15 +90,12 @@ export const useRegisterCard = (onSuccess: (data: { card_id: string; transaction
     const [supplier] = useFirestoreCollectionData<{ zoopId: string }>(query).data;
     const zoopId = useZoopRegistration();
     const setMessage = useMessage();
+    const transact = useRegistrationTransaction();
     return usePromise<UnregisteredCard & { shouldTransact: boolean }, void, never>(
         async ({ shouldTransact, ...card }) => {
             const promise = (async () => {
                 let transaction: UnregisteredTransaction.Response;
-                if (shouldTransact) {
-                    const amount = Math.round(10 + Math.random() * 140);
-                    transaction = await createPayment(creator.registrationPaymentData(card, supplier.zoopId, zoopId, amount), source.token);
-                    await voidPayment(creator.registrationVoidData(transaction), source.token);
-                }
+                if (shouldTransact) transaction = await transact(card);
                 const { id: token } = await createCardToken(card, source.token);
                 const { id: card_id } = await associateCard(token, zoopId, source.token);
                 await collectionRef
