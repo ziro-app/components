@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { PromiseGen, UseEffectHistory, UseEffectReturn, UseRetriableEffectReturn } from "./types";
+import { PromiseGen, UseEffectHistory, UseEffectReturn, UseRetriableEffectReturn, PromiseGenOpt } from "./types";
 import { useMountState } from "./useMountState";
 import { ZiroWaitingMessage, isPrompt, isWaiting } from "ziro-messages";
 import { prompt } from "ziro-messages/dist/src/catalogo";
@@ -12,7 +12,10 @@ import * as Sentry from "@sentry/react";
  * @param promise o efeito assincrono
  * @param deps as dependencias
  */
-export function useAsyncEffect<R, E>(promise: PromiseGen<R, ReturnType<typeof useMountState>>, deps?: React.DependencyList): UseEffectReturn<R, E> {
+export function useAsyncEffect<R, E>(
+    promise: PromiseGenOpt<R, ReturnType<typeof useMountState>>,
+    deps?: React.DependencyList,
+): UseEffectReturn<R, E> {
     //setup promise state
     const [started, setStarted] = useState<number>(0);
     const [finished, setFinished] = useState<number>(0);
@@ -79,7 +82,7 @@ export function useAsyncEffect<R, E>(promise: PromiseGen<R, ReturnType<typeof us
  * @param deps as dependencias
  */
 export function useRetriableAsyncEffect<R, E>(
-    promise: PromiseGen<R, ReturnType<typeof useMountState>>,
+    promise: PromiseGenOpt<R, ReturnType<typeof useMountState>>,
     deps?: React.DependencyList,
 ): UseRetriableEffectReturn<R, E> {
     const [attempts, setAttempts] = useState<number>(1);
@@ -106,7 +109,7 @@ type S<R, E, H extends URAE | UAE> = H extends URAE ? UseRetriableEffectReturn<R
 const showingMessage = <H extends UAE | URAE>(hook: H) =>
     function <R, E>(
         message: ZiroWaitingMessage<string, string, any> | null,
-        promise: PromiseGen<ReturnType<typeof useMountState>, R>,
+        promise: PromiseGenOpt<R, ReturnType<typeof useMountState>>,
         deps?: React.DependencyList,
     ): S<R, E, H> {
         const setMessage = useMessage();
@@ -147,7 +150,7 @@ const showingMessage = <H extends UAE | URAE>(hook: H) =>
                                 .then(resolve, reject),
                         ),
                     );
-                })) as PromiseGen<ReturnType<typeof useMountState>, R>;
+                })) as PromiseGenOpt<R, ReturnType<typeof useMountState>>;
         }, [message, promise]);
 
         const state = (hook as any)(newPromise, deps);

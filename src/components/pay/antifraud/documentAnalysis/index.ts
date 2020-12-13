@@ -119,15 +119,15 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
         [uploadPicture, fbCard, zoopCard, source, FV, user, sheet, recipients, storeowner],
     );
 
-    const [runs, setRuns] = useState(0);
+    const [status, docStatus] = useMemo(() => {
+        const data = fbCard.data();
+        return [data.status, "docStatus" in data ? data.docStatus : ("document" as const)];
+    }, [fbCard]);
 
     useAsyncEffectShowingMessage(
         null,
         async () => {
-            const data = fbCard.data();
-            setRuns((r) => r + 1);
-            if (data.status === "pendingSelfie" && runs > 0) return;
-            const docStatus = "docStatus" in data ? data.docStatus : "document";
+            if (status === "pendingSelfie" && state.status !== "firstRender") return;
             //reset state
             state.reset();
             //choose button to start
@@ -141,7 +141,7 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                 pendingCNHF: fullOCR.prompt.INITIAL_CNH_FRENTE,
             }[docStatus].withButtons(buttons);
         },
-        [fbCard],
+        [docStatus],
     );
 
     return [cbk, state.status === "running"] as const;

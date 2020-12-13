@@ -2252,7 +2252,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.85": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.86": {
         "files": [
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/createRandom.ts",
@@ -3486,7 +3486,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/async-hooks@0.0.66": {
+    "vitorbarbosa19.ziro/utils/async-hooks@0.0.68": {
         "files": [
             {
                 "name": "index.ts",

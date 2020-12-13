@@ -1,4 +1,5 @@
 export type PromiseGen<R, A = void> = (args: A) => Promise<R>;
+export type PromiseGenOpt<R, A = void> = (args?: A) => Promise<R>;
 export type PromiseCbk<A = void> = (args: A) => Promise<void>;
 export type StaleState = {
     status: "firstRender" | "stale" | "running";
