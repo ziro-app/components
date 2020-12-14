@@ -85,7 +85,7 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                     throw err.withButtons([{
                         title: "Enviar novamente",
                         action: () => null
-                    }]);
+                    }]).withSupportButton();
                 } else {
                     throw err
                 }
