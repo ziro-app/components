@@ -172,7 +172,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             if (paymentData.insurance) {
                 message = message
                     .set("title", "Pagamento pré-autorizado")
-                    .set("userDescription", "O pagamento foi pré autorizado. Em poucos instantes será aprovado. Acompanhe pelo menu de pagamentos.")
+                    .set("userDescription", "O pagamento será aprovado em instantes.")
                     .set("userResolution", paymentSuccessUserResolution(paymentData.seller))
                     .withButtons([
                         {
@@ -185,7 +185,7 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             } else {
                 if (zoopId) {
                     message = message
-                        .set("userDescription", "O pagamento foi concluído")
+                        .set("userDescription", "O pagamento foi concluído.")
                         .set("userResolution", paymentSuccessUserResolution(paymentData.seller))
                         .withButtons([
                             {
@@ -197,11 +197,11 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
                         ]);
                 } else {
                     message = message
-                        .set("userDescription", "O pagamento foi concluído")
+                        .set("userDescription", "O pagamento foi concluído.")
                         .set("userResolution", paymentSuccessUserResolution(paymentData.seller))
                         .withButtons([
                             {
-                                title: "ver recibo",
+                                title: "ver comprovante",
                                 action: () => {
                                     setLocation("goLeft", `/comprovante/${transaction.sales_receipt}`);
                                 },
