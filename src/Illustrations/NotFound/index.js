@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export const NotFound = ({ size = 150 }) => (
     <svg
         width={size}
-        height={size}
+        height={size / 1.5}
         viewBox="0 0 1074.392 584.231"
     >
         <ellipse cx="540.64346" cy="549.3094" rx="527.5" ry="34.9216" fill="#f2f2f2" />
