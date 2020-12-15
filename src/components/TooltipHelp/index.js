@@ -25,7 +25,7 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
                         </div>
                     ) : null}
 
-                    <div style={supportButton ? proposeContainer : {...proposeContainer, marginBottom: '35px'}}>
+                    <div style={proposeContainer}>
                         {title ? <label style={titleText}>{title}</label> : null}
 
                         <label style={bodyText}>{body}</label>
@@ -41,6 +41,7 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
                             }
                         />
                     ) : null}
+                    <div style={{width: '100%', height: '35px', margin: '-20px'}}></div>
                 </Modal>,
                 document.getElementById("app"),
             )}

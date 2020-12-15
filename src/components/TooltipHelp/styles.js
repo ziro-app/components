@@ -54,7 +54,6 @@ export const
       color: '#FFF',
       textAlign: 'center',
       background: gradient,
-      boxShadow: `${shadow}`,
-      marginBottom: '35px'
+      boxShadow: `${shadow}`
     };
     
