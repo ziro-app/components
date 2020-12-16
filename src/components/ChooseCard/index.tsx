@@ -31,13 +31,11 @@ const ChooseCard: React.FC<ChooseCardProps> = ({ cardsCollection, zoopAtom, sele
                     Adicione um cartão para pagar sua compra{" "}
                     <TooltipHelp
                         illustration="onlinePosts"
-                        title="Vantagens de salvar seu cartão"
-                        body="Seu cartão não fica salvo em nossa base de dados e
-                        jamais temos acesso a ele, pois ele fica criptografado na
-                        Cielo e Rede em total segurança. Nós apenas vinculamos você
-                        a um código que representa seu cartão, permitindo que sua
-                        próxima compra seja com apenas um clique! Ainda tem dúvidas?
-                        Só falar conosco!"
+                        title="Vantagens de adicionar o cartão"
+                        body="Não salvamos seu cartão e jamais temos acesso a ele, pois fica criptografado 
+                        na Cielo e Rede em total segurança. Apenas te vinculamos a um código que representa 
+                        seu cartão. Assim, sua próxima compra é feita com apenas um clique! Dúvidas, 
+                        só falar conosco!!"
                         supportButton
                     />
                 </p>
