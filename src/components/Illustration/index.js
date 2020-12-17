@@ -25,6 +25,7 @@ import { UpgradePlan } from '../../Illustrations/UpgradePlan';
 import { Account } from '../../Illustrations/Account';
 import { SecurityTwo } from '../../Illustrations/SecurityTwo';
 import { Receipt } from '../../Illustrations/Receipt';
+import { NoteList } from '../../Illustrations/NoteList';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -53,7 +54,8 @@ const Illustration = ({ type, size }) => {
       upgradePlan: <UpgradePlan {...illustrationProps} />,
       account: <Account {...illustrationProps} />,
       securityTwo: <SecurityTwo {...illustrationProps} />,
-      receipt: <Receipt {...illustrationProps} />
+      receipt: <Receipt {...illustrationProps} />,
+      noteList: <NoteList {...illustrationProps} />,
   };
   return illustrationList[type];
 };
