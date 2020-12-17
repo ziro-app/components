@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export const ErrorLoading = ({ size = 150 }) => (
            <svg
                width={size}
-               height={size}
+               height={size / 1.3}
                viewBox="0 0 1022.7 785.81"
            >
                <defs>
