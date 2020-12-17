@@ -23,6 +23,8 @@ import { CnhPhoto } from '../../Illustrations/CnhPhoto';
 import { CardAnalysis } from '../../Illustrations/CardAnalysis';
 import { UpgradePlan } from '../../Illustrations/UpgradePlan';
 import { Account } from '../../Illustrations/Account';
+import { SecurityTwo } from '../../Illustrations/SecurityTwo';
+import { Receipt } from '../../Illustrations/Receipt';
 
 const Illustration = ({ type, size }) => {
   const illustrationProps = { size };
@@ -49,7 +51,9 @@ const Illustration = ({ type, size }) => {
       cnhPhoto: <CnhPhoto {...illustrationProps} />,
       cardAnalysis: <CardAnalysis {...illustrationProps} />,
       upgradePlan: <UpgradePlan {...illustrationProps} />,
-      account: <Account {...illustrationProps} />
+      account: <Account {...illustrationProps} />,
+      securityTwo: <SecurityTwo {...illustrationProps} />,
+      receipt: <Receipt {...illustrationProps} />
   };
   return illustrationList[type];
 };

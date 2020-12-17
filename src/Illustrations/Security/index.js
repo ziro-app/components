@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const Security = ({ size = 150 }) => (
     <svg
         width={size}
-        height={size}
+        height={size / 1.4}
         viewBox="0 0 1145.57 819.91"
     >
         <defs>

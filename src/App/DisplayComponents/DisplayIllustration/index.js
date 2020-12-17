@@ -27,5 +27,7 @@ export const DisplayIllustration = () => (
         <Illustration type="cardAnalysis" size={200} />
         <Illustration type="upgradePlan" size={200} />
         <Illustration type="cnhPhoto" size={200} />
+        <Illustration type="securityTwo" size={200} />
+        <Illustration type="receipt" size={150} />
     </div>
 );
