@@ -56,11 +56,11 @@ buttonsContainer: (second: boolean) => React.CSSProperties = (second) => ({
 }),
 
 supportButton: React.CSSProperties = {
-	fontSize: "1.5rem",
+	fontSize: "1.4rem",
 	fontFamily: fontTitle,
 	textDecoration: "underline",
 	color: primaryColor,
 	cursor: "pointer",
 	textAlign: "center",
-	marginTop: "15px"
+	marginTop: "7px"
 }

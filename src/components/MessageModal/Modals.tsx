@@ -46,7 +46,7 @@ const Common: React.FC<CP> = ({ message }) => {
 type BP = {
     message: PMessage;
     reactfire: boolean;
-    onButtonClick: (button: "first" | "second" | "support") => void;
+    onButtonClick: (button: "first" | "second" | "generic" | "support") => void;
 };
 
 const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) => {
@@ -62,8 +62,8 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) =
         return [false, "singleButton"];
     }, [message]);
 
-    const [clickFirst, clickSecond, clickSupport] = React.useMemo(
-        () => [() => onButtonClick("first"), () => onButtonClick("second"), () => onButtonClick("support")],
+    const [clickFirst, clickSecond, clickGeneric, clickSupport] = React.useMemo(
+        () => [() => onButtonClick("first"), () => onButtonClick("second"), () => onButtonClick("generic"), () => onButtonClick("support")],
         [onButtonClick],
     );
 
@@ -76,11 +76,19 @@ const ButtonsContainer: React.FC<BP> = ({ message, onButtonClick, reactfire }) =
         <motion.div key={buttonsContainerKey} {...defaultProp} style={buttonsContainer(second)}>
             <Button type="button" click={clickFirst} cta={cta} />
             {message.secondButton && <Button type="button" click={clickSecond} cta={message.secondButton.title} template="light" />}
+            {message.genericButton && (
+                <Button
+                    style={supportButton}
+                    type="link"
+                    cta={message.genericButton.title}
+                    navigate={clickGeneric}
+                />
+            )}
             {message.supportButton && (
                 <Button
                     style={supportButton}
                     type="link"
-                    cta={message.supportButton === true ? "Falar com Suporte" : message.supportButton.title}
+                    cta={message.supportButton === true ? "Falar com suporte" : message.supportButton.title}
                     navigate={clickSupport}
                 />
             )}

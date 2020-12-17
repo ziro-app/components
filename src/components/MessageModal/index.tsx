@@ -21,13 +21,14 @@ const MessageModal: React.FC<Props> = ({
     const [, setReject] = React.useState<Rejecter | null>(null);
 
     const onButtonClick = React.useCallback(
-        (button: "first" | "second" | "support") => {
+        (button: "first" | "second" | "generic" | "support") => {
             setMessage((currentMessage) => {
                 if (isPrompt(currentMessage)) {
                     setReject(null);
                     let ret: any = null;
                     if (button === "first") ret = currentMessage.firstButton?.action();
                     if (button === "second") ret = currentMessage.secondButton?.action();
+                    if (button === "generic") ret = currentMessage.genericButton?.action();
                     if (button === "support" && currentMessage.supportButton) {
                         if (currentMessage.supportButton === true) ret = supportAction();
                         else ret = currentMessage.supportButton.action();
