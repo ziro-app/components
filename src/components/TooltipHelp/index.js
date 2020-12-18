@@ -41,7 +41,8 @@ const TooltipHelp = ({ illustration, illustrationSize = 150, title, body, iconCo
                             }
                         />
                     ) : null}
-                    <div style={{width: '100%', height: '35px', margin: '-20px'}}></div>
+                    
+                    <div style={{width: '100%', height: '35px', marginTop: '-20px'}}></div>
                 </Modal>,
                 document.getElementById("app"),
             )}
