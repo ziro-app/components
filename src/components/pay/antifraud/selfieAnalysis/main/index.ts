@@ -15,7 +15,7 @@ import { supportPhoneNumber } from '@bit/vitorbarbosa19.ziro.utils.support-phone
 
 export * from "./types";
 
-export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
+export const useBiometry = (firebaseCard: FirebaseCardDocument, genericButton) => {
     const [uploadPicture] = useUploadFirebaseCardPicture(firebaseCard.id);
     const source = useCancelToken();
     const [cbk, state] = usePromiseShowingMessage<
@@ -71,13 +71,7 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                 return { response, url, validations, status };
             } catch (err) {
                 if (err.skipAttempt) {
-                    throw { skipAttempt: true, error: err.error
-                        .withButtons([{
-                            title: "Falar com Suporte",
-                            action: () => {
-                                window.open(`https://api.whatsapp.com/send?phone=${supportPhoneNumber.replace(/\+|\s|\(|\)|-/g, "")}`, "_blank")
-                            }
-                        }]) 
+                    throw { skipAttempt: true, error: err.error.withGenericButton(genericButton)                         
                     }
                 }
 
@@ -85,7 +79,7 @@ export const useBiometry = (firebaseCard: FirebaseCardDocument) => {
                     throw err.withButtons([{
                         title: "Enviar novamente",
                         action: () => null
-                    }]).withSupportButton();
+                    }]).withGenericButton(genericButton);
                 } else {
                     throw err
                 }

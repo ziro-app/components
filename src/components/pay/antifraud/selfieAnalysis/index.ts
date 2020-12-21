@@ -1,4 +1,4 @@
-import { useMemo, MutableRefObject, useEffect } from "react";
+import { useMemo, MutableRefObject, useEffect, useRef } from "react";
 import { useFirebaseCardDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
 import { ZoopCard } from "@bit/vitorbarbosa19.ziro.pay.zoop";
 import { useStoreowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
@@ -14,14 +14,19 @@ export const useSelfieAnalysis = (
     recipients: string[],
     cameraRef: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>,
     onSuccess: (result: ReturnType<typeof useBiometry>[1]["result"]) => void,
+    onChangeValidationType: () => void,
 ) => {
     const userData = useStoreowner();
     const firebaseCard = useFirebaseCardDocument(zoopCardData.id);
 
-    const [cbk, biometryState] = useBiometry(firebaseCard);
+    const onChangeValidationTypeRef = useRef(onChangeValidationType);
+    onChangeValidationTypeRef.current = onChangeValidationType;
+    const genericButton = { title: 'Validar de outra forma', action: onChangeValidationTypeRef.current }
+    const [cbk, biometryState] = useBiometry(firebaseCard, genericButton);
     const firestoreState = useFirestoreEffect(firebaseCard, biometryState);
     const sheetState = useSheetEffect(firebaseCard, zoopCardData, biometryState, firestoreState, userData);
     const whatsAppState = useWhatsAppEffect(recipients, biometryState, userData);
+    
 
     useAsyncEffectShowingMessage(
         null,
