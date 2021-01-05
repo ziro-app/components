@@ -8,12 +8,12 @@ const ScoreCircle = props => {
   const { value, maxValue, width, stepsColors } = props
   const fixedValue = value > maxValue ? maxValue : value;
   const stepRange = maxValue / stepsColors.length
-  const currentStep = Math.ceil((fixedValue + 1) / stepRange)
+  const currentStep = Math.ceil((fixedValue) / stepRange)
   const scoreValuePosition = (165 * width) / 230
   const scoreValueColor = getCurrentColor(currentStep, stepsColors)
   const valueSize = (36 * width) / 230
   const maxValueSize = (18 * width) / 230
-  const classification = fixedValue <= 299 ? 'Baixo Score' : (fixedValue >= 300 && fixedValue <= 699) ? 'Médio Score' : 'Bom Score'
+  const classification = fixedValue <= 300 ? 'Baixo Score' : (fixedValue > 300 && fixedValue <= 700) ? 'Médio Score' : 'Bom Score'
   return (
     <div style={container}>
       <Range scoreNumber={Number(currentStep)} {...props} />

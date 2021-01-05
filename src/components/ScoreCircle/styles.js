@@ -16,6 +16,7 @@ export const
 		color: scoreValueColor,
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
+		textAlign: 'center',
 		textOverflow: 'ellipsis'
 	}),
 
