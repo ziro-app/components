@@ -64,14 +64,12 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
     onErrorRef.current = onError;
     onChangeValidationTypeRef.current = onChangeValidationType;
 
-    const genericButton = { title: "Validar de outra forma", action: onChangeValidationTypeRef.current };
-
     const [cbk, state] = usePromiseShowingMessage<Arg, void, any>(
         fullOCR.waiting.ANALYZING_DOC,
         async ({ picture }) => {
             try {
                 if (state.attempts === 3) throw common.prompt.TOO_MANY_ATTEMPTS.withAdditionalData({ where: "fullOCR" });
-                const props = { picture, uploadPicture, fbCard, zoopCard, source, genericButton };
+                const props = { picture, uploadPicture, fbCard, zoopCard, source };
                 const result = await fullOCRPromise(props).catch(async (error) => {
                     //save error to firestore
                     await saveFailureToFirestore(fbCard, error, FV);
@@ -102,6 +100,9 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
                     Sentry.captureException(e);
                 }
                 if (!isPrompt(error)) throw error;
+
+                const genericButton = { title: "Validar de outra forma", action: onChangeValidationTypeRef.current };
+
                 switch (error.code) {
                     case common.prompt.TOO_MANY_ATTEMPTS.code: {
                         const button = { title: "Falar com suporte", action: supportAction };
