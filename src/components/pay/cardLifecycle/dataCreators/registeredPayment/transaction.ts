@@ -11,7 +11,7 @@ export const transaction = async (
     card: (UnregisteredCard & { card_brand: string }) | GetCard.Response,
     buyerZoopId?: string,
 ) => {
-    let statement_descriptor = "Ziro * ";
+    let statement_descriptor = "";
     if (payment.seller === "Ziro" && payment.onBehalfOfBrand) statement_descriptor += payment.onBehalfOfBrand;
     else statement_descriptor += payment.seller;
     const data: any = {

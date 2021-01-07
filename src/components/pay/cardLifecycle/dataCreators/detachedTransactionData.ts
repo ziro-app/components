@@ -7,7 +7,7 @@ export default async (card: UnregisteredCard, installments: string, payment: any
         payment_type: "credit",
         capture: true,
         on_behalf_of: payment.sellerZoopId,
-        statement_descriptor: `Ziro ${payment.seller}`,
+        statement_descriptor: `${payment.seller}`,
         source: {
             usage: "single_use",
             amount: payment.charge,

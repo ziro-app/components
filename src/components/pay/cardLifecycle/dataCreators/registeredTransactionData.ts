@@ -7,7 +7,7 @@ export default async (buyerZoopId: string, cardId: string, installments: string,
         payment_type: "credit",
         capture: !payment.insurance,
         on_behalf_of: payment.sellerZoopId,
-        statement_descriptor: `Ziro* ${payment.seller === "Ziro" && payment.onBehalfOfBrand ? payment.onBehalfOfBrand : payment.seller}`,
+        statement_descriptor: `${payment.seller === "Ziro" && payment.onBehalfOfBrand ? payment.onBehalfOfBrand : payment.seller}`,
         customer: buyerZoopId,
         source: {
             usage: "reusable",
