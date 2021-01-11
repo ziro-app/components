@@ -12,7 +12,7 @@ export const paymentSuccessUserResolution = (seller) => {
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap'
                 }}>
-                    <label>▪️ Zp *Ziro {seller}</label><br />
+                    <label>▪️ Zp *{seller}</label><br />
                     <label>▪️ ZP+PARC</label><br />
                     <label>▪️ SUB</label>
                 </div>
