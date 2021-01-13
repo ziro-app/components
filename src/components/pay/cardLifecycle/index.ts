@@ -149,8 +149,8 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             const paymentData = payment.data();
             if (paymentDataRef.current.status === 'Aprovado') throw payMessages.prompt.PAYMENT_SUCCESS
                 .set("title", "Pagamento já realizado")
-                .set("userDescription", "O pagamento desta transação já foi realizado")
-                .set("userResolution", 'Retorne a tela de pagamentos para verificar o status do pagamento')
+                .set("userDescription", "O pagamento desta transação já foi realizado.")
+                .set("userResolution", 'Retorne a tela de pagamentos para verificar o status do pagamento.')
                 .withButtons([
                     {
                         title: "Retornar",
