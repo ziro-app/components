@@ -19,7 +19,7 @@ import {
 import { useAnimatedLocation } from "@bit/vitorbarbosa19.ziro.flow-manager";
 import { useCancelToken } from "@bit/vitorbarbosa19.ziro.utils.axios";
 import { useFirebaseCardsCollectionRef, useCartCollectionRef, useCatalogUserDataDocument } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef, useEffect, useState } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { useZoopRegistration } from "@bit/vitorbarbosa19.ziro.pay.zoop-registration";
 import { useCreditCardPaymentDocument } from "@bit/vitorbarbosa19.ziro.firebase.credit-card-payments";
@@ -130,6 +130,8 @@ export function usePayment(
 export function usePayment(onSuccess: (dbData: any) => void, id: string, installments?: string, cardAtom?: GetCard.Response) {
     const source = useCancelToken();
     const payment = useCreditCardPaymentDocument(id);
+    const paymentDataRef = useRef(payment.data())
+    paymentDataRef.current = payment.data()
     const storeowner = useStoreowner();
     const zoopId = storeowner.storeownerId !== "-" ? useZoopRegistration() : undefined;
     const cartCollectionRef = storeowner.storeownerId !== "-" ? useCartCollectionRef() : undefined;
@@ -145,6 +147,18 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
             if (!installments && !_i) throw payMessages.prompt.NO_INSTALLMENTS;
             const i: string = installments || _i;
             const paymentData = payment.data();
+            if (paymentDataRef.current.status === 'Aprovado') throw payMessages.prompt.PAYMENT_SUCCESS
+                .set("title", "Pagamento já realizado")
+                .set("userDescription", "O pagamento desta transação já foi realizado")
+                .set("userResolution", 'Retorne a tela de pagamentos para verificar o status do pagamento')
+                .withButtons([
+                    {
+                        title: "Retornar",
+                        action: () => {
+                            setLocation("goLeft", "/pagamentos");
+                        },
+                    },
+                ]);
             const userData = catalogUserDataDoc && catalogUserDataDoc.exists ? catalogUserDataDoc.data() : undefined;
             const transaction: any = await createPayment(
                 await creator.registeredPayment.transaction(i, paymentData, cardAtom || card, zoopId),
