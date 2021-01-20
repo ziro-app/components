@@ -30,13 +30,19 @@ body = (numberOfColumns, customGrid) => ({
 }),
 
 cellHeader = {
+	display: 'grid',
+	width: '100%',
+	height: '100%',
 	fontFamily: fontTitle,
-	fontSize: '1.4rem'
+	fontSize: '1.4rem',
+	textAlign: 'center',
+	textOverflow: 'ellipsis',
+	overflow: 'hidden',
+	whiteSpace: 'nowrap',
 },
 
 cell = {
 	display: 'grid',
-	justifyItems: 'center',
 	width: '100%',
 	height: '100%',
 	fontSize: '1.4rem',
@@ -44,11 +50,13 @@ cell = {
 	textOverflow: 'ellipsis',
 	overflow: 'hidden',
 	whiteSpace: 'nowrap',
-	cursor: 'pointer'
+	cursor: 'pointer',
 },
 
 cellTotal = {
+	display: 'grid',
 	width: '100%',
+	height: '100%',
 	fontSize: '1.4rem',
 	textAlign: 'center',
 	background: grayColor4

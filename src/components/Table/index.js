@@ -4,25 +4,25 @@ import { container, titleStyle, dot, body, cellHeader, cell, cellTotal } from '.
 
 const Table = ({ data, customGrid, cellStyle = cell }) =>
 	<>
-		{data.map(({ title, header, rows, rowsClicks, totals }, index) =>
+		{data.map(({ title, header, rows, align, rowsClicks, totals }, index) =>
 			<div style={container} key={index}>
 				<label style={titleStyle}>{title}
 					<label style={dot}>&nbsp;.</label>
 				</label>
 				<div style={body(header.length, customGrid)}>
 					{header.map((column, indexHeader) =>
-						<label style={cellHeader} key={`${index}H${indexHeader}`}>
+						<label style={align ? {...cellHeader, textAlign: align[indexHeader]} : cellHeader} key={`${index}H${indexHeader}`}>
 							{column}
 						</label>
 					)}
 					{rows.map((row, indexRow) =>
 						row.map((column, indexColumn) =>
-							<label style={cellStyle} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks && rowsClicks[indexRow] ? rowsClicks[indexRow] : null}>
+							<label style={align ? {...cellStyle, textAlign: align[indexColumn]} : cellStyle} key={`${index}${indexRow}${indexColumn}`} onClick={rowsClicks && rowsClicks[indexRow] ? rowsClicks[indexRow] : null}>
 								{column}
 							</label>
 						))}
 					{totals.map((column, indexTotals) =>
-						<label style={cellTotal} key={`${index}T${indexTotals}`}>
+						<label style={align ? {...cellTotal, textAlign: align[indexTotals]} : cellTotal} key={`${index}T${indexTotals}`}>
 							{column}
 						</label>
 					)}
