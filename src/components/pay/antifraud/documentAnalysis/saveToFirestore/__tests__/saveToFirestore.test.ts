@@ -1,10 +1,8 @@
 import { saveSuccessToFirestore, saveFailureToFirestore } from "..";
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/common";
 import { validator } from "../../main/validator/validator";
-import { createRandomWord, createRandomName, createRandomObject } from "../../__test_utils__/createRandom";
-import RGF from "../../__test_utils__/nextcodeResponses/RGF.json";
-import RGV from "../../__test_utils__/nextcodeResponses/RGV.json";
-import CNHFV from "../../__test_utils__/nextcodeResponses/CNHFV.json";
+import responses from "../../__test_utils__/nextcodeResponses";
+import random from "random-types";
 
 const fv = {
     serverTimestamp: jest.fn(() => {
@@ -49,8 +47,8 @@ describe("saving antifraud document data to firestore", () => {
         fv.arrayUnion.mockClear();
     });
     it("should save success RGF result to firestore correctly", async () => {
-        const validations = validator(card as any, {} as any, RGF as any);
-        const result: any = { url: createRandomWord(), response: RGF, validations };
+        const validations = validator(card as any, {} as any, responses.RGF as any);
+        const result: any = { url: random.word(), response: responses.RGF, validations };
         await saveSuccessToFirestore(card as any, result as any, fv as any);
         expect(card.ref.set).toHaveBeenCalledTimes(1);
         expect(card.ref.set).toHaveBeenLastCalledWith(
@@ -58,8 +56,8 @@ describe("saving antifraud document data to firestore", () => {
                 ...initialCardData,
                 docStatus: "pendingRGV",
                 documentType: "rg",
-                face: RGF.face,
-                "RG F": { url: result.url, fileInfo: RGF.fileInfo },
+                face: responses.RGF.face,
+                "RG F": { url: result.url, fileInfo: responses.RGF.fileInfo },
                 validations: {
                     face: validations.face,
                     RGFProbability: validations.docProbability,
@@ -68,11 +66,11 @@ describe("saving antifraud document data to firestore", () => {
         );
     });
     it("should save success RGV result to firestore correctly", async () => {
-        const holder_name = createRandomName();
-        const modRGV = { ...RGV };
+        const holder_name = random.phrase();
+        const modRGV = { ...responses.RGV };
         modRGV.found.name = holder_name;
         const validations = validator(card as any, { holder_name } as any, modRGV as any);
-        const result: any = { url: createRandomWord(), response: modRGV, validations };
+        const result: any = { url: random.word(), response: modRGV, validations };
         await saveSuccessToFirestore(card as any, result as any, fv as any);
         expect(card.ref.set).toHaveBeenCalledTimes(1);
         expect(card.ref.set).toHaveBeenCalledWith(
@@ -95,15 +93,15 @@ describe("saving antifraud document data to firestore", () => {
     });
     it("should save RGV after RGF correctly", async () => {
         //first RGF
-        const RGFvalidations = validator(card as any, {} as any, RGF as any);
-        const RGFresult: any = { url: createRandomWord(), response: RGF, validations: RGFvalidations };
+        const RGFvalidations = validator(card as any, {} as any, responses.RGF as any);
+        const RGFresult: any = { url: random.word(), response: responses.RGF, validations: RGFvalidations };
         await saveSuccessToFirestore(card as any, RGFresult as any, fv as any);
         //then RGV
-        const holder_name = createRandomName();
-        const modRGV = { ...RGV };
+        const holder_name = random.phrase();
+        const modRGV = { ...responses.RGV };
         modRGV.found.name = holder_name;
         const RGVvalidations = validator(card as any, { holder_name } as any, modRGV as any);
-        const RGVresult: any = { url: createRandomWord(), response: modRGV, validations: RGVvalidations };
+        const RGVresult: any = { url: random.word(), response: modRGV, validations: RGVvalidations };
         await saveSuccessToFirestore(card as any, RGVresult as any, fv as any);
         expect(card.ref.set).toHaveBeenCalledTimes(2);
         expect(card.ref.set).toHaveBeenLastCalledWith(
@@ -112,9 +110,9 @@ describe("saving antifraud document data to firestore", () => {
                 status: "pendingSelfie",
                 documentType: "rg",
                 extracted: modRGV.extracted,
-                face: RGF.face,
+                face: responses.RGF.face,
                 "RG V": { url: RGVresult.url, fileInfo: modRGV.fileInfo },
-                "RG F": { url: RGFresult.url, fileInfo: RGF.fileInfo },
+                "RG F": { url: RGFresult.url, fileInfo: responses.RGF.fileInfo },
                 validations: {
                     face: RGFvalidations.face,
                     RGFProbability: RGFvalidations.docProbability,
@@ -130,15 +128,15 @@ describe("saving antifraud document data to firestore", () => {
     });
     it("should save RGF after RGV correctly", async () => {
         //first RGV
-        const holder_name = createRandomName();
-        const modRGV = { ...RGV };
+        const holder_name = random.phrase();
+        const modRGV = { ...responses.RGV };
         modRGV.found.name = holder_name;
         const RGVvalidations = validator(card as any, { holder_name } as any, modRGV as any);
-        const RGVresult: any = { url: createRandomWord(), response: modRGV, validations: RGVvalidations };
+        const RGVresult: any = { url: random.word(), response: modRGV, validations: RGVvalidations };
         await saveSuccessToFirestore(card as any, RGVresult as any, fv as any);
         //then RGF
-        const RGFvalidations = validator(card as any, {} as any, RGF as any);
-        const RGFresult: any = { url: createRandomWord(), response: RGF, validations: RGFvalidations };
+        const RGFvalidations = validator(card as any, {} as any, responses.RGF as any);
+        const RGFresult: any = { url: random.word(), response: responses.RGF, validations: RGFvalidations };
         await saveSuccessToFirestore(card as any, RGFresult as any, fv as any);
         expect(card.ref.set).toHaveBeenCalledTimes(2);
         expect(card.ref.set).toHaveBeenLastCalledWith(
@@ -147,9 +145,9 @@ describe("saving antifraud document data to firestore", () => {
                 status: "pendingSelfie",
                 documentType: "rg",
                 extracted: modRGV.extracted,
-                face: RGF.face,
+                face: responses.RGF.face,
                 "RG V": { url: RGVresult.url, fileInfo: modRGV.fileInfo },
-                "RG F": { url: RGFresult.url, fileInfo: RGF.fileInfo },
+                "RG F": { url: RGFresult.url, fileInfo: responses.RGF.fileInfo },
                 validations: {
                     face: RGFvalidations.face,
                     RGFProbability: RGFvalidations.docProbability,
@@ -164,11 +162,11 @@ describe("saving antifraud document data to firestore", () => {
         );
     });
     it("should save CNHFV correctly", async () => {
-        const holder_name = createRandomName();
-        const modCNHFV = { ...CNHFV };
+        const holder_name = random.phrase();
+        const modCNHFV = { ...responses.CNHFV };
         modCNHFV.found.name = holder_name;
         const validations = validator(card as any, { holder_name } as any, modCNHFV as any);
-        const result: any = { url: createRandomWord(), response: modCNHFV, validations };
+        const result: any = { url: random.word(), response: modCNHFV, validations };
         await saveSuccessToFirestore(card as any, result as any, fv as any);
         expect(card.ref.set).toHaveBeenCalledTimes(1);
         expect(card.ref.set).toHaveBeenLastCalledWith(
@@ -192,8 +190,8 @@ describe("saving antifraud document data to firestore", () => {
         );
     });
     it("should save prompt errors correctly", async () => {
-        const url = createRandomWord();
-        const error = prompt.MISSING_EXTRACTED_DATA.withAdditionalData({ response: RGF, url });
+        const url = random.phrase();
+        const error = prompt.MISSING_EXTRACTED_DATA.withAdditionalData({ response: responses.RGF, url });
         await saveFailureToFirestore(card as any, error, fv as any);
         expect(fv.arrayUnion).toHaveBeenCalledTimes(1);
         expect(fv.arrayUnion).toHaveBeenCalledWith(
@@ -215,7 +213,7 @@ describe("saving antifraud document data to firestore", () => {
         );
     });
     it("should save Error class objects correctly", async () => {
-        const error = new Error(createRandomWord());
+        const error = new Error(random.word());
         await saveFailureToFirestore(card as any, error, fv as any);
         expect(fv.arrayUnion).toHaveBeenCalledTimes(1);
         expect(fv.arrayUnion).toHaveBeenCalledWith(
@@ -245,7 +243,7 @@ describe("saving antifraud document data to firestore", () => {
         );
     });
     it("should save serialazable errors", async () => {
-        const error = { ...createRandomObject(3, ["undefined"]), func: () => {}, undefined: undefined };
+        const error = { ...random.object({ depth: 3, exclude: ["undefined"] }), func: () => {}, undefined: undefined };
         const strippedDownError = error;
         delete strippedDownError.func;
         strippedDownError.undefined = null;

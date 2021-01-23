@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { ZiroWaitingMessage, isPrompt, isWaiting } from "ziro-messages";
 import { prompt } from "ziro-messages/dist/src/catalogo";
 import { useMessage } from "@bit/vitorbarbosa19.ziro.message-modal";
@@ -12,10 +12,7 @@ import * as Sentry from "@sentry/react";
  * @param promise O callback assincrono
  * @param deps As dependencias para que o callback seja refatorado
  */
-export function usePromise<A = void, R = any, E = unknown>(
-    promise: PromiseGen<R, A>,
-    deps: React.DependencyList = [],
-): [PromiseCbk<A>, UsePromiseState<R, E>] {
+export function usePromise<A = void, R = any, E = unknown>(promise: PromiseGen<R, A>): [PromiseCbk<A>, UsePromiseState<R, E>] {
     const mountState = useMountState();
 
     //set promise state
@@ -24,13 +21,17 @@ export function usePromise<A = void, R = any, E = unknown>(
     const [result, setResult] = useState<R | null>(null);
     const [error, setError] = useState<E | null>(null);
 
+    //save current promise
+    const promiseRef = useRef(promise);
+    promiseRef.current = promise;
+
     //set promise callback
     const callback = useCallback(
         async (args: A) => {
             try {
                 if (status === "running") return;
                 setStatus("running");
-                const result = await promise(args);
+                const result = await promiseRef.current(args);
                 if (mountState.current === "unmounted") return;
                 setResult(result);
                 setStatus("success");
@@ -41,7 +42,7 @@ export function usePromise<A = void, R = any, E = unknown>(
                 setStatus("failed");
             }
         },
-        [status, setStatus, setResult, setError, setAttempts, ...deps],
+        [status, setStatus, setResult, setError, setAttempts],
     );
 
     //set reset state callback
@@ -82,38 +83,34 @@ export function usePromise<A = void, R = any, E = unknown>(
 export function usePromiseShowingMessage<A = void, R = any, E = unknown>(
     message: ZiroWaitingMessage<string, string, any>,
     promise: PromiseGen<R, A>,
-    deps: React.DependencyList = [],
 ): [PromiseCbk<A>, UsePromiseState<R, E>] {
-    const [cbk, state] = usePromise<A, R, E>(
-        ((arg) =>
-            promise(arg).catch((error) => {
-                if (isPrompt(error) || isWaiting(error)) throw error;
-                if ("skipAttempt" in error && (isPrompt(error.error) || isWaiting(error.error))) throw error;
-                else {
-                    let additionalData;
-                    if (error instanceof Error) {
-                        additionalData = { message: error.message };
-                        if (error.stack) additionalData.stack = error.stack;
-                    }
-                    if (typeof error === "string") {
-                        additionalData = { message: error };
-                    }
-                    if ("toJSON" in error) {
-                        additionalData = { message: error.toJSON() };
-                    }
-                    if (additionalData) {
-                        const unknownError = prompt.UNKNOWN_ERROR.withAdditionalData(additionalData);
-                        Sentry.captureException(unknownError);
-                        throw unknownError;
-                    } else {
-                        const unknownError = prompt.UNKNOWN_ERROR;
-                        Sentry.captureException(unknownError);
-                        throw unknownError;
-                    }
+    const [cbk, state] = usePromise<A, R, E>(((arg) =>
+        promise(arg).catch((error) => {
+            if (isPrompt(error) || isWaiting(error)) throw error;
+            if ("skipAttempt" in error && (isPrompt(error.error) || isWaiting(error.error))) throw error;
+            else {
+                let additionalData;
+                if (error instanceof Error) {
+                    additionalData = { message: error.message };
+                    if (error.stack) additionalData.stack = error.stack;
                 }
-            })) as any,
-        deps,
-    );
+                if (typeof error === "string") {
+                    additionalData = { message: error };
+                }
+                if ("toJSON" in error) {
+                    additionalData = { message: error.toJSON() };
+                }
+                if (additionalData) {
+                    const unknownError = prompt.UNKNOWN_ERROR.withAdditionalData(additionalData);
+                    Sentry.captureException(unknownError);
+                    throw unknownError;
+                } else {
+                    const unknownError = prompt.UNKNOWN_ERROR;
+                    Sentry.captureException(unknownError);
+                    throw unknownError;
+                }
+            }
+        })) as any);
 
     const setMessage = useMessage();
 
