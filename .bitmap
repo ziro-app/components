@@ -3555,7 +3555,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/utils/check-against-template@0.0.11": {
+    "vitorbarbosa19.ziro/utils/check-against-template@0.0.12": {
         "files": [
             {
                 "name": "index.ts",

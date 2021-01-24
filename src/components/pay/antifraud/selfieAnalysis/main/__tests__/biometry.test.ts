@@ -15,7 +15,9 @@ jest.mock("@bit/vitorbarbosa19.ziro.pay.next-code", () => {
 jest.mock("@bit/vitorbarbosa19.ziro.pay.next-code-v2", () => {
     return {
         docClassify: jest.fn(),
-        is: require("../../../../NextCodeV2/types/typeChecks"),
+        is: {
+            DocType: jest.fn(() => true),
+        },
     };
 });
 
@@ -25,26 +27,92 @@ const fbCard = {
     data: jest.fn(),
 };
 
+const docClassifyResponse = (type = "SELFIE") => Promise.resolve({ data: [{ classification: { type } }] });
+
+const props = (picture = random.word(), token = random.word()) => ({ picture, fbCard, uploadPicture, source: { token } } as any);
+
+const fbCardData = (type: "none" | "CNH F" | "CNH FV" | "RG F" | "RG FV") => {
+    const data: any = {
+        status: "pendingSelfie",
+    };
+    if (type === "none") return data;
+    if (type === "CNH F" || type === "CNH FV") data.documentType = "cnh";
+    else data.documentType = "rg";
+    data[type] = { url: random.word() };
+    return data;
+};
+
 describe("selfie analysis main function", () => {
+    beforeEach(() => {
+        (analise as jest.Mock).mockClear();
+        (docClassify as jest.Mock).mockClear();
+        ((isV2.DocType as unknown) as jest.Mock).mockClear();
+        uploadPicture.mockClear();
+        fbCard.data.mockClear();
+    });
     it("should throw if there's no picture", async () => {
         await expect(biometry({} as any)).rejects.toHaveProperty("code", common.prompt.NO_IMAGE.code);
     });
     it("should throw if firebase data has unexpected card status", async () => {
-        const picture = random.word();
+        //create vars
         const status = random.word();
+        //mock functions
         fbCard.data.mockReturnValueOnce({ status });
-        const props: any = { picture, fbCard, uploadPicture };
-        await expect(biometry(props)).rejects.toHaveProperty("code", bio.prompt.UNEXPECTED_CARD_STATUS.code);
+        //assertions
+        await expect(biometry(props())).rejects.toHaveProperty("code", bio.prompt.UNEXPECTED_CARD_STATUS.code);
     });
     it("should call uploadPicture if picture exists and send url to next-code", async () => {
-        const picture = random.word();
-        const token = random.word();
-        fbCard.data.mockReturnValueOnce({ status: "pendingSelfie" });
-        const props: any = { picture, fbCard, uploadPicture, source: { token } };
-        await biometry(props).catch(() => null);
+        //create vars
+        const _props = props();
+        const _fbCardData = fbCardData("none");
+        //mock functions
+        fbCard.data.mockReturnValueOnce(_fbCardData);
+        //call function
+        await biometry(_props).catch(() => null);
+        //assertions
         expect(uploadPicture).toHaveBeenCalledTimes(1);
-        expect(uploadPicture).toHaveBeenCalledWith(picture);
+        expect(uploadPicture).toHaveBeenCalledWith(_props.picture);
         expect(docClassify).toHaveBeenCalledTimes(1);
-        expect(docClassify).toHaveBeenCalledWith(picture, token);
+        expect(docClassify).toHaveBeenCalledWith(_props.picture, _props.source.token);
+    });
+    it("should throw if picture is not selfie", async () => {
+        //create vars
+        const _props = props();
+        const _docClassifyResponse = docClassifyResponse(random.word());
+        const _fbCardData = fbCardData("none");
+        //mock functions
+        (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
+        fbCard.data.mockReturnValueOnce(_fbCardData);
+        //assertions
+        await expect(biometry(_props)).rejects.toHaveProperty("code", bio.prompt.DOC_INSTEAD_SELFIE.code);
+    });
+    const types = ["CNH F", "CNH FV", "RG F", "RG FV"] as const;
+    types.map((type) =>
+        it(`should use ${type} url when doctype is ${type}`, async () => {
+            //create var
+            const _props = props();
+            const _docClassifyResponse = docClassifyResponse();
+            const _fbCardData = fbCardData(type);
+            //mock functions
+            (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
+            fbCard.data.mockReturnValueOnce(_fbCardData);
+            //call
+            await biometry(_props).catch(() => null);
+            //assertions
+            expect(analise).toHaveBeenCalledTimes(1);
+            expect(analise).toHaveBeenCalledWith(_fbCardData[type].url, _props.picture, _props.source.token);
+        }),
+    );
+    it("should throw if response is null", async () => {
+        //create var
+        const _props = props();
+        const _docClassifyResponse = docClassifyResponse();
+        const _fbCardData = fbCardData("CNH F");
+        //mock functions
+        (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
+        fbCard.data.mockReturnValueOnce(_fbCardData);
+        (analise as jest.Mock).mockReturnValueOnce(null);
+        //call
+        await expect(biometry(_props)).rejects.toHaveProperty("code", bio.prompt.UNRECOGNIZED_RESPONSE.code);
     });
 });

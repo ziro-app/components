@@ -48,6 +48,7 @@ describe("antifraud document analysis main function", () => {
         await expect(fullOCRPromise(props)).rejects.toHaveProperty("code", fullOCR.prompt.UNRECOGNIZED_RESPONSE.code);
     });
     it("should throw when response is random object", async () => {
+        (analiseDocument as jest.Mock).mockReturnValueOnce(random.object({ depth: 1 }));
         const picture = random.word();
         const token = random.word();
         const props: any = { picture, uploadPicture, source: { token }, zoopCard: {} };
