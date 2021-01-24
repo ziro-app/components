@@ -4,7 +4,7 @@ import { identical, IdenticalReason } from "./identical";
 import { selfieProbability, SelfieProbabilityReason } from "./selfieProbability";
 import { Validation } from "./types";
 
-export { Validation };
+export type { Validation };
 export const validations = { comparison, faceCount, identical, selfieProbability };
 export type Collection = typeof validations;
 export type ClassResultsCollection = Validation.ClassResultsCollection<Collection>;

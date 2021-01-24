@@ -2,6 +2,7 @@ import { Biometry } from "@bit/vitorbarbosa19.ziro.pay.next-code";
 import tuple from "@bit/vitorbarbosa19.ziro.utils.tuple";
 import { prompt } from "ziro-messages/dist/src/catalogo/antifraude/biometry";
 import { ClassResultsCollection } from "./validations";
+import * as common from "ziro-messages/dist/src/catalogo/antifraude/common";
 
 /**
  * Essas são as mensagens que devem causar um throw no processamento, as que não estiverem aqui passarão para aprovação
@@ -15,6 +16,7 @@ export const messagesThatShouldThrow = tuple(
     prompt.SELFIE_TOO_MANY_FACES.code,
     prompt.FAILED_COMPARISON.code,
     prompt.NOT_IDENTICAL.code,
+    common.prompt.MISSING_EXTRACTED_DATA.code,
 );
 
 /**

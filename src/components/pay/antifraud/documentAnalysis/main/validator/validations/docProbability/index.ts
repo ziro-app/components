@@ -18,6 +18,7 @@ export type DocProbabilityReason =
  * @param response a resposta da nextcode após analise da imagem
  */
 export const docProbability: Validation.Function<never, DocProbabilityReason> = (_firebaseData, _zoopData, response) => {
+    if (!response) return { passed: false, reason: c.prompt.MISSING_EXTRACTED_DATA };
     if (!("fileInfo" in response)) return { passed: false, reason: c.prompt.MISSING_EXTRACTED_DATA };
     if (!("classifiedAs" in response.fileInfo)) return { passed: false, reason: c.prompt.MISSING_EXTRACTED_DATA };
     if (!("probability" in response.fileInfo.classifiedAs)) return { passed: false, reason: c.prompt.MISSING_EXTRACTED_DATA };

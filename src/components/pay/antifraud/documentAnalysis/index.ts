@@ -64,62 +64,58 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
     onErrorRef.current = onError;
     onChangeValidationTypeRef.current = onChangeValidationType;
 
-    const [cbk, state] = usePromiseShowingMessage<Arg, void, any>(
-        fullOCR.waiting.ANALYZING_DOC,
-        async ({ picture }) => {
+    const [cbk, state] = usePromiseShowingMessage<Arg, void, any>(fullOCR.waiting.ANALYZING_DOC, async ({ picture }) => {
+        try {
+            if (state.attempts === 3) throw common.prompt.TOO_MANY_ATTEMPTS.withAdditionalData({ where: "fullOCR" });
+            const props = { picture, uploadPicture, fbCard, zoopCard, source };
+            const result = await fullOCRPromise(props).catch(async (error) => {
+                //save error to firestore
+                await saveFailureToFirestore(fbCard, error, FV);
+                throw error;
+            });
+            //save success to firestore
+            const newData = await saveSuccessToFirestore(fbCard, result, FV);
+            //update user status
+            if (!user.exists) user.ref.set({ cnpj: storeowner.cnpj, razao: storeowner.razao, status: "docAdded" });
+            else if (user.data()?.status !== "paid") await user.ref.update({ status: "docAdded" });
+            //on success
+            onSuccessRef.current?.(newData);
+        } catch (error) {
             try {
-                if (state.attempts === 3) throw common.prompt.TOO_MANY_ATTEMPTS.withAdditionalData({ where: "fullOCR" });
-                const props = { picture, uploadPicture, fbCard, zoopCard, source };
-                const result = await fullOCRPromise(props).catch(async (error) => {
-                    //save error to firestore
-                    await saveFailureToFirestore(fbCard, error, FV);
-                    throw error;
-                });
-                //save success to firestore
-                const newData = await saveSuccessToFirestore(fbCard, result, FV);
-                //update user status
-                if (!user.exists) user.ref.set({ cnpj: storeowner.cnpj, razao: storeowner.razao, status: "docAdded" });
-                else if (user.data()?.status !== "paid") await user.ref.update({ status: "docAdded" });
-                //on success
-                onSuccessRef.current?.(newData);
-            } catch (error) {
-                try {
-                    //save error to sheet
-                    const values = createSheetData(fbCard, zoopCard, error, storeowner);
-                    await sheet.write({ range: "Antifraude_Erros!A1", values });
-                    if (!isPrompt(error) || devErrors.includes(error.code as any)) {
-                        const devValues = createDevSheetData(fbCard, zoopCard, error, storeowner);
-                        await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
-                    }
-                    if (!isPrompt(error)) Sentry.captureException(error);
-                    //send whats
-                    await sendWhats(createWhatsData(recipients, storeowner, error));
-                    onErrorRef.current?.(error);
-                } catch (e) {
-                    //send error to sentry
-                    Sentry.captureException(e);
+                //save error to sheet
+                const values = createSheetData(fbCard, zoopCard, error, storeowner);
+                await sheet.write({ range: "Antifraude_Erros!A1", values });
+                if (!isPrompt(error) || devErrors.includes(error.code as any)) {
+                    const devValues = createDevSheetData(fbCard, zoopCard, error, storeowner);
+                    await sheet.write({ range: "Antifraude_Erros_Dev!A1", values: devValues });
                 }
-                if (!isPrompt(error)) throw error;
-
-                const genericButton = { title: "Validar de outra forma", action: onChangeValidationTypeRef.current };
-
-                switch (error.code) {
-                    case common.prompt.TOO_MANY_ATTEMPTS.code: {
-                        const button = { title: "Falar com suporte", action: supportAction };
-                        throw { skipAttempt: true, error: error.withButtons([button]).withGenericButton(genericButton) };
-                    }
-                    case common.prompt.NO_IMAGE.code: {
-                        const button = { title: "Enviar novamente", action: () => null };
-                        throw { skipAttempt: true, error: error.withButtons([button]).withGenericButton(genericButton) };
-                    }
-                    default:
-                        const button = { title: "Enviar novamente", action: () => null };
-                        throw error.withButtons([button]).withGenericButton(genericButton);
-                }
+                if (!isPrompt(error)) Sentry.captureException(error);
+                //send whats
+                await sendWhats(createWhatsData(recipients, storeowner, error));
+                onErrorRef.current?.(error);
+            } catch (e) {
+                //send error to sentry
+                Sentry.captureException(e);
             }
-        },
-        [uploadPicture, fbCard, zoopCard, source, FV, user, sheet, recipients, storeowner],
-    );
+            if (!isPrompt(error)) throw error;
+
+            const genericButton = { title: "Validar de outra forma", action: onChangeValidationTypeRef.current };
+
+            switch (error.code) {
+                case common.prompt.TOO_MANY_ATTEMPTS.code: {
+                    const button = { title: "Falar com suporte", action: supportAction };
+                    throw { skipAttempt: true, error: error.withButtons([button]).withGenericButton(genericButton) };
+                }
+                case common.prompt.NO_IMAGE.code: {
+                    const button = { title: "Enviar novamente", action: () => null };
+                    throw { skipAttempt: true, error: error.withButtons([button]).withGenericButton(genericButton) };
+                }
+                default:
+                    const button = { title: "Enviar novamente", action: () => null };
+                    throw error.withButtons([button]).withGenericButton(genericButton);
+            }
+        }
+    });
 
     const [status, docStatus] = useMemo(() => {
         const data = fbCard.data();
