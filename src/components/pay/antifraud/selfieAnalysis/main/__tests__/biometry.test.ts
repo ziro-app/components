@@ -32,12 +32,9 @@ const docClassifyResponse = (type = "SELFIE") => Promise.resolve({ data: [{ clas
 const props = (picture = random.word(), token = random.word()) => ({ picture, fbCard, uploadPicture, source: { token } } as any);
 
 const fbCardData = (type: "none" | "CNH F" | "CNH FV" | "RG F" | "RG FV") => {
-    const data: any = {
-        status: "pendingSelfie",
-    };
+    const data: any = { status: "pendingSelfie" };
     if (type === "none") return data;
-    if (type === "CNH F" || type === "CNH FV") data.documentType = "cnh";
-    else data.documentType = "rg";
+    data.documentType = type.startsWith("CNH") ? "cnh" : "rg";
     data[type] = { url: random.word() };
     return data;
 };
@@ -103,7 +100,26 @@ describe("selfie analysis main function", () => {
             expect(analise).toHaveBeenCalledWith(_fbCardData[type].url, _props.picture, _props.source.token);
         }),
     );
-    it("should throw if response is null", async () => {
+    const _responses = [
+        ["null", null],
+        ["empty", {}],
+        ["random", random.object({ depth: 1 })],
+    ] as const;
+    _responses.map(([type, response]) =>
+        it(`should throw if response is ${type}`, async () => {
+            //create var
+            const _props = props();
+            const _docClassifyResponse = docClassifyResponse();
+            const _fbCardData = fbCardData("CNH F");
+            //mock functions
+            (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
+            fbCard.data.mockReturnValueOnce(_fbCardData);
+            (analise as jest.Mock).mockReturnValueOnce(response);
+            //assertion
+            await expect(biometry(_props)).rejects.toHaveProperty("code", bio.prompt.UNRECOGNIZED_RESPONSE.code);
+        }),
+    );
+    it("should throw on blank image", async () => {
         //create var
         const _props = props();
         const _docClassifyResponse = docClassifyResponse();
@@ -111,8 +127,32 @@ describe("selfie analysis main function", () => {
         //mock functions
         (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
         fbCard.data.mockReturnValueOnce(_fbCardData);
-        (analise as jest.Mock).mockReturnValueOnce(null);
-        //call
-        await expect(biometry(_props)).rejects.toHaveProperty("code", bio.prompt.UNRECOGNIZED_RESPONSE.code);
+        (analise as jest.Mock).mockReturnValueOnce(responses.BlankImage);
+        //assertion
+        await expect(biometry(_props)).rejects.toHaveProperty("code", bio.prompt.FAILED_COMPARISON.code);
+    });
+    it("should throw on wrong face", async () => {
+        //create var
+        const _props = props();
+        const _docClassifyResponse = docClassifyResponse();
+        const _fbCardData = fbCardData("CNH F");
+        //mock functions
+        (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
+        fbCard.data.mockReturnValueOnce(_fbCardData);
+        (analise as jest.Mock).mockReturnValueOnce(responses.WrongFace);
+        //assertion
+        await expect(biometry(_props)).rejects.toHaveProperty("code", bio.prompt.NOT_IDENTICAL.code);
+    });
+    it("should pass on right face", async () => {
+        //create var
+        const _props = props();
+        const _docClassifyResponse = docClassifyResponse();
+        const _fbCardData = fbCardData("CNH F");
+        //mock functions
+        (docClassify as jest.Mock).mockReturnValueOnce(_docClassifyResponse);
+        fbCard.data.mockReturnValueOnce(_fbCardData);
+        (analise as jest.Mock).mockReturnValueOnce(responses.RightFace);
+        //assertion
+        await expect(biometry(_props)).resolves.toHaveProperty("response");
     });
 });

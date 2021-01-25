@@ -49,6 +49,7 @@ function getDependenciesFromComponent(componentDir) {
     fs.readdirSync(componentDir, { withFileTypes: true }).forEach((innerDir) => {
         if (innerDir.name === ".DS_Store") return;
         if (innerDir.isFile()) {
+            if (innerDir.name.includes(".test.ts")) return;
             content = fs.readFileSync(componentDir + "/" + innerDir.name).toString();
             getDependenciesFromFile(content).forEach(componentDeps.add, componentDeps);
         }

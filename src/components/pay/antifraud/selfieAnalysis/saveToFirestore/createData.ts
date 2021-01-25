@@ -1,10 +1,11 @@
 import { FirebaseCard } from "@bit/vitorbarbosa19.ziro.firebase.catalog-user-data";
-import { UseBiometry } from "../../main";
+import { UseBiometry } from "../main";
 
-export function createFirebaseData(
-    oldData: Omit<FirebaseCard.BeforeSelfiePhase, "added" | "updated">,
-    { url, validations, status }: UseBiometry.DataResult,
-): Omit<FirebaseCard.AfterAntifraud, "added" | "updated"> {
+type OldData = Omit<FirebaseCard.BeforeSelfiePhase, "added" | "updated">;
+type NewData = Omit<FirebaseCard.AfterAntifraud, "added" | "updated">;
+type CreateFirebaseData = (o: OldData, r: UseBiometry.DataResult) => NewData;
+
+export const createFirebaseData: CreateFirebaseData = (oldData, { url, validations, status }) => {
     return {
         ...oldData,
         status,
@@ -17,4 +18,4 @@ export function createFirebaseData(
             selfieProbability: validations.selfieProbability,
         },
     };
-}
+};

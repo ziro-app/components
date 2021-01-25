@@ -2267,47 +2267,12 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/pay/antifraud@0.0.89": {
+    "vitorbarbosa19.ziro/pay/antifraud@0.0.90": {
         "files": [
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/createRandom.ts",
-                "test": false,
-                "name": "createRandom.ts"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/nextcodeResponses/CNHFV.json",
-                "test": false,
-                "name": "CNHFV.json"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/nextcodeResponses/CNHFV_compres.json",
-                "test": false,
-                "name": "CNHFV_compres.json"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/nextcodeResponses/CNHF_faceError.json",
-                "test": false,
-                "name": "CNHF_faceError.json"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/nextcodeResponses/RGF.json",
-                "test": false,
-                "name": "RGF.json"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/__test_utils__/nextcodeResponses/RGV.json",
-                "test": false,
-                "name": "RGV.json"
-            },
             {
                 "name": "index.ts",
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/index.ts",
                 "test": false
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/__tests__/fullOCRPromise.test.ts",
-                "test": true,
-                "name": "fullOCRPromise.test.ts"
             },
             {
                 "name": "Frente.ts",
@@ -2380,16 +2345,6 @@
                 "test": false
             },
             {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/__tests__/processResults.test.ts",
-                "test": true,
-                "name": "processResults.test.ts"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/__tests__/validator.test.ts",
-                "test": false,
-                "name": "validator.test.ts"
-            },
-            {
                 "name": "index.ts",
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/index.ts",
                 "test": false
@@ -2403,31 +2358,6 @@
                 "name": "types.ts",
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/types.ts",
                 "test": false
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/__tests__/docProbability.test.ts",
-                "test": true,
-                "name": "docProbability.test.ts"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/__tests__/expectedDoc.test.ts",
-                "test": true,
-                "name": "expectedDoc.test.ts"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/__tests__/expirationDate.test.ts",
-                "test": true,
-                "name": "expirationDate.test.ts"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/__tests__/face.test.ts",
-                "test": true,
-                "name": "face.test.ts"
-            },
-            {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/__tests__/name.test.ts",
-                "test": true,
-                "name": "name.test.ts"
             },
             {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/main/validator/validations/docProbability/index.ts",
@@ -2505,11 +2435,6 @@
                 "test": false
             },
             {
-                "relativePath": "src/components/pay/antifraud/documentAnalysis/saveToFirestore/__tests__/saveToFirestore.test.ts",
-                "test": true,
-                "name": "saveToFirestore.test.ts"
-            },
-            {
                 "relativePath": "src/components/pay/antifraud/documentAnalysis/saveToFirestore/createData/CNH.ts",
                 "test": false,
                 "name": "CNH.ts"
@@ -2562,26 +2487,6 @@
             {
                 "name": "index.ts",
                 "relativePath": "src/components/pay/antifraud/index.ts",
-                "test": false
-            },
-            {
-                "name": "index.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/firestoreEffect/index.ts",
-                "test": false
-            },
-            {
-                "name": "createData.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/firestoreEffect/saveToFirestore/createData.ts",
-                "test": false
-            },
-            {
-                "name": "index.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/firestoreEffect/saveToFirestore/index.ts",
-                "test": false
-            },
-            {
-                "name": "types.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/firestoreEffect/types.ts",
                 "test": false
             },
             {
@@ -2655,29 +2560,39 @@
                 "test": false
             },
             {
-                "name": "createData.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheetEffect/createData.ts",
-                "test": false
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/saveToFirestore/createData.ts",
+                "test": false,
+                "name": "createData.ts"
             },
             {
-                "name": "extractData.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheetEffect/extractData.ts",
-                "test": false
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/saveToFirestore/index.ts",
+                "test": false,
+                "name": "index.ts"
             },
             {
-                "name": "formatExpiry.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheetEffect/formatExpiry.ts",
-                "test": false
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheet/extractData.ts",
+                "test": false,
+                "name": "extractData.ts"
             },
             {
-                "name": "index.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheetEffect/index.ts",
-                "test": false
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheet/index.ts",
+                "test": false,
+                "name": "index.ts"
             },
             {
-                "name": "index.ts",
-                "relativePath": "src/components/pay/antifraud/selfieAnalysis/whatsAppEffect/index.ts",
-                "test": false
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheet/types.ts",
+                "test": false,
+                "name": "types.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/sheet/utils.ts",
+                "test": false,
+                "name": "utils.ts"
+            },
+            {
+                "relativePath": "src/components/pay/antifraud/selfieAnalysis/whatsApp/index.ts",
+                "test": false,
+                "name": "index.ts"
             }
         ],
         "mainFile": "src/components/pay/antifraud/index.ts",
