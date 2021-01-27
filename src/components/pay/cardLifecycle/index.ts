@@ -134,15 +134,23 @@ export function usePayment(onSuccess: (dbData: any) => void, id: string, install
         if (!installments && !_i) throw payMessages.prompt.NO_INSTALLMENTS;
         const i: string = installments || _i;
         const paymentData = payment.data();
-        if (paymentData.status === "Aprovado")
+        if (paymentData.status === "Aprovado" || paymentData.status === "Pré Autorizado")
             throw payMessages.prompt.PAYMENT_SUCCESS.set("title", "Pagamento já realizado")
                 .set("userDescription", "O pagamento desta transação já foi realizado.")
                 .set("userResolution", "Retorne a tela de pagamentos para verificar o status do pagamento.")
                 .withButtons([
                     {
-                        title: "Retornar",
+                        title: payment.data().checkoutWithoutRegister ? "Ver comprovante" :"Retornar",
                         action: () => {
-                            setLocation("goLeft", "/pagamentos");
+                            if ("receiptId" in paymentData) {
+                                if (payment.data().checkoutWithoutRegister) {
+                                    setLocation("goLeft", `/comprovante/${paymentData.receiptId}`);
+                                    return;
+                                }
+                                setLocation("goLeft", "/pagamentos");
+                                return;
+                            }
+                            setLocation("goleft", "/pagamentos")           
                         },
                     },
                 ]);

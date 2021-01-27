@@ -1,10 +1,14 @@
 import { Storeowner } from "@bit/vitorbarbosa19.ziro.firebase.storeowners";
 import { formatDateUTC3 } from "@ziro/format-date-utc3";
 import { RegisteredCheckoutError } from "../types";
+import errorData from "./errorData";
 
 export default (error: RegisteredCheckoutError, storeowner: Storeowner) => {
     const { message, message_display } = error.additionalData.data?.error ?? { message: "" };
-    const errorMessage = message ? message : error.additionalData.data;
+    let errorMessage = message ? message : error.additionalData.data;
+    if(typeof(error.additionalData) !== 'string') {
+        errorMessage = "Erro desconhecido"
+    }
     const userMessage = message_display ?? "";
     const authorizer = error.additionalData.data?.gateway_authorizer ?? "";
     const [creation, authorization] = error.additionalData.data?.history ?? [null, null];
