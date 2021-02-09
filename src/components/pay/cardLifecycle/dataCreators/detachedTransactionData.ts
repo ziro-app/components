@@ -23,7 +23,7 @@ export default async (card: UnregisteredCard, installments: string, payment: any
     // @ts-ignore
     const { card_brand: cardBrand } = await getCard(cardId);
     // @ts-ignore
-    if (Object.prototype.hasOwnProperty.call(payment, "isNewPlan") && payment.isNewPlan == true) {
+    
         const { sellerZoopPlan } = payment;
         // @ts-ignore
         const whichPlan = sellerZoopPlan.activePlan;
@@ -50,26 +50,6 @@ export default async (card: UnregisteredCard, installments: string, payment: any
                 charge_processing_fee: false,
             },
         ];
-    } else {
-        if (payment.sellerZoopPlan?.markup?.percentage || payment.sellerZoopPlan?.markup?.amount) {
-            const formattedPercentage =
-                typeof payment.sellerZoopPlan.markup.percentage === "string"
-                    ? parseFloat(payment.sellerZoopPlan.markup.percentage)
-                    : payment.sellerZoopPlan.markup.percentage;
-            const formattedAmount =
-                typeof payment.sellerZoopPlan.markup.amount === "string"
-                    ? parseFloat(payment.sellerZoopPlan.markup.amount)
-                    : payment.sellerZoopPlan.markup.amount;
-            data.split_rules = [
-                {
-                    recipient: process.env.SELLER_ID_ZIRO,
-                    percentage: formattedPercentage || 0,
-                    amount: formattedAmount || 0,
-                    liable: true,
-                    charge_processing_fee: false,
-                },
-            ];
-        }
-    }
+     
     return data;
 };

@@ -25,7 +25,7 @@ const prepareDataWithInsurance = (
         split_rules,
         created_at,
     }: RegisteredTransaction.Response, // @ts-ignore
-    { seller, sellerZoopPlan, onBehalfOfBrand, insurance, isNewPlan }: CreditCardPayments.FirebaseDocument,
+    { seller, sellerZoopPlan, onBehalfOfBrand, insurance }: CreditCardPayments.FirebaseDocument,
     { razao, storeownerId }: Storeowner,
     timestamp: () => firebase.firestore.FieldValue,
 ) => {
@@ -33,9 +33,8 @@ const prepareDataWithInsurance = (
         const installments = installment_plan.number_installments;
         const type = payment_type === "credit" ? "crédito" : "";
         const { holder_name, first4_digits, last4_digits, card_brand } = payment_method;
-        const [antiFraud, markup] = isNewPlan
-            ? mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
-            : mountSplitRulesOld(split_rules, sellerZoopPlan || {});
+        const [antiFraud, markup] = mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
+            
         const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
         const sheetData = [
             transactionId,
@@ -91,7 +90,7 @@ const prepareDataWithoutInsurance = (
         split_rules,
         created_at,
     }: RegisteredTransaction.Response, // @ts-ignore
-    { seller, sellerZoopPlan, onBehalfOfBrand, insurance, isNewPlan }: CreditCardPayments.FirebaseDocument,
+    { seller, sellerZoopPlan, onBehalfOfBrand, insurance }: CreditCardPayments.FirebaseDocument,
     { razao, storeownerId }: Storeowner,
     timestamp: () => firebase.firestore.FieldValue,
     receivables: Receivable[],
@@ -100,9 +99,8 @@ const prepareDataWithoutInsurance = (
         const installments = installment_plan.number_installments;
         const type = payment_type === "credit" ? "crédito" : "";
         const { holder_name, first4_digits, last4_digits, card_brand } = payment_method; // @ts-ignore
-        const [antiFraud, markup] = isNewPlan
-            ? mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
-            : mountSplitRulesOld(split_rules, sellerZoopPlan || {});
+        const [antiFraud, markup] = mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
+            
         const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
         const simplifiedFeeDetails = simplifyFeeDetails(fee_details, {
             antiFraud,

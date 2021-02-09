@@ -40,7 +40,6 @@ export const transaction = async (
     let antifraudPercentage = 0;
     let antifraudAmount = 0;
     const insurance = payment.insurance;
-    if (payment.isNewPlan) {
         try {
             const { percentageZiroMarkup, percentageZiroAntifraud } = findPlanPercentages({
                 cardBrand: card.card_brand,
@@ -57,18 +56,7 @@ export const transaction = async (
         } catch {
             throw prompt.ERROR_CREATING_SPLIT_OBJECT.withAdditionalData({ error: { message: "ERROR_CREATING_SPLIT_OBJECT" } });
         }
-    } else {
-        const _markupPercentage = parseFloat(`${sellerZoopPlan?.markup?.percentage}`);
-        if (!Number.isNaN(_markupPercentage)) markupPercentage = _markupPercentage;
-        const _markupAmount = parseFloat(`${sellerZoopPlan?.markup?.amount}`);
-        if (!Number.isNaN(_markupAmount)) markupAmount = _markupAmount;
-        if (payment.insurance) {
-            const _antifraudPercentage = parseFloat(`${sellerZoopPlan?.antiFraud?.percentage}`);
-            if (!Number.isNaN(_antifraudPercentage)) antifraudPercentage = _antifraudPercentage;
-            const _antifraudAmount = parseFloat(`${sellerZoopPlan?.antiFraud?.amount}`);
-            if (!Number.isNaN(_antifraudAmount)) antifraudAmount = _antifraudAmount;
-        }
-    }
+    
     if (markupPercentage > 0 || markupAmount > 0) {
         data.split_rules.push({
             recipient: process.env.SELLER_ID_ZIRO,

@@ -24,7 +24,7 @@ export default async (buyerZoopId: string, cardId: string, installments: string,
         },
     };
     const { card_brand: cardBrand } = await getCard(cardId);
-    if (Object.prototype.hasOwnProperty.call(payment, "isNewPlan") && payment.isNewPlan == true) {
+    
         const { sellerZoopPlan } = payment;
         const whichPlan = sellerZoopPlan.activePlan;
         const installmentNumber = `installment${installments}`;
@@ -60,44 +60,6 @@ export default async (buyerZoopId: string, cardId: string, installments: string,
             liable: true,
             charge_processing_fee: false,
         });
-    } else {
-        if (payment.sellerZoopPlan?.markup?.percentage || payment.sellerZoopPlan?.markup?.amount) {
-            const markupPercentage =
-                typeof payment.sellerZoopPlan.markup.percentage === "string"
-                    ? parseFloat(payment.sellerZoopPlan.markup.percentage)
-                    : payment.sellerZoopPlan.markup.percentage;
-            const markupAmount =
-                typeof payment.sellerZoopPlan.markup.amount === "string"
-                    ? parseFloat(payment.sellerZoopPlan.markup.amount)
-                    : payment.sellerZoopPlan.markup.amount;
-            data.split_rules = [
-                {
-                    recipient: process.env.SELLER_ID_ZIRO,
-                    percentage: markupPercentage || 0,
-                    amount: markupAmount || 0,
-                    liable: true,
-                    charge_processing_fee: false,
-                },
-            ];
-        }
-        if (payment.insurance && (payment.sellerZoopPlan?.antiFraud?.percentage || payment.sellerZoopPlan?.antiFraud?.amount)) {
-            const antifraudPercentage =
-                typeof payment.sellerZoopPlan.antiFraud.percentage === "string"
-                    ? parseFloat(payment.sellerZoopPlan.antiFraud.percentage)
-                    : payment.sellerZoopPlan.antiFraud.percentage;
-            const antifraudAmount =
-                typeof payment.sellerZoopPlan.antiFraud.amount === "string"
-                    ? parseFloat(payment.sellerZoopPlan.antiFraud.amount)
-                    : payment.sellerZoopPlan.antiFraud.amount;
-            if (!data.split_rules) data.split_rules = [];
-            data.split_rules.push({
-                recipient: process.env.SELLER_ID_ZIRO,
-                percentage: antifraudPercentage || 0,
-                amount: antifraudAmount || 0,
-                liable: true,
-                charge_processing_fee: false,
-            });
-        }
-    }
+    
     return data;
 };
