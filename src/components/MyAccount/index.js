@@ -33,6 +33,12 @@ const MyAccount = ({ haveHelp = false, role = '' }) => {
 	
 	return (
 		<div style={container}>
+			<Link href='/preferencias'>
+				<label style={option}>Preferências&nbsp;&nbsp;
+					<Icon type='tool' size={14} strokeWidth={3} color='white' />
+					<span style={dot}>.</span>
+				</label>
+			</Link>
 			<Link href='/update'>
 				<label style={option}>Atualizar dados&nbsp;&nbsp;
 					<Icon type='pen' size={14} strokeWidth={3} color='white' />

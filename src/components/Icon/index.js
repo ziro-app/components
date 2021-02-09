@@ -71,6 +71,7 @@ import { NoAccessories } from "./../../Icons/NoAccessories/index";
 import { NoBackground } from "./../../Icons/NoBackground/index";
 import { Library } from "./../../Icons/Library/index";
 import { Percent } from "./../../Icons/Percent/index";
+import { Tool } from "./../../Icons/Tool/index";
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     const iconProps = { style, onClick, size, color, strokeWidth, fill };
@@ -148,6 +149,7 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
         noBackground: <NoBackground {...iconProps} />,
         library: <Library {...iconProps} />,
         percent: <Percent {...iconProps} />,
+        tool: <Tool {...iconProps} />,
     };
     return iconList[type] || null;
 };

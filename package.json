@@ -83,6 +83,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",
+    "@bit/bit.envs.testers.jest": "^22.4.3",
     "@bit/vitorbarbosa19.ziro.split-rule": "0.0.10",
     "@sentry/react": "^5.29.0",
     "@types/jest": "^26.0.16",
