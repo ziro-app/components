@@ -2236,7 +2236,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/my-account@0.1.86": {
+    "vitorbarbosa19.ziro/my-account@0.1.87": {
         "files": [
             {
                 "name": "index.js",
