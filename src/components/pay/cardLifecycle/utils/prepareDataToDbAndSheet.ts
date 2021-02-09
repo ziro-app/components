@@ -25,16 +25,15 @@ const prepareDataToDbAndSheet = (
         created_at,
     }: UnregisteredTransaction.Response,
     receivables: Receivable[], // @ts-ignore
-    { seller, sellerZoopPlan, insurance, isNewPlan }: CreditCardPayments.FirebaseDocument,
+    { seller, sellerZoopPlan, insurance }: CreditCardPayments.FirebaseDocument,
 ) => {
     try {
         const today = new Date();
         const installments = installment_plan.number_installments;
         const type = payment_type === "credit" ? "crédito" : "";
         const { holder_name, first4_digits, last4_digits, card_brand } = payment_method; // @ts-ignore
-        const [antiFraud, markup] = isNewPlan
-            ? mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
-            : mountSplitRulesOld(split_rules, sellerZoopPlan || {});
+        const [antiFraud, markup] = mountSplitRules({ sellerZoopPlan, cardBrand: card_brand, installments, insurance, split_rules })
+            
 
         const simplifiedFeeDetails = simplifyFeeDetails(fee_details, {
             antiFraud,

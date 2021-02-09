@@ -23,7 +23,7 @@ export const dbAndSheet = (
         split_rules,
         created_at,
     }: RegisteredTransaction.Response,
-    { seller, sellerZoopPlan, onBehalfOfBrand, insurance, isNewPlan, checkoutWithoutRegister }: any,
+    { seller, sellerZoopPlan, onBehalfOfBrand, insurance, checkoutWithoutRegister }: any,
     { razao, storeownerId }: Storeowner,
     receivables: GetReceivables.Response | undefined,
     timestamp: () => firebase.firestore.FieldValue,
@@ -31,7 +31,7 @@ export const dbAndSheet = (
     const installments = installment_plan.number_installments;
     const type = payment_type === "credit" ? "crédito" : "";
     const { holder_name, first4_digits, last4_digits, card_brand } = payment_method;
-    const [antiFraud, markup] = splitRules({ split_rules, sellerZoopPlan, card_brand, installments, insurance, isNewPlan });
+    const [antiFraud, markup] = splitRules({ split_rules, sellerZoopPlan, card_brand, installments, insurance });
     const sellerName = seller === "Ziro" && onBehalfOfBrand ? `Ziro - ${onBehalfOfBrand}` : seller;
     const receivablesData = prepareReceivables(receivables, transactionId, fee_details, fees, { antiFraud, markup }, insurance);
     const reason = razao ? razao : checkoutWithoutRegister ? "Pagamento sem cadastro" : "";

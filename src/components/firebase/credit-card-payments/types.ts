@@ -238,7 +238,6 @@ import type firebase from "firebase";
  * },
  *},
  *     },
- *     "isNewPlan": true,
  *     "checkoutWithoutRegister": false,
  *     "dateLinkCreated": {
  *         "seconds": 1604012615,
@@ -269,7 +268,6 @@ import type firebase from "firebase";
  *         "seconds": 1604007302,
  *         "nanoseconds": 875000000
  *     },
- *     "isNewPlan": true,
  *     "seller": "Ziro",
  *     "dateLinkCreated": {
  *         "seconds": 1604003278,
