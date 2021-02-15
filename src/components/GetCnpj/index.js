@@ -12,11 +12,11 @@ import { modalBox, container, title, svg } from './styles'
 import validateCnpj from './utils/validateCnpj'
 import TooltipHelp from '../TooltipHelp'
 
-const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false }) => {
+const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false, customValidation = () => false }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [firstLabel, setFirstLabel] = useState(true)
     const { setCnpj, ...rest } = setState
-    const state = { cnpj, baseCnpj, setCnpjValid, validCnaes, setFirstLabel, setIsOpen, ...rest }
+    const state = { cnpj, baseCnpj, setCnpjValid, validCnaes, setFirstLabel, setIsOpen, customValidation, ...rest }
     const validations = [
         {
             name: 'cnpj',
@@ -30,7 +30,7 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip =
         const message = (
             <>
                 <p>É preciso um dos seguintes CNAEs para se cadastrar no app.</p>
-                <br/>
+                <br />
                 <div style={{ display: 'grid', gridRowGap: '15px', textAlign: 'justify' }}>
                     <p><strong>1412-6/01 -</strong> Confecção de peças de vestuário, exceto roupas íntimas e as confeccionadas sob medida.</p>
                     <p><strong>1412-6/03 -</strong> Facção de peças do vestuário, exceto roupas íntimas.</p>
@@ -40,17 +40,18 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip =
             </>
         )
         return (
-        <>
-            CNPJ
-            {' '}
-            <TooltipHelp
-                illustration='onlyVestuary'
-                title='Apenas CNAEs de Vestuário'
-                body={message}
-            />
-        </>
+            <>
+                CNPJ
+                {' '}
+                <TooltipHelp
+                    illustration='onlyVestuary'
+                    title='Apenas CNAEs de Vestuário'
+                    body={message}
+                />
+            </>
 
-    )}
+        )
+    }
 
     return (
         <>
@@ -71,14 +72,14 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip =
                 validations={validations}
                 sendToBackend={searchCnpj ? searchCnpj(state) : () => null}
                 inputs={[
-                    <FormInput name='cnpj' label={tooltip ? tooltipIcon() : "CNPJ"} input={                            
+                    <FormInput name='cnpj' label={tooltip ? tooltipIcon() : "CNPJ"} input={
                         <InputText
                             value={cnpj}
                             onChange={({ target: { value } }) => setCnpj(maskInput(value, '##.###.###/####-##', true))}
                             placeholder='00.111.222/0001-33'
                             inputMode='numeric'
                         />
-                    }    
+                    }
                     />
                 ]}
             />
@@ -91,7 +92,8 @@ GetCnpj.propTypes = {
     setState: PropTypes.object.isRequired,
     baseCnpj: PropTypes.array.isRequired,
     setCnpjValid: PropTypes.func.isRequired,
-    validCnaes: PropTypes.array.isRequired
+    validCnaes: PropTypes.array.isRequired,
+    customValidation: PropTypes.func,
 }
 
 export default GetCnpj

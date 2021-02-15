@@ -4,11 +4,11 @@ import mountObject from './utils/mountObject';
 import handleError from './utils/handleError';
 import validateCnpj from './utils/validateCnpj'
 
-const lastReq = async (config, validCnaes, state) => {
+const lastReq = async (config, validCnaes, customValidation, state) => {
     let result = {};
     try {
         const [status, result] = await consultCnpj(config);
-        const objResult = checkResult(status, result, validCnaes, false);
+        const objResult = checkResult(status, result, validCnaes, customValidation, false);
         mountObject(state, objResult);
         result['ok'] = true
         result['error'] = false;
@@ -21,7 +21,8 @@ const lastReq = async (config, validCnaes, state) => {
 
 const searchCnpj = state => () =>
     new Promise(async (resolve, reject) => {
-        const { cnpj, baseCnpj, setCnpjValid, validCnaes, cnpjUrl, cnpjToken, setFirstLabel, setIsOpen } = state;
+        const { cnpj, baseCnpj, setCnpjValid, validCnaes, cnpjUrl,
+            cnpjToken, setFirstLabel, setIsOpen, customValidation } = state;
         let config = {
             method: 'POST',
             url: cnpjUrl,
@@ -35,8 +36,7 @@ const searchCnpj = state => () =>
             if (baseCnpj.includes(cnpj)) throw { msg: 'CNPJ já cadastrado', customError: true };
             if (!validateCnpj(cnpj)) throw { msg: 'CNPJ inválido', customError: true };
             const [status, result] = await consultCnpj(config);
-            const objResult = checkResult(status, result, validCnaes, false);
-            console.log('HERE')
+            const objResult = checkResult(status, result, validCnaes, customValidation, false);
             mountObject(state, objResult);
             setIsOpen(false);
             setCnpjValid(true);
@@ -49,7 +49,7 @@ const searchCnpj = state => () =>
                 setFirstLabel(false);
                 await setTimeout(async () => {
                     config['data']['ignore_db'] = false;
-                    let resultado = await lastReq(config, validCnaes, state);
+                    let resultado = await lastReq(config, validCnaes, customValidation, state);
                     setIsOpen(false);
                     setFirstLabel(true);
                     if (resultado.error) {
