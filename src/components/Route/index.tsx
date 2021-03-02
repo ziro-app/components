@@ -5,7 +5,7 @@ import SuspenseFallback from "@bit/vitorbarbosa19.ziro.component-suspense-fallba
 import type firebase from "firebase";
 
 interface SwitchProps {
-    defaultPrivateOnlyFallback: ReactNode;
+    defaultPrivateFallback: ReactNode;
     defaultPublicOnlyFallback: ReactNode;
     defaultSuspenseFallback?: ReactNode;
     reactfire?: boolean;
@@ -13,7 +13,7 @@ interface SwitchProps {
 
 export const Switch: React.FC<SwitchProps> = ({
     children,
-    defaultPrivateOnlyFallback,
+    defaultPrivateFallback,
     defaultPublicOnlyFallback,
     defaultSuspenseFallback = SuspenseFallback({}),
     reactfire = false,
@@ -63,11 +63,11 @@ export const Switch: React.FC<SwitchProps> = ({
             </>
         );
     //if route is private only and user is unlogged
-    if (element.props.privateOnly && (!user || !user.emailVerified))
+    if (element.props.private && (!user || !user.emailVerified))
         return (
             <>
                 {element.props.helmet && React.cloneElement(element.props.helmet, match[1])}
-                {element.props.fallback || defaultPrivateOnlyFallback}
+                {element.props.fallback || defaultPrivateFallback}
             </>
         );
     //else render element
@@ -89,16 +89,16 @@ interface CommonProps {
 
 interface PublicAndPrivateProps extends CommonProps {
     publicOnly?: false;
-    privateOnly?: false;
+    private?: false;
 }
 
 interface PublicOnlyProps extends CommonProps {
     publicOnly: true;
-    privateOnly?: false;
+    private?: false;
 }
 
 interface PrivateOnlyProps extends CommonProps {
-    privateOnly: true;
+    private: true;
     publicOnly?: false;
 }
 
