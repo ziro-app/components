@@ -12,7 +12,7 @@ import { modalBox, container, title, svg } from './styles'
 import validateCnpj from './utils/validateCnpj'
 import TooltipHelp from '../TooltipHelp'
 
-const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false, customValidation = () => false }) => {
+const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip = false, tooltipTitle, tooltipBody, customValidation = () => false }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [firstLabel, setFirstLabel] = useState(true)
     const { setCnpj, ...rest } = setState
@@ -27,26 +27,14 @@ const GetCnpj = ({ cnpj, setState, baseCnpj, setCnpjValid, validCnaes, tooltip =
     ]
 
     const tooltipIcon = () => {
-        const message = (
-            <>
-                <p>É preciso um dos seguintes CNAEs para se cadastrar no app.</p>
-                <br />
-                <div style={{ display: 'grid', gridRowGap: '15px', textAlign: 'justify' }}>
-                    <p><strong>1412-6/01 -</strong> Confecção de peças de vestuário, exceto roupas íntimas e as confeccionadas sob medida.</p>
-                    <p><strong>1412-6/03 -</strong> Facção de peças do vestuário, exceto roupas íntimas.</p>
-                    <p><strong>4781-4/00 -</strong> Comércio varejista de artigos do vestuário e acessórios.</p>
-                    <p><strong>7723-3/00 -</strong> Aluguel de objetos do vestuário, jóias e acessórios.</p>
-                </div>
-            </>
-        )
         return (
             <>
                 CNPJ
                 {' '}
                 <TooltipHelp
                     illustration='onlyVestuary'
-                    title='Apenas CNAEs de Vestuário'
-                    body={message}
+                    title={tooltipTitle}
+                    body={tooltipBody}
                 />
             </>
 

@@ -1093,7 +1093,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/form-register-storeowner@0.1.198": {
+    "vitorbarbosa19.ziro/form-register-storeowner@0.1.199": {
         "files": [
             {
                 "name": "index.js",
@@ -1159,7 +1159,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/get-cnpj@0.0.126": {
+    "vitorbarbosa19.ziro/get-cnpj@0.0.127": {
         "files": [
             {
                 "name": "index.js",
