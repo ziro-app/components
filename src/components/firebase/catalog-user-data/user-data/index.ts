@@ -6,7 +6,9 @@ export * from "./types";
 
 export const useCatalogUserDataRef = () => {
     const { storeownerId } = useStoreowner();
-    return useFirestore().collection("catalog-user-data").doc(storeownerId) as CatalogUserDataDocumentRef;
+    return useFirestore()
+        .collection(storeownerId === "-" ? "catalog-images" : "catalog-user-data")
+        .doc(storeownerId) as CatalogUserDataDocumentRef;
 };
 
 export const useCatalogUserDataDocument = <T = CatalogUserDataDocument>(startWithValue?: T): CatalogUserDataDocument | T => {

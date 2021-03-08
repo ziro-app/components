@@ -82,7 +82,7 @@ export const useUploadFirebaseCardPicture = (cardId: string) => {
 
     const storage = useStorage();
 
-    useEffect(() => () => task && task.cancel(), [task]);
+    useEffect(() => () => {task && task.cancel()}, [task]);
 
     const upload = useCallback(
         async (picture: string) => {

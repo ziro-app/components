@@ -823,7 +823,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.52": {
+    "vitorbarbosa19.ziro/firebase/catalog-user-data@0.0.53": {
         "files": [
             {
                 "name": "helperTypes.ts",
@@ -902,7 +902,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.20": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.21": {
         "files": [
             {
                 "name": "hookTypes.ts",

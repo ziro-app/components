@@ -15,12 +15,12 @@ const defaultStoreowner = {
  */
 export const useStoreowner = <T = Storeowner>(startWithValue?: T): Storeowner | T => {
     const user = useUser<firebase.User>().data;
-    const userQuery = useFirestore()
-        .collection("storeowners")
-        .where("uid", "==", user?.uid || "-")
+    const query = useFirestore()
+        .collection(user?.uid ? "storeowners":'catalog-images')
+        .where("uid", "==", user?.uid||"-")
         .limit(1);
     const options: any = { idField: "storeownerId", startWithValue };
-    const hookResult: any[] = useFirestoreCollectionData(userQuery, options).data;
+    const hookResult: any[] = useFirestoreCollectionData(query, options).data;
     return user?.uid ? hookResult[0] : defaultStoreowner;
 };
 
