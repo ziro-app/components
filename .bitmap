@@ -902,7 +902,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/firebase/storeowners@0.0.21": {
+    "vitorbarbosa19.ziro/firebase/storeowners@0.0.22": {
         "files": [
             {
                 "name": "hookTypes.ts",

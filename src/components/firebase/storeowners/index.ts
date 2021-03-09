@@ -21,7 +21,7 @@ export const useStoreowner = <T = Storeowner>(startWithValue?: T): Storeowner | 
         .limit(1);
     const options: any = { idField: "storeownerId", startWithValue };
     const hookResult: any[] = useFirestoreCollectionData(query, options).data;
-    return user?.uid ? hookResult[0] : defaultStoreowner;
+    return user?.uid ? hookResult[0]||defaultStoreowner : defaultStoreowner;
 };
 
 /**
