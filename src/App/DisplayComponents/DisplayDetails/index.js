@@ -29,6 +29,10 @@ const blocks = [
 				content: 'Aprovada',
 				color: successColor
 			},
+			{
+				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				isDescription: true
+			}
 		]
 	},
 	{
@@ -54,6 +58,6 @@ export const DisplayDetails = () =>
 	<div style={containerWithPadding}>
 		<Header type='icon-link' icon='back' title='Detalhes' navigateTo='home' />
 		<Details blocks={blocks} blockGap='20px' />
-		<div style={{marginBottom: '40px'}}></div>
+		<div style={{ marginBottom: '40px' }}></div>
 		<Button type='button' cta='Gerar comprovante' />
 	</div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { container, infoBlock, headerStyle, dot, bodyStyle, info, titleStyle, contentStyle } from './styles'
+import { container, infoBlock, headerStyle, dot, bodyStyle, info, titleStyle, contentStyle, description, contentDescriptionStyle } from './styles'
 
 const Details = ({ blocks, blockGap, centerTitle = false }) =>
 	<div style={container(blockGap)}>
@@ -10,11 +10,17 @@ const Details = ({ blocks, blockGap, centerTitle = false }) =>
 					<label style={dot}>&nbsp;.</label>
 				</label>
 				<div style={bodyStyle}>
-					{body.map(({ title, content, color }, indexBody) =>
-						<div style={info} key={indexBody}>
-							<label style={titleStyle}>{title}</label>
-							<label style={contentStyle(color)}>{content}</label>
-						</div>
+					{body.map(({ title, content, color, isDescription = false }, indexBody) => {
+						return isDescription ?
+							<div style={description} key={indexBody}>
+								<label style={contentDescriptionStyle(color)}>{content}</label>
+							</div>
+							:
+							<div style={info} key={indexBody}>
+								<label style={titleStyle}>{title}</label>
+								<label style={contentStyle(color)}>{content}</label>
+							</div>
+					}
 					)}
 				</div>
 			</div>

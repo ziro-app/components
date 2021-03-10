@@ -1,10 +1,10 @@
 import { fontTitle, primaryColor, secondaryColor } from '@ziro/theme';
 
 export const container = blockGap => ({
-    display: 'grid',
-    gridRowGap: blockGap ? blockGap : '40px',
-    color: primaryColor,
-  }),
+  display: 'grid',
+  gridRowGap: blockGap ? blockGap : '40px',
+  color: primaryColor,
+}),
   infoBlock = {
     display: 'grid',
     gridRowGap: '12px',
@@ -47,4 +47,15 @@ export const container = blockGap => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+  }),
+  description = {
+    display: 'grid',
+    gridTemplateColumns: 'auto',
+    textAlign: 'justify',
+  },
+  contentDescriptionStyle = color => ({
+    maxWidth: '500px',
+    fontSize: '1.5rem',
+    fontWeight: color ? '500' : '400',
+    color: color ? color : primaryColor
   });
