@@ -77,4 +77,7 @@ export const DisplayIcon = () =>
 		<Icon type='library' size={24} />
 		<Icon type='percent' size={24} />
 		<Icon type='tool' size={24} />
+		<Icon type='clock' size={24} />
+		<Icon type='hardDrive' size={24} />
+		<Icon type='award' size={24} />
 	</div>

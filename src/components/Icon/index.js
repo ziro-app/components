@@ -72,6 +72,9 @@ import { NoBackground } from "./../../Icons/NoBackground/index";
 import { Library } from "./../../Icons/Library/index";
 import { Percent } from "./../../Icons/Percent/index";
 import { Tool } from "./../../Icons/Tool/index";
+import { Award } from "./../../Icons/Award/index";
+import { HardDrive } from "./../../Icons/HardDrive/index";
+import { Clock } from "./../../Icons/Clock/index";
 
 const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
     const iconProps = { style, onClick, size, color, strokeWidth, fill };
@@ -150,6 +153,9 @@ const Icon = ({ type, style, onClick, size, color, strokeWidth, fill }) => {
         library: <Library {...iconProps} />,
         percent: <Percent {...iconProps} />,
         tool: <Tool {...iconProps} />,
+        award: <Award {...iconProps} />,
+        hardDrive: <HardDrive {...iconProps} />,
+        clock: <Clock {...iconProps} />,
     };
     return iconList[type] || null;
 };
