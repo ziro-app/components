@@ -1,4 +1,5 @@
 const mountObject = ({ setStreet, setNumber, setComplement, setNeighborhood, setCep, setCity, setCityState, setReason, setFantasia, setFone }, obj) => {
+    const parsedFone = obj.fone && obj.fone.replace(/\(0/, '(');
     setReason(obj.reason || '');
     setFantasia(obj.fantasia || '');
     setStreet(obj.street || '');
@@ -8,7 +9,7 @@ const mountObject = ({ setStreet, setNumber, setComplement, setNeighborhood, set
     setCep(obj.cep || '');
     setCity(obj.city || '');
     setCityState(obj.cityState || '');
-    setFone(obj.fone || '')
+    setFone(parsedFone || '')
 };
 
 export default mountObject;
