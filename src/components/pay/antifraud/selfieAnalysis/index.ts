@@ -31,7 +31,7 @@ interface Configuration {
     zoopCard: ZoopCard;
     recipients: string[];
     camera: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>;
-    onSuccess?: (newData: FirebaseCard.Generic) => void;
+    onSuccess?: (newData: FirebaseCard.AfterAntifraud) => void;
     onError?: (error: any) => void;
     onChangeValidationType: () => void;
 }
