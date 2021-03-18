@@ -31,7 +31,7 @@ interface Configuration {
     zoopCard: ZoopCard;
     recipients: string[];
     camera: MutableRefObject<Record<"openCamera" | "closeCamera", () => void>>;
-    onSuccess?: (newData: FirebaseCard.Generic) => void;
+    onSuccess?: (newData: FirebaseCard.CNH|FirebaseCard.RG) => void;
     onError?: (error: any) => void;
     onChangeValidationType: () => void;
 }
@@ -79,7 +79,7 @@ export const useDocumentAnalysis = ({ recipients, zoopCard, onSuccess, onError, 
             if (!user.exists) user.ref.set({ cnpj: storeowner.cnpj, razao: storeowner.razao, status: "docAdded" });
             else if (user.data()?.status !== "paid") await user.ref.update({ status: "docAdded" });
             //on success
-            onSuccessRef.current?.(newData);
+            onSuccessRef.current?.(newData as any);
         } catch (error) {
             try {
                 //save error to sheet
