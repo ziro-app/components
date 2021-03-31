@@ -1,3 +1,5 @@
+// ok
+
 import React from "react";
 import PropTypes from "prop-types";
 import { primaryColor } from "@ziro/theme";
@@ -13,7 +15,7 @@ export const ShadowFace = ({ size = 50, color = primaryColor }) => (
             fill={color}
         />
         <defs>
-              <linearGradient id="shadow" x1="32" y1="34" x2="83" y2="82.5" gradientUnits="userSpaceOnUse">
+            <linearGradient id="shadow" x1="32" y1="34" x2="83" y2="82.5" gradientUnits="userSpaceOnUse">
                 <stop offset="0.0885417" stop-color="#C6C6C6" />
                 <stop offset="0.436263" stop-color="#DCDCDC" stop-opacity="0.618291" />
                 <stop offset="0.9995" stop-color="white" stop-opacity="0" />

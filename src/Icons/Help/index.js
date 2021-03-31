@@ -1,8 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Scaffold } from '../Scaffold'
+// ok
 
-export const Help = ({ style, onClick, size, color, strokeWidth }) =>
+import React from "react";
+import PropTypes from "prop-types";
+import { Scaffold } from "../Scaffold";
+
+export const Help = ({ style, onClick, size, color, strokeWidth }) => (
     <Scaffold
         svgPath={
             <>
@@ -17,11 +19,12 @@ export const Help = ({ style, onClick, size, color, strokeWidth }) =>
         color={color}
         strokeWidth={strokeWidth}
     />
+);
 
 Help.propTypes = {
     style: PropTypes.object,
     onClick: PropTypes.func,
     size: PropTypes.number,
     color: PropTypes.string,
-    strokeWidth: PropTypes.number
-}
+    strokeWidth: PropTypes.number,
+};
