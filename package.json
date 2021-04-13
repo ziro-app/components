@@ -86,7 +86,7 @@
     "@bit/bit.envs.testers.jest": "^22.4.3",
     "@bit/vitorbarbosa19.ziro.split-rule": "0.0.10",
     "@sentry/react": "^5.29.0",
-    "@types/jest": "^26.0.16",
+    "@types/jest": "^26.0.22",
     "@types/react": "^16.9.11",
     "@ziro/capitalize": "^1.0.0",
     "@ziro/currency-format": "^1.0.2",

@@ -998,7 +998,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/flow-register-card@0.0.119": {
+    "vitorbarbosa19.ziro/flow-register-card@0.0.120": {
         "files": [
             {
                 "name": "index.tsx",

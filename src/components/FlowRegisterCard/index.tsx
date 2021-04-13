@@ -135,10 +135,10 @@ function FlowRegisterCard({ header, next, previous, showInstallments, installmen
                                       <Dropdown
                                           readOnly={true}
                                           value={installments}
-                                          onChange={({ target: { value } }) => setInstallments(value.substring(0, 1))}
+                                          onChange={({ target: { value } }) => setInstallments(value.split("x")[0])}
                                           list={installmentOptions(charge, installmentsMax)}
                                           placeholder="Escolha quantas parcelas"
-                                          onChangeKeyboard={(element) => (element ? setInstallments(element.value.substring(0, 1)) : null)}
+                                          onChangeKeyboard={(element) => (element ? setInstallments(element.value.split("x")[0]) : null)}
                                       />
                                   }
                               />,
