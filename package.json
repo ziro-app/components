@@ -93,7 +93,7 @@
     "@ziro/format-date-utc3": "^2.0.1",
     "@ziro/mask-input": "^1.0.0",
     "@ziro/theme": "^1.0.3",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "caniuse-lite": "^1.0.30001107",
     "credit-card-type": "^9.0.1",
     "cuid": "^2.1.8",
