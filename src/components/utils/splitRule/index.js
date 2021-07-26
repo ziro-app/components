@@ -6,7 +6,8 @@ export function findPlanPercentages({ cardBrand, installments, insurance, seller
         } else {
             activePlan = sellerZoopPlan.activePlan;
         }
-        const brand = cardBrand.toLowerCase().replace(/\s/g, "");
+        const _brand = cardBrand.toLowerCase().replace(/\s/g, "");
+        const brand = _brand.includes("amex") ? "americanexpress" : _brand;
         const installment = `installment${installments}`;
         const percentageZiroMarkup = sellerZoopPlan[activePlan].ziroMarkupFee[brand][installment];
         const percentageZiroAntifraud = insurance ? sellerZoopPlan[activePlan].ziroAntifraudFee[brand][installment] : "N/A";

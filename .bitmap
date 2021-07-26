@@ -3155,7 +3155,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "vitorbarbosa19.ziro/split-rule@0.0.13": {
+    "vitorbarbosa19.ziro/split-rule@0.0.14": {
         "files": [
             {
                 "name": "index.js",
