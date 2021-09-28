@@ -1,1 +1,1 @@
-export const supportPhoneNumber = "+55 (11) 98566-0341"
+export const supportPhoneNumber = "+55 (11) 96329-8649";
